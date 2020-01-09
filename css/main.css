@@ -2056,7 +2056,7 @@ img:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #30ffa8;
+  background: #339669;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3315,24 +3315,6 @@ header.post-header {
   margin-bottom: 20px;
   overflow: hidden;
 }
-.out-img-topic {
-  display: block;
-  max-height: 600px;
-  margin-bottom: 20px;
-  overflow: hidden;
-}
-img.img-topic {
-  display: block;
-  margin-left: 0.7em;
-  margin-right: 0.7em;
-  padding: 0;
-  float: center;
-  clear: center;
-}
-.menu .menu-item a,
-.menu .menu-item span.exturl {
-  font-size: 18px;
-}
 .highlight {
   position: relative;
 }
@@ -3366,4 +3348,22 @@ img.img-topic {
 }
 .highlight:hover .btn-copy {
   opacity: 1;
+}
+.out-img-topic {
+  display: block;
+  max-height: 600px;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+img.img-topic {
+  display: block;
+  margin-left: 0.7em;
+  margin-right: 0.7em;
+  padding: 0;
+  float: center;
+  clear: center;
+}
+.menu .menu-item a,
+.menu .menu-item span.exturl {
+  font-size: 18px;
 }
