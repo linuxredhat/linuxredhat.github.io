@@ -1,0 +1,1442 @@
+<!DOCTYPE html>
+
+
+
+  
+
+<script src="/live2d-widget/autoload.js"></script>
+<!--崩溃欺骗-->
+<script type="text/javascript" src="/js/src/crash_cheat.js"></script>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="https://fonts.cat.net/css?family=Lato:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|Roboto Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/redhat.ico?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/redhat.ico?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/redihat.ico?v=5.1.3" color="#0000EE">
+
+
+  <link rel="manifest" href="/images/manifest.json">
+
+
+  <meta name="msapplication-config" content="/images/browserconfig.xml" />
+
+
+
+  <meta name="keywords" content="linux,rhca,cloud," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="逝水锦遥" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="kubernetes 操作记录七 资源指标API及自定义指标API资源指标: metrics-server自定义指标: prometheus, k8s-prometheus-adapter 新一代架构:    核心指标流水线：由kubelet、metrics-server 以及由API server 提供的api组成;CPU、内存实时使用率、Pod的资源占用率及窗口的磁盘占用率;    监控流水线">
+<meta name="keywords" content="linux,rhca,cloud">
+<meta property="og:type" content="article">
+<meta property="og:title" content="kubernetes操作记录(七)">
+<meta property="og:url" content="https://www.ssjinyao.com/2019/06/15/kubernetes操作记录7/index.html">
+<meta property="og:site_name" content="逝水锦遥">
+<meta property="og:description" content="kubernetes 操作记录七 资源指标API及自定义指标API资源指标: metrics-server自定义指标: prometheus, k8s-prometheus-adapter 新一代架构:    核心指标流水线：由kubelet、metrics-server 以及由API server 提供的api组成;CPU、内存实时使用率、Pod的资源占用率及窗口的磁盘占用率;    监控流水线">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://www.ssjinyao.com/images/docker_kubernetes.png">
+<meta property="og:image" content="https://www.ssjinyao.com/images/kubernetes-prometheus-deploy.png">
+<meta property="og:image" content="https://www.ssjinyao.com/images/kubernetes-prometheus-grafana.png">
+<meta property="og:image" content="https://www.ssjinyao.com/images/kubernetes-prometheus-datasources.png">
+<meta property="og:image" content="https://www.ssjinyao.com/images/kubernetest-prometheus-dashboard.png">
+<meta property="og:image" content="https://www.ssjinyao.com/images/kubernetes-helm-efk-kibana.png">
+<meta property="og:updated_time" content="2019-06-25T08:03:31.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="kubernetes操作记录(七)">
+<meta name="twitter:description" content="kubernetes 操作记录七 资源指标API及自定义指标API资源指标: metrics-server自定义指标: prometheus, k8s-prometheus-adapter 新一代架构:    核心指标流水线：由kubelet、metrics-server 以及由API server 提供的api组成;CPU、内存实时使用率、Pod的资源占用率及窗口的磁盘占用率;    监控流水线">
+<meta name="twitter:image" content="https://www.ssjinyao.com/images/docker_kubernetes.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="https://www.ssjinyao.com/2019/06/15/kubernetes操作记录7/"/>
+
+
+
+
+
+  <title>kubernetes操作记录(七) | 逝水锦遥</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta custom-logo">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">逝水锦遥</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">心有所向 将有所成</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-所有文章">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-linux"></i> <br />
+            
+            所有文章
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-python">
+          <a href="/./tags/program" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-gitlab"></i> <br />
+            
+            python
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-运维组件">
+          <a href="/./tags/rhca" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            运维组件
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-数据库">
+          <a href="/./tags/database" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-database"></i> <br />
+            
+            数据库
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-云计算">
+          <a href="/./tags/cloud" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-cloud"></i> <br />
+            
+            云计算
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-个人中心">
+          <a href="/./tags/renjin" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user-circle"></i> <br />
+            
+            个人中心
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索文章
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.ssjinyao.com/2019/06/15/kubernetes操作记录7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="锦遥">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/rjyy.ico">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="逝水锦遥">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">kubernetes操作记录(七)</h1>
+        
+
+        <div class="post-meta">
+		          
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-15T08:29:00+08:00">
+                2019-06-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/06/15/kubernetes操作记录7/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2019/06/15/kubernetes操作记录7/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>  浏览
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2.9k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  15
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="kubernetes-操作记录七"><a href="#kubernetes-操作记录七" class="headerlink" title="kubernetes 操作记录七"></a>kubernetes 操作记录七</h1><p><img src="/images/docker_kubernetes.png" alt=""></p>
+<h2 id="资源指标API及自定义指标API"><a href="#资源指标API及自定义指标API" class="headerlink" title="资源指标API及自定义指标API"></a>资源指标API及自定义指标API</h2><p>资源指标: metrics-server<br>自定义指标: prometheus, k8s-prometheus-adapter</p>
+<p>新一代架构:<br>    核心指标流水线：由kubelet、metrics-server 以及由API server 提供的api组成;CPU、内存实时使用率、Pod的资源占用率及窗口的磁盘占用率;<br>    监控流水线: 用于从系统收集各种指标数据并提供终端用户、存储系统以及HPA。它们包含核心指标及许多非核心指标。非核心指标本身不能被k8s所解析;<br>    metrics-server: API server </p>
+<hr>
+<h3 id="部署-metrics-server"><a href="#部署-metrics-server" class="headerlink" title="部署 metrics-server"></a>部署 metrics-server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># mkdir metrics-server</span></div><div class="line"><span class="comment"># wget https://github.com/kubernetes-incubator/metrics-server/archive/v0.3.1.zip  </span></div><div class="line"><span class="comment"># cd metrics-server/metrics-server-0.3.1/deploy/1.8+/</span></div><div class="line"><span class="comment"># mv * ../../../</span></div></pre></td></tr></table></figure>
+<p>问题修正 </p>
+<ul>
+<li><p>问题1：metrics-server默认使用节点hostname通过kubelet 10250端口获取数据，但是coredns里面没有该数据无法解析(10.96.0.10:53)，可以在metrics server启动命令添加参数 –kubelet-preferred-address-types=InternalIP 直接使用节点IP地址获取数据</p>
+</li>
+<li><p>问题2：kubelet 的10250端口使用的是https协议，连接需要验证tls证书。可以在metrics server启动命令添加参数–kubelet-insecure-tls不验证客户端证书</p>
+</li>
+<li><p>问题3：yaml文件中的image地址k8s.gcr.io/metrics-server-amd64:v0.3.0 需要梯子，需要改成中国可以访问的image地址，可以使用aliyun的 <code>registry.cn-hangzhou.aliyuncs.com/google_containers/</code></p>
+</li>
+</ul>
+<p>修改以下内容</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="attr">containers:</span></div><div class="line"><span class="attr">     - name:</span> <span class="string">metrics-server</span></div><div class="line">       <span class="comment">#image: k8s.gcr.io/metrics-server-amd64:v0.3.0</span></div><div class="line"><span class="attr">       image:</span> <span class="string">registry.cn-hangzhou.aliyuncs.com/google_containers/metrics-server-amd64:v0.3.0</span></div><div class="line"><span class="attr">       imagePullPolicy:</span> <span class="string">IfNotPresent</span></div><div class="line"><span class="attr">       command:</span></div><div class="line"><span class="bullet">       -</span> <span class="string">/metrics-server</span></div><div class="line"><span class="bullet">       -</span> <span class="bullet">--metric-resolution=30s</span></div><div class="line"><span class="bullet">       -</span> <span class="bullet">--kubelet-insecure-tls</span></div><div class="line"><span class="bullet">       -</span> <span class="bullet">--kubelet-preferred-address-types=InternalIP,Hostname,InternalDNS,ExternalDNS,ExternalIP</span></div><div class="line"><span class="attr">       volumeMounts:</span></div><div class="line"><span class="attr">       - name:</span> <span class="string">tmp-dir</span></div><div class="line"><span class="attr">         mountPath:</span> <span class="string">/tmp</span></div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># kubectl api-versions | grep metrics</span></div><div class="line">metrics.k8s.io/v1beta1</div></pre></td></tr></table></figure>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"># curl  http://localhost:8080/apis/metrics.k8s.io/v1beta1</div><div class="line">&#123;</div><div class="line">  <span class="attr">"kind"</span>: <span class="string">"APIResourceList"</span>,</div><div class="line">  <span class="attr">"apiVersion"</span>: <span class="string">"v1"</span>,</div><div class="line">  <span class="attr">"groupVersion"</span>: <span class="string">"metrics.k8s.io/v1beta1"</span>,</div><div class="line">  <span class="attr">"resources"</span>: [</div><div class="line">    &#123;</div><div class="line">      <span class="attr">"name"</span>: <span class="string">"nodes"</span>,</div><div class="line">      <span class="attr">"singularName"</span>: <span class="string">""</span>,</div><div class="line">      <span class="attr">"namespaced"</span>: <span class="literal">false</span>,</div><div class="line">      <span class="attr">"kind"</span>: <span class="string">"NodeMetrics"</span>,</div><div class="line">      <span class="attr">"verbs"</span>: [</div><div class="line">        <span class="string">"get"</span>,</div><div class="line">        <span class="string">"list"</span></div><div class="line">      ]</div><div class="line">    &#125;,</div><div class="line">    &#123;</div><div class="line">      <span class="attr">"name"</span>: <span class="string">"pods"</span>,</div><div class="line">      <span class="attr">"singularName"</span>: <span class="string">""</span>,</div><div class="line">      <span class="attr">"namespaced"</span>: <span class="literal">true</span>,</div><div class="line">      <span class="attr">"kind"</span>: <span class="string">"PodMetrics"</span>,</div><div class="line">      <span class="attr">"verbs"</span>: [</div><div class="line">        <span class="string">"get"</span>,</div><div class="line">        <span class="string">"list"</span></div><div class="line">      ]</div><div class="line">    &#125;</div><div class="line">  ]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>错误日志排查</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># kubectl logs -f metrics-server-68cdb458db-rgjtr -c metrics-server -n kube-system</span></div></pre></td></tr></table></figure>
+<p>主要提供node  和Pod的监控数据;</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">kubectl  top nodes</div><div class="line">NAME                   CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%</div><div class="line">node01                  94m          4%     1574Mi          42%</div><div class="line">node02                  92m          4%     1901Mi          51%</div><div class="line">node03                  108m         5%     1803Mi          48%</div><div class="line">master                  238m         11%    1879Mi          50%</div></pre></td></tr></table></figure>
+<h3 id="prometheus-部署"><a href="#prometheus-部署" class="headerlink" title="prometheus 部署"></a>prometheus 部署</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># git clone https://github.com/iKubernetes/k8s-prom.git</span></div><div class="line"><span class="comment"># cd k8s-prom</span></div><div class="line"><span class="comment"># kubectl  apply -f namespace.yaml</span></div><div class="line"><span class="comment"># cd node_exporter/</span></div><div class="line"><span class="comment"># kubectl  apply -f ./</span></div><div class="line"><span class="comment"># kubectl get pods -n prom</span></div><div class="line">NAME                             READY   STATUS    RESTARTS   AGE</div><div class="line">prometheus-node-exporter-2xrqp   1/1     Running   0          47s</div><div class="line">prometheus-node-exporter-cgkp7   1/1     Running   0          47s</div><div class="line">prometheus-node-exporter-t7vh7   1/1     Running   0          47s</div><div class="line">prometheus-node-exporter-vrw89   1/1     Running   0          46s</div><div class="line"><span class="comment"># cd ../prometheus/</span></div><div class="line"><span class="comment"># kubectl apply -f ./</span></div></pre></td></tr></table></figure>
+<p><img src="/images/kubernetes-prometheus-deploy.png" alt=""></p>
+<p>注: 在生产环境中，至少要用pv存储，不然当Pod删除时，数据也会被删除; </p>
+<h3 id="安装-kube-state-metrics"><a href="#安装-kube-state-metrics" class="headerlink" title="安装  kube-state-metrics"></a>安装  kube-state-metrics</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># cd ../kube-state-metrics/</span></div><div class="line"><span class="comment"># vim kube-state-metrics-deploy.yaml # 修改image镜像源</span></div><div class="line">image: quay.io/coreos/kube-state-metrics:v1.3.1</div><div class="line"><span class="comment"># kubectl  apply -f ./</span></div><div class="line"><span class="comment"># kubectl  get all -n prom</span></div></pre></td></tr></table></figure>
+<h3 id="安装-k8s-prometheus-adapter"><a href="#安装-k8s-prometheus-adapter" class="headerlink" title="安装 k8s-prometheus-adapter"></a>安装 k8s-prometheus-adapter</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"># /etc/kubernetes/pki/</div><div class="line"># (umask 077; openssl genrsa -out serving.key 2048)</div><div class="line"># openssl req -new -key serving.key -out serving.csr -subj &quot;/CN=serving&quot;</div><div class="line"># openssl x509 -req -in serving.csr  -CA ./ca.crt -CAkey ./ca.key -CAcreateserial -out serving.crt -days 36500</div><div class="line"># kubectl create generic cm-adapter-serving-certs --from-file=serving.crt --from-file=serving.key</div><div class="line"># kubectl create secret  generic cm-adapter-serving-certs --from-file=serving.crt --from-file=serving.key -n prom</div><div class="line"># cd manifests/metrics/k8s-prom/k8s-prometheus-adapter</div><div class="line"># kubectl apply -f ./</div></pre></td></tr></table></figure>
+<p>发现<code>k8s-prometheus-adapter</code>中的<code>custom-metrics-apiserver-deployment.yaml</code> 配置变了，这里可以根据原有内容 <code>image: directxman12/k8s-prometheus-adapter-amd64</code> google搜索<code>directxman12</code><a href="https://github.com/DirectXMan12/k8s-prometheus-adapter/tree/master/deploy/manifests" target="_blank" rel="external">更新</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># mv custom-metrics-apiserver-deployment.yaml&#123;,.bak&#125;</span></div><div class="line"><span class="comment"># wget https://raw.githubusercontent.com/DirectXMan12/k8s-prometheus-adapter/master/deploy/manifests/custom-metrics-apiserver-deployment.yaml</span></div><div class="line"><span class="comment"># vim custom-metrics-apiserver-deployment.yaml # 改namespace: prom </span></div><div class="line"><span class="comment"># wget https://raw.githubusercontent.com/DirectXMan12/k8s-prometheus-adapter/master/deploy/manifests/custom-metrics-config-map.yaml</span></div><div class="line"><span class="comment"># vim custom-metrics-config-map.yaml  # 改namespace: prom</span></div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># kubectl  get all -n prom</span></div><div class="line">NAME                                            READY   STATUS    RESTARTS   AGE</div><div class="line">pod/custom-metrics-apiserver-667fd4fffd-qs2zk   1/1     Running   0          3m18s</div><div class="line">pod/kube-state-metrics-6697d66bbb-w7k4d         1/1     Running   0          20m</div><div class="line">pod/prometheus-node-exporter-2xrqp              1/1     Running   0          71m</div><div class="line">pod/prometheus-node-exporter-cgkp7              1/1     Running   0          71m</div><div class="line">pod/prometheus-node-exporter-t7vh7              1/1     Running   0          71m</div><div class="line">pod/prometheus-node-exporter-vrw89              1/1     Running   0          71m</div><div class="line">pod/prometheus-server-75cf46bdbc-kpgzs          1/1     Running   0          69m</div></pre></td></tr></table></figure>
+<p>补充kubelet 启动失败 <code>swapoff -a</code><br>新入新节点时卡住 <code>kubeadm token create</code>  <code>kubeadm token list</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># curl http://localhost:8080/apis/custom.metrics.k8s.io/v1beta1</span></div></pre></td></tr></table></figure>
+<h3 id="安装-grafana"><a href="#安装-grafana" class="headerlink" title="安装 grafana"></a>安装 grafana</h3><p>改原grafana 配置文件 </p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div></pre></td><td class="code"><pre><div class="line"><span class="attr">apiVersion:</span> <span class="string">apps/v1</span></div><div class="line"><span class="attr">kind:</span> <span class="string">Deployment</span></div><div class="line"><span class="attr">metadata:</span></div><div class="line"><span class="attr">  name:</span> <span class="string">monitoring-grafana</span></div><div class="line"><span class="attr">  namespace:</span> <span class="string">prom</span></div><div class="line"><span class="attr">spec:</span></div><div class="line"><span class="attr">  replicas:</span> <span class="number">1</span></div><div class="line"><span class="attr">  selector:</span></div><div class="line"><span class="attr">    matchLabels:</span></div><div class="line"><span class="attr">      task:</span> <span class="string">monitoring</span></div><div class="line"><span class="attr">      k8s-app:</span> <span class="string">grafana</span></div><div class="line"><span class="attr">  template:</span></div><div class="line"><span class="attr">    metadata:</span></div><div class="line"><span class="attr">      labels:</span></div><div class="line"><span class="attr">        task:</span> <span class="string">monitoring</span></div><div class="line"><span class="attr">        k8s-app:</span> <span class="string">grafana</span></div><div class="line"><span class="attr">    spec:</span></div><div class="line"><span class="attr">      containers:</span></div><div class="line"><span class="attr">      - name:</span> <span class="string">grafana</span></div><div class="line"><span class="attr">        image:</span> <span class="string">registry.cn-hangzhou.aliyuncs.com/google_containers/heapster-grafana-amd64:v5.0.4</span></div><div class="line"><span class="attr">        ports:</span></div><div class="line"><span class="attr">        - containerPort:</span> <span class="number">3000</span></div><div class="line"><span class="attr">          protocol:</span> <span class="string">TCP</span></div><div class="line"><span class="attr">        volumeMounts:</span></div><div class="line"><span class="attr">        - mountPath:</span> <span class="string">/etc/ssl/certs</span></div><div class="line"><span class="attr">          name:</span> <span class="string">ca-certificates</span></div><div class="line"><span class="attr">          readOnly:</span> <span class="literal">true</span></div><div class="line"><span class="attr">        - mountPath:</span> <span class="string">/var</span></div><div class="line"><span class="attr">          name:</span> <span class="string">grafana-storage</span></div><div class="line"><span class="attr">        env:</span></div><div class="line">        <span class="comment">#- name: INFLUXDB_HOST</span></div><div class="line">        <span class="comment">#  value: monitoring-influxdb</span></div><div class="line"><span class="attr">        - name:</span> <span class="string">GF_SERVER_HTTP_PORT</span></div><div class="line"><span class="attr">          value:</span> <span class="string">"3000"</span></div><div class="line">          <span class="comment"># The following env variables are required to make Grafana accessible via</span></div><div class="line">          <span class="comment"># the kubernetes api-server proxy. On production clusters, we recommend</span></div><div class="line">          <span class="comment"># removing these env variables, setup auth for grafana, and expose the grafana</span></div><div class="line">          <span class="comment"># service using a LoadBalancer or a public IP.</span></div><div class="line"><span class="attr">        - name:</span> <span class="string">GF_AUTH_BASIC_ENABLED</span></div><div class="line"><span class="attr">          value:</span> <span class="string">"false"</span></div><div class="line"><span class="attr">        - name:</span> <span class="string">GF_AUTH_ANONYMOUS_ENABLED</span></div><div class="line"><span class="attr">          value:</span> <span class="string">"true"</span></div><div class="line"><span class="attr">        - name:</span> <span class="string">GF_AUTH_ANONYMOUS_ORG_ROLE</span></div><div class="line"><span class="attr">          value:</span> <span class="string">Admin</span></div><div class="line"><span class="attr">        - name:</span> <span class="string">GF_SERVER_ROOT_URL</span></div><div class="line">          <span class="comment"># If you're only using the API Server proxy, set this value instead:</span></div><div class="line">          <span class="comment"># value: /api/v1/namespaces/kube-system/services/monitoring-grafana/proxy</span></div><div class="line"><span class="attr">          value:</span> <span class="string">/</span></div><div class="line"><span class="attr">      volumes:</span></div><div class="line"><span class="attr">      - name:</span> <span class="string">ca-certificates</span></div><div class="line"><span class="attr">        hostPath:</span></div><div class="line"><span class="attr">          path:</span> <span class="string">/etc/ssl/certs</span></div><div class="line"><span class="attr">      - name:</span> <span class="string">grafana-storage</span></div><div class="line"><span class="attr">        emptyDir:</span> <span class="string">&#123;&#125;</span></div><div class="line"><span class="meta">---</span></div><div class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></div><div class="line"><span class="attr">kind:</span> <span class="string">Service</span></div><div class="line"><span class="attr">metadata:</span></div><div class="line"><span class="attr">  labels:</span></div><div class="line">    <span class="comment"># For use as a Cluster add-on (https://github.com/kubernetes/kubernetes/tree/master/cluster/addons)</span></div><div class="line">    <span class="comment"># If you are NOT using this as an addon, you should comment out this line.</span></div><div class="line">    <span class="string">kubernetes.io/cluster-service:</span> <span class="string">'true'</span></div><div class="line">    <span class="string">kubernetes.io/name:</span> <span class="string">monitoring-grafana</span></div><div class="line"><span class="attr">  name:</span> <span class="string">monitoring-grafana</span></div><div class="line"><span class="attr">  namespace:</span> <span class="string">prom</span></div><div class="line"><span class="attr">spec:</span></div><div class="line">  <span class="comment"># In a production setup, we recommend accessing Grafana through an external Loadbalancer</span></div><div class="line">  <span class="comment"># or through a public IP.</span></div><div class="line">  <span class="comment"># type: LoadBalancer</span></div><div class="line">  <span class="comment"># You could also use NodePort to expose the service at a randomly-generated port</span></div><div class="line">  <span class="comment"># type: NodePort</span></div><div class="line"><span class="attr">  type:</span> <span class="string">NodePort</span></div><div class="line"><span class="attr">  ports:</span></div><div class="line"><span class="attr">  - port:</span> <span class="number">80</span></div><div class="line"><span class="attr">    targetPort:</span> <span class="number">3000</span></div><div class="line"><span class="attr">    nodePort:</span> <span class="number">30098</span></div><div class="line"><span class="attr">    protocol:</span> <span class="string">TCP</span></div><div class="line"><span class="attr">  selector:</span></div><div class="line"><span class="attr">    k8s-app:</span> <span class="string">grafana</span></div><div class="line"><span class="comment"># kubectl apply -f grafana.yaml</span></div></pre></td></tr></table></figure>
+<p><img src="/images/kubernetes-prometheus-grafana.png" alt=""><br><img src="/images/kubernetes-prometheus-datasources.png" alt=""></p>
+<p>下载并导入<a href="https://grafana.com/dashboards/" target="_blank" rel="external">模版</a><br><img src="/images/kubernetest-prometheus-dashboard.png" alt=""></p>
+<h2 id="资源限制与伸缩"><a href="#资源限制与伸缩" class="headerlink" title="资源限制与伸缩"></a>资源限制与伸缩</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># kubectl run myapp --image=ikubernetes/myapp:v1 --replicas=0 --requests='cpu=50m,memory=256Mi' --limits='cpu=50m,memory=256Mi' --labels='app=myapp' --expose --port=80</span></div><div class="line"><span class="comment"># kubectl autoscale deployment myapp --min=1 --max=8 --cpu-percent=60</span></div><div class="line">horizontalpodautoscaler.autoscaling/myapp autoscaled</div><div class="line"><span class="comment">#  kubectl get hpa</span></div><div class="line">NAME    REFERENCE          TARGETS   MINPODS   MAXPODS   REPLICAS   AGE</div><div class="line">myapp   Deployment/myapp   0%/60%    1         8         1          22s</div><div class="line"><span class="comment"># kubectl patch svc myapp -p '&#123;"spec":&#123;"type": "NodePort"&#125;&#125;'</span></div><div class="line">service/myapp patched</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#ssjinyao ➤ ab -c 100 -n 50000 http://xx.x.xx.xx:31257/index.html</span></div></pre></td></tr></table></figure>
+<p>当压测，CPU 内存资源超出时，会扩展Pod数目</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="attr">apiVersion:</span> <span class="string">autoscaling/v2beta1</span></div><div class="line"><span class="attr">kind:</span> <span class="string">HorizontalPodAutoscaler</span></div><div class="line"><span class="attr">metadata:</span></div><div class="line"><span class="attr">  name:</span> <span class="string">myapp-hpa-v2</span></div><div class="line"><span class="attr">spec:</span></div><div class="line"><span class="attr">  scaleTargetRef:</span></div><div class="line"><span class="attr">    apiVersion:</span> <span class="string">apps/v1</span></div><div class="line"><span class="attr">    kind:</span> <span class="string">Deployment</span></div><div class="line"><span class="attr">    name:</span> <span class="string">myapp</span></div><div class="line"><span class="attr">  minReplicas:</span> <span class="number">1</span></div><div class="line"><span class="attr">  maxReplicas:</span> <span class="number">10</span></div><div class="line"><span class="attr">  metrics:</span></div><div class="line"><span class="attr">  - type:</span> <span class="string">Resource</span></div><div class="line"><span class="attr">    resource:</span></div><div class="line"><span class="attr">      name:</span> <span class="string">cpu</span></div><div class="line"><span class="attr">      targetAverageUtilization:</span> <span class="number">55</span></div><div class="line"><span class="attr">  - type:</span> <span class="string">Resource</span></div><div class="line"><span class="attr">    resource:</span></div><div class="line"><span class="attr">      name:</span> <span class="string">memory</span></div><div class="line"><span class="attr">      targetAverageValue:</span> <span class="number">50</span><span class="string">Mi</span></div></pre></td></tr></table></figure>
+<p>根据请求数升Pod数</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="attr">apiVersion:</span> <span class="string">autoscaling/v2beta1</span></div><div class="line"><span class="attr">kind:</span> <span class="string">HorizontalPodAutoscaler</span></div><div class="line"><span class="attr">metadata:</span></div><div class="line"><span class="attr">  name:</span> <span class="string">myapp-hpa-v2</span></div><div class="line"><span class="attr">spec:</span></div><div class="line"><span class="attr">  scaleTargetRef:</span></div><div class="line"><span class="attr">    apiVersion:</span> <span class="string">apps/v1</span></div><div class="line"><span class="attr">    kind:</span> <span class="string">Deployment</span></div><div class="line"><span class="attr">    name:</span> <span class="string">myapp</span></div><div class="line"><span class="attr">  minReplicas:</span> <span class="number">1</span></div><div class="line"><span class="attr">  maxReplicas:</span> <span class="number">10</span></div><div class="line"><span class="attr">  metrics:</span></div><div class="line"><span class="attr">  - type:</span> <span class="string">Pods</span></div><div class="line"><span class="attr">    pods:</span></div><div class="line"><span class="attr">      metricName:</span> <span class="string">http_requests</span></div><div class="line"><span class="attr">      targetAverageValue:</span> <span class="number">800</span><span class="string">m</span></div></pre></td></tr></table></figure>
+<h2 id="helm-入门"><a href="#helm-入门" class="headerlink" title="helm 入门"></a>helm 入门</h2><p>核心术语:<br>    Chart: 一个helm程序包;<br>    Repository: Charts仓库,https/http服务器;<br>    Release:特定的Chart部署于目标集群上的一个实例;<br>    Chart -&gt; Config -&gt; Release<br>程序架构:<br>    helm：客户端，管理本地的Chart仓库，管理Chart，与Tiller服务器交互，发送Chart,实例安装、查询、卸载等操作<br>    Tiller:  服务端 ，接收helm发来的Chart与Config,合并生成release;<br> <a href="https://github.com/helm/helm" target="_blank" rel="external">helm github官网</a></p>
+<hr>
+<h3 id="安装helm"><a href="#安装helm" class="headerlink" title="安装helm"></a>安装helm</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># wget https://get.helm.sh/helm-v2.9.1-linux-amd64.tar.gz</span></div><div class="line"><span class="comment"># mv linux-amd64/helm  /usr/sbin/</span></div><div class="line"><span class="comment"># helm</span></div></pre></td></tr></table></figure>
+<p>要使用helm 还需要安装 Tiller<br>helm 会识别 <code>.kube/config</code> 扮演成kubectl 客户端去连接至kubernetes集群 </p>
+<h3 id="安装-Tiller"><a href="#安装-Tiller" class="headerlink" title="安装 Tiller"></a>安装 Tiller</h3><p><a href="https://github.com/helm/helm/blob/master/docs/rbac.md" target="_blank" rel="external">ClusterRoleBinding RBAC配置文件</a></p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># mkdir helm</span></div><div class="line"><span class="comment"># cd helm/</span></div><div class="line"><span class="comment"># vim tiller-rbac.yaml</span></div><div class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></div><div class="line"><span class="attr">kind:</span> <span class="string">ServiceAccount</span></div><div class="line"><span class="attr">metadata:</span></div><div class="line"><span class="attr">  name:</span> <span class="string">tiller</span></div><div class="line"><span class="attr">  namespace:</span> <span class="string">kube-system</span></div><div class="line"><span class="meta">---</span></div><div class="line"><span class="attr">apiVersion:</span> <span class="string">rbac.authorization.k8s.io/v1</span></div><div class="line"><span class="attr">kind:</span> <span class="string">ClusterRoleBinding</span></div><div class="line"><span class="attr">metadata:</span></div><div class="line"><span class="attr">  name:</span> <span class="string">tiller</span></div><div class="line"><span class="attr">roleRef:</span></div><div class="line"><span class="attr">  apiGroup:</span> <span class="string">rbac.authorization.k8s.io</span></div><div class="line"><span class="attr">  kind:</span> <span class="string">ClusterRole</span></div><div class="line"><span class="attr">  name:</span> <span class="string">cluster-admin</span></div><div class="line"><span class="attr">subjects:</span></div><div class="line"><span class="attr">  - kind:</span> <span class="string">ServiceAccount</span></div><div class="line"><span class="attr">    name:</span> <span class="string">tiller</span></div><div class="line"><span class="attr">    namespace:</span> <span class="string">kube-system</span></div><div class="line"><span class="comment"># kubectl apply -f tiller-rbac.yaml</span></div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># helm init --service-account tiller</span></div></pre></td></tr></table></figure>
+<p>报错与处理</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># helm init --service-account tiller</span></div><div class="line">Creating /root/.helm</div><div class="line">Creating /root/.helm/repository</div><div class="line">Creating /root/.helm/repository/cache</div><div class="line">Creating /root/.helm/repository/<span class="built_in">local</span></div><div class="line">Creating /root/.helm/plugins</div><div class="line">Creating /root/.helm/starters</div><div class="line">Creating /root/.helm/cache/archive</div><div class="line">Creating /root/.helm/repository/repositories.yaml</div><div class="line">Adding stable repo with URL: https://kubernetes-charts.storage.googleapis.com</div><div class="line">Error: Looks like <span class="string">"https://kubernetes-charts.storage.googleapis.com"</span> is not a valid chart repository or cannot be reached: Get https://kubernetes-charts.storage.googleapis.com/index.yaml: <span class="built_in">read</span> tcp 10.1.87.80:41084-&gt;172.217.163.240:443: <span class="built_in">read</span>: connection reset by peer</div></pre></td></tr></table></figure>
+<p>添加国内源 </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># helm init --client-only --stable-repo-url https://kubernetes.oss-cn-hangzhou.aliyuncs.com/charts</span></div></pre></td></tr></table></figure>
+<p>如果报如下错误，请按照下面解决</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Error: Couldn<span class="string">'t load repositories file (/home/docker/.helm/repository/repositories.yaml).</span></div><div class="line"><span class="string">You might need to run `helm init` (or `helm init --client-only` if tiller is already installed)</span></div></pre></td></tr></table></figure>
+<p>解决办法</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">helm init --client-only --stable-repo-url https://kubernetes.oss-cn-hangzhou.aliyuncs.com/charts</div></pre></td></tr></table></figure>
+<p>–stable-repo-url 指定下载软件从那个源下载，默认的是从google下载，国内下载不下来，所以我们指定源为阿里云的源。</p>
+<p>下载完之后我们还把源更换回来，要不然后面会报错</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># helm repo add rancher-stable https://releases.rancher.com/server-charts/stable</span></div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># helm init --service-account tiller --tiller-image \</span></div><div class="line">registry.cn-hangzhou.aliyuncs.com/google_containers/tiller:v2.12.3 \</div><div class="line">--stable-repo-url https://kubernetes.oss-cn-hangzhou.aliyuncs.com/charts</div></pre></td></tr></table></figure>
+<p>更新 helm 源 </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># helm repo update</span></div><div class="line">Hang tight <span class="keyword">while</span> we grab the latest from your chart repositories...</div><div class="line">...Skip <span class="built_in">local</span> chart repository</div><div class="line">...Successfully got an update from the <span class="string">"stable"</span> chart repository</div><div class="line">...Successfully got an update from the <span class="string">"rancher-stable"</span> chart repository</div><div class="line">Update Complete. ⎈ Happy Helming!⎈</div></pre></td></tr></table></figure>
+<p>helm 官方可用的<a href="https://hub.kubeapps.com/" target="_blank" rel="external">Chart列表</a> </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># helm search jenkins  # 搜索应用</span></div><div class="line"><span class="comment"># helm inspect stable/jenkins  # 查看使用配置信息</span></div><div class="line"><span class="comment"># helm install --name mem1 stable/memcached # 安装Memcached</span></div><div class="line"><span class="comment"># kubectl get pods --namespace default -l "app=mem1-memcached" -o jsonpath="&#123;.items[0].metadata.name&#125;" mem1-memcached-0 #验证</span></div></pre></td></tr></table></figure>
+<h3 id="helm-常用命令"><a href="#helm-常用命令" class="headerlink" title="helm 常用命令"></a>helm 常用命令</h3><p>release 管理</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">insstall</div><div class="line">delete</div><div class="line">upgrade/rollback</div><div class="line">list</div><div class="line"><span class="built_in">history</span></div><div class="line">status 获取release 状态信息</div></pre></td></tr></table></figure>
+<p>chart 管理</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">crate</div><div class="line">fetch </div><div class="line">get </div><div class="line">inspect</div><div class="line">package</div><div class="line">verify</div></pre></td></tr></table></figure>
+<p>chart get 到本地路径 <code>/root/.helm/cache/archive</code></p>
+<p>根据自定义变量创建</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># helm install --name redis1 -f values.yaml stable/redis</span></div><div class="line"><span class="comment"># helm status redis1 # 再次显示NOTES</span></div></pre></td></tr></table></figure>
+<h2 id="部署EFK-日志系统"><a href="#部署EFK-日志系统" class="headerlink" title="部署EFK 日志系统"></a>部署EFK 日志系统</h2><h3 id="部署elasticsearch"><a href="#部署elasticsearch" class="headerlink" title="部署elasticsearch"></a>部署elasticsearch</h3><p>EFK: Fluentd </p>
+<p>在容器集群岩调，再接入Pod查询日志是不可能的，所以必要的有一个统一的日志收集系统;<br>一个完整的kubernetes系统应该有:kubedns or coredns ,ingress-contraler,heapster or metracs server prometheus  , dashboard 。而EFK是一个kubernetes基本上需要提供的完整组件;</p>
+<p>添加helm源</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># helm repo add extra https://burdenbear.github.io/kube-charts-mirror/</span></div><div class="line"><span class="comment"># helm repo add stable http://mirror.azure.cn/kubernetes/charts/ </span></div><div class="line"><span class="comment"># helm repo add incubator http://mirror.azure.cn/kubernetes/charts-incubator/</span></div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#  helm fetch stable/elasticsearch</span></div><div class="line"><span class="comment"># helm fetch stable/fluentd-elasticsearch</span></div><div class="line"><span class="comment">#  helm fetch stable/kibana</span></div><div class="line"><span class="comment"># tar -xvf elasticsearch-1.28.5.tgz</span></div><div class="line"><span class="comment">#  tar -xvf fluentd-elasticsearch-2.0.7.tgz</span></div><div class="line"><span class="comment">#  tar -xvf kibana-3.1.0.tgz</span></div><div class="line"><span class="comment"># cd elasticsearch</span></div><div class="line"><span class="comment">#  vim values.yaml # 修改以下内容 </span></div><div class="line">  pullPolicy: <span class="string">"IfNotPresent"</span></div><div class="line">    persistence:</div><div class="line">    enabled: <span class="literal">false</span></div><div class="line"><span class="comment"># kubectl create namespace efk</span></div><div class="line"><span class="comment"># helm package elasticsearch/</span></div><div class="line"><span class="comment"># 新开启一个终端</span></div><div class="line"><span class="comment"># helm serve</span></div><div class="line">Regenerating index. This may take a moment.</div><div class="line">Now serving you on 127.0.0.1:8879</div><div class="line"></div><div class="line"><span class="comment"># helm install --name els1 --namespace=efk  local/elasticsearch</span></div></pre></td></tr></table></figure>
+<p>测试</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># kubectl run cirror-$RANDOM --rm -it --image=cirros -- /bin/sh</span></div><div class="line">/ <span class="comment"># nslookup els1-elasticsearch-client.efk.svc</span></div><div class="line">Server:    10.96.0.10</div><div class="line">Address 1: 10.96.0.10 kube-dns.kube-system.svc.cluster.local</div><div class="line"></div><div class="line">Name:      els1-elasticsearch-client.efk.svc</div><div class="line">Address 1: 10.111.159.57 els1-elasticsearch-client.efk.svc.cluster.local</div><div class="line">curl els1-elasticsearch-client.efk.svc.cluster.local:9200</div><div class="line">&#123;</div><div class="line">  <span class="string">"name"</span> : <span class="string">"els1-elasticsearch-client-787568fb55-9zd9k"</span>,</div><div class="line">  <span class="string">"cluster_name"</span> : <span class="string">"elasticsearch"</span>,</div><div class="line">  <span class="string">"cluster_uuid"</span> : <span class="string">"_na_"</span>,</div><div class="line">  <span class="string">"version"</span> : &#123;</div><div class="line">    <span class="string">"number"</span> : <span class="string">"6.4.3"</span>,</div><div class="line">    <span class="string">"build_flavor"</span> : <span class="string">"default"</span>,</div><div class="line">    <span class="string">"build_type"</span> : <span class="string">"tar"</span>,</div><div class="line">    <span class="string">"build_hash"</span> : <span class="string">"fe40335"</span>,</div><div class="line">    <span class="string">"build_date"</span> : <span class="string">"2018-10-30T23:17:19.084789Z"</span>,</div><div class="line">    <span class="string">"build_snapshot"</span> : <span class="literal">false</span>,</div><div class="line">    <span class="string">"lucene_version"</span> : <span class="string">"7.4.0"</span>,</div><div class="line">    <span class="string">"minimum_wire_compatibility_version"</span> : <span class="string">"5.6.0"</span>,</div><div class="line">    <span class="string">"minimum_index_compatibility_version"</span> : <span class="string">"5.0.0"</span></div><div class="line">  &#125;,</div><div class="line">  <span class="string">"tagline"</span> : <span class="string">"You Know, for Search"</span></div><div class="line">&#125;</div><div class="line">/ <span class="comment"># curl els1-elasticsearch-client.efk.svc.cluster.local:9200/_cat/nodes</span></div><div class="line">10.244.1.215 15 90 7 0.12 0.36 0.35 di - els1-elasticsearch-data-1</div><div class="line">10.244.2.132 19 60 2 0.09 0.23 0.19 di - els1-elasticsearch-data-0</div><div class="line">10.244.1.213 22 90 7 0.12 0.36 0.35 i  - els1-elasticsearch-client-787568fb55-9zd9k</div><div class="line">10.244.2.131 26 60 2 0.09 0.23 0.19 i  - els1-elasticsearch-client-787568fb55-sxhhp</div><div class="line">10.244.1.214 44 90 7 0.12 0.36 0.35 mi * els1-elasticsearch-master-0</div></pre></td></tr></table></figure>
+<h3 id="部署-fluentd"><a href="#部署-fluentd" class="headerlink" title="部署 fluentd"></a>部署 fluentd</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment"># cd fluentd-elasticsearch/ </span></div><div class="line"><span class="comment"># vim values.yaml</span></div><div class="line">image:</div><div class="line">  repository: registry.cn-hangzhou.aliyuncs.com/google_containers/fluentd-elasticsearch</div><div class="line">elasticsearch:</div><div class="line">  host: <span class="string">'els1-elasticsearch-client.efk.svc.cluster.local'</span></div><div class="line">  port: 9200</div><div class="line">  scheme: <span class="string">'http'</span></div><div class="line">  ssl_version: TLSv1_2</div><div class="line">  buffer_chunk_limit: 2M</div><div class="line">  buffer_queue_limit: 8</div><div class="line">  logstash_prefix: <span class="string">'logstash'</span></div><div class="line">tolerations:</div><div class="line">   - key: node-role.kubernetes.io/master</div><div class="line">     operator: Exists</div><div class="line">     effect: NoSchedule</div><div class="line">podAnnotations:</div><div class="line">   prometheus.io/scrape: <span class="string">"true"</span></div><div class="line">   prometheus.io/port: <span class="string">"24231"</span></div><div class="line">service:</div><div class="line">   <span class="built_in">type</span>: ClusterIP</div><div class="line">   ports:</div><div class="line">     - name: <span class="string">"monitor-agent"</span></div><div class="line">       port: 24231</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># helm package ../fluentd-elasticsearch/</span></div><div class="line"><span class="comment"># helm install --name flu1 --namespace=efk local/fluentd-elasticsearch</span></div></pre></td></tr></table></figure>
+<h3 id="安装-kibana"><a href="#安装-kibana" class="headerlink" title="安装 kibana"></a>安装 kibana</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># cd kibana</span></div><div class="line"><span class="comment"># vim values.yaml # 修改以下内容  </span></div><div class="line">    elasticsearch.hosts: http://els1-elasticsearch-client.efk.svc.cluster.local:9200</div><div class="line">    service:</div><div class="line">  <span class="built_in">type</span>: NodePort</div><div class="line"><span class="comment"># helm package ../kibana/</span></div><div class="line"><span class="comment"># helm  install --name kibana1 --namespace=efk local/kibana</span></div><div class="line"><span class="comment"># kubectl get pods -n efk</span></div><div class="line">NAME                                         READY   STATUS    RESTARTS   AGE</div><div class="line">els1-elasticsearch-client-6b4b8c7485-7grbt   1/1     Running   0          96m</div><div class="line">els1-elasticsearch-client-6b4b8c7485-sqgtl   1/1     Running   0          96m</div><div class="line">els1-elasticsearch-data-0                    1/1     Running   0          96m</div><div class="line">els1-elasticsearch-data-1                    1/1     Running   0          78m</div><div class="line">els1-elasticsearch-master-0                  1/1     Running   0          96m</div><div class="line">els1-elasticsearch-master-1                  1/1     Running   0          93m</div><div class="line">els1-elasticsearch-master-2                  1/1     Running   0          78m</div><div class="line">flu1-fluentd-elasticsearch-95b95             1/1     Running   0          26m</div><div class="line">flu1-fluentd-elasticsearch-vpcsg             1/1     Running   0          26m</div><div class="line">flu1-fluentd-elasticsearch-w5wjj             1/1     Running   0          26m</div><div class="line">flu1-fluentd-elasticsearch-xkpv2             1/1     Running   0          26m</div><div class="line">kibana1-5dcf5f5d47-rsmqb                     1/1     Running   0          21m</div><div class="line"><span class="comment"># kubectl  get svc -n efk</span></div><div class="line">NAME                           TYPE        CLUSTER-IP    EXTERNAL-IP   PORT(S)         AGE</div><div class="line">els1-elasticsearch-client      ClusterIP   10.98.8.75    &lt;none&gt;        9200/TCP        97m</div><div class="line">els1-elasticsearch-discovery   ClusterIP   None          &lt;none&gt;        9300/TCP        97m</div><div class="line">kibana1                        NodePort    10.96.230.3   &lt;none&gt;        443:31746/TCP   21m</div></pre></td></tr></table></figure>
+<h3 id="docker-pull-报错信息总结"><a href="#docker-pull-报错信息总结" class="headerlink" title="docker pull 报错信息总结"></a>docker pull 报错信息总结</h3><p><code>error pulling image configuration</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"># echo &quot;DOCKER_OPTS=\&quot;\$DOCKER_OPTS --registry-mirror=http://f2d6cb40.m.daocloud.io\&quot;&quot; | tee -a /etc/default/docker</div><div class="line"># 或者 vim /etc/default/docker 更改以下信息</div><div class="line">DOCKER_OPTS=&quot;$&#123;DOCKER_OPTS&#125; --registry-mirror=https://mirror.gcr.io&quot;</div><div class="line"># systemctl restart docker</div></pre></td></tr></table></figure>
+<h3 id="配置并访问kibana"><a href="#配置并访问kibana" class="headerlink" title="配置并访问kibana"></a>配置并访问kibana</h3><p><img src="/images/kubernetes-helm-efk-kibana.png" alt=""></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>ღ ღ ღ 如果觉得文章对您有用，不妨打赏一下ღ ღ ღ</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/weipei.png" alt="锦遥 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/zhipei.png" alt="锦遥 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/linux/" rel="tag"># linux</a>
+          
+            <a href="/tags/rhca/" rel="tag"># rhca</a>
+          
+            <a href="/tags/cloud/" rel="tag"># cloud</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/05/30/kubernetes操作记录6/" rel="next" title="kubernetes操作记录(六)">
+                <i class="fa fa-chevron-left"></i> kubernetes操作记录(六)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/08/28/kvm学习笔记/" rel="prev" title="kvm学习笔记">
+                kvm学习笔记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/rjyy.ico"
+                alt="锦遥" />
+            
+              <p class="site-author-name" itemprop="name">锦遥</p>
+              <p class="site-description motion-element" itemprop="description">有智而性缓者思大智
+
+</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">65</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#kubernetes-操作记录七"><span class="nav-number">1.</span> <span class="nav-text">kubernetes 操作记录七</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#资源指标API及自定义指标API"><span class="nav-number">1.1.</span> <span class="nav-text">资源指标API及自定义指标API</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#部署-metrics-server"><span class="nav-number">1.1.1.</span> <span class="nav-text">部署 metrics-server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#prometheus-部署"><span class="nav-number">1.1.2.</span> <span class="nav-text">prometheus 部署</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-kube-state-metrics"><span class="nav-number">1.1.3.</span> <span class="nav-text">安装  kube-state-metrics</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-k8s-prometheus-adapter"><span class="nav-number">1.1.4.</span> <span class="nav-text">安装 k8s-prometheus-adapter</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-grafana"><span class="nav-number">1.1.5.</span> <span class="nav-text">安装 grafana</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#资源限制与伸缩"><span class="nav-number">1.2.</span> <span class="nav-text">资源限制与伸缩</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#helm-入门"><span class="nav-number">1.3.</span> <span class="nav-text">helm 入门</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装helm"><span class="nav-number">1.3.1.</span> <span class="nav-text">安装helm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-Tiller"><span class="nav-number">1.3.2.</span> <span class="nav-text">安装 Tiller</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#helm-常用命令"><span class="nav-number">1.3.3.</span> <span class="nav-text">helm 常用命令</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#部署EFK-日志系统"><span class="nav-number">1.4.</span> <span class="nav-text">部署EFK 日志系统</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#部署elasticsearch"><span class="nav-number">1.4.1.</span> <span class="nav-text">部署elasticsearch</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#部署-fluentd"><span class="nav-number">1.4.2.</span> <span class="nav-text">部署 fluentd</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-kibana"><span class="nav-number">1.4.3.</span> <span class="nav-text">安装 kibana</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#docker-pull-报错信息总结"><span class="nav-number">1.4.4.</span> <span class="nav-text">docker pull 报错信息总结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置并访问kibana"><span class="nav-number">1.4.5.</span> <span class="nav-text">配置并访问kibana</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; 2015 &mdash; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">锦遥</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">162.2k</span>
+  
+  <span>   |   </span>
+<span id="showDays"></span>
+</div>
+
+
+
+
+
+
+
+
+<div>
+<a href="http://www.beian.miit.gov.cn">晋ICP备17010575号</a>
+</div>
+<!-- time -->
+<div id="show-time">
+<span id="span_dt_dt"></span>
+</div>
+<script>
+var seconds = 1000;
+var minutes = seconds * 60;
+var hours = minutes * 60;
+var days = hours * 24;
+var years = days * 365;
+var birthDay = Date.UTC(2017,07,30,00,00,00); // 这里设置建站时间
+setInterval(function() {
+var today = new Date();
+var todayYear = today.getFullYear();
+var todayMonth = today.getMonth()+1;
+var todayDate = today.getDate();
+var todayHour = today.getHours();
+var todayMinute = today.getMinutes();
+var todaySecond = today.getSeconds();
+var now = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+var diff = now - birthDay;
+var diffYears = Math.floor(diff/years);
+var diffDays = Math.floor((diff/days)-diffYears*365);
+var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+  document.getElementById('showDays').innerHTML="不間斷的運行了"+diffYears+" 年 "+diffDays+" 天 "+diffHours+" 時 "+diffMinutes+" 分 "+diffSeconds+" 秒 ";
+}, 1000);
+</script>
+
+        
+<div class="busuanzi-count">
+#  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 訪客數
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      位
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>  訪客量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://www.ssjinyao.com/2019/06/15/kubernetes操作记录7/';
+          this.page.identifier = '2019/06/15/kubernetes操作记录7/';
+          this.page.title = 'kubernetes操作记录(七)';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine@1.1.6/dist/Valine.min.js"></script>
+  <script type="text/javascript">
+    new Valine({
+        av: AV,
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        app_id: 'NkJqMpxu4QlRLhPIHipNUHF1-gzGzoHsz',
+        app_key: 'D2vTdueKJ8ammc2JEdje0vLW',
+        placeholder: 'From SSJinYao'
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'true') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  <!-- 点击特效 -->
+<canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas>
+<script type="text/javascript" src="/js/src/fireworks.js"></script>
+
+
+  <script src="/js/activate-power-mode.min.js"></script>
+    <script>
+	    POWERMODE.colorful = true;
+    POWERMODE.shake = false;
+    document.body.addEventListener('input', POWERMODE);
+	  </script>
+
+
+  
+</body>
+</html>

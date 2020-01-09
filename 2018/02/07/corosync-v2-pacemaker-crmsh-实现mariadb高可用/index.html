@@ -1,0 +1,1395 @@
+<!DOCTYPE html>
+
+
+
+  
+
+<script src="/live2d-widget/autoload.js"></script>
+<!--崩溃欺骗-->
+<script type="text/javascript" src="/js/src/crash_cheat.js"></script>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="https://fonts.cat.net/css?family=Lato:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|Roboto Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/redhat.ico?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/redhat.ico?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/redihat.ico?v=5.1.3" color="#0000EE">
+
+
+  <link rel="manifest" href="/images/manifest.json">
+
+
+  <meta name="msapplication-config" content="/images/browserconfig.xml" />
+
+
+
+  <meta name="keywords" content="linux,rhca," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="逝水锦遥" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="高可用mariadb拓扑图  一、设计前提1、时间同步 # ntpdate 172.16.0.1 或者 # chronyc sources2、所有的主机对应的IP地址解析可以正常工作， 主机名要与命令#uname -n 所得的结果一致 因此，/etc/hosts中的内容为以下内容 123172.16.23.10 node1.rj.com node1 172.16.23.11 node2.rj.co">
+<meta name="keywords" content="linux,rhca">
+<meta property="og:type" content="article">
+<meta property="og:title" content="corosync v2 + pacemaker + crmsh 实现mariadb高可用">
+<meta property="og:url" content="https://www.ssjinyao.com/2018/02/07/corosync-v2-pacemaker-crmsh-实现mariadb高可用/index.html">
+<meta property="og:site_name" content="逝水锦遥">
+<meta property="og:description" content="高可用mariadb拓扑图  一、设计前提1、时间同步 # ntpdate 172.16.0.1 或者 # chronyc sources2、所有的主机对应的IP地址解析可以正常工作， 主机名要与命令#uname -n 所得的结果一致 因此，/etc/hosts中的内容为以下内容 123172.16.23.10 node1.rj.com node1 172.16.23.11 node2.rj.co">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://www.ssjinyao.com/images/corosync_mariadb_rhca.png">
+<meta property="og:image" content="https://www.ssjinyao.com/images/corosync_mariadb_tcpdump.png">
+<meta property="og:image" content="https://www.ssjinyao.com/images/corosync_mariadb_test1.png">
+<meta property="og:image" content="https://www.ssjinyao.com/images/corosync_mariadb_test2.png">
+<meta property="og:image" content="https://www.ssjinyao.com/images/corosync_mariadb_test3.png">
+<meta property="og:image" content="https://www.ssjinyao.com/images/corosync_mariadb_test4.png">
+<meta property="og:image" content="https://www.ssjinyao.com/images/corosync_mariadb_test5.png">
+<meta property="og:updated_time" content="2018-02-07T08:27:55.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="corosync v2 + pacemaker + crmsh 实现mariadb高可用">
+<meta name="twitter:description" content="高可用mariadb拓扑图  一、设计前提1、时间同步 # ntpdate 172.16.0.1 或者 # chronyc sources2、所有的主机对应的IP地址解析可以正常工作， 主机名要与命令#uname -n 所得的结果一致 因此，/etc/hosts中的内容为以下内容 123172.16.23.10 node1.rj.com node1 172.16.23.11 node2.rj.co">
+<meta name="twitter:image" content="https://www.ssjinyao.com/images/corosync_mariadb_rhca.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="https://www.ssjinyao.com/2018/02/07/corosync-v2-pacemaker-crmsh-实现mariadb高可用/"/>
+
+
+
+
+
+  <title>corosync v2 + pacemaker + crmsh 实现mariadb高可用 | 逝水锦遥</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta custom-logo">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">逝水锦遥</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">心有所向 将有所成</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-所有文章">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-linux"></i> <br />
+            
+            所有文章
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-python">
+          <a href="/./tags/program" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-gitlab"></i> <br />
+            
+            python
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-运维组件">
+          <a href="/./tags/rhca" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            运维组件
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-数据库">
+          <a href="/./tags/database" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-database"></i> <br />
+            
+            数据库
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-云计算">
+          <a href="/./tags/cloud" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-cloud"></i> <br />
+            
+            云计算
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-个人中心">
+          <a href="/./tags/renjin" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user-circle"></i> <br />
+            
+            个人中心
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索文章
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.ssjinyao.com/2018/02/07/corosync-v2-pacemaker-crmsh-实现mariadb高可用/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="锦遥">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/rjyy.ico">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="逝水锦遥">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">corosync v2 + pacemaker + crmsh 实现mariadb高可用</h1>
+        
+
+        <div class="post-meta">
+		          
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-07T14:28:49+08:00">
+                2018-02-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/02/07/corosync-v2-pacemaker-crmsh-实现mariadb高可用/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/02/07/corosync-v2-pacemaker-crmsh-实现mariadb高可用/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>  浏览
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.7k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  8
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>高可用mariadb拓扑图</p>
+<p><img src="/images/corosync_mariadb_rhca.png" alt=""></p>
+<h2 id="一、设计前提"><a href="#一、设计前提" class="headerlink" title="一、设计前提"></a>一、设计前提</h2><p>1、时间同步 # ntpdate 172.16.0.1 或者 # chronyc sources<br>2、所有的主机对应的IP地址解析可以正常工作， 主机名要与命令#uname -n 所得的结果一致</p>
+<p>因此，/etc/hosts中的内容为以下内容</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">172.16.23.10 node1.rj.com node1 </div><div class="line">172.16.23.11 node2.rj.com node2 </div><div class="line">172.16.23.12 node3.rj.com node3</div></pre></td></tr></table></figure>
+<h2 id="二、环境的建立及安装orosync-pacemaker-crmsh"><a href="#二、环境的建立及安装orosync-pacemaker-crmsh" class="headerlink" title="二、环境的建立及安装orosync ,pacemaker ,crmsh"></a>二、环境的建立及安装orosync ,pacemaker ,crmsh</h2><p>三台机器都安装好ansible （对于ansible集群管理工具而言需要双机互信,其中node1当做堡垒机）</p>
+<h3 id="安装配置"><a href="#安装配置" class="headerlink" title="安装配置"></a>安装配置</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># ssh-keygen  </span></div><div class="line"><span class="comment"># for i in &#123;10..12&#125;; do ssh-copy-id -i 172.16.23.$i ; done ; </span></div><div class="line"><span class="comment"># 此条命令将公钥发送给三台机器，其中包括自己也就是堡垒机</span></div><div class="line"><span class="comment"># vim /etc/ansible/hosts </span></div><div class="line">	[mariadb]</div><div class="line">	172.16.23.10</div><div class="line">	172.16.23.11</div><div class="line">	172.16.23.12</div><div class="line"><span class="comment"># ansible mariadb -m ping </span></div><div class="line"><span class="comment"># 测试三台主机与堡垒机之间的连通性 </span></div><div class="line"><span class="comment"># vim /etc/hosts 主机名解析配置</span></div><div class="line">	172.16.23.10 node1.rj.com node1</div><div class="line">	172.16.23.11 node2.rj.com node2</div><div class="line">	172.16.23.12 node3.rj.com node3</div><div class="line"><span class="comment"># ansible mariadb -m command -a "ntpdate 172.16.0.1"  同步三台主机的时间 </span></div><div class="line"><span class="comment"># ansible mariadb -m yum -a "name=pacemaker,mariadb-server state=present" 在三台主机上安装 mariadb ,corosync 和 pacemaker</span></div></pre></td></tr></table></figure>
+<pre><code>注：yum 安装pacemaker 的时候，其corosync也会自动安装上
+</code></pre><h3 id="corosync配置"><a href="#corosync配置" class="headerlink" title="corosync配置"></a>corosync配置</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># vim /etc/corosync/corosync.conf </span></div><div class="line">加入以下信息</div><div class="line">	totem &#123;</div><div class="line">		version: 2</div><div class="line">		crypto_cipher: aes256</div><div class="line">		crypto_hash: sha1</div><div class="line">		interface &#123;</div><div class="line">			ringnumber: 0</div><div class="line">			bindnetaddr: 172.16.0.0</div><div class="line">			mcastaddr: 239.255.23.1</div><div class="line">			mcastport: 5405</div><div class="line">			ttl: 1</div><div class="line">		&#125;</div><div class="line">	logging &#123;</div><div class="line">		fileline: off</div><div class="line">		to_stderr: no</div><div class="line">		to_logfile: yes</div><div class="line">		logfile: /var/<span class="built_in">log</span>/cluster/corosync.log</div><div class="line">		to_syslog: no</div><div class="line">		debug: off</div><div class="line">		timestamp: on</div><div class="line">		logger_subsys &#123;</div><div class="line">			subsys: QUORUM</div><div class="line">			debug: off</div><div class="line">		&#125;</div><div class="line">	quorum &#123;</div><div class="line">		provider: corosync_votequorum</div><div class="line">		node &#123;</div><div class="line">			ring0_addr: node1.rj.com</div><div class="line">			nodeid:1 </div><div class="line">		&#125;</div><div class="line">		node &#123;</div><div class="line">			ring0_addr: node2.rj.com</div><div class="line">			nodeid:2 </div><div class="line">			&#125;</div><div class="line">			</div><div class="line">		node &#123;</div><div class="line">			</div><div class="line">ring0_addr: node3.rj.com</div><div class="line">			nodeid:3</div><div class="line">				&#125;</div><div class="line">		&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># corosync-keygen </span></div><div class="line"><span class="comment"># ansible mariadb -m copy -a "src=/etc/corosync/authkey dest=/etc/corosync/"</span></div><div class="line"><span class="comment"># ansible mariadb -m copy -a "src=/etc/corosync/corosync.conf dest=/etc/corosync/"</span></div><div class="line"><span class="comment"># ansible mariadb -m service -a "name=corosync state=persent"</span></div><div class="line"><span class="comment"># ansible mariadb -m service -a "name=pacemaker state=persent"</span></div><div class="line"><span class="comment">#  tcpdump -i eno16777736 -nn port 5405</span></div></pre></td></tr></table></figure>
+<h3 id="抓包分析"><a href="#抓包分析" class="headerlink" title="抓包分析"></a>抓包分析</h3><p>使用tcpdump抓包工具可以来查看三台主机之间传递的心跳信息</p>
+<p><img src="/images/corosync_mariadb_tcpdump.png" alt=""><br>注:mariadb在集群资源的配置中必需是开机自启动的<br>这样corosync才能实别其Unitfile 文件，而不能在配置前启动所以服务一定是关闭的</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># ansible mariadb -m service -a "name=mariadb enabled=on"</span></div><div class="line"><span class="comment"># ansible mariadb -m service -a "name=corosync enabled=on"</span></div><div class="line"><span class="comment"># ansible mariadb -m service -a "name=pacemaker enabled=on"</span></div><div class="line"><span class="comment"># mkdir rpm &amp;&amp; cd rpm </span></div><div class="line"><span class="comment"># wget 172.18.0.1/pub/Sources/7.x86_64/crmsh/crmsh-2.1.4-1.1.x86_64.rpm 下载crmsh及其所依赖的rpm包 </span></div><div class="line"><span class="comment"># wget 172.18.0.1/pub/Sources/7.x86_64/crmsh/pssh*.rpm</span></div><div class="line"><span class="comment"># wget 172.18.0.1/pub/Sources/7.x86_64/crmsh/python-passh*.rpm </span></div><div class="line"><span class="comment"># ansible mariadb -m copy -a "src=/root/rpm dest=/root/"</span></div><div class="line"><span class="comment"># for i in &#123;1..3&#125;; do ssh node$i yum -y install /root/rpm/*; done</span></div></pre></td></tr></table></figure>
+<h3 id="查看corosync引擎是否已经正常启动"><a href="#查看corosync引擎是否已经正常启动" class="headerlink" title="查看corosync引擎是否已经正常启动"></a>查看corosync引擎是否已经正常启动</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># ansible mariadb -e command -a "grep -e 'Corosync Cluster Engine' -e 'configuration file' /var/log/messages" </span></div><div class="line">Feb 13 11:27:35 node1 systemd: Stopped Corosync Cluster Engine.</div><div class="line">Feb 13 14:08:03 node1 systemd: Starting Corosync Cluster Engine...</div><div class="line">Feb 13 14:08:04 node1 corosync: Starting Corosync Cluster Engine (corosync): [  OK  ]</div><div class="line">Feb 13 14:08:04 node1 systemd: Started Corosync Cluster Engine.</div><div class="line">Feb 13 14:28:16 node1 systemd: Mounted NFSD configuration filesystem.</div><div class="line">Feb 13 14:28:44 node1 smartd[787]: Opened configuration file /etc/smartmontools/smartd.conf</div><div class="line">Feb 13 14:32:12 node1 systemd: Starting Corosync Cluster Engine...</div><div class="line">        	Feb 13 14:32:13 node1 corosync: Starting Corosync Cluster Engine (corosync): [  OK  ]</div><div class="line">Feb 13 14:32:13 node1 systemd: Started Corosync Cluster Engine.</div><div class="line">Feb 13 14:43:03 node1 systemd: Started Corosync Cluster Engine.</div></pre></td></tr></table></figure>
+<h3 id="查看其成员之间的结点通知信息是否正常"><a href="#查看其成员之间的结点通知信息是否正常" class="headerlink" title="查看其成员之间的结点通知信息是否正常"></a>查看其成员之间的结点通知信息是否正常</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># ansible mariadb -e command -a "grep TOTEM /var/log/messages"</span></div><div class="line">查看启动过程中是否有错误信息产生 </div><div class="line"><span class="comment"># ansible mariadb -e command -a "grep 'ERROR' /var/log/messages"</span></div><div class="line">查看pacemaker是否已经正常启动</div><div class="line"><span class="comment"># ansible mariadb -e command -a "grep 'pacemaker' /var/log/messages "</span></div><div class="line"> 使用以下命令查看结点的状态</div><div class="line"><span class="comment"># crm status  </span></div><div class="line">Last updated: Mon Feb 13 15:43:08 2017</div><div class="line">Last change: Mon Feb 13 14:33:58 2017 by hacluster via crmd on node3.rj.com</div><div class="line">Stack: corosync		Current DC: node3.rj.com (version 1.1.13-10.el7-44eb2dd) - partition with quorum</div><div class="line">3 nodes and 0 resources configured	Online: [ node1.rj.com node2.rj.com node3.rj.com ]</div></pre></td></tr></table></figure>
+<h3 id="查看pacemaker-和与corosync所启动的进程"><a href="#查看pacemaker-和与corosync所启动的进程" class="headerlink" title="查看pacemaker 和与corosync所启动的进程"></a>查看pacemaker 和与corosync所启动的进程</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># ansible mariadb -m command -a "ps auxf " | grep pacemaker</span></div><div class="line">root       1720  0.0  1.3 130484  6384 ?        Ss   14:33   0:00 /usr/sbin/pacemakerd -f</div><div class="line">haclust+   1729  0.0  2.7 132816 13268 ?        Ss   14:33   0:01  \_ /usr/libexec/pacemaker/cib</div><div class="line">root       1730  0.0  1.4 133968  6956 ?        Ss   14:33   0:00  \_ /usr/libexec/pacemaker/stonithd</div><div class="line">root       1731  0.0  0.8 102936  4108 ?        Ss   14:33   0:00  \_ /usr/libexec/pacemaker/lrmd</div><div class="line">haclust+   1732  0.0  1.3 124780  6736 ?        Ss   14:33   0:00  \_ /usr/libexec/pacemaker/attrd</div><div class="line">haclust+   1733  0.0  0.7 114896  3668 ?        Ss   14:33   0:00  \_ /usr/libexec/pacemaker/pengine</div><div class="line">haclust+   1734  0.0  1.5 143160  7484 ?        Ss   14:33   0:00  \_ /usr/libexec/pacemaker/crmd</div><div class="line"><span class="comment"># ansible marriadb -m command -a "ps auxf" | grep corosync </span></div><div class="line">root       1483  0.6  7.9 134848 38436 ?        Ssl  14:32   0:28 corosync</div></pre></td></tr></table></figure>
+<h2 id="三、利用crmsh来配置corosync的IP地址资源及mariadb资源"><a href="#三、利用crmsh来配置corosync的IP地址资源及mariadb资源" class="headerlink" title="三、利用crmsh来配置corosync的IP地址资源及mariadb资源"></a>三、利用crmsh来配置corosync的IP地址资源及mariadb资源</h2><pre><code>如果想要查看某种类别下的所用资源代理的列表，可以使用类似以下的命令来实现
+</code></pre><h3 id="安装配置-1"><a href="#安装配置-1" class="headerlink" title="安装配置"></a>安装配置</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#crm ra list lsb </span></div><div class="line"><span class="comment">#crm ra list ocf heartbeat </span></div><div class="line"><span class="comment">#crm ra list ocf pacemaker </span></div><div class="line"><span class="comment">#crm ra list ocf stonith</span></div></pre></td></tr></table></figure>
+<h3 id="配置vip"><a href="#配置vip" class="headerlink" title="配置vip"></a>配置vip</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"> <span class="comment"># crm configure property stonith-enabled=false #关闭stonsth设备</span></div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># crm configure primitive DBIP ocf:heartbeat:IPaddr params ip=172.16.23.23 添加vip资源代理  </span></div><div class="line"><span class="comment"># crm configure verify 查看是否有错误</span></div><div class="line"><span class="comment"># crm configure commit 用来提交配置信息 </span></div><div class="line"><span class="comment"># crm configure show  可以用来查看配置信息</span></div><div class="line">	node 1: node1.rj.com</div><div class="line">	node 2: node2.rj.com</div><div class="line">	node 3: node3.rj.com</div><div class="line">	primitive DBIP IPaddr \</div><div class="line">		params ip=172.16.23.23</div><div class="line">	property cib-bootstrap-options: \</div><div class="line">		have-watchdog=<span class="literal">false</span> \</div><div class="line">		dc-version=1.1.13-10.el7-44eb2dd \</div><div class="line">		cluster-infrastructure=corosync \</div><div class="line">		stonith-enabled=<span class="literal">false</span></div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># crm node standby node1.rj.com	当将node1结点成为备用结点时 </span></div><div class="line"><span class="comment"># ansible mariadb -m command -a "ip addr list" 查看其vip的变化信息</span></div><div class="line"><span class="comment"># crm ra info systemd:mairadb 用来查看systemd类型的mariadb资源的语法格式 </span></div><div class="line">	systemd unit file <span class="keyword">for</span> mariadb (systemd:mariadb)</div><div class="line">		MariaDB database server</div><div class="line">	Operations<span class="string">' defaults (advisory minimum):</span></div><div class="line"><span class="string">		start         timeout=15</span></div><div class="line"><span class="string">		stop          timeout=15</span></div><div class="line"><span class="string">		status        timeout=15</span></div><div class="line"><span class="string">		restart       timeout=15</span></div><div class="line"><span class="string">		monitor       timeout=15 interval=15 start-delay=15</span></div></pre></td></tr></table></figure>
+<h3 id="vip资源"><a href="#vip资源" class="headerlink" title="vip资源"></a>vip资源</h3><p><img src="/images/corosync_mariadb_test1.png" alt=""></p>
+<pre><code>当node1 # crm node standby node1.rj.com 时
+</code></pre><p><img src="/images/corosync_mariadb_test2.png" alt=""></p>
+<h3 id="定义mariadbg资源并设定监控"><a href="#定义mariadbg资源并设定监控" class="headerlink" title="定义mariadbg资源并设定监控"></a>定义mariadbg资源并设定监控</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># crm configure primitive MDB systemd:mariadb op start timeout=15s op stop timeout=15s op monitor interval=15s timeout=15s </span></div><div class="line"><span class="comment"># crm configure group DBservice DBIP MDB</span></div><div class="line"><span class="comment"># crm configure verify </span></div><div class="line"><span class="comment"># crm configure commit </span></div><div class="line"><span class="comment"># crm configure show  </span></div><div class="line">	node 1: node1.rj.com \</div><div class="line">		attributes standby=on</div><div class="line">	node 2: node2.rj.com \</div><div class="line">		attributes standby=off</div><div class="line">	node 3: node3.rj.com \</div><div class="line">		attributes standby=off</div><div class="line">	primitive DBIP IPaddr \</div><div class="line">		params ip=172.16.23.23</div><div class="line">	primitive MDB systemd:mariadb \</div><div class="line">		op start timeout=15s interval=0 \</div><div class="line">		op stop timeout=15s interval=0 \</div><div class="line">		op monitor interval=15s timeout=15s</div><div class="line">	group DBservice DBIP MDB</div><div class="line">	property cib-bootstrap-options: \</div><div class="line">		have-watchdog=<span class="literal">false</span> \</div><div class="line">		dc-version=1.1.13-10.el7-44eb2dd \</div><div class="line">		cluster-infrastructure=corosync \</div><div class="line">		stonith-enabled=<span class="literal">false</span> \</div><div class="line">		no-quorum-policy=ignore</div></pre></td></tr></table></figure>
+<pre><code>为mariadb服务加入数据库资源，并配置远程用户远程接入进行测试 
+</code></pre><p>注：此时有一个资源已经启动，但其它的两个mariadb服务启动之后才能进行对数据库的更改</p>
+<pre><code>           但更改完后旋得再将那两个结点的数据库停止调
+
+node1 node2 node3上执行: #  mysql -e &quot;GRANT ALL  ON *.* TO &apos;root&apos;@&apos;%.%.%.%&apos; IDENTIFIED BY &apos;centos.123&apos;;&quot; 
+node1 # mysql -e &quot;CREATE DATABASE NODE1&quot;
+node2 # mysql -e &quot;CREATE DATABASE NODE2&quot;
+node3 # mysql -e &quot;CREATE DATABASE NODE3&quot;
+</code></pre><h3 id="启用一台测试机进行测试"><a href="#启用一台测试机进行测试" class="headerlink" title="启用一台测试机进行测试"></a>启用一台测试机进行测试</h3><p><img src="/images/corosync_mariadb_test3.png" alt=""></p>
+<pre><code>node1    
+</code></pre><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># systemctl stop corosync.service pacemaker.service </span></div><div class="line"><span class="comment"># 当node1的服务停止时</span></div></pre></td></tr></table></figure>
+<p><img src="/images/corosync_mariadb_test4.png" alt=""></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># systemctl stop corosync.service pacemaker.service </span></div><div class="line"><span class="comment"># 当node2的服务停止时</span></div></pre></td></tr></table></figure>
+<p><img src="/images/corosync_mariadb_test5.png" alt=""></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>ღ ღ ღ 如果觉得文章对您有用，不妨打赏一下ღ ღ ღ</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/weipei.png" alt="锦遥 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/zhipei.png" alt="锦遥 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/linux/" rel="tag"># linux</a>
+          
+            <a href="/tags/rhca/" rel="tag"># rhca</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/02/07/CentOS-7-tomcat-7-0-54-的功能实现及详解/" rel="next" title="CentOS 7 tomcat 7.0.54 的功能实现及详解">
+                <i class="fa fa-chevron-left"></i> CentOS 7 tomcat 7.0.54 的功能实现及详解
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/02/07/MariaDB之基于openssl的主从复制/" rel="prev" title="MariaDB之基于openssl的主从复制">
+                MariaDB之基于openssl的主从复制 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/rjyy.ico"
+                alt="锦遥" />
+            
+              <p class="site-author-name" itemprop="name">锦遥</p>
+              <p class="site-description motion-element" itemprop="description">有智而性缓者思大智
+
+</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">65</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、设计前提"><span class="nav-number">1.</span> <span class="nav-text">一、设计前提</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、环境的建立及安装orosync-pacemaker-crmsh"><span class="nav-number">2.</span> <span class="nav-text">二、环境的建立及安装orosync ,pacemaker ,crmsh</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装配置"><span class="nav-number">2.1.</span> <span class="nav-text">安装配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#corosync配置"><span class="nav-number">2.2.</span> <span class="nav-text">corosync配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#抓包分析"><span class="nav-number">2.3.</span> <span class="nav-text">抓包分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看corosync引擎是否已经正常启动"><span class="nav-number">2.4.</span> <span class="nav-text">查看corosync引擎是否已经正常启动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看其成员之间的结点通知信息是否正常"><span class="nav-number">2.5.</span> <span class="nav-text">查看其成员之间的结点通知信息是否正常</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看pacemaker-和与corosync所启动的进程"><span class="nav-number">2.6.</span> <span class="nav-text">查看pacemaker 和与corosync所启动的进程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、利用crmsh来配置corosync的IP地址资源及mariadb资源"><span class="nav-number">3.</span> <span class="nav-text">三、利用crmsh来配置corosync的IP地址资源及mariadb资源</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装配置-1"><span class="nav-number">3.1.</span> <span class="nav-text">安装配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置vip"><span class="nav-number">3.2.</span> <span class="nav-text">配置vip</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vip资源"><span class="nav-number">3.3.</span> <span class="nav-text">vip资源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#定义mariadbg资源并设定监控"><span class="nav-number">3.4.</span> <span class="nav-text">定义mariadbg资源并设定监控</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启用一台测试机进行测试"><span class="nav-number">3.5.</span> <span class="nav-text">启用一台测试机进行测试</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; 2015 &mdash; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">锦遥</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">162.2k</span>
+  
+  <span>   |   </span>
+<span id="showDays"></span>
+</div>
+
+
+
+
+
+
+
+
+<div>
+<a href="http://www.beian.miit.gov.cn">晋ICP备17010575号</a>
+</div>
+<!-- time -->
+<div id="show-time">
+<span id="span_dt_dt"></span>
+</div>
+<script>
+var seconds = 1000;
+var minutes = seconds * 60;
+var hours = minutes * 60;
+var days = hours * 24;
+var years = days * 365;
+var birthDay = Date.UTC(2017,07,30,00,00,00); // 这里设置建站时间
+setInterval(function() {
+var today = new Date();
+var todayYear = today.getFullYear();
+var todayMonth = today.getMonth()+1;
+var todayDate = today.getDate();
+var todayHour = today.getHours();
+var todayMinute = today.getMinutes();
+var todaySecond = today.getSeconds();
+var now = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+var diff = now - birthDay;
+var diffYears = Math.floor(diff/years);
+var diffDays = Math.floor((diff/days)-diffYears*365);
+var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+  document.getElementById('showDays').innerHTML="不間斷的運行了"+diffYears+" 年 "+diffDays+" 天 "+diffHours+" 時 "+diffMinutes+" 分 "+diffSeconds+" 秒 ";
+}, 1000);
+</script>
+
+        
+<div class="busuanzi-count">
+#  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 訪客數
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      位
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>  訪客量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://www.ssjinyao.com/2018/02/07/corosync-v2-pacemaker-crmsh-实现mariadb高可用/';
+          this.page.identifier = '2018/02/07/corosync-v2-pacemaker-crmsh-实现mariadb高可用/';
+          this.page.title = 'corosync v2 + pacemaker + crmsh 实现mariadb高可用';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine@1.1.6/dist/Valine.min.js"></script>
+  <script type="text/javascript">
+    new Valine({
+        av: AV,
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        app_id: 'NkJqMpxu4QlRLhPIHipNUHF1-gzGzoHsz',
+        app_key: 'D2vTdueKJ8ammc2JEdje0vLW',
+        placeholder: 'From SSJinYao'
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'true') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  <!-- 点击特效 -->
+<canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas>
+<script type="text/javascript" src="/js/src/fireworks.js"></script>
+
+
+  <script src="/js/activate-power-mode.min.js"></script>
+    <script>
+	    POWERMODE.colorful = true;
+    POWERMODE.shake = false;
+    document.body.addEventListener('input', POWERMODE);
+	  </script>
+
+
+  
+</body>
+</html>

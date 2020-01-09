@@ -1,0 +1,1402 @@
+<!DOCTYPE html>
+
+
+
+  
+
+<script src="/live2d-widget/autoload.js"></script>
+<!--崩溃欺骗-->
+<script type="text/javascript" src="/js/src/crash_cheat.js"></script>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="https://fonts.cat.net/css?family=Lato:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|Roboto Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/redhat.ico?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/redhat.ico?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/redihat.ico?v=5.1.3" color="#0000EE">
+
+
+  <link rel="manifest" href="/images/manifest.json">
+
+
+  <meta name="msapplication-config" content="/images/browserconfig.xml" />
+
+
+
+  <meta name="keywords" content="linux,rhca,cloud," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="逝水锦遥" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="kubernetes 操作记录二 Kubernetes Pod 控制器Replica Set(RS) kubernetes 新一代的Pod controller1234567891011121314151617181920212223242526272829303132333435363738394041424344# vim rs-demo.yamlapiVersion: apps/v1kind">
+<meta name="keywords" content="linux,rhca,cloud">
+<meta property="og:type" content="article">
+<meta property="og:title" content="kubernetes操作记录(二)">
+<meta property="og:url" content="https://www.ssjinyao.com/2019/05/10/kubernetes实操记录2/index.html">
+<meta property="og:site_name" content="逝水锦遥">
+<meta property="og:description" content="kubernetes 操作记录二 Kubernetes Pod 控制器Replica Set(RS) kubernetes 新一代的Pod controller1234567891011121314151617181920212223242526272829303132333435363738394041424344# vim rs-demo.yamlapiVersion: apps/v1kind">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://www.ssjinyao.com/images/docker_kubernetes.png">
+<meta property="og:image" content="https://www.ssjinyao.com/images/ingress-nginx-404.png">
+<meta property="og:image" content="https://www.ssjinyao.com/images/ingress-nginx-pod.png">
+<meta property="og:image" content="https://www.ssjinyao.com/images/ingress-nginx-tomcat.png">
+<meta property="og:image" content="https://www.ssjinyao.com/images/ingress-nginx-tomcat-https.png">
+<meta property="og:updated_time" content="2019-05-23T09:49:37.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="kubernetes操作记录(二)">
+<meta name="twitter:description" content="kubernetes 操作记录二 Kubernetes Pod 控制器Replica Set(RS) kubernetes 新一代的Pod controller1234567891011121314151617181920212223242526272829303132333435363738394041424344# vim rs-demo.yamlapiVersion: apps/v1kind">
+<meta name="twitter:image" content="https://www.ssjinyao.com/images/docker_kubernetes.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="https://www.ssjinyao.com/2019/05/10/kubernetes实操记录2/"/>
+
+
+
+
+
+  <title>kubernetes操作记录(二) | 逝水锦遥</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta custom-logo">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">逝水锦遥</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">心有所向 将有所成</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-所有文章">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-linux"></i> <br />
+            
+            所有文章
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-python">
+          <a href="/./tags/program" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-gitlab"></i> <br />
+            
+            python
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-运维组件">
+          <a href="/./tags/rhca" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            运维组件
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-数据库">
+          <a href="/./tags/database" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-database"></i> <br />
+            
+            数据库
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-云计算">
+          <a href="/./tags/cloud" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-cloud"></i> <br />
+            
+            云计算
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-个人中心">
+          <a href="/./tags/renjin" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user-circle"></i> <br />
+            
+            个人中心
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索文章
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.ssjinyao.com/2019/05/10/kubernetes实操记录2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="锦遥">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/rjyy.ico">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="逝水锦遥">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">kubernetes操作记录(二)</h1>
+        
+
+        <div class="post-meta">
+		          
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-10T21:29:00+08:00">
+                2019-05-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/05/10/kubernetes实操记录2/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2019/05/10/kubernetes实操记录2/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>  浏览
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2.9k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  17
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="kubernetes-操作记录二"><a href="#kubernetes-操作记录二" class="headerlink" title="kubernetes 操作记录二"></a>kubernetes 操作记录二</h1><p><img src="/images/docker_kubernetes.png" alt=""></p>
+<h2 id="Kubernetes-Pod-控制器"><a href="#Kubernetes-Pod-控制器" class="headerlink" title="Kubernetes Pod 控制器"></a>Kubernetes Pod 控制器</h2><h3 id="Replica-Set-RS-kubernetes-新一代的Pod-controller"><a href="#Replica-Set-RS-kubernetes-新一代的Pod-controller" class="headerlink" title="Replica Set(RS) kubernetes 新一代的Pod controller"></a>Replica Set(RS) kubernetes 新一代的Pod controller</h3><figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># vim rs-demo.yaml</span></div><div class="line"><span class="attr">apiVersion:</span> <span class="string">apps/v1</span></div><div class="line"><span class="attr">kind:</span> <span class="string">ReplicaSet</span></div><div class="line"><span class="attr">metadata:</span></div><div class="line"><span class="attr">    name:</span> <span class="string">myapp</span></div><div class="line"><span class="attr">    namespace:</span> <span class="string">default</span></div><div class="line"><span class="attr">spec:</span></div><div class="line"><span class="attr">    replicas:</span> <span class="number">2</span></div><div class="line"><span class="attr">    selector:</span></div><div class="line"><span class="attr">        matchLabels:</span></div><div class="line"><span class="attr">            app:</span> <span class="string">myapp</span></div><div class="line"><span class="attr">            release:</span> <span class="string">canary</span></div><div class="line"><span class="attr">    template:</span></div><div class="line"><span class="attr">        metadata:</span></div><div class="line"><span class="attr">            name:</span> <span class="string">myapp-pod</span></div><div class="line"><span class="attr">            labels:</span></div><div class="line"><span class="attr">                app:</span> <span class="string">myapp</span></div><div class="line"><span class="attr">                release:</span> <span class="string">canary</span></div><div class="line"><span class="attr">                environment:</span> <span class="string">qa</span></div><div class="line"><span class="attr">        spec:</span></div><div class="line"><span class="attr">            containers:</span></div><div class="line"><span class="attr">            - name:</span> <span class="string">myapp-container</span></div><div class="line"><span class="attr">              image:</span> <span class="string">ikubernetes/myapp:v1</span></div><div class="line"><span class="attr">              ports:</span></div><div class="line"><span class="attr">              - name:</span> <span class="string">http</span></div><div class="line"><span class="attr">                containerPort:</span> <span class="number">80</span></div><div class="line"><span class="comment">#  kubectl get rs</span></div><div class="line"><span class="string">NAME</span>                     <span class="string">DESIRED</span>   <span class="string">CURRENT</span>   <span class="string">READY</span>   <span class="string">AGE</span></div><div class="line"><span class="string">myapp</span>                    <span class="number">2</span>         <span class="number">2</span>         <span class="number">2</span>       <span class="number">6</span><span class="string">m51s</span></div><div class="line"><span class="comment"># kubectl get pods</span></div><div class="line"><span class="string">NAME</span>                           <span class="string">READY</span>   <span class="string">STATUS</span>    <span class="string">RESTARTS</span>   <span class="string">AGE</span></div><div class="line"><span class="string">myapp-5xbwq</span>                    <span class="number">1</span><span class="string">/1</span>     <span class="string">Running</span>   <span class="number">0</span>          <span class="number">7</span><span class="string">m17s</span></div><div class="line"><span class="string">myapp-jdzph</span>                    <span class="number">1</span><span class="string">/1</span>     <span class="string">Running</span>   <span class="number">0</span>          <span class="number">7</span><span class="string">m17s</span></div><div class="line"><span class="comment"># curl 10.244.3.157</span></div><div class="line"><span class="string">Hello</span> <span class="string">MyApp</span> <span class="string">| Version: v1 | &lt;a href="hostname.html"&gt;Pod Name&lt;/a&gt;</span></div><div class="line"><span class="string"># kubectl  delete pods myapp-5xbwq </span></div><div class="line"><span class="string"># kubectl get pods</span></div><div class="line"><span class="string">NAME                           READY   STATUS    RESTARTS   AGE</span></div><div class="line"><span class="string">myapp-jdzph                    1/1     Running   0          10m</span></div><div class="line"><span class="string">myapp-xg9mm                    1/1     Running   0          16s</span></div><div class="line"><span class="string"># kubectl label pods pod-demo release=canary</span></div><div class="line"><span class="string"># kubectl get pods --show-labels</span></div><div class="line"><span class="string">NAME                           READY   STATUS    RESTARTS   AGE   LABELS</span></div><div class="line"><span class="string">myapp-jdzph                    1/1     Running   0          31m   app=myapp,environment=qa,release=canary</span></div></pre></td></tr></table></figure>
+<p>精确满足用户期望</p>
+<h3 id="apply-f-声明式更新，即可以创建，也可以更新"><a href="#apply-f-声明式更新，即可以创建，也可以更新" class="headerlink" title="apply -f 声明式更新，即可以创建，也可以更新"></a>apply -f 声明式更新，即可以创建，也可以更新</h3><figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># vim deploy-demo.yaml</span></div><div class="line"><span class="attr">apiVersion:</span> <span class="string">apps/v1</span></div><div class="line"><span class="attr">kind:</span> <span class="string">Deployment</span></div><div class="line"><span class="attr">metadata:</span></div><div class="line"><span class="attr">  name:</span> <span class="string">myapp-deploy</span></div><div class="line"><span class="attr">  namespace:</span> <span class="string">default</span></div><div class="line"><span class="attr">spec:</span></div><div class="line"><span class="attr">  replicas:</span> <span class="number">2</span></div><div class="line"><span class="attr">  selector:</span></div><div class="line"><span class="attr">    matchLabels:</span></div><div class="line"><span class="attr">      app:</span> <span class="string">myapp</span></div><div class="line"><span class="attr">      release:</span> <span class="string">canary</span></div><div class="line"><span class="attr">  template:</span></div><div class="line"><span class="attr">    metadata:</span></div><div class="line"><span class="attr">      labels:</span></div><div class="line"><span class="attr">        app:</span> <span class="string">myapp</span></div><div class="line"><span class="attr">        release:</span> <span class="string">canary</span></div><div class="line"><span class="attr">    spec:</span></div><div class="line"><span class="attr">      containers:</span></div><div class="line"><span class="attr">      - name:</span> <span class="string">myapp</span></div><div class="line"><span class="attr">        image:</span> <span class="string">ikubernetes/myapp:v1</span></div><div class="line"><span class="attr">        ports:</span></div><div class="line"><span class="attr">        - name:</span> <span class="string">http</span></div><div class="line"><span class="attr">          containerPort:</span> <span class="number">80</span></div><div class="line"><span class="comment"># kubectl apply -f deploy-demo.yaml</span></div><div class="line"><span class="comment"># kubectl get deploy</span></div><div class="line"><span class="string">NAME</span>           <span class="string">READY</span>   <span class="string">UP-TO-DATE</span>   <span class="string">AVAILABLE</span>   <span class="string">AGE</span></div><div class="line"><span class="string">myapp-deploy</span>   <span class="number">2</span><span class="string">/2</span>     <span class="number">2</span>            <span class="number">2</span>           <span class="number">115</span><span class="string">s</span></div><div class="line"><span class="comment"># kubectl  get pods</span></div><div class="line"><span class="string">NAME</span>                           <span class="string">READY</span>   <span class="string">STATUS</span>    <span class="string">RESTARTS</span>   <span class="string">AGE</span></div><div class="line"><span class="string">myapp-deploy-67b6dfcd8-6q725</span>   <span class="number">1</span><span class="string">/1</span>     <span class="string">Running</span>   <span class="number">0</span>          <span class="number">4</span><span class="string">m39s</span></div><div class="line"><span class="string">myapp-deploy-67b6dfcd8-mshw8</span>   <span class="number">1</span><span class="string">/1</span>     <span class="string">Running</span>   <span class="number">0</span>          <span class="number">4</span><span class="string">m39s</span></div><div class="line"><span class="comment"># vim deploy-demo.yaml</span></div><div class="line"><span class="string">将</span> <span class="attr">replicas:</span> <span class="number">2</span> <span class="string">改为</span> <span class="attr">replicas:</span> <span class="number">3</span></div><div class="line"><span class="comment"># kubectl apply -f deploy-demo.yaml</span></div><div class="line"><span class="comment"># kubectl  get pods</span></div><div class="line"><span class="string">NAME</span>                           <span class="string">READY</span>   <span class="string">STATUS</span>    <span class="string">RESTARTS</span>   <span class="string">AGE</span></div><div class="line"><span class="string">myapp-deploy-67b6dfcd8-6q725</span>   <span class="number">1</span><span class="string">/1</span>     <span class="string">Running</span>   <span class="number">0</span>          <span class="number">6</span><span class="string">m34s</span></div><div class="line"><span class="string">myapp-deploy-67b6dfcd8-gltjz</span>   <span class="number">1</span><span class="string">/1</span>     <span class="string">Running</span>   <span class="number">0</span>          <span class="number">58</span><span class="string">s</span></div><div class="line"><span class="string">myapp-deploy-67b6dfcd8-mshw8</span>   <span class="number">1</span><span class="string">/1</span>     <span class="string">Running</span>   <span class="number">0</span>          <span class="number">6</span><span class="string">m34s</span></div></pre></td></tr></table></figure>
+<h3 id="实现流动更新"><a href="#实现流动更新" class="headerlink" title="实现流动更新"></a>实现流动更新</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># vim deploy-demo.yaml</span></div><div class="line">image: ikubernetes/myapp:v1  改为 image: ikubernetes/myapp:v2</div><div class="line"><span class="comment"># kubcetl  apply -f deploy-demo.yaml</span></div><div class="line"><span class="comment"># kubectl  get pods -l app=myapp -w</span></div><div class="line">NAME                           READY   STATUS    RESTARTS   AGE</div><div class="line">myapp-deploy-67b6dfcd8-6q725   1/1     Running   0          3h23m</div><div class="line">myapp-deploy-67b6dfcd8-gltjz   1/1     Running   0          3h18m</div><div class="line">myapp-deploy-67b6dfcd8-mshw8   1/1     Running   0          3h23m</div><div class="line">myapp-deploy-675558bfc5-89nc7   0/1     Pending   0          0s</div><div class="line">myapp-deploy-675558bfc5-89nc7   0/1     Pending   0          0s</div><div class="line">myapp-deploy-675558bfc5-89nc7   0/1     ContainerCreating   0          0s</div><div class="line">myapp-deploy-675558bfc5-89nc7   1/1     Running             0          2s</div><div class="line">myapp-deploy-67b6dfcd8-gltjz    1/1     Terminating         0          3h18m</div><div class="line">myapp-deploy-675558bfc5-7zht2   0/1     Pending             0          0s</div><div class="line">myapp-deploy-675558bfc5-7zht2   0/1     Pending             0          0s</div><div class="line">myapp-deploy-675558bfc5-7zht2   0/1     ContainerCreating   0          0s</div><div class="line">myapp-deploy-67b6dfcd8-gltjz    0/1     Terminating         0          3h18m</div><div class="line">myapp-deploy-675558bfc5-7zht2   1/1     Running             0          3s</div><div class="line">myapp-deploy-67b6dfcd8-6q725    1/1     Terminating         0          3h24m</div><div class="line">myapp-deploy-675558bfc5-xjq9z   0/1     Pending             0          0s</div><div class="line">myapp-deploy-675558bfc5-xjq9z   0/1     Pending             0          0s</div><div class="line">myapp-deploy-675558bfc5-xjq9z   0/1     ContainerCreating   0          0s</div><div class="line">myapp-deploy-67b6dfcd8-gltjz    0/1     Terminating         0          3h18m</div><div class="line">myapp-deploy-67b6dfcd8-gltjz    0/1     Terminating         0          3h18m</div><div class="line">myapp-deploy-67b6dfcd8-6q725    0/1     Terminating         0          3h24m</div><div class="line">myapp-deploy-675558bfc5-xjq9z   1/1     Running             0          2s</div><div class="line">myapp-deploy-67b6dfcd8-mshw8    1/1     Terminating         0          3h24m</div><div class="line">myapp-deploy-67b6dfcd8-6q725    0/1     Terminating         0          3h24m</div><div class="line">myapp-deploy-67b6dfcd8-6q725    0/1     Terminating         0          3h24m</div><div class="line">myapp-deploy-67b6dfcd8-mshw8    0/1     Terminating         0          3h24m</div><div class="line">myapp-deploy-67b6dfcd8-mshw8    0/1     Terminating         0          3h24m</div><div class="line">myapp-deploy-67b6dfcd8-mshw8    0/1     Terminating         0          3h24m</div></pre></td></tr></table></figure>
+<h3 id="查看目前所有的replica-set"><a href="#查看目前所有的replica-set" class="headerlink" title="查看目前所有的replica set"></a>查看目前所有的replica set</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># kubectl get rs -o wide</span></div><div class="line">NAME                      DESIRED   CURRENT   READY   AGE     CONTAINERS     IMAGES                 SELECTOR</div><div class="line">myapp-deploy-675558bfc5   3         3         3       3m19s   myapp          ikubernetes/myapp:v2   app=myapp,pod-template-hash=675558bfc5,release=canary</div><div class="line">myapp-deploy-67b6dfcd8    0         0         0       3h27m   myapp          ikubernetes/myapp:v1   app=myapp,pod-template-hash=67b6dfcd8,release=canary</div></pre></td></tr></table></figure>
+<h3 id="查看历史滚动信息"><a href="#查看历史滚动信息" class="headerlink" title="查看历史滚动信息"></a>查看历史滚动信息</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># kubectl rollout history deployment myapp-deploy</span></div><div class="line">deployment.extensions/myapp-deploy</div><div class="line">REVISION  CHANGE-CAUSE</div><div class="line">1         &lt;none&gt;</div><div class="line">2         &lt;none&gt;</div></pre></td></tr></table></figure>
+<h3 id="定义一个补丁"><a href="#定义一个补丁" class="headerlink" title="定义一个补丁"></a>定义一个补丁</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># kubectl patch deployment myapp-deploy -p '&#123;"spec":&#123;"replicas":5&#125;&#125;'</span></div><div class="line"><span class="comment"># kubectl  get pods</span></div><div class="line">NAME                            READY   STATUS    RESTARTS   AGE</div><div class="line">myapp-deploy-675558bfc5-7zht2   1/1     Running   0          11m</div><div class="line">myapp-deploy-675558bfc5-89nc7   1/1     Running   0          11m</div><div class="line">myapp-deploy-675558bfc5-9nkk4   1/1     Running   0          33s</div><div class="line">myapp-deploy-675558bfc5-rbs4d   1/1     Running   0          33s</div><div class="line">myapp-deploy-675558bfc5-xjq9z   1/1     Running   0          11m</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># kubectl patch deployment myapp-deploy -p '&#123;"spec":&#123;"strategy":&#123;"rollingUpdate":&#123;"maxSurge":1,"maxUnavailable":0&#125;&#125;&#125;&#125;'</span></div><div class="line">deployment.extensions/myapp-deploy patched</div><div class="line"><span class="comment"># kubectl  describe deployment myapp-deploy</span></div><div class="line">RollingUpdateStrategy:  0 max unavailable, 1 max surge</div></pre></td></tr></table></figure>
+<h3 id="金丝雀更新发布"><a href="#金丝雀更新发布" class="headerlink" title="金丝雀更新发布"></a>金丝雀更新发布</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># kubectl set image deployment myapp-deploy myapp=ikubernetes/myapp:v3 &amp;&amp; kubectl rollout pause deployment myapp-deploy  # 更新并且暂停更新</span></div><div class="line">deployment.extensions/myapp-deploy image updated</div><div class="line">deployment.extensions/myapp-deploy paused</div><div class="line"><span class="comment"># kubectl  get pods -l app=myapp -w</span></div><div class="line">NAME                            READY   STATUS    RESTARTS   AGE</div><div class="line">myapp-deploy-675558bfc5-7zht2   1/1     Running   0          27m</div><div class="line">myapp-deploy-675558bfc5-89nc7   1/1     Running   0          27m</div><div class="line">myapp-deploy-675558bfc5-9nkk4   1/1     Running   0          17m</div><div class="line">myapp-deploy-675558bfc5-rbs4d   1/1     Running   0          17m</div><div class="line">myapp-deploy-675558bfc5-xjq9z   1/1     Running   0          27m</div><div class="line">myapp-deploy-7f577979c8-92tj8   0/1     Pending   0          0s</div><div class="line">myapp-deploy-7f577979c8-92tj8   0/1     Pending   0          0s</div><div class="line">myapp-deploy-7f577979c8-92tj8   0/1     ContainerCreating   0          0s</div><div class="line">myapp-deploy-7f577979c8-92tj8   1/1     Running             0          14s</div></pre></td></tr></table></figure>
+<h3 id="使用以下命令进行监控更新"><a href="#使用以下命令进行监控更新" class="headerlink" title="使用以下命令进行监控更新"></a>使用以下命令进行监控更新</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># kubectl  rollout status deployment myapp-deploy</span></div><div class="line">Waiting <span class="keyword">for</span> deployment <span class="string">"myapp-deploy"</span> rollout to finish: 1 out of 5 new replicas have been updated...</div></pre></td></tr></table></figure>
+<p>若发现没有问题后继续更新</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># kubectl rollout resume deployment myapp-deploy</span></div><div class="line">deployment.extensions/myapp-deploy resumed</div><div class="line"><span class="comment"># kubectl  rollout status deployment myapp-deploy</span></div><div class="line">Waiting <span class="keyword">for</span> deployment <span class="string">"myapp-deploy"</span> rollout to finish: 1 out of 5 new replicas have been updated...</div><div class="line">Waiting <span class="keyword">for</span> deployment spec update to be observed...</div><div class="line">Waiting <span class="keyword">for</span> deployment spec update to be observed...</div><div class="line">Waiting <span class="keyword">for</span> deployment <span class="string">"myapp-deploy"</span> rollout to finish: 1 out of 5 new replicas have been updated...</div><div class="line">Waiting <span class="keyword">for</span> deployment <span class="string">"myapp-deploy"</span> rollout to finish: 1 out of 5 new replicas have been updated...</div><div class="line">Waiting <span class="keyword">for</span> deployment <span class="string">"myapp-deploy"</span> rollout to finish: 2 out of 5 new replicas have been updated...</div><div class="line">Waiting <span class="keyword">for</span> deployment <span class="string">"myapp-deploy"</span> rollout to finish: 2 out of 5 new replicas have been updated...</div><div class="line">Waiting <span class="keyword">for</span> deployment <span class="string">"myapp-deploy"</span> rollout to finish: 2 out of 5 new replicas have been updated...</div><div class="line">Waiting <span class="keyword">for</span> deployment <span class="string">"myapp-deploy"</span> rollout to finish: 3 out of 5 new replicas have been updated...</div><div class="line">Waiting <span class="keyword">for</span> deployment <span class="string">"myapp-deploy"</span> rollout to finish: 3 out of 5 new replicas have been updated...</div><div class="line">Waiting <span class="keyword">for</span> deployment <span class="string">"myapp-deploy"</span> rollout to finish: 3 out of 5 new replicas have been updated...</div><div class="line">Waiting <span class="keyword">for</span> deployment <span class="string">"myapp-deploy"</span> rollout to finish: 4 out of 5 new replicas have been updated...</div><div class="line">Waiting <span class="keyword">for</span> deployment <span class="string">"myapp-deploy"</span> rollout to finish: 4 out of 5 new replicas have been updated...</div><div class="line">Waiting <span class="keyword">for</span> deployment <span class="string">"myapp-deploy"</span> rollout to finish: 4 out of 5 new replicas have been updated...</div><div class="line">Waiting <span class="keyword">for</span> deployment <span class="string">"myapp-deploy"</span> rollout to finish: 1 old replicas are pending termination...</div><div class="line">Waiting <span class="keyword">for</span> deployment <span class="string">"myapp-deploy"</span> rollout to finish: 1 old replicas are pending termination...</div><div class="line">deployment <span class="string">"myapp-deploy"</span> successfully rolled out</div></pre></td></tr></table></figure>
+<h3 id="若更新时发现问题，我们可以执行回滚"><a href="#若更新时发现问题，我们可以执行回滚" class="headerlink" title="若更新时发现问题，我们可以执行回滚"></a>若更新时发现问题，我们可以执行回滚</h3><p>查看可以回滚的版本</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># kubectl rollout history deployment myapp-deploy</span></div><div class="line">deployment.extensions/myapp-deploy</div><div class="line">REVISION  CHANGE-CAUSE</div><div class="line">1         &lt;none&gt;</div><div class="line">2         &lt;none&gt;</div><div class="line">3         &lt;none&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># kubectl  rollout undo deployment myapp-deploy --to-revision=1</span></div><div class="line">deployment.extensions/myapp-deploy rolled back</div><div class="line"><span class="comment"># kubectl rollout history deployment myapp-deploy</span></div><div class="line">deployment.extensions/myapp-deploy</div><div class="line">REVISION  CHANGE-CAUSE</div><div class="line">2         &lt;none&gt;</div><div class="line">3         &lt;none&gt;</div><div class="line">4         &lt;none&gt;</div></pre></td></tr></table></figure>
+<p>这时第一版已经回滚成第一版了 </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># kubectl get rs -o wide</span></div><div class="line">NAME                      DESIRED   CURRENT   READY   AGE    CONTAINERS     IMAGES                 SELECTOR</div><div class="line">myapp-deploy-675558bfc5   0         0         0       42m    myapp          ikubernetes/myapp:v2   app=myapp,pod-template-hash=675558bfc5,release=canary</div><div class="line">myapp-deploy-67b6dfcd8    5         5         5       4h6m   myapp          ikubernetes/myapp:v1   app=myapp,pod-template-hash=67b6dfcd8,release=canary</div></pre></td></tr></table></figure>
+<h2 id="DaemonSet"><a href="#DaemonSet" class="headerlink" title="DaemonSet"></a>DaemonSet</h2><p>DaemonSet 在整个集群的每个节点上只运行指定Pod的一个副本，用于系统级的管理功能<br>比如filebeat，收集日志的服务</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># vim ds-demo.yaml</span></div><div class="line"><span class="attr">apiVersion:</span> <span class="string">apps/v1</span></div><div class="line"><span class="attr">kind:</span> <span class="string">Deployment</span></div><div class="line"><span class="attr">metadata:</span></div><div class="line"><span class="attr">  name:</span> <span class="string">redis</span></div><div class="line"><span class="attr">  namespace:</span> <span class="string">default</span></div><div class="line"><span class="attr">spec:</span></div><div class="line"><span class="attr">  replicas:</span> <span class="number">1</span></div><div class="line"><span class="attr">  selector:</span></div><div class="line"><span class="attr">    matchLabels:</span></div><div class="line"><span class="attr">      app:</span> <span class="string">redis</span></div><div class="line"><span class="attr">      role:</span> <span class="string">logstor</span></div><div class="line"><span class="attr">  template:</span></div><div class="line"><span class="attr">    metadata:</span></div><div class="line"><span class="attr">      labels:</span></div><div class="line"><span class="attr">        app:</span> <span class="string">redis</span></div><div class="line"><span class="attr">        role:</span> <span class="string">logstor</span></div><div class="line"><span class="attr">    spec:</span></div><div class="line"><span class="attr">      containers:</span></div><div class="line"><span class="attr">      - name:</span> <span class="string">redis</span></div><div class="line"><span class="attr">        image:</span> <span class="attr">redis:4.0-alpine</span></div><div class="line"><span class="attr">        ports:</span></div><div class="line"><span class="attr">        - name:</span> <span class="string">redis</span></div><div class="line"><span class="attr">          containerPort:</span> <span class="number">6379</span></div><div class="line"><span class="meta">---</span></div><div class="line"><span class="attr">apiVersion:</span> <span class="string">apps/v1</span></div><div class="line"><span class="attr">kind:</span> <span class="string">DaemonSet</span></div><div class="line"><span class="attr">metadata:</span></div><div class="line"><span class="attr">  name:</span> <span class="string">filebeat-ds</span></div><div class="line"><span class="attr">  namespace:</span> <span class="string">default</span></div><div class="line"><span class="attr">spec:</span></div><div class="line"><span class="attr">  selector:</span></div><div class="line"><span class="attr">    matchLabels:</span></div><div class="line"><span class="attr">      app:</span> <span class="string">filebeat</span></div><div class="line"><span class="attr">      release:</span> <span class="string">stable</span></div><div class="line"><span class="attr">  template:</span></div><div class="line"><span class="attr">    metadata:</span></div><div class="line"><span class="attr">      labels:</span></div><div class="line"><span class="attr">        app:</span> <span class="string">filebeat</span></div><div class="line"><span class="attr">        release:</span> <span class="string">stable</span></div><div class="line"><span class="attr">    spec:</span></div><div class="line"><span class="attr">      containers:</span></div><div class="line"><span class="attr">      - name:</span> <span class="string">filebeat</span></div><div class="line"><span class="attr">        image:</span> <span class="string">ikubernetes/filebeat:5.6.5-alpine</span></div><div class="line"><span class="attr">        env:</span></div><div class="line"><span class="attr">        - name:</span> <span class="string">REDIS_HOST</span></div><div class="line"><span class="attr">          value:</span> <span class="string">redis.default.svc.cluster.local</span></div><div class="line"><span class="attr">        - name:</span> <span class="string">REDIS_LOG_LEVEL</span></div><div class="line"><span class="attr">          value:</span> <span class="string">info</span></div><div class="line"><span class="comment"># kubectl apply -f ds-demo.yaml</span></div><div class="line"><span class="comment"># kubectl expose deployment redis --port=6379</span></div><div class="line"><span class="string">service/redis</span> <span class="string">exposed</span></div><div class="line"><span class="comment"># kubectl set image daemonsets filebeat-ds filebeat=ikubernetes/filebeat:5.6.6-alpine</span></div><div class="line"><span class="string">daemonset.extensions/filebeat-ds</span> <span class="string">image</span> <span class="string">updated</span></div></pre></td></tr></table></figure>
+<h2 id="Kubernetes-Service"><a href="#Kubernetes-Service" class="headerlink" title="Kubernetes Service"></a>Kubernetes Service</h2><p>ExternalName, ClusterIP, NodePort, and LoadBalancer</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># vim redis-svc.yaml</span></div><div class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></div><div class="line"><span class="attr">kind:</span> <span class="string">Service</span></div><div class="line"><span class="attr">metadata:</span></div><div class="line"><span class="attr">  name:</span> <span class="string">redis</span></div><div class="line"><span class="attr">  namespace:</span> <span class="string">default</span></div><div class="line"><span class="attr">spec:</span></div><div class="line"><span class="attr">  selector:</span></div><div class="line"><span class="attr">    app:</span> <span class="string">redis</span></div><div class="line"><span class="attr">    role:</span> <span class="string">logstor</span></div><div class="line"><span class="attr">  clusterIP:</span> <span class="number">10.96</span><span class="number">.88</span><span class="number">.88</span></div><div class="line"><span class="attr">  type:</span> <span class="string">ClusterIP</span></div><div class="line"><span class="attr">  ports:</span></div><div class="line"><span class="attr">  - port:</span> <span class="number">6339</span></div><div class="line"><span class="attr">    targetPort:</span> <span class="number">6379</span></div></pre></td></tr></table></figure>
+<p>资源记录<br>SVC_NAME.NS_NAME.DOMAIN.LTD.<br>svc.cluster.local<br>redis.default.svc.cluster.local</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># vim myapp-svc.yaml</span></div><div class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></div><div class="line"><span class="attr">kind:</span> <span class="string">Service</span></div><div class="line"><span class="attr">metadata:</span></div><div class="line"><span class="attr">  name:</span> <span class="string">myapp</span></div><div class="line"><span class="attr">  namespace:</span> <span class="string">default</span></div><div class="line"><span class="attr">spec:</span></div><div class="line"><span class="attr">  selector:</span></div><div class="line"><span class="attr">    app:</span> <span class="string">myapp</span></div><div class="line"><span class="attr">    release:</span> <span class="string">canary</span></div><div class="line"><span class="attr">  clusterIP:</span> <span class="number">10.99</span><span class="number">.99</span><span class="number">.99</span></div><div class="line"><span class="attr">  type:</span> <span class="string">NodePort</span></div><div class="line"><span class="attr">  ports:</span></div><div class="line"><span class="attr">  - port:</span> <span class="number">80</span></div><div class="line"><span class="attr">    targetPort:</span> <span class="number">80</span></div><div class="line"><span class="attr">    nodePort:</span> <span class="number">30080</span></div><div class="line"><span class="comment"># kubectl get svc myapp</span></div><div class="line"><span class="string">NAME</span>    <span class="string">TYPE</span>       <span class="string">CLUSTER-IP</span>    <span class="string">EXTERNAL-IP</span>   <span class="string">PORT(S)</span>        <span class="string">AGE</span></div><div class="line"><span class="string">myapp</span>   <span class="string">NodePort</span>   <span class="number">10.99</span><span class="number">.99</span><span class="number">.99</span>   <span class="string">&lt;none&gt;</span>        <span class="number">80</span><span class="string">:30080/TCP</span>   <span class="number">4</span><span class="string">m50s</span></div><div class="line"><span class="string">ssjinyao</span> <span class="string">➤</span> <span class="string">while</span> <span class="literal">true</span><span class="string">;</span> <span class="string">do</span>  <span class="string">curl</span> <span class="number">10.1</span><span class="number">.87</span><span class="number">.82</span><span class="string">:30080/hostname.html</span> <span class="string">;</span> <span class="string">sleep</span> <span class="number">1</span> <span class="string">;</span> <span class="string">done</span></div><div class="line"><span class="string">myapp-deploy-675558bfc5-5c8hn</span></div><div class="line"><span class="string">myapp-deploy-675558bfc5-qtlqf</span></div><div class="line"><span class="string">myapp-deploy-675558bfc5-qtlqf</span></div><div class="line"><span class="string">myapp-deploy-675558bfc5-5c8hn</span></div><div class="line"><span class="string">myapp-deploy-675558bfc5-qgps7</span></div><div class="line"><span class="string">myapp-deploy-675558bfc5-5c8hn</span></div><div class="line"><span class="string">myapp-deploy-675558bfc5-qgps7</span></div><div class="line"><span class="string">myapp-deploy-675558bfc5-qgps7</span></div><div class="line"><span class="string">myapp-deploy-675558bfc5-qtlqf</span></div><div class="line"><span class="comment"># 来自同上客户端的请求发往同一Pod</span></div><div class="line"><span class="comment"># kubectl patch svc myapp -p '&#123;"spec":&#123;"sessionAffinity":"ClientIP"&#125;&#125;'</span></div><div class="line"><span class="string">service/myapp</span> <span class="string">patched</span></div><div class="line"><span class="comment"># kubectl  describe svc myapp</span></div><div class="line"><span class="attr">Name:</span>                     <span class="string">myapp</span></div><div class="line"><span class="attr">Namespace:</span>                <span class="string">default</span></div><div class="line"><span class="attr">Labels:</span>                   <span class="string">&lt;none&gt;</span></div><div class="line"><span class="attr">Annotations:</span>              <span class="string">kubectl.kubernetes.io/last-applied-configuration:</span></div><div class="line">                            <span class="string">&#123;"apiVersion":"v1","kind":"Service","metadata":&#123;"annotations":&#123;&#125;,"name":"myapp","namespace":"default"&#125;,"spec":&#123;"clusterIP":"10.99.99.99","...</span></div><div class="line"><span class="attr">Selector:</span>                 <span class="string">app=myapp,release=canary</span></div><div class="line"><span class="attr">Type:</span>                     <span class="string">NodePort</span></div><div class="line"><span class="attr">IP:</span>                       <span class="number">10.99</span><span class="number">.99</span><span class="number">.99</span></div><div class="line"><span class="attr">Port:</span>                     <span class="string">&lt;unset&gt;</span>  <span class="number">80</span><span class="string">/TCP</span></div><div class="line"><span class="attr">TargetPort:</span>               <span class="number">80</span><span class="string">/TCP</span></div><div class="line"><span class="attr">NodePort:</span>                 <span class="string">&lt;unset&gt;</span>  <span class="number">30080</span><span class="string">/TCP</span></div><div class="line"><span class="attr">Endpoints:</span>                <span class="number">10.244</span><span class="number">.1</span><span class="number">.150</span><span class="string">:80,10.244.2.166:80,10.244.3.167:80</span></div><div class="line"><span class="string">Session</span> <span class="attr">Affinity:</span>         <span class="string">ClientIP</span></div><div class="line"><span class="string">External</span> <span class="string">Traffic</span> <span class="attr">Policy:</span>  <span class="string">Cluster</span></div><div class="line"><span class="attr">Events:</span>                   <span class="string">&lt;none&gt;</span></div><div class="line"><span class="string">ssjinyao</span> <span class="string">➤</span> <span class="string">while</span> <span class="literal">true</span><span class="string">;</span> <span class="string">do</span>  <span class="string">curl</span> <span class="number">10.1</span><span class="number">.87</span><span class="number">.82</span><span class="string">:30080/hostname.html</span> <span class="string">;</span> <span class="string">sleep</span> <span class="number">1</span> <span class="string">;</span> <span class="string">done</span></div><div class="line"><span class="string">myapp-deploy-675558bfc5-qgps7</span></div><div class="line"><span class="string">myapp-deploy-675558bfc5-qgps7</span></div><div class="line"><span class="string">myapp-deploy-675558bfc5-qgps7</span></div><div class="line"><span class="string">myapp-deploy-675558bfc5-qgps7</span></div></pre></td></tr></table></figure>
+<p>无头服务</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># vim myapp-svc-headless.yaml</span></div><div class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></div><div class="line"><span class="attr">kind:</span> <span class="string">Service</span></div><div class="line"><span class="attr">metadata:</span></div><div class="line"><span class="attr">  name:</span> <span class="string">myapp-svc</span></div><div class="line"><span class="attr">  namespace:</span> <span class="string">default</span></div><div class="line"><span class="attr">spec:</span></div><div class="line"><span class="attr">  selector:</span></div><div class="line"><span class="attr">    app:</span> <span class="string">myapp</span></div><div class="line"><span class="attr">    release:</span> <span class="string">canary</span></div><div class="line"><span class="attr">  clusterIP:</span> <span class="string">None</span></div><div class="line"><span class="attr">  ports:</span></div><div class="line"><span class="attr">  - port:</span> <span class="number">80</span></div><div class="line"><span class="attr">    targetPort:</span> <span class="number">80</span></div><div class="line"></div><div class="line"><span class="comment"># kubectl apply -f myapp-svc-headless.yaml</span></div><div class="line"><span class="string">service/myapp-svc</span> <span class="string">created</span></div><div class="line"><span class="comment"># dig -t A myapp-svc.default.svc.cluster.local. @10.96.0.10</span></div><div class="line"></div><div class="line"><span class="string">;</span> <span class="string">&lt;&lt;&gt;&gt;</span> <span class="string">DiG</span> <span class="number">9.9</span><span class="number">.4</span><span class="bullet">-RedHat-9.9.4-73.el7_6</span> <span class="string">&lt;&lt;&gt;&gt;</span> <span class="bullet">-t</span> <span class="string">A</span> <span class="string">myapp-svc.default.svc.cluster.local.</span> <span class="string">@10.96.0.10</span></div><div class="line"><span class="string">;;</span> <span class="string">global</span> <span class="attr">options:</span> <span class="string">+cmd</span></div><div class="line"><span class="string">;;</span> <span class="string">Got</span> <span class="attr">answer:</span></div><div class="line"><span class="string">;;</span> <span class="bullet">-&gt;&gt;HEADER&lt;&lt;-</span> <span class="attr">opcode:</span> <span class="string">QUERY,</span> <span class="attr">status:</span> <span class="string">NOERROR,</span> <span class="attr">id:</span> <span class="number">38590</span></div><div class="line"><span class="string">;;</span> <span class="attr">flags:</span> <span class="string">qr</span> <span class="string">aa</span> <span class="string">rd;</span> <span class="attr">QUERY:</span> <span class="number">1</span><span class="string">,</span> <span class="attr">ANSWER:</span> <span class="number">3</span><span class="string">,</span> <span class="attr">AUTHORITY:</span> <span class="number">0</span><span class="string">,</span> <span class="attr">ADDITIONAL:</span> <span class="number">1</span></div><div class="line"><span class="string">;;</span> <span class="attr">WARNING:</span> <span class="string">recursion</span> <span class="string">requested</span> <span class="string">but</span> <span class="string">not</span> <span class="string">available</span></div><div class="line"></div><div class="line"><span class="string">;;</span> <span class="string">OPT</span> <span class="attr">PSEUDOSECTION:</span></div><div class="line"><span class="string">;</span> <span class="attr">EDNS:</span> <span class="attr">version:</span> <span class="number">0</span><span class="string">,</span> <span class="attr">flags:;</span> <span class="attr">udp:</span> <span class="number">4096</span></div><div class="line"><span class="string">;;</span> <span class="string">QUESTION</span> <span class="attr">SECTION:</span></div><div class="line"><span class="string">;myapp-svc.default.svc.cluster.local.</span> <span class="string">IN</span>	<span class="string">A</span></div><div class="line"></div><div class="line"><span class="string">;;</span> <span class="string">ANSWER</span> <span class="attr">SECTION:</span></div><div class="line"><span class="string">myapp-svc.default.svc.cluster.local.</span> <span class="number">5</span> <span class="string">IN</span> <span class="string">A</span>	<span class="number">10.244</span><span class="number">.3</span><span class="number">.167</span></div><div class="line"><span class="string">myapp-svc.default.svc.cluster.local.</span> <span class="number">5</span> <span class="string">IN</span> <span class="string">A</span>	<span class="number">10.244</span><span class="number">.1</span><span class="number">.150</span></div><div class="line"><span class="string">myapp-svc.default.svc.cluster.local.</span> <span class="number">5</span> <span class="string">IN</span> <span class="string">A</span>	<span class="number">10.244</span><span class="number">.2</span><span class="number">.166</span></div><div class="line"></div><div class="line"><span class="string">;;</span> <span class="string">Query</span> <span class="attr">time:</span> <span class="number">0</span> <span class="string">msec</span></div><div class="line"><span class="string">;;</span> <span class="attr">SERVER:</span> <span class="number">10.96</span><span class="number">.0</span><span class="number">.10</span><span class="comment">#53(10.96.0.10)</span></div><div class="line"><span class="string">;;</span> <span class="attr">WHEN:</span> <span class="string">Thu</span> <span class="string">May</span> <span class="number">16</span> <span class="number">10</span><span class="string">:59:03</span> <span class="string">CST</span> <span class="number">2019</span></div><div class="line"><span class="string">;;</span> <span class="string">MSG</span> <span class="string">SIZE</span>  <span class="attr">rcvd:</span> <span class="number">217</span></div><div class="line"><span class="comment"># kubectl get svc -n kube-system</span></div><div class="line"><span class="string">NAME</span>       <span class="string">TYPE</span>        <span class="string">CLUSTER-IP</span>   <span class="string">EXTERNAL-IP</span>   <span class="string">PORT(S)</span>                  <span class="string">AGE</span></div><div class="line"><span class="string">kube-dns</span>   <span class="string">ClusterIP</span>   <span class="number">10.96</span><span class="number">.0</span><span class="number">.10</span>   <span class="string">&lt;none&gt;</span>        <span class="number">53</span><span class="string">/UDP,53/TCP,9153/TCP</span>   <span class="number">20</span><span class="string">d</span></div><div class="line"><span class="comment"># kubectl get pods -o wide -l app=myapp</span></div><div class="line"><span class="string">NAME</span>                            <span class="string">READY</span>   <span class="string">STATUS</span>    <span class="string">RESTARTS</span>   <span class="string">AGE</span>   <span class="string">IP</span>             <span class="string">NODE</span>                   <span class="string">NOMINATED</span> <span class="string">NODE</span>   <span class="string">READINESS</span> <span class="string">GATES</span></div><div class="line"><span class="string">myapp-deploy-675558bfc5-5c8hn</span>   <span class="number">1</span><span class="string">/1</span>     <span class="string">Running</span>   <span class="number">0</span>          <span class="number">42</span><span class="string">h</span>   <span class="number">10.244</span><span class="number">.1</span><span class="number">.150</span>   <span class="string">bj-gzf-vm-ops-test01</span>   <span class="string">&lt;none&gt;</span>           <span class="string">&lt;none&gt;</span></div><div class="line"><span class="string">myapp-deploy-675558bfc5-qgps7</span>   <span class="number">1</span><span class="string">/1</span>     <span class="string">Running</span>   <span class="number">0</span>          <span class="number">42</span><span class="string">h</span>   <span class="number">10.244</span><span class="number">.2</span><span class="number">.166</span>   <span class="string">bj-gzf-vm-ops-test02</span>   <span class="string">&lt;none&gt;</span>           <span class="string">&lt;none&gt;</span></div><div class="line"><span class="string">myapp-deploy-675558bfc5-qtlqf</span>   <span class="number">1</span><span class="string">/1</span>     <span class="string">Running</span>   <span class="number">0</span>          <span class="number">42</span><span class="string">h</span>   <span class="number">10.244</span><span class="number">.3</span><span class="number">.167</span>   <span class="string">bj-gzf-vm-ops-test03</span>   <span class="string">&lt;none&gt;</span>           <span class="string">&lt;none&gt;</span></div></pre></td></tr></table></figure>
+<h2 id="ingress-及-ingress-controller"><a href="#ingress-及-ingress-controller" class="headerlink" title="ingress 及 ingress controller"></a>ingress 及 ingress controller</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># mkdir ingress-nginx</span></div><div class="line"><span class="keyword">for</span> file <span class="keyword">in</span> configmap.yaml mandatory.yaml namespace.yaml rbac.yaml  with-rbac.yaml  ; <span class="keyword">do</span> wget https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/<span class="variable">$file</span> ; <span class="keyword">done</span></div><div class="line"><span class="comment"># kubectl apply -f ./</span></div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># cat deploy-demo.yaml</span></div><div class="line">apiVersion: v1</div><div class="line">kind: Service</div><div class="line">metadata:</div><div class="line">  name: myapp</div><div class="line">  namespace: default</div><div class="line">spec:</div><div class="line">  selector:</div><div class="line">    app: myapp</div><div class="line">    release: canary</div><div class="line">  ports:</div><div class="line">  - name: httpd</div><div class="line">    targetPort: 80</div><div class="line">    port: 80</div><div class="line"></div><div class="line">---</div><div class="line">apiVersion: apps/v1</div><div class="line">kind: Deployment</div><div class="line">metadata:</div><div class="line">  name: myapp-deploy</div><div class="line">  namespace: default</div><div class="line">spec:</div><div class="line">  replicas: 3</div><div class="line">  selector:</div><div class="line">    matchLabels:</div><div class="line">      app: myapp</div><div class="line">      release: canary</div><div class="line">  template:</div><div class="line">    metadata:</div><div class="line">      labels:</div><div class="line">        app: myapp</div><div class="line">        release: canary</div><div class="line">    spec:</div><div class="line">      containers:</div><div class="line">      - name: myapp</div><div class="line">        image: ikubernetes/myapp:v2</div><div class="line">        ports:</div><div class="line">        - name: http</div><div class="line">          containerPort: 80</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># wget https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/provider/baremetal/service-nodeport.yaml</span></div><div class="line"><span class="comment"># pwd</span></div><div class="line">/root/ingress-nginx</div><div class="line"><span class="comment"># ls</span></div><div class="line">configmap.yaml  mandatory.yaml  namespace.yaml  rbac.yaml  service-nodeport.yaml  with-rbac.yaml</div></pre></td></tr></table></figure>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># vim service-nodeport.yaml</span></div><div class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></div><div class="line"><span class="attr">kind:</span> <span class="string">Service</span></div><div class="line"><span class="attr">metadata:</span></div><div class="line"><span class="attr">  name:</span> <span class="string">ingress-nginx</span></div><div class="line"><span class="attr">  namespace:</span> <span class="string">ingress-nginx</span></div><div class="line"><span class="attr">  labels:</span></div><div class="line">    <span class="string">app.kubernetes.io/name:</span> <span class="string">ingress-nginx</span></div><div class="line">    <span class="string">app.kubernetes.io/part-of:</span> <span class="string">ingress-nginx</span></div><div class="line"><span class="attr">spec:</span></div><div class="line"><span class="attr">  type:</span> <span class="string">NodePort</span></div><div class="line"><span class="attr">  ports:</span></div><div class="line"><span class="attr">    - name:</span> <span class="string">http</span></div><div class="line"><span class="attr">      port:</span> <span class="number">80</span></div><div class="line"><span class="attr">      targetPort:</span> <span class="number">80</span></div><div class="line"><span class="attr">      protocol:</span> <span class="string">TCP</span></div><div class="line"><span class="attr">      nodePort:</span> <span class="number">30080</span></div><div class="line"><span class="attr">    - name:</span> <span class="string">https</span></div><div class="line"><span class="attr">      port:</span> <span class="number">443</span></div><div class="line"><span class="attr">      targetPort:</span> <span class="number">443</span></div><div class="line"><span class="attr">      protocol:</span> <span class="string">TCP</span></div><div class="line"><span class="attr">      nodePort:</span> <span class="number">30443</span></div><div class="line"><span class="attr">  selector:</span></div><div class="line">    <span class="string">app.kubernetes.io/name:</span> <span class="string">ingress-nginx</span></div><div class="line">    <span class="string">app.kubernetes.io/part-of:</span> <span class="string">ingress-nginx</span></div><div class="line"></div><div class="line"><span class="meta">---</span></div><div class="line"><span class="comment"># kubectl apply -f ./</span></div><div class="line"><span class="comment"># kubectl get svc -n ingress-nginx</span></div><div class="line"><span class="string">NAME</span>            <span class="string">TYPE</span>       <span class="string">CLUSTER-IP</span>     <span class="string">EXTERNAL-IP</span>   <span class="string">PORT(S)</span>                      <span class="string">AGE</span></div><div class="line"><span class="string">ingress-nginx</span>   <span class="string">NodePort</span>   <span class="number">10.96</span><span class="number">.59</span><span class="number">.169</span>   <span class="string">&lt;none&gt;</span>        <span class="number">80</span><span class="string">:30080/TCP,443:30443/TCP</span>   <span class="number">2</span><span class="string">m35s</span></div></pre></td></tr></table></figure>
+<p>现在可以尝试访问</p>
+<p><img src="/images/ingress-nginx-404.png" alt=""></p>
+<p>查看访问apiVersion </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># kubectl explain ingress</span></div><div class="line">KIND:     Ingress</div><div class="line">VERSION:  extensions/v1beta1</div><div class="line"><span class="comment"># kubectl explain ingress.spec.rules.http.paths</span></div></pre></td></tr></table></figure>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># vim ingress-myapp.yaml</span></div><div class="line"><span class="attr">apiVersion:</span> <span class="string">extensions/v1beta1</span></div><div class="line"><span class="attr">kind:</span> <span class="string">Ingress</span></div><div class="line"><span class="attr">metadata:</span></div><div class="line"><span class="attr">  name:</span> <span class="string">ingress-myapp</span></div><div class="line"><span class="attr">  namespace:</span> <span class="string">default</span></div><div class="line"><span class="attr">  annotations:</span></div><div class="line">    <span class="string">kubernetes.io/ingress.class:</span> <span class="string">"nginx"</span></div><div class="line"><span class="attr">spec:</span></div><div class="line"><span class="attr">  rules:</span></div><div class="line"><span class="attr">  - host:</span> <span class="string">myapp.ssjinyao.com</span></div><div class="line"><span class="attr">    http:</span></div><div class="line"><span class="attr">      paths:</span></div><div class="line"><span class="attr">      - path:</span></div><div class="line"><span class="attr">        backend:</span></div><div class="line"><span class="attr">          serviceName:</span> <span class="string">myapp</span></div><div class="line"><span class="attr">          servicePort:</span> <span class="number">80</span></div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># kubectl describe ingress ingress-myapp</span></div><div class="line">Name:             ingress-myapp</div><div class="line">Namespace:        default</div><div class="line">Address:</div><div class="line">Default backend:  default-http-backend:80 (&lt;none&gt;)</div><div class="line">Rules:</div><div class="line">  Host                Path  Backends</div><div class="line">  ----                ----  --------</div><div class="line">  myapp.ssjinyao.com</div><div class="line">                         myapp:80 (10.244.1.150:80,10.244.2.166:80,10.244.3.167:80)</div><div class="line">Annotations:</div><div class="line">  kubectl.kubernetes.io/last-applied-configuration:  &#123;<span class="string">"apiVersion"</span>:<span class="string">"extensions/v1beta1"</span>,<span class="string">"kind"</span>:<span class="string">"Ingress"</span>,<span class="string">"metadata"</span>:&#123;<span class="string">"annotations"</span>:&#123;<span class="string">"kubernetes.io/ingress.class"</span>:<span class="string">"nginx"</span>&#125;,<span class="string">"name"</span>:<span class="string">"ingress-myapp"</span>,<span class="string">"namespace"</span>:<span class="string">"default"</span>&#125;,<span class="string">"spec"</span>:&#123;<span class="string">"rules"</span>:[&#123;<span class="string">"host"</span>:<span class="string">"myapp.ssjinyao.com"</span>,<span class="string">"http"</span>:&#123;<span class="string">"paths"</span>:[&#123;<span class="string">"backend"</span>:&#123;<span class="string">"serviceName"</span>:<span class="string">"myapp"</span>,<span class="string">"servicePort"</span>:80&#125;,<span class="string">"path"</span>:null&#125;]&#125;&#125;]&#125;&#125;</div><div class="line"></div><div class="line">  kubernetes.io/ingress.class:  nginx</div><div class="line">Events:</div><div class="line">  Type    Reason  Age   From                      Message</div><div class="line">  ----    ------  ----  ----                      -------</div><div class="line">  Normal  CREATE  18s   nginx-ingress-controller  Ingress default/ingress-myapp</div><div class="line"><span class="comment"># kubectl exec -n ingress-nginx  nginx-ingress-controller-5694ccb578-xkgkx  -it -- /bin/sh</span></div></pre></td></tr></table></figure>
+<p>这时再访问 </p>
+<p><img src="/images/ingress-nginx-pod.png" alt=""></p>
+<p>tomcat 七层负载创建</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># vim tomcat-deploy.yaml</span></div><div class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></div><div class="line"><span class="attr">kind:</span> <span class="string">Service</span></div><div class="line"><span class="attr">metadata:</span></div><div class="line"><span class="attr">  name:</span> <span class="string">tomcat</span></div><div class="line"><span class="attr">  namespace:</span> <span class="string">default</span></div><div class="line"><span class="attr">spec:</span></div><div class="line"><span class="attr">  selector:</span></div><div class="line"><span class="attr">    app:</span> <span class="string">tomcat</span></div><div class="line"><span class="attr">    release:</span> <span class="string">canary</span></div><div class="line"><span class="attr">  ports:</span></div><div class="line"><span class="attr">  - name:</span> <span class="string">httpd</span></div><div class="line"><span class="attr">    targetPort:</span> <span class="number">8080</span></div><div class="line"><span class="attr">    port:</span> <span class="number">8080</span></div><div class="line"><span class="attr">  - name:</span> <span class="string">ajp</span></div><div class="line"><span class="attr">    targetPort:</span> <span class="number">8009</span></div><div class="line"><span class="attr">    port:</span> <span class="number">8009</span></div><div class="line"><span class="meta">---</span></div><div class="line"><span class="attr">apiVersion:</span> <span class="string">apps/v1</span></div><div class="line"><span class="attr">kind:</span> <span class="string">Deployment</span></div><div class="line"><span class="attr">metadata:</span></div><div class="line"><span class="attr">  name:</span> <span class="string">tomcat-deploy</span></div><div class="line"><span class="attr">  namespace:</span> <span class="string">default</span></div><div class="line"><span class="attr">spec:</span></div><div class="line"><span class="attr">  replicas:</span> <span class="number">3</span></div><div class="line"><span class="attr">  selector:</span></div><div class="line"><span class="attr">    matchLabels:</span></div><div class="line"><span class="attr">      app:</span> <span class="string">tomcat</span></div><div class="line"><span class="attr">      release:</span> <span class="string">canary</span></div><div class="line"><span class="attr">  template:</span></div><div class="line"><span class="attr">    metadata:</span></div><div class="line"><span class="attr">      labels:</span></div><div class="line"><span class="attr">        app:</span> <span class="string">tomcat</span></div><div class="line"><span class="attr">        release:</span> <span class="string">canary</span></div><div class="line"><span class="attr">    spec:</span></div><div class="line"><span class="attr">      containers:</span></div><div class="line"><span class="attr">      - name:</span> <span class="string">tomcat</span></div><div class="line"><span class="attr">        image:</span> <span class="attr">tomcat:8.5.32-jre8-alpine</span></div><div class="line"><span class="attr">        ports:</span></div><div class="line"><span class="attr">        - name:</span> <span class="string">http</span></div><div class="line"><span class="attr">          containerPort:</span> <span class="number">8080</span></div><div class="line"><span class="attr">        - name:</span> <span class="string">ajp</span></div><div class="line"><span class="attr">          containerPort:</span> <span class="number">8009</span></div><div class="line"><span class="comment"># kubectl apply -f tomcat-deploy.yaml</span></div></pre></td></tr></table></figure>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># vim ingress-tomcat.yaml</span></div><div class="line"><span class="attr">apiVersion:</span> <span class="string">extensions/v1beta1</span></div><div class="line"><span class="attr">kind:</span> <span class="string">Ingress</span></div><div class="line"><span class="attr">metadata:</span></div><div class="line"><span class="attr">  name:</span> <span class="string">ingress-tomcat</span></div><div class="line"><span class="attr">  namespace:</span> <span class="string">default</span></div><div class="line"><span class="attr">  annotations:</span></div><div class="line">    <span class="string">kubernetes.io/ingress.class:</span> <span class="string">"nginx"</span></div><div class="line"><span class="attr">spec:</span></div><div class="line"><span class="attr">  rules:</span></div><div class="line"><span class="attr">  - host:</span> <span class="string">tomcat.ssjinyao.com</span></div><div class="line"><span class="attr">    http:</span></div><div class="line"><span class="attr">      paths:</span></div><div class="line"><span class="attr">      - path:</span></div><div class="line"><span class="attr">        backend:</span></div><div class="line"><span class="attr">          serviceName:</span> <span class="string">tomcat</span></div><div class="line"><span class="attr">          servicePort:</span> <span class="number">8080</span></div><div class="line"><span class="comment"># kubectl apply -f ingress-tomcat.yaml</span></div></pre></td></tr></table></figure>
+<p><img src="/images/ingress-nginx-tomcat.png" alt=""></p>
+<p>secret 创建与使用</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># kubectl create secret tls tomcat-ingress-secret --cert=2214184_tomcat.ssjinyao.com.pem --key=2214184_tomcat.ssjinyao.com.key</span></div><div class="line">secret/tomcat-ingress-secret created</div><div class="line"><span class="comment"># kubectl describe secret tomcat-ingress-secret</span></div><div class="line">Name:         tomcat-ingress-secret</div><div class="line">Namespace:    default</div><div class="line">Labels:       &lt;none&gt;</div><div class="line">Annotations:  &lt;none&gt;</div><div class="line"></div><div class="line">Type:  kubernetes.io/tls</div><div class="line"></div><div class="line">Data</div><div class="line">====</div><div class="line">tls.crt:  3659 bytes</div><div class="line">tls.key:  1675 bytes</div></pre></td></tr></table></figure>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># vim ingress-tomcat-tls.yaml</span></div><div class="line"><span class="attr">apiVersion:</span> <span class="string">extensions/v1beta1</span></div><div class="line"><span class="attr">kind:</span> <span class="string">Ingress</span></div><div class="line"><span class="attr">metadata:</span></div><div class="line"><span class="attr">  name:</span> <span class="string">ingress-tomcat-tls</span></div><div class="line"><span class="attr">  namespace:</span> <span class="string">default</span></div><div class="line"><span class="attr">  annotations:</span></div><div class="line">    <span class="string">kubernetes.io/ingress.class:</span> <span class="string">"nginx"</span></div><div class="line"><span class="attr">spec:</span></div><div class="line"><span class="attr">  tls:</span></div><div class="line"><span class="attr">  - hosts:</span></div><div class="line"><span class="bullet">    -</span> <span class="string">tomcat.ssjinyao.com</span></div><div class="line"><span class="attr">    secretName:</span> <span class="string">tomcat-ingress-secret</span></div><div class="line"><span class="attr">  rules:</span></div><div class="line"><span class="attr">  - host:</span> <span class="string">tomcat.ssjinyao.com</span></div><div class="line"><span class="attr">    http:</span></div><div class="line"><span class="attr">      paths:</span></div><div class="line"><span class="attr">      - path:</span></div><div class="line"><span class="attr">        backend:</span></div><div class="line"><span class="attr">          serviceName:</span> <span class="string">tomcat</span></div><div class="line"><span class="attr">          servicePort:</span> <span class="number">8080</span></div><div class="line"><span class="comment"># kubectl apply -f ingress-tomcat-tls.yaml</span></div><div class="line"><span class="comment">#  kubectl get ingress</span></div><div class="line"><span class="string">NAME</span>                 <span class="string">HOSTS</span>                 <span class="string">ADDRESS</span>   <span class="string">PORTS</span>     <span class="string">AGE</span></div><div class="line"><span class="string">ingress-tomcat</span>       <span class="string">tomcat.ssjinyao.com</span>             <span class="number">80</span>        <span class="number">39</span><span class="string">m</span></div><div class="line"><span class="string">ingress-tomcat-tls</span>   <span class="string">tomcat.ssjinyao.com</span>             <span class="number">80</span><span class="string">,</span> <span class="number">443</span>   <span class="number">93</span><span class="string">s</span></div><div class="line"><span class="comment"># kubectl describe ingress ingress-tomcat-tls</span></div><div class="line"><span class="attr">Name:</span>             <span class="string">ingress-tomcat-tls</span></div><div class="line"><span class="attr">Namespace:</span>        <span class="string">default</span></div><div class="line"><span class="attr">Address:</span></div><div class="line"><span class="string">Default</span> <span class="attr">backend:</span>  <span class="attr">default-http-backend:80</span> <span class="string">(&lt;none&gt;)</span></div><div class="line"><span class="attr">TLS:</span></div><div class="line">  <span class="string">tomcat-ingress-secret</span> <span class="string">terminates</span> <span class="string">tomcat.ssjinyao.com</span></div><div class="line"><span class="attr">Rules:</span></div><div class="line">  <span class="string">Host</span>                 <span class="string">Path</span>  <span class="string">Backends</span></div><div class="line"><span class="bullet">  -</span><span class="meta">---</span>                 <span class="bullet">----</span>  <span class="bullet">--------</span></div><div class="line">  <span class="string">tomcat.ssjinyao.com</span></div><div class="line"><span class="attr">                          tomcat:</span><span class="number">8080</span> <span class="string">(10.244.1.153:8080,10.244.2.171:8080,10.244.3.170:8080)</span></div><div class="line"><span class="attr">Annotations:</span></div><div class="line">  <span class="string">kubectl.kubernetes.io/last-applied-configuration:</span>  <span class="string">&#123;"apiVersion":"extensions/v1beta1","kind":"Ingress","metadata":&#123;"annotations":&#123;"kubernetes.io/ingress.class":"nginx"&#125;,"name":"ingress-tomcat-tls","namespace":"default"&#125;,"spec":&#123;"rules":[&#123;"host":"tomcat.ssjinyao.com","http":&#123;"paths":[&#123;"backend":&#123;"serviceName":"tomcat","servicePort":8080&#125;,"path":null&#125;]&#125;&#125;],"tls":[&#123;"hosts":["tomcat.ssjinyao.com"],"secretName":"tomcat-ingress-secret"&#125;]&#125;&#125;</span></div><div class="line"></div><div class="line">  <span class="string">kubernetes.io/ingress.class:</span>  <span class="string">nginx</span></div><div class="line"><span class="attr">Events:</span></div><div class="line">  <span class="string">Type</span>    <span class="string">Reason</span>  <span class="string">Age</span>    <span class="string">From</span>                      <span class="string">Message</span></div><div class="line"><span class="bullet">  -</span><span class="meta">---</span>    <span class="bullet">------</span>  <span class="bullet">----</span>   <span class="bullet">----</span>                      <span class="bullet">-------</span></div><div class="line">  <span class="string">Normal</span>  <span class="string">CREATE</span>  <span class="number">2</span><span class="string">m29s</span>  <span class="string">nginx-ingress-controller</span>  <span class="string">Ingress</span> <span class="string">default/ingress-tomcat-tls</span></div></pre></td></tr></table></figure>
+<p><img src="/images/ingress-nginx-tomcat-https.png" alt=""></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>ღ ღ ღ 如果觉得文章对您有用，不妨打赏一下ღ ღ ღ</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/weipei.png" alt="锦遥 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/zhipei.png" alt="锦遥 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/linux/" rel="tag"># linux</a>
+          
+            <a href="/tags/rhca/" rel="tag"># rhca</a>
+          
+            <a href="/tags/cloud/" rel="tag"># cloud</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/25/kubernetes实操记录1/" rel="next" title="kubernetes操作记录(一)">
+                <i class="fa fa-chevron-left"></i> kubernetes操作记录(一)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/05/17/kubernets实操记录3/" rel="prev" title="kubernetes操作记录(三)">
+                kubernetes操作记录(三) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/rjyy.ico"
+                alt="锦遥" />
+            
+              <p class="site-author-name" itemprop="name">锦遥</p>
+              <p class="site-description motion-element" itemprop="description">有智而性缓者思大智
+
+</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">65</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#kubernetes-操作记录二"><span class="nav-number">1.</span> <span class="nav-text">kubernetes 操作记录二</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Kubernetes-Pod-控制器"><span class="nav-number">1.1.</span> <span class="nav-text">Kubernetes Pod 控制器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Replica-Set-RS-kubernetes-新一代的Pod-controller"><span class="nav-number">1.1.1.</span> <span class="nav-text">Replica Set(RS) kubernetes 新一代的Pod controller</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#apply-f-声明式更新，即可以创建，也可以更新"><span class="nav-number">1.1.2.</span> <span class="nav-text">apply -f 声明式更新，即可以创建，也可以更新</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现流动更新"><span class="nav-number">1.1.3.</span> <span class="nav-text">实现流动更新</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看目前所有的replica-set"><span class="nav-number">1.1.4.</span> <span class="nav-text">查看目前所有的replica set</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看历史滚动信息"><span class="nav-number">1.1.5.</span> <span class="nav-text">查看历史滚动信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#定义一个补丁"><span class="nav-number">1.1.6.</span> <span class="nav-text">定义一个补丁</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#金丝雀更新发布"><span class="nav-number">1.1.7.</span> <span class="nav-text">金丝雀更新发布</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用以下命令进行监控更新"><span class="nav-number">1.1.8.</span> <span class="nav-text">使用以下命令进行监控更新</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#若更新时发现问题，我们可以执行回滚"><span class="nav-number">1.1.9.</span> <span class="nav-text">若更新时发现问题，我们可以执行回滚</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DaemonSet"><span class="nav-number">1.2.</span> <span class="nav-text">DaemonSet</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Kubernetes-Service"><span class="nav-number">1.3.</span> <span class="nav-text">Kubernetes Service</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ingress-及-ingress-controller"><span class="nav-number">1.4.</span> <span class="nav-text">ingress 及 ingress controller</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; 2015 &mdash; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">锦遥</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">162.2k</span>
+  
+  <span>   |   </span>
+<span id="showDays"></span>
+</div>
+
+
+
+
+
+
+
+
+<div>
+<a href="http://www.beian.miit.gov.cn">晋ICP备17010575号</a>
+</div>
+<!-- time -->
+<div id="show-time">
+<span id="span_dt_dt"></span>
+</div>
+<script>
+var seconds = 1000;
+var minutes = seconds * 60;
+var hours = minutes * 60;
+var days = hours * 24;
+var years = days * 365;
+var birthDay = Date.UTC(2017,07,30,00,00,00); // 这里设置建站时间
+setInterval(function() {
+var today = new Date();
+var todayYear = today.getFullYear();
+var todayMonth = today.getMonth()+1;
+var todayDate = today.getDate();
+var todayHour = today.getHours();
+var todayMinute = today.getMinutes();
+var todaySecond = today.getSeconds();
+var now = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+var diff = now - birthDay;
+var diffYears = Math.floor(diff/years);
+var diffDays = Math.floor((diff/days)-diffYears*365);
+var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+  document.getElementById('showDays').innerHTML="不間斷的運行了"+diffYears+" 年 "+diffDays+" 天 "+diffHours+" 時 "+diffMinutes+" 分 "+diffSeconds+" 秒 ";
+}, 1000);
+</script>
+
+        
+<div class="busuanzi-count">
+#  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 訪客數
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      位
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>  訪客量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://www.ssjinyao.com/2019/05/10/kubernetes实操记录2/';
+          this.page.identifier = '2019/05/10/kubernetes实操记录2/';
+          this.page.title = 'kubernetes操作记录(二)';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine@1.1.6/dist/Valine.min.js"></script>
+  <script type="text/javascript">
+    new Valine({
+        av: AV,
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        app_id: 'NkJqMpxu4QlRLhPIHipNUHF1-gzGzoHsz',
+        app_key: 'D2vTdueKJ8ammc2JEdje0vLW',
+        placeholder: 'From SSJinYao'
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'true') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  <!-- 点击特效 -->
+<canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas>
+<script type="text/javascript" src="/js/src/fireworks.js"></script>
+
+
+  <script src="/js/activate-power-mode.min.js"></script>
+    <script>
+	    POWERMODE.colorful = true;
+    POWERMODE.shake = false;
+    document.body.addEventListener('input', POWERMODE);
+	  </script>
+
+
+  
+</body>
+</html>

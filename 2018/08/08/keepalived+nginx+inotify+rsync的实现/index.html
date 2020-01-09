@@ -1,0 +1,1443 @@
+<!DOCTYPE html>
+
+
+
+  
+
+<script src="/live2d-widget/autoload.js"></script>
+<!--崩溃欺骗-->
+<script type="text/javascript" src="/js/src/crash_cheat.js"></script>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="https://fonts.cat.net/css?family=Lato:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|Roboto Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/redhat.ico?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/redhat.ico?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/redihat.ico?v=5.1.3" color="#0000EE">
+
+
+  <link rel="manifest" href="/images/manifest.json">
+
+
+  <meta name="msapplication-config" content="/images/browserconfig.xml" />
+
+
+
+  <meta name="keywords" content="linux,rhca," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="逝水锦遥" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="环境架构与实现实验环境介绍   服务器ip 操作系统 主机名 用途     10.180.66.11 CentOS7.4 node1 ansible自动推送   10.180.66.12 CentOS7.4 node2 keepalived+nginx+rsync客户端   10.180.66.13 CentOS7.4 node3 keepalived+nginx+rsync服务端     实现逻">
+<meta name="keywords" content="linux,rhca">
+<meta property="og:type" content="article">
+<meta property="og:title" content="keepalived+nginx+inotify+rsync的实现">
+<meta property="og:url" content="https://www.ssjinyao.com/2018/08/08/keepalived+nginx+inotify+rsync的实现/index.html">
+<meta property="og:site_name" content="逝水锦遥">
+<meta property="og:description" content="环境架构与实现实验环境介绍   服务器ip 操作系统 主机名 用途     10.180.66.11 CentOS7.4 node1 ansible自动推送   10.180.66.12 CentOS7.4 node2 keepalived+nginx+rsync客户端   10.180.66.13 CentOS7.4 node3 keepalived+nginx+rsync服务端     实现逻">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://www.ssjinyao.com/images/keepalived-huajin1.png">
+<meta property="og:image" content="https://www.ssjinyao.com/images/keepalived+nginx+rsync+inotify.png">
+<meta property="og:image" content="https://www.ssjinyao.com/images/keepavlied-ip-a.png">
+<meta property="og:image" content="https://www.ssjinyao.com/images/tcpdump-keepalived2.png">
+<meta property="og:image" content="https://www.ssjinyao.com/images/keepavlied-nginx-ok2.png">
+<meta property="og:image" content="https://www.ssjinyao.com/images/keepavlied-stop-nginx-ok.png">
+<meta property="og:image" content="https://www.ssjinyao.com/images/keepavlied-stop-nginx2.png">
+<meta property="og:image" content="https://www.ssjinyao.com/images/keepalived-return-node3.png">
+<meta property="og:image" content="https://www.ssjinyao.com/images/keepavlied-status-keepalived.png">
+<meta property="og:image" content="https://www.ssjinyao.com/images/keepavied-node3.png">
+<meta property="og:image" content="https://www.ssjinyao.com/images/keepalived-messages.png">
+<meta property="og:image" content="https://www.ssjinyao.com/images/ansible-keepalived.png">
+<meta property="og:image" content="https://www.ssjinyao.com/images/rysnc+inotify.png">
+<meta property="og:image" content="https://www.ssjinyao.com/images/rsync+inotify2.png">
+<meta property="og:updated_time" content="2019-05-22T02:27:11.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="keepalived+nginx+inotify+rsync的实现">
+<meta name="twitter:description" content="环境架构与实现实验环境介绍   服务器ip 操作系统 主机名 用途     10.180.66.11 CentOS7.4 node1 ansible自动推送   10.180.66.12 CentOS7.4 node2 keepalived+nginx+rsync客户端   10.180.66.13 CentOS7.4 node3 keepalived+nginx+rsync服务端     实现逻">
+<meta name="twitter:image" content="https://www.ssjinyao.com/images/keepalived-huajin1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="https://www.ssjinyao.com/2018/08/08/keepalived+nginx+inotify+rsync的实现/"/>
+
+
+
+
+
+  <title>keepalived+nginx+inotify+rsync的实现 | 逝水锦遥</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta custom-logo">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">逝水锦遥</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">心有所向 将有所成</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-所有文章">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-linux"></i> <br />
+            
+            所有文章
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-python">
+          <a href="/./tags/program" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-gitlab"></i> <br />
+            
+            python
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-运维组件">
+          <a href="/./tags/rhca" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            运维组件
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-数据库">
+          <a href="/./tags/database" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-database"></i> <br />
+            
+            数据库
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-云计算">
+          <a href="/./tags/cloud" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-cloud"></i> <br />
+            
+            云计算
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-个人中心">
+          <a href="/./tags/renjin" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user-circle"></i> <br />
+            
+            个人中心
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索文章
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.ssjinyao.com/2018/08/08/keepalived+nginx+inotify+rsync的实现/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="锦遥">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/rjyy.ico">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="逝水锦遥">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">keepalived+nginx+inotify+rsync的实现</h1>
+        
+
+        <div class="post-meta">
+		          
+				   <i class="fa fa-thumb-tack"></i>
+				   <font color=7D26CD>置顶</font>
+				   <span class="post-meta-divider">|</span>
+				   
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-08T06:35:00+08:00">
+                2018-08-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/08/08/keepalived+nginx+inotify+rsync的实现/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/08/08/keepalived+nginx+inotify+rsync的实现/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>  浏览
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2.3k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  12
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="环境架构与实现"><a href="#环境架构与实现" class="headerlink" title="环境架构与实现"></a>环境架构与实现</h1><h2 id="实验环境介绍"><a href="#实验环境介绍" class="headerlink" title="实验环境介绍"></a>实验环境介绍</h2><table>
+<thead>
+<tr>
+<th>服务器ip</th>
+<th>操作系统</th>
+<th>主机名</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10.180.66.11</td>
+<td>CentOS7.4</td>
+<td>node1</td>
+<td>ansible自动推送</td>
+</tr>
+<tr>
+<td>10.180.66.12</td>
+<td>CentOS7.4</td>
+<td>node2</td>
+<td>keepalived+nginx+rsync客户端</td>
+</tr>
+<tr>
+<td>10.180.66.13</td>
+<td>CentOS7.4</td>
+<td>node3</td>
+<td>keepalived+nginx+rsync服务端</td>
+</tr>
+</tbody>
+</table>
+<p><img src="/images/keepalived-huajin1.png" alt=""></p>
+<h2 id="实现逻辑架构图"><a href="#实现逻辑架构图" class="headerlink" title="实现逻辑架构图"></a>实现逻辑架构图</h2><p><img src="/images/keepalived+nginx+rsync+inotify.png" alt=""><br>注: 上图node{1..7}是指nginx upstream 的各节点  </p>
+<h2 id="ansible-环境准备"><a href="#ansible-环境准备" class="headerlink" title="ansible 环境准备"></a>ansible 环境准备</h2><p>node1 ansible 环境的准备</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># vim /etc/hosts</span></div><div class="line">10.180.66.11 node1 node1.ssjinyao.com</div><div class="line">10.180.66.12 node2 node2.ssjinyao.com</div><div class="line">10.180.66.13 node3 node3.ssjinyao.com</div><div class="line"><span class="comment"># for i in &#123;1..3&#125;; do ssh-copy-id -i ~/.ssh/id_rsa.pub root@node$i ; done # 双机互信</span></div><div class="line"><span class="comment"># yum -y install epel-release</span></div><div class="line"><span class="comment"># yum -y install ansible</span></div><div class="line"><span class="comment"># vim /etc/ansible/hosts</span></div><div class="line">[keepalived]</div><div class="line">10.180.66.12</div><div class="line">10.180.66.13</div></pre></td></tr></table></figure>
+<h2 id="keepalived-手动安装"><a href="#keepalived-手动安装" class="headerlink" title="keepalived 手动安装"></a>keepalived 手动安装</h2><p>node2 与 node3 keepalived手动安装</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"># yum -y install  gcc \</div><div class="line">            openssl-devel \</div><div class="line">            libnl3-devel \</div><div class="line">            ipset-devel \</div><div class="line">            iptables-devel \</div><div class="line">            libnfnetlink-devel \</div><div class="line">            net-snmp-devel  \</div><div class="line">            procps-ng  \</div><div class="line">            psmisc  \</div><div class="line">            lsof \</div><div class="line">            grep</div><div class="line"># ntpdate ntp.aliyun.com</div><div class="line"># timedatectl set-timezone Asia/Shanghai</div><div class="line"># cd /usr/local/src</div><div class="line"># 上传keepalived-2.0.6.tar.gz</div></pre></td></tr></table></figure>
+<p>没有keepavlied包的当然也可以在keepalived <a href="http://www.keepalived.org/" target="_blank" rel="external">官网</a>下载</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"># cd /usr/local/src/keepalived-2.0.6</div><div class="line"># ./configure --prefix=/usr/local/keepalived </div><div class="line"># make &amp;&amp; make install</div><div class="line"># mkdir /var/log/keepalived/</div><div class="line"># vim /etc/rsyslog.conf  # 最后加入</div><div class="line">local0.*                                                /var/log/keepalived/keepalived.log</div><div class="line"># </div><div class="line"># systemctl restart rsyslog</div><div class="line"># vim /usr/local/keepalived/etc/sysconfig/keepalived # 将最后一行改为</div><div class="line">KEEPALIVED_OPTIONS=&quot;-D -S 0 -f /usr/local/keepalived/etc/keepalived/keepalived.conf&quot;</div></pre></td></tr></table></figure>
+<p>node2 keepalived 的配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line"># vim /usr/local/keepalived/etc/keepalived/keepalived.conf</div><div class="line">! Configuration File for keepalived</div><div class="line"></div><div class="line">global_defs &#123;</div><div class="line">   notification_email &#123;</div><div class="line">     root@localhost</div><div class="line">   &#125;</div><div class="line">   notification_email_from Alexandre.Cassen@firewall.loc</div><div class="line">   smtp_server 127.0.0.1</div><div class="line">   smtp_connect_timeout 30</div><div class="line">   router_id node2</div><div class="line">   &#125;</div><div class="line"></div><div class="line">vrrp_script chk_nginx &#123;</div><div class="line">    script &quot;/bin/bash /usr/local/keepalived/etc/keepalived/nginx_check.sh&quot;</div><div class="line">    interval 5</div><div class="line">    weight -20</div><div class="line">&#125;</div><div class="line"></div><div class="line">vrrp_instance VI_1 &#123;</div><div class="line">    state BACKUP</div><div class="line">    interface ens33</div><div class="line">    virtual_router_id 55</div><div class="line">    priority 80</div><div class="line">    nopreempt</div><div class="line">    advert_int 1</div><div class="line">    notify_master &quot;/usr/local/keepalived/etc/keepalived/message.sh  master&quot;</div><div class="line">    notify_backup &quot;/usr/local/keepalived/etc/keepalived/message.sh  backup&quot;</div><div class="line">    notify_fault  &quot;/usr/local/keepalived/etc/keepalived/message.sh  fault&quot;</div><div class="line">    unicast_src_ip 10.180.66.12</div><div class="line">    unicast_peer &#123;</div><div class="line">     10.180.66.13</div><div class="line">    &#125;</div><div class="line">    track_script &#123;</div><div class="line">       chk_nginx</div><div class="line">    &#125;</div><div class="line">    authentication &#123;</div><div class="line">        auth_type PASS</div><div class="line">        auth_pass testLLb</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    virtual_ipaddress &#123;</div><div class="line">      10.180.66.100</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>node3 keepalived 的配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line"># vim /usr/local/keepalived/etc/keepalived/keepalived.conf</div><div class="line">! Configuration File for keepalived</div><div class="line"></div><div class="line">global_defs &#123;</div><div class="line">   notification_email &#123;</div><div class="line">     root@localhost</div><div class="line">   &#125;</div><div class="line">   notification_email_from Alexandre.Cassen@firewall.loc</div><div class="line">   smtp_server 127.0.0.1</div><div class="line">   smtp_connect_timeout 30</div><div class="line">   router_id node2</div><div class="line">   &#125;</div><div class="line"></div><div class="line">vrrp_script chk_nginx &#123;</div><div class="line">    script &quot;/bin/bash /usr/local/keepalived/etc/keepalived/nginx_check.sh&quot;</div><div class="line">    interval 5</div><div class="line">    weight -20</div><div class="line">&#125;</div><div class="line"></div><div class="line">vrrp_instance VI_1 &#123;</div><div class="line">    state BACKUP</div><div class="line">    interface ens33</div><div class="line">    virtual_router_id 55</div><div class="line">    priority 80</div><div class="line">    nopreempt</div><div class="line">    advert_int 1</div><div class="line">    notify_master &quot;/usr/local/keepalived/etc/keepalived/message.sh  master&quot;</div><div class="line">    notify_backup &quot;/usr/local/keepalived/etc/keepalived/message.sh  backup&quot;</div><div class="line">    notify_fault  &quot;/usr/local/keepalived/etc/keepalived/message.sh  fault&quot;</div><div class="line">    unicast_src_ip 10.180.66.13</div><div class="line">    unicast_peer &#123;</div><div class="line">     10.180.66.12</div><div class="line">    &#125;</div><div class="line">    track_script &#123;</div><div class="line">       chk_nginx</div><div class="line">    &#125;</div><div class="line">    authentication &#123;</div><div class="line">        auth_type PASS</div><div class="line">        auth_pass testLLb</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    virtual_ipaddress &#123;</div><div class="line">      10.180.66.100</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>安装启用nginx</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># yum -y install nginx </div><div class="line"># systemctl start nginx </div><div class="line"># systemctl enable nginx </div><div class="line">node2 # echo &quot;node2.ssjinyao.com&quot; &gt; /usr/share/nginx/html/index.html</div><div class="line">node3 # echo &quot;node3.ssjinyao.com&quot; &gt; /usr/share/nginx/html/index.html</div><div class="line"># 至于配置nginx的负载均衡之前写的文章有提到过</div></pre></td></tr></table></figure>
+<p>node2,node3 缩写keepalived nginx服务监测脚本 </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># vim /usr/local/keepalived/etc/keepalived/nginx_check.sh</span></div><div class="line"><span class="meta">#!/bin/bash</span></div><div class="line"></div><div class="line"><span class="function"><span class="title">package</span></span>() &#123;</div><div class="line">    rpm -qf /bin/ps &amp;&gt; /dev/null || yum -y install procps-ng &amp;&gt; /dev/null</div><div class="line">    rpm -qf /bin/grep &amp;&gt; /dev/null || yum -y install grep &amp;&gt; /dev/null</div><div class="line">    rpm -qf /usr/bin/killall &amp; &gt; /dev/null || yum -y install psmisc &amp;&gt; /dev/null</div><div class="line">&#125;</div><div class="line">package</div><div class="line"></div><div class="line"><span class="function"><span class="title">nginx_state</span></span> () &#123;</div><div class="line">	ps aux | grep nginx &amp;&gt; /dev/null &amp;&amp; ps -C nginx --no-header &amp;&gt; /dev/null</div><div class="line">&#125;</div><div class="line">nginx_state ; nginx_state_num=$? ; <span class="built_in">echo</span> <span class="variable">$nginx_state_num</span></div><div class="line"></div><div class="line"><span class="function"><span class="title">nginx_port</span></span> () &#123;</div><div class="line">       netstat -tnlup | egrep <span class="string">":80\&gt;"</span> &amp;&gt; /dev/null</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="title">kill_keepalived</span></span> () &#123;</div><div class="line">      <span class="built_in">kill</span> -9 `cat /var/run/keepalived.pid`</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">if</span> [ <span class="variable">$nginx_state_num</span> -ne 0 ] ; <span class="keyword">then</span></div><div class="line">   <span class="built_in">echo</span> <span class="string">"`date +"</span>%Y-%m-%d-%H-%M-%S<span class="string">"` nginx_status_one_check problem "</span> &gt;&gt; /var/<span class="built_in">log</span>/keepalived/check_nginx.log</div><div class="line">   nginx_port ; nginx_port_num=$? ; <span class="built_in">echo</span> <span class="variable">$nginx_port_num</span></div><div class="line">   <span class="keyword">if</span> [ <span class="variable">$nginx_port_num</span> -ne 0 ] ; <span class="keyword">then</span></div><div class="line">   	<span class="built_in">echo</span> <span class="string">"`date +"</span>%Y-%m-%d-%H-%M-%S<span class="string">"` nginx_port_one_check problem"</span> &gt;&gt; /var/<span class="built_in">log</span>/keepalived/check_nginx.log</div><div class="line">	systemctl restart nginx</div><div class="line">        sleep 2</div><div class="line">   <span class="keyword">fi</span></div><div class="line"><span class="keyword">fi</span></div><div class="line">nginx_state ; nginx_state_num=$? ; <span class="built_in">echo</span> <span class="variable">$nginx_state_num</span></div><div class="line"><span class="keyword">if</span> [ <span class="variable">$nginx_state_num</span> -ne 0 ] ; <span class="keyword">then</span></div><div class="line">    <span class="built_in">echo</span> <span class="string">"`date +"</span>%Y-%m-%d-%H-%M-%S<span class="string">"` restart nginx and nginx_status_two_check problem "</span> &gt;&gt; /var/<span class="built_in">log</span>/keepalived/check_nginx.log</div><div class="line">    nginx_port ; nginx_port_num=$? ; <span class="built_in">echo</span> <span class="variable">$nginx_port_num</span></div><div class="line">    <span class="keyword">if</span> [ <span class="variable">$nginx_port_num</span> -ne 0 ] ; <span class="keyword">then</span></div><div class="line">        <span class="built_in">echo</span> <span class="string">"`date +"</span>%Y-%m-%d-%H-%M-%S<span class="string">"` restart nginx and nginx_port_two_check problem "</span> &gt;&gt; /var/<span class="built_in">log</span>/keepalived/check_nginx.log</div><div class="line">        kill_keepalived</div><div class="line">   <span class="keyword">fi</span></div><div class="line"><span class="keyword">fi</span></div></pre></td></tr></table></figure>
+<p><code>注: keepalived 中调用命令时不要用lsof;</code><br><code>当访问量较高时，lsof 查询进程很慢，会造成keepalived频繁切换;</code></p>
+<p>node2,node3 上的keepalived 现在可以启动了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"># systemctl start keepalived</div><div class="line"># systemctl stop  keepalived</div><div class="line">注:需要关闭selinux 和iptables </div><div class="line"># iptables -F</div><div class="line"># setenforce 0</div></pre></td></tr></table></figure>
+<p>测试效果<br>目前ip 在node2上<br><img src="/images/keepavlied-ip-a.png" alt=""></p>
+<p>tcmpdump 监测单播心跳信息<br><img src="/images/tcpdump-keepalived2.png" alt=""><br>当把node2上的nginx停止时<br><img src="/images/keepavlied-nginx-ok2.png" alt=""><br><img src="/images/keepavlied-stop-nginx-ok.png" alt=""><br>当node2上的nginx用监测脚本无法自动恢复时<br><img src="/images/keepavlied-stop-nginx2.png" alt=""><br><img src="/images/keepalived-return-node3.png" alt=""><br>当node2 nginx恢复时<br><img src="/images/keepavlied-status-keepalived.png" alt=""><br><img src="/images/keepavied-node3.png" alt=""><br>可以多次服务宕了时，规范划的检查nginx的启动日志<br><img src="/images/keepalived-messages.png" alt=""></p>
+<h2 id="ansible-编写keepalived-自动化roles"><a href="#ansible-编写keepalived-自动化roles" class="headerlink" title="ansible 编写keepalived 自动化roles"></a>ansible 编写keepalived 自动化roles</h2><p>在 node1 上编写 keepalived 自动化脚本</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># tree</span></div><div class="line"><span class="string">.</span></div><div class="line"><span class="string">├──</span> <span class="string">keepalived.yml</span></div><div class="line"><span class="string">└──</span> <span class="string">roles</span></div><div class="line">    <span class="string">└──</span> <span class="string">keepalived</span></div><div class="line">        <span class="string">├──</span> <span class="string">files</span></div><div class="line">        <span class="string">│</span>   <span class="string">├──</span> <span class="string">keepalived</span></div><div class="line">        <span class="string">│</span>   <span class="string">├──</span> <span class="string">keepalived-2.0.6.tar.gz</span></div><div class="line">        <span class="string">│</span>   <span class="string">├──</span> <span class="string">keepalived.conf.bak</span></div><div class="line">        <span class="string">│</span>   <span class="string">├──</span> <span class="string">message.sh</span></div><div class="line">        <span class="string">│</span>   <span class="string">├──</span> <span class="string">nginx_check.sh</span></div><div class="line">        <span class="string">│</span>   <span class="string">└──</span> <span class="string">rsyslog.conf</span></div><div class="line">        <span class="string">├──</span> <span class="string">tasks</span></div><div class="line">        <span class="string">│</span>   <span class="string">└──</span> <span class="string">main.yml</span></div><div class="line">        <span class="string">├──</span> <span class="string">templates</span></div><div class="line">        <span class="string">│</span>   <span class="string">└──</span> <span class="string">keepalived.conf</span></div><div class="line">        <span class="string">└──</span> <span class="string">vars</span></div><div class="line">            <span class="string">└──</span> <span class="string">main.yml</span></div><div class="line"></div><div class="line"><span class="number">6</span> <span class="string">directories,</span> <span class="number">10</span> <span class="string">files</span></div><div class="line"></div><div class="line"><span class="comment"># vim keepalived.yml</span></div><div class="line"><span class="meta">---</span></div><div class="line"><span class="attr">- hosts:</span> <span class="string">"<span class="template-variable">&#123;&#123; keepalivedhosts &#125;&#125;</span>"</span></div><div class="line"><span class="attr">  remote_user:</span> <span class="string">root</span></div><div class="line"><span class="attr">  roles:</span></div><div class="line"><span class="bullet">  -</span> <span class="string">keepalived</span></div><div class="line"><span class="comment"># vim roles/keepalived/tasks/main.yml</span></div><div class="line"><span class="meta">---</span></div><div class="line"><span class="attr">  - name:</span> <span class="string">set</span> <span class="string">off</span> <span class="string">selinux</span></div><div class="line"><span class="attr">    shell:</span> <span class="string">setenforce</span> <span class="number">0</span></div><div class="line"><span class="attr">  - name:</span> <span class="string">set</span> <span class="string">of</span> <span class="string">iptables</span></div><div class="line"><span class="attr">    shell:</span> <span class="string">iptables</span> <span class="bullet">-F</span></div><div class="line"><span class="attr">  - name:</span> <span class="string">install</span> <span class="string">required</span> <span class="string">packges</span></div><div class="line"><span class="attr">    yum:</span> <span class="string">name=&#123;&#123;</span> <span class="string">item</span> <span class="string">&#125;&#125;</span> <span class="string">state=present</span></div><div class="line"><span class="attr">    with_items:</span></div><div class="line"><span class="bullet">    -</span> <span class="string">gcc</span></div><div class="line"><span class="bullet">    -</span> <span class="string">openssl-devel</span></div><div class="line"><span class="bullet">    -</span> <span class="string">libnl3-devel</span></div><div class="line"><span class="bullet">    -</span> <span class="string">ipset-devel</span></div><div class="line"><span class="bullet">    -</span> <span class="string">iptables-devel</span></div><div class="line"><span class="bullet">    -</span> <span class="string">libnfnetlink-devel</span></div><div class="line"><span class="bullet">    -</span> <span class="string">net-snmp-devel</span></div><div class="line"><span class="bullet">    -</span> <span class="string">procps-ng</span></div><div class="line"><span class="bullet">    -</span> <span class="string">psmisc</span></div><div class="line"><span class="bullet">    -</span> <span class="string">lsof</span></div><div class="line"><span class="bullet">    -</span> <span class="string">grep</span></div><div class="line"></div><div class="line"><span class="attr">  - name:</span> <span class="string">ntpdate</span> <span class="string">time</span> <span class="string">to</span> <span class="string">keepavlied</span> <span class="string">hosts</span></div><div class="line"><span class="attr">    shell:</span> <span class="string">ntpdate</span> <span class="string">ntp.aliyun.com</span></div><div class="line"><span class="attr">  - name:</span> <span class="string">site</span> <span class="string">time</span> <span class="string">zone</span> <span class="string">to</span> <span class="string">Asia/Shanghai</span></div><div class="line"><span class="attr">    shell:</span> <span class="string">timedatectl</span> <span class="string">set-timezone</span> <span class="string">Asia/Shanghai</span></div><div class="line"><span class="attr">  - name:</span> <span class="string">copy</span> <span class="string">keepalived_file</span> <span class="string">to</span> <span class="string">remote</span> <span class="string">servers</span></div><div class="line"><span class="attr">    copy:</span> <span class="string">src=keepalived-&#123;&#123;</span> <span class="string">keepalivedversion</span> <span class="string">&#125;&#125;.tar.gz</span>  <span class="string">dest=&#123;&#123;</span> <span class="string">keepalivedsrc</span> <span class="string">&#125;&#125;</span></div><div class="line"><span class="attr">  - name:</span> <span class="string">decompression</span> <span class="string">keepalived</span> <span class="string">Source</span> <span class="string">code</span> <span class="string">package</span></div><div class="line"><span class="attr">    shell:</span> <span class="string">cd</span> <span class="string">/usr/local/src/</span> <span class="string">&amp;&amp;</span> <span class="string">tar</span> <span class="bullet">-xvf</span> <span class="string">keepalived-2.0.6.tar.gz</span></div><div class="line"><span class="attr">  - name:</span> <span class="string">make</span> <span class="string">install</span> <span class="string">keepalived</span></div><div class="line"><span class="attr">    shell:</span> <span class="string">cd</span> <span class="string">/usr/local/src/keepalived-&#123;&#123;</span> <span class="string">keepalivedversion</span> <span class="string">&#125;&#125;</span> <span class="string">&amp;&amp;</span> <span class="string">./configure</span> <span class="bullet">--prefix=/usr/local/keepalived</span> <span class="string">&amp;&amp;</span> <span class="string">make</span> <span class="string">&amp;&amp;</span> <span class="string">make</span> <span class="string">install</span></div><div class="line"><span class="attr">  - name:</span> <span class="string">mkdir</span> <span class="string">keepalived</span> <span class="string">log</span> <span class="string">floder</span></div><div class="line"><span class="attr">    shell:</span> <span class="string">mkdir</span> <span class="string">&#123;&#123;</span> <span class="string">keepalivedlogpath</span> <span class="string">&#125;&#125;</span> <span class="bullet">-pv</span></div><div class="line"><span class="attr">  - name:</span> <span class="string">copy</span> <span class="string">rsyslog</span> <span class="string">config</span> <span class="string">to</span> <span class="string">keepalived</span></div><div class="line"><span class="attr">    copy:</span> <span class="string">src=rsyslog.conf</span> <span class="string">dest=/etc</span></div><div class="line"><span class="attr">  - name:</span> <span class="string">restart</span> <span class="string">rsyslog</span></div><div class="line"><span class="attr">    service:</span> <span class="string">name=rsyslog</span> <span class="string">state=restarted</span></div><div class="line"><span class="attr">  - name:</span> <span class="string">copy</span> <span class="string">keepalived</span>  <span class="string">sysconfig</span> <span class="string">file</span> <span class="string">to</span> <span class="string">remote</span> <span class="string">server</span></div><div class="line"><span class="attr">    copy:</span> <span class="string">src=keepalived</span>  <span class="string">dest=/usr/local/keepalived/etc/sysconfig</span></div><div class="line"><span class="attr">  - name:</span> <span class="string">copy</span> <span class="string">keepalived</span> <span class="string">nginx</span> <span class="string">monitor</span> <span class="string">bash</span> <span class="string">script</span> <span class="string">to</span> <span class="string">remote</span> <span class="string">server</span></div><div class="line"><span class="attr">    copy:</span> <span class="string">src=nginx_check.sh</span>  <span class="string">dest=&#123;&#123;</span> <span class="string">keepalivedpath</span> <span class="string">&#125;&#125;etc/keepalived/</span></div><div class="line"><span class="attr">  - name:</span> <span class="string">copy</span> <span class="string">keepalived</span> <span class="string">nginx</span> <span class="string">messge</span> <span class="string">bash</span> <span class="string">script</span> <span class="string">to</span> <span class="string">remote</span> <span class="string">server</span></div><div class="line"><span class="attr">    copy:</span> <span class="string">src=message.sh</span>  <span class="string">dest=&#123;&#123;</span> <span class="string">keepalivedpath</span> <span class="string">&#125;&#125;etc/keepalived/</span> <span class="string">mode=755</span></div><div class="line"><span class="attr">  - name:</span> <span class="string">copy</span> <span class="string">keepalived</span> <span class="string">config</span> <span class="string">file</span> <span class="string">to</span> <span class="string">remote</span> <span class="string">server</span></div><div class="line"><span class="attr">    template:</span> <span class="string">src=keepalived.conf</span> <span class="string">dest=&#123;&#123;</span> <span class="string">keepalivedpath</span> <span class="string">&#125;&#125;etc/keepalived/</span></div><div class="line"><span class="comment"># vim roles/keepalived/vars/main.yml</span></div><div class="line"><span class="meta">---</span></div><div class="line"><span class="attr">keepalivedhosts:</span> <span class="string">keepalived</span></div><div class="line"><span class="attr">keepalivedversion:</span> <span class="number">2.0</span><span class="number">.6</span></div><div class="line"><span class="attr">keepalivedpath:</span> <span class="string">/usr/local/keepalived/</span></div><div class="line"><span class="attr">keepalivedsrc:</span> <span class="string">/usr/local/src/</span></div><div class="line"><span class="attr">keepalivedlogpath:</span> <span class="string">/var/log/keepalived/</span></div><div class="line"><span class="attr">priority:</span> <span class="number">100</span></div><div class="line"><span class="attr">unicast_src_ip:</span> <span class="string">keepalived</span></div><div class="line"><span class="attr">unicast_peer1:</span> <span class="number">10.180</span><span class="number">.66</span><span class="number">.13</span></div><div class="line"><span class="attr">unicast_peer2:</span> <span class="number">10.180</span><span class="number">.66</span><span class="number">.12</span></div><div class="line"><span class="attr">virtual_ipaddress:</span> <span class="number">10.180</span><span class="number">.66</span><span class="number">.100</span></div><div class="line"></div><div class="line"><span class="comment"># vim roles/keepalived/templates/keepalived.conf</span></div><div class="line"> <span class="string">!</span> <span class="string">Configuration</span> <span class="string">File</span> <span class="string">for</span> <span class="string">keepalived</span></div><div class="line"></div><div class="line"><span class="string">global_defs</span> <span class="string">&#123;</span></div><div class="line">   <span class="string">notification_email</span> <span class="string">&#123;</span></div><div class="line">     <span class="string">root@localhost</span></div><div class="line">   <span class="string">&#125;</span></div><div class="line">   <span class="string">notification_email_from</span> <span class="string">Alexandre.Cassen@firewall.loc</span></div><div class="line">   <span class="string">smtp_server</span> <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span></div><div class="line">   <span class="string">smtp_connect_timeout</span> <span class="number">30</span></div><div class="line">   <span class="string">router_id</span> <span class="string">node2</span></div><div class="line">   <span class="string">&#125;</span></div><div class="line"></div><div class="line"><span class="string">vrrp_script</span> <span class="string">chk_nginx</span> <span class="string">&#123;</span></div><div class="line">    <span class="string">script</span> <span class="string">"/bin/bash /usr/local/keepalived/etc/keepalived/nginx_check.sh"</span></div><div class="line">    <span class="string">interval</span> <span class="number">5</span></div><div class="line">    <span class="string">weight</span> <span class="bullet">-20</span></div><div class="line"><span class="string">&#125;</span></div><div class="line"></div><div class="line"><span class="string">vrrp_instance</span> <span class="string">VI_1</span> <span class="string">&#123;</span></div><div class="line">    <span class="string">state</span> <span class="string">MASTER</span></div><div class="line">    <span class="string">interface</span> <span class="string">eth0</span></div><div class="line">    <span class="string">virtual_router_id</span> <span class="number">55</span></div><div class="line">    <span class="string">priority</span> <span class="string">&#123;&#123;</span> <span class="string">priority</span> <span class="string">&#125;&#125;</span></div><div class="line">    <span class="string">nopreempt</span></div><div class="line">    <span class="string">advert_int</span> <span class="number">1</span></div><div class="line">    <span class="string">notify_master</span> <span class="string">"/usr/local/keepalived/etc/keepalived/message.sh  master"</span></div><div class="line">    <span class="string">notify_backup</span> <span class="string">"/usr/local/keepalived/etc/keepalived/message.sh  backup"</span></div><div class="line">    <span class="string">notify_fault</span>  <span class="string">"/usr/local/keepalived/etc/keepalived/message.sh  fault"</span></div><div class="line">    <span class="string">unicast_src_ip</span> <span class="string">xxx.xx.xxx.xx</span></div><div class="line">    <span class="string">unicast_peer</span> <span class="string">&#123;</span></div><div class="line">     <span class="string">xxx.xx.xxx.xx</span></div><div class="line">    <span class="string">&#125;</span></div><div class="line">    <span class="string">track_script</span> <span class="string">&#123;</span></div><div class="line">       <span class="string">chk_nginx</span></div><div class="line">    <span class="string">&#125;</span></div><div class="line">    <span class="string">authentication</span> <span class="string">&#123;</span></div><div class="line">        <span class="string">auth_type</span> <span class="string">PASS</span></div><div class="line">        <span class="string">auth_pass</span> <span class="string">zE2kNsRQ</span></div><div class="line">    <span class="string">&#125;</span></div><div class="line"></div><div class="line">    <span class="string">virtual_ipaddress</span> <span class="string">&#123;</span></div><div class="line">	<span class="string">xxx.xx.xxx.xxx</span></div><div class="line">    <span class="string">&#125;</span></div><div class="line"><span class="string">&#125;</span></div><div class="line"><span class="comment"># 注：为避免意外停止生产中的nginx服务，在生产中，最好先把有关nginx监测配置的注释了</span></div><div class="line"><span class="comment"># vim roles/keepalived/files/message.sh</span></div><div class="line"><span class="comment">#!/bin/bash</span></div><div class="line"><span class="string">/usr/bin/echo</span> <span class="string">"`date +"</span><span class="string">%Y-%m-%d-%H-%M-%S"`</span> <span class="string">node2</span> <span class="string">notify</span> <span class="string">$1</span> <span class="string">" &gt;&gt; /var/log/keepalived/shell-message.log</span></div><div class="line"><span class="string"># 其余文keepalived、keepalived-2.0.6.tar.gz、</span></div><div class="line"><span class="string">keepalived.conf.bak、message.sh、nginx_check.sh、rsyslog.conf件与以上的使用的一样</span></div></pre></td></tr></table></figure>
+<p>接下来把node2,node3恢复快照到初始状态跑一次试试<br><img src="/images/ansible-keepalived.png" alt=""><br>为避免生产中出现突发情况，检查变更完keepalived 主配置文件后手动启动服务</p>
+<h2 id="rsync-inotify-nginx配置文件实时同步"><a href="#rsync-inotify-nginx配置文件实时同步" class="headerlink" title="rsync+inotify nginx配置文件实时同步"></a>rsync+inotify nginx配置文件实时同步</h2><h3 id="主服务器配置10-180-66-13"><a href="#主服务器配置10-180-66-13" class="headerlink" title="主服务器配置10.180.66.13"></a>主服务器配置10.180.66.13</h3><p>1、 安装rsync</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"># cd /usr/local/src</div><div class="line"># 上传rsync源码包</div><div class="line"># tar -xvf rsync-3.0.9.tar.gz</div><div class="line"># cd /usr/local/src/rsync-3.0.9</div><div class="line"># ./configure --prefix=/usr/local/rsync</div><div class="line"># make </div><div class="line"># make install</div></pre></td></tr></table></figure>
+<p>2、 建立密码认证文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"># echo &apos;Tpz99YJV1p&apos; &gt;&gt; /usr/local/rsync/rsync.passwd</div><div class="line"># cd /usr/local/rsync/</div><div class="line"># chown root.root rsync.passwd</div><div class="line"># chmod 600 rsync.passwd</div><div class="line"># ll rsync.passwd # 查看文件权限是否正确</div></pre></td></tr></table></figure>
+<p>3、 安装 inotify </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"># cd /usr/local/src/</div><div class="line"># 上传inotify 源码包</div><div class="line"># tar -xvf inotify-tools-3.14.tar.gz</div><div class="line"># cd /usr/local/src/inotify-tools-3.14</div><div class="line"># ./configure --prefix=/usr/local/inotify</div><div class="line"># make</div><div class="line"># make install</div></pre></td></tr></table></figure>
+<p>4、创建 rsync复制脚本(要注意同步的方向与操作)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#!/bin/bash</span></div><div class="line">host=10.180.66.13</div><div class="line">src=/etc/nginx/</div><div class="line">des=web</div><div class="line">user=usernode</div><div class="line">src_ssl=/tmp/</div><div class="line">des_ssl=ssl</div><div class="line">/usr/<span class="built_in">local</span>/inotify/bin/inotifywait -mrq --timefmt <span class="string">'%d/%m/%y %H:%M'</span> --format <span class="string">'%T %w%f%e'</span> -e modify,delete,create,attrib <span class="variable">$src</span> <span class="variable">$src_ssl</span> | <span class="keyword">while</span> <span class="built_in">read</span> files</div><div class="line"><span class="keyword">do</span></div><div class="line">/usr/<span class="built_in">local</span>/rsync/bin/rsync -vzrtopg --delete --progress --password-file=/usr/<span class="built_in">local</span>/rsync/rsync.passwd <span class="variable">$src</span> <span class="variable">$user</span>@<span class="variable">$host</span>::<span class="variable">$des</span></div><div class="line">/usr/<span class="built_in">local</span>/rsync/bin/rsync -vzrtopg --delete --progress --password-file=/usr/<span class="built_in">local</span>/rsync/rsync.passwd <span class="variable">$src_ssl</span> <span class="variable">$user</span>@<span class="variable">$host</span>::<span class="variable">$des_ssl</span></div><div class="line"><span class="built_in">echo</span> <span class="string">"<span class="variable">$&#123;files&#125;</span> was rsynced"</span> &amp;&gt;&gt; /var/<span class="built_in">log</span>/rsync.log</div><div class="line"><span class="keyword">done</span></div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># echo &apos;bash /root/rsync.sh &amp;&gt; /dev/null &amp;&apos; &gt;&gt; /etc/rc.local</div><div class="line"># chmod +x /etc/rc.d/rc.local</div></pre></td></tr></table></figure>
+<p>备服务器同步配置10.180.66.13</p>
+<p>1、 安装rsync(备服务器只安装rsync，也就是说同步文件的目标服务)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"># cd /usr/local/src</div><div class="line"># 上传rsync源码包</div><div class="line"># tar -xvf rsync-3.0.9.tar.gz</div><div class="line"># cd /usr/local/src/rsync-3.0.9</div><div class="line"># ./configure --prefix=/usr/local/rsync</div><div class="line"># make </div><div class="line"># make install</div></pre></td></tr></table></figure>
+<p>2、 建立用户与密码认证文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"># cd /usr/local/rsync/</div><div class="line"># echo &apos;usernode:Tpz99YJV1p&apos; &gt;&gt; rsync.passwd</div><div class="line"># chown root.root rsync.passwd</div><div class="line"># chmod 600 rsync.passwd</div><div class="line"># ll # 查看文件权限是否正确</div></pre></td></tr></table></figure>
+<p>3、 建立rsync的启动配置文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># cd /usr/local/rsync</div><div class="line"># vim rsync.conf</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">uid = root</div><div class="line">gid = root</div><div class="line">use chroot = no</div><div class="line">max connections = 10</div><div class="line">strict modes = yes</div><div class="line">pid file = /var/run/rsyncd.pid</div><div class="line">lock file = /var/run/rsync.lock</div><div class="line">log file = /var/log/rsyncd.log</div><div class="line">[web]</div><div class="line">path = /etc/nginx/</div><div class="line">comment = web file</div><div class="line">ignore errors</div><div class="line">read only = no</div><div class="line">write only = no</div><div class="line">hosts allow = 10.180.66.12</div><div class="line">hosts deny = *</div><div class="line">list = false</div><div class="line">uid = root</div><div class="line">gid = root</div><div class="line">auth users = usernode</div><div class="line">secrets file = /usr/local/rsync/rsync.passwd</div><div class="line"></div><div class="line">[ssl]</div><div class="line">path = /tmp/</div><div class="line">comment = ssl file</div><div class="line">ignore errors</div><div class="line">read only = no</div><div class="line">write only = no</div><div class="line">hosts allow = 10.180.66.12</div><div class="line">hosts deny = *</div><div class="line">list = false</div><div class="line">uid = root</div><div class="line">gid = root</div><div class="line">auth users = usernode</div><div class="line">secrets file = /usr/local/rsync/rsync.passwd</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">#  /usr/local/rsync/bin/rsync --daemon --config=/usr/local/rsync/rsync.conf</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># echo &apos;/usr/local/rsync/bin/rsync --daemon --config=/usr/local/rsync/rsync.conf&apos; &gt;&gt; /etc/rc.d/rc.local</div><div class="line"># chmod +x /etc/rc.d/rc.local</div></pre></td></tr></table></figure>
+<h3 id="在10-180-66-12-开始往-10-180-66-13上面同步"><a href="#在10-180-66-12-开始往-10-180-66-13上面同步" class="headerlink" title="在10.180.66.12 开始往 10.180.66.13上面同步"></a>在10.180.66.12 开始往 10.180.66.13上面同步</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># bash /root/rsync.sh &amp;&gt; /dev/null &amp;  注: shell</div></pre></td></tr></table></figure>
+<h3 id="配置同步结果如下"><a href="#配置同步结果如下" class="headerlink" title="配置同步结果如下"></a>配置同步结果如下</h3><p><img src="/images/rysnc+inotify.png" alt=""><br><img src="/images/rsync+inotify2.png" alt=""></p>
+<p>注意:<br>nginx 同步配置的源地址与目标地址一定要注意，如果对以上配置不是很清楚，一定要测试无误后<br>      再上生产环境， 不要把生产中的配置替换了<br>keepalived 在自动化初始化时，不要启用nginx监测，另外注意在生产中的虚拟ip冲突;  </p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>ღ ღ ღ 如果觉得文章对您有用，不妨打赏一下ღ ღ ღ</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/weipei.png" alt="锦遥 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/zhipei.png" alt="锦遥 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/linux/" rel="tag"># linux</a>
+          
+            <a href="/tags/rhca/" rel="tag"># rhca</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/07/29/hadoop/" rel="next" title="hadoop学习笔记">
+                <i class="fa fa-chevron-left"></i> hadoop学习笔记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/08/20/python输出格式/" rel="prev" title="python输出格式">
+                python输出格式 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/rjyy.ico"
+                alt="锦遥" />
+            
+              <p class="site-author-name" itemprop="name">锦遥</p>
+              <p class="site-description motion-element" itemprop="description">有智而性缓者思大智
+
+</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">65</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#环境架构与实现"><span class="nav-number">1.</span> <span class="nav-text">环境架构与实现</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#实验环境介绍"><span class="nav-number">1.1.</span> <span class="nav-text">实验环境介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现逻辑架构图"><span class="nav-number">1.2.</span> <span class="nav-text">实现逻辑架构图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ansible-环境准备"><span class="nav-number">1.3.</span> <span class="nav-text">ansible 环境准备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#keepalived-手动安装"><span class="nav-number">1.4.</span> <span class="nav-text">keepalived 手动安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ansible-编写keepalived-自动化roles"><span class="nav-number">1.5.</span> <span class="nav-text">ansible 编写keepalived 自动化roles</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rsync-inotify-nginx配置文件实时同步"><span class="nav-number">1.6.</span> <span class="nav-text">rsync+inotify nginx配置文件实时同步</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#主服务器配置10-180-66-13"><span class="nav-number">1.6.1.</span> <span class="nav-text">主服务器配置10.180.66.13</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在10-180-66-12-开始往-10-180-66-13上面同步"><span class="nav-number">1.6.2.</span> <span class="nav-text">在10.180.66.12 开始往 10.180.66.13上面同步</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置同步结果如下"><span class="nav-number">1.6.3.</span> <span class="nav-text">配置同步结果如下</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; 2015 &mdash; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">锦遥</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">162.2k</span>
+  
+  <span>   |   </span>
+<span id="showDays"></span>
+</div>
+
+
+
+
+
+
+
+
+<div>
+<a href="http://www.beian.miit.gov.cn">晋ICP备17010575号</a>
+</div>
+<!-- time -->
+<div id="show-time">
+<span id="span_dt_dt"></span>
+</div>
+<script>
+var seconds = 1000;
+var minutes = seconds * 60;
+var hours = minutes * 60;
+var days = hours * 24;
+var years = days * 365;
+var birthDay = Date.UTC(2017,07,30,00,00,00); // 这里设置建站时间
+setInterval(function() {
+var today = new Date();
+var todayYear = today.getFullYear();
+var todayMonth = today.getMonth()+1;
+var todayDate = today.getDate();
+var todayHour = today.getHours();
+var todayMinute = today.getMinutes();
+var todaySecond = today.getSeconds();
+var now = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+var diff = now - birthDay;
+var diffYears = Math.floor(diff/years);
+var diffDays = Math.floor((diff/days)-diffYears*365);
+var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+  document.getElementById('showDays').innerHTML="不間斷的運行了"+diffYears+" 年 "+diffDays+" 天 "+diffHours+" 時 "+diffMinutes+" 分 "+diffSeconds+" 秒 ";
+}, 1000);
+</script>
+
+        
+<div class="busuanzi-count">
+#  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 訪客數
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      位
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>  訪客量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://www.ssjinyao.com/2018/08/08/keepalived+nginx+inotify+rsync的实现/';
+          this.page.identifier = '2018/08/08/keepalived+nginx+inotify+rsync的实现/';
+          this.page.title = 'keepalived+nginx+inotify+rsync的实现';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine@1.1.6/dist/Valine.min.js"></script>
+  <script type="text/javascript">
+    new Valine({
+        av: AV,
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        app_id: 'NkJqMpxu4QlRLhPIHipNUHF1-gzGzoHsz',
+        app_key: 'D2vTdueKJ8ammc2JEdje0vLW',
+        placeholder: 'From SSJinYao'
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'true') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  <!-- 点击特效 -->
+<canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas>
+<script type="text/javascript" src="/js/src/fireworks.js"></script>
+
+
+  <script src="/js/activate-power-mode.min.js"></script>
+    <script>
+	    POWERMODE.colorful = true;
+    POWERMODE.shake = false;
+    document.body.addEventListener('input', POWERMODE);
+	  </script>
+
+
+  
+</body>
+</html>

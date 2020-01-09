@@ -1,0 +1,1370 @@
+<!DOCTYPE html>
+
+
+
+  
+
+<script src="/live2d-widget/autoload.js"></script>
+<!--崩溃欺骗-->
+<script type="text/javascript" src="/js/src/crash_cheat.js"></script>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="https://fonts.cat.net/css?family=Lato:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|Roboto Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/redhat.ico?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/redhat.ico?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/redihat.ico?v=5.1.3" color="#0000EE">
+
+
+  <link rel="manifest" href="/images/manifest.json">
+
+
+  <meta name="msapplication-config" content="/images/browserconfig.xml" />
+
+
+
+  <meta name="keywords" content="program," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="逝水锦遥" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="文件/目录差异对比法 当我们进行代码审计或校验备份时，往往需要检查原始与目标目录的一致性;Python的标准库已经自带了满足此需求的模块filecmp;filecmp可以实现文件、目录遍历子目录的差异对比功能;比如报告中输出目录目录比原始多出的文件或子目录;即使文件同名也会判断是否为同一个文件(内容级比对)等;python2.3 或更高版本默认自带fileemp模块,无需额外安装;    模块常用">
+<meta name="keywords" content="program">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python 之业务服务监控详解(二)">
+<meta property="og:url" content="https://www.ssjinyao.com/2018/01/19/python-之业务服务监控详解-二/index.html">
+<meta property="og:site_name" content="逝水锦遥">
+<meta property="og:description" content="文件/目录差异对比法 当我们进行代码审计或校验备份时，往往需要检查原始与目标目录的一致性;Python的标准库已经自带了满足此需求的模块filecmp;filecmp可以实现文件、目录遍历子目录的差异对比功能;比如报告中输出目录目录比原始多出的文件或子目录;即使文件同名也会判断是否为同一个文件(内容级比对)等;python2.3 或更高版本默认自带fileemp模块,无需额外安装;    模块常用">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-02-07T09:32:49.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="python 之业务服务监控详解(二)">
+<meta name="twitter:description" content="文件/目录差异对比法 当我们进行代码审计或校验备份时，往往需要检查原始与目标目录的一致性;Python的标准库已经自带了满足此需求的模块filecmp;filecmp可以实现文件、目录遍历子目录的差异对比功能;比如报告中输出目录目录比原始多出的文件或子目录;即使文件同名也会判断是否为同一个文件(内容级比对)等;python2.3 或更高版本默认自带fileemp模块,无需额外安装;    模块常用">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="https://www.ssjinyao.com/2018/01/19/python-之业务服务监控详解-二/"/>
+
+
+
+
+
+  <title>python 之业务服务监控详解(二) | 逝水锦遥</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta custom-logo">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">逝水锦遥</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">心有所向 将有所成</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-所有文章">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-linux"></i> <br />
+            
+            所有文章
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-python">
+          <a href="/./tags/program" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-gitlab"></i> <br />
+            
+            python
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-运维组件">
+          <a href="/./tags/rhca" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            运维组件
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-数据库">
+          <a href="/./tags/database" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-database"></i> <br />
+            
+            数据库
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-云计算">
+          <a href="/./tags/cloud" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-cloud"></i> <br />
+            
+            云计算
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-个人中心">
+          <a href="/./tags/renjin" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user-circle"></i> <br />
+            
+            个人中心
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索文章
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.ssjinyao.com/2018/01/19/python-之业务服务监控详解-二/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="锦遥">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/rjyy.ico">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="逝水锦遥">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">python 之业务服务监控详解(二)</h1>
+        
+
+        <div class="post-meta">
+		          
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-19T14:35:45+08:00">
+                2018-01-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/01/19/python-之业务服务监控详解-二/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/01/19/python-之业务服务监控详解-二/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>  浏览
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2.2k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  10
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="文件-目录差异对比法"><a href="#文件-目录差异对比法" class="headerlink" title="文件/目录差异对比法"></a>文件/目录差异对比法</h2><blockquote>
+<p>当我们进行代码审计或校验备份时，往往需要检查原始与目标目录的一致性;<br>Python的标准库已经自带了满足此需求的模块filecmp;<br>filecmp可以实现文件、目录遍历子目录的差异对比功能;<br>比如报告中输出目录目录比原始多出的文件或子目录;<br>即使文件同名也会判断是否为同一个文件(内容级比对)等;<br>python2.3 或更高版本默认自带fileemp模块,无需额外安装;  </p>
+</blockquote>
+<h2 id="模块常用方法说明"><a href="#模块常用方法说明" class="headerlink" title="模块常用方法说明"></a>模块常用方法说明</h2><blockquote>
+<p>filecmp 提供了三个操作方法，分别为cmp（单文件对比）、cmpfiles(多文件对比）<br>dircmp（目录对比) </p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">单文件对比，采用filecmp.cmp(f1,f2[,shallow])方法，比较文件名为f1和f2的文件   </div><div class="line">相同反回True，不相同返回False,shallow默认为True，意思是只根据os.stat()方法  </div><div class="line">返回的文件基本信息进行对比，比如最后访问时间、修改时间、状态改变时间等  </div><div class="line">忽略对文件内容的对比。当shallow为False时，则os.stat()与文件内容同时进行校验</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 对比文件的差异</span></div><div class="line">➜  test echo <span class="string">"good user"</span> &gt; f1   </div><div class="line">➜  test echo <span class="string">"good user"</span> &gt; f3</div><div class="line">➜  test echo <span class="string">"good user2"</span> &gt; f2</div><div class="line">In [<span class="number">2</span>]: <span class="keyword">import</span> filecmp</div><div class="line"></div><div class="line">In [<span class="number">3</span>]: filecmp.cmp(<span class="string">"/Users/macbookdzsbe/Desktop/MyPython/test/f1"</span>,<span class="string">"/Users/macbookdzsbe/Desktop/MyPython/test/f3"</span>)</div><div class="line">Out[<span class="number">3</span>]: <span class="keyword">True</span></div><div class="line"></div><div class="line">In [<span class="number">4</span>]: filecmp.cmp(<span class="string">"/Users/macbookdzsbe/Desktop/MyPython/test/f1"</span>,<span class="string">"/Users/macbookdzsbe/Desktop/MyPython/test/f2"</span>)</div><div class="line">Out[<span class="number">4</span>]: <span class="keyword">False</span></div></pre></td></tr></table></figure>
+<h2 id="dir1-与-dir2目录中指定文件清单对比"><a href="#dir1-与-dir2目录中指定文件清单对比" class="headerlink" title="dir1 与 dir2目录中指定文件清单对比"></a>dir1 与 dir2目录中指定文件清单对比</h2><blockquote>
+<p>两目录下文件的 md5 信息如下<br>两目录下文件的 md5 信息如下,其中f1、f2匹配; f3不匹配<br>f4,f5对应的目录中不存在无法比较</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">[root@test dir2]<span class="comment"># md5sum ../dir1/*</span></div><div class="line"><span class="number">1</span>a9dbd408f626389539e9feb1d234df7  ../dir1/f1</div><div class="line"><span class="number">235</span>dce31eebce0213322102f698bc249  ../dir1/f2</div><div class="line"><span class="number">1</span>a9dbd408f626389539e9feb1d234df7  ../dir1/f3</div><div class="line">d41d8cd98f00b204e9800998ecf8427e  ../dir1/f5</div><div class="line">[root@test dir2]<span class="comment"># md5sum *</span></div><div class="line"><span class="number">1</span>a9dbd408f626389539e9feb1d234df7  f1</div><div class="line"><span class="number">235</span>dce31eebce0213322102f698bc249  f2</div><div class="line"><span class="number">68e51</span>baf228d447b199a75268dd5634b  f3</div><div class="line"><span class="number">764</span>c976782dec989b043d08714ec21a5  f4</div><div class="line"><span class="comment"># 使用cmpfiles 对比的结果如下，符合我们的预期 </span></div><div class="line">In [<span class="number">4</span>]: <span class="keyword">import</span> filecmp</div><div class="line"></div><div class="line">In [<span class="number">5</span>]: filecmp.cmpfiles(<span class="string">"/root/test/dir1"</span>, <span class="string">"/root/test/dir2"</span>,[<span class="string">'f1'</span>,<span class="string">'f2'</span>,<span class="string">'f3'</span>,<span class="string">'f4'</span>,<span class="string">'f5'</span>])</div><div class="line">Out[<span class="number">5</span>]: ([<span class="string">'f1'</span>, <span class="string">'f2'</span>], [<span class="string">'f3'</span>], [<span class="string">'f4'</span>, <span class="string">'f5'</span>])</div></pre></td></tr></table></figure>
+<blockquote>
+<p>目录对比，能过dircmp(a,b[,ingore[,hide]]) 类创建一个目录比较对象;<br>其中a和b是参加比较的目录名。ignore代表文件名忽略的列表，并默认为[‘RCS’,’CVS’,’’tags];<br>hide代表隐藏的列表，默认为[os.curdir, os.pardir]。dircmp类可以获得目录比较的详细信息;<br>如只有在a目录中包括的文件、a与b都存在的子目录、匹配的文件等，同时支持递归;  </p>
+</blockquote>
+<h2 id="dircmp提供了三个输出报的方法"><a href="#dircmp提供了三个输出报的方法" class="headerlink" title="dircmp提供了三个输出报的方法"></a>dircmp提供了三个输出报的方法</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># report()，比较当前指定目录中的内容;  </span></div><div class="line"><span class="comment"># report_partial_closure(),比较当前指定目录 及第一级子目录中的内容;  </span></div><div class="line"><span class="comment"># report_full_closure(),递归比较所有指定目录的内容;  </span></div><div class="line"><span class="comment"># 为输出更加详细的比较内容，dircmp类还提供了以下属性;  </span></div><div class="line"><span class="comment"># left, 左目录,如类定义的a; </span></div><div class="line"><span class="comment"># right, 右目录,如类定义中的b; </span></div><div class="line"><span class="comment"># left_list, 左目录中的文件及目录列表;  </span></div><div class="line"><span class="comment"># right_list, 右目录中的文件及目录列表; </span></div><div class="line"><span class="comment"># common, 两边目录共同存在的文件或者目录;  </span></div><div class="line"><span class="comment"># left_only, 只在左目录中的文件或者目录; </span></div><div class="line"><span class="comment"># right_only, 只在右目录的文件或者目录; </span></div><div class="line"><span class="comment"># common_dirs, 两边目录都存在的子目录; </span></div><div class="line"><span class="comment"># common_files, 两边目录都存在的子文件;  </span></div><div class="line"><span class="comment"># common_funny, 两边目录都存在的子目录(不同目录类型或os.stat()记录的错误);  </span></div><div class="line"><span class="comment"># same_files, 匹配相同的文件;  </span></div><div class="line"><span class="comment"># diff_files, 不匹配的文件;  </span></div><div class="line"><span class="comment"># funny_files, 两边目录中都存在，但无法比较的文件; </span></div><div class="line"><span class="comment"># subdirs, 将common_dirs目录名映身到新的dircmp对象，格式为字典类型;</span></div></pre></td></tr></table></figure>
+<h2 id="对比dir1与dir2目录差异"><a href="#对比dir1与dir2目录差异" class="headerlink" title="对比dir1与dir2目录差异"></a>对比dir1与dir2目录差异</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">[root@<span class="built_in">test</span> <span class="built_in">test</span>]<span class="comment"># mkdir dir1/&#123;a/&#123;a1,b/&#123;b1,b2,b3&#125;&#125;,f1,f2,f3,f4&#125; -pv</span></div><div class="line">mkdir: 已创建目录 <span class="string">"dir1"</span></div><div class="line">mkdir: 已创建目录 <span class="string">"dir1/a"</span></div><div class="line">mkdir: 已创建目录 <span class="string">"dir1/a/a1"</span></div><div class="line">mkdir: 已创建目录 <span class="string">"dir1/a/b"</span></div><div class="line">mkdir: 已创建目录 <span class="string">"dir1/a/b/b1"</span></div><div class="line">mkdir: 已创建目录 <span class="string">"dir1/a/b/b2"</span></div><div class="line">mkdir: 已创建目录 <span class="string">"dir1/a/b/b3"</span></div><div class="line">mkdir: 已创建目录 <span class="string">"dir1/f1"</span></div><div class="line">mkdir: 已创建目录 <span class="string">"dir1/f2"</span></div><div class="line">mkdir: 已创建目录 <span class="string">"dir1/f3"</span></div><div class="line">mkdir: 已创建目录 <span class="string">"dir1/f4"</span></div><div class="line">[root@<span class="built_in">test</span> <span class="built_in">test</span>]<span class="comment"># touch dir1/test.py</span></div><div class="line">[root@<span class="built_in">test</span> <span class="built_in">test</span>]<span class="comment"># tree  dir1/</span></div><div class="line">dir1/</div><div class="line">├── a</div><div class="line">│   ├── a1</div><div class="line">│   └── b</div><div class="line">│       ├── b1</div><div class="line">│       ├── b2</div><div class="line">│       └── b3</div><div class="line">├── f1</div><div class="line">├── f2</div><div class="line">├── f3</div><div class="line">├── f4</div><div class="line">└── test.py</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">[root@tf-test <span class="built_in">test</span>]<span class="comment"># mkdir dir2/&#123;a/&#123;a1,b/&#123;b1,b2,b3&#125;&#125;,aa&#123;/aa1&#125;,f1,f2,f3,f5&#125; -pv</span></div><div class="line">mkdir: 已创建目录 <span class="string">"dir2"</span></div><div class="line">mkdir: 已创建目录 <span class="string">"dir2/a"</span></div><div class="line">mkdir: 已创建目录 <span class="string">"dir2/a/a1"</span></div><div class="line">mkdir: 已创建目录 <span class="string">"dir2/a/b"</span></div><div class="line">mkdir: 已创建目录 <span class="string">"dir2/a/b/b1"</span></div><div class="line">mkdir: 已创建目录 <span class="string">"dir2/a/b/b2"</span></div><div class="line">mkdir: 已创建目录 <span class="string">"dir2/a/b/b3"</span></div><div class="line">mkdir: 已创建目录 <span class="string">"dir2/aa&#123;"</span></div><div class="line">mkdir: 已创建目录 <span class="string">"dir2/aa&#123;/aa1&#125;"</span></div><div class="line">mkdir: 已创建目录 <span class="string">"dir2/f1"</span></div><div class="line">mkdir: 已创建目录 <span class="string">"dir2/f2"</span></div><div class="line">mkdir: 已创建目录 <span class="string">"dir2/f3"</span></div><div class="line">mkdir: 已创建目录 <span class="string">"dir2/f5"</span></div><div class="line">[root@tf-test <span class="built_in">test</span>]<span class="comment"># touch dir2/test.py</span></div><div class="line">[root@tf-test <span class="built_in">test</span>]<span class="comment"># tree dir2/</span></div><div class="line">dir2/</div><div class="line">├── a</div><div class="line">│   ├── a1</div><div class="line">│   └── b</div><div class="line">│       ├── b1</div><div class="line">│       ├── b2</div><div class="line">│       └── b3</div><div class="line">├── aa&#123;</div><div class="line">│   └── aa1&#125;</div><div class="line">├── f1</div><div class="line">├── f2</div><div class="line">├── f3</div><div class="line">├── f5</div><div class="line">└── test.py</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">[root@test test]<span class="comment"># cat cmpy.py </span></div><div class="line"><span class="comment">#!/usr/bin/env python </span></div><div class="line"><span class="comment"># -*- coding:utf-8 -*- </span></div><div class="line"></div><div class="line"><span class="keyword">import</span> filecmp</div><div class="line">a = <span class="string">"/root/test/dir1"</span> <span class="comment"># 定义左目录 </span></div><div class="line">b = <span class="string">"/root/test/dir2"</span> <span class="comment"># 定义右目录 </span></div><div class="line"></div><div class="line">dirobj=filecmp.dircmp(a,b,[<span class="string">'test.y'</span>]) <span class="comment"># 目录比较，忽略test.py文件 </span></div><div class="line"><span class="comment">#输出对比结果数据报表</span></div><div class="line"></div><div class="line">dirobj.report()</div><div class="line">dirobj.report_partial_closure()</div><div class="line">dirobj.report_full_closure() </div><div class="line"></div><div class="line"><span class="keyword">print</span> <span class="string">"left_list:"</span> + str(dirobj.left_list)</div><div class="line"><span class="keyword">print</span> <span class="string">"right_list"</span> + str(dirobj.right_list)</div><div class="line"><span class="keyword">print</span> <span class="string">"common:"</span> + str(dirobj.common)</div><div class="line"><span class="keyword">print</span> <span class="string">"left_only:"</span> + str(dirobj.left_only)</div><div class="line"><span class="keyword">print</span> <span class="string">"right_only:"</span> + str(dirobj.right_only)</div><div class="line"><span class="keyword">print</span> <span class="string">"common_dirs:"</span> + str(dirobj.common_dirs)</div><div class="line"><span class="keyword">print</span> <span class="string">"common_files:"</span> + str(dirobj.common_files)</div><div class="line"><span class="keyword">print</span> <span class="string">"common_funny:"</span> + str(dirobj.common_funny)</div><div class="line"><span class="keyword">print</span> <span class="string">"same_file:"</span> + str(dirobj.same_files)</div><div class="line"><span class="keyword">print</span> <span class="string">"diff_files:"</span> + str(dirobj.diff_files)</div><div class="line"><span class="keyword">print</span> <span class="string">"funny_files:"</span> + str(dirobj.funny_files)</div></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div></pre></td><td class="code"><pre><div class="line">diff /root/test/dir1 /root/test/dir2</div><div class="line">Only in /root/test/dir1 : ['f4']</div><div class="line">Only in /root/test/dir2 : ['aa&#123;', 'f5']</div><div class="line">Identical files : ['test.py']</div><div class="line">Common subdirectories : ['a', 'f1', 'f2', 'f3']</div><div class="line">diff /root/test/dir1 /root/test/dir2</div><div class="line">Only in /root/test/dir1 : ['f4']</div><div class="line">Only in /root/test/dir2 : ['aa&#123;', 'f5']</div><div class="line">Identical files : ['test.py']</div><div class="line">Common subdirectories : ['a', 'f1', 'f2', 'f3']</div><div class="line"></div><div class="line">diff /root/test/dir1/a /root/test/dir2/a</div><div class="line">Common subdirectories : ['a1', 'b']</div><div class="line"></div><div class="line">diff /root/test/dir1/f1 /root/test/dir2/f1</div><div class="line"></div><div class="line">diff /root/test/dir1/f2 /root/test/dir2/f2</div><div class="line"></div><div class="line">diff /root/test/dir1/f3 /root/test/dir2/f3</div><div class="line">diff /root/test/dir1 /root/test/dir2</div><div class="line">Only in /root/test/dir1 : ['f4']</div><div class="line">Only in /root/test/dir2 : ['aa&#123;', 'f5']</div><div class="line">Identical files : ['test.py']</div><div class="line">Common subdirectories : ['a', 'f1', 'f2', 'f3']</div><div class="line"></div><div class="line">diff /root/test/dir1/a /root/test/dir2/a</div><div class="line">Common subdirectories : ['a1', 'b']</div><div class="line"></div><div class="line">diff /root/test/dir1/a/a1 /root/test/dir2/a/a1</div><div class="line"></div><div class="line">diff /root/test/dir1/a/b /root/test/dir2/a/b</div><div class="line">Common subdirectories : ['b1', 'b2', 'b3']</div><div class="line"></div><div class="line">diff /root/test/dir1/a/b/b1 /root/test/dir2/a/b/b1</div><div class="line"></div><div class="line">diff /root/test/dir1/a/b/b2 /root/test/dir2/a/b/b2</div><div class="line"></div><div class="line">diff /root/test/dir1/a/b/b3 /root/test/dir2/a/b/b3</div><div class="line"></div><div class="line">diff /root/test/dir1/f1 /root/test/dir2/f1</div><div class="line"></div><div class="line">diff /root/test/dir1/f2 /root/test/dir2/f2</div><div class="line"></div><div class="line">diff /root/test/dir1/f3 /root/test/dir2/f3</div><div class="line">left_list:['a', 'f1', 'f2', 'f3', 'f4', 'test.py']</div><div class="line">right_list['a', 'aa&#123;', 'f1', 'f2', 'f3', 'f5', 'test.py']</div><div class="line">common:['a', 'f1', 'f2', 'f3', 'test.py']</div><div class="line">left_only:['f4']</div><div class="line">right_only:['aa&#123;', 'f5']</div><div class="line">common_dirs:['a', 'f1', 'f2', 'f3']</div><div class="line">common_files:['test.py']</div><div class="line">common_funny:[]</div><div class="line">same_file:['test.py']</div><div class="line">diff_files:[]</div><div class="line">funny_files:[]</div></pre></td></tr></table></figure>
+<h2 id="校验源与备份目录差异"><a href="#校验源与备份目录差异" class="headerlink" title="校验源与备份目录差异"></a>校验源与备份目录差异</h2><blockquote>
+<p>有时候我们无法确认备份目录与源目录文件是否保持一致，包括源目录中的新文件或目录;<br>更新文件或目录 有无成功同步，定期进行校验，没有成功则希望有针对性地进行补备份;<br>本未例使用了filecmp模块的left_only、diff_files方法递归获取目录的更新项;<br>再通过shuti.copyfile、 os.makedirs 方法对更新项进行复制，最终保持一致状态;  </p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div></pre></td><td class="code"><pre><div class="line">➜  test cat dir_contrast.py </div><div class="line"><span class="comment">#!/usr/bin/env python</span></div><div class="line"><span class="comment"># -*- coding: utf-8 -*-</span></div><div class="line"><span class="keyword">import</span> os, sys </div><div class="line"><span class="keyword">import</span> filecmp</div><div class="line"><span class="keyword">import</span> re </div><div class="line"><span class="keyword">import</span> shutil </div><div class="line"><span class="keyword">import</span> difflib</div><div class="line">holderlist = []</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">compareme</span><span class="params">(dir1,dir2)</span>:</span>   <span class="comment"># 递归获取更新项函数</span></div><div class="line">    dircomp=filecmp.dircmp(dir1,dir2)</div><div class="line">    only_in_one=dircomp.left_only  <span class="comment"># 源目录新文件或目录</span></div><div class="line">    diff_in_one=dircomp.diff_files <span class="comment"># 不匹配文件，源目录文件已发生变化</span></div><div class="line">    dirath=os.path.abspath(dir1)   <span class="comment"># 定义源目录绝对路径</span></div><div class="line">    <span class="comment">#将更新文件名或目录追回到holderlist </span></div><div class="line">    [holderlist.append(os.path.abspath(os.path.join(dir1,x))) <span class="keyword">for</span> x <span class="keyword">in</span> only_in_one]</div><div class="line">    [holderlist.append(os.path.abspath(os.path.join(dir1,x))) <span class="keyword">for</span> x <span class="keyword">in</span> diff_in_one]</div><div class="line">    <span class="keyword">if</span> len (dircomp.common_dirs) &gt; <span class="number">0</span>: <span class="comment"># 判断是否存在相同子目录，以便递归</span></div><div class="line">        <span class="keyword">for</span> item <span class="keyword">in</span> dircomp.common_dirs: <span class="comment">#递归子目录</span></div><div class="line">            compareme(os.path.abspath(os.path.join(dir1, item)), \</div><div class="line">            os.path.abspath(os.path.join(dir2,item)))</div><div class="line">    <span class="keyword">return</span> holderlist </div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></div><div class="line">    <span class="keyword">if</span> len(sys.argv) &gt;<span class="number">2</span>: <span class="comment">#  要求输入源目录与备份目录</span></div><div class="line">        dir1 = sys.argv[<span class="number">1</span>]</div><div class="line">        dir2 = sys.argv[<span class="number">2</span>]</div><div class="line">    <span class="keyword">else</span>:</div><div class="line">        <span class="keyword">print</span> <span class="string">"Usage:"</span>, sys.argv[<span class="number">0</span>], <span class="string">"datadir backupdir"</span></div><div class="line">        sys.exit()</div><div class="line">    </div><div class="line">    source_files = compareme(dir1,dir2)</div><div class="line">    dir1 = os.path.abspath(dir1)</div><div class="line">    <span class="keyword">if</span> <span class="keyword">not</span> dir2.endswith(<span class="string">'/'</span>): dir2=dir2+<span class="string">'/'</span> <span class="comment">#备份目录路径加"/"符</span></div><div class="line">    dir2=os.path.abspath(dir2)</div><div class="line">    destination_files=[]</div><div class="line">    createdir_bool = <span class="keyword">False</span> </div><div class="line"></div><div class="line">    <span class="keyword">for</span> item <span class="keyword">in</span> source_files:   <span class="comment"># 遍历返回的差异文件或目录清单</span></div><div class="line">        destination_dir= re.sub(dir1,dir2, item) <span class="comment"># 将源目录差异路径清单对应替换成备份目录</span></div><div class="line">    </div><div class="line">        destination_files.append(destination_dir)</div><div class="line">        <span class="keyword">if</span> os.path.isdir(item): <span class="comment"># 如果差异路径 为目录且不存在,则在备份目录中创建</span></div><div class="line">            <span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(destination_dir):</div><div class="line">                os.makedirs(destination_dir)</div><div class="line">                createdir_bool = <span class="keyword">True</span> <span class="comment">#再次调用compareme 函数标记</span></div><div class="line"></div><div class="line">    <span class="keyword">if</span> createdir_bool: <span class="comment">#重新调用compareme函数,重新遍历新创建目录的内容</span></div><div class="line">        destination_files = [] </div><div class="line">        source_files=[]</div><div class="line">        source_files=compareme(dir1,dir2) <span class="comment"># 调用compareme函数</span></div><div class="line">        <span class="keyword">for</span> item <span class="keyword">in</span> source_files: <span class="comment">#获取目录差异路径清单，对应替换成备分目录</span></div><div class="line">            destination_dir = re.sub(dir1,dir2, item)</div><div class="line">            destination_files.append(destination_dir)</div><div class="line"></div><div class="line">    <span class="keyword">print</span> <span class="string">"update item:"</span></div><div class="line">    <span class="keyword">print</span> source_files <span class="comment">#输出更新项列表清单</span></div><div class="line">    copy_pair = zip(source_files,destination_files) <span class="comment">#将源目录与备份目录文件拆分成无组</span></div><div class="line"></div><div class="line">    <span class="keyword">for</span> item <span class="keyword">in</span> copy_pair:</div><div class="line">        <span class="keyword">if</span> os.path.isfile(item[<span class="number">0</span>]): </div><div class="line">            shutil.copyfile(item[<span class="number">0</span>], item[<span class="number">1</span>])</div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    main()</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>ღ ღ ღ 如果觉得文章对您有用，不妨打赏一下ღ ღ ღ</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/weipei.png" alt="锦遥 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/zhipei.png" alt="锦遥 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/program/" rel="tag"># program</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/01/18/python-之业务服务监控详解-一/" rel="next" title="python 之业务服务监控详解(一)">
+                <i class="fa fa-chevron-left"></i> python 之业务服务监控详解(一)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/01/22/python-之业务服务监控详解-三/" rel="prev" title="python 之业务服务监控详解(三)">
+                python 之业务服务监控详解(三) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/rjyy.ico"
+                alt="锦遥" />
+            
+              <p class="site-author-name" itemprop="name">锦遥</p>
+              <p class="site-description motion-element" itemprop="description">有智而性缓者思大智
+
+</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">65</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#文件-目录差异对比法"><span class="nav-number">1.</span> <span class="nav-text">文件/目录差异对比法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模块常用方法说明"><span class="nav-number">2.</span> <span class="nav-text">模块常用方法说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#dir1-与-dir2目录中指定文件清单对比"><span class="nav-number">3.</span> <span class="nav-text">dir1 与 dir2目录中指定文件清单对比</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#dircmp提供了三个输出报的方法"><span class="nav-number">4.</span> <span class="nav-text">dircmp提供了三个输出报的方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对比dir1与dir2目录差异"><span class="nav-number">5.</span> <span class="nav-text">对比dir1与dir2目录差异</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#校验源与备份目录差异"><span class="nav-number">6.</span> <span class="nav-text">校验源与备份目录差异</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; 2015 &mdash; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">锦遥</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">162.2k</span>
+  
+  <span>   |   </span>
+<span id="showDays"></span>
+</div>
+
+
+
+
+
+
+
+
+<div>
+<a href="http://www.beian.miit.gov.cn">晋ICP备17010575号</a>
+</div>
+<!-- time -->
+<div id="show-time">
+<span id="span_dt_dt"></span>
+</div>
+<script>
+var seconds = 1000;
+var minutes = seconds * 60;
+var hours = minutes * 60;
+var days = hours * 24;
+var years = days * 365;
+var birthDay = Date.UTC(2017,07,30,00,00,00); // 这里设置建站时间
+setInterval(function() {
+var today = new Date();
+var todayYear = today.getFullYear();
+var todayMonth = today.getMonth()+1;
+var todayDate = today.getDate();
+var todayHour = today.getHours();
+var todayMinute = today.getMinutes();
+var todaySecond = today.getSeconds();
+var now = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+var diff = now - birthDay;
+var diffYears = Math.floor(diff/years);
+var diffDays = Math.floor((diff/days)-diffYears*365);
+var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+  document.getElementById('showDays').innerHTML="不間斷的運行了"+diffYears+" 年 "+diffDays+" 天 "+diffHours+" 時 "+diffMinutes+" 分 "+diffSeconds+" 秒 ";
+}, 1000);
+</script>
+
+        
+<div class="busuanzi-count">
+#  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 訪客數
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      位
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>  訪客量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://www.ssjinyao.com/2018/01/19/python-之业务服务监控详解-二/';
+          this.page.identifier = '2018/01/19/python-之业务服务监控详解-二/';
+          this.page.title = 'python 之业务服务监控详解(二)';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine@1.1.6/dist/Valine.min.js"></script>
+  <script type="text/javascript">
+    new Valine({
+        av: AV,
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        app_id: 'NkJqMpxu4QlRLhPIHipNUHF1-gzGzoHsz',
+        app_key: 'D2vTdueKJ8ammc2JEdje0vLW',
+        placeholder: 'From SSJinYao'
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'true') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  <!-- 点击特效 -->
+<canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas>
+<script type="text/javascript" src="/js/src/fireworks.js"></script>
+
+
+  <script src="/js/activate-power-mode.min.js"></script>
+    <script>
+	    POWERMODE.colorful = true;
+    POWERMODE.shake = false;
+    document.body.addEventListener('input', POWERMODE);
+	  </script>
+
+
+  
+</body>
+</html>
