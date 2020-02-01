@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title></title>
+    <url>%2F2020%2F02%2F01%2Fdocs%2F15805328549114%2F</url>
+    <content type="text"><![CDATA[#]]></content>
+  </entry>
+  <entry>
     <title><![CDATA[python 算法]]></title>
     <url>%2F2019%2F12%2F15%2Fpython%20%E7%AE%97%E6%B3%95%2F</url>
     <content type="text"><![CDATA[python 算法 命名元组namedtuple12345678910111213In [1]: from collections import namedtupleIn [2]: Point = namedtuple('P','x,y')In [3]: type(Point)Out[3]: typeIn [4]: p1 = Point(1,10)In [5]: p1Out[5]: P(x=1, y=10)In [6]: p1.xOut[6]: 1In [7]: p1.yOut[7]: 10In [8]: p1.x + p1.yOut[8]: 11 排序 12345678(py3_env) [root@ssjinyao:~/mypython/python3]# cat sort.py#!/usr/bin/env python3nums = []out = Nonefor i in range(3): nums.append(int(input('&#123;&#125;: '.format(i))))nums.sort()print(nums) 12345678910111213#!/usr/bin/env python3nums = []out = Nonefor i in range(3): nums.append(int(input('&#123;&#125;: '.format(i))))while True: cur = min(nums) print(cur) nums.remove(cur) if len(nums) == 1: print(nums[0]) break 12345678#!/usr/bin/env pythonnums = []out = Nonefor i in range(3): nums.append(int(input(&apos;&#123;&#125;:&apos;.format(i))))nums.sort()print(nums) 冒泡法代码实现(一)1234567891011121314151617181920#!/usr/bin/env python# -*- coding: utf-8 -*-num_list = [ [1,9,8,5,6,7,4,3,2], [1,2,3,4,5,6,7,8,9],]nums = num_list[0]print(nums)length = len(nums)count_swap = 0count = 0for i in range(length): for j in range(length-i-1): count += 1 if nums[j] &gt; nums [j+1]: tmp = nums[j] nums[j] = nums [j+1] nums[j+1] = tmp count_swap +=1print(nums, count_swap, count) 12[1, 9, 8, 5, 6, 7, 4, 3, 2][1, 2, 3, 4, 5, 6, 7, 8, 9] 25 36 冒泡法代码实现(二)1234567891011121314151617181920212223242526#!/usr/bin/env python# -*- coding: utf-8 -*-num_list = [ [1,9,8,5,6,7,4,3,2], [1,2,3,4,5,5,7,8,9]]nums = num_list[0]print(nums)length = len(nums)flag = Falsecount_swap = 0count = 0for i in range(length): for j in range(length-i-1): count += 1 if nums[j] &gt; nums[j+1]: tmp = nums[j] nums[j] = nums[j+1] nums[j+1] = tmp flag = True count_swap += 1 if not flag: breakprint(nums,count_swap,count)]]></content>
