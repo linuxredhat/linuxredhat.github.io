@@ -135,19 +135,19 @@
 
 
 
-<meta name="description" content="高可用gitlab服务器搭建 环境准备,单节点部署| CentOS7.4 | 64C | 192G | | — | — | — || CentOS7.4 | 64C | 192G | 服务器时间同步1~]# ntpdate ntp.aliyun.com 确保SELinux 是关闭的12~]# getenforce Disabled 配置postfix1234~]# yum -y install p">
+<meta name="description" content="高可用gitlab服务器搭建 环境准备,单节点部署   CentOS7.4 64C 192G     CentOS7.4 64C 192G    服务器时间同步1~]# ntpdate ntp.aliyun.com 确保SELinux 是关闭的12~]# getenforce Disabled 配置postfix1234~]# yum -y install postfix~]# sed -i &amp;a">
 <meta name="keywords" content="rhca,linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="高可用gitlab服务器搭建">
 <meta property="og:url" content="https://www.ssjinyao.com/2020/03/26/高可用gitlab服务器搭建/index.html">
 <meta property="og:site_name" content="逝水锦遥">
-<meta property="og:description" content="高可用gitlab服务器搭建 环境准备,单节点部署| CentOS7.4 | 64C | 192G | | — | — | — || CentOS7.4 | 64C | 192G | 服务器时间同步1~]# ntpdate ntp.aliyun.com 确保SELinux 是关闭的12~]# getenforce Disabled 配置postfix1234~]# yum -y install p">
+<meta property="og:description" content="高可用gitlab服务器搭建 环境准备,单节点部署   CentOS7.4 64C 192G     CentOS7.4 64C 192G    服务器时间同步1~]# ntpdate ntp.aliyun.com 确保SELinux 是关闭的12~]# getenforce Disabled 配置postfix1234~]# yum -y install postfix~]# sed -i &amp;a">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://www.ssjinyao.com/images/gitlab.jpg">
-<meta property="og:updated_time" content="2020-03-11T07:10:25.000Z">
+<meta property="og:updated_time" content="2020-03-11T08:01:37.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="高可用gitlab服务器搭建">
-<meta name="twitter:description" content="高可用gitlab服务器搭建 环境准备,单节点部署| CentOS7.4 | 64C | 192G | | — | — | — || CentOS7.4 | 64C | 192G | 服务器时间同步1~]# ntpdate ntp.aliyun.com 确保SELinux 是关闭的12~]# getenforce Disabled 配置postfix1234~]# yum -y install p">
+<meta name="twitter:description" content="高可用gitlab服务器搭建 环境准备,单节点部署   CentOS7.4 64C 192G     CentOS7.4 64C 192G    服务器时间同步1~]# ntpdate ntp.aliyun.com 确保SELinux 是关闭的12~]# getenforce Disabled 配置postfix1234~]# yum -y install postfix~]# sed -i &amp;a">
 <meta name="twitter:image" content="https://www.ssjinyao.com/images/gitlab.jpg">
 
 
@@ -492,8 +492,22 @@
 
       
         <h1 id="高可用gitlab服务器搭建"><a href="#高可用gitlab服务器搭建" class="headerlink" title="高可用gitlab服务器搭建"></a>高可用gitlab服务器搭建</h1><p><img src="/images/gitlab.jpg" alt=""></p>
-<h2 id="环境准备-单节点部署"><a href="#环境准备-单节点部署" class="headerlink" title="环境准备,单节点部署"></a>环境准备,单节点部署</h2><p>| CentOS7.4 | 64C | 192G |</p>
-<p>| — | — | — |<br>| CentOS7.4 | 64C | 192G |</p>
+<h2 id="环境准备-单节点部署"><a href="#环境准备-单节点部署" class="headerlink" title="环境准备,单节点部署"></a>环境准备,单节点部署</h2><table>
+<thead>
+<tr>
+<th>CentOS7.4</th>
+<th>64C</th>
+<th>192G</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CentOS7.4</td>
+<td>64C</td>
+<td>192G</td>
+</tr>
+</tbody>
+</table>
 <h3 id="服务器时间同步"><a href="#服务器时间同步" class="headerlink" title="服务器时间同步"></a>服务器时间同步</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">~]# ntpdate ntp.aliyun.com</div></pre></td></tr></table></figure>
 <h3 id="确保SELinux-是关闭的"><a href="#确保SELinux-是关闭的" class="headerlink" title="确保SELinux 是关闭的"></a>确保SELinux 是关闭的</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">~]# getenforce </div><div class="line">Disabled</div></pre></td></tr></table></figure>
 <h3 id="配置postfix"><a href="#配置postfix" class="headerlink" title="配置postfix"></a>配置postfix</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">~]# yum -y install postfix</div><div class="line">~]# sed -i &apos;s/inet_interfaces = localhost/inet_interfaces = all/g&apos; /etc/postfix/main.cf</div><div class="line">~]# systemctl start postfix</div><div class="line">~]# systemctl restart postfix</div></pre></td></tr></table></figure>
@@ -691,7 +705,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">69</span>
+                  <span class="site-state-item-count">68</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
