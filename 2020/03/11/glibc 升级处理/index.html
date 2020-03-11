@@ -145,7 +145,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://www.ssjinyao.com/images/glibc.png">
 <meta property="og:image" content="https://www.ssjinyao.com/images/glibc-not.jpeg">
-<meta property="og:updated_time" content="2020-03-11T08:00:13.000Z">
+<meta property="og:updated_time" content="2020-03-11T08:10:21.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="总结glibc的升级操作">
 <meta name="twitter:description" content="总结glibc的升级操作 遇到的执行程序报错123fastp.sh 的时候报下面的错，其他节点都没问题fastp: /lib64/libc.so.6: version `GLIBC_2.14&amp;apos; not found (required by fastp)fastp: /lib64/libc.so.6: version `GLIBC_2.14&amp;apos; not found (require">
@@ -459,7 +459,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  528
+                  599
                 </span>
               
 
@@ -505,7 +505,7 @@
 <h2 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h2><p><code>这个时候可能遇到以下问题，千万不要断开ssh 执行以下命令进行补救</code><br><img src="/images/glibc-not.jpeg" alt=""></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"># LD_PRELOAD=/lib64/libc-2.14.so </div><div class="line"># rm -f /lib64/libc.so.6</div><div class="line"># ln -s /lib64/libc-2.14.so /lib64/libc.so.6</div></pre></td></tr></table></figure>
 <p>这时候再看看系统命令还能否都正常使用</p>
-<h2 id="如果断开了ssh-的情况下"><a href="#如果断开了ssh-的情况下" class="headerlink" title="如果断开了ssh 的情况下"></a>如果断开了ssh 的情况下</h2><p>如果断开了ssh 只能进系统救援模式进行补救了</p>
+<h2 id="如果断开了ssh-的情况下"><a href="#如果断开了ssh-的情况下" class="headerlink" title="如果断开了ssh 的情况下"></a>如果断开了ssh 的情况下</h2><p>如果断开了ssh 只能进系统救援模式进行补救了;<br>重启，(single/1)单用户模式，/bin/bash，enforcing=0,selinux=0 都是无济于事的，因为它涉及的库是<code>libc.so.6</code>必需的，重启后会报内核恐慌<code>Kernel panic – not syncing: Attempted to kill init</code>;<br>因此进入救援模式进行补救。</p>
 <ol>
 <li>连接dell服务器远程控制台，映射本地镜像文件到dell服务器;</li>
 <li>启动项默认调整为光盘镜像启动;</li>
@@ -518,6 +518,7 @@
 <li>cd /mnt/sysimage 目录;</li>
 <li><code>rm -f /lib64/libc.so.6</code> <code>cd /lib64 &amp;&amp; ln -s libc-2.14.so libc.so.6</code>;</li>
 <li><code>chroot /mnt/sysimage</code> 切换根目录测试系统是否无误;</li>
+<li>重新启动系统。</li>
 </ol>
 
       
@@ -790,7 +791,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">167.2k</span>
+    <span title="Site words total count">167.3k</span>
   
   <span>   |   </span>
 <span id="showDays"></span>
