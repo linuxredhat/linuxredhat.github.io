@@ -6,12 +6,12 @@
 
 <!-- 数字雨 -->
 <div id="display_background" style="display: block;  z-index: 1001;">
-  <canvas id="canvas" style="height: 400px; width: 600px;" ></canvas>
+  <canvas id="my_canvas" style="height: 400px; width: 600px;" ></canvas>
 </div>
 <script type="text/javascript">
 window.onload = function(){
 	    //获取画布对象
-	    var canvas = document.getElementById("canvas");
+	    var canvas = document.getElementById("my_canvas");
 		    //获取画布的上下文
 		    var context =canvas.getContext("2d");
 			    var s = window.screen;
