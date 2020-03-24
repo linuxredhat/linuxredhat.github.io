@@ -2056,7 +2056,7 @@ img:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #34999d;
+  background: #42f967;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3298,13 +3298,6 @@ header.post-header {
   }
 }
 @media screen and (min-width: 1200px) {
-  body {
-    background: url("/images/test.jpg");
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: 50% 50%;
-    background-size: cover;
-  }
   canvas {
     position: fixed;
     right: 0px;
@@ -3324,6 +3317,14 @@ header.post-header {
   max-height: 600px;
   margin-bottom: 20px;
   overflow: hidden;
+}
+.posts-expand .post-eof {
+  display: block;
+  margin: 80px auto 60px;
+  width: 100%;
+  height: 2px;
+  background: #ccc;
+  text-align: center;
 }
 .highlight {
   position: relative;
