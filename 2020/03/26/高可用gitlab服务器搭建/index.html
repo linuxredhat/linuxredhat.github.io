@@ -4,47 +4,10 @@
 
   
 
-<div id="display_background" style="display: block;  z-index: 1001;">
-    <canvas id="my_canvas" style="height: 400px; width: 600px;" ></canvas>
-	</div>
-	<script type="text/javascript">
-	    var c = document.getElementById("my_canvas");
-		    var ctx = c.getContext("2d");
-
-			    c.height = window.innerHeight;
-				    c.width = window.innerWidth;
-
-					    var txts = "01";
-						    txts = txts.split("");
-
-							    var font_size = 16;
-								    var columns = c.width/font_size;
-									    var drops = [];
-										    for(var x = 0; x < columns; x++) {
-												        drops[x] = 1;
-														    }
-
-    function draw()
-	    {
-			        ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
-					        ctx.fillRect(0, 0, c.width, c.height);
-
-							        ctx.fillStyle = "#0F0"; //green text
-									        ctx.font = font_size + "px arial";
-											        for(var i = 0; i < drops.length; i++)
-														        {
-																	            var text = txts[Math.floor(Math.random()*txts.length)];
-																				            ctx.fillText(text, i*font_size, drops[i]*font_size);
-																							            if(drops[i]*font_size > c.height || Math.random() > 0.95)
-																											                drops[i] = 0;
-
-																										            drops[i]++;
-																													        }
-													    }
-    setInterval(draw, 33);
-	</script>
 <!-- 数字雨 -->
+<div id="display_background" style="display: block;  z-index: 1001;">
 <canvas id="canvas" width="1440" height="900" ></canvas>
+</div>
 <script type="text/javascript" src="/js/DigitalRain.js"></script>
 <!-- 代码块复制功能 -->
 <script src="/live2d-widget/autoload.js"></script>
@@ -164,7 +127,7 @@
 
 
 
-  <meta name="keywords" content="rhca,linux," />
+  <meta name="keywords" content="linux,rhca," />
 
 
 
@@ -178,7 +141,7 @@
 
 
 <meta name="description" content="高可用gitlab服务器搭建 环境准备,单节点部署   CentOS7.4 64C 192G     CentOS7.4 64C 192G    服务器时间同步1~]# ntpdate ntp.aliyun.com 确保SELinux 是关闭的12~]# getenforce Disabled 配置postfix1234~]# yum -y install postfix~]# sed -i &amp;a">
-<meta name="keywords" content="rhca,linux">
+<meta name="keywords" content="linux,rhca">
 <meta property="og:type" content="article">
 <meta property="og:title" content="高可用gitlab服务器搭建">
 <meta property="og:url" content="https://www.ssjinyao.com/2020/03/26/高可用gitlab服务器搭建/index.html">
@@ -629,9 +592,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/rhca/" rel="tag"># rhca</a>
-          
             <a href="/tags/linux/" rel="tag"># linux</a>
+          
+            <a href="/tags/rhca/" rel="tag"># rhca</a>
           
         </div>
       

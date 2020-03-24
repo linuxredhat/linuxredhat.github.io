@@ -4,47 +4,10 @@
 
   
 
-<div id="display_background" style="display: block;  z-index: 1001;">
-    <canvas id="my_canvas" style="height: 400px; width: 600px;" ></canvas>
-	</div>
-	<script type="text/javascript">
-	    var c = document.getElementById("my_canvas");
-		    var ctx = c.getContext("2d");
-
-			    c.height = window.innerHeight;
-				    c.width = window.innerWidth;
-
-					    var txts = "01";
-						    txts = txts.split("");
-
-							    var font_size = 16;
-								    var columns = c.width/font_size;
-									    var drops = [];
-										    for(var x = 0; x < columns; x++) {
-												        drops[x] = 1;
-														    }
-
-    function draw()
-	    {
-			        ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
-					        ctx.fillRect(0, 0, c.width, c.height);
-
-							        ctx.fillStyle = "#0F0"; //green text
-									        ctx.font = font_size + "px arial";
-											        for(var i = 0; i < drops.length; i++)
-														        {
-																	            var text = txts[Math.floor(Math.random()*txts.length)];
-																				            ctx.fillText(text, i*font_size, drops[i]*font_size);
-																							            if(drops[i]*font_size > c.height || Math.random() > 0.95)
-																											                drops[i] = 0;
-
-																										            drops[i]++;
-																													        }
-													    }
-    setInterval(draw, 33);
-	</script>
 <!-- 数字雨 -->
+<div id="display_background" style="display: block;  z-index: 1001;">
 <canvas id="canvas" width="1440" height="900" ></canvas>
+</div>
 <script type="text/javascript" src="/js/DigitalRain.js"></script>
 <!-- 代码块复制功能 -->
 <script src="/live2d-widget/autoload.js"></script>
@@ -164,7 +127,7 @@
 
 
 
-  <meta name="keywords" content="rhca,linux," />
+  <meta name="keywords" content="linux,rhca," />
 
 
 
@@ -178,7 +141,7 @@
 
 
 <meta name="description" content="sge高性能集群的搭建与使用 集群环境的准备   Node1(master) CentOS7.4 iptables/selinux(off) IP:10.180.66.11 hostname:node1 ali yum源     Node2(slave) CentOS7.4 iptables/selinux(off) IP:10.180.66.12 hostname:node2 ali yum源">
-<meta name="keywords" content="rhca,linux">
+<meta name="keywords" content="linux,rhca">
 <meta property="og:type" content="article">
 <meta property="og:title" content="sge linux高性能集群的搭建与使用">
 <meta property="og:url" content="https://www.ssjinyao.com/2019/11/12/sge集群的搭建与使用/index.html">
@@ -647,9 +610,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/rhca/" rel="tag"># rhca</a>
-          
             <a href="/tags/linux/" rel="tag"># linux</a>
+          
+            <a href="/tags/rhca/" rel="tag"># rhca</a>
           
         </div>
       
