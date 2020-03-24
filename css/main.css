@@ -2056,7 +2056,7 @@ img:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #44ffc1;
+  background: #1bfc4e;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2877,7 +2877,7 @@ img:hover {
   width: 240px;
   background: #fff;
   box-shadow: initial;
-  border-radius: initial;
+  border-radius: 20px 20px 20px 20px;
 }
 @media (min-width: 1600px) {
   .container .header-inner {
@@ -2938,7 +2938,7 @@ img:hover {
   opacity: 0.85;
   min-height: 700px;
   box-shadow: initial;
-  border-radius: initial;
+  border-radius: 20px 20px 20px 20px;
 }
 @media (min-width: 768px) and (max-width: 991px) {
   .content-wrap {
@@ -3162,7 +3162,7 @@ header.post-header {
   color: #555;
   background: #fff;
   box-shadow: initial;
-  border-radius: initial;
+  border-radius: 20px;
   opacity: 0;
 }
 .sidebar-inner.affix {
@@ -3298,6 +3298,13 @@ header.post-header {
   }
 }
 @media screen and (min-width: 1200px) {
+  body {
+    background: url("/images/test.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: 50% 50%;
+    background-size: cover;
+  }
   canvas {
     position: fixed;
     right: 0px;
