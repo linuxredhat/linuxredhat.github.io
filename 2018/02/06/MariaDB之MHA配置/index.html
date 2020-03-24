@@ -6,8 +6,65 @@
 
 <!-- 数字雨 -->
 <div id="display_background" style="display: block;  z-index: 1001;">
-<canvas id="canvas" width="1440" height="900" ></canvas>
+  <canvas id="my_canvas" style="height: 400px; width: 600px;" ></canvas>
 </div>
+window.onload = function(){
+	    //获取画布对象
+	    var canvas = document.getElementById("canvas");
+		    //获取画布的上下文
+		    var context =canvas.getContext("2d");
+			    var s = window.screen;
+				    var W = canvas.width = s.width;
+					    var H = canvas.height;
+						    //获取浏览器屏幕的宽度和高度
+						    //var W = window.innerWidth;
+						    //var H = window.innerHeight;
+						    //设置canvas的宽度和高度
+						    canvas.width = W;
+							    canvas.height = H;
+								    //每个文字的字体大小
+								    var fontSize = 12;
+									    //计算列
+									    var colunms = Math.floor(W /fontSize);
+										    //记录每列文字的y轴坐标
+										    var drops = [];
+											    //给每一个文字初始化一个起始点的位置
+											    for(var i=0;i<colunms;i++){
+													        drops.push(0);
+															    }
+												    //运动的文字
+												    var str ="WELCOME TO WWW.ITRHX.COM";
+													    //4:fillText(str,x,y);原理就是去更改y的坐标位置
+													    //绘画的函数
+													    function draw(){
+															        context.fillStyle = "rgba(238,238,238,.08)";//遮盖层
+																	        context.fillRect(0,0,W,H);
+																			        //给字体设置样式
+																			        context.font = "600 "+fontSize+"px  Georgia";
+																					        //给字体添加颜色
+																					        context.fillStyle = ["#33B5E5", "#0099CC", "#AA66CC", "#9933CC", "#99CC00", "#669900", "#FFBB33", "#FF8800", "#FF4444", "#CC0000"][parseInt(Math.random() * 10)];//randColor();可以rgb,hsl, 标准色，十六进制颜色
+																							        //写入画布中
+																							        for(var i=0;i<colunms;i++){
+																										            var index = Math.floor(Math.random() * str.length);
+																													            var x = i*fontSize;
+																																            var y = drops[i] *fontSize;
+																																			            context.fillText(str[index],x,y);
+																																						            //如果要改变时间，肯定就是改变每次他的起点
+																																						            if(y >= canvas.height && Math.random() > 0.99){
+																																										                drops[i] = 0;
+																																														            }
+																																									            drops[i]++;
+																																												        }
+																									    };
+														    function randColor(){//随机颜色
+																        var r = Math.floor(Math.random() * 256);
+																		        var g = Math.floor(Math.random() * 256);
+																				        var b = Math.floor(Math.random() * 256);
+																						        return "rgb("+r+","+g+","+b+")";
+																								    }
+															    draw();
+																    setInterval(draw,35);
+};
 <script type="text/javascript" src="/js/DigitalRain.js"></script>
 <!-- 代码块复制功能 -->
 <script src="/live2d-widget/autoload.js"></script>
@@ -127,7 +184,7 @@
 
 
 
-  <meta name="keywords" content="linux,rhca,database," />
+  <meta name="keywords" content="rhca,linux,database," />
 
 
 
@@ -141,7 +198,7 @@
 
 
 <meta name="description" content="工作拓扑 一、MHA简明12345678910MHA（Master HA）是一款开源的MySQL的高可用程序，它为MySQL主从复制架构提供了    automating master failover 功能。MHA在监控到master节点故障时，会提升其中    拥有最新数据的slave节点来成为新的master节点。在此期间，MHA会通过于其它从节点    获取额外信息来避免一致性方面的问题。">
-<meta name="keywords" content="linux,rhca,database">
+<meta name="keywords" content="rhca,linux,database">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MariaDB之MHA配置">
 <meta property="og:url" content="https://www.ssjinyao.com/2018/02/06/MariaDB之MHA配置/index.html">
@@ -575,9 +632,9 @@ master节点和各slave节点，以及各slave节点启动其IO和SQL线程，�
       
         <div class="post-tags">
           
-            <a href="/tags/linux/" rel="tag"># linux</a>
-          
             <a href="/tags/rhca/" rel="tag"># rhca</a>
+          
+            <a href="/tags/linux/" rel="tag"># linux</a>
           
             <a href="/tags/database/" rel="tag"># database</a>
           
