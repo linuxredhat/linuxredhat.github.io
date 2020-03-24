@@ -5,69 +5,8 @@
   
 
 <!-- 数字雨 -->
-<div id="display_background" style="display: block;  z-index: 1001;">
-  <canvas id="my_canvas" style="height: 400px; width: 600px;" ></canvas>
-</div>
-<script type="text/javascript">
-window.onload = function(){
-	    //获取画布对象
-	    var canvas = document.getElementById("my_canvas");
-		    //获取画布的上下文
-		    var context =canvas.getContext("2d");
-			    var s = window.screen;
-				    var W = canvas.width = s.width;
-					    var H = canvas.height;
-						    //获取浏览器屏幕的宽度和高度
-						    //var W = window.innerWidth;
-						    //var H = window.innerHeight;
-						    //设置canvas的宽度和高度
-						    canvas.width = W;
-							    canvas.height = H;
-								    //每个文字的字体大小
-								    var fontSize = 12;
-									    //计算列
-									    var colunms = Math.floor(W /fontSize);
-										    //记录每列文字的y轴坐标
-										    var drops = [];
-											    //给每一个文字初始化一个起始点的位置
-											    for(var i=0;i<colunms;i++){
-													        drops.push(0);
-															    }
-												    //运动的文字
-												    var str ="WELCOME TO WWW.ITRHX.COM";
-													    //4:fillText(str,x,y);原理就是去更改y的坐标位置
-													    //绘画的函数
-													    function draw(){
-															        context.fillStyle = "rgba(238,238,238,.08)";//遮盖层
-																	        context.fillRect(0,0,W,H);
-																			        //给字体设置样式
-																			        context.font = "600 "+fontSize+"px  Georgia";
-																					        //给字体添加颜色
-																					        context.fillStyle = ["#33B5E5", "#0099CC", "#AA66CC", "#9933CC", "#99CC00", "#669900", "#FFBB33", "#FF8800", "#FF4444", "#CC0000"][parseInt(Math.random() * 10)];//randColor();可以rgb,hsl, 标准色，十六进制颜色
-																							        //写入画布中
-																							        for(var i=0;i<colunms;i++){
-																										            var index = Math.floor(Math.random() * str.length);
-																													            var x = i*fontSize;
-																																            var y = drops[i] *fontSize;
-																																			            context.fillText(str[index],x,y);
-																																						            //如果要改变时间，肯定就是改变每次他的起点
-																																						            if(y >= canvas.height && Math.random() > 0.99){
-																																										                drops[i] = 0;
-																																														            }
-																																									            drops[i]++;
-																																												        }
-																									    };
-														    function randColor(){//随机颜色
-																        var r = Math.floor(Math.random() * 256);
-																		        var g = Math.floor(Math.random() * 256);
-																				        var b = Math.floor(Math.random() * 256);
-																						        return "rgb("+r+","+g+","+b+")";
-																								    }
-															    draw();
-																    setInterval(draw,35);
-};
-</script>
-<script type="text/javascript" src="/js/DigitalRain.js"></script>
+<canvas id="canvas" width="1440" height="1080"></canvas>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/TRHX/CDN-for-itrhx.com@3.0.8/js/DigitalRain.js"></script>
 <!-- 代码块复制功能 -->
 <script src="/live2d-widget/autoload.js"></script>
 <script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
@@ -716,8 +655,8 @@ window.onload = function(){
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/04/02/zabbix配置文档/" rel="next" title="zabbix监控实现文档">
-                <i class="fa fa-chevron-left"></i> zabbix监控实现文档
+              <a href="/2018/04/02/zabbix高级/" rel="next" title="zabbix使用进阶">
+                <i class="fa fa-chevron-left"></i> zabbix使用进阶
               </a>
             
           </div>
