@@ -2056,7 +2056,7 @@ img:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ede8ff;
+  background: #05b86e;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3362,6 +3362,16 @@ img.img-topic {
   padding: 0;
   float: center;
   clear: center;
+}
+canvas {
+  position: fixed;
+  right: 0px;
+  bottom: 0px;
+  min-width: 100%;
+  min-height: 100%;
+  height: auto;
+  width: auto;
+  z-index: -1;
 }
 .menu .menu-item a,
 .menu .menu-item span.exturl {
