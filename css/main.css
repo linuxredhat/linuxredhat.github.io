@@ -507,7 +507,7 @@ code {
   word-wrap: break-word;
   color: #555;
   background: #eee;
-  border-radius: 3px;
+  border-radius: 20px;
   font-size: 15px;
 }
 pre {
@@ -2056,7 +2056,7 @@ img:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #1bfc4e;
+  background: #34999d;
 }
 .links-of-blogroll {
   font-size: 13px;
