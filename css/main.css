@@ -2056,7 +2056,7 @@ img:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ffff59;
+  background: #7cde42;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3298,6 +3298,13 @@ header.post-header {
   }
 }
 @media screen and (min-width: 1200px) {
+  body {
+    background: url("/images/test.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: 50% 50%;
+    background-size: cover;
+  }
   #footer a {
     color: #eee;
   }
