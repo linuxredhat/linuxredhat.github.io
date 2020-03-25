@@ -7,6 +7,30 @@
     </url>
 
     <url>
+        <loc>https://www.ssjinyao.com/2018/10/29/%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%B8%B8%E7%94%A8%E9%85%8D%E7%BD%AE%E5%8F%82%E6%95%B0%E6%98%8E%E7%BB%86/</loc>
+        <lastmod>2020-03-25T03:55:02.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://www.ssjinyao.com/2019/03/20/fabric%E8%87%AA%E5%8A%A8%E5%8C%96%E4%B9%8Bkvm%E7%A7%81%E6%9C%89%E4%BA%91%E5%BF%AB%E9%80%9F%E5%BC%80%E9%80%9A/</loc>
+        <lastmod>2020-03-25T03:50:23.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://www.ssjinyao.com/2020/03/25/docs/15851079903776/</loc>
+        <lastmod>2020-03-25T03:46:30.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://www.ssjinyao.com/2019/12/15/python%20%E7%AE%97%E6%B3%95/</loc>
         <lastmod>2020-03-22T13:42:19.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -71,24 +95,8 @@
     </url>
 
     <url>
-        <loc>https://www.ssjinyao.com/2018/10/29/%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%B8%B8%E7%94%A8%E9%85%8D%E7%BD%AE%E5%8F%82%E6%95%B0%E6%98%8E%E7%BB%86/</loc>
-        <lastmod>2019-09-04T10:11:57.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>https://www.ssjinyao.com/2018/07/29/hadoop/</loc>
         <lastmod>2019-09-04T05:58:59.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://www.ssjinyao.com/2019/03/20/fabric%E8%87%AA%E5%8A%A8%E5%8C%96%E4%B9%8Bkvm%E7%A7%81%E6%9C%89%E4%BA%91%E5%BF%AB%E9%80%9F%E5%BC%80%E9%80%9A/</loc>
-        <lastmod>2019-08-21T08:48:15.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
