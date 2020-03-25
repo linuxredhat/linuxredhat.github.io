@@ -1,0 +1,1807 @@
+<!DOCTYPE html>
+
+
+
+  
+
+<!-- 代码块复制功能 -->
+<script src="/live2d-widget/autoload.js"></script>
+<script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
+<script type="text/javascript" src="/js/src/clipboard-use.js"></script>
+<script src="/js/instantclick-1.2.2.js" type="module"></script>
+<!--崩溃欺骗-->
+<script type="text/javascript" src="/js/src/crash_cheat.js"></script>
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="https://fonts.cat.net/css?family=Lato:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|Roboto Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/redhat.ico?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/redhat.ico?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/redihat.ico?v=5.1.3" color="#0000EE">
+
+
+  <link rel="manifest" href="/images/manifest.json">
+
+
+  <meta name="msapplication-config" content="/images/browserconfig.xml" />
+
+
+
+  <meta name="keywords" content="rhca,linux," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="逝水锦遥" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="linux系统与应用定制linux 系统层面工作原结构 必需要熟悉系统启动流程 CentOS 6 系统启动流程    CentOS 7 系统启动流程   环境准备   服务器 系统环境 主机名 内核版本 必装环境     宿主机 CentOS 6.9 Node11 Kernel 2.6.32-696.el6.x86_64 Development Tools   制作机 ssjinyao  Linu">
+<meta name="keywords" content="rhca,linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="linux 系统定制">
+<meta property="og:url" content="https://www.ssjinyao.com/2018/09/01/linux系统定制/index.html">
+<meta property="og:site_name" content="逝水锦遥">
+<meta property="og:description" content="linux系统与应用定制linux 系统层面工作原结构 必需要熟悉系统启动流程 CentOS 6 系统启动流程    CentOS 7 系统启动流程   环境准备   服务器 系统环境 主机名 内核版本 必装环境     宿主机 CentOS 6.9 Node11 Kernel 2.6.32-696.el6.x86_64 Development Tools   制作机 ssjinyao  Linu">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://www.ssjinyao.com/images/linux-kernel.png">
+<meta property="og:image" content="https://www.ssjinyao.com/images/kernerl-boot-statg-ce6.png">
+<meta property="og:image" content="https://www.ssjinyao.com/images/kernel-boot-statg-ce7.jpg">
+<meta property="og:image" content="https://www.ssjinyao.com/images/kernel-org.png">
+<meta property="og:image" content="https://www.ssjinyao.com/images/busybox-dowland.png">
+<meta property="og:image" content="https://www.ssjinyao.com/images/kernel-org-make-menuconfig.png">
+<meta property="og:image" content="https://www.ssjinyao.com/images/kernel-config-all.png">
+<meta property="og:image" content="https://www.ssjinyao.com/images/kernel-config-generalsetup.png">
+<meta property="og:image" content="https://www.ssjinyao.com/images/kernel-config-enable-loadble-module.png">
+<meta property="og:image" content="https://www.ssjinyao.com/images/kernel-config-device-drivers.png">
+<meta property="og:image" content="https://www.ssjinyao.com/images/kernel-config-file-systems.png">
+<meta property="og:image" content="https://www.ssjinyao.com/images/busybox-make.png">
+<meta property="og:image" content="https://www.ssjinyao.com/images/vmware-fusion-add-disk.png">
+<meta property="og:image" content="https://www.ssjinyao.com/images/fenbianlv.png">
+<meta property="og:image" content="https://www.ssjinyao.com/images/huatu-ssjinyao-little-linux.png">
+<meta property="og:image" content="https://www.ssjinyao.com/images/linux-little-ps.png">
+<meta property="og:updated_time" content="2019-05-22T02:14:30.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="linux 系统定制">
+<meta name="twitter:description" content="linux系统与应用定制linux 系统层面工作原结构 必需要熟悉系统启动流程 CentOS 6 系统启动流程    CentOS 7 系统启动流程   环境准备   服务器 系统环境 主机名 内核版本 必装环境     宿主机 CentOS 6.9 Node11 Kernel 2.6.32-696.el6.x86_64 Development Tools   制作机 ssjinyao  Linu">
+<meta name="twitter:image" content="https://www.ssjinyao.com/images/linux-kernel.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="https://www.ssjinyao.com/2018/09/01/linux系统定制/"/>
+
+
+
+
+
+  <title>linux 系统定制 | 逝水锦遥</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta custom-logo">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">逝水锦遥</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">心有所向 将有所成</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-所有文章">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-linux"></i> <br />
+            
+            所有文章
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-python">
+          <a href="/./tags/program" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-gitlab"></i> <br />
+            
+            python
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-运维组件">
+          <a href="/./tags/rhca" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            运维组件
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-数据库">
+          <a href="/./tags/database" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-database"></i> <br />
+            
+            数据库
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-云计算">
+          <a href="/./tags/cloud" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-cloud"></i> <br />
+            
+            云计算
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-成自考">
+          <a href="/./tags/zikao" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-drupal"></i> <br />
+            
+            成自考
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-个人中心">
+          <a href="/./tags/renjin" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user-circle"></i> <br />
+            
+            个人中心
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索文章
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.ssjinyao.com/2018/09/01/linux系统定制/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="锦遥">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/rjyy.ico">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="逝水锦遥">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">linux 系统定制</h1>
+        
+
+        <div class="post-meta">
+		          
+				   <i class="fa fa-thumb-tack"></i>
+				   <font color=7D26CD>置顶</font>
+				   <span class="post-meta-divider">|</span>
+				   
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-01T06:35:00+08:00">
+                2018-09-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/09/01/linux系统定制/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/09/01/linux系统定制/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>  浏览
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  4.5k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  23
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="linux系统与应用定制"><a href="#linux系统与应用定制" class="headerlink" title="linux系统与应用定制"></a>linux系统与应用定制</h1><p>linux 系统层面工作原结构<br><img src="/images/linux-kernel.png" alt=""></p>
+<h2 id="必需要熟悉系统启动流程"><a href="#必需要熟悉系统启动流程" class="headerlink" title="必需要熟悉系统启动流程"></a>必需要熟悉系统启动流程</h2><blockquote>
+<p>CentOS 6 系统启动流程</p>
+</blockquote>
+<p><img src="/images/kernerl-boot-statg-ce6.png" alt=""></p>
+<blockquote>
+<p>CentOS 7 系统启动流程</p>
+</blockquote>
+<p><img src="/images/kernel-boot-statg-ce7.jpg" alt=""></p>
+<h2 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h2><table>
+<thead>
+<tr>
+<th>服务器</th>
+<th>系统环境</th>
+<th>主机名</th>
+<th>内核版本</th>
+<th>必装环境</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>宿主机</td>
+<td>CentOS 6.9</td>
+<td>Node11</td>
+<td>Kernel 2.6.32-696.el6.x86_64</td>
+<td>Development Tools</td>
+</tr>
+<tr>
+<td>制作机</td>
+<td>ssjinyao  Linux</td>
+<td>Node21</td>
+<td>Kernel linux-4.18.4</td>
+<td>Busybox 1.29</td>
+</tr>
+</tbody>
+</table>
+<p>将下载的包上传到服务器中 </p>
+<p><img src="/images/kernel-org.png" alt=""></p>
+<p><img src="/images/busybox-dowland.png" alt=""></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">~ ➤ scp ~/Downloads/linux-4.18.4.tar.xz root@node11:/usr/local/src/                                                                                                                          </div><div class="line">~ ➤ scp ~/Downloads/busybox-1.29.2.tar.bz2 root@node11:/usr/local/src/</div></pre></td></tr></table></figure>
+<p>安装宿主机所需要编译环境</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[root@ssjinyao-node11:~]# yum groupinstall &quot;Development tools&quot; &quot;Desktop Platform Development&quot; -y</div></pre></td></tr></table></figure>
+<h2 id="内核编译"><a href="#内核编译" class="headerlink" title="内核编译"></a>内核编译</h2><h3 id="解压文件"><a href="#解压文件" class="headerlink" title="解压文件"></a>解压文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">[root@ssjinyao-node11:~]# cd /usr/local/src/</div><div class="line">[root@ssjinyao-node11:~]# ln -s linux-4.18.4 linux</div><div class="line">[root@ssjinyao-node11:~]# cd linux</div><div class="line">[root@ssjinyao-node11:~]# make help   # 查看make帮助</div><div class="line"># 如果在centos不能解压时，需要执行</div><div class="line"># yum -y install xz 因为在CentOS 6 的环境中 tar 解压xz文件调用的是xz命令</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">[root@ssjinyao-node11:/usr/<span class="built_in">local</span>/src/linux]<span class="comment"># make allnoconfig</span></div><div class="line"><span class="comment"># 把原默认配置都清空，根据我们的需要选则编译</span></div><div class="line">[root@ssjinyao-node11:/usr/<span class="built_in">local</span>/src/linux]<span class="comment"># make menuconfig</span></div><div class="line"><span class="comment"># 根据自己的需求，选则内核需要支持模块</span></div></pre></td></tr></table></figure>
+<h3 id="默认配置"><a href="#默认配置" class="headerlink" title="默认配置"></a>默认配置</h3><p><img src="/images/kernel-org-make-menuconfig.png" alt=""></p>
+<h3 id="全局配置"><a href="#全局配置" class="headerlink" title="全局配置"></a>全局配置</h3><p><img src="/images/kernel-config-all.png" alt=""></p>
+<h3 id="kernel-config-general-setup"><a href="#kernel-config-general-setup" class="headerlink" title="kernel-config-general-setup"></a>kernel-config-general-setup</h3><p><img src="/images/kernel-config-generalsetup.png" alt=""></p>
+<h3 id="kernel-config-enable-loadble-module"><a href="#kernel-config-enable-loadble-module" class="headerlink" title="kernel-config-enable-loadble-module"></a>kernel-config-enable-loadble-module</h3><p><img src="/images/kernel-config-enable-loadble-module.png" alt=""></p>
+<h3 id="kernel-config-device-drivers"><a href="#kernel-config-device-drivers" class="headerlink" title="kernel-config-device-drivers"></a>kernel-config-device-drivers</h3><p><img src="/images/kernel-config-device-drivers.png" alt=""></p>
+<h3 id="kernel-config-file-systems"><a href="#kernel-config-file-systems" class="headerlink" title="kernel-config-file-systems"></a>kernel-config-file-systems</h3><p><img src="/images/kernel-config-file-systems.png" alt=""></p>
+<h3 id="详细配置与操作过程如下"><a href="#详细配置与操作过程如下" class="headerlink" title="详细配置与操作过程如下"></a>详细配置与操作过程如下</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div></pre></td><td class="code"><pre><div class="line">* 启用 <span class="number">64</span>-bit kernel # 让内核支持 <span class="number">64</span>位架构</div><div class="line">* 启用 Enable loadable <span class="keyword">module</span> support # 支持内核模块装载</div><div class="line">* 点进 Enable loadable <span class="keyword">module</span> support --&gt;  Module unloading # 让内核支持动态装卸载</div><div class="line">* 点进 Enable loadable <span class="keyword">module</span> support --&gt; Module signature verification </div><div class="line">        # 让内核校验装载的模块是否是已经认证的公司，避免内核被污染，以确保内核层面的安全</div><div class="line">* 点进 Processor type and features --&gt; processor family(Generic-x86-64) ---&gt; Generic-x86-64  </div><div class="line">        # 支持通用cpu，当然也可以对应选则适合自己的</div><div class="line">* 点进 Processor type <span class="keyword">and</span> features --&gt; Symmetric multi-processing support  </div><div class="line">        # 支持多核cpu</div><div class="line">* 点进 Bus options (PCI etc.) --&gt; PCI support # 选中支持</div><div class="line">* 启用 Enable the block layer  # 选中支持</div><div class="line">* 点进 Device Drivers --&gt; SCSI device support  # 选中支持</div><div class="line">* 点进 Device Drivers --&gt; SCSI disk support # 选中支持</div><div class="line">* 点进 Device Drivers --&gt; Fusion MPT device support（启用） ---&gt; Fusion MPT ScsiHost drivers <span class="keyword">for</span> SPI # 选中支持</div><div class="line">* 点进 Device Drivers --&gt; Fusion MPT device support（启用） ---&gt; Fusion MPT ScsiHost drivers <span class="keyword">for</span> SAS # 选中支持</div><div class="line">* 点进 Device Drivers --&gt; Fusion MPT device support（启用） ---&gt; Fusion MPT misc device (ioctl) driver # 选中支持</div><div class="line">* 点进 Device Drivers --&gt; Fusion MPT device support（启用） ---&gt; Fusion MPT logging facility # 选中支持</div><div class="line">* 点进 Device Drivers --&gt; Input device support   ---&gt; Keyboards (NEW) (启用 ) ----&gt;  &lt;*&gt;   AT keyboard (NEW) # 选中支持 </div><div class="line">* 点进 Device Drivers --&gt; Input device support ---&gt;  Mouse interface # 选中支持</div><div class="line">* 点进 Device Drivers --&gt; Input device support ---&gt; Provide legacy /dev/psaux device # 选中支持 </div><div class="line">* 点进 Device Drivers --&gt; USB support  ---&gt; Support <span class="keyword">for</span> Host-side USB # 选中支持</div><div class="line">* 点进 Device Drivers --&gt; USB support ---&gt; Enable USB persist by default (NEW) # 选中支持 </div><div class="line">* 点进 Device Drivers --&gt; USB support ---&gt; xHCI HCD (USB 3.0) support # 选中支持</div><div class="line">* 点进 Device Drivers --&gt; USB support ---&gt;  Generic xHCI driver <span class="keyword">for</span> a platform device # 选中支持 </div><div class="line">* 点进 Device Drivers --&gt; USB support ---&gt; EHCI HCD (USB 2.0) support # 选中支持 </div><div class="line">* 点进 Device Drivers --&gt; USB support ---&gt; Root Hub Transaction Translators # 选中支持</div><div class="line">* 点进 Device Drivers --&gt; USB support ---&gt; Improved Transaction Translator scheduling (NEW) # 选中支持 </div><div class="line">* 点进 Device Drivers --&gt; USB support ---&gt;  OHCI HCD (USB 1.1) support # 选中支持 </div><div class="line">* 点进 Device Drivers --&gt; USB support ---&gt; OHCI support for PCI-bus USB controllers (NEW) # 选中支持 </div><div class="line">* 点进 Device Drivers  --&gt; Generic Driver Options  ---&gt; Maintain a devtmpfs filesystem to mount at /dev # 选中支持</div><div class="line">* 点进 Device Drivers --&gt; Generic Driver Options ---&gt; Automount devtmpfs at /dev, after the kernel mounted the rootfs # 选中支持</div><div class="line">* 点进 File systems  --&gt; Second extended fs support # 选中支持</div><div class="line">* 点进 File systems  --&gt; Ext2 extended attributes # 选中支持</div><div class="line">* 点进 File systems  --&gt; Ext2 POSIX Access Control Lists # 选中支持 </div><div class="line">* 点进 File systems  --&gt; Ext2 Security Labels # 选中支持 </div><div class="line">* 点进 File systems  --&gt; The Extended <span class="number">3</span> (ext3) filesystem # 选中支持</div><div class="line">* 点进 File systems  --&gt; Ext3 POSIX Access Control Lists # 选中支持 </div><div class="line">* 点进 File systems  --&gt; Ext3 Security Labels  # 选中支持</div><div class="line">* 点进 File systems  --&gt; The Extended <span class="number">4</span> (ext4) filesystem # 选中支持 </div><div class="line">* 点进 File systems  --&gt; Ext4 POSIX Access Control Lists # 选中支持 </div><div class="line">* 点进 File systems  --&gt; Ext4 Security Labels # 选中支持 </div><div class="line">* 点进 File systems  --&gt; Ext4 Encryption #  选中支持 </div><div class="line">* 点进 File systems  --&gt; XFS filesystem support # 选中支持 </div><div class="line">* 点进 File systems  --&gt; XFS Quota support # 选中支持 </div><div class="line">* 点进 File systems  --&gt; XFS POSIX ACL support # 选中支持 </div><div class="line">* 点进 File systems  --&gt; XFS Realtime subvolume support # 选中支持</div><div class="line">* 点进 File systems  --&gt; XFS online metadata check support # 选中支持 </div><div class="line">* 点进 File systems  --&gt; XFS online metadata repair support # 选中支持</div><div class="line">* 点进 File systems  --&gt; XFS Debugging support # 选中支持</div><div class="line">* 点进 File systems  --&gt; XFS fatal asserts (NEW) # 选中支持 </div><div class="line"># 注：这里选择文件系统时可以选择自己常用的一种就好，我这里为方便以后使用，都加入进去了</div><div class="line"># 一般xfs 文件系统类型是目前性能最好的文件系统，而ext3 ext4 则有较成熟的数据恢复技术，如ext3grep</div><div class="line">* 点进 Executable file formats / Emulations  --&gt; Kernel support <span class="keyword">for</span> ELF binaries # 选中支持</div><div class="line">* 点进 Executable file formats / Emulations  --&gt;  Kernel support <span class="keyword">for</span> scripts starting with #! # 选中支持，即文件系统shell支持机制 </div><div class="line">* 点进 Executable file formats / Emulations  --&gt;  Kernel support <span class="keyword">for</span> MISC binaries # 选中支持</div><div class="line">* Networking support (启用) --&gt; Networking options  ---&gt;  TCP/IP networking # 选中支持，为以后做实验或者使用方便。将TCP/IP networking 下面的核心项即tcp/ip 与devel项安装</div><div class="line">* Device Drivers  --&gt; Network device support  ---&gt; Ethernet driver support (NEW)  ----&gt; (启用) ----&gt; Intel devices (NEW)(启用) -----&gt;  Intel(R) PRO/1000 Gigabit </div><div class="line">* * Device Drivers  --&gt; Network device support  ---&gt; Ethernet driver support (NEW)  ----&gt; (启用) ----&gt; AMD devices(启用) -----&gt;  AMD相关的我这里全部勾选 </div><div class="line">Ethernet support # 添加模块  , 其它的所有 Ethernet driver support 可以取消，依据自己的需求选则</div><div class="line">* 点进 General setup  --&gt; (huatu-ssjinyao-kernel) Local version - append to kernel release # 点加Kernel release </div><div class="line">* 点进 General setup --&gt; (huatu-ssjinyao) Default hostname</div></pre></td></tr></table></figure>
+<p>编译内核是个比较复杂的过程，这里的大家如果一直编译不成功，或者编译完内核后不有成功启动系统<br>可以使用我这里给大家建立的模板</p>
+<p><a href="https://www.ssjinyao.com/images/kernel-config-ok-net-all-ok">建立可以使用的内核配置模板</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># cp kernel-config-ok-net-all-ok /usr/local/src/linux/.config # 可以使用这个模板来进行编译生成内核文件</div></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">[root@ssjinyao-node11:/usr/local/src/linux-4.18.4]# cat init/main.c | grep -C 8 ' !try_to_run_init_process("/etc/init")'</div><div class="line">	<span class="keyword">if</span> (execute_command) &#123;</div><div class="line">		ret = run_init_process(execute_command);</div><div class="line">		<span class="keyword">if</span> (!ret)</div><div class="line">			<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">		panic(<span class="string">"Requested init %s failed (error %d)."</span>,</div><div class="line">		      execute_command, ret);</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">if</span> (!try_to_run_init_process(<span class="string">"/sbin/init"</span>) ||</div><div class="line">	    !try_to_run_init_process(<span class="string">"/etc/init"</span>) ||</div><div class="line">	    !try_to_run_init_process(<span class="string">"/bin/init"</span>) ||</div><div class="line">	    !try_to_run_init_process(<span class="string">"/bin/sh"</span>))</div><div class="line">		<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line"></div><div class="line">	panic(<span class="string">"No working init found.  Try passing init= option to kernel. "</span></div><div class="line">	      <span class="string">"See Linux Documentation/admin-guide/init.rst for guidance."</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line">[root@ssjinyao-node11:/usr/local/src/linux<span class="number">-4.18</span><span class="number">.4</span>]<span class="meta"># pwd</span></div><div class="line">/usr/local/src/linux<span class="number">-4.18</span><span class="number">.4</span></div><div class="line"># 注: 通过查看这段内核源码，则可以看到系统启动时查到init的流程</div><div class="line">  先找 /sbin/init --&gt; 若不存在</div><div class="line">  再找 /etc/init --&gt; 若不存在</div><div class="line">  再找 /bin/init --&gt; 若不存在</div><div class="line">  再找 /bin/sh   --&gt; 若不存在</div><div class="line">  启动报内核恐慌</div><div class="line">当然也可以在grub 的配置文件中指定 init= 来指定init的位置</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[root@ssjinyao-node11:/usr/local/src/linux]# make -j 4 bzImage</div><div class="line">[root@ssjinyao-node11:/usr/local/src/linux]# du -sh arch/x86/boot/bzImage</div><div class="line">3.0M	arch/x86/boot/bzImage</div></pre></td></tr></table></figure>
+<h3 id="编译单个网卡模块"><a href="#编译单个网卡模块" class="headerlink" title="编译单个网卡模块"></a>编译单个网卡模块</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[root@ssjinyao-node11:/usr/local/src/linux]# ls drivers/net/ethernet/intel/e1000/</div><div class="line">e1000_ethtool.c  e1000.h  e1000_hw.c  e1000_hw.h  e1000_main.c  e1000_osdep.h  e1000_param.c  Makefile</div><div class="line">root@ssjinyao-node11:/usr/local/src/linux]# ls drivers/net/ethernet/intel/e1000/e1000.ko</div><div class="line">drivers/net/ethernet/intel/e1000/e1000.ko</div><div class="line"># insmod /lib64/modules/e1000.ko</div></pre></td></tr></table></figure>
+<h2 id="安装-编译安装busybox"><a href="#安装-编译安装busybox" class="headerlink" title="安装 编译安装busybox"></a>安装 编译安装busybox</h2><p>因静态编译依赖于软件包 glibc-static, 因此在编译busybox时需要安装 glibc-static</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">[root@ssjinyao-node11:/usr/local/src]# tar -xvf busybox-1.29.2.tar.bz2</div><div class="line">[root@ssjinyao-node11:/usr/local/src]# cd busybox-1.29.2</div><div class="line">[root@ssjinyao-node11:/usr/local/src]# yum -y install glibc-static</div><div class="line">[root@ssjinyao-node11:/usr/local/src/busybox-1.29.2]# make menuconfig</div></pre></td></tr></table></figure>
+<p><img src="/images/busybox-make.png" alt=""><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Settings  --&gt;   --- Build Options  标题栏中 Build static binary (no shared libs) # 选中支持</div><div class="line">Settings  --&gt;    --- Installation Options (&quot;make install&quot; behavior)  What kind of applet links to install (as soft-links)  ---&gt; 这个默认的 as soft-links 就可以了 </div><div class="line">Settings  --&gt;    --- Installation Options (&quot;make install&quot; behavior)  (./_install) Destination path for &apos;make install&apos; ---&gt; 这个也选用默认的编译安装完到默认当前路径</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">make install # 注编译出错的时候要去了 Coreutils --&gt; sync 后面需要再同步过去</div></pre></td></tr></table></figure>
+<h2 id="利用busybox-制作initrd"><a href="#利用busybox-制作initrd" class="headerlink" title="利用busybox 制作initrd"></a>利用busybox 制作initrd</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">[root@ssjinyao-node11:/usr/local/src/busybox-1.29.2]# mkdir /tmp/busybox</div><div class="line">[root@ssjinyao-node11:/usr/local/src/busybox-1.29.2]# cp -a ./_install/*</div><div class="line">bin/     linuxrc  sbin/    usr/</div><div class="line">[root@ssjinyao-node11:/usr/local/src/busybox-1.29.2]# cp -a ./_install/* /tmp/busybox/</div><div class="line">[root@ssjinyao-node11:/usr/local/src/busybox-1.29.2]# cd /tmp/busybox/</div><div class="line">[root@ssjinyao-node11:/tmp/busybox]#</div><div class="line">[root@ssjinyao-node11:/tmp/busybox]# mkdir -pv  proc  sys  etc/init.d  tmp  dev  mnt/sysroot </div><div class="line">[root@ssjinyao-node11:/tmp/busybox]# vim init</div><div class="line">#!/bin/ash</div><div class="line">echo -e &quot;\t\033[32m Now start init and switch root ! \033[0m &quot;</div><div class="line">mount -t proc proc /proc</div><div class="line">mount -t sysfs sysfs /sys</div><div class="line">mdev -s</div><div class="line">mount -t xfs /dev/sda2  /mnt/sysroot</div><div class="line">exec  switch_root  /mnt/sysroot  /sbin/init</div><div class="line">[root@ssjinyao-node11:/tmp/busybox]# chmod +x init</div><div class="line">[root@ssjinyao-node11:/tmp/busybox]# mknod  dev/console  c  5  1</div><div class="line">[root@ssjinyao-node11:/tmp/busybox]# mknod  dev/null  c  1  3</div><div class="line">[root@ssjinyao-node11:/tmp/busybox]# find  .  | cpio  --quiet  -H newc  -o  | gzip  -9 -n &gt; ./huatu-ssjinyao-initrd.gz</div><div class="line">[root@ssjinyao-node11:/tmp/busybox]# du -sh huatu-ssjinyao-initrd.gz</div><div class="line">1.3M	huatu-ssjinyao-initrd.gz</div></pre></td></tr></table></figure>
+<h2 id="安装grub-整合内核与initrd"><a href="#安装grub-整合内核与initrd" class="headerlink" title="安装grub,整合内核与initrd"></a>安装grub,整合内核与initrd</h2><p>此时将宿主机关掉，挂载一块scsi磁盘，用于将grub,内核,initrd写嵌入<br>我这里用的是vmware fusion 虚拟工具，windows大家习惯用vmware workstation<br>只要给虚拟机添加一块磁盘即可,如下图   </p>
+<p><img src="/images/vmware-fusion-add-disk.png" alt=""></p>
+<p>注意: 现在挂载磁盘一定是要和宿主机共享磁盘，不然的话信息不会实时同步 ;<br>也是说，添加的这块磁盘是为宿主机和制作机之间同步数据使用，也就是说共用一块虚拟磁盘;<br>添加完后将宿主服务器启动</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">[root@ssjinyao-node11:~]<span class="comment"># lsblk</span></div><div class="line">NAME                                 MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT</div><div class="line">sda                                    8:0    0   20G  0 disk</div><div class="line">├─sda1                                 8:1    0  500M  0 part /boot</div><div class="line">└─sda2                                 8:2    0 19.5G  0 part</div><div class="line">  ├─vg_ssjinyaonode11-lv_root (dm-0) 253:0    0 17.6G  0 lvm  /</div><div class="line">  └─vg_ssjinyaonode11-lv_swap (dm-1) 253:1    0    2G  0 lvm  [SWAP]</div><div class="line">sdb                                    8:16   0   38G  0 disk</div></pre></td></tr></table></figure>
+<p>由上可以看出，已经添加了一块磁盘 sdb,将磁盘分区并挂载至/mnt目录下boot,与sysroot</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">[root@ssjinyao-node11:~]# mkdir /mnt/&#123;boot,sysroot&#125;</div><div class="line">[root@ssjinyao-node11:~]# fdisk /dev/sdb</div><div class="line">Device contains neither a valid DOS partition table, nor Sun, SGI or OSF disklabel</div><div class="line">Building a new DOS disklabel with disk identifier 0x42ed0c1e.</div><div class="line">Changes will remain in memory only, until you decide to write them.</div><div class="line">After that, of course, the previous content won&apos;t be recoverable.</div><div class="line"></div><div class="line">Warning: invalid flag 0x0000 of partition table 4 will be corrected by w(rite)</div><div class="line"></div><div class="line">WARNING: DOS-compatible mode is deprecated. It&apos;s strongly recommended to</div><div class="line">         switch off the mode (command &apos;c&apos;) and change display units to</div><div class="line">         sectors (command &apos;u&apos;).</div><div class="line"></div><div class="line">Command (m for help): n</div><div class="line">Command action</div><div class="line">   e   extended</div><div class="line">   p   primary partition (1-4)</div><div class="line">p</div><div class="line">Partition number (1-4): 1</div><div class="line">First cylinder (1-4960, default 1): 1</div><div class="line">Last cylinder, +cylinders or +size&#123;K,M,G&#125; (1-4960, default 4960): +300M</div><div class="line"></div><div class="line">Command (m for help): n</div><div class="line">Command action</div><div class="line">   e   extended</div><div class="line">   p   primary partition (1-4)</div><div class="line">p</div><div class="line">Partition number (1-4): 2</div><div class="line">First cylinder (40-4960, default 40): 40</div><div class="line">Last cylinder, +cylinders or +size&#123;K,M,G&#125; (40-4960, default 4960): 4960</div><div class="line"></div><div class="line">Command (m for help): w</div><div class="line">The partition table has been altered!</div><div class="line"></div><div class="line">Calling ioctl() to re-read partition table.</div><div class="line">Syncing disks.</div><div class="line">[root@ssjinyao-node11:~]# mkfs.xfs /dev/sdb1</div><div class="line">[root@ssjinyao-node11:~]# mkfs.xfs /dev/sdb2</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># mkdir /mnt/&#123;boot,sysroot&#125;</div><div class="line"># mount /dev/sdb1 /mnt/boot</div><div class="line"># mount /dev/sdb2 /mnt/sysroot</div><div class="line">[root@ssjinyao-node11:~]# mount /dev/sdb1 /mnt/boot/</div><div class="line">[root@ssjinyao-node11:~]# mount /dev/sdb2 /mnt/sysroot/</div><div class="line">[root@ssjinyao-node11:~]# cd /tmp/busybox/</div></pre></td></tr></table></figure>
+<p>将编译好的内核与制作好的initrd入到boot启动目录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[root@ssjinyao-node11:/tmp/busybox]# cp huatu-ssjinyao-initrd.gz /mnt/boot/</div><div class="line">[root@ssjinyao-node11:~]# cp /usr/local/src/linux/arch/x86/boot/bzImage  /mnt/boot/huatu-ssjinyao-kernel</div></pre></td></tr></table></figure>
+<p>安装 grub 至新添加的硬盘 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[root@ssjinyao-node11:/tmp/busybox]# grub-install  --root-directory=/mnt/ /dev/sdb</div></pre></td></tr></table></figure>
+<p>提供 grub 配置文件 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">[root@ssjinyao-node11:/mnt/sysroot]# vim /mnt/boot/grub/grub.conf</div><div class="line">default        0</div><div class="line">timeout        3</div><div class="line">color    light-green/black light-magenta/black</div><div class="line">title    huatu-ssinyao-kernel 4.18.5</div><div class="line">    root (hd0,0)</div><div class="line">    kernel /huatu-ssjinyao-kernel ro root=/dev/sda2 vga=877 quiet</div><div class="line">    initrd /huatu-ssjinyao-initrd.gz</div></pre></td></tr></table></figure>
+<p>vga=877 这里是根据我的屏目分辨率而调整的适应的;<br>这里可以在启动 vga=ask grub开机时会给你一个列表，让你选择自己的分辨率;<br>最后可以选择自己屏幕的分辨率大小;<br><img src="/images/fenbianlv.png" alt=""></p>
+<p>如，这里的我的分辨率是 1400x900，这里选的是36D，再将16进制36D转换为十进制数，即是我在grub.conf<br>中配置的vga=877</p>
+<p>其它项配置项  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">default  配置这个项目为0默认启动项;</div><div class="line">timeout  配置超过3秒不选则，则自动选则第一个title启动;</div><div class="line">color    配置grub菜单栏颜色;</div><div class="line">title    配置启动项标题;</div><div class="line">root (hd0,0)    配置root先识别第一块盘的第一个分区;</div><div class="line">kernel  配置指定启动内核，这里即是我们编译好的内核，root 指定启动后的根分区;</div><div class="line">initrd  配置启动虚根，与第一个进程;</div></pre></td></tr></table></figure>
+<h2 id="建立真实文件系统"><a href="#建立真实文件系统" class="headerlink" title="建立真实文件系统"></a>建立真实文件系统</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[root@ssjinyao-node11:/mnt/sysroot]# cp /usr/local/src/busybox-1.29.2/_install/*  . -a</div><div class="line">[root@ssjinyao-node11:/mnt/sysroot]# rm -f linuxrc</div><div class="line">[root@ssjinyao-node11:/mnt/sysroot]# mkdir -pv etc  dev proc sys bin sbin usr/&#123;bin,sbin,lib,lib64,local&#125; lib64 lib/modules home var/&#123;log,run,lock&#125; tmp mnt media root boot</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">[root@ssjinyao-node11:/mnt/sysroot]# vim etc/inittab</div><div class="line"># console:respawn:-/bin/ash</div><div class="line"># tty1::askfirst:/bin/ash</div><div class="line"># tty2::askfirst:/bin/ash</div><div class="line"># tty3::askfirst:/bin/ash</div><div class="line">::sysinit:/etc/rc.d/rc.sysinit</div><div class="line">::respawn:/sbin/getty 9600 tty1</div><div class="line">::respawn:/sbin/getty 9600 tty2</div><div class="line">::respawn:/sbin/getty 9600 tty3</div><div class="line">::respawn:/sbin/getty 9600 tty4</div><div class="line">::respawn:/sbin/getty 9600 tty5</div><div class="line">::respawn:/sbin/getty 9600 tty6</div><div class="line">::respawn:/sbin/getty 9600 tty7</div><div class="line">::ctrlaltdel:/sbin/reboot</div><div class="line">::shutdown:/bin/umount -a -r &amp;&gt; /dev/null</div><div class="line">[root@ssjinyao-node11:/mnt/sysroot]# chmod +x etc/inittab</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#[root@ssjinyao-node11:/mnt/sysroot]# mkdir etc/rc.d/</span></div><div class="line"><span class="comment">#[root@ssjinyao-node11:/mnt/sysroot]# vim  etc/rc.d/rc.sysinit</span></div><div class="line"><span class="meta">#!/bin/sh</span></div><div class="line"><span class="built_in">echo</span> -e <span class="string">"\t welcome to \033[31m HuaTu SSJinYao \033[0m Linux"</span></div><div class="line">mount -t proc proc /proc</div><div class="line">mount -t sysfs sysfs /sys</div><div class="line"><span class="built_in">echo</span> <span class="string">"scan /sys and to populate to /dev..."</span></div><div class="line">mdev -s</div><div class="line">mount -o remount,rw  /dev/sda2 /</div><div class="line"><span class="built_in">echo</span> <span class="string">"mounting all filesystems..."</span></div><div class="line">mount -a</div><div class="line">ifconfig eth0 10.180.66.31 netmask 255.255.255.0</div><div class="line">ifconfig lo 127.0.0.1</div><div class="line"></div><div class="line">route add default gw 10.180.66.2</div><div class="line"><span class="built_in">echo</span> -e <span class="string">"\033[31m Start Network Manager.........................\033[0m \033[32m [OK] \033[0m"</span></div><div class="line">/usr/<span class="built_in">local</span>/sbin/dropbear -E -F &amp;&gt; /var/<span class="built_in">log</span>/dropbear/sshd.log &amp;</div><div class="line"><span class="built_in">echo</span> -e <span class="string">"\033[31m Start dropbear sshd ..........................\033[0m \033[32m [OK] \033[0m"</span></div><div class="line">/usr/<span class="built_in">local</span>/nginx/sbin/nginx</div><div class="line"><span class="built_in">echo</span> -e <span class="string">"\033[31m Start Nginx Service ..........................\033[0m \033[32m [OK] \033[0m"</span></div><div class="line">/usr/<span class="built_in">local</span>/keepalived/sbin/keepalived -D -S 0 -f /usr/<span class="built_in">local</span>/keepalived/etc/keepalived/keepalived.conf</div><div class="line"><span class="built_in">echo</span> -e <span class="string">"\033[31m Start Keepalived Service .....................\033[0m \033[32m [OK] \033[0m"</span></div><div class="line">rsync.sh &amp;&gt; /dev/null &amp;</div><div class="line"><span class="built_in">echo</span> -e <span class="string">"\033[31m Start Rsync Service ..........................\033[0m \033[32m [OK] \033[0m"</span></div><div class="line"></div><div class="line"><span class="built_in">echo</span> -e <span class="string">"\033[31m</span></div><div class="line"><span class="string">            \</span></div><div class="line"><span class="string">              - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - \</span></div><div class="line"><span class="string"></span></div><div class="line"><span class="string">                                 ** **</span></div><div class="line"><span class="string">                                // //            **   **</span></div><div class="line"><span class="string">               ******  ******    ** ** *******  //** **   ******    ******</span></div><div class="line"><span class="string">              **////  **////    /**/**//**///**  //***   //////**  **////**</span></div><div class="line"><span class="string">             //***** //*****    /**/** /**  /**   /**     ******* /**   /**</span></div><div class="line"><span class="string">              /////** /////** **/**/** /**  /**   **     **////** /**   /**</span></div><div class="line"><span class="string">              ******  ****** //*** /** ***  /**  **     //********//******</span></div><div class="line"><span class="string">             //////  //////   ///  // ///   //  //       ////////  //////</span></div><div class="line"><span class="string"></span></div><div class="line"><span class="string">            \\</span></div><div class="line"><span class="string">              - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - \\</span></div><div class="line"><span class="string">\033[0m"</span></div><div class="line"><span class="comment"># chmod +x etc/rc.d/rc.sysinit</span></div></pre></td></tr></table></figure>
+<p>建系统系统挂载目录 fstab </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">[root@ssjinyao-node11:/mnt/sysroot]# mkdir /dev/pts</div><div class="line"># 注: 在此之前一定要有 dev/pts 目录 </div><div class="line">[root@ssjinyao-node11:/mnt/sysroot]# vim etc/fstab </div><div class="line">sysfs       /sys      sysfs defaults 0 0 </div><div class="line">proc        /proc     proc      defaults 0 0 </div><div class="line">devpts      /dev/pts  devpts    mode=620 0 0 </div><div class="line">/dev/sda1   /boot     xfs      defaults 0 0 </div><div class="line">/dev/sda2   /         xfs      defaults 0 0</div></pre></td></tr></table></figure>
+<p>添加登录后脚本/etc/profile</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">export</span> PS1=<span class="string">'[\[\033[01;36m\]\u\[\033[00m\]@\[\033[01;34m\]\h\[\033[00m\]:\[\033[01;32m\]\w\[\033[00m\]]\[\033[01;34m\]\$\[\033[00m\] '</span></div><div class="line"><span class="built_in">export</span> PATH=/usr/<span class="built_in">local</span>/bin:/usr/<span class="built_in">local</span>/sbin/:/sbin:/bin:/usr/bin:/usr/sbin</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">[root@ssjinyao-node11:/mnt/sysroot]# vim etc/shells </div><div class="line">/bin/sh</div><div class="line">/bin/ash</div><div class="line">/bin/hush</div><div class="line">/bin/bash</div><div class="line">/sbin/nologin</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[root@ssjinyao-node11:/mnt/sysroot]# etc/nsswitch.conf</div><div class="line">passwd: files</div><div class="line">grup: files</div><div class="line">shadow: files</div><div class="line">hosts: files dns</div></pre></td></tr></table></figure>
+<h2 id="编译安装dropbear"><a href="#编译安装dropbear" class="headerlink" title="编译安装dropbear"></a>编译安装dropbear</h2><p>注 dropbear 可以在<a href="https://matt.ucc.asn.au/dropbear/" target="_blank" rel="external">dropbear官网</a>下载</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">[root@ssjinyao-node11:/usr/local/src]# tar -xvf dropbear-2018.76.tar.bz2</div><div class="line">[root@ssjinyao-node11:/usr/local/src]# cd dropbear-2018.76</div><div class="line">[root@ssjinyao-node11:/usr/local/src/dropbear-2018.76]#  make PROGRAMS=&quot;dropbear dbclient dropbearkey dropbearconvert scp&quot; install</div><div class="line">[root@ssjinyao-node11:/mnt/sysroot]# cd /mnt/sysroot/etc/dropbear/</div><div class="line">[root@ssjinyao-node11:/mnt/sysroot/etc/dropbear/]# openssl passwd -1 -salt $(openssl rand -hex 4)</div><div class="line">[root@ssjinyao-node11:/mnt/sysroot/etc/dropbear/]# dropbearkey -t rsa -s 2048 -f dropbear_rsa_host_key</div><div class="line">[root@ssjinyao-node11:/mnt/sysroot/etc/dropbear/]# dropbearkey -t dss -f dropbear_dss_host_key</div><div class="line">[root@ssjinyao-node11:/mnt/sysroot/etc/dropbear/]# dropbear -E -F 启动</div></pre></td></tr></table></figure>
+<h2 id="移植系统认证、登录、解析相关的依赖库"><a href="#移植系统认证、登录、解析相关的依赖库" class="headerlink" title="移植系统认证、登录、解析相关的依赖库"></a>移植系统认证、登录、解析相关的依赖库</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">[root@ssjinyao-node11:/mnt/sysroot] mkdir  usr/lib64/</div><div class="line">[root@ssjinyao-node11:/mnt/sysroot] cp -d /lib64/libnss_files* lib64/</div><div class="line">[root@ssjinyao-node11:/mnt/sysroot] cp -d /usr/lib64/libnss3.so usr/lib64/</div><div class="line">[root@ssjinyao-node11:/mnt/sysroot] cp -d /usr/lib64/libnss_files.so* usr/lib64/</div><div class="line">[root@ssjinyao-node11:/mnt/sysroot] cp -d /lib64/libresolv*  lib64/</div><div class="line">[root@ssjinyao-node11:/mnt/sysroot] cp -d /lib64/libnss_dns* lib64/</div></pre></td></tr></table></figure>
+<h2 id="编译安装nginx"><a href="#编译安装nginx" class="headerlink" title="编译安装nginx"></a>编译安装nginx</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[root@ssjinyao-node11:/usr/local/src]# cd /usr/local/src/</div><div class="line">[root@ssjinyao-node11:/usr/local/src]# tar -xvf nginx-1.14.0.tar.gz</div><div class="line">./configure --prefix=/usr/local/nginx   --http-log-path=/var/log/nginx/access.log --error-log-path=/var/log/nginx/error.log --with-http_gzip_static_module --with-http_stub_status_module --with-http_ssl_module --user=root --group=root</div><div class="line">[root@ssjinyao-node11:/usr/local/src]# cp -a /usr/local/nginx/sbin/nginx  /usr/sbin/</div><div class="line">[root@ssjinyao-node11:/usr/local/src]# cp -a /usr/local/nginx/ /mnt/sysroot/usr/local/</div></pre></td></tr></table></figure>
+<h2 id="编译安装inotify并移植"><a href="#编译安装inotify并移植" class="headerlink" title="编译安装inotify并移植"></a>编译安装inotify并移植</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[root@ssjinyao-node11:/usr/local]# cd /usr/local/src/</div><div class="line">[root@ssjinyao-node11:/usr/local/src]# tar -xvf inotify-tools-3.14.tar.gz</div><div class="line">[root@ssjinyao-node11:/usr/local/src]# cd inotify-tools-3.14</div><div class="line">[root@ssjinyao-node11:/usr/local/src/inotify-tools-3.14]# ./configure --prefix=/usr/local/inotify/</div><div class="line">[root@ssjinyao-node11:/usr/local/src/inotify-tools-3.14]# cp -a /usr/local/inotify/ /mnt/sysroot/usr/local</div></pre></td></tr></table></figure>
+<h2 id="编译安装keepalived"><a href="#编译安装keepalived" class="headerlink" title="编译安装keepalived"></a>编译安装keepalived</h2><p>注: keepalived 依赖net-tools psmisc 两个工具包，因此需要将这两个工具包的命令移植</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">[root@laoba-10-17:/usr/local/src/linux-4.18.5]# rpm -ql net-tools | grep bin &amp;&amp; rpm -ql psmisc | grep bin</div><div class="line">/bin/netstat</div><div class="line">/sbin/arp</div><div class="line">/sbin/ether-wake</div><div class="line">/sbin/ifconfig</div><div class="line">/sbin/ipmaddr</div><div class="line">/sbin/iptunnel</div><div class="line">/sbin/mii-diag</div><div class="line">/sbin/mii-tool</div><div class="line">/sbin/nameif</div><div class="line">/sbin/plipconfig</div><div class="line">/sbin/route</div><div class="line">/sbin/slattach</div><div class="line">/usr/bin/killall</div><div class="line">/usr/bin/peekfd</div><div class="line">/usr/bin/prtstat</div><div class="line">/usr/bin/pstree</div><div class="line">/usr/bin/pstree.x11</div><div class="line">/usr/sbin/fuser</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[root@ssjinyao-node11:/usr/local/src]# tar -xvf keepalived-2.0.6.tar.gz</div><div class="line">[root@ssjinyao-node11:/usr/local/src]# cd keepalived-2.0.6</div><div class="line">[root@ssjinyao-node11:/usr/local/src]# cp /usr/local/keepalived/sbin/keepalived /usr/sbin/</div><div class="line">[root@ssjinyao-node11:/usr/local/src/keepalived-2.0.6]# ./configure --prefix=/usr/local/keepalived/</div><div class="line">[root@ssjinyao-node11:/usr/local/src]# cp -a /usr/local/keepalived/ /mnt/sysroot/usr/local</div></pre></td></tr></table></figure>
+<h2 id="编写bincp-脚本"><a href="#编写bincp-脚本" class="headerlink" title="编写bincp 脚本"></a>编写bincp 脚本</h2><p>ldd 命令可以查看命令所依赖的库的位置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[root@ssjinyao-node11:/mnt/sysroot]# ldd /bin/cp</div></pre></td></tr></table></figure>
+<p>编写脚本，将需要的命令同步到/mnt/sysroot 目录</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">[root@ssjinyao-node11:/mnt/sysroot]<span class="comment"># mkdir /root/bin</span></div><div class="line">[root@ssjinyao-node11:/mnt/sysroot]<span class="comment"># vim /root/bin/bincp.sh</span></div><div class="line">[root@ssjinyao-node11:/mnt/sysroot]<span class="comment"># chmod +x /root/bin/bincp.sh</span></div><div class="line"><span class="meta">#!/bin/bash</span></div><div class="line"><span class="comment">#The scripts can copy bin file and that bin libs</span></div><div class="line"><span class="comment">#author renjin</span></div><div class="line"><span class="comment">#date 2016 11 19</span></div><div class="line"><span class="comment">#version 3.0</span></div><div class="line"><span class="built_in">echo</span> <span class="string">"acquiesce copy bin file in /mnt/sysroot!! "</span></div><div class="line">MNT=<span class="string">"/mnt/sysroot"</span></div><div class="line"><span class="function"><span class="title">BIN_FILE</span></span>() &#123; bindir=`dirname <span class="variable">$file</span>`</div><div class="line">             [ -e <span class="variable">$MNT</span> ] || mkdir -p <span class="variable">$MNT</span></div><div class="line">             [ -e <span class="variable">$MNT</span><span class="variable">$bindir</span> ] || mkdir -p <span class="variable">$MNT</span><span class="variable">$bindir</span></div><div class="line">             <span class="keyword">if</span> [ -e <span class="variable">$MNT</span><span class="variable">$file</span> ] ; <span class="keyword">then</span></div><div class="line">                <span class="built_in">echo</span> <span class="string">"you will copy bin file exsit !"</span></div><div class="line">             <span class="keyword">else</span></div><div class="line">               cp <span class="variable">$file</span> <span class="variable">$MNT</span><span class="variable">$bindir</span></div><div class="line">             <span class="keyword">fi</span></div><div class="line">          &#125;</div><div class="line"><span class="function"><span class="title">LIB_FILE</span></span>() &#123; lib=`ldd <span class="variable">$file</span> | grep -Eo <span class="string">"/.*lib(64)&#123;0,1&#125;/[^[:space:]]&#123;1,&#125;"</span>`</div><div class="line">             <span class="keyword">for</span> lib64 <span class="keyword">in</span> <span class="variable">$lib</span>; <span class="keyword">do</span></div><div class="line">                 libdir=`dirname <span class="variable">$lib64</span>`</div><div class="line">                 <span class="keyword">if</span> [ ! -e <span class="variable">$MNT</span><span class="variable">$libdir</span> ]; <span class="keyword">then</span></div><div class="line">                       mkdir -p <span class="variable">$MNT</span><span class="variable">$libdir</span></div><div class="line">                 <span class="keyword">elif</span>  [ -e <span class="variable">$MNT</span><span class="variable">$lib64</span> ] ; <span class="keyword">then</span></div><div class="line">                     <span class="built_in">echo</span> <span class="string">"you will copy lib file exsit "</span> &amp;&amp; <span class="built_in">continue</span></div><div class="line">                 <span class="keyword">else</span> cp <span class="variable">$lib</span> <span class="variable">$MNT</span><span class="variable">$libdir</span></div><div class="line">                 <span class="keyword">fi</span></div><div class="line">            <span class="keyword">done</span></div><div class="line">          &#125;</div><div class="line"></div><div class="line"><span class="built_in">read</span> -p <span class="string">"please input your will copy bin file name,or input quit quitng: "</span> BIN</div><div class="line">until [ <span class="variable">$BIN</span> == <span class="string">'quit'</span> -o <span class="variable">$BIN</span> == <span class="string">'q'</span> ]; <span class="keyword">do</span></div><div class="line">! <span class="built_in">which</span> <span class="variable">$BIN</span> 2&gt; /dev/null &amp;&amp; <span class="built_in">read</span> -p  <span class="string">"you input command no exsit,please again input or input quit ,quiting  "</span> BIN &amp;&amp; <span class="built_in">continue</span></div><div class="line">file=`<span class="built_in">which</span> --skip-alias <span class="variable">$BIN</span> 2&gt; /dev/null | grep <span class="string">"/.*[^[:space:]]"</span> `</div><div class="line">      BIN_FILE <span class="variable">$BIN</span> &amp;&amp; LIB_FILE <span class="variable">$BIN</span></div><div class="line"><span class="built_in">read</span> -p <span class="string">"continue!,or input quit ,quting: "</span> BIN</div><div class="line"><span class="keyword">done</span></div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"># chmod +x /root/bincp.sh &amp;&amp; cp /root/bincp.sh /bin</div><div class="line">[root@ssjinyao-node11:/usr/local/src]# bincp.sh</div><div class="line">acquiesce copy bin file in /mnt/sysroot!!</div><div class="line">please input your will copy bin file name,or input quit quitng:</div></pre></td></tr></table></figure>
+<p>需要移植的命令有</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">bash dropbear ssh scp rysnc dbclient dropbearconvert dropbearkey genhash nginx 等等</div></pre></td></tr></table></figure>
+<p>利上这个脚本将自己需要的命令拷贝到/mnt/sysroot中 </p>
+<p>添加root用户</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"># adduser root </div><div class="line"># passwd root</div><div class="line">这里要注意把 root id 在 /etc/passwd 中改0</div><div class="line">在Linux内核中，系统权限只对应id</div></pre></td></tr></table></figure>
+<h2 id="微系统-keepaived-nginx-rsync-inotify的实现"><a href="#微系统-keepaived-nginx-rsync-inotify的实现" class="headerlink" title="微系统 keepaived+nginx+rsync+inotify的实现"></a>微系统 keepaived+nginx+rsync+inotify的实现</h2><p>keepalived+nginx+rsync+intofity 在之前的文章中有实现<br>大家可以再克隆一个小系统，来实现keepalived的双主</p>
+<h2 id="系统启动后如下图"><a href="#系统启动后如下图" class="headerlink" title="系统启动后如下图"></a>系统启动后如下图</h2><p><img src="/images/huatu-ssjinyao-little-linux.png" alt=""></p>
+<p><img src="/images/linux-little-ps.png" alt=""></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>ღ ღ ღ 如果觉得文章对您有用，不妨打赏一下ღ ღ ღ</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/weipei.png" alt="锦遥 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/zhipei.png" alt="锦遥 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    锦遥
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://www.ssjinyao.com/2018/09/01/linux系统定制/" title="linux 系统定制">https://www.ssjinyao.com/2018/09/01/linux系统定制/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/rhca/" rel="tag"># rhca</a>
+          
+            <a href="/tags/linux/" rel="tag"># linux</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/08/23/python 日常练习08-23/" rel="next" title="python日常练习">
+                <i class="fa fa-chevron-left"></i> python日常练习
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/09/28/docker笔记一/" rel="prev" title="docker笔记(一)">
+                docker笔记(一) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/rjyy.ico"
+                alt="锦遥" />
+            
+              <p class="site-author-name" itemprop="name">锦遥</p>
+              <p class="site-description motion-element" itemprop="description">有智而性缓者思大智
+
+</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">68</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+		  <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=174079&auto=1&height=66"></iframe>
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="http://wpa.qq.com/msgrd?v=3&uin=1922006891site=qq&menu=yes" target="_blank" title="我的QQ">
+                    
+                      <i class="fa fa-fw fa-qq"></i></a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://jf.ssjinyao.com/" title="狗江博客" target="_blank">狗江博客</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          <div style="">
+  <canvas id="canvas" style="width:60%;">当前浏览器不支持canvas，请更换浏览器后再试</canvas>
+  </div>
+  <script>
+  (function(){
+
+      var digit=
+	      [
+		          [
+				              [0,0,1,1,1,0,0],
+							              [0,1,1,0,1,1,0],
+										              [1,1,0,0,0,1,1],
+													              [1,1,0,0,0,1,1],
+																              [1,1,0,0,0,1,1],
+																			              [1,1,0,0,0,1,1],
+																						              [1,1,0,0,0,1,1],
+																									              [1,1,0,0,0,1,1],
+																												              [0,1,1,0,1,1,0],
+																															              [0,0,1,1,1,0,0]
+																																		          ],//0
+																																				          [
+																																						              [0,0,0,1,1,0,0],
+																																									              [0,1,1,1,1,0,0],
+																																												              [0,0,0,1,1,0,0],
+																																															              [0,0,0,1,1,0,0],
+																																																		              [0,0,0,1,1,0,0],
+																																																					              [0,0,0,1,1,0,0],
+																																																								              [0,0,0,1,1,0,0],
+																																																											              [0,0,0,1,1,0,0],
+																																																														              [0,0,0,1,1,0,0],
+																																																																	              [1,1,1,1,1,1,1]
+																																																																					          ],//1
+																																																																							          [
+																																																																										              [0,1,1,1,1,1,0],
+																																																																													              [1,1,0,0,0,1,1],
+																																																																																              [0,0,0,0,0,1,1],
+																																																																																			              [0,0,0,0,1,1,0],
+																																																																																						              [0,0,0,1,1,0,0],
+																																																																																									              [0,0,1,1,0,0,0],
+																																																																																												              [0,1,1,0,0,0,0],
+																																																																																															              [1,1,0,0,0,0,0],
+																																																																																																		              [1,1,0,0,0,1,1],
+																																																																																																					              [1,1,1,1,1,1,1]
+																																																																																																									          ],//2
+																																																																																																											          [
+																																																																																																														              [1,1,1,1,1,1,1],
+																																																																																																																	              [0,0,0,0,0,1,1],
+																																																																																																																				              [0,0,0,0,1,1,0],
+																																																																																																																							              [0,0,0,1,1,0,0],
+																																																																																																																										              [0,0,1,1,1,0,0],
+																																																																																																																													              [0,0,0,0,1,1,0],
+																																																																																																																																              [0,0,0,0,0,1,1],
+																																																																																																																																			              [0,0,0,0,0,1,1],
+																																																																																																																																						              [1,1,0,0,0,1,1],
+																																																																																																																																									              [0,1,1,1,1,1,0]
+																																																																																																																																													          ],//3
+																																																																																																																																															          [
+																																																																																																																																																		              [0,0,0,0,1,1,0],
+																																																																																																																																																					              [0,0,0,1,1,1,0],
+																																																																																																																																																								              [0,0,1,1,1,1,0],
+																																																																																																																																																											              [0,1,1,0,1,1,0],
+																																																																																																																																																														              [1,1,0,0,1,1,0],
+																																																																																																																																																																	              [1,1,1,1,1,1,1],
+																																																																																																																																																																				              [0,0,0,0,1,1,0],
+																																																																																																																																																																							              [0,0,0,0,1,1,0],
+																																																																																																																																																																										              [0,0,0,0,1,1,0],
+																																																																																																																																																																													              [0,0,0,1,1,1,1]
+																																																																																																																																																																																	          ],//4
+																																																																																																																																																																																			          [
+																																																																																																																																																																																						              [1,1,1,1,1,1,1],
+																																																																																																																																																																																									              [1,1,0,0,0,0,0],
+																																																																																																																																																																																												              [1,1,0,0,0,0,0],
+																																																																																																																																																																																															              [1,1,1,1,1,1,0],
+																																																																																																																																																																																																		              [0,0,0,0,0,1,1],
+																																																																																																																																																																																																					              [0,0,0,0,0,1,1],
+																																																																																																																																																																																																								              [0,0,0,0,0,1,1],
+																																																																																																																																																																																																											              [0,0,0,0,0,1,1],
+																																																																																																																																																																																																														              [1,1,0,0,0,1,1],
+																																																																																																																																																																																																																	              [0,1,1,1,1,1,0]
+																																																																																																																																																																																																																					          ],//5
+																																																																																																																																																																																																																							          [
+																																																																																																																																																																																																																										              [0,0,0,0,1,1,0],
+																																																																																																																																																																																																																													              [0,0,1,1,0,0,0],
+																																																																																																																																																																																																																																              [0,1,1,0,0,0,0],
+																																																																																																																																																																																																																																			              [1,1,0,0,0,0,0],
+																																																																																																																																																																																																																																						              [1,1,0,1,1,1,0],
+																																																																																																																																																																																																																																									              [1,1,0,0,0,1,1],
+																																																																																																																																																																																																																																												              [1,1,0,0,0,1,1],
+																																																																																																																																																																																																																																															              [1,1,0,0,0,1,1],
+																																																																																																																																																																																																																																																		              [1,1,0,0,0,1,1],
+																																																																																																																																																																																																																																																					              [0,1,1,1,1,1,0]
+																																																																																																																																																																																																																																																									          ],//6
+																																																																																																																																																																																																																																																											          [
+																																																																																																																																																																																																																																																														              [1,1,1,1,1,1,1],
+																																																																																																																																																																																																																																																																	              [1,1,0,0,0,1,1],
+																																																																																																																																																																																																																																																																				              [0,0,0,0,1,1,0],
+																																																																																																																																																																																																																																																																							              [0,0,0,0,1,1,0],
+																																																																																																																																																																																																																																																																										              [0,0,0,1,1,0,0],
+																																																																																																																																																																																																																																																																													              [0,0,0,1,1,0,0],
+																																																																																																																																																																																																																																																																																              [0,0,1,1,0,0,0],
+																																																																																																																																																																																																																																																																																			              [0,0,1,1,0,0,0],
+																																																																																																																																																																																																																																																																																						              [0,0,1,1,0,0,0],
+																																																																																																																																																																																																																																																																																									              [0,0,1,1,0,0,0]
+																																																																																																																																																																																																																																																																																													          ],//7
+																																																																																																																																																																																																																																																																																															          [
+																																																																																																																																																																																																																																																																																																		              [0,1,1,1,1,1,0],
+																																																																																																																																																																																																																																																																																																					              [1,1,0,0,0,1,1],
+																																																																																																																																																																																																																																																																																																								              [1,1,0,0,0,1,1],
+																																																																																																																																																																																																																																																																																																											              [1,1,0,0,0,1,1],
+																																																																																																																																																																																																																																																																																																														              [0,1,1,1,1,1,0],
+																																																																																																																																																																																																																																																																																																																	              [1,1,0,0,0,1,1],
+																																																																																																																																																																																																																																																																																																																				              [1,1,0,0,0,1,1],
+																																																																																																																																																																																																																																																																																																																							              [1,1,0,0,0,1,1],
+																																																																																																																																																																																																																																																																																																																										              [1,1,0,0,0,1,1],
+																																																																																																																																																																																																																																																																																																																													              [0,1,1,1,1,1,0]
+																																																																																																																																																																																																																																																																																																																																	          ],//8
+																																																																																																																																																																																																																																																																																																																																			          [
+																																																																																																																																																																																																																																																																																																																																						              [0,1,1,1,1,1,0],
+																																																																																																																																																																																																																																																																																																																																									              [1,1,0,0,0,1,1],
+																																																																																																																																																																																																																																																																																																																																												              [1,1,0,0,0,1,1],
+																																																																																																																																																																																																																																																																																																																																															              [1,1,0,0,0,1,1],
+																																																																																																																																																																																																																																																																																																																																																		              [0,1,1,1,0,1,1],
+																																																																																																																																																																																																																																																																																																																																																					              [0,0,0,0,0,1,1],
+																																																																																																																																																																																																																																																																																																																																																								              [0,0,0,0,0,1,1],
+																																																																																																																																																																																																																																																																																																																																																											              [0,0,0,0,1,1,0],
+																																																																																																																																																																																																																																																																																																																																																														              [0,0,0,1,1,0,0],
+																																																																																																																																																																																																																																																																																																																																																																	              [0,1,1,0,0,0,0]
+																																																																																																																																																																																																																																																																																																																																																																					          ],//9
+																																																																																																																																																																																																																																																																																																																																																																							          [
+																																																																																																																																																																																																																																																																																																																																																																										              [0,0,0,0,0,0,0],
+																																																																																																																																																																																																																																																																																																																																																																													              [0,0,1,1,1,0,0],
+																																																																																																																																																																																																																																																																																																																																																																																              [0,0,1,1,1,0,0],
+																																																																																																																																																																																																																																																																																																																																																																																			              [0,0,1,1,1,0,0],
+																																																																																																																																																																																																																																																																																																																																																																																						              [0,0,0,0,0,0,0],
+																																																																																																																																																																																																																																																																																																																																																																																									              [0,0,0,0,0,0,0],
+																																																																																																																																																																																																																																																																																																																																																																																												              [0,0,1,1,1,0,0],
+																																																																																																																																																																																																																																																																																																																																																																																															              [0,0,1,1,1,0,0],
+																																																																																																																																																																																																																																																																																																																																																																																																		              [0,0,1,1,1,0,0],
+																																																																																																																																																																																																																																																																																																																																																																																																					              [0,0,0,0,0,0,0]
+																																																																																																																																																																																																																																																																																																																																																																																																									          ]//:
+																																																																																																																																																																																																																																																																																																																																																																																																												      ];
+
+																																																																																																																																																																																																																																																																																																																																																																																																					  var canvas = document.getElementById('canvas');
+
+																																																																																																																																																																																																																																																																																																																																																																																																					  if(canvas.getContext){
+																																																																																																																																																																																																																																																																																																																																																																																																						      var cxt = canvas.getContext('2d');
+																																																																																																																																																																																																																																																																																																																																																																																																							      //声明canvas的宽高
+																																																																																																																																																																																																																																																																																																																																																																																																							      var H = 100,W = 700;
+																																																																																																																																																																																																																																																																																																																																																																																																								      canvas.height = H;
+																																																																																																																																																																																																																																																																																																																																																																																																									      canvas.width = W;
+																																																																																																																																																																																																																																																																																																																																																																																																										      cxt.fillStyle = '#f00';
+																																																																																																																																																																																																																																																																																																																																																																																																											      cxt.fillRect(10,10,50,50);
+
+																																																																																																																																																																																																																																																																																																																																																																																																												      //存储时间数据
+																																																																																																																																																																																																																																																																																																																																																																																																												      var data = [];
+																																																																																																																																																																																																																																																																																																																																																																																																													      //存储运动的小球
+																																																																																																																																																																																																																																																																																																																																																																																																													      var balls = [];
+																																																																																																																																																																																																																																																																																																																																																																																																														      //设置粒子半径
+																																																																																																																																																																																																																																																																																																																																																																																																														      var R = canvas.height/20-1;
+																																																																																																																																																																																																																																																																																																																																																																																																															      (function(){
+																																																																																																																																																																																																																																																																																																																																																																																																																           var temp = /(\d)(\d):(\d)(\d):(\d)(\d)/.exec(new Date());
+																																																																																																																																																																																																																																																																																																																																																																																																																		           //存储时间数字，由十位小时、个位小时、冒号、十位分钟、个位分钟、冒号、十位秒钟、个位秒钟这7个数字组成
+																																																																																																																																																																																																																																																																																																																																																																																																																		           data.push(temp[1],temp[2],10,temp[3],temp[4],10,temp[5],temp[6]);
+																																																																																																																																																																																																																																																																																																																																																																																																																				       })();
+
+																																																																																																																																																																																																																																																																																																																																																																																																																      /*生成点阵数字*/
+																																																																																																																																																																																																																																																																																																																																																																																																																      function renderDigit(index,num){
+																																																																																																																																																																																																																																																																																																																																																																																																																		          for(var i = 0; i < digit[num].length; i++){
+																																																																																																																																																																																																																																																																																																																																																																																																																					              for(var j = 0; j < digit[num][i].length; j++){
+																																																																																																																																																																																																																																																																																																																																																																																																																									                  if(digit[num][i][j] == 1){
+																																																																																																																																																																																																																																																																																																																																																																																																																														                      cxt.beginPath();
+																																																																																																																																																																																																																																																																																																																																																																																																																																			                      cxt.arc(14*(R+2)*index + j*2*(R+1)+(R+1),i*2*(R+1)+(R+1),R,0,2*Math.PI);
+																																																																																																																																																																																																																																																																																																																																																																																																																																								                      cxt.closePath();
+																																																																																																																																																																																																																																																																																																																																																																																																																																													                      cxt.fill();
+																																																																																																																																																																																																																																																																																																																																																																																																																																																		                  }
+																																																																																																																																																																																																																																																																																																																																																																																																																													              }
+																																																																																																																																																																																																																																																																																																																																																																																																																								          }
+																																																																																																																																																																																																																																																																																																																																																																																																																				      }
+
+																																																																																																																																																																																																																																																																																																																																																																																																																	      /*更新时钟*/
+																																																																																																																																																																																																																																																																																																																																																																																																																	      function updateDigitTime(){
+																																																																																																																																																																																																																																																																																																																																																																																																																			          var changeNumArray = [];
+																																																																																																																																																																																																																																																																																																																																																																																																																					          var temp = /(\d)(\d):(\d)(\d):(\d)(\d)/.exec(new Date());
+																																																																																																																																																																																																																																																																																																																																																																																																																							          var NewData = [];
+																																																																																																																																																																																																																																																																																																																																																																																																																									          NewData.push(temp[1],temp[2],10,temp[3],temp[4],10,temp[5],temp[6]);
+																																																																																																																																																																																																																																																																																																																																																																																																																											          for(var i = data.length-1; i >=0 ; i--){
+																																																																																																																																																																																																																																																																																																																																																																																																																														              //时间发生变化
+																																																																																																																																																																																																																																																																																																																																																																																																																														              if(NewData[i] !== data[i]){
+																																																																																																																																																																																																																																																																																																																																																																																																																																		                  //将变化的数字值和在data数组中的索引存储在changeNumArray数组中
+																																																																																																																																																																																																																																																																																																																																																																																																																																		                  changeNumArray.push(i+'_'+(Number(data[i])+1)%10);
+																																																																																																																																																																																																																																																																																																																																																																																																																																						              }
+																																																																																																																																																																																																																																																																																																																																																																																																																																	          }
+																																																																																																																																																																																																																																																																																																																																																																																																																													          //增加小球
+																																																																																																																																																																																																																																																																																																																																																																																																																													          for(var i = 0; i< changeNumArray.length; i++){
+																																																																																																																																																																																																																																																																																																																																																																																																																																              addBalls.apply(this,changeNumArray[i].split('_'));
+																																																																																																																																																																																																																																																																																																																																																																																																																																			          }
+																																																																																																																																																																																																																																																																																																																																																																																																																															          data = NewData.concat();
+																																																																																																																																																																																																																																																																																																																																																																																																																																	      }
+
+																																																																																																																																																																																																																																																																																																																																																																																																																		      /*更新小球状态*/
+																																																																																																																																																																																																																																																																																																																																																																																																																		      function updateBalls(){
+																																																																																																																																																																																																																																																																																																																																																																																																																				          for(var i = 0; i < balls.length; i++){
+																																																																																																																																																																																																																																																																																																																																																																																																																							              balls[i].stepY += balls[i].disY;
+																																																																																																																																																																																																																																																																																																																																																																																																																										              balls[i].x += balls[i].stepX;
+																																																																																																																																																																																																																																																																																																																																																																																																																													              balls[i].y += balls[i].stepY;
+																																																																																																																																																																																																																																																																																																																																																																																																																																              if(balls[i].x > W + R || balls[i].y > H + R){
+																																																																																																																																																																																																																																																																																																																																																																																																																																				                  balls.splice(i,1);
+																																																																																																																																																																																																																																																																																																																																																																																																																																								                  i--;
+																																																																																																																																																																																																																																																																																																																																																																																																																																												              }
+																																																																																																																																																																																																																																																																																																																																																																																																																																			          }
+																																																																																																																																																																																																																																																																																																																																																																																																																						      }
+
+																																																																																																																																																																																																																																																																																																																																																																																																																			      /*增加要运动的小球*/
+																																																																																																																																																																																																																																																																																																																																																																																																																			      function addBalls(index,num){
+																																																																																																																																																																																																																																																																																																																																																																																																																					          var numArray = [1,2,3];
+																																																																																																																																																																																																																																																																																																																																																																																																																							          var colorArray =  ["#3BE","#09C","#A6C","#93C","#9C0","#690","#FB3","#F80","#F44","#C00"];
+																																																																																																																																																																																																																																																																																																																																																																																																																									          for(var i = 0; i < digit[num].length; i++){
+																																																																																																																																																																																																																																																																																																																																																																																																																												              for(var j = 0; j < digit[num][i].length; j++){
+																																																																																																																																																																																																																																																																																																																																																																																																																																                  if(digit[num][i][j] == 1){
+																																																																																																																																																																																																																																																																																																																																																																																																																																					                      var ball = {
+																																																																																																																																																																																																																																																																																																																																																																																																																																											                          x:14*(R+2)*index + j*2*(R+1)+(R+1),
+																																																																																																																																																																																																																																																																																																																																																																																																																																																		                        y:i*2*(R+1)+(R+1),
+																																																																																																																																																																																																																																																																																																																																																																																																																																																								                        stepX:Math.floor(Math.random() * 4 -2),
+																																																																																																																																																																																																																																																																																																																																																																																																																																																														                        stepY:-2*numArray[Math.floor(Math.random()*numArray.length)],
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																				                        color:colorArray[Math.floor(Math.random()*colorArray.length)],
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																										                        disY:1
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																	                    };
+																																																																																																																																																																																																																																																																																																																																																																																																																																										                      balls.push(ball);
+																																																																																																																																																																																																																																																																																																																																																																																																																																															                  }
+																																																																																																																																																																																																																																																																																																																																																																																																																																				              }
+																																																																																																																																																																																																																																																																																																																																																																																																																															          }
+																																																																																																																																																																																																																																																																																																																																																																																																																											      }
+
+																																																																																																																																																																																																																																																																																																																																																																																																																				      /*渲染*/
+																																																																																																																																																																																																																																																																																																																																																																																																																				      function render(){
+																																																																																																																																																																																																																																																																																																																																																																																																																						          //重置画布宽度，达到清空画布的效果
+																																																																																																																																																																																																																																																																																																																																																																																																																						          canvas.height = 100;
+																																																																																																																																																																																																																																																																																																																																																																																																																								          //渲染时钟
+																																																																																																																																																																																																																																																																																																																																																																																																																								          for(var i = 0; i < data.length; i++){
+																																																																																																																																																																																																																																																																																																																																																																																																																											              renderDigit(i,data[i]);
+																																																																																																																																																																																																																																																																																																																																																																																																																														          }
+																																																																																																																																																																																																																																																																																																																																																																																																																										          //渲染小球
+																																																																																																																																																																																																																																																																																																																																																																																																																										          for(var i = 0; i < balls.length; i++){
+																																																																																																																																																																																																																																																																																																																																																																																																																													              cxt.beginPath();
+																																																																																																																																																																																																																																																																																																																																																																																																																																              cxt.arc(balls[i].x,balls[i].y,R,0,2*Math.PI);
+																																																																																																																																																																																																																																																																																																																																																																																																																																			              cxt.fillStyle = balls[i].color;
+																																																																																																																																																																																																																																																																																																																																																																																																																																						              cxt.closePath();
+																																																																																																																																																																																																																																																																																																																																																																																																																																									              cxt.fill();
+																																																																																																																																																																																																																																																																																																																																																																																																																																												          }
+																																																																																																																																																																																																																																																																																																																																																																																																																												      }
+
+																																																																																																																																																																																																																																																																																																																																																																																																																					      clearInterval(oTimer);
+																																																																																																																																																																																																																																																																																																																																																																																																																						      var oTimer = setInterval(function(){
+																																																																																																																																																																																																																																																																																																																																																																																																																									          //更新时钟
+																																																																																																																																																																																																																																																																																																																																																																																																																									          updateDigitTime();
+																																																																																																																																																																																																																																																																																																																																																																																																																											          //更新小球状态
+																																																																																																																																																																																																																																																																																																																																																																																																																											          updateBalls();
+																																																																																																																																																																																																																																																																																																																																																																																																																													          //渲染
+																																																																																																																																																																																																																																																																																																																																																																																																																													          render();
+																																																																																																																																																																																																																																																																																																																																																																																																																															      },50);
+																																																																																																																																																																																																																																																																																																																																																																																																					  }
+
+  })();
+</script>
+
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#linux系统与应用定制"><span class="nav-number">1.</span> <span class="nav-text">linux系统与应用定制</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#必需要熟悉系统启动流程"><span class="nav-number">1.1.</span> <span class="nav-text">必需要熟悉系统启动流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#环境准备"><span class="nav-number">1.2.</span> <span class="nav-text">环境准备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内核编译"><span class="nav-number">1.3.</span> <span class="nav-text">内核编译</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#解压文件"><span class="nav-number">1.3.1.</span> <span class="nav-text">解压文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#默认配置"><span class="nav-number">1.3.2.</span> <span class="nav-text">默认配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#全局配置"><span class="nav-number">1.3.3.</span> <span class="nav-text">全局配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#kernel-config-general-setup"><span class="nav-number">1.3.4.</span> <span class="nav-text">kernel-config-general-setup</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#kernel-config-enable-loadble-module"><span class="nav-number">1.3.5.</span> <span class="nav-text">kernel-config-enable-loadble-module</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#kernel-config-device-drivers"><span class="nav-number">1.3.6.</span> <span class="nav-text">kernel-config-device-drivers</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#kernel-config-file-systems"><span class="nav-number">1.3.7.</span> <span class="nav-text">kernel-config-file-systems</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#详细配置与操作过程如下"><span class="nav-number">1.3.8.</span> <span class="nav-text">详细配置与操作过程如下</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编译单个网卡模块"><span class="nav-number">1.3.9.</span> <span class="nav-text">编译单个网卡模块</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装-编译安装busybox"><span class="nav-number">1.4.</span> <span class="nav-text">安装 编译安装busybox</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#利用busybox-制作initrd"><span class="nav-number">1.5.</span> <span class="nav-text">利用busybox 制作initrd</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装grub-整合内核与initrd"><span class="nav-number">1.6.</span> <span class="nav-text">安装grub,整合内核与initrd</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#建立真实文件系统"><span class="nav-number">1.7.</span> <span class="nav-text">建立真实文件系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编译安装dropbear"><span class="nav-number">1.8.</span> <span class="nav-text">编译安装dropbear</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#移植系统认证、登录、解析相关的依赖库"><span class="nav-number">1.9.</span> <span class="nav-text">移植系统认证、登录、解析相关的依赖库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编译安装nginx"><span class="nav-number">1.10.</span> <span class="nav-text">编译安装nginx</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编译安装inotify并移植"><span class="nav-number">1.11.</span> <span class="nav-text">编译安装inotify并移植</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编译安装keepalived"><span class="nav-number">1.12.</span> <span class="nav-text">编译安装keepalived</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编写bincp-脚本"><span class="nav-number">1.13.</span> <span class="nav-text">编写bincp 脚本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#微系统-keepaived-nginx-rsync-inotify的实现"><span class="nav-number">1.14.</span> <span class="nav-text">微系统 keepaived+nginx+rsync+inotify的实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#系统启动后如下图"><span class="nav-number">1.15.</span> <span class="nav-text">系统启动后如下图</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+
+<!-- 数字雨 -->
+<canvas id="canvas" width="1440" height="1080"></canvas>
+<script type="text/javascript" src="/js/DigitalRain.js"></script>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; 2015 &mdash; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">锦遥</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">167.3k</span>
+  
+  <span>   |   </span>
+<span id="showDays"></span>
+</div>
+
+
+
+
+
+
+
+
+<div>
+<a href="http://www.beian.miit.gov.cn">晋ICP备17010575号</a>
+</div>
+<!-- time -->
+<div id="show-time">
+<span id="span_dt_dt"></span>
+</div>
+<script>
+var seconds = 1000;
+var minutes = seconds * 60;
+var hours = minutes * 60;
+var days = hours * 24;
+var years = days * 365;
+var birthDay = Date.UTC(2017,07,30,00,00,00); // 这里设置建站时间
+setInterval(function() {
+var today = new Date();
+var todayYear = today.getFullYear();
+var todayMonth = today.getMonth()+1;
+var todayDate = today.getDate();
+var todayHour = today.getHours();
+var todayMinute = today.getMinutes();
+var todaySecond = today.getSeconds();
+var now = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+var diff = now - birthDay;
+var diffYears = Math.floor(diff/years);
+var diffDays = Math.floor((diff/days)-diffYears*365);
+var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+  document.getElementById('showDays').innerHTML="不間斷的運行了"+diffYears+" 年 "+diffDays+" 天 "+diffHours+" 時 "+diffMinutes+" 分 "+diffSeconds+" 秒 ";
+}, 1000);
+</script>
+
+        
+<div class="busuanzi-count">
+#  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 訪客數
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      位
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>  訪客量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+<script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
+<script type="text/javascript" src="/js/src/clipboard-use.js"></script>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://www.ssjinyao.com/2018/09/01/linux系统定制/';
+          this.page.identifier = '2018/09/01/linux系统定制/';
+          this.page.title = 'linux 系统定制';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine@1.1.6/dist/Valine.min.js"></script>
+  <script type="text/javascript">
+    new Valine({
+        av: AV,
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        app_id: 'NkJqMpxu4QlRLhPIHipNUHF1-gzGzoHsz',
+        app_key: 'D2vTdueKJ8ammc2JEdje0vLW',
+        placeholder: 'From SSJinYao'
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'true') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  <!-- 点击特效 -->
+<canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas>
+<script type="text/javascript" src="/js/src/fireworks.js"></script>
+
+
+  <script src="/js/activate-power-mode.min.js"></script>
+    <script>
+	    POWERMODE.colorful = true;
+    POWERMODE.shake = false;
+    document.body.addEventListener('input', POWERMODE);
+	  </script>
+
+
+  
+<script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
+<script type="text/javascript" src="/js/src/clipboard-use.js"></script>
+<!--点击冒点-->
+<canvas width="1777" height="841" style="position: fixed; left: 0px; top: 0px; z-index: 2147483647; pointer-events: none;"></canvas>
+<script src="/js/maodian.js"></script>
+<canvas width="1390" height="797" style="position: fixed; left: 0px; top: 0px; z-index: 2147483647; pointer-events: none;"></canvas>
+</body>
+</html>

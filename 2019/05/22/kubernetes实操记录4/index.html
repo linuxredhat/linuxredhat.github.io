@@ -1,0 +1,1745 @@
+<!DOCTYPE html>
+
+
+
+  
+
+<!-- 代码块复制功能 -->
+<script src="/live2d-widget/autoload.js"></script>
+<script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
+<script type="text/javascript" src="/js/src/clipboard-use.js"></script>
+<script src="/js/instantclick-1.2.2.js" type="module"></script>
+<!--崩溃欺骗-->
+<script type="text/javascript" src="/js/src/crash_cheat.js"></script>
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="https://fonts.cat.net/css?family=Lato:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|Roboto Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/redhat.ico?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/redhat.ico?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/redihat.ico?v=5.1.3" color="#0000EE">
+
+
+  <link rel="manifest" href="/images/manifest.json">
+
+
+  <meta name="msapplication-config" content="/images/browserconfig.xml" />
+
+
+
+  <meta name="keywords" content="rhca,linux,cloud," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="逝水锦遥" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="kubernetes 操作记录四 kubernetes认证及Service Account在master服务器上启动 proxy 并监听至8080 12# kubectl  proxy --port=8080 &amp;amp;# curl http://localhost:8080/api/v1/namespaces 仅有权限获取当前Pod自身的相关信息 1234# kubectl get secret">
+<meta name="keywords" content="rhca,linux,cloud">
+<meta property="og:type" content="article">
+<meta property="og:title" content="kubernetes操作记录(四)">
+<meta property="og:url" content="https://www.ssjinyao.com/2019/05/22/kubernetes实操记录4/index.html">
+<meta property="og:site_name" content="逝水锦遥">
+<meta property="og:description" content="kubernetes 操作记录四 kubernetes认证及Service Account在master服务器上启动 proxy 并监听至8080 12# kubectl  proxy --port=8080 &amp;amp;# curl http://localhost:8080/api/v1/namespaces 仅有权限获取当前Pod自身的相关信息 1234# kubectl get secret">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://www.ssjinyao.com/images/docker_kubernetes.png">
+<meta property="og:image" content="https://www.ssjinyao.com/images/kubernetes-dashboard-login.png">
+<meta property="og:image" content="https://www.ssjinyao.com/images/kubernetes-dashboard-loging-token.png">
+<meta property="og:image" content="https://www.ssjinyao.com/images/kubernetes-dashborad-loging-kubeconfig.png">
+<meta property="og:updated_time" content="2019-05-28T05:55:34.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="kubernetes操作记录(四)">
+<meta name="twitter:description" content="kubernetes 操作记录四 kubernetes认证及Service Account在master服务器上启动 proxy 并监听至8080 12# kubectl  proxy --port=8080 &amp;amp;# curl http://localhost:8080/api/v1/namespaces 仅有权限获取当前Pod自身的相关信息 1234# kubectl get secret">
+<meta name="twitter:image" content="https://www.ssjinyao.com/images/docker_kubernetes.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="https://www.ssjinyao.com/2019/05/22/kubernetes实操记录4/"/>
+
+
+
+
+
+  <title>kubernetes操作记录(四) | 逝水锦遥</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta custom-logo">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">逝水锦遥</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">心有所向 将有所成</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-所有文章">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-linux"></i> <br />
+            
+            所有文章
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-python">
+          <a href="/./tags/program" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-gitlab"></i> <br />
+            
+            python
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-运维组件">
+          <a href="/./tags/rhca" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            运维组件
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-数据库">
+          <a href="/./tags/database" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-database"></i> <br />
+            
+            数据库
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-云计算">
+          <a href="/./tags/cloud" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-cloud"></i> <br />
+            
+            云计算
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-成自考">
+          <a href="/./tags/zikao" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-drupal"></i> <br />
+            
+            成自考
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-个人中心">
+          <a href="/./tags/renjin" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user-circle"></i> <br />
+            
+            个人中心
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索文章
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.ssjinyao.com/2019/05/22/kubernetes实操记录4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="锦遥">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/rjyy.ico">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="逝水锦遥">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">kubernetes操作记录(四)</h1>
+        
+
+        <div class="post-meta">
+		          
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-22T06:29:00+08:00">
+                2019-05-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/05/22/kubernetes实操记录4/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2019/05/22/kubernetes实操记录4/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>  浏览
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  11
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="kubernetes-操作记录四"><a href="#kubernetes-操作记录四" class="headerlink" title="kubernetes 操作记录四"></a>kubernetes 操作记录四</h1><p><img src="/images/docker_kubernetes.png" alt=""></p>
+<h2 id="kubernetes认证及Service-Account"><a href="#kubernetes认证及Service-Account" class="headerlink" title="kubernetes认证及Service Account"></a>kubernetes认证及Service Account</h2><p>在master服务器上启动 proxy 并监听至8080</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># kubectl  proxy --port=8080 &amp;</span></div><div class="line"><span class="comment"># curl http://localhost:8080/api/v1/namespaces</span></div></pre></td></tr></table></figure>
+<p>仅有权限获取当前Pod自身的相关信息</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># kubectl get secret -n ingress-nginx</span></div><div class="line">NAME                                       TYPE                                  DATA   AGE</div><div class="line">default-token-t54dl                        kubernetes.io/service-account-token   3      5d23h</div><div class="line">nginx-ingress-serviceaccount-token-5dwv4   kubernetes.io/service-account-token   3      5d23h</div></pre></td></tr></table></figure>
+<p>生成yaml框架，快速编写清单</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># kubectl create serviceaccount mysa -o yaml --dry-run</span></div><div class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></div><div class="line"><span class="attr">kind:</span> <span class="string">ServiceAccount</span></div><div class="line"><span class="attr">metadata:</span></div><div class="line"><span class="attr">  creationTimestamp:</span> <span class="literal">null</span></div><div class="line"><span class="attr">  name:</span> <span class="string">mysa</span></div><div class="line"><span class="comment"># kubectl get pods myapp-deploy-675558bfc5-2rfrs -o  yaml --export</span></div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># kubectl create serviceaccount admin</span></div><div class="line"></div><div class="line"><span class="comment"># kubectl describe sa admin</span></div><div class="line">Name:                admin</div><div class="line">Namespace:           default</div><div class="line">Labels:              &lt;none&gt;</div><div class="line">Annotations:         &lt;none&gt;</div><div class="line">Image pull secrets:  &lt;none&gt;</div><div class="line">Mountable secrets:   admin-token-hxqqf</div><div class="line">Tokens:              admin-token-hxqqf</div><div class="line">Events:              &lt;none&gt;</div><div class="line"><span class="comment"># kubectl get secret</span></div><div class="line">NAME                    TYPE                                  DATA   AGE</div><div class="line">admin-token-hxqqf       kubernetes.io/service-account-token   3      66s</div><div class="line">default-token-2sgn5     kubernetes.io/service-account-token   3      26d</div><div class="line">mysql-root-password     Opaque                                1      45h</div><div class="line">tomcat-ingress-secret   kubernetes.io/tls                     2      5d22h</div></pre></td></tr></table></figure>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># vim  pod-sa-demo.yaml</span></div><div class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></div><div class="line"><span class="attr">kind:</span> <span class="string">Pod</span></div><div class="line"><span class="attr">metadata:</span></div><div class="line"><span class="attr">  name:</span> <span class="string">pod-sa-demo</span></div><div class="line"><span class="attr">  namespace:</span> <span class="string">default</span></div><div class="line"><span class="attr">  labels:</span></div><div class="line"><span class="attr">    app:</span> <span class="string">myapp</span></div><div class="line"><span class="attr">    tier:</span> <span class="string">frontend</span></div><div class="line"><span class="attr">  annotations:</span></div><div class="line">    <span class="string">ssjinyao.com/create-by:</span> <span class="string">"cluster admin"</span></div><div class="line"><span class="attr">spec:</span></div><div class="line"><span class="attr">  containers:</span></div><div class="line"><span class="attr">  - name:</span> <span class="string">myapp</span></div><div class="line"><span class="attr">    image:</span> <span class="string">ikubernetes/myapp:v1</span></div><div class="line"><span class="attr">    ports:</span></div><div class="line"><span class="attr">    - name:</span> <span class="string">http</span></div><div class="line"><span class="attr">      containerPort:</span> <span class="number">80</span></div><div class="line"><span class="attr">  serviceAccountName:</span> <span class="string">admin</span></div><div class="line"><span class="comment"># kubectl apply -f pod-sa-demo.yaml</span></div><div class="line"><span class="comment"># kubectl describe pods  pod-sa-demo | grep 'SecretName'</span></div><div class="line"><span class="attr">    SecretName:</span>  <span class="string">admin-token-hxqqf</span></div></pre></td></tr></table></figure>
+<p>kubernetes 集群有两类认证时的用户账号<br>useraccount,我们称之为用户账号，通常定义的是人使用的账号<br>servicecacount,  服务账号，指pod中应用的应用程序运行在kubernetes ，想访问apiserver时用的认证信息，包括用户名密码等等;</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># kubectl config view</span></div><div class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></div><div class="line"><span class="attr">clusters:</span></div><div class="line"><span class="attr">- cluster:</span></div><div class="line"><span class="attr">    certificate-authority-data:</span> <span class="string">DATA+OMITTED</span></div><div class="line"><span class="attr">    server:</span> <span class="attr">https://10.1.87.80:6443</span></div><div class="line"><span class="attr">  name:</span> <span class="string">kubernetes</span></div><div class="line"><span class="attr">contexts:</span></div><div class="line"><span class="attr">- context:</span></div><div class="line"><span class="attr">    cluster:</span> <span class="string">kubernetes</span></div><div class="line"><span class="attr">    user:</span> <span class="string">kubernetes-admin</span></div><div class="line"><span class="attr">  name:</span> <span class="string">kubernetes-admin@kubernetes</span></div><div class="line"><span class="attr">current-context:</span> <span class="string">kubernetes-admin@kubernetes</span></div><div class="line"><span class="attr">kind:</span> <span class="string">Config</span></div><div class="line"><span class="attr">preferences:</span> <span class="string">&#123;&#125;</span></div><div class="line"><span class="attr">users:</span></div><div class="line"><span class="attr">- name:</span> <span class="string">kubernetes-admin</span></div><div class="line"><span class="attr">  user:</span></div><div class="line"><span class="attr">    client-certificate-data:</span> <span class="string">REDACTED</span></div><div class="line"><span class="attr">    client-key-data:</span> <span class="string">REDACTED</span></div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">/etc/kubernetes/pki</div><div class="line"><span class="comment"># (umask 077; openssl genrsa -out  ssjinyao.key 2048)</span></div><div class="line"><span class="comment"># openssl req -new -key ssjinyao.key  -out ssjinyao.csr -subj "/CN=ssjinyao"</span></div><div class="line"><span class="comment"># openssl x509 -req -in ssjinyao.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out ssjinyao.crt -days 36500</span></div><div class="line">Signature ok</div><div class="line">subject=/CN=ssjinyao</div><div class="line">Getting CA Private Key</div><div class="line"><span class="comment"># openssl x509 -in ssjinyao.crt -text -noout</span></div><div class="line">Certificate:</div><div class="line">    Data:</div><div class="line">        Version: 1 (0x0)</div><div class="line">        Serial Number:</div><div class="line">            f3:fe:ff:e5:0e:0b:37:e2</div><div class="line">    Signature Algorithm: sha256WithRSAEncryption</div><div class="line">        Issuer: CN=kubernetes</div><div class="line">        Validity</div><div class="line">            Not Before: May 22 07:57:01 2019 GMT</div><div class="line">            Not After : Apr 28 07:57:01 2119 GMT</div><div class="line">        Subject: CN=ssjinyao</div><div class="line">        Subject Public Key Info:</div><div class="line">            Public Key Algorithm: rsaEncryption</div><div class="line">                Public-Key: (2048 bit)</div></pre></td></tr></table></figure>
+<p>接下来把用户账号信息添加到连接kubernetes 的配置信息</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># kubectl config set-credentials ssjinyao  --client-certificate=./ssjinyao.crt --client-key=./ssjinyao.key --embed-certs=true</span></div><div class="line"><span class="string">User</span> <span class="string">"ssjinyao"</span> <span class="string">set.</span></div><div class="line"><span class="comment"># kubectl config view</span></div><div class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></div><div class="line"><span class="attr">clusters:</span></div><div class="line"><span class="attr">- cluster:</span></div><div class="line"><span class="attr">    certificate-authority-data:</span> <span class="string">DATA+OMITTED</span></div><div class="line"><span class="attr">    server:</span> <span class="attr">https://10.1.87.80:6443</span></div><div class="line"><span class="attr">  name:</span> <span class="string">kubernetes</span></div><div class="line"><span class="attr">contexts:</span></div><div class="line"><span class="attr">- context:</span></div><div class="line"><span class="attr">    cluster:</span> <span class="string">kubernetes</span></div><div class="line"><span class="attr">    user:</span> <span class="string">kubernetes-admin</span></div><div class="line"><span class="attr">  name:</span> <span class="string">kubernetes-admin@kubernetes</span></div><div class="line"><span class="attr">current-context:</span> <span class="string">kubernetes-admin@kubernetes</span></div><div class="line"><span class="attr">kind:</span> <span class="string">Config</span></div><div class="line"><span class="attr">preferences:</span> <span class="string">&#123;&#125;</span></div><div class="line"><span class="attr">users:</span></div><div class="line"><span class="attr">- name:</span> <span class="string">kubernetes-admin</span></div><div class="line"><span class="attr">  user:</span></div><div class="line"><span class="attr">    client-certificate-data:</span> <span class="string">REDACTED</span></div><div class="line"><span class="attr">    client-key-data:</span> <span class="string">REDACTED</span></div><div class="line"><span class="attr">- name:</span> <span class="string">ssjinyao</span></div><div class="line"><span class="attr">  user:</span></div><div class="line"><span class="attr">    client-certificate:</span> <span class="string">/etc/kubernetes/pki/ssjinyao.crt</span></div><div class="line"><span class="attr">    client-key:</span> <span class="string">/etc/kubernetes/pki/ssjinyao.key</span></div><div class="line"><span class="comment"># kubectl config set-context ssjinyao@kubernetes --cluster=kueberntes --user=ssjinyao</span></div><div class="line"><span class="string">Context</span> <span class="string">"ssjinyao@kubernetes"</span> <span class="string">created.</span></div><div class="line"><span class="comment"># kubectl config view</span></div><div class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></div><div class="line"><span class="attr">clusters:</span></div><div class="line"><span class="attr">- cluster:</span></div><div class="line"><span class="attr">    certificate-authority-data:</span> <span class="string">DATA+OMITTED</span></div><div class="line"><span class="attr">    server:</span> <span class="attr">https://10.1.87.80:6443</span></div><div class="line"><span class="attr">  name:</span> <span class="string">kubernetes</span></div><div class="line"><span class="attr">contexts:</span></div><div class="line"><span class="attr">- context:</span></div><div class="line"><span class="attr">    cluster:</span> <span class="string">kubernetes</span></div><div class="line"><span class="attr">    user:</span> <span class="string">kubernetes-admin</span></div><div class="line"><span class="attr">  name:</span> <span class="string">kubernetes-admin@kubernetes</span></div><div class="line"><span class="attr">- context:</span></div><div class="line"><span class="attr">    cluster:</span> <span class="string">kueberntes</span></div><div class="line"><span class="attr">    user:</span> <span class="string">ssjinyao</span></div><div class="line"><span class="attr">  name:</span> <span class="string">ssjinyao@kubernetes</span></div><div class="line"><span class="attr">current-context:</span> <span class="string">kubernetes-admin@kubernetes</span></div><div class="line"><span class="attr">kind:</span> <span class="string">Config</span></div><div class="line"><span class="attr">preferences:</span> <span class="string">&#123;&#125;</span></div><div class="line"><span class="attr">users:</span></div><div class="line"><span class="attr">- name:</span> <span class="string">kubernetes-admin</span></div><div class="line"><span class="attr">  user:</span></div><div class="line"><span class="attr">    client-certificate-data:</span> <span class="string">REDACTED</span></div><div class="line"><span class="attr">    client-key-data:</span> <span class="string">REDACTED</span></div><div class="line"><span class="attr">- name:</span> <span class="string">ssjinyao</span></div><div class="line"><span class="attr">  user:</span></div><div class="line"><span class="attr">    client-certificate:</span> <span class="string">/etc/kubernetes/pki/ssjinyao.crt</span></div><div class="line"><span class="attr">    client-key:</span> <span class="string">/etc/kubernetes/pki/ssjinyao.key</span></div></pre></td></tr></table></figure>
+<p>这时候多了一个context, 可切换用户</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># kubectl config use-context ssjinyao@kubernetes</div><div class="line">Switched to context &quot;ssjinyao@kubernetes&quot;.</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"># kubectl config set-cluster mycluster --kubeconfig=/tmp/test.conf --server=&quot;https://10.1.87.80:6443&quot; --certificate-authority=/etc/kubernetes/pki/ca.crt  --embed-certs=true</div><div class="line">Cluster &quot;mycluster&quot; set.</div><div class="line"># kubectl config view --kubeconfig=/tmp/test.conf</div><div class="line">apiVersion: v1</div><div class="line">clusters:</div><div class="line">- cluster:</div><div class="line">    certificate-authority-data: DATA+OMITTED</div><div class="line">    server: https://10.1.87.80:6443</div><div class="line">  name: mycluster</div><div class="line">contexts: []</div><div class="line">current-context: &quot;&quot;</div><div class="line">kind: Config</div><div class="line">preferences: &#123;&#125;</div><div class="line">users: []</div></pre></td></tr></table></figure>
+<h2 id="RBAC"><a href="#RBAC" class="headerlink" title="RBAC"></a>RBAC</h2><p>授权插件: Node, ABAC,RBAC,Webhook(基于http的回调来实现)<br>RBAC: Role-based AC</p>
+<p>角色  (role)<br>许可 (permission)</p>
+<p>role: operations,objects<br>rolebinding: user account OR service account  , role<br>clusterrole: clusterrolebinding</p>
+<p>操作: GET HEAD PUT PUST PATCH DELETE</p>
+<p>role binding定义</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># kubectl create role pods-reader --verb=get,list,watch --resource=pods --dry-run -o yaml  &gt; role-demo.yaml</span></div><div class="line"><span class="comment"># vim role-demo.yaml</span></div><div class="line"><span class="attr">apiVersion:</span> <span class="string">rbac.authorization.k8s.io/v1</span></div><div class="line"><span class="attr">kind:</span> <span class="string">Role</span></div><div class="line"><span class="attr">metadata:</span></div><div class="line"><span class="attr">  creationTimestamp:</span> <span class="literal">null</span></div><div class="line"><span class="attr">  name:</span> <span class="string">pods-reader</span></div><div class="line"><span class="attr">  namespace:</span> <span class="string">default</span></div><div class="line"><span class="attr">rules:</span></div><div class="line"><span class="attr">- apiGroups:</span></div><div class="line"><span class="bullet">  -</span> <span class="string">""</span></div><div class="line"><span class="attr">  resources:</span></div><div class="line"><span class="bullet">  -</span> <span class="string">pods</span></div><div class="line"><span class="attr">  verbs:</span></div><div class="line"><span class="bullet">  -</span> <span class="string">get</span></div><div class="line"><span class="bullet">  -</span> <span class="string">list</span></div><div class="line"><span class="bullet">  -</span> <span class="string">watch</span></div><div class="line"><span class="comment"># kubectl apply -f role-demo.yaml</span></div><div class="line"><span class="comment"># kubectl describe role pods-reader</span></div><div class="line"><span class="attr">Name:</span>         <span class="string">pods-reader</span></div><div class="line"><span class="attr">Labels:</span>       <span class="string">&lt;none&gt;</span></div><div class="line"><span class="attr">Annotations:</span>  <span class="string">kubectl.kubernetes.io/last-applied-configuration:</span></div><div class="line">                <span class="string">&#123;"apiVersion":"rbac.authorization.k8s.io/v1","kind":"Role","metadata":&#123;"annotations":&#123;&#125;,"creationTimestamp":null,"name":"pods-reader","nam...</span></div><div class="line"><span class="attr">PolicyRule:</span></div><div class="line">  <span class="string">Resources</span>  <span class="string">Non-Resource</span> <span class="string">URLs</span>  <span class="string">Resource</span> <span class="string">Names</span>  <span class="string">Verbs</span></div><div class="line"><span class="bullet">  -</span><span class="bullet">--------</span>  <span class="bullet">-----------------</span>  <span class="bullet">--------------</span>  <span class="bullet">-----</span></div><div class="line">  <span class="string">pods</span>       <span class="string">[]</span>                 <span class="string">[]</span>              <span class="string">[get</span> <span class="string">list</span> <span class="string">watch]</span></div><div class="line"><span class="comment"># kubectl create rolebinding ssjinyao-read-pods --role=pods-reader --user=ssjinyao --dry-run -o yaml &gt; rolebinding-demo.yaml</span></div><div class="line"><span class="comment"># vim rolebinding-demo.yaml</span></div><div class="line"><span class="attr">apiVersion:</span> <span class="string">rbac.authorization.k8s.io/v1</span></div><div class="line"><span class="attr">kind:</span> <span class="string">RoleBinding</span></div><div class="line"><span class="attr">metadata:</span></div><div class="line"><span class="attr">  creationTimestamp:</span> <span class="literal">null</span></div><div class="line"><span class="attr">  name:</span> <span class="string">ssjinyao-read-pods</span></div><div class="line"><span class="attr">roleRef:</span></div><div class="line"><span class="attr">  apiGroup:</span> <span class="string">rbac.authorization.k8s.io</span></div><div class="line"><span class="attr">  kind:</span> <span class="string">Role</span></div><div class="line"><span class="attr">  name:</span> <span class="string">pods-reader</span></div><div class="line"><span class="attr">subjects:</span></div><div class="line"><span class="attr">- apiGroup:</span> <span class="string">rbac.authorization.k8s.io</span></div><div class="line"><span class="attr">  kind:</span> <span class="string">User</span></div><div class="line"><span class="attr">  name:</span> <span class="string">ssjinyao</span></div></pre></td></tr></table></figure>
+<p>clusterrole  binding 定义</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># useradd ik8s</span></div><div class="line"><span class="comment"># cp -a  .kube/  /home/ik8s/</span></div><div class="line"><span class="comment"># chown -R ik8s.ik8s /home/ik8s/</span></div><div class="line"><span class="comment">#</span></div></pre></td></tr></table></figure>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># kubectl config use-context kubernetes-admin@kubernetes</span></div><div class="line"><span class="comment"># kubectl  create clusterrole cluster-reader  --verb=get,list,watch --resource=pods -o yaml --dry-run  &gt; clusterrole-demo.yaml</span></div><div class="line"><span class="comment"># vim clusterrole-demo.yaml </span></div><div class="line"><span class="attr">kind:</span> <span class="string">ClusterRole</span></div><div class="line"><span class="attr">metadata:</span></div><div class="line"><span class="attr">  name:</span> <span class="string">cluster-reader</span></div><div class="line"><span class="attr">rules:</span></div><div class="line"><span class="attr">- apiGroups:</span></div><div class="line"><span class="bullet">  -</span> <span class="string">""</span></div><div class="line"><span class="attr">  resources:</span></div><div class="line"><span class="bullet">  -</span> <span class="string">pods</span></div><div class="line"><span class="attr">  verbs:</span></div><div class="line"><span class="bullet">  -</span> <span class="string">get</span></div><div class="line"><span class="bullet">  -</span> <span class="string">list</span></div><div class="line"><span class="bullet">  -</span> <span class="string">watch</span></div><div class="line"><span class="comment"># kubectl apply -f clusterrole-demo.yaml</span></div><div class="line"><span class="string">clusterrole.rbac.authorization.k8s.io/cluster-reader</span> <span class="string">created</span></div><div class="line"><span class="comment"># kubectl create clusterrolebinding ssjinyao-read-all-pods --clusterrole=cluster-reader --user=ssjinyao --dry-run -o yaml  &gt; clusterrolebind-demo.yaml</span></div></pre></td></tr></table></figure>
+<p>cluster-role 被  rolebinding 会使的cluster 被降级</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># kubectl create rolebinding ssjinyao-read-pods --clusterrole=cluster-reader --user=ssjinayo --dry-run -o yaml  &gt; rolebinding-clusterrole-demo.yaml</span></div></pre></td></tr></table></figure>
+<p>查看系统默认的授权<br>引用授权</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># kubectl get clusterrole admin -o yaml</span></div><div class="line"><span class="comment"># kubectl create rolebinding default-ns-admin --clusterrole=admin --user=ssjinyao</span></div><div class="line"><span class="string">rolebinding.rbac.authorization.k8s.io/default-ns-admin</span> <span class="string">created</span></div></pre></td></tr></table></figure>
+<h2 id="dashboard-及认证分级授权"><a href="#dashboard-及认证分级授权" class="headerlink" title="dashboard 及认证分级授权"></a>dashboard 及认证分级授权</h2><p>部署 dashboard</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v1.10.1/src/deploy/recommended/kubernetes-dashboard.yaml</span></div></pre></td></tr></table></figure>
+<p>部署时下载镜像出错</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#  kubectl describe pods -n kube-system kubernetes-dashboard-5f7b999d65-jpmhs</span></div><div class="line">Events:</div><div class="line">  Type     Reason     Age                 From                           Message</div><div class="line">  ----     ------     ----                ----                           -------</div><div class="line">  Normal   Scheduled  113s                default-scheduler              Successfully assigned kube-system/kubernetes-dashboard-5f7b999d65-jpmhs to node01</div><div class="line">  Warning  Failed     53s (x3 over 105s)  kubelet, node01  Failed to pull image <span class="string">"k8s.gcr.io/kubernetes-dashboard-amd64:v1.10.1"</span>: rpc error: code = Unknown desc = Error response from daemon: Get https://k8s.gcr.io/v2/: dial tcp 74.125.203.82:443: connect: connection timed out</div><div class="line">  Warning  Failed     53s (x3 over 105s)  kubelet, node01  Error: ErrImagePull</div><div class="line">  Normal   BackOff    15s (x5 over 105s)  kubelet, node01  Back-off pulling image <span class="string">"k8s.gcr.io/kubernetes-dashboard-amd64:v1.10.1"</span></div><div class="line">  Warning  Failed     15s (x5 over 105s)  kubelet, node01  Error: ImagePullBackOff</div><div class="line">  Normal   Pulling    2s (x4 over 112s)   kubelet, 01  Pulling image <span class="string">"k8s.gcr.io/kubernetes-dashboard-amd64:v1.10.1"</span></div></pre></td></tr></table></figure>
+<p>用手动下载的方法进行解决</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># vim docker_install_dashboard.sh</span></div><div class="line"><span class="meta">#!/bin/sh</span></div><div class="line">docker pull mirrorgooglecontainers/kubernetes-dashboard-amd64:v1.10.1</div><div class="line">docker tag mirrorgooglecontainers/kubernetes-dashboard-amd64:v1.10.1 k8s.gcr.io/kubernetes-dashboard-amd64:v1.10.1</div><div class="line">docker rmi mirrorgooglecontainers/kubernetes-dashboard-amd64:v1.10.1</div><div class="line"><span class="comment"># sh docker_install_dashboard.sh</span></div></pre></td></tr></table></figure>
+<p>然后再执行以下部署清单</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"> kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v1.10.1/src/deploy/recommended/kubernetes-dashboard.yaml</div><div class="line"> <span class="comment"># kubectl  get pods -n kube-system  | grep dash</span></div><div class="line">kubernetes-dashboard-5f7b999d65-fcb28        1/1     Running   0          71s</div></pre></td></tr></table></figure>
+<p>可以看到kubernetes-dashbroad 已经运行 </p>
+<p>默认服务暴露为ClusterIP类型的，我们需要将其改为NodePort 类型<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># kubectl patch svc kubernetes-dashboard -p '&#123;"spec":&#123;"type":"NodePort"&#125;&#125;' -n kube-system</span></div><div class="line"><span class="comment"># kubectl get svc -n kube-system</span></div><div class="line">\NAME                   TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)                  AGE</div><div class="line">kube-dns               ClusterIP   10.96.0.10       &lt;none&gt;        53/UDP,53/TCP,9153/TCP   27d</div><div class="line">kubernetes-dashboard   NodePort    10.109.190.204   &lt;none&gt;        443:31984/TCP            3m41s</div></pre></td></tr></table></figure></p>
+<p>这个时候可以看到登录界面<br><img src="/images/kubernetes-dashboard-login.png" alt=""></p>
+<h3 id="使用用token实现认证登录"><a href="#使用用token实现认证登录" class="headerlink" title="使用用token实现认证登录"></a>使用用token实现认证登录</h3><p>这里登录需要的是serviceaccount用户， 所以这里创建 serviceaccount</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># kubectl create serviceaccount dashboard-admin -n kube-system</span></div><div class="line">serviceaccount/dashboard-admin created </div><div class="line"><span class="comment"># kubectl  get sa -n kube-system  |  grep dash</span></div><div class="line">dashboard-admin                      1         6m33s</div></pre></td></tr></table></figure>
+<p>serviceaccount 创建好后， 需要将serviceaccount绑定cluster这个角色上</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># kubectl create clusterrolebinding dashboard-cluster-admin --clusterrole=cluster-admin --serviceaccount=kube-system:dashboard-admin</span></div><div class="line">clusterrolebinding.rbac.authorization.k8s.io/dashboard-cluster-admin created</div><div class="line"><span class="comment"># kubectl get secret -n kube-system | grep dash</span></div><div class="line">dashboard-admin-token-grj84                      kubernetes.io/service-account-token   3      5m46s</div></pre></td></tr></table></figure>
+<p>绑定好 cluster 后， 查看token信息，并拿token进行登录</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># kubectl describe secret -n kube-system dashboard-admin-token-grj84</span></div></pre></td></tr></table></figure>
+<p>登录后，可以看到整个kubernetes集群的概况</p>
+<p><img src="/images/kubernetes-dashboard-loging-token.png" alt=""></p>
+<p>建立专用dashborad用户</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># cd /etc/kubernetes/pki/</span></div><div class="line"><span class="comment"># (umask 077; openssl genrsa -out dashboard.key 2048)</span></div><div class="line"><span class="comment"># openssl req -new -key dashboard.key -out dashboard.csr -subj "/O=ssjinyao/CN=dashboard"</span></div><div class="line"><span class="comment"># openssl x509 -req -in dashboard.csr  -CA ca.crt -CAkey ca.key  -CAcreateserial -out dashboard.crt -days 3650</span></div><div class="line">Signature ok</div><div class="line">subject=/O=ssjinyao/CN=dashboard</div><div class="line">Getting CA Private Key</div><div class="line"><span class="comment"># kubectl create secret generic dashboard-cert  -n kube-system --from-file=dashboard.crt=./dashboard.crt --from-file=dashboard.key=./dashboard.key</span></div><div class="line">secret/dashboard-cert created</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># kubectl create serviceaccount def-ns-admin -n default</span></div><div class="line">serviceaccount/def-ns-admin created</div></pre></td></tr></table></figure>
+<p>role binding 到 default  名称空间，只允许访问default 名称空间</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># kubectl create rolebinding def-ns-admin --clusterrole=admin --serviceaccount=default:def-ns-admin</span></div><div class="line">rolebinding.rbac.authorization.k8s.io/def-ns-admin created</div><div class="line"><span class="comment"># kubectl describe secret admin-token-hxqqf # 查看 token信息登录</span></div></pre></td></tr></table></figure>
+<p>接下来配置kube config 文件认证</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># kubectl config set-cluster kubernetes --certificate-authority=./ca.crt  --server="https://10.1.87.80:6443" --embed-certs=true --kubeconfig=/root/def-ns-admin.conf</span></div><div class="line">Cluster <span class="string">"kubernetes"</span> <span class="built_in">set</span>.</div><div class="line"><span class="comment"># kubectl config view --kubeconfig=/root/def-ns-admin.conf</span></div><div class="line">apiVersion: v1</div><div class="line">clusters:</div><div class="line">- cluster:</div><div class="line">    certificate-authority-data: DATA+OMITTED</div><div class="line">    server: https://10.1.87.80:6443</div><div class="line">  name: kubernetes</div><div class="line">contexts: []</div><div class="line">current-context: <span class="string">""</span></div><div class="line">kind: Config</div><div class="line">preferences: &#123;&#125;</div><div class="line">users: []</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># CLUSTER_ADMIN_TOKEN=$(kubectl get secret -n kube-system dashboard-admin-token-grj84   -o jsonpath=&#123;.data.token&#125; | base64 -d )</span></div><div class="line"><span class="comment"># kubectl config  set-credentials  dashboard-cluster-admin --token=$CLUSTER_ADMIN_TOKEN --kubeconfig=/root/def-ns-admin.conf</span></div><div class="line">User <span class="string">"dashboard-cluster-admin"</span> <span class="built_in">set</span>.</div><div class="line"><span class="comment"># kubectl config set-context dashboard-cluster-admin@kubernetes --cluster=kubernetes --user=dashboard-cluster-admin --kubeconfig=/root/def-ns-admin.conf</span></div><div class="line"><span class="comment"># kubectl config use-context dashboard-cluster-admin@kubernetes --kubeconfig=/root/def-ns-admin.conf</span></div></pre></td></tr></table></figure>
+<p>将生成的conf文件远程复制到桌面上 </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssjinyao ➤ scp root@10.1.87.80:/root/def-ns-admin.conf ~/Desktop</div></pre></td></tr></table></figure>
+<p>此时使用可以用 kubeconfig 来登录dashboard 了</p>
+<p><img src="/images/kubernetes-dashborad-loging-kubeconfig.png" alt=""></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>ღ ღ ღ 如果觉得文章对您有用，不妨打赏一下ღ ღ ღ</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/weipei.png" alt="锦遥 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/zhipei.png" alt="锦遥 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    锦遥
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://www.ssjinyao.com/2019/05/22/kubernetes实操记录4/" title="kubernetes操作记录(四)">https://www.ssjinyao.com/2019/05/22/kubernetes实操记录4/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/rhca/" rel="tag"># rhca</a>
+          
+            <a href="/tags/linux/" rel="tag"># linux</a>
+          
+            <a href="/tags/cloud/" rel="tag"># cloud</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/05/17/kubernets实操记录3/" rel="next" title="kubernetes操作记录(三)">
+                <i class="fa fa-chevron-left"></i> kubernetes操作记录(三)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/05/24/kubernetes操作记录5/" rel="prev" title="kubernetes操作记录(五)">
+                kubernetes操作记录(五) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/rjyy.ico"
+                alt="锦遥" />
+            
+              <p class="site-author-name" itemprop="name">锦遥</p>
+              <p class="site-description motion-element" itemprop="description">有智而性缓者思大智
+
+</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">68</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+		  <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=174079&auto=1&height=66"></iframe>
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="http://wpa.qq.com/msgrd?v=3&uin=1922006891site=qq&menu=yes" target="_blank" title="我的QQ">
+                    
+                      <i class="fa fa-fw fa-qq"></i></a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://jf.ssjinyao.com/" title="狗江博客" target="_blank">狗江博客</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          <div style="">
+  <canvas id="canvas" style="width:60%;">当前浏览器不支持canvas，请更换浏览器后再试</canvas>
+  </div>
+  <script>
+  (function(){
+
+      var digit=
+	      [
+		          [
+				              [0,0,1,1,1,0,0],
+							              [0,1,1,0,1,1,0],
+										              [1,1,0,0,0,1,1],
+													              [1,1,0,0,0,1,1],
+																              [1,1,0,0,0,1,1],
+																			              [1,1,0,0,0,1,1],
+																						              [1,1,0,0,0,1,1],
+																									              [1,1,0,0,0,1,1],
+																												              [0,1,1,0,1,1,0],
+																															              [0,0,1,1,1,0,0]
+																																		          ],//0
+																																				          [
+																																						              [0,0,0,1,1,0,0],
+																																									              [0,1,1,1,1,0,0],
+																																												              [0,0,0,1,1,0,0],
+																																															              [0,0,0,1,1,0,0],
+																																																		              [0,0,0,1,1,0,0],
+																																																					              [0,0,0,1,1,0,0],
+																																																								              [0,0,0,1,1,0,0],
+																																																											              [0,0,0,1,1,0,0],
+																																																														              [0,0,0,1,1,0,0],
+																																																																	              [1,1,1,1,1,1,1]
+																																																																					          ],//1
+																																																																							          [
+																																																																										              [0,1,1,1,1,1,0],
+																																																																													              [1,1,0,0,0,1,1],
+																																																																																              [0,0,0,0,0,1,1],
+																																																																																			              [0,0,0,0,1,1,0],
+																																																																																						              [0,0,0,1,1,0,0],
+																																																																																									              [0,0,1,1,0,0,0],
+																																																																																												              [0,1,1,0,0,0,0],
+																																																																																															              [1,1,0,0,0,0,0],
+																																																																																																		              [1,1,0,0,0,1,1],
+																																																																																																					              [1,1,1,1,1,1,1]
+																																																																																																									          ],//2
+																																																																																																											          [
+																																																																																																														              [1,1,1,1,1,1,1],
+																																																																																																																	              [0,0,0,0,0,1,1],
+																																																																																																																				              [0,0,0,0,1,1,0],
+																																																																																																																							              [0,0,0,1,1,0,0],
+																																																																																																																										              [0,0,1,1,1,0,0],
+																																																																																																																													              [0,0,0,0,1,1,0],
+																																																																																																																																              [0,0,0,0,0,1,1],
+																																																																																																																																			              [0,0,0,0,0,1,1],
+																																																																																																																																						              [1,1,0,0,0,1,1],
+																																																																																																																																									              [0,1,1,1,1,1,0]
+																																																																																																																																													          ],//3
+																																																																																																																																															          [
+																																																																																																																																																		              [0,0,0,0,1,1,0],
+																																																																																																																																																					              [0,0,0,1,1,1,0],
+																																																																																																																																																								              [0,0,1,1,1,1,0],
+																																																																																																																																																											              [0,1,1,0,1,1,0],
+																																																																																																																																																														              [1,1,0,0,1,1,0],
+																																																																																																																																																																	              [1,1,1,1,1,1,1],
+																																																																																																																																																																				              [0,0,0,0,1,1,0],
+																																																																																																																																																																							              [0,0,0,0,1,1,0],
+																																																																																																																																																																										              [0,0,0,0,1,1,0],
+																																																																																																																																																																													              [0,0,0,1,1,1,1]
+																																																																																																																																																																																	          ],//4
+																																																																																																																																																																																			          [
+																																																																																																																																																																																						              [1,1,1,1,1,1,1],
+																																																																																																																																																																																									              [1,1,0,0,0,0,0],
+																																																																																																																																																																																												              [1,1,0,0,0,0,0],
+																																																																																																																																																																																															              [1,1,1,1,1,1,0],
+																																																																																																																																																																																																		              [0,0,0,0,0,1,1],
+																																																																																																																																																																																																					              [0,0,0,0,0,1,1],
+																																																																																																																																																																																																								              [0,0,0,0,0,1,1],
+																																																																																																																																																																																																											              [0,0,0,0,0,1,1],
+																																																																																																																																																																																																														              [1,1,0,0,0,1,1],
+																																																																																																																																																																																																																	              [0,1,1,1,1,1,0]
+																																																																																																																																																																																																																					          ],//5
+																																																																																																																																																																																																																							          [
+																																																																																																																																																																																																																										              [0,0,0,0,1,1,0],
+																																																																																																																																																																																																																													              [0,0,1,1,0,0,0],
+																																																																																																																																																																																																																																              [0,1,1,0,0,0,0],
+																																																																																																																																																																																																																																			              [1,1,0,0,0,0,0],
+																																																																																																																																																																																																																																						              [1,1,0,1,1,1,0],
+																																																																																																																																																																																																																																									              [1,1,0,0,0,1,1],
+																																																																																																																																																																																																																																												              [1,1,0,0,0,1,1],
+																																																																																																																																																																																																																																															              [1,1,0,0,0,1,1],
+																																																																																																																																																																																																																																																		              [1,1,0,0,0,1,1],
+																																																																																																																																																																																																																																																					              [0,1,1,1,1,1,0]
+																																																																																																																																																																																																																																																									          ],//6
+																																																																																																																																																																																																																																																											          [
+																																																																																																																																																																																																																																																														              [1,1,1,1,1,1,1],
+																																																																																																																																																																																																																																																																	              [1,1,0,0,0,1,1],
+																																																																																																																																																																																																																																																																				              [0,0,0,0,1,1,0],
+																																																																																																																																																																																																																																																																							              [0,0,0,0,1,1,0],
+																																																																																																																																																																																																																																																																										              [0,0,0,1,1,0,0],
+																																																																																																																																																																																																																																																																													              [0,0,0,1,1,0,0],
+																																																																																																																																																																																																																																																																																              [0,0,1,1,0,0,0],
+																																																																																																																																																																																																																																																																																			              [0,0,1,1,0,0,0],
+																																																																																																																																																																																																																																																																																						              [0,0,1,1,0,0,0],
+																																																																																																																																																																																																																																																																																									              [0,0,1,1,0,0,0]
+																																																																																																																																																																																																																																																																																													          ],//7
+																																																																																																																																																																																																																																																																																															          [
+																																																																																																																																																																																																																																																																																																		              [0,1,1,1,1,1,0],
+																																																																																																																																																																																																																																																																																																					              [1,1,0,0,0,1,1],
+																																																																																																																																																																																																																																																																																																								              [1,1,0,0,0,1,1],
+																																																																																																																																																																																																																																																																																																											              [1,1,0,0,0,1,1],
+																																																																																																																																																																																																																																																																																																														              [0,1,1,1,1,1,0],
+																																																																																																																																																																																																																																																																																																																	              [1,1,0,0,0,1,1],
+																																																																																																																																																																																																																																																																																																																				              [1,1,0,0,0,1,1],
+																																																																																																																																																																																																																																																																																																																							              [1,1,0,0,0,1,1],
+																																																																																																																																																																																																																																																																																																																										              [1,1,0,0,0,1,1],
+																																																																																																																																																																																																																																																																																																																													              [0,1,1,1,1,1,0]
+																																																																																																																																																																																																																																																																																																																																	          ],//8
+																																																																																																																																																																																																																																																																																																																																			          [
+																																																																																																																																																																																																																																																																																																																																						              [0,1,1,1,1,1,0],
+																																																																																																																																																																																																																																																																																																																																									              [1,1,0,0,0,1,1],
+																																																																																																																																																																																																																																																																																																																																												              [1,1,0,0,0,1,1],
+																																																																																																																																																																																																																																																																																																																																															              [1,1,0,0,0,1,1],
+																																																																																																																																																																																																																																																																																																																																																		              [0,1,1,1,0,1,1],
+																																																																																																																																																																																																																																																																																																																																																					              [0,0,0,0,0,1,1],
+																																																																																																																																																																																																																																																																																																																																																								              [0,0,0,0,0,1,1],
+																																																																																																																																																																																																																																																																																																																																																											              [0,0,0,0,1,1,0],
+																																																																																																																																																																																																																																																																																																																																																														              [0,0,0,1,1,0,0],
+																																																																																																																																																																																																																																																																																																																																																																	              [0,1,1,0,0,0,0]
+																																																																																																																																																																																																																																																																																																																																																																					          ],//9
+																																																																																																																																																																																																																																																																																																																																																																							          [
+																																																																																																																																																																																																																																																																																																																																																																										              [0,0,0,0,0,0,0],
+																																																																																																																																																																																																																																																																																																																																																																													              [0,0,1,1,1,0,0],
+																																																																																																																																																																																																																																																																																																																																																																																              [0,0,1,1,1,0,0],
+																																																																																																																																																																																																																																																																																																																																																																																			              [0,0,1,1,1,0,0],
+																																																																																																																																																																																																																																																																																																																																																																																						              [0,0,0,0,0,0,0],
+																																																																																																																																																																																																																																																																																																																																																																																									              [0,0,0,0,0,0,0],
+																																																																																																																																																																																																																																																																																																																																																																																												              [0,0,1,1,1,0,0],
+																																																																																																																																																																																																																																																																																																																																																																																															              [0,0,1,1,1,0,0],
+																																																																																																																																																																																																																																																																																																																																																																																																		              [0,0,1,1,1,0,0],
+																																																																																																																																																																																																																																																																																																																																																																																																					              [0,0,0,0,0,0,0]
+																																																																																																																																																																																																																																																																																																																																																																																																									          ]//:
+																																																																																																																																																																																																																																																																																																																																																																																																												      ];
+
+																																																																																																																																																																																																																																																																																																																																																																																																					  var canvas = document.getElementById('canvas');
+
+																																																																																																																																																																																																																																																																																																																																																																																																					  if(canvas.getContext){
+																																																																																																																																																																																																																																																																																																																																																																																																						      var cxt = canvas.getContext('2d');
+																																																																																																																																																																																																																																																																																																																																																																																																							      //声明canvas的宽高
+																																																																																																																																																																																																																																																																																																																																																																																																							      var H = 100,W = 700;
+																																																																																																																																																																																																																																																																																																																																																																																																								      canvas.height = H;
+																																																																																																																																																																																																																																																																																																																																																																																																									      canvas.width = W;
+																																																																																																																																																																																																																																																																																																																																																																																																										      cxt.fillStyle = '#f00';
+																																																																																																																																																																																																																																																																																																																																																																																																											      cxt.fillRect(10,10,50,50);
+
+																																																																																																																																																																																																																																																																																																																																																																																																												      //存储时间数据
+																																																																																																																																																																																																																																																																																																																																																																																																												      var data = [];
+																																																																																																																																																																																																																																																																																																																																																																																																													      //存储运动的小球
+																																																																																																																																																																																																																																																																																																																																																																																																													      var balls = [];
+																																																																																																																																																																																																																																																																																																																																																																																																														      //设置粒子半径
+																																																																																																																																																																																																																																																																																																																																																																																																														      var R = canvas.height/20-1;
+																																																																																																																																																																																																																																																																																																																																																																																																															      (function(){
+																																																																																																																																																																																																																																																																																																																																																																																																																           var temp = /(\d)(\d):(\d)(\d):(\d)(\d)/.exec(new Date());
+																																																																																																																																																																																																																																																																																																																																																																																																																		           //存储时间数字，由十位小时、个位小时、冒号、十位分钟、个位分钟、冒号、十位秒钟、个位秒钟这7个数字组成
+																																																																																																																																																																																																																																																																																																																																																																																																																		           data.push(temp[1],temp[2],10,temp[3],temp[4],10,temp[5],temp[6]);
+																																																																																																																																																																																																																																																																																																																																																																																																																				       })();
+
+																																																																																																																																																																																																																																																																																																																																																																																																																      /*生成点阵数字*/
+																																																																																																																																																																																																																																																																																																																																																																																																																      function renderDigit(index,num){
+																																																																																																																																																																																																																																																																																																																																																																																																																		          for(var i = 0; i < digit[num].length; i++){
+																																																																																																																																																																																																																																																																																																																																																																																																																					              for(var j = 0; j < digit[num][i].length; j++){
+																																																																																																																																																																																																																																																																																																																																																																																																																									                  if(digit[num][i][j] == 1){
+																																																																																																																																																																																																																																																																																																																																																																																																																														                      cxt.beginPath();
+																																																																																																																																																																																																																																																																																																																																																																																																																																			                      cxt.arc(14*(R+2)*index + j*2*(R+1)+(R+1),i*2*(R+1)+(R+1),R,0,2*Math.PI);
+																																																																																																																																																																																																																																																																																																																																																																																																																																								                      cxt.closePath();
+																																																																																																																																																																																																																																																																																																																																																																																																																																													                      cxt.fill();
+																																																																																																																																																																																																																																																																																																																																																																																																																																																		                  }
+																																																																																																																																																																																																																																																																																																																																																																																																																													              }
+																																																																																																																																																																																																																																																																																																																																																																																																																								          }
+																																																																																																																																																																																																																																																																																																																																																																																																																				      }
+
+																																																																																																																																																																																																																																																																																																																																																																																																																	      /*更新时钟*/
+																																																																																																																																																																																																																																																																																																																																																																																																																	      function updateDigitTime(){
+																																																																																																																																																																																																																																																																																																																																																																																																																			          var changeNumArray = [];
+																																																																																																																																																																																																																																																																																																																																																																																																																					          var temp = /(\d)(\d):(\d)(\d):(\d)(\d)/.exec(new Date());
+																																																																																																																																																																																																																																																																																																																																																																																																																							          var NewData = [];
+																																																																																																																																																																																																																																																																																																																																																																																																																									          NewData.push(temp[1],temp[2],10,temp[3],temp[4],10,temp[5],temp[6]);
+																																																																																																																																																																																																																																																																																																																																																																																																																											          for(var i = data.length-1; i >=0 ; i--){
+																																																																																																																																																																																																																																																																																																																																																																																																																														              //时间发生变化
+																																																																																																																																																																																																																																																																																																																																																																																																																														              if(NewData[i] !== data[i]){
+																																																																																																																																																																																																																																																																																																																																																																																																																																		                  //将变化的数字值和在data数组中的索引存储在changeNumArray数组中
+																																																																																																																																																																																																																																																																																																																																																																																																																																		                  changeNumArray.push(i+'_'+(Number(data[i])+1)%10);
+																																																																																																																																																																																																																																																																																																																																																																																																																																						              }
+																																																																																																																																																																																																																																																																																																																																																																																																																																	          }
+																																																																																																																																																																																																																																																																																																																																																																																																																													          //增加小球
+																																																																																																																																																																																																																																																																																																																																																																																																																													          for(var i = 0; i< changeNumArray.length; i++){
+																																																																																																																																																																																																																																																																																																																																																																																																																																              addBalls.apply(this,changeNumArray[i].split('_'));
+																																																																																																																																																																																																																																																																																																																																																																																																																																			          }
+																																																																																																																																																																																																																																																																																																																																																																																																																															          data = NewData.concat();
+																																																																																																																																																																																																																																																																																																																																																																																																																																	      }
+
+																																																																																																																																																																																																																																																																																																																																																																																																																		      /*更新小球状态*/
+																																																																																																																																																																																																																																																																																																																																																																																																																		      function updateBalls(){
+																																																																																																																																																																																																																																																																																																																																																																																																																				          for(var i = 0; i < balls.length; i++){
+																																																																																																																																																																																																																																																																																																																																																																																																																							              balls[i].stepY += balls[i].disY;
+																																																																																																																																																																																																																																																																																																																																																																																																																										              balls[i].x += balls[i].stepX;
+																																																																																																																																																																																																																																																																																																																																																																																																																													              balls[i].y += balls[i].stepY;
+																																																																																																																																																																																																																																																																																																																																																																																																																																              if(balls[i].x > W + R || balls[i].y > H + R){
+																																																																																																																																																																																																																																																																																																																																																																																																																																				                  balls.splice(i,1);
+																																																																																																																																																																																																																																																																																																																																																																																																																																								                  i--;
+																																																																																																																																																																																																																																																																																																																																																																																																																																												              }
+																																																																																																																																																																																																																																																																																																																																																																																																																																			          }
+																																																																																																																																																																																																																																																																																																																																																																																																																						      }
+
+																																																																																																																																																																																																																																																																																																																																																																																																																			      /*增加要运动的小球*/
+																																																																																																																																																																																																																																																																																																																																																																																																																			      function addBalls(index,num){
+																																																																																																																																																																																																																																																																																																																																																																																																																					          var numArray = [1,2,3];
+																																																																																																																																																																																																																																																																																																																																																																																																																							          var colorArray =  ["#3BE","#09C","#A6C","#93C","#9C0","#690","#FB3","#F80","#F44","#C00"];
+																																																																																																																																																																																																																																																																																																																																																																																																																									          for(var i = 0; i < digit[num].length; i++){
+																																																																																																																																																																																																																																																																																																																																																																																																																												              for(var j = 0; j < digit[num][i].length; j++){
+																																																																																																																																																																																																																																																																																																																																																																																																																																                  if(digit[num][i][j] == 1){
+																																																																																																																																																																																																																																																																																																																																																																																																																																					                      var ball = {
+																																																																																																																																																																																																																																																																																																																																																																																																																																											                          x:14*(R+2)*index + j*2*(R+1)+(R+1),
+																																																																																																																																																																																																																																																																																																																																																																																																																																																		                        y:i*2*(R+1)+(R+1),
+																																																																																																																																																																																																																																																																																																																																																																																																																																																								                        stepX:Math.floor(Math.random() * 4 -2),
+																																																																																																																																																																																																																																																																																																																																																																																																																																																														                        stepY:-2*numArray[Math.floor(Math.random()*numArray.length)],
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																				                        color:colorArray[Math.floor(Math.random()*colorArray.length)],
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																										                        disY:1
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																	                    };
+																																																																																																																																																																																																																																																																																																																																																																																																																																										                      balls.push(ball);
+																																																																																																																																																																																																																																																																																																																																																																																																																																															                  }
+																																																																																																																																																																																																																																																																																																																																																																																																																																				              }
+																																																																																																																																																																																																																																																																																																																																																																																																																															          }
+																																																																																																																																																																																																																																																																																																																																																																																																																											      }
+
+																																																																																																																																																																																																																																																																																																																																																																																																																				      /*渲染*/
+																																																																																																																																																																																																																																																																																																																																																																																																																				      function render(){
+																																																																																																																																																																																																																																																																																																																																																																																																																						          //重置画布宽度，达到清空画布的效果
+																																																																																																																																																																																																																																																																																																																																																																																																																						          canvas.height = 100;
+																																																																																																																																																																																																																																																																																																																																																																																																																								          //渲染时钟
+																																																																																																																																																																																																																																																																																																																																																																																																																								          for(var i = 0; i < data.length; i++){
+																																																																																																																																																																																																																																																																																																																																																																																																																											              renderDigit(i,data[i]);
+																																																																																																																																																																																																																																																																																																																																																																																																																														          }
+																																																																																																																																																																																																																																																																																																																																																																																																																										          //渲染小球
+																																																																																																																																																																																																																																																																																																																																																																																																																										          for(var i = 0; i < balls.length; i++){
+																																																																																																																																																																																																																																																																																																																																																																																																																													              cxt.beginPath();
+																																																																																																																																																																																																																																																																																																																																																																																																																																              cxt.arc(balls[i].x,balls[i].y,R,0,2*Math.PI);
+																																																																																																																																																																																																																																																																																																																																																																																																																																			              cxt.fillStyle = balls[i].color;
+																																																																																																																																																																																																																																																																																																																																																																																																																																						              cxt.closePath();
+																																																																																																																																																																																																																																																																																																																																																																																																																																									              cxt.fill();
+																																																																																																																																																																																																																																																																																																																																																																																																																																												          }
+																																																																																																																																																																																																																																																																																																																																																																																																																												      }
+
+																																																																																																																																																																																																																																																																																																																																																																																																																					      clearInterval(oTimer);
+																																																																																																																																																																																																																																																																																																																																																																																																																						      var oTimer = setInterval(function(){
+																																																																																																																																																																																																																																																																																																																																																																																																																									          //更新时钟
+																																																																																																																																																																																																																																																																																																																																																																																																																									          updateDigitTime();
+																																																																																																																																																																																																																																																																																																																																																																																																																											          //更新小球状态
+																																																																																																																																																																																																																																																																																																																																																																																																																											          updateBalls();
+																																																																																																																																																																																																																																																																																																																																																																																																																													          //渲染
+																																																																																																																																																																																																																																																																																																																																																																																																																													          render();
+																																																																																																																																																																																																																																																																																																																																																																																																																															      },50);
+																																																																																																																																																																																																																																																																																																																																																																																																					  }
+
+  })();
+</script>
+
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#kubernetes-操作记录四"><span class="nav-number">1.</span> <span class="nav-text">kubernetes 操作记录四</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#kubernetes认证及Service-Account"><span class="nav-number">1.1.</span> <span class="nav-text">kubernetes认证及Service Account</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RBAC"><span class="nav-number">1.2.</span> <span class="nav-text">RBAC</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#dashboard-及认证分级授权"><span class="nav-number">1.3.</span> <span class="nav-text">dashboard 及认证分级授权</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用用token实现认证登录"><span class="nav-number">1.3.1.</span> <span class="nav-text">使用用token实现认证登录</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+
+<!-- 数字雨 -->
+<canvas id="canvas" width="1440" height="1080"></canvas>
+<script type="text/javascript" src="/js/DigitalRain.js"></script>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; 2015 &mdash; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">锦遥</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">167.3k</span>
+  
+  <span>   |   </span>
+<span id="showDays"></span>
+</div>
+
+
+
+
+
+
+
+
+<div>
+<a href="http://www.beian.miit.gov.cn">晋ICP备17010575号</a>
+</div>
+<!-- time -->
+<div id="show-time">
+<span id="span_dt_dt"></span>
+</div>
+<script>
+var seconds = 1000;
+var minutes = seconds * 60;
+var hours = minutes * 60;
+var days = hours * 24;
+var years = days * 365;
+var birthDay = Date.UTC(2017,07,30,00,00,00); // 这里设置建站时间
+setInterval(function() {
+var today = new Date();
+var todayYear = today.getFullYear();
+var todayMonth = today.getMonth()+1;
+var todayDate = today.getDate();
+var todayHour = today.getHours();
+var todayMinute = today.getMinutes();
+var todaySecond = today.getSeconds();
+var now = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+var diff = now - birthDay;
+var diffYears = Math.floor(diff/years);
+var diffDays = Math.floor((diff/days)-diffYears*365);
+var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+  document.getElementById('showDays').innerHTML="不間斷的運行了"+diffYears+" 年 "+diffDays+" 天 "+diffHours+" 時 "+diffMinutes+" 分 "+diffSeconds+" 秒 ";
+}, 1000);
+</script>
+
+        
+<div class="busuanzi-count">
+#  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 訪客數
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      位
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>  訪客量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+<script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
+<script type="text/javascript" src="/js/src/clipboard-use.js"></script>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://www.ssjinyao.com/2019/05/22/kubernetes实操记录4/';
+          this.page.identifier = '2019/05/22/kubernetes实操记录4/';
+          this.page.title = 'kubernetes操作记录(四)';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine@1.1.6/dist/Valine.min.js"></script>
+  <script type="text/javascript">
+    new Valine({
+        av: AV,
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        app_id: 'NkJqMpxu4QlRLhPIHipNUHF1-gzGzoHsz',
+        app_key: 'D2vTdueKJ8ammc2JEdje0vLW',
+        placeholder: 'From SSJinYao'
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'true') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  <!-- 点击特效 -->
+<canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas>
+<script type="text/javascript" src="/js/src/fireworks.js"></script>
+
+
+  <script src="/js/activate-power-mode.min.js"></script>
+    <script>
+	    POWERMODE.colorful = true;
+    POWERMODE.shake = false;
+    document.body.addEventListener('input', POWERMODE);
+	  </script>
+
+
+  
+<script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
+<script type="text/javascript" src="/js/src/clipboard-use.js"></script>
+<!--点击冒点-->
+<canvas width="1777" height="841" style="position: fixed; left: 0px; top: 0px; z-index: 2147483647; pointer-events: none;"></canvas>
+<script src="/js/maodian.js"></script>
+<canvas width="1390" height="797" style="position: fixed; left: 0px; top: 0px; z-index: 2147483647; pointer-events: none;"></canvas>
+</body>
+</html>

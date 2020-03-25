@@ -1,0 +1,1725 @@
+<!DOCTYPE html>
+
+
+
+  
+
+<!-- 代码块复制功能 -->
+<script src="/live2d-widget/autoload.js"></script>
+<script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
+<script type="text/javascript" src="/js/src/clipboard-use.js"></script>
+<script src="/js/instantclick-1.2.2.js" type="module"></script>
+<!--崩溃欺骗-->
+<script type="text/javascript" src="/js/src/crash_cheat.js"></script>
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="https://fonts.cat.net/css?family=Lato:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|Roboto Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/redhat.ico?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/redhat.ico?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/redihat.ico?v=5.1.3" color="#0000EE">
+
+
+  <link rel="manifest" href="/images/manifest.json">
+
+
+  <meta name="msapplication-config" content="/images/browserconfig.xml" />
+
+
+
+  <meta name="keywords" content="rhca,linux," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="逝水锦遥" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="高可用gitlab服务器搭建 环境准备,单节点部署   CentOS7.4 64C 192G     CentOS7.4 64C 192G    服务器时间同步1~]# ntpdate ntp.aliyun.com 确保SELinux 是关闭的12~]# getenforce Disabled 配置postfix1234~]# yum -y install postfix~]# sed -i &amp;a">
+<meta name="keywords" content="rhca,linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="高可用gitlab服务器搭建">
+<meta property="og:url" content="https://www.ssjinyao.com/2020/03/26/高可用gitlab服务器搭建/index.html">
+<meta property="og:site_name" content="逝水锦遥">
+<meta property="og:description" content="高可用gitlab服务器搭建 环境准备,单节点部署   CentOS7.4 64C 192G     CentOS7.4 64C 192G    服务器时间同步1~]# ntpdate ntp.aliyun.com 确保SELinux 是关闭的12~]# getenforce Disabled 配置postfix1234~]# yum -y install postfix~]# sed -i &amp;a">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://www.ssjinyao.com/images/gitlab.jpg">
+<meta property="og:updated_time" content="2020-03-11T08:01:37.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="高可用gitlab服务器搭建">
+<meta name="twitter:description" content="高可用gitlab服务器搭建 环境准备,单节点部署   CentOS7.4 64C 192G     CentOS7.4 64C 192G    服务器时间同步1~]# ntpdate ntp.aliyun.com 确保SELinux 是关闭的12~]# getenforce Disabled 配置postfix1234~]# yum -y install postfix~]# sed -i &amp;a">
+<meta name="twitter:image" content="https://www.ssjinyao.com/images/gitlab.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="https://www.ssjinyao.com/2020/03/26/高可用gitlab服务器搭建/"/>
+
+
+
+
+
+  <title>高可用gitlab服务器搭建 | 逝水锦遥</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta custom-logo">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">逝水锦遥</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">心有所向 将有所成</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-所有文章">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-linux"></i> <br />
+            
+            所有文章
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-python">
+          <a href="/./tags/program" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-gitlab"></i> <br />
+            
+            python
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-运维组件">
+          <a href="/./tags/rhca" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            运维组件
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-数据库">
+          <a href="/./tags/database" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-database"></i> <br />
+            
+            数据库
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-云计算">
+          <a href="/./tags/cloud" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-cloud"></i> <br />
+            
+            云计算
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-成自考">
+          <a href="/./tags/zikao" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-drupal"></i> <br />
+            
+            成自考
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-个人中心">
+          <a href="/./tags/renjin" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user-circle"></i> <br />
+            
+            个人中心
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索文章
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.ssjinyao.com/2020/03/26/高可用gitlab服务器搭建/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="锦遥">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/rjyy.ico">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="逝水锦遥">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">高可用gitlab服务器搭建</h1>
+        
+
+        <div class="post-meta">
+		          
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-26T01:30:00+08:00">
+                2020-03-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/03/26/高可用gitlab服务器搭建/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2020/03/26/高可用gitlab服务器搭建/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>  浏览
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.2k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  6
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="高可用gitlab服务器搭建"><a href="#高可用gitlab服务器搭建" class="headerlink" title="高可用gitlab服务器搭建"></a>高可用gitlab服务器搭建</h1><p><img src="/images/gitlab.jpg" alt=""></p>
+<h2 id="环境准备-单节点部署"><a href="#环境准备-单节点部署" class="headerlink" title="环境准备,单节点部署"></a>环境准备,单节点部署</h2><table>
+<thead>
+<tr>
+<th>CentOS7.4</th>
+<th>64C</th>
+<th>192G</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CentOS7.4</td>
+<td>64C</td>
+<td>192G</td>
+</tr>
+</tbody>
+</table>
+<h3 id="服务器时间同步"><a href="#服务器时间同步" class="headerlink" title="服务器时间同步"></a>服务器时间同步</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">~]# ntpdate ntp.aliyun.com</div></pre></td></tr></table></figure>
+<h3 id="确保SELinux-是关闭的"><a href="#确保SELinux-是关闭的" class="headerlink" title="确保SELinux 是关闭的"></a>确保SELinux 是关闭的</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">~]# getenforce </div><div class="line">Disabled</div></pre></td></tr></table></figure>
+<h3 id="配置postfix"><a href="#配置postfix" class="headerlink" title="配置postfix"></a>配置postfix</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">~]# yum -y install postfix</div><div class="line">~]# sed -i &apos;s/inet_interfaces = localhost/inet_interfaces = all/g&apos; /etc/postfix/main.cf</div><div class="line">~]# systemctl start postfix</div><div class="line">~]# systemctl restart postfix</div></pre></td></tr></table></figure>
+<h3 id="配置gitlab-ce-yum源并安装"><a href="#配置gitlab-ce-yum源并安装" class="headerlink" title="配置gitlab-ce yum源并安装"></a>配置gitlab-ce yum源并安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">~]# vim /etc/yum.repos.d/gitlab-ce.repo</div><div class="line">[gitlab-ce]</div><div class="line">name=Gitlab CE Repository</div><div class="line">baseurl=https://mirrors.tuna.tsinghua.edu.cn/gitlab-ce/yum/el$releasever/</div><div class="line">gpgcheck=0</div><div class="line">enabled=1</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">~]# yum clean all</div><div class="line">~]# yum makecache </div><div class="line">~]# yum -y install gitlab-ce</div></pre></td></tr></table></figure>
+<h3 id="gitlab-配置"><a href="#gitlab-配置" class="headerlink" title="gitlab 配置"></a>gitlab 配置</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">~]# cd /etc/gitlab/</div><div class="line">~]# cp gitlab.rb&#123;,.bak&#125;</div></pre></td></tr></table></figure>
+<h3 id="gitlab-配置文件"><a href="#gitlab-配置文件" class="headerlink" title="gitlab 配置文件"></a>gitlab 配置文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 地址配置</span></div><div class="line">external_url <span class="string">'https://gitdb.novogene.com'</span></div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># ldap AD域配置</span></div><div class="line">gitlab_rails[<span class="string">'ldap_enabled'</span>] = <span class="literal">true</span></div><div class="line">gitlab_rails[<span class="string">'ldap_servers'</span>] = YAML.load &lt;&lt;-<span class="string">'EOS'</span></div><div class="line">  main:</div><div class="line">    label: <span class="string">'诺禾AD'</span></div><div class="line">    host: <span class="string">'xx.xxx.xx.xxx'</span></div><div class="line">    port: 3xx</div><div class="line">    uid: <span class="string">'sAMAccountName'</span></div><div class="line">    method: <span class="string">'plain'</span></div><div class="line">    bind_dn: <span class="string">'CN=xxx,OU=xxx,DC=xxx,DC=xxx'</span></div><div class="line">    password: <span class="string">'xxxxxxxx'</span></div><div class="line">    active_directory: <span class="literal">true</span></div><div class="line">    allow_username_or_email_login: ture</div><div class="line">    block_auto_created_users: <span class="literal">false</span></div><div class="line">    base: <span class="string">'OU=xxx,DC=xxx,DC=xxx'</span></div><div class="line">    user_filter: <span class="string">''</span></div><div class="line">EOS</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># gitlab 邮件配置</span></div><div class="line">gitlab_rails[<span class="string">'smtp_enable'</span>] = <span class="literal">true</span>;</div><div class="line">gitlab_rails[<span class="string">'smtp_address'</span>] = <span class="string">'smtp.exmail.qq.com'</span>;</div><div class="line">gitlab_rails[<span class="string">'smtp_port'</span>] = 465;</div><div class="line">gitlab_rails[<span class="string">'smtp_user_name'</span>] = <span class="string">"xx@xxxxx.com"</span></div><div class="line">gitlab_rails[<span class="string">'smtp_password'</span>] = <span class="string">"xxxxxxx"</span></div><div class="line">gitlab_rails[<span class="string">'smtp_domain'</span>] = <span class="string">'smtp.exmail.qq.com'</span>;</div><div class="line">gitlab_rails[<span class="string">'smtp_authentication'</span>] = <span class="string">"login"</span></div><div class="line">gitlab_rails[<span class="string">'smtp_enable_starttls_auto'</span>] = <span class="literal">true</span></div><div class="line">gitlab_rails[<span class="string">'smtp_tls'</span>] = <span class="literal">true</span></div><div class="line">gitlab_rails[<span class="string">'gitlab_email_from'</span>] = <span class="string">'xxx@xxxxxx.com'</span></div><div class="line">nginx[<span class="string">'redirect_http_to_https'</span>] = <span class="literal">true</span></div><div class="line">nginx[<span class="string">'ssl_certificate'</span>] = <span class="string">"/etc/gitlab/ssl/gitdb.pem"</span></div><div class="line">nginx[<span class="string">'ssl_certificate_key'</span>] = <span class="string">"/etc/gitlab/ssl/gitdb.key"</span></div><div class="line">nginx[<span class="string">'redirect_http_to_https_port'</span>] = 80</div><div class="line">nginx[<span class="string">'listen_port'</span>] = 443</div></pre></td></tr></table></figure>
+<h2 id="gitlab服务启动"><a href="#gitlab服务启动" class="headerlink" title="gitlab服务启动"></a>gitlab服务启动</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">~]# gitlab-ctl start</div></pre></td></tr></table></figure>
+<h2 id="lsyncd-主从同步配置"><a href="#lsyncd-主从同步配置" class="headerlink" title="lsyncd 主从同步配置"></a>lsyncd 主从同步配置</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">~]<span class="comment">#  /etc/lsyncd.conf </span></div><div class="line">settings &#123;</div><div class="line">    logfile =<span class="string">"/var/log/lsyncd/lsyncd.log"</span>,</div><div class="line">    statusFile =<span class="string">"/var/log/lsyncd/lsyncd.status"</span>,</div><div class="line">    inotifyMode = <span class="string">"Modify"</span>,</div><div class="line">    maxProcesses = 20,</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">sync &#123;</div><div class="line">    default.rsync,</div><div class="line">    <span class="built_in">source</span>    = <span class="string">"/var/opt/gitlab"</span>,</div><div class="line">    target    = <span class="string">"root@172.30.1.17:/var/opt/gitlab/"</span>,</div><div class="line">    exclude = &#123; <span class="string">"backups"</span>, <span class="string">"gitlab-ci"</span>, <span class="string">"sockets"</span>,<span class="string">"gitlab.yml"</span>,<span class="string">"redis"</span>,<span class="string">"postmaster.pid "</span>&#125;,</div><div class="line">    maxDelays = 5,</div><div class="line">    delay = 30,</div><div class="line">    -- init = <span class="literal">true</span>,</div><div class="line">    rsync     = &#123;</div><div class="line">        binary = <span class="string">"/usr/bin/rsync"</span>,</div><div class="line">        archive = <span class="literal">true</span>,</div><div class="line">        compress = <span class="literal">true</span>,</div><div class="line">        bwlimit   = 2000</div><div class="line">        -- rsh = <span class="string">"/usr/bin/ssh -p 22 -o StrictHostKeyChecking=no"</span></div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">sync &#123;</div><div class="line">    default.rsync,</div><div class="line">    <span class="built_in">source</span>    = <span class="string">"/etc/gitlab/"</span>,</div><div class="line">    target    = <span class="string">"root@172.30.1.17:/etc/gitlab/"</span>,</div><div class="line">    maxDelays = 5,</div><div class="line">    delay = 30,</div><div class="line">    -- init = <span class="literal">true</span>,</div><div class="line">    rsync     = &#123;</div><div class="line">        binary = <span class="string">"/usr/bin/rsync"</span>,</div><div class="line">        archive = <span class="literal">true</span>,</div><div class="line">        compress = <span class="literal">true</span>,</div><div class="line">        bwlimit   = 2000</div><div class="line">        -- rsh = <span class="string">"/usr/bin/ssh -p 22 -o StrictHostKeyChecking=no"</span></div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">! Configuration File <span class="keyword">for</span> keepalived</div><div class="line">global_defs &#123;</div><div class="line">   notification_email &#123;</div><div class="line">     root@localhost</div><div class="line">   &#125;</div><div class="line">   notification_email_from Alexandre.Cassen@firewall.loc</div><div class="line">   smtp_server 127.0.0.1</div><div class="line">   smtp_connect_timeout 30</div><div class="line">   router_id node1</div><div class="line">   &#125;</div><div class="line">vrrp_script chk_gitlab &#123;</div><div class="line">    script <span class="string">"/bin/bash /usr/local/keepalived/etc/keepalived/check_gitlab.sh"</span></div><div class="line">    interval 5</div><div class="line">    weight -20</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">vrrp_instance VI_1 &#123;</div><div class="line">    state BACKUP</div><div class="line">    interface em1</div><div class="line">    virtual_router_id 55</div><div class="line">    priority 100</div><div class="line">    nopreempt</div><div class="line">    advert_int 1</div><div class="line">    notify_master <span class="string">"/usr/local/keepalived/etc/keepalived/message.sh  master"</span></div><div class="line">    notify_backup <span class="string">"/usr/local/keepalived/etc/keepalived/message.sh  backup"</span></div><div class="line">    notify_fault  <span class="string">"/usr/local/keepalived/etc/keepalived/message.sh  fault"</span></div><div class="line">    unicast_src_ip 172.30.1.16</div><div class="line">    unicast_peer &#123;</div><div class="line">     172.30.1.17</div><div class="line">    &#125;</div><div class="line">    track_script &#123;</div><div class="line">       chk_gitlab</div><div class="line">    &#125;</div><div class="line">    authentication &#123;</div><div class="line">        auth_type PASS</div><div class="line">        auth_pass xxxxxxxx</div><div class="line">    &#125;</div><div class="line">    virtual_ipaddress &#123;</div><div class="line">        172.30.1.20</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="keepalived-检测脚本"><a href="#keepalived-检测脚本" class="headerlink" title="keepalived 检测脚本"></a>keepalived 检测脚本</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#!/bin/bash</span></div><div class="line"><span class="function"><span class="title">package</span></span>() &#123;</div><div class="line">    rpm -qf /usr/bin/curl &amp;&gt; /dev/null || yum -y install curl &amp;&gt; /dev/null</div><div class="line">&#125;</div><div class="line">package</div><div class="line"><span class="function"><span class="title">gitlab_state</span></span> () &#123; </div><div class="line">    /usr/bin/curl -s  https://gitdb.novogene.com/users/sign_in | grep <span class="string">"Username"</span> &amp;&gt; /dev/null</div><div class="line">&#125;</div><div class="line">gitlab_state ; gitlab_state_num=$? ; <span class="built_in">echo</span> <span class="variable">$gitlab_state_num</span></div><div class="line"><span class="function"><span class="title">gitlab_state2</span></span> () &#123;</div><div class="line">   /usr/bin/curl -s  https://gitdb.novogene.com/users/sign_in | grep <span class="string">"Password"</span> &amp;&gt; /dev/null</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="title">kill_keepalived</span></span> () &#123;</div><div class="line">      <span class="built_in">kill</span> -9 `cat /var/run/keepalived.pid`</div><div class="line">&#125;</div><div class="line"><span class="keyword">if</span> [ <span class="variable">$gitlab_state_num</span> -ne 0 ] ; <span class="keyword">then</span></div><div class="line">   <span class="built_in">echo</span> <span class="string">"`date +"</span>%Y-%m-%d-%H-%M-%S<span class="string">"` gitlab_status_one_check problem "</span> &gt;&gt; /var/<span class="built_in">log</span>/keepalived/check_gitlab.log</div><div class="line">   gitlab_state2 ; gitlab_state2_num=$? ; <span class="built_in">echo</span> <span class="variable">$gitlab_state2_num</span> </div><div class="line">   <span class="keyword">if</span> [ <span class="variable">$gitlab_state2_num</span> -ne 0 ] ; <span class="keyword">then</span></div><div class="line">        <span class="built_in">echo</span> <span class="string">"`date +"</span>%Y-%m-%d-%H-%M-%S<span class="string">"`  gitlab_status2_one_check problem"</span> &gt;&gt; /var/<span class="built_in">log</span>/keepalived/check_gitlab.log     </div><div class="line">        sleep 1</div><div class="line">   <span class="keyword">fi</span></div><div class="line"><span class="keyword">fi</span></div><div class="line">gitlab_state ; gitlab_state_num=$? ; <span class="built_in">echo</span> <span class="variable">$gitlab_state_num</span></div><div class="line"><span class="keyword">if</span> [ <span class="variable">$gitlab_state_num</span> -ne 0 ] ; <span class="keyword">then</span></div><div class="line">    <span class="built_in">echo</span> <span class="string">"`date +"</span>%Y-%m-%d-%H-%M-%S<span class="string">"` gitlab_status_two_check problem "</span> &gt;&gt; /var/<span class="built_in">log</span>/keepalived/check_gitlab.log</div><div class="line">    gitlab_state2 ; gitlab_state2_num=$? ; <span class="built_in">echo</span> <span class="variable">$gitlab_state2_num</span> </div><div class="line">    <span class="keyword">if</span> [ <span class="variable">$gitlab_state2_num</span> -ne 0 ] ; <span class="keyword">then</span></div><div class="line">        <span class="built_in">echo</span> <span class="string">"`date +"</span>%Y-%m-%d-%H-%M-%S<span class="string">"` gitlab_status2_two_check problem "</span> &gt;&gt; /var/<span class="built_in">log</span>/keepalived/check_gitlab.log</div><div class="line">        <span class="built_in">echo</span> <span class="string">"gitdb jiqun change node1"</span> | mutt -s <span class="string">"gitdb.novogene.com"</span> renjin@novogene.com</div><div class="line">        kill_keepalived</div><div class="line">   <span class="keyword">fi</span></div><div class="line"><span class="keyword">fi</span></div></pre></td></tr></table></figure>
+<h2 id="git-客户端常用命令"><a href="#git-客户端常用命令" class="headerlink" title="git 客户端常用命令"></a>git 客户端常用命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"># git config --global user.name &quot;name&quot; #设置全局用户名</div><div class="line"># git config --global user.email  xxx@novogene.com # 设置全局邮箱</div><div class="line"># git config --global --list #列出用户全局设置</div><div class="line"># git add index.html / . #添加指定文件、目录或当前目录下所有数据到暂存区</div><div class="line"># git commit -m &quot;xx&quot; #提交文件到工作区</div><div class="line"># git status #查看工作区的状态</div><div class="line"># git push #提交代码到服务器</div><div class="line"># git pull # 获取代码到本地</div><div class="line"># git log # 查看操作日志</div><div class="line"># vim .gitignore  # 定义忽略文件</div><div class="line"># git rest --hard HEAD^^ # git版本回滚，HEAD为当前版本，加一个^为上一个，^^为上上一个版本</div><div class="line"># git reflog # 获取每次提交的ID,可以使用--hard根据提交的ID进行版本回退</div><div class="line"># git reset --hard 5ae4b06 #回退到指定id的版本</div><div class="line"># git branch # 查看当前所处的分支</div><div class="line"># git checkout -b develop # 创建并切换到一个新分支</div><div class="line"># git checkout  develop #切换分支</div></pre></td></tr></table></figure>
+<h2 id="git缓存区与工作区等概念"><a href="#git缓存区与工作区等概念" class="headerlink" title="git缓存区与工作区等概念"></a>git缓存区与工作区等概念</h2><ul>
+<li>工作区: clone 的代码或者开发自己编写的代码文件所在的目录，通常是代码所在的一个服务的目录名称;</li>
+</ul>
+<ul>
+<li><p>暂存区: 用于存储在工作区中对代码进行修改后的文件所保存的地方，使用git add添加;</p>
+</li>
+<li><p>本地仓库: 用于提交存储在工作区和暂存区中改过的文件地方，使用git commit提交;</p>
+</li>
+<li><p>远程仓库: 多个开发共同协作提交代码的仓库，即gitlab或github服务器。</p>
+</li>
+</ul>
+<h2 id="macos-安装-git"><a href="#macos-安装-git" class="headerlink" title="macos 安装 git"></a>macos 安装 git</h2><p>未安装 Homebrew 的需要先安装Homebrew</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># /usr/bin/ruby -e \ </span></div><div class="line"><span class="string">"<span class="variable">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span>"</span></div></pre></td></tr></table></figure>
+<p>安装git</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># brew install git</div></pre></td></tr></table></figure>
+<h2 id="CentOS-安装-git"><a href="#CentOS-安装-git" class="headerlink" title="CentOS 安装 git"></a>CentOS 安装 git</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># yum -y install git</div></pre></td></tr></table></figure>
+<h2 id="Ubuntu-安装-git"><a href="#Ubuntu-安装-git" class="headerlink" title="Ubuntu 安装 git"></a>Ubuntu 安装 git</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># apt-get install git</div></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>ღ ღ ღ 如果觉得文章对您有用，不妨打赏一下ღ ღ ღ</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/weipei.png" alt="锦遥 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/zhipei.png" alt="锦遥 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    锦遥
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://www.ssjinyao.com/2020/03/26/高可用gitlab服务器搭建/" title="高可用gitlab服务器搭建">https://www.ssjinyao.com/2020/03/26/高可用gitlab服务器搭建/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/rhca/" rel="tag"># rhca</a>
+          
+            <a href="/tags/linux/" rel="tag"># linux</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/03/11/glibc 升级处理/" rel="next" title="总结glibc的升级操作">
+                <i class="fa fa-chevron-left"></i> 总结glibc的升级操作
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/rjyy.ico"
+                alt="锦遥" />
+            
+              <p class="site-author-name" itemprop="name">锦遥</p>
+              <p class="site-description motion-element" itemprop="description">有智而性缓者思大智
+
+</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">68</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+		  <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=174079&auto=1&height=66"></iframe>
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="http://wpa.qq.com/msgrd?v=3&uin=1922006891site=qq&menu=yes" target="_blank" title="我的QQ">
+                    
+                      <i class="fa fa-fw fa-qq"></i></a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://jf.ssjinyao.com/" title="狗江博客" target="_blank">狗江博客</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          <div style="">
+  <canvas id="canvas" style="width:60%;">当前浏览器不支持canvas，请更换浏览器后再试</canvas>
+  </div>
+  <script>
+  (function(){
+
+      var digit=
+	      [
+		          [
+				              [0,0,1,1,1,0,0],
+							              [0,1,1,0,1,1,0],
+										              [1,1,0,0,0,1,1],
+													              [1,1,0,0,0,1,1],
+																              [1,1,0,0,0,1,1],
+																			              [1,1,0,0,0,1,1],
+																						              [1,1,0,0,0,1,1],
+																									              [1,1,0,0,0,1,1],
+																												              [0,1,1,0,1,1,0],
+																															              [0,0,1,1,1,0,0]
+																																		          ],//0
+																																				          [
+																																						              [0,0,0,1,1,0,0],
+																																									              [0,1,1,1,1,0,0],
+																																												              [0,0,0,1,1,0,0],
+																																															              [0,0,0,1,1,0,0],
+																																																		              [0,0,0,1,1,0,0],
+																																																					              [0,0,0,1,1,0,0],
+																																																								              [0,0,0,1,1,0,0],
+																																																											              [0,0,0,1,1,0,0],
+																																																														              [0,0,0,1,1,0,0],
+																																																																	              [1,1,1,1,1,1,1]
+																																																																					          ],//1
+																																																																							          [
+																																																																										              [0,1,1,1,1,1,0],
+																																																																													              [1,1,0,0,0,1,1],
+																																																																																              [0,0,0,0,0,1,1],
+																																																																																			              [0,0,0,0,1,1,0],
+																																																																																						              [0,0,0,1,1,0,0],
+																																																																																									              [0,0,1,1,0,0,0],
+																																																																																												              [0,1,1,0,0,0,0],
+																																																																																															              [1,1,0,0,0,0,0],
+																																																																																																		              [1,1,0,0,0,1,1],
+																																																																																																					              [1,1,1,1,1,1,1]
+																																																																																																									          ],//2
+																																																																																																											          [
+																																																																																																														              [1,1,1,1,1,1,1],
+																																																																																																																	              [0,0,0,0,0,1,1],
+																																																																																																																				              [0,0,0,0,1,1,0],
+																																																																																																																							              [0,0,0,1,1,0,0],
+																																																																																																																										              [0,0,1,1,1,0,0],
+																																																																																																																													              [0,0,0,0,1,1,0],
+																																																																																																																																              [0,0,0,0,0,1,1],
+																																																																																																																																			              [0,0,0,0,0,1,1],
+																																																																																																																																						              [1,1,0,0,0,1,1],
+																																																																																																																																									              [0,1,1,1,1,1,0]
+																																																																																																																																													          ],//3
+																																																																																																																																															          [
+																																																																																																																																																		              [0,0,0,0,1,1,0],
+																																																																																																																																																					              [0,0,0,1,1,1,0],
+																																																																																																																																																								              [0,0,1,1,1,1,0],
+																																																																																																																																																											              [0,1,1,0,1,1,0],
+																																																																																																																																																														              [1,1,0,0,1,1,0],
+																																																																																																																																																																	              [1,1,1,1,1,1,1],
+																																																																																																																																																																				              [0,0,0,0,1,1,0],
+																																																																																																																																																																							              [0,0,0,0,1,1,0],
+																																																																																																																																																																										              [0,0,0,0,1,1,0],
+																																																																																																																																																																													              [0,0,0,1,1,1,1]
+																																																																																																																																																																																	          ],//4
+																																																																																																																																																																																			          [
+																																																																																																																																																																																						              [1,1,1,1,1,1,1],
+																																																																																																																																																																																									              [1,1,0,0,0,0,0],
+																																																																																																																																																																																												              [1,1,0,0,0,0,0],
+																																																																																																																																																																																															              [1,1,1,1,1,1,0],
+																																																																																																																																																																																																		              [0,0,0,0,0,1,1],
+																																																																																																																																																																																																					              [0,0,0,0,0,1,1],
+																																																																																																																																																																																																								              [0,0,0,0,0,1,1],
+																																																																																																																																																																																																											              [0,0,0,0,0,1,1],
+																																																																																																																																																																																																														              [1,1,0,0,0,1,1],
+																																																																																																																																																																																																																	              [0,1,1,1,1,1,0]
+																																																																																																																																																																																																																					          ],//5
+																																																																																																																																																																																																																							          [
+																																																																																																																																																																																																																										              [0,0,0,0,1,1,0],
+																																																																																																																																																																																																																													              [0,0,1,1,0,0,0],
+																																																																																																																																																																																																																																              [0,1,1,0,0,0,0],
+																																																																																																																																																																																																																																			              [1,1,0,0,0,0,0],
+																																																																																																																																																																																																																																						              [1,1,0,1,1,1,0],
+																																																																																																																																																																																																																																									              [1,1,0,0,0,1,1],
+																																																																																																																																																																																																																																												              [1,1,0,0,0,1,1],
+																																																																																																																																																																																																																																															              [1,1,0,0,0,1,1],
+																																																																																																																																																																																																																																																		              [1,1,0,0,0,1,1],
+																																																																																																																																																																																																																																																					              [0,1,1,1,1,1,0]
+																																																																																																																																																																																																																																																									          ],//6
+																																																																																																																																																																																																																																																											          [
+																																																																																																																																																																																																																																																														              [1,1,1,1,1,1,1],
+																																																																																																																																																																																																																																																																	              [1,1,0,0,0,1,1],
+																																																																																																																																																																																																																																																																				              [0,0,0,0,1,1,0],
+																																																																																																																																																																																																																																																																							              [0,0,0,0,1,1,0],
+																																																																																																																																																																																																																																																																										              [0,0,0,1,1,0,0],
+																																																																																																																																																																																																																																																																													              [0,0,0,1,1,0,0],
+																																																																																																																																																																																																																																																																																              [0,0,1,1,0,0,0],
+																																																																																																																																																																																																																																																																																			              [0,0,1,1,0,0,0],
+																																																																																																																																																																																																																																																																																						              [0,0,1,1,0,0,0],
+																																																																																																																																																																																																																																																																																									              [0,0,1,1,0,0,0]
+																																																																																																																																																																																																																																																																																													          ],//7
+																																																																																																																																																																																																																																																																																															          [
+																																																																																																																																																																																																																																																																																																		              [0,1,1,1,1,1,0],
+																																																																																																																																																																																																																																																																																																					              [1,1,0,0,0,1,1],
+																																																																																																																																																																																																																																																																																																								              [1,1,0,0,0,1,1],
+																																																																																																																																																																																																																																																																																																											              [1,1,0,0,0,1,1],
+																																																																																																																																																																																																																																																																																																														              [0,1,1,1,1,1,0],
+																																																																																																																																																																																																																																																																																																																	              [1,1,0,0,0,1,1],
+																																																																																																																																																																																																																																																																																																																				              [1,1,0,0,0,1,1],
+																																																																																																																																																																																																																																																																																																																							              [1,1,0,0,0,1,1],
+																																																																																																																																																																																																																																																																																																																										              [1,1,0,0,0,1,1],
+																																																																																																																																																																																																																																																																																																																													              [0,1,1,1,1,1,0]
+																																																																																																																																																																																																																																																																																																																																	          ],//8
+																																																																																																																																																																																																																																																																																																																																			          [
+																																																																																																																																																																																																																																																																																																																																						              [0,1,1,1,1,1,0],
+																																																																																																																																																																																																																																																																																																																																									              [1,1,0,0,0,1,1],
+																																																																																																																																																																																																																																																																																																																																												              [1,1,0,0,0,1,1],
+																																																																																																																																																																																																																																																																																																																																															              [1,1,0,0,0,1,1],
+																																																																																																																																																																																																																																																																																																																																																		              [0,1,1,1,0,1,1],
+																																																																																																																																																																																																																																																																																																																																																					              [0,0,0,0,0,1,1],
+																																																																																																																																																																																																																																																																																																																																																								              [0,0,0,0,0,1,1],
+																																																																																																																																																																																																																																																																																																																																																											              [0,0,0,0,1,1,0],
+																																																																																																																																																																																																																																																																																																																																																														              [0,0,0,1,1,0,0],
+																																																																																																																																																																																																																																																																																																																																																																	              [0,1,1,0,0,0,0]
+																																																																																																																																																																																																																																																																																																																																																																					          ],//9
+																																																																																																																																																																																																																																																																																																																																																																							          [
+																																																																																																																																																																																																																																																																																																																																																																										              [0,0,0,0,0,0,0],
+																																																																																																																																																																																																																																																																																																																																																																													              [0,0,1,1,1,0,0],
+																																																																																																																																																																																																																																																																																																																																																																																              [0,0,1,1,1,0,0],
+																																																																																																																																																																																																																																																																																																																																																																																			              [0,0,1,1,1,0,0],
+																																																																																																																																																																																																																																																																																																																																																																																						              [0,0,0,0,0,0,0],
+																																																																																																																																																																																																																																																																																																																																																																																									              [0,0,0,0,0,0,0],
+																																																																																																																																																																																																																																																																																																																																																																																												              [0,0,1,1,1,0,0],
+																																																																																																																																																																																																																																																																																																																																																																																															              [0,0,1,1,1,0,0],
+																																																																																																																																																																																																																																																																																																																																																																																																		              [0,0,1,1,1,0,0],
+																																																																																																																																																																																																																																																																																																																																																																																																					              [0,0,0,0,0,0,0]
+																																																																																																																																																																																																																																																																																																																																																																																																									          ]//:
+																																																																																																																																																																																																																																																																																																																																																																																																												      ];
+
+																																																																																																																																																																																																																																																																																																																																																																																																					  var canvas = document.getElementById('canvas');
+
+																																																																																																																																																																																																																																																																																																																																																																																																					  if(canvas.getContext){
+																																																																																																																																																																																																																																																																																																																																																																																																						      var cxt = canvas.getContext('2d');
+																																																																																																																																																																																																																																																																																																																																																																																																							      //声明canvas的宽高
+																																																																																																																																																																																																																																																																																																																																																																																																							      var H = 100,W = 700;
+																																																																																																																																																																																																																																																																																																																																																																																																								      canvas.height = H;
+																																																																																																																																																																																																																																																																																																																																																																																																									      canvas.width = W;
+																																																																																																																																																																																																																																																																																																																																																																																																										      cxt.fillStyle = '#f00';
+																																																																																																																																																																																																																																																																																																																																																																																																											      cxt.fillRect(10,10,50,50);
+
+																																																																																																																																																																																																																																																																																																																																																																																																												      //存储时间数据
+																																																																																																																																																																																																																																																																																																																																																																																																												      var data = [];
+																																																																																																																																																																																																																																																																																																																																																																																																													      //存储运动的小球
+																																																																																																																																																																																																																																																																																																																																																																																																													      var balls = [];
+																																																																																																																																																																																																																																																																																																																																																																																																														      //设置粒子半径
+																																																																																																																																																																																																																																																																																																																																																																																																														      var R = canvas.height/20-1;
+																																																																																																																																																																																																																																																																																																																																																																																																															      (function(){
+																																																																																																																																																																																																																																																																																																																																																																																																																           var temp = /(\d)(\d):(\d)(\d):(\d)(\d)/.exec(new Date());
+																																																																																																																																																																																																																																																																																																																																																																																																																		           //存储时间数字，由十位小时、个位小时、冒号、十位分钟、个位分钟、冒号、十位秒钟、个位秒钟这7个数字组成
+																																																																																																																																																																																																																																																																																																																																																																																																																		           data.push(temp[1],temp[2],10,temp[3],temp[4],10,temp[5],temp[6]);
+																																																																																																																																																																																																																																																																																																																																																																																																																				       })();
+
+																																																																																																																																																																																																																																																																																																																																																																																																																      /*生成点阵数字*/
+																																																																																																																																																																																																																																																																																																																																																																																																																      function renderDigit(index,num){
+																																																																																																																																																																																																																																																																																																																																																																																																																		          for(var i = 0; i < digit[num].length; i++){
+																																																																																																																																																																																																																																																																																																																																																																																																																					              for(var j = 0; j < digit[num][i].length; j++){
+																																																																																																																																																																																																																																																																																																																																																																																																																									                  if(digit[num][i][j] == 1){
+																																																																																																																																																																																																																																																																																																																																																																																																																														                      cxt.beginPath();
+																																																																																																																																																																																																																																																																																																																																																																																																																																			                      cxt.arc(14*(R+2)*index + j*2*(R+1)+(R+1),i*2*(R+1)+(R+1),R,0,2*Math.PI);
+																																																																																																																																																																																																																																																																																																																																																																																																																																								                      cxt.closePath();
+																																																																																																																																																																																																																																																																																																																																																																																																																																													                      cxt.fill();
+																																																																																																																																																																																																																																																																																																																																																																																																																																																		                  }
+																																																																																																																																																																																																																																																																																																																																																																																																																													              }
+																																																																																																																																																																																																																																																																																																																																																																																																																								          }
+																																																																																																																																																																																																																																																																																																																																																																																																																				      }
+
+																																																																																																																																																																																																																																																																																																																																																																																																																	      /*更新时钟*/
+																																																																																																																																																																																																																																																																																																																																																																																																																	      function updateDigitTime(){
+																																																																																																																																																																																																																																																																																																																																																																																																																			          var changeNumArray = [];
+																																																																																																																																																																																																																																																																																																																																																																																																																					          var temp = /(\d)(\d):(\d)(\d):(\d)(\d)/.exec(new Date());
+																																																																																																																																																																																																																																																																																																																																																																																																																							          var NewData = [];
+																																																																																																																																																																																																																																																																																																																																																																																																																									          NewData.push(temp[1],temp[2],10,temp[3],temp[4],10,temp[5],temp[6]);
+																																																																																																																																																																																																																																																																																																																																																																																																																											          for(var i = data.length-1; i >=0 ; i--){
+																																																																																																																																																																																																																																																																																																																																																																																																																														              //时间发生变化
+																																																																																																																																																																																																																																																																																																																																																																																																																														              if(NewData[i] !== data[i]){
+																																																																																																																																																																																																																																																																																																																																																																																																																																		                  //将变化的数字值和在data数组中的索引存储在changeNumArray数组中
+																																																																																																																																																																																																																																																																																																																																																																																																																																		                  changeNumArray.push(i+'_'+(Number(data[i])+1)%10);
+																																																																																																																																																																																																																																																																																																																																																																																																																																						              }
+																																																																																																																																																																																																																																																																																																																																																																																																																																	          }
+																																																																																																																																																																																																																																																																																																																																																																																																																													          //增加小球
+																																																																																																																																																																																																																																																																																																																																																																																																																													          for(var i = 0; i< changeNumArray.length; i++){
+																																																																																																																																																																																																																																																																																																																																																																																																																																              addBalls.apply(this,changeNumArray[i].split('_'));
+																																																																																																																																																																																																																																																																																																																																																																																																																																			          }
+																																																																																																																																																																																																																																																																																																																																																																																																																															          data = NewData.concat();
+																																																																																																																																																																																																																																																																																																																																																																																																																																	      }
+
+																																																																																																																																																																																																																																																																																																																																																																																																																		      /*更新小球状态*/
+																																																																																																																																																																																																																																																																																																																																																																																																																		      function updateBalls(){
+																																																																																																																																																																																																																																																																																																																																																																																																																				          for(var i = 0; i < balls.length; i++){
+																																																																																																																																																																																																																																																																																																																																																																																																																							              balls[i].stepY += balls[i].disY;
+																																																																																																																																																																																																																																																																																																																																																																																																																										              balls[i].x += balls[i].stepX;
+																																																																																																																																																																																																																																																																																																																																																																																																																													              balls[i].y += balls[i].stepY;
+																																																																																																																																																																																																																																																																																																																																																																																																																																              if(balls[i].x > W + R || balls[i].y > H + R){
+																																																																																																																																																																																																																																																																																																																																																																																																																																				                  balls.splice(i,1);
+																																																																																																																																																																																																																																																																																																																																																																																																																																								                  i--;
+																																																																																																																																																																																																																																																																																																																																																																																																																																												              }
+																																																																																																																																																																																																																																																																																																																																																																																																																																			          }
+																																																																																																																																																																																																																																																																																																																																																																																																																						      }
+
+																																																																																																																																																																																																																																																																																																																																																																																																																			      /*增加要运动的小球*/
+																																																																																																																																																																																																																																																																																																																																																																																																																			      function addBalls(index,num){
+																																																																																																																																																																																																																																																																																																																																																																																																																					          var numArray = [1,2,3];
+																																																																																																																																																																																																																																																																																																																																																																																																																							          var colorArray =  ["#3BE","#09C","#A6C","#93C","#9C0","#690","#FB3","#F80","#F44","#C00"];
+																																																																																																																																																																																																																																																																																																																																																																																																																									          for(var i = 0; i < digit[num].length; i++){
+																																																																																																																																																																																																																																																																																																																																																																																																																												              for(var j = 0; j < digit[num][i].length; j++){
+																																																																																																																																																																																																																																																																																																																																																																																																																																                  if(digit[num][i][j] == 1){
+																																																																																																																																																																																																																																																																																																																																																																																																																																					                      var ball = {
+																																																																																																																																																																																																																																																																																																																																																																																																																																											                          x:14*(R+2)*index + j*2*(R+1)+(R+1),
+																																																																																																																																																																																																																																																																																																																																																																																																																																																		                        y:i*2*(R+1)+(R+1),
+																																																																																																																																																																																																																																																																																																																																																																																																																																																								                        stepX:Math.floor(Math.random() * 4 -2),
+																																																																																																																																																																																																																																																																																																																																																																																																																																																														                        stepY:-2*numArray[Math.floor(Math.random()*numArray.length)],
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																				                        color:colorArray[Math.floor(Math.random()*colorArray.length)],
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																										                        disY:1
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																	                    };
+																																																																																																																																																																																																																																																																																																																																																																																																																																										                      balls.push(ball);
+																																																																																																																																																																																																																																																																																																																																																																																																																																															                  }
+																																																																																																																																																																																																																																																																																																																																																																																																																																				              }
+																																																																																																																																																																																																																																																																																																																																																																																																																															          }
+																																																																																																																																																																																																																																																																																																																																																																																																																											      }
+
+																																																																																																																																																																																																																																																																																																																																																																																																																				      /*渲染*/
+																																																																																																																																																																																																																																																																																																																																																																																																																				      function render(){
+																																																																																																																																																																																																																																																																																																																																																																																																																						          //重置画布宽度，达到清空画布的效果
+																																																																																																																																																																																																																																																																																																																																																																																																																						          canvas.height = 100;
+																																																																																																																																																																																																																																																																																																																																																																																																																								          //渲染时钟
+																																																																																																																																																																																																																																																																																																																																																																																																																								          for(var i = 0; i < data.length; i++){
+																																																																																																																																																																																																																																																																																																																																																																																																																											              renderDigit(i,data[i]);
+																																																																																																																																																																																																																																																																																																																																																																																																																														          }
+																																																																																																																																																																																																																																																																																																																																																																																																																										          //渲染小球
+																																																																																																																																																																																																																																																																																																																																																																																																																										          for(var i = 0; i < balls.length; i++){
+																																																																																																																																																																																																																																																																																																																																																																																																																													              cxt.beginPath();
+																																																																																																																																																																																																																																																																																																																																																																																																																																              cxt.arc(balls[i].x,balls[i].y,R,0,2*Math.PI);
+																																																																																																																																																																																																																																																																																																																																																																																																																																			              cxt.fillStyle = balls[i].color;
+																																																																																																																																																																																																																																																																																																																																																																																																																																						              cxt.closePath();
+																																																																																																																																																																																																																																																																																																																																																																																																																																									              cxt.fill();
+																																																																																																																																																																																																																																																																																																																																																																																																																																												          }
+																																																																																																																																																																																																																																																																																																																																																																																																																												      }
+
+																																																																																																																																																																																																																																																																																																																																																																																																																					      clearInterval(oTimer);
+																																																																																																																																																																																																																																																																																																																																																																																																																						      var oTimer = setInterval(function(){
+																																																																																																																																																																																																																																																																																																																																																																																																																									          //更新时钟
+																																																																																																																																																																																																																																																																																																																																																																																																																									          updateDigitTime();
+																																																																																																																																																																																																																																																																																																																																																																																																																											          //更新小球状态
+																																																																																																																																																																																																																																																																																																																																																																																																																											          updateBalls();
+																																																																																																																																																																																																																																																																																																																																																																																																																													          //渲染
+																																																																																																																																																																																																																																																																																																																																																																																																																													          render();
+																																																																																																																																																																																																																																																																																																																																																																																																																															      },50);
+																																																																																																																																																																																																																																																																																																																																																																																																					  }
+
+  })();
+</script>
+
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#高可用gitlab服务器搭建"><span class="nav-number">1.</span> <span class="nav-text">高可用gitlab服务器搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#环境准备-单节点部署"><span class="nav-number">1.1.</span> <span class="nav-text">环境准备,单节点部署</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#服务器时间同步"><span class="nav-number">1.1.1.</span> <span class="nav-text">服务器时间同步</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#确保SELinux-是关闭的"><span class="nav-number">1.1.2.</span> <span class="nav-text">确保SELinux 是关闭的</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置postfix"><span class="nav-number">1.1.3.</span> <span class="nav-text">配置postfix</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置gitlab-ce-yum源并安装"><span class="nav-number">1.1.4.</span> <span class="nav-text">配置gitlab-ce yum源并安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gitlab-配置"><span class="nav-number">1.1.5.</span> <span class="nav-text">gitlab 配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gitlab-配置文件"><span class="nav-number">1.1.6.</span> <span class="nav-text">gitlab 配置文件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gitlab服务启动"><span class="nav-number">1.2.</span> <span class="nav-text">gitlab服务启动</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#lsyncd-主从同步配置"><span class="nav-number">1.3.</span> <span class="nav-text">lsyncd 主从同步配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#keepalived-检测脚本"><span class="nav-number">1.4.</span> <span class="nav-text">keepalived 检测脚本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git-客户端常用命令"><span class="nav-number">1.5.</span> <span class="nav-text">git 客户端常用命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git缓存区与工作区等概念"><span class="nav-number">1.6.</span> <span class="nav-text">git缓存区与工作区等概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#macos-安装-git"><span class="nav-number">1.7.</span> <span class="nav-text">macos 安装 git</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CentOS-安装-git"><span class="nav-number">1.8.</span> <span class="nav-text">CentOS 安装 git</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ubuntu-安装-git"><span class="nav-number">1.9.</span> <span class="nav-text">Ubuntu 安装 git</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+
+<!-- 数字雨 -->
+<canvas id="canvas" width="1440" height="1080"></canvas>
+<script type="text/javascript" src="/js/DigitalRain.js"></script>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; 2015 &mdash; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">锦遥</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">167.3k</span>
+  
+  <span>   |   </span>
+<span id="showDays"></span>
+</div>
+
+
+
+
+
+
+
+
+<div>
+<a href="http://www.beian.miit.gov.cn">晋ICP备17010575号</a>
+</div>
+<!-- time -->
+<div id="show-time">
+<span id="span_dt_dt"></span>
+</div>
+<script>
+var seconds = 1000;
+var minutes = seconds * 60;
+var hours = minutes * 60;
+var days = hours * 24;
+var years = days * 365;
+var birthDay = Date.UTC(2017,07,30,00,00,00); // 这里设置建站时间
+setInterval(function() {
+var today = new Date();
+var todayYear = today.getFullYear();
+var todayMonth = today.getMonth()+1;
+var todayDate = today.getDate();
+var todayHour = today.getHours();
+var todayMinute = today.getMinutes();
+var todaySecond = today.getSeconds();
+var now = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+var diff = now - birthDay;
+var diffYears = Math.floor(diff/years);
+var diffDays = Math.floor((diff/days)-diffYears*365);
+var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+  document.getElementById('showDays').innerHTML="不間斷的運行了"+diffYears+" 年 "+diffDays+" 天 "+diffHours+" 時 "+diffMinutes+" 分 "+diffSeconds+" 秒 ";
+}, 1000);
+</script>
+
+        
+<div class="busuanzi-count">
+#  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 訪客數
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      位
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>  訪客量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+<script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
+<script type="text/javascript" src="/js/src/clipboard-use.js"></script>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://www.ssjinyao.com/2020/03/26/高可用gitlab服务器搭建/';
+          this.page.identifier = '2020/03/26/高可用gitlab服务器搭建/';
+          this.page.title = '高可用gitlab服务器搭建';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine@1.1.6/dist/Valine.min.js"></script>
+  <script type="text/javascript">
+    new Valine({
+        av: AV,
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        app_id: 'NkJqMpxu4QlRLhPIHipNUHF1-gzGzoHsz',
+        app_key: 'D2vTdueKJ8ammc2JEdje0vLW',
+        placeholder: 'From SSJinYao'
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'true') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  <!-- 点击特效 -->
+<canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas>
+<script type="text/javascript" src="/js/src/fireworks.js"></script>
+
+
+  <script src="/js/activate-power-mode.min.js"></script>
+    <script>
+	    POWERMODE.colorful = true;
+    POWERMODE.shake = false;
+    document.body.addEventListener('input', POWERMODE);
+	  </script>
+
+
+  
+<script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
+<script type="text/javascript" src="/js/src/clipboard-use.js"></script>
+<!--点击冒点-->
+<canvas width="1777" height="841" style="position: fixed; left: 0px; top: 0px; z-index: 2147483647; pointer-events: none;"></canvas>
+<script src="/js/maodian.js"></script>
+<canvas width="1390" height="797" style="position: fixed; left: 0px; top: 0px; z-index: 2147483647; pointer-events: none;"></canvas>
+</body>
+</html>

@@ -1,0 +1,1714 @@
+<!DOCTYPE html>
+
+
+
+  
+
+<!-- 代码块复制功能 -->
+<script src="/live2d-widget/autoload.js"></script>
+<script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
+<script type="text/javascript" src="/js/src/clipboard-use.js"></script>
+<script src="/js/instantclick-1.2.2.js" type="module"></script>
+<!--崩溃欺骗-->
+<script type="text/javascript" src="/js/src/crash_cheat.js"></script>
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="https://fonts.cat.net/css?family=Lato:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|Roboto Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/redhat.ico?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/redhat.ico?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/redihat.ico?v=5.1.3" color="#0000EE">
+
+
+  <link rel="manifest" href="/images/manifest.json">
+
+
+  <meta name="msapplication-config" content="/images/browserconfig.xml" />
+
+
+
+  <meta name="keywords" content="rhca,linux,database," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="逝水锦遥" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="工作拓扑 一、MHA简明12345678910MHA（Master HA）是一款开源的MySQL的高可用程序，它为MySQL主从复制架构提供了    automating master failover 功能。MHA在监控到master节点故障时，会提升其中    拥有最新数据的slave节点来成为新的master节点。在此期间，MHA会通过于其它从节点    获取额外信息来避免一致性方面的问题。">
+<meta name="keywords" content="rhca,linux,database">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MariaDB之MHA配置">
+<meta property="og:url" content="https://www.ssjinyao.com/2018/02/06/MariaDB之MHA配置/index.html">
+<meta property="og:site_name" content="逝水锦遥">
+<meta property="og:description" content="工作拓扑 一、MHA简明12345678910MHA（Master HA）是一款开源的MySQL的高可用程序，它为MySQL主从复制架构提供了    automating master failover 功能。MHA在监控到master节点故障时，会提升其中    拥有最新数据的slave节点来成为新的master节点。在此期间，MHA会通过于其它从节点    获取额外信息来避免一致性方面的问题。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://www.ssjinyao.com/images/mariadb_mha.png">
+<meta property="og:updated_time" content="2018-02-08T08:54:00.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MariaDB之MHA配置">
+<meta name="twitter:description" content="工作拓扑 一、MHA简明12345678910MHA（Master HA）是一款开源的MySQL的高可用程序，它为MySQL主从复制架构提供了    automating master failover 功能。MHA在监控到master节点故障时，会提升其中    拥有最新数据的slave节点来成为新的master节点。在此期间，MHA会通过于其它从节点    获取额外信息来避免一致性方面的问题。">
+<meta name="twitter:image" content="https://www.ssjinyao.com/images/mariadb_mha.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="https://www.ssjinyao.com/2018/02/06/MariaDB之MHA配置/"/>
+
+
+
+
+
+  <title>MariaDB之MHA配置 | 逝水锦遥</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta custom-logo">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">逝水锦遥</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">心有所向 将有所成</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-所有文章">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-linux"></i> <br />
+            
+            所有文章
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-python">
+          <a href="/./tags/program" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-gitlab"></i> <br />
+            
+            python
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-运维组件">
+          <a href="/./tags/rhca" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            运维组件
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-数据库">
+          <a href="/./tags/database" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-database"></i> <br />
+            
+            数据库
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-云计算">
+          <a href="/./tags/cloud" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-cloud"></i> <br />
+            
+            云计算
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-成自考">
+          <a href="/./tags/zikao" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-drupal"></i> <br />
+            
+            成自考
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-个人中心">
+          <a href="/./tags/renjin" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user-circle"></i> <br />
+            
+            个人中心
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索文章
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.ssjinyao.com/2018/02/06/MariaDB之MHA配置/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="锦遥">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/rjyy.ico">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="逝水锦遥">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">MariaDB之MHA配置</h1>
+        
+
+        <div class="post-meta">
+		          
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-06T16:38:55+08:00">
+                2018-02-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/02/06/MariaDB之MHA配置/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/02/06/MariaDB之MHA配置/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>  浏览
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  3.2k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  17
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="工作拓扑"><a href="#工作拓扑" class="headerlink" title="工作拓扑"></a>工作拓扑</h2><p><img src="/images/mariadb_mha.png" alt=""></p>
+<h2 id="一、MHA简明"><a href="#一、MHA简明" class="headerlink" title="一、MHA简明"></a>一、MHA简明</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">MHA（Master HA）是一款开源的MySQL的高可用程序，它为MySQL主从复制架构提供了</div><div class="line">    automating master failover 功能。MHA在监控到master节点故障时，会提升其中</div><div class="line">    拥有最新数据的slave节点来成为新的master节点。在此期间，MHA会通过于其它从节点</div><div class="line">    获取额外信息来避免一致性方面的问题。MHA还提供了master节点的在线切换功能，即按</div><div class="line">    需切换master/slave节点。</div><div class="line">MHA服务有两咱角色。MHA Mangager(管理节点)和MHA Node(数据节点)：</div><div class="line">    MHA Manager：通常单独部署在一台独立机器上管理多个master/slave集群，每个</div><div class="line">    master/slave集群称作一个application:</div><div class="line">    MHA node:运行在每台MySQL服务器之上(master/slave/manager),它通过监控</div><div class="line">    具务解析和清理logs功能来脚本来加快故障转移。</div></pre></td></tr></table></figure>
+<h2 id="二、MHA-组件"><a href="#二、MHA-组件" class="headerlink" title="二、MHA 组件"></a>二、MHA 组件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">    MHA会提供诸多工具程序，其常见的如下所示。 </div><div class="line">    Manager节点:</div><div class="line">       masterha_check_ssh:MHA依赖的SSH环境检测工具；</div><div class="line">        masterha_check_repl:MySQL复制环境检测工具；</div><div class="line">        masterha_mamager:MHA服务主程序；</div><div class="line">        masterha_check_status:MHA运行状态探测工具；</div><div class="line">        masterha_master_monitor:MySQL master节点可用性监测工具；</div><div class="line">        masterha_master_swith:master节点切换工具；</div><div class="line">        masterha_conf_host:添加或删除配置的节点；</div><div class="line">        masterha_stop:斗闭MHA服务的工具 ；</div><div class="line">        </div><div class="line"></div><div class="line">    Node 节点:</div><div class="line">        save_binary_logs:保存和复制Master的二进制日志 ；</div><div class="line">        apply_diff_replay_logs:识别差异的中继日志事件并应用于其它slave;</div><div class="line">        filter_mysqlbinlog:去除不必要的ROLLBACK事件(MHA已不再使用这个工具)；</div><div class="line">        purge_replay_logs:清除中继日志(不会阻塞SQL线程)；</div><div class="line">        </div><div class="line">    自定义扩展:</div><div class="line">        secondary_check_script:通过多条网络路由检测master的可用性；</div><div class="line">        master_ip_failover_scipt:更新application使用的masterip;</div><div class="line">        shutdown_script：强制关闭master节点；</div><div class="line">        report_scipt:发送报告；</div><div class="line">        init_conf_load_script:加载初始配置参数；</div><div class="line">        master_ip_online_change_scipt:更新master节点ip地址；</div></pre></td></tr></table></figure>
+<h2 id="三、准备MySQL-Replicatin环境"><a href="#三、准备MySQL-Replicatin环境" class="headerlink" title="三、准备MySQL Replicatin环境"></a>三、准备MySQL Replicatin环境</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">    MHA对MySQL复制环境有特殊要求，例如各节点都要开启二进制日志及中继日志，</div><div class="line">    各从节点 必须启用其read-only skip_name_resolve innodb_file_per_table=ON 属性，</div><div class="line">    并关闭relay_log_purge功能等，还有体集事物所必需的同步；</div></pre></td></tr></table></figure>
+<h3 id="同步主机"><a href="#同步主机" class="headerlink" title="同步主机"></a>同步主机</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># for i in &#123;0..3&#125; ; do ssh node$i ntpdate 172.16.0.1 ; done</span></div><div class="line">    <span class="comment"># 本实验境共有四个节点，其中角色分配如下；</span></div><div class="line">node0 :MHA Manager(172.16.23.10);</div><div class="line">node1 :MariaDB master</div><div class="line">node2 :MariaDB slave</div><div class="line">node3 :MariaDB slave</div><div class="line">   <span class="comment"># 各节点的/etc/hosts文件配置内容添加如下内容；</span></div><div class="line">172.16.23.10 node0 node0.rj.com</div><div class="line">172.16.23.11 node1 node1.rj.com</div><div class="line">172.16.23.12 node2 node2.rj.com</div><div class="line">172.16.23.13 node3 node3.rj.com</div></pre></td></tr></table></figure>
+<h3 id="初始主节点的master配置"><a href="#初始主节点的master配置" class="headerlink" title="初始主节点的master配置"></a>初始主节点的master配置</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">node1 # vim /etc/my.cnf</div><div class="line">        innodb_file_per_table=ON # 此项内容与下面一项内容一般在服务器启动时便加上</div><div class="line">        skip_name_resolve=ON</div><div class="line">        server_id=1</div><div class="line">        relay_log=relay-bin</div><div class="line">        log-bin=log-bin</div><div class="line">        symbolic-links=0</div></pre></td></tr></table></figure>
+<h3 id="所有slave节点依赖的配置"><a href="#所有slave节点依赖的配置" class="headerlink" title="所有slave节点依赖的配置"></a>所有slave节点依赖的配置</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">node(2,3)# vim /etc/my.cnf    </div><div class="line">    innodb_file_per_table=ON</div><div class="line">    skip_name_resolve=ON</div><div class="line">    server_id=2 #注 此处的结点到了别的节点中一定要改，各节点的id必需唯一；</div><div class="line">    relay-log=relay-bin</div><div class="line">    log-bin=master-bin</div><div class="line">    relay-log-purge=OFF</div><div class="line">    read-only=ON</div></pre></td></tr></table></figure>
+<pre><code>按上述要求分别配置好主
+从节点之后,按MySQL复制配置架构的配置方式将其配置完成并吂动
+master节点和各slave节点，以及各slave节点启动其IO和SQL线程，确保主从复制运行无误
+</code></pre><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">node1     mysql&gt; GRANT REPLICATION SLAVE,REPLICATION CLIENT ON *.* TO 'rj'@'172.16.%.%' IDENTIFIED BY 'centos.123' ;</div><div class="line">node(2,3) mysql&gt; CHANGE MASTER TO MASTER_HOST='172.16.23.11',MASTER_USER='rj',MASTER_PASSWORD='centos.123',MASTER_LOG_FILE='log-bin.000001',MASTER_LOG_POS=492;</div><div class="line">          mysql&gt; START SLAVE;</div><div class="line">          mysql&gt; SHOW SLAVE STATUS;</div><div class="line">              Slave_IO_Running: Yes</div><div class="line">              Slave_SQL_Running: Yes</div><div class="line">              # 以下两项是否为yes</div></pre></td></tr></table></figure>
+<pre><code>同时，也可以在主结点上创建个库或表，查看其是否可台实现主从同步； 
+而后，在所有MySQL节点授权拥有管理权限的用户可在本地网络中有其它节点上远程方问。
+当然，此时仅需要且只能在master节点运行类似如下SQL语句即可。
+</code></pre><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysql&gt;  GRANT ALL ON *.* to 'rjyy'@'172.16.%.%' IDENTIFIED BY 'centos.123';</div></pre></td></tr></table></figure>
+<h2 id="三、安装配置MHA"><a href="#三、安装配置MHA" class="headerlink" title="三、安装配置MHA"></a>三、安装配置MHA</h2><h3 id="准备基于ssh互信通信环境"><a href="#准备基于ssh互信通信环境" class="headerlink" title="准备基于ssh互信通信环境"></a>准备基于ssh互信通信环境</h3><pre><code>MHA集群中的各节点彼此之间均需基于ssh互信通信，以实现远程控制及数据管理功能。
+简单起见，可在Manager节点生成密钥对，并设置其可远程连接本地主机后，将私钥文件及authorized_keys文件复制给余下的所有结点即可。
+下面的的操作在manager（node0）节点操作完成。
+</code></pre><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># for i in &#123;0..3&#125; ; do scp -p .ssh/id_rsa .ssh/authorized_keys node$i:/root/.ssh/; done</span></div></pre></td></tr></table></figure>
+<h3 id="安装MHA"><a href="#安装MHA" class="headerlink" title="安装MHA"></a>安装MHA</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line">node0 <span class="comment"># yum install  mha4mysql-manager-0.56-0.el6.noarch.rpm mha4mysql-node-0.56-0.el6.noarch.rpm</span></div><div class="line">      <span class="comment">#  for i in &#123;1..3&#125;; do scp mha4mysql-node-0.56-0.el6.noarch.rpm node$i:/root/ ; done</span></div><div class="line">node(1,2,3) <span class="comment"># yum -y install  mha4mysql-node-0.56-0.el6.noarch.rpm    </span></div><div class="line">    [root@node0 ~]<span class="comment"># rpm -ql mha4mysql-manager</span></div><div class="line">    /usr/bin/masterha_check_repl</div><div class="line">    /usr/bin/masterha_check_ssh</div><div class="line">    /usr/bin/masterha_check_status</div><div class="line">    /usr/bin/masterha_conf_host</div><div class="line">    /usr/bin/masterha_manager</div><div class="line">    /usr/bin/masterha_master_monitor</div><div class="line">    /usr/bin/masterha_master_switch</div><div class="line">    /usr/bin/masterha_secondary_check</div><div class="line">    /usr/bin/masterha_stop                以上为可执行文件，就是上面所列出的命令</div><div class="line">    /usr/share/man/man1/masterha_check_repl.1.gz</div><div class="line">    /usr/share/man/man1/masterha_check_ssh.1.gz</div><div class="line">    /usr/share/man/man1/masterha_check_status.1.gz</div><div class="line">    /usr/share/man/man1/masterha_conf_host.1.gz</div><div class="line">    /usr/share/man/man1/masterha_manager.1.gz</div><div class="line">    /usr/share/man/man1/masterha_master_monitor.1.gz</div><div class="line">    /usr/share/man/man1/masterha_master_switch.1.gz</div><div class="line">    /usr/share/man/man1/masterha_secondary_check.1.gz</div><div class="line">    /usr/share/man/man1/masterha_stop.1.gz</div><div class="line">    /usr/share/perl5/vendor_perl/MHA/Config.pm</div><div class="line">    /usr/share/perl5/vendor_perl/MHA/DBHelper.pm</div><div class="line">    /usr/share/perl5/vendor_perl/MHA/FileStatus.pm</div><div class="line">    /usr/share/perl5/vendor_perl/MHA/HealthCheck.pm</div><div class="line">    /usr/share/perl5/vendor_perl/MHA/ManagerAdmin.pm</div><div class="line">    /usr/share/perl5/vendor_perl/MHA/ManagerAdminWrapper.pm</div><div class="line">    /usr/share/perl5/vendor_perl/MHA/ManagerConst.pm</div><div class="line">    /usr/share/perl5/vendor_perl/MHA/ManagerUtil.pm</div><div class="line">    /usr/share/perl5/vendor_perl/MHA/MasterFailover.pm</div><div class="line">    /usr/share/perl5/vendor_perl/MHA/MasterMonitor.pm</div><div class="line">    /usr/share/perl5/vendor_perl/MHA/MasterRotate.pm</div><div class="line">    /usr/share/perl5/vendor_perl/MHA/SSHCheck.pm</div><div class="line">    /usr/share/perl5/vendor_perl/MHA/Server.pm</div><div class="line">    /usr/share/perl5/vendor_perl/MHA/ServerManager.pm</div></pre></td></tr></table></figure>
+<pre><code>Manager节点需要为每个监控的master/slave集群提供一个专用的配置文件，而所有的master/salve集群也可共享全局
+配置。全局配置文件默认为/etc/masterha_default.cnf,其为可先配置。如果仅监控一组 master/slave集群，也可
+直接通过application的配置提供各服务器的默认配置信息。而每个application的配置文件路径为自定义，本示例将使用
+/etc/masterha/appl.cnf  
+</code></pre><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># vim /etc/masterha/appl.cnf</span></div><div class="line">  [server default]</div><div class="line">  user=rjrj</div><div class="line">  password=centos.123</div><div class="line">  manager_workdir=/data/masterha/app1</div><div class="line">  manager_log=/data/masterha/app1/manager.log</div><div class="line">  remote_workdir=/data/masterha/app1</div><div class="line">  ssh_user=root</div><div class="line">  repl_user=rjrj</div><div class="line">  repl_password=centos.123</div><div class="line">  ping_interval=1</div><div class="line"></div><div class="line">  [server1]</div><div class="line">  hostname=172.16.23.11</div><div class="line">  candidate_master=1</div><div class="line"></div><div class="line">  [server2]</div><div class="line">  hostname=172.16.23.12</div><div class="line">  candidate_master=1</div><div class="line"></div><div class="line">  [server3]</div><div class="line">  hostname=172.16.23.13</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">[root@node0 ~]<span class="comment"># masterha_check_ssh --conf=/etc/masterha/app1.cnf</span></div><div class="line">Tue Feb 21 23:13:48 2017 - [warning] Global configuration file /etc/masterha_default.cnf not found. Skipping.</div><div class="line">Tue Feb 21 23:13:48 2017 - [info] Reading application default configuration from /etc/masterha/app1.cnf..</div><div class="line">Tue Feb 21 23:13:48 2017 - [info] Reading server configuration from /etc/masterha/app1.cnf..</div><div class="line">Tue Feb 21 23:13:48 2017 - [info] Starting SSH connection tests..</div><div class="line">Tue Feb 21 23:13:49 2017 - [debug]</div><div class="line">Tue Feb 21 23:13:48 2017 - [debug]  Connecting via SSH from root@172.16.23.11(172.16.23.11:22) to root@172.16.23.12(172.16.23.12:22)..</div><div class="line">Tue Feb 21 23:13:48 2017 - [debug]   ok.</div><div class="line">Tue Feb 21 23:13:48 2017 - [debug]  Connecting via SSH from root@172.16.23.11(172.16.23.11:22) to root@172.16.23.13(172.16.23.13:22)..</div><div class="line">Tue Feb 21 23:13:48 2017 - [debug]   ok.</div><div class="line">Tue Feb 21 23:13:49 2017 - [debug]</div><div class="line">Tue Feb 21 23:13:48 2017 - [debug]  Connecting via SSH from root@172.16.23.12(172.16.23.12:22) to root@172.16.23.11(172.16.23.11:22)..</div><div class="line">Tue Feb 21 23:13:49 2017 - [debug]   ok.</div><div class="line">Tue Feb 21 23:13:49 2017 - [debug]  Connecting via SSH from root@172.16.23.12(172.16.23.12:22) to root@172.16.23.13(172.16.23.13:22)..</div><div class="line">Tue Feb 21 23:13:49 2017 - [debug]   ok.</div><div class="line">Tue Feb 21 23:13:50 2017 - [debug]</div><div class="line">Tue Feb 21 23:13:49 2017 - [debug]  Connecting via SSH from root@172.16.23.13(172.16.23.13:22) to root@172.16.23.11(172.16.23.11:22)..</div><div class="line">Tue Feb 21 23:13:49 2017 - [debug]   ok.</div><div class="line">Tue Feb 21 23:13:49 2017 - [debug]  Connecting via SSH from root@172.16.23.13(172.16.23.13:22) to root@172.16.23.12(172.16.23.12:22)..</div><div class="line">Tue Feb 21 23:13:50 2017 - [debug]   ok.</div><div class="line">Tue Feb 21 23:13:50 2017 - [info] All SSH connection tests passed successfully.</div></pre></td></tr></table></figure>
+<p> 最后显示为successfully表示已经成功了</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div></pre></td><td class="code"><pre><div class="line">[root@node0 ~]<span class="comment"># masterha_check_repl --conf=/etc/masterha/app1.cnf</span></div><div class="line">Wed Feb 22 10:18:40 2017 - [warning] Global configuration file /etc/masterha_default.cnf not found. Skipping.</div><div class="line">Wed Feb 22 10:18:40 2017 - [info] Reading application default configuration from /etc/masterha/app1.cnf..</div><div class="line">Wed Feb 22 10:18:40 2017 - [info] Reading server configuration from /etc/masterha/app1.cnf..</div><div class="line">Wed Feb 22 10:18:40 2017 - [info] MHA::MasterMonitor version 0.56.</div><div class="line">Wed Feb 22 10:18:41 2017 - [info] GTID failover mode = 0</div><div class="line">Wed Feb 22 10:18:41 2017 - [info] Dead Servers:</div><div class="line">Wed Feb 22 10:18:41 2017 - [info] Alive Servers:</div><div class="line">Wed Feb 22 10:18:41 2017 - [info]   172.16.23.11(172.16.23.11:3306)</div><div class="line">Wed Feb 22 10:18:41 2017 - [info]   172.16.23.12(172.16.23.12:3306)</div><div class="line">Wed Feb 22 10:18:41 2017 - [info]   172.16.23.13(172.16.23.13:3306)</div><div class="line">Wed Feb 22 10:18:41 2017 - [info] Alive Slaves:</div><div class="line">Wed Feb 22 10:18:41 2017 - [info]   172.16.23.12(172.16.23.12:3306)  Version=5.5.44-MariaDB-log (oldest major version between slaves) <span class="built_in">log</span>-bin:enabled</div><div class="line">Wed Feb 22 10:18:41 2017 - [info]     Replicating from 172.16.23.11(172.16.23.11:3306)</div><div class="line">Wed Feb 22 10:18:41 2017 - [info]     Primary candidate <span class="keyword">for</span> the new Master (candidate_master is <span class="built_in">set</span>)</div><div class="line">Wed Feb 22 10:18:41 2017 - [info]   172.16.23.13(172.16.23.13:3306)  Version=5.5.44-MariaDB-log (oldest major version between slaves) <span class="built_in">log</span>-bin:enabled</div><div class="line">Wed Feb 22 10:18:41 2017 - [info]     Replicating from 172.16.23.11(172.16.23.11:3306)</div><div class="line">Wed Feb 22 10:18:41 2017 - [info] Current Alive Master: 172.16.23.11(172.16.23.11:3306)</div><div class="line">Wed Feb 22 10:18:41 2017 - [info] Checking slave configurations..</div><div class="line">Wed Feb 22 10:18:41 2017 - [info] Checking replication filtering settings..</div><div class="line">Wed Feb 22 10:18:41 2017 - [info]  binlog_do_db= , binlog_ignore_db=</div><div class="line">Wed Feb 22 10:18:41 2017 - [info]  Replication filtering check ok.</div><div class="line">Wed Feb 22 10:18:41 2017 - [info] GTID (with auto-pos) is not supported</div><div class="line">Wed Feb 22 10:18:41 2017 - [info] Starting SSH connection tests..</div><div class="line">Wed Feb 22 10:18:43 2017 - [info] All SSH connection tests passed successfully.</div><div class="line">Wed Feb 22 10:18:43 2017 - [info] Checking MHA Node version..</div><div class="line">Wed Feb 22 10:18:48 2017 - [info]  Version check ok.</div><div class="line">Wed Feb 22 10:18:48 2017 - [info] Checking SSH publickey authentication settings on the current master..</div><div class="line">Wed Feb 22 10:18:48 2017 - [info] HealthCheck: SSH to 172.16.23.11 is reachable.</div><div class="line">Wed Feb 22 10:18:49 2017 - [info] Master MHA Node version is 0.56.</div><div class="line">Wed Feb 22 10:18:49 2017 - [info] Checking recovery script configurations on 172.16.23.11(172.16.23.11:3306)..</div><div class="line">Wed Feb 22 10:18:49 2017 - [info]   Executing <span class="built_in">command</span>: save_binary_logs --<span class="built_in">command</span>=<span class="built_in">test</span> --start_pos=4 --binlog_dir=/var/lib/mysql,/var/<span class="built_in">log</span>/mysql --output_file=/data/masterha/app1/save_binary_logs_test --manager_version=0.56 --start_file=<span class="built_in">log</span>-bin.000003</div><div class="line">Wed Feb 22 10:18:49 2017 - [info]   Connecting to root@172.16.23.11(172.16.23.11:22)..</div><div class="line">  Creating /data/masterha/app1 <span class="keyword">if</span> not exists.. Creating directory /data/masterha/app1.. <span class="keyword">done</span>.</div><div class="line">   ok.</div><div class="line">  Checking output directory is accessible or not..</div><div class="line">   ok.</div><div class="line">  Binlog found at /var/lib/mysql, up to <span class="built_in">log</span>-bin.000003</div><div class="line">Wed Feb 22 10:18:50 2017 - [info] Binlog setting check <span class="keyword">done</span>.</div><div class="line">Wed Feb 22 10:18:50 2017 - [info] Checking SSH publickey authentication and checking recovery script configurations on all alive slave servers..</div><div class="line">Wed Feb 22 10:18:50 2017 - [info]   Executing <span class="built_in">command</span> : apply_diff_relay_logs --<span class="built_in">command</span>=<span class="built_in">test</span> --slave_user=<span class="string">'rjyy'</span> --slave_host=172.16.23.12 --slave_ip=172.16.23.12 --slave_port=3306 --workdir=/data/masterha/app1 --target_version=5.5.44-MariaDB-log --manager_version=0.56 --relay_log_info=/var/lib/mysql/relay-log.info  --relay_dir=/var/lib/mysql/  --slave_pass=xxx</div><div class="line">Wed Feb 22 10:18:50 2017 - [info]   Connecting to root@172.16.23.12(172.16.23.12:22)..</div><div class="line">Creating directory /data/masterha/app1.. <span class="keyword">done</span>.</div><div class="line">  Checking slave recovery environment settings..</div><div class="line">    Opening /var/lib/mysql/relay-log.info ... ok.</div><div class="line">    Relay <span class="built_in">log</span> found at /var/lib/mysql, up to relay-bin.000009</div><div class="line">    Temporary relay <span class="built_in">log</span> file is /var/lib/mysql/relay-bin.000009</div><div class="line">    Testing mysql connection and privileges.. <span class="keyword">done</span>.</div><div class="line">    Testing mysqlbinlog output.. <span class="keyword">done</span>.</div><div class="line">    Cleaning up <span class="built_in">test</span> file(s).. <span class="keyword">done</span>.</div><div class="line">Wed Feb 22 10:18:51 2017 - [info]   Executing <span class="built_in">command</span> : apply_diff_relay_logs --<span class="built_in">command</span>=<span class="built_in">test</span> --slave_user=<span class="string">'rjyy'</span> --slave_host=172.16.23.13 --slave_ip=172.16.23.13 --slave_port=3306 --workdir=/data/masterha/app1 --target_version=5.5.44-MariaDB-log --manager_version=0.56 --relay_log_info=/var/lib/mysql/relay-log.info  --relay_dir=/var/lib/mysql/  --slave_pass=xxx</div><div class="line">Wed Feb 22 10:18:51 2017 - [info]   Connecting to root@172.16.23.13(172.16.23.13:22)..</div><div class="line">Creating directory /data/masterha/app1.. <span class="keyword">done</span>.</div><div class="line">  Checking slave recovery environment settings..</div><div class="line">    Opening /var/lib/mysql/relay-log.info ... ok.</div><div class="line">    Relay <span class="built_in">log</span> found at /var/lib/mysql, up to relay-bin.000007</div><div class="line">    Temporary relay <span class="built_in">log</span> file is /var/lib/mysql/relay-bin.000007</div><div class="line">    Testing mysql connection and privileges.. <span class="keyword">done</span>.</div><div class="line">    Testing mysqlbinlog output.. <span class="keyword">done</span>.</div><div class="line">    Cleaning up <span class="built_in">test</span> file(s).. <span class="keyword">done</span>.</div><div class="line">Wed Feb 22 10:18:52 2017 - [info] Slaves settings check <span class="keyword">done</span>.</div><div class="line">Wed Feb 22 10:18:52 2017 - [info]</div><div class="line">172.16.23.11(172.16.23.11:3306) (current master)</div><div class="line"> +--172.16.23.12(172.16.23.12:3306)</div><div class="line"> +--172.16.23.13(172.16.23.13:3306)</div><div class="line"></div><div class="line">Wed Feb 22 10:18:52 2017 - [info] Checking replication health on 172.16.23.12..</div><div class="line">Wed Feb 22 10:18:52 2017 - [info]  ok.</div><div class="line">Wed Feb 22 10:18:52 2017 - [info] Checking replication health on 172.16.23.13..</div><div class="line">Wed Feb 22 10:18:52 2017 - [info]  ok.</div><div class="line">Wed Feb 22 10:18:52 2017 - [warning] master_ip_failover_script is not defined.</div><div class="line">Wed Feb 22 10:18:52 2017 - [warning] shutdown_script is not defined.</div><div class="line">Wed Feb 22 10:18:52 2017 - [info] Got <span class="built_in">exit</span> code 0 (Not master dead).</div><div class="line"></div><div class="line">MySQL Replication Health is OK.</div></pre></td></tr></table></figure>
+<pre><code>检查管理的MySQL复制集群的连接配置参数是正常的；
+</code></pre><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># nohup masterha_manager --conf=/etc/masterha/app1.cnf &gt; /data/master/app1/manager.log 2&gt;&amp;1 &amp; </span></div><div class="line">   <span class="comment"># 让masterha_manager进程工作于后台</span></div></pre></td></tr></table></figure>
+<h2 id="四、开始测试"><a href="#四、开始测试" class="headerlink" title="四、开始测试"></a>四、开始测试</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">[root@node1 ~]<span class="comment"># systemctl stop mariadb # 让主服务器停掉；</span></div><div class="line">[root@node2 ~]<span class="comment"># mysql</span></div><div class="line">Welcome to the MariaDB monitor.  Commands end with ; or \g.</div><div class="line">Your MariaDB connection id is 50</div><div class="line">Server version: 5.5.44-MariaDB-log MariaDB Server</div><div class="line"></div><div class="line">Copyright (c) 2000, 2015, Oracle, MariaDB Corporation Ab and others.</div><div class="line"></div><div class="line">Type <span class="string">'help;'</span> or <span class="string">'\h'</span> <span class="keyword">for</span> <span class="built_in">help</span>. Type <span class="string">'\c'</span> to clear the current input statement.</div><div class="line"></div><div class="line">MariaDB [(none)]&gt; SHOW MASTER STATUS;</div><div class="line">+-------------------+----------+--------------+------------------+</div><div class="line">| File              | Position | Binlog_Do_DB | Binlog_Ignore_DB |</div><div class="line">+-------------------+----------+--------------+------------------+</div><div class="line">| master-bin.000005 |      245 |              |                  |</div><div class="line">+-------------------+----------+--------------+------------------+</div><div class="line">1 row <span class="keyword">in</span> <span class="built_in">set</span> (0.00 sec)</div><div class="line">MariaDB [(none)]&gt; SHOW SLAVE STATUS\G;</div><div class="line">Empty <span class="built_in">set</span> (0.00 sec)</div><div class="line"></div><div class="line">ERROR: No query specified</div></pre></td></tr></table></figure>
+<p>  此时node2被提升为主服务器 ,node3拉取数据走向node2</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div></pre></td><td class="code"><pre><div class="line">[11:12:41root@node3~]<span class="comment">#mysql</span></div><div class="line">Welcome to the MariaDB monitor.  Commands end with ; or \g.</div><div class="line">Your MariaDB connection id is 33</div><div class="line">Server version: 5.5.44-MariaDB-log MariaDB Server</div><div class="line"></div><div class="line">Copyright (c) 2000, 2015, Oracle, MariaDB Corporation Ab and others.</div><div class="line"></div><div class="line">Type <span class="string">'help;'</span> or <span class="string">'\h'</span> <span class="keyword">for</span> <span class="built_in">help</span>. Type <span class="string">'\c'</span> to clear the current input statement.</div><div class="line"></div><div class="line">MariaDB [(none)]&gt; SHOW SLAVE STATUS\G;</div><div class="line">*************************** 1. row ***************************</div><div class="line">               Slave_IO_State: Waiting <span class="keyword">for</span> master to send event</div><div class="line">                  Master_Host: 172.16.23.12</div><div class="line">                  Master_User: rj</div><div class="line">                  Master_Port: 3306</div><div class="line">                Connect_Retry: 60</div><div class="line">              Master_Log_File: master-bin.000008</div><div class="line">          Read_Master_Log_Pos: 245</div><div class="line">               Relay_Log_File: relay-bin.000002</div><div class="line">                Relay_Log_Pos: 530</div><div class="line">        Relay_Master_Log_File: master-bin.000008</div><div class="line">             Slave_IO_Running: Yes</div><div class="line">            Slave_SQL_Running: Yes</div><div class="line">              Replicate_Do_DB:</div><div class="line">          Replicate_Ignore_DB:</div><div class="line">           Replicate_Do_Table:</div><div class="line">       Replicate_Ignore_Table:</div><div class="line">      Replicate_Wild_Do_Table:</div><div class="line">  Replicate_Wild_Ignore_Table:</div><div class="line">                   Last_Errno: 0</div><div class="line">                   Last_Error:</div><div class="line">                 Skip_Counter: 0</div><div class="line">          Exec_Master_Log_Pos: 245</div><div class="line">              Relay_Log_Space: 818</div><div class="line">              Until_Condition: None</div><div class="line">               Until_Log_File:</div><div class="line">                Until_Log_Pos: 0</div><div class="line">           Master_SSL_Allowed: No</div><div class="line">           Master_SSL_CA_File:</div><div class="line">           Master_SSL_CA_Path:</div><div class="line">              Master_SSL_Cert:</div><div class="line">            Master_SSL_Cipher:</div><div class="line">               Master_SSL_Key:</div><div class="line">        Seconds_Behind_Master: 0</div><div class="line">Master_SSL_Verify_Server_Cert: No</div><div class="line">                Last_IO_Errno: 0</div><div class="line">                Last_IO_Error:</div><div class="line">               Last_SQL_Errno: 0</div><div class="line">               Last_SQL_Error:</div><div class="line">  Replicate_Ignore_Server_Ids:</div><div class="line">             Master_Server_Id: 2</div><div class="line">1 row <span class="keyword">in</span> <span class="built_in">set</span> (0.00 sec)</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>ღ ღ ღ 如果觉得文章对您有用，不妨打赏一下ღ ღ ღ</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/weipei.png" alt="锦遥 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/zhipei.png" alt="锦遥 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    锦遥
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://www.ssjinyao.com/2018/02/06/MariaDB之MHA配置/" title="MariaDB之MHA配置">https://www.ssjinyao.com/2018/02/06/MariaDB之MHA配置/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/rhca/" rel="tag"># rhca</a>
+          
+            <a href="/tags/linux/" rel="tag"># linux</a>
+          
+            <a href="/tags/database/" rel="tag"># database</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/01/30/CentOS-7-ELK-Elasticsearch-Logstash-Kibana-搭建/" rel="next" title="CentOS 7 ELK(Elasticsearch Logstash Kibana) 搭建">
+                <i class="fa fa-chevron-left"></i> CentOS 7 ELK(Elasticsearch Logstash Kibana) 搭建
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/02/07/keepalived双主模型的实现/" rel="prev" title="keepalived双主模型的实现">
+                keepalived双主模型的实现 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/rjyy.ico"
+                alt="锦遥" />
+            
+              <p class="site-author-name" itemprop="name">锦遥</p>
+              <p class="site-description motion-element" itemprop="description">有智而性缓者思大智
+
+</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">68</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+		  <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=174079&auto=1&height=66"></iframe>
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="http://wpa.qq.com/msgrd?v=3&uin=1922006891site=qq&menu=yes" target="_blank" title="我的QQ">
+                    
+                      <i class="fa fa-fw fa-qq"></i></a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://jf.ssjinyao.com/" title="狗江博客" target="_blank">狗江博客</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          <div style="">
+  <canvas id="canvas" style="width:60%;">当前浏览器不支持canvas，请更换浏览器后再试</canvas>
+  </div>
+  <script>
+  (function(){
+
+      var digit=
+	      [
+		          [
+				              [0,0,1,1,1,0,0],
+							              [0,1,1,0,1,1,0],
+										              [1,1,0,0,0,1,1],
+													              [1,1,0,0,0,1,1],
+																              [1,1,0,0,0,1,1],
+																			              [1,1,0,0,0,1,1],
+																						              [1,1,0,0,0,1,1],
+																									              [1,1,0,0,0,1,1],
+																												              [0,1,1,0,1,1,0],
+																															              [0,0,1,1,1,0,0]
+																																		          ],//0
+																																				          [
+																																						              [0,0,0,1,1,0,0],
+																																									              [0,1,1,1,1,0,0],
+																																												              [0,0,0,1,1,0,0],
+																																															              [0,0,0,1,1,0,0],
+																																																		              [0,0,0,1,1,0,0],
+																																																					              [0,0,0,1,1,0,0],
+																																																								              [0,0,0,1,1,0,0],
+																																																											              [0,0,0,1,1,0,0],
+																																																														              [0,0,0,1,1,0,0],
+																																																																	              [1,1,1,1,1,1,1]
+																																																																					          ],//1
+																																																																							          [
+																																																																										              [0,1,1,1,1,1,0],
+																																																																													              [1,1,0,0,0,1,1],
+																																																																																              [0,0,0,0,0,1,1],
+																																																																																			              [0,0,0,0,1,1,0],
+																																																																																						              [0,0,0,1,1,0,0],
+																																																																																									              [0,0,1,1,0,0,0],
+																																																																																												              [0,1,1,0,0,0,0],
+																																																																																															              [1,1,0,0,0,0,0],
+																																																																																																		              [1,1,0,0,0,1,1],
+																																																																																																					              [1,1,1,1,1,1,1]
+																																																																																																									          ],//2
+																																																																																																											          [
+																																																																																																														              [1,1,1,1,1,1,1],
+																																																																																																																	              [0,0,0,0,0,1,1],
+																																																																																																																				              [0,0,0,0,1,1,0],
+																																																																																																																							              [0,0,0,1,1,0,0],
+																																																																																																																										              [0,0,1,1,1,0,0],
+																																																																																																																													              [0,0,0,0,1,1,0],
+																																																																																																																																              [0,0,0,0,0,1,1],
+																																																																																																																																			              [0,0,0,0,0,1,1],
+																																																																																																																																						              [1,1,0,0,0,1,1],
+																																																																																																																																									              [0,1,1,1,1,1,0]
+																																																																																																																																													          ],//3
+																																																																																																																																															          [
+																																																																																																																																																		              [0,0,0,0,1,1,0],
+																																																																																																																																																					              [0,0,0,1,1,1,0],
+																																																																																																																																																								              [0,0,1,1,1,1,0],
+																																																																																																																																																											              [0,1,1,0,1,1,0],
+																																																																																																																																																														              [1,1,0,0,1,1,0],
+																																																																																																																																																																	              [1,1,1,1,1,1,1],
+																																																																																																																																																																				              [0,0,0,0,1,1,0],
+																																																																																																																																																																							              [0,0,0,0,1,1,0],
+																																																																																																																																																																										              [0,0,0,0,1,1,0],
+																																																																																																																																																																													              [0,0,0,1,1,1,1]
+																																																																																																																																																																																	          ],//4
+																																																																																																																																																																																			          [
+																																																																																																																																																																																						              [1,1,1,1,1,1,1],
+																																																																																																																																																																																									              [1,1,0,0,0,0,0],
+																																																																																																																																																																																												              [1,1,0,0,0,0,0],
+																																																																																																																																																																																															              [1,1,1,1,1,1,0],
+																																																																																																																																																																																																		              [0,0,0,0,0,1,1],
+																																																																																																																																																																																																					              [0,0,0,0,0,1,1],
+																																																																																																																																																																																																								              [0,0,0,0,0,1,1],
+																																																																																																																																																																																																											              [0,0,0,0,0,1,1],
+																																																																																																																																																																																																														              [1,1,0,0,0,1,1],
+																																																																																																																																																																																																																	              [0,1,1,1,1,1,0]
+																																																																																																																																																																																																																					          ],//5
+																																																																																																																																																																																																																							          [
+																																																																																																																																																																																																																										              [0,0,0,0,1,1,0],
+																																																																																																																																																																																																																													              [0,0,1,1,0,0,0],
+																																																																																																																																																																																																																																              [0,1,1,0,0,0,0],
+																																																																																																																																																																																																																																			              [1,1,0,0,0,0,0],
+																																																																																																																																																																																																																																						              [1,1,0,1,1,1,0],
+																																																																																																																																																																																																																																									              [1,1,0,0,0,1,1],
+																																																																																																																																																																																																																																												              [1,1,0,0,0,1,1],
+																																																																																																																																																																																																																																															              [1,1,0,0,0,1,1],
+																																																																																																																																																																																																																																																		              [1,1,0,0,0,1,1],
+																																																																																																																																																																																																																																																					              [0,1,1,1,1,1,0]
+																																																																																																																																																																																																																																																									          ],//6
+																																																																																																																																																																																																																																																											          [
+																																																																																																																																																																																																																																																														              [1,1,1,1,1,1,1],
+																																																																																																																																																																																																																																																																	              [1,1,0,0,0,1,1],
+																																																																																																																																																																																																																																																																				              [0,0,0,0,1,1,0],
+																																																																																																																																																																																																																																																																							              [0,0,0,0,1,1,0],
+																																																																																																																																																																																																																																																																										              [0,0,0,1,1,0,0],
+																																																																																																																																																																																																																																																																													              [0,0,0,1,1,0,0],
+																																																																																																																																																																																																																																																																																              [0,0,1,1,0,0,0],
+																																																																																																																																																																																																																																																																																			              [0,0,1,1,0,0,0],
+																																																																																																																																																																																																																																																																																						              [0,0,1,1,0,0,0],
+																																																																																																																																																																																																																																																																																									              [0,0,1,1,0,0,0]
+																																																																																																																																																																																																																																																																																													          ],//7
+																																																																																																																																																																																																																																																																																															          [
+																																																																																																																																																																																																																																																																																																		              [0,1,1,1,1,1,0],
+																																																																																																																																																																																																																																																																																																					              [1,1,0,0,0,1,1],
+																																																																																																																																																																																																																																																																																																								              [1,1,0,0,0,1,1],
+																																																																																																																																																																																																																																																																																																											              [1,1,0,0,0,1,1],
+																																																																																																																																																																																																																																																																																																														              [0,1,1,1,1,1,0],
+																																																																																																																																																																																																																																																																																																																	              [1,1,0,0,0,1,1],
+																																																																																																																																																																																																																																																																																																																				              [1,1,0,0,0,1,1],
+																																																																																																																																																																																																																																																																																																																							              [1,1,0,0,0,1,1],
+																																																																																																																																																																																																																																																																																																																										              [1,1,0,0,0,1,1],
+																																																																																																																																																																																																																																																																																																																													              [0,1,1,1,1,1,0]
+																																																																																																																																																																																																																																																																																																																																	          ],//8
+																																																																																																																																																																																																																																																																																																																																			          [
+																																																																																																																																																																																																																																																																																																																																						              [0,1,1,1,1,1,0],
+																																																																																																																																																																																																																																																																																																																																									              [1,1,0,0,0,1,1],
+																																																																																																																																																																																																																																																																																																																																												              [1,1,0,0,0,1,1],
+																																																																																																																																																																																																																																																																																																																																															              [1,1,0,0,0,1,1],
+																																																																																																																																																																																																																																																																																																																																																		              [0,1,1,1,0,1,1],
+																																																																																																																																																																																																																																																																																																																																																					              [0,0,0,0,0,1,1],
+																																																																																																																																																																																																																																																																																																																																																								              [0,0,0,0,0,1,1],
+																																																																																																																																																																																																																																																																																																																																																											              [0,0,0,0,1,1,0],
+																																																																																																																																																																																																																																																																																																																																																														              [0,0,0,1,1,0,0],
+																																																																																																																																																																																																																																																																																																																																																																	              [0,1,1,0,0,0,0]
+																																																																																																																																																																																																																																																																																																																																																																					          ],//9
+																																																																																																																																																																																																																																																																																																																																																																							          [
+																																																																																																																																																																																																																																																																																																																																																																										              [0,0,0,0,0,0,0],
+																																																																																																																																																																																																																																																																																																																																																																													              [0,0,1,1,1,0,0],
+																																																																																																																																																																																																																																																																																																																																																																																              [0,0,1,1,1,0,0],
+																																																																																																																																																																																																																																																																																																																																																																																			              [0,0,1,1,1,0,0],
+																																																																																																																																																																																																																																																																																																																																																																																						              [0,0,0,0,0,0,0],
+																																																																																																																																																																																																																																																																																																																																																																																									              [0,0,0,0,0,0,0],
+																																																																																																																																																																																																																																																																																																																																																																																												              [0,0,1,1,1,0,0],
+																																																																																																																																																																																																																																																																																																																																																																																															              [0,0,1,1,1,0,0],
+																																																																																																																																																																																																																																																																																																																																																																																																		              [0,0,1,1,1,0,0],
+																																																																																																																																																																																																																																																																																																																																																																																																					              [0,0,0,0,0,0,0]
+																																																																																																																																																																																																																																																																																																																																																																																																									          ]//:
+																																																																																																																																																																																																																																																																																																																																																																																																												      ];
+
+																																																																																																																																																																																																																																																																																																																																																																																																					  var canvas = document.getElementById('canvas');
+
+																																																																																																																																																																																																																																																																																																																																																																																																					  if(canvas.getContext){
+																																																																																																																																																																																																																																																																																																																																																																																																						      var cxt = canvas.getContext('2d');
+																																																																																																																																																																																																																																																																																																																																																																																																							      //声明canvas的宽高
+																																																																																																																																																																																																																																																																																																																																																																																																							      var H = 100,W = 700;
+																																																																																																																																																																																																																																																																																																																																																																																																								      canvas.height = H;
+																																																																																																																																																																																																																																																																																																																																																																																																									      canvas.width = W;
+																																																																																																																																																																																																																																																																																																																																																																																																										      cxt.fillStyle = '#f00';
+																																																																																																																																																																																																																																																																																																																																																																																																											      cxt.fillRect(10,10,50,50);
+
+																																																																																																																																																																																																																																																																																																																																																																																																												      //存储时间数据
+																																																																																																																																																																																																																																																																																																																																																																																																												      var data = [];
+																																																																																																																																																																																																																																																																																																																																																																																																													      //存储运动的小球
+																																																																																																																																																																																																																																																																																																																																																																																																													      var balls = [];
+																																																																																																																																																																																																																																																																																																																																																																																																														      //设置粒子半径
+																																																																																																																																																																																																																																																																																																																																																																																																														      var R = canvas.height/20-1;
+																																																																																																																																																																																																																																																																																																																																																																																																															      (function(){
+																																																																																																																																																																																																																																																																																																																																																																																																																           var temp = /(\d)(\d):(\d)(\d):(\d)(\d)/.exec(new Date());
+																																																																																																																																																																																																																																																																																																																																																																																																																		           //存储时间数字，由十位小时、个位小时、冒号、十位分钟、个位分钟、冒号、十位秒钟、个位秒钟这7个数字组成
+																																																																																																																																																																																																																																																																																																																																																																																																																		           data.push(temp[1],temp[2],10,temp[3],temp[4],10,temp[5],temp[6]);
+																																																																																																																																																																																																																																																																																																																																																																																																																				       })();
+
+																																																																																																																																																																																																																																																																																																																																																																																																																      /*生成点阵数字*/
+																																																																																																																																																																																																																																																																																																																																																																																																																      function renderDigit(index,num){
+																																																																																																																																																																																																																																																																																																																																																																																																																		          for(var i = 0; i < digit[num].length; i++){
+																																																																																																																																																																																																																																																																																																																																																																																																																					              for(var j = 0; j < digit[num][i].length; j++){
+																																																																																																																																																																																																																																																																																																																																																																																																																									                  if(digit[num][i][j] == 1){
+																																																																																																																																																																																																																																																																																																																																																																																																																														                      cxt.beginPath();
+																																																																																																																																																																																																																																																																																																																																																																																																																																			                      cxt.arc(14*(R+2)*index + j*2*(R+1)+(R+1),i*2*(R+1)+(R+1),R,0,2*Math.PI);
+																																																																																																																																																																																																																																																																																																																																																																																																																																								                      cxt.closePath();
+																																																																																																																																																																																																																																																																																																																																																																																																																																													                      cxt.fill();
+																																																																																																																																																																																																																																																																																																																																																																																																																																																		                  }
+																																																																																																																																																																																																																																																																																																																																																																																																																													              }
+																																																																																																																																																																																																																																																																																																																																																																																																																								          }
+																																																																																																																																																																																																																																																																																																																																																																																																																				      }
+
+																																																																																																																																																																																																																																																																																																																																																																																																																	      /*更新时钟*/
+																																																																																																																																																																																																																																																																																																																																																																																																																	      function updateDigitTime(){
+																																																																																																																																																																																																																																																																																																																																																																																																																			          var changeNumArray = [];
+																																																																																																																																																																																																																																																																																																																																																																																																																					          var temp = /(\d)(\d):(\d)(\d):(\d)(\d)/.exec(new Date());
+																																																																																																																																																																																																																																																																																																																																																																																																																							          var NewData = [];
+																																																																																																																																																																																																																																																																																																																																																																																																																									          NewData.push(temp[1],temp[2],10,temp[3],temp[4],10,temp[5],temp[6]);
+																																																																																																																																																																																																																																																																																																																																																																																																																											          for(var i = data.length-1; i >=0 ; i--){
+																																																																																																																																																																																																																																																																																																																																																																																																																														              //时间发生变化
+																																																																																																																																																																																																																																																																																																																																																																																																																														              if(NewData[i] !== data[i]){
+																																																																																																																																																																																																																																																																																																																																																																																																																																		                  //将变化的数字值和在data数组中的索引存储在changeNumArray数组中
+																																																																																																																																																																																																																																																																																																																																																																																																																																		                  changeNumArray.push(i+'_'+(Number(data[i])+1)%10);
+																																																																																																																																																																																																																																																																																																																																																																																																																																						              }
+																																																																																																																																																																																																																																																																																																																																																																																																																																	          }
+																																																																																																																																																																																																																																																																																																																																																																																																																													          //增加小球
+																																																																																																																																																																																																																																																																																																																																																																																																																													          for(var i = 0; i< changeNumArray.length; i++){
+																																																																																																																																																																																																																																																																																																																																																																																																																																              addBalls.apply(this,changeNumArray[i].split('_'));
+																																																																																																																																																																																																																																																																																																																																																																																																																																			          }
+																																																																																																																																																																																																																																																																																																																																																																																																																															          data = NewData.concat();
+																																																																																																																																																																																																																																																																																																																																																																																																																																	      }
+
+																																																																																																																																																																																																																																																																																																																																																																																																																		      /*更新小球状态*/
+																																																																																																																																																																																																																																																																																																																																																																																																																		      function updateBalls(){
+																																																																																																																																																																																																																																																																																																																																																																																																																				          for(var i = 0; i < balls.length; i++){
+																																																																																																																																																																																																																																																																																																																																																																																																																							              balls[i].stepY += balls[i].disY;
+																																																																																																																																																																																																																																																																																																																																																																																																																										              balls[i].x += balls[i].stepX;
+																																																																																																																																																																																																																																																																																																																																																																																																																													              balls[i].y += balls[i].stepY;
+																																																																																																																																																																																																																																																																																																																																																																																																																																              if(balls[i].x > W + R || balls[i].y > H + R){
+																																																																																																																																																																																																																																																																																																																																																																																																																																				                  balls.splice(i,1);
+																																																																																																																																																																																																																																																																																																																																																																																																																																								                  i--;
+																																																																																																																																																																																																																																																																																																																																																																																																																																												              }
+																																																																																																																																																																																																																																																																																																																																																																																																																																			          }
+																																																																																																																																																																																																																																																																																																																																																																																																																						      }
+
+																																																																																																																																																																																																																																																																																																																																																																																																																			      /*增加要运动的小球*/
+																																																																																																																																																																																																																																																																																																																																																																																																																			      function addBalls(index,num){
+																																																																																																																																																																																																																																																																																																																																																																																																																					          var numArray = [1,2,3];
+																																																																																																																																																																																																																																																																																																																																																																																																																							          var colorArray =  ["#3BE","#09C","#A6C","#93C","#9C0","#690","#FB3","#F80","#F44","#C00"];
+																																																																																																																																																																																																																																																																																																																																																																																																																									          for(var i = 0; i < digit[num].length; i++){
+																																																																																																																																																																																																																																																																																																																																																																																																																												              for(var j = 0; j < digit[num][i].length; j++){
+																																																																																																																																																																																																																																																																																																																																																																																																																																                  if(digit[num][i][j] == 1){
+																																																																																																																																																																																																																																																																																																																																																																																																																																					                      var ball = {
+																																																																																																																																																																																																																																																																																																																																																																																																																																											                          x:14*(R+2)*index + j*2*(R+1)+(R+1),
+																																																																																																																																																																																																																																																																																																																																																																																																																																																		                        y:i*2*(R+1)+(R+1),
+																																																																																																																																																																																																																																																																																																																																																																																																																																																								                        stepX:Math.floor(Math.random() * 4 -2),
+																																																																																																																																																																																																																																																																																																																																																																																																																																																														                        stepY:-2*numArray[Math.floor(Math.random()*numArray.length)],
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																				                        color:colorArray[Math.floor(Math.random()*colorArray.length)],
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																										                        disY:1
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																	                    };
+																																																																																																																																																																																																																																																																																																																																																																																																																																										                      balls.push(ball);
+																																																																																																																																																																																																																																																																																																																																																																																																																																															                  }
+																																																																																																																																																																																																																																																																																																																																																																																																																																				              }
+																																																																																																																																																																																																																																																																																																																																																																																																																															          }
+																																																																																																																																																																																																																																																																																																																																																																																																																											      }
+
+																																																																																																																																																																																																																																																																																																																																																																																																																				      /*渲染*/
+																																																																																																																																																																																																																																																																																																																																																																																																																				      function render(){
+																																																																																																																																																																																																																																																																																																																																																																																																																						          //重置画布宽度，达到清空画布的效果
+																																																																																																																																																																																																																																																																																																																																																																																																																						          canvas.height = 100;
+																																																																																																																																																																																																																																																																																																																																																																																																																								          //渲染时钟
+																																																																																																																																																																																																																																																																																																																																																																																																																								          for(var i = 0; i < data.length; i++){
+																																																																																																																																																																																																																																																																																																																																																																																																																											              renderDigit(i,data[i]);
+																																																																																																																																																																																																																																																																																																																																																																																																																														          }
+																																																																																																																																																																																																																																																																																																																																																																																																																										          //渲染小球
+																																																																																																																																																																																																																																																																																																																																																																																																																										          for(var i = 0; i < balls.length; i++){
+																																																																																																																																																																																																																																																																																																																																																																																																																													              cxt.beginPath();
+																																																																																																																																																																																																																																																																																																																																																																																																																																              cxt.arc(balls[i].x,balls[i].y,R,0,2*Math.PI);
+																																																																																																																																																																																																																																																																																																																																																																																																																																			              cxt.fillStyle = balls[i].color;
+																																																																																																																																																																																																																																																																																																																																																																																																																																						              cxt.closePath();
+																																																																																																																																																																																																																																																																																																																																																																																																																																									              cxt.fill();
+																																																																																																																																																																																																																																																																																																																																																																																																																																												          }
+																																																																																																																																																																																																																																																																																																																																																																																																																												      }
+
+																																																																																																																																																																																																																																																																																																																																																																																																																					      clearInterval(oTimer);
+																																																																																																																																																																																																																																																																																																																																																																																																																						      var oTimer = setInterval(function(){
+																																																																																																																																																																																																																																																																																																																																																																																																																									          //更新时钟
+																																																																																																																																																																																																																																																																																																																																																																																																																									          updateDigitTime();
+																																																																																																																																																																																																																																																																																																																																																																																																																											          //更新小球状态
+																																																																																																																																																																																																																																																																																																																																																																																																																											          updateBalls();
+																																																																																																																																																																																																																																																																																																																																																																																																																													          //渲染
+																																																																																																																																																																																																																																																																																																																																																																																																																													          render();
+																																																																																																																																																																																																																																																																																																																																																																																																																															      },50);
+																																																																																																																																																																																																																																																																																																																																																																																																					  }
+
+  })();
+</script>
+
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#工作拓扑"><span class="nav-number">1.</span> <span class="nav-text">工作拓扑</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一、MHA简明"><span class="nav-number">2.</span> <span class="nav-text">一、MHA简明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、MHA-组件"><span class="nav-number">3.</span> <span class="nav-text">二、MHA 组件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、准备MySQL-Replicatin环境"><span class="nav-number">4.</span> <span class="nav-text">三、准备MySQL Replicatin环境</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#同步主机"><span class="nav-number">4.1.</span> <span class="nav-text">同步主机</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#初始主节点的master配置"><span class="nav-number">4.2.</span> <span class="nav-text">初始主节点的master配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#所有slave节点依赖的配置"><span class="nav-number">4.3.</span> <span class="nav-text">所有slave节点依赖的配置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、安装配置MHA"><span class="nav-number">5.</span> <span class="nav-text">三、安装配置MHA</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#准备基于ssh互信通信环境"><span class="nav-number">5.1.</span> <span class="nav-text">准备基于ssh互信通信环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装MHA"><span class="nav-number">5.2.</span> <span class="nav-text">安装MHA</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、开始测试"><span class="nav-number">6.</span> <span class="nav-text">四、开始测试</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+
+<!-- 数字雨 -->
+<canvas id="canvas" width="1440" height="1080"></canvas>
+<script type="text/javascript" src="/js/DigitalRain.js"></script>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; 2015 &mdash; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">锦遥</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">167.3k</span>
+  
+  <span>   |   </span>
+<span id="showDays"></span>
+</div>
+
+
+
+
+
+
+
+
+<div>
+<a href="http://www.beian.miit.gov.cn">晋ICP备17010575号</a>
+</div>
+<!-- time -->
+<div id="show-time">
+<span id="span_dt_dt"></span>
+</div>
+<script>
+var seconds = 1000;
+var minutes = seconds * 60;
+var hours = minutes * 60;
+var days = hours * 24;
+var years = days * 365;
+var birthDay = Date.UTC(2017,07,30,00,00,00); // 这里设置建站时间
+setInterval(function() {
+var today = new Date();
+var todayYear = today.getFullYear();
+var todayMonth = today.getMonth()+1;
+var todayDate = today.getDate();
+var todayHour = today.getHours();
+var todayMinute = today.getMinutes();
+var todaySecond = today.getSeconds();
+var now = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+var diff = now - birthDay;
+var diffYears = Math.floor(diff/years);
+var diffDays = Math.floor((diff/days)-diffYears*365);
+var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+  document.getElementById('showDays').innerHTML="不間斷的運行了"+diffYears+" 年 "+diffDays+" 天 "+diffHours+" 時 "+diffMinutes+" 分 "+diffSeconds+" 秒 ";
+}, 1000);
+</script>
+
+        
+<div class="busuanzi-count">
+#  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 訪客數
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      位
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>  訪客量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+<script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
+<script type="text/javascript" src="/js/src/clipboard-use.js"></script>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://www.ssjinyao.com/2018/02/06/MariaDB之MHA配置/';
+          this.page.identifier = '2018/02/06/MariaDB之MHA配置/';
+          this.page.title = 'MariaDB之MHA配置';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine@1.1.6/dist/Valine.min.js"></script>
+  <script type="text/javascript">
+    new Valine({
+        av: AV,
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        app_id: 'NkJqMpxu4QlRLhPIHipNUHF1-gzGzoHsz',
+        app_key: 'D2vTdueKJ8ammc2JEdje0vLW',
+        placeholder: 'From SSJinYao'
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'true') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  <!-- 点击特效 -->
+<canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas>
+<script type="text/javascript" src="/js/src/fireworks.js"></script>
+
+
+  <script src="/js/activate-power-mode.min.js"></script>
+    <script>
+	    POWERMODE.colorful = true;
+    POWERMODE.shake = false;
+    document.body.addEventListener('input', POWERMODE);
+	  </script>
+
+
+  
+<script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
+<script type="text/javascript" src="/js/src/clipboard-use.js"></script>
+<!--点击冒点-->
+<canvas width="1777" height="841" style="position: fixed; left: 0px; top: 0px; z-index: 2147483647; pointer-events: none;"></canvas>
+<script src="/js/maodian.js"></script>
+<canvas width="1390" height="797" style="position: fixed; left: 0px; top: 0px; z-index: 2147483647; pointer-events: none;"></canvas>
+</body>
+</html>

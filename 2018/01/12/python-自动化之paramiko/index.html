@@ -1,0 +1,1729 @@
+<!DOCTYPE html>
+
+
+
+  
+
+<!-- 代码块复制功能 -->
+<script src="/live2d-widget/autoload.js"></script>
+<script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
+<script type="text/javascript" src="/js/src/clipboard-use.js"></script>
+<script src="/js/instantclick-1.2.2.js" type="module"></script>
+<!--崩溃欺骗-->
+<script type="text/javascript" src="/js/src/crash_cheat.js"></script>
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="https://fonts.cat.net/css?family=Lato:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|Roboto Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/redhat.ico?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/redhat.ico?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/redihat.ico?v=5.1.3" color="#0000EE">
+
+
+  <link rel="manifest" href="/images/manifest.json">
+
+
+  <meta name="msapplication-config" content="/images/browserconfig.xml" />
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="逝水锦遥" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="简介 paramiko 是基于Python实现的SSH2远程安全连接，支支认证及密钥方式 。可以实现远程命令执行;文件传输、中间SSH代理等功能，相对于Pexpect，封装的层次更高，更贴近SSH协议的功能;    paramiko 的安装1、 paramiko 支持pip、 easy_install 或者源安装方式，很方便解决依赖的问题，具体安装命令如下;    12# pip easy_ins">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python 自动化之paramiko">
+<meta property="og:url" content="https://www.ssjinyao.com/2018/01/12/python-自动化之paramiko/index.html">
+<meta property="og:site_name" content="逝水锦遥">
+<meta property="og:description" content="简介 paramiko 是基于Python实现的SSH2远程安全连接，支支认证及密钥方式 。可以实现远程命令执行;文件传输、中间SSH代理等功能，相对于Pexpect，封装的层次更高，更贴近SSH协议的功能;    paramiko 的安装1、 paramiko 支持pip、 easy_install 或者源安装方式，很方便解决依赖的问题，具体安装命令如下;    12# pip easy_ins">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-01-12T10:36:10.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="python 自动化之paramiko">
+<meta name="twitter:description" content="简介 paramiko 是基于Python实现的SSH2远程安全连接，支支认证及密钥方式 。可以实现远程命令执行;文件传输、中间SSH代理等功能，相对于Pexpect，封装的层次更高，更贴近SSH协议的功能;    paramiko 的安装1、 paramiko 支持pip、 easy_install 或者源安装方式，很方便解决依赖的问题，具体安装命令如下;    12# pip easy_ins">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="https://www.ssjinyao.com/2018/01/12/python-自动化之paramiko/"/>
+
+
+
+
+
+  <title>python 自动化之paramiko | 逝水锦遥</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta custom-logo">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">逝水锦遥</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">心有所向 将有所成</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-所有文章">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-linux"></i> <br />
+            
+            所有文章
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-python">
+          <a href="/./tags/program" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-gitlab"></i> <br />
+            
+            python
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-运维组件">
+          <a href="/./tags/rhca" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            运维组件
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-数据库">
+          <a href="/./tags/database" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-database"></i> <br />
+            
+            数据库
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-云计算">
+          <a href="/./tags/cloud" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-cloud"></i> <br />
+            
+            云计算
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-成自考">
+          <a href="/./tags/zikao" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-drupal"></i> <br />
+            
+            成自考
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-个人中心">
+          <a href="/./tags/renjin" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user-circle"></i> <br />
+            
+            个人中心
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索文章
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.ssjinyao.com/2018/01/12/python-自动化之paramiko/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="锦遥">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/rjyy.ico">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="逝水锦遥">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">python 自动化之paramiko</h1>
+        
+
+        <div class="post-meta">
+		          
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-12T15:50:25+08:00">
+                2018-01-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/01/12/python-自动化之paramiko/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/01/12/python-自动化之paramiko/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>  浏览
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.8k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  8
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><blockquote>
+<p>paramiko 是基于Python实现的SSH2远程安全连接，支支认证及密钥方式 。可以实现远程命令执行;<br>文件传输、中间SSH代理等功能，相对于Pexpect，封装的层次更高，更贴近SSH协议的功能;  </p>
+</blockquote>
+<h2 id="paramiko-的安装"><a href="#paramiko-的安装" class="headerlink" title="paramiko 的安装"></a>paramiko 的安装</h2><p>1、 paramiko 支持pip、 easy_install 或者源安装方式，很方便解决依赖的问题，具体安装命令如下;   </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># pip easy_install paramiko</span></div><div class="line"><span class="comment"># easy_install paramiko</span></div></pre></td></tr></table></figure>
+<p>2、 paramiko 依赖第三方的Crypto、Ecdsa包及Python开发包python-devel的支持，源码如下;  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># yum -y install python-devel </span></div><div class="line"><span class="comment"># wget http://ftp.dlitz.net/pub/dlitz/crypto/pycrypto/pycrypto-2.6.tar.gz</span></div><div class="line"><span class="comment"># tar -zxvf pycrypto-2.6.tar.gz</span></div><div class="line"><span class="comment"># cd pycrypto-2.6</span></div><div class="line"><span class="comment"># python setup.py install</span></div><div class="line"><span class="comment"># cd ..</span></div><div class="line"><span class="comment"># wget https://pypi.python.org/packages/source/e/ecdsa/ecdsa-0.10.tar.gz --no-check-certificate </span></div><div class="line"><span class="comment"># tar -zxvf ecdsa-0.10.tar.gz</span></div><div class="line"><span class="comment"># cd ecdsa-0.10</span></div><div class="line"><span class="comment"># python setup.py install </span></div><div class="line"><span class="comment"># cd ..</span></div><div class="line"><span class="comment"># git clone https://github.com/paramiko/paramiko.git</span></div><div class="line"><span class="comment"># cd paramiko</span></div><div class="line"><span class="comment"># python setup.py install</span></div></pre></td></tr></table></figure>
+<p>3、 校验安装结果，导入模块 没有提示异常，则说明该包安装成功;   </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">➜  ~ ipython</div><div class="line">Python <span class="number">2.7</span><span class="number">.14</span> (default, Sep <span class="number">25</span> <span class="number">2017</span>, <span class="number">09</span>:<span class="number">53</span>:<span class="number">22</span>) </div><div class="line">Type <span class="string">"copyright"</span>, <span class="string">"credits"</span> <span class="keyword">or</span> <span class="string">"license"</span> <span class="keyword">for</span> more information.</div><div class="line"></div><div class="line">IPython <span class="number">5.5</span><span class="number">.0</span> -- An enhanced Interactive Python.</div><div class="line">?         -&gt; Introduction and overview of IPython's features.</div><div class="line">%quickref -&gt; Quick reference.</div><div class="line">help      -&gt; Python's own help system.</div><div class="line">object?   -&gt; Details about 'object', use 'object??' for extra details.</div><div class="line"></div><div class="line">In [<span class="number">1</span>]: <span class="keyword">import</span> paramiko </div><div class="line"></div><div class="line">In [<span class="number">2</span>]:</div></pre></td></tr></table></figure>
+<p>4、使用密码认证方式，通过exec_command()方法执行命令;   </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">➜  test cat paramiko_ssh.py </div><div class="line"><span class="comment">#!/usr/bin/env python </span></div><div class="line"><span class="comment"># -*- coding: utf-8 -*-</span></div><div class="line"><span class="keyword">import</span> paramiko</div><div class="line"></div><div class="line">hostname = <span class="string">'192.168.0.78'</span></div><div class="line">username = <span class="string">'root'</span></div><div class="line">password = <span class="string">'paramiko_test*5'</span></div><div class="line">paramiko.util.log_to_file(<span class="string">'syslogin.log'</span>) <span class="comment"># 发送paramiko 日志到syslog 文件</span></div><div class="line">ssh=paramiko.SSHClient() <span class="comment"># 创建一个ssh客户端 client对象</span></div><div class="line">ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())</div><div class="line">ssh.load_system_host_keys()</div><div class="line"><span class="comment"># 获取客户端host_keys，默认 ~/.ssh/known_hosts</span></div><div class="line"><span class="comment">#ssh.load_system_host_keys(filname='/Users/macbookdzsbe/.ssh/known_hosts')  # 获取客户端host_keys，默认 ~/.ssh/known_hosts</span></div><div class="line"><span class="comment"># ssh.load_host_keys(filename='/root/.ssh/known_hosts')</span></div><div class="line">ssh.connect(hostname=hostname,username=username,password=password)<span class="comment"># 创建ssh连接</span></div><div class="line">stdin,stdout,stderr=ssh.exec_command(<span class="string">'netstat -tnlup'</span>) <span class="comment">#调用远程执行命令方法exec_command</span></div><div class="line"><span class="comment"># 打印命令执行结果，得到Pyhton列表形，可以使用stdout.readlines()</span></div><div class="line"><span class="keyword">print</span> stdout.read()</div><div class="line">stdin,stdout,stderr=ssh.exec_command(<span class="string">'date'</span>)</div><div class="line"><span class="keyword">print</span> stdout.readlines()</div><div class="line">ssh.close <span class="comment"># 关闭 ssh 连接</span></div><div class="line">➜  test python paramiko_ssh.py </div><div class="line">Active Internet connections (only servers)</div><div class="line">Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name    </div><div class="line">tcp        <span class="number">0</span>      <span class="number">0</span> <span class="number">0.0</span><span class="number">.0</span><span class="number">.0</span>:<span class="number">22</span>              <span class="number">0.0</span><span class="number">.0</span><span class="number">.0</span>:*               LISTEN      <span class="number">885</span>/sshd            </div><div class="line">tcp        <span class="number">0</span>      <span class="number">0</span> <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">25</span>            <span class="number">0.0</span><span class="number">.0</span><span class="number">.0</span>:*               LISTEN      <span class="number">1341</span>/master         </div><div class="line">tcp        <span class="number">0</span>      <span class="number">0</span> <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">27017</span>         <span class="number">0.0</span><span class="number">.0</span><span class="number">.0</span>:*               LISTEN      <span class="number">18341</span>/mongod        </div><div class="line">tcp        <span class="number">0</span>      <span class="number">0</span> <span class="number">0.0</span><span class="number">.0</span><span class="number">.0</span>:<span class="number">3306</span>            <span class="number">0.0</span><span class="number">.0</span><span class="number">.0</span>:*               LISTEN      <span class="number">1266</span>/mysqld         </div><div class="line">tcp6       <span class="number">0</span>      <span class="number">0</span> :::<span class="number">22</span>                   :::*                    LISTEN      <span class="number">885</span>/sshd            </div><div class="line">tcp6       <span class="number">0</span>      <span class="number">0</span> ::<span class="number">1</span>:<span class="number">25</span>                  :::*                    LISTEN      <span class="number">1341</span>/master         </div><div class="line">udp        <span class="number">0</span>      <span class="number">0</span> <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">323</span>           <span class="number">0.0</span><span class="number">.0</span><span class="number">.0</span>:*                           <span class="number">624</span>/chronyd         </div><div class="line">udp6       <span class="number">0</span>      <span class="number">0</span> ::<span class="number">1</span>:<span class="number">323</span>                 :::*                                <span class="number">624</span>/chronyd         </div><div class="line"></div><div class="line">[<span class="string">u'2018\u5e74 01\u6708 12\u65e5 \u661f\u671f\u4e94 16:50:33 CST\n'</span>]</div></pre></td></tr></table></figure>
+<p>5、 paramiko 的核组件</p>
+<blockquote>
+<p>paramiko 包含两个核心组件，一个为SSHClient类，另一个为SFTPClient类 </p>
+</blockquote>
+<p>6、 SSHClient类 </p>
+<blockquote>
+<p>SSHClient类是SSH服务会话的高级表示，该类封装了传输(transport)、通道(channel)<br>及SFTPClient的检验、建立的方法，通常用于执行远程命令</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 例 </span></div><div class="line">client = SSHClient() </div><div class="line">client.load_system_host_keys()</div><div class="line">client.connect(<span class="string">'ssh.example.com'</span>)</div><div class="line">stdin, stdout, stderr = client.exec_command(<span class="string">'ls -l'</span>)</div></pre></td></tr></table></figure>
+<h2 id="SSHClient类方法使用"><a href="#SSHClient类方法使用" class="headerlink" title="SSHClient类方法使用"></a>SSHClient类方法使用</h2><p>1、 connect 方法</p>
+<blockquote>
+<p>connect 方法实现了远程SSH连接并检验</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 方法定义</span></div><div class="line">connect(self, hostname, port=<span class="number">22</span>, username=<span class="keyword">None</span>, password=<span class="keyword">None</span>, pkey=<span class="keyword">None</span>,</div><div class="line">key_filename=<span class="keyword">None</span>, timeout=<span class="keyword">None</span>, allow_agent=<span class="keyword">True</span>, look_for_keys=<span class="keyword">True</span>, compress=<span class="keyword">False</span>)</div><div class="line"><span class="comment"># 参数说明</span></div><div class="line"><span class="comment"># hostname (str类型)，连接的目标主机地址；</span></div><div class="line"><span class="comment"># prot (int 类型)，连接目录主机的端口，默认为22;  </span></div><div class="line"><span class="comment"># username (str 类型), 校验的用户名 (默认为当前的本地用户名);  </span></div><div class="line"><span class="comment"># password (str 类型), 密码用于身份检验或解锁私钥; </span></div><div class="line"><span class="comment"># pkey (PKey 类型), 私钥方式用于身份难; </span></div><div class="line"><span class="comment"># key_filename(str or list(str) 类型),一个文件名或者文件名的列表，用于私钥的身份验证;</span></div><div class="line"><span class="comment"># timeout (float 类型),一个可选 的超时时间(以秒为单位)的TCP连接;</span></div><div class="line"><span class="comment"># allow_agent (bool 类型)，设置为False时用于禁用连接到SSH代理; </span></div><div class="line"><span class="comment"># look_for_keys (bool 类型)，设置False时用来禁用在~/.ssh中搜索私钥文件; </span></div><div class="line"><span class="comment"># compress (bool 类型), 设置为True时打开压缩</span></div></pre></td></tr></table></figure>
+<p>2、 exec_command 方法</p>
+<blockquote>
+<p>远程命令执行方法，该命令的输入与输出流为标准输入(stdin)、输出(stdout)、错误(stderr)</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 方法定义 </span></div><div class="line">exec_command(self, command, bufsize=<span class="number">-1</span>)</div><div class="line"><span class="comment"># 参数说明</span></div><div class="line"><span class="comment"># command (str 类型), 执行的命令串;</span></div><div class="line"><span class="comment"># bufsize (int 类型), 文件缓冲区大小，默认为-1（不局限）;</span></div></pre></td></tr></table></figure>
+<p>3、loa_syste_host_keys 方法 </p>
+<blockquote>
+<p>加载本地公钥校验文件，默认为~/.ssh/known_hosts，非默认路径需要手工指定;  </p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">load_system_host_keys(self, filename=<span class="keyword">None</span>)</div><div class="line"></div><div class="line"><span class="comment"># 参数说明</span></div><div class="line">fiename(str类型 ),指定远程主机公钥记录文件;</div></pre></td></tr></table></figure>
+<p>4、 set_missing_host_key_policy 方法</p>
+<blockquote>
+<p>设置连接的远程主机没有本地主机密钥或HostKeys对象时的策略，目前支持三种<br>分别是 AutoAddPolicy、RejectPolicy(默认),WarnningPolicy，仅限于SSHClient类  </p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 使用方法如下</span></div><div class="line">ssh=paramiko.SSHClient() </div><div class="line">ssh.set_missing_host_keypolicy(paramiko.AutoAddPolicy)</div><div class="line"></div><div class="line"><span class="comment"># AutoAddPolicy,自动添加主机名及主机密钥到本地HostKeys对象，并将其保存</span></div><div class="line"><span class="comment"># 不依赖load_system_host_keys()的配置，即使 ~/.ssh/known_hosts不存在也不产生影响  </span></div><div class="line"><span class="comment"># RejectPolicy,自动拒绝未知的主机名和密钥，依赖load_system_host_keys()的配置</span></div><div class="line"><span class="comment"># WarningPolicy,用于记录一个未知的主机密钥的Python警告并接受它，功能上与AutoAddPolicy相似</span></div><div class="line"><span class="comment"># 但区别在于，未知的主机会有警告</span></div></pre></td></tr></table></figure>
+<h2 id="SFTPClient类"><a href="#SFTPClient类" class="headerlink" title="SFTPClient类"></a>SFTPClient类</h2><blockquote>
+<p>SFTPClient 作为一个SFTP客户端对象,根据SSH传输协议的sftp会话，实现远客程文件操作<br>比如文件上传、下载、权限、状态等操作; </p>
+</blockquote>
+<p>1、 from_transport 方法</p>
+<blockquote>
+<p>创建一个已连接通的SFTP客户端通道;  </p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 方法定义 </span></div><div class="line">from_transport(cls, t)</div><div class="line"><span class="comment"># 参数说明</span></div><div class="line">t(Transport),一个已经通过验证的传输对象。</div><div class="line">t = paramiko.Transport((<span class="string">"192.168.0.78"</span>, <span class="number">22</span>))</div><div class="line">t.connect(username=<span class="string">"root"</span>,password=<span class="string">"paramiko_test*5"</span>)</div><div class="line">sftp =paramiko.SFTPClient.from_transport(t)</div></pre></td></tr></table></figure>
+<p>2、 put 方法 </p>
+<blockquote>
+<p>上传本地文件到远程SFTP服务端;  </p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">put(self, localpath, remotepath, callback=<span class="keyword">None</span>, confirm=<span class="keyword">True</span>)</div><div class="line"><span class="comment"># 参数说明</span></div><div class="line"><span class="comment"># localpath (str 类型)，需上传的本地文件(源);</span></div><div class="line"><span class="comment"># remotepath (str 类型),远程路径(目标); </span></div><div class="line"><span class="comment"># collback(functioin(int,int))，获取已接收的字字数及总传输字节数，以便回调函数高用,默认为None;  </span></div><div class="line"><span class="comment"># connfirm (bool类型),文件上传完毕后是否调用 stat()方法，以便确认文件的大小。 </span></div><div class="line">localpath=<span class="string">'/var/log/httpd/access.log'</span></div><div class="line">remotepath=<span class="string">'/data/bak/log/httpd/access.log'</span></div><div class="line">sftp.put(localpath,remotepath)</div></pre></td></tr></table></figure>
+<p>3、 get方法</p>
+<blockquote>
+<p>从远程SFTP服务端下载文件到本地;  </p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">get(self, remotepth, localpath, callbak=<span class="keyword">None</span>)</div><div class="line"><span class="comment"># 参数说明</span></div><div class="line"><span class="comment"># remotepath (str类型)，需下载的远程文件 (源文件); </span></div><div class="line"><span class="comment"># localpath (str类型)，本地路径(目标);</span></div><div class="line"><span class="comment"># callback(function(int, int)),获取已接收的字节数及总传输字节数，以便回调函数及调用，默认为None</span></div><div class="line">remotepath=<span class="string">'/var/log/httpd/access.og'</span></div><div class="line">localpath=<span class="string">'/data/bak/log/httpd/access.log'</span></div><div class="line">sftp.get(remotepath,localpath)</div></pre></td></tr></table></figure>
+<p>4、其他方法</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">mkdir，在SFTP服务器端创建目录，如sftp.mkdir(<span class="string">"/home/testdir"</span>,<span class="number">0700</span>)</div><div class="line">remove, 删除SFTP服务端创指定目录，如sftp.remove(<span class="string">"/home/testdir"</span>)</div><div class="line">rename, 重命名SFTP服务器端文件或目录，如sftp.rename(<span class="string">"/home/testdir"</span>,<span class="string">"/home/test"</span>)</div><div class="line">state, 获取远程SFTP服务器指定文件信息，如sftp.stat(<span class="string">"/home/test"</span>) </div><div class="line">listdir, 获取远程SFTP服务器端指定目录列表, 以Python的(List)形式返回, 如sftp.listdir(<span class="string">"/home"</span>)</div></pre></td></tr></table></figure>
+<p>5、SFTPClient类应用示例</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#!/usr/bin/env python </span></div><div class="line"><span class="comment"># -*- coding: utf-8 -*-</span></div><div class="line"><span class="keyword">import</span> paramiko</div><div class="line"><span class="keyword">import</span> os</div><div class="line">username = <span class="string">"root"</span></div><div class="line">password = <span class="string">"paramiko_test*5"</span></div><div class="line">hostname = <span class="string">"10.180.55.118"</span></div><div class="line">port = <span class="number">22</span></div><div class="line"></div><div class="line"><span class="keyword">try</span>:</div><div class="line">	t = paramiko.Transport((hostname, port))</div><div class="line">	t.connect(username=username, password=password)</div><div class="line">	sftp =paramiko.SFTPClient.from_transport(t)</div><div class="line">	</div><div class="line">	sftp.put(<span class="string">"/tmp/next.vim.log"</span>, <span class="string">"/home/root/next.vim.log"</span>) <span class="comment">#上传文件 </span></div><div class="line">	sftp.get(<span class="string">"/etc/hosts"</span>, <span class="string">"/tmp/hosts"</span>) <span class="comment">#下载文件 </span></div><div class="line">	sftp.mkdir(<span class="string">"/home/testdir"</span>,<span class="number">0700</span>) <span class="comment">#创建文件 </span></div><div class="line">	sftp.rmdir(<span class="string">"/home/root/test5.sql"</span>) <span class="comment">#删除目录 </span></div><div class="line">	sftp.rename(<span class="string">"/home/root/test1.sql"</span>, <span class="string">"/home/root/test5.sql"</span>) <span class="comment">#文件重命名</span></div><div class="line">	<span class="keyword">print</span> sftp.stat(<span class="string">"/home/root/test5.sql"</span>) <span class="comment">#打印文件信息</span></div><div class="line">	<span class="keyword">print</span> sftp.listdir(<span class="string">"/home/root"</span>) <span class="comment"># 打印目录列表</span></div><div class="line">	t.close();</div><div class="line"><span class="keyword">except</span> Exception, e:</div><div class="line">	<span class="keyword">print</span> str(e)</div></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>ღ ღ ღ 如果觉得文章对您有用，不妨打赏一下ღ ღ ღ</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/weipei.png" alt="锦遥 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/zhipei.png" alt="锦遥 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    锦遥
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://www.ssjinyao.com/2018/01/12/python-自动化之paramiko/" title="python 自动化之paramiko">https://www.ssjinyao.com/2018/01/12/python-自动化之paramiko/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/01/07/自习之python基础语法/" rel="next" title="自习之python基础语法">
+                <i class="fa fa-chevron-left"></i> 自习之python基础语法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/01/16/python-wxpy-模块实现微信通知与告警/" rel="prev" title="python wxpy 模块实现微信通知与告警">
+                python wxpy 模块实现微信通知与告警 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/rjyy.ico"
+                alt="锦遥" />
+            
+              <p class="site-author-name" itemprop="name">锦遥</p>
+              <p class="site-description motion-element" itemprop="description">有智而性缓者思大智
+
+</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">68</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+		  <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=174079&auto=1&height=66"></iframe>
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="http://wpa.qq.com/msgrd?v=3&uin=1922006891site=qq&menu=yes" target="_blank" title="我的QQ">
+                    
+                      <i class="fa fa-fw fa-qq"></i></a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://jf.ssjinyao.com/" title="狗江博客" target="_blank">狗江博客</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          <div style="">
+  <canvas id="canvas" style="width:60%;">当前浏览器不支持canvas，请更换浏览器后再试</canvas>
+  </div>
+  <script>
+  (function(){
+
+      var digit=
+	      [
+		          [
+				              [0,0,1,1,1,0,0],
+							              [0,1,1,0,1,1,0],
+										              [1,1,0,0,0,1,1],
+													              [1,1,0,0,0,1,1],
+																              [1,1,0,0,0,1,1],
+																			              [1,1,0,0,0,1,1],
+																						              [1,1,0,0,0,1,1],
+																									              [1,1,0,0,0,1,1],
+																												              [0,1,1,0,1,1,0],
+																															              [0,0,1,1,1,0,0]
+																																		          ],//0
+																																				          [
+																																						              [0,0,0,1,1,0,0],
+																																									              [0,1,1,1,1,0,0],
+																																												              [0,0,0,1,1,0,0],
+																																															              [0,0,0,1,1,0,0],
+																																																		              [0,0,0,1,1,0,0],
+																																																					              [0,0,0,1,1,0,0],
+																																																								              [0,0,0,1,1,0,0],
+																																																											              [0,0,0,1,1,0,0],
+																																																														              [0,0,0,1,1,0,0],
+																																																																	              [1,1,1,1,1,1,1]
+																																																																					          ],//1
+																																																																							          [
+																																																																										              [0,1,1,1,1,1,0],
+																																																																													              [1,1,0,0,0,1,1],
+																																																																																              [0,0,0,0,0,1,1],
+																																																																																			              [0,0,0,0,1,1,0],
+																																																																																						              [0,0,0,1,1,0,0],
+																																																																																									              [0,0,1,1,0,0,0],
+																																																																																												              [0,1,1,0,0,0,0],
+																																																																																															              [1,1,0,0,0,0,0],
+																																																																																																		              [1,1,0,0,0,1,1],
+																																																																																																					              [1,1,1,1,1,1,1]
+																																																																																																									          ],//2
+																																																																																																											          [
+																																																																																																														              [1,1,1,1,1,1,1],
+																																																																																																																	              [0,0,0,0,0,1,1],
+																																																																																																																				              [0,0,0,0,1,1,0],
+																																																																																																																							              [0,0,0,1,1,0,0],
+																																																																																																																										              [0,0,1,1,1,0,0],
+																																																																																																																													              [0,0,0,0,1,1,0],
+																																																																																																																																              [0,0,0,0,0,1,1],
+																																																																																																																																			              [0,0,0,0,0,1,1],
+																																																																																																																																						              [1,1,0,0,0,1,1],
+																																																																																																																																									              [0,1,1,1,1,1,0]
+																																																																																																																																													          ],//3
+																																																																																																																																															          [
+																																																																																																																																																		              [0,0,0,0,1,1,0],
+																																																																																																																																																					              [0,0,0,1,1,1,0],
+																																																																																																																																																								              [0,0,1,1,1,1,0],
+																																																																																																																																																											              [0,1,1,0,1,1,0],
+																																																																																																																																																														              [1,1,0,0,1,1,0],
+																																																																																																																																																																	              [1,1,1,1,1,1,1],
+																																																																																																																																																																				              [0,0,0,0,1,1,0],
+																																																																																																																																																																							              [0,0,0,0,1,1,0],
+																																																																																																																																																																										              [0,0,0,0,1,1,0],
+																																																																																																																																																																													              [0,0,0,1,1,1,1]
+																																																																																																																																																																																	          ],//4
+																																																																																																																																																																																			          [
+																																																																																																																																																																																						              [1,1,1,1,1,1,1],
+																																																																																																																																																																																									              [1,1,0,0,0,0,0],
+																																																																																																																																																																																												              [1,1,0,0,0,0,0],
+																																																																																																																																																																																															              [1,1,1,1,1,1,0],
+																																																																																																																																																																																																		              [0,0,0,0,0,1,1],
+																																																																																																																																																																																																					              [0,0,0,0,0,1,1],
+																																																																																																																																																																																																								              [0,0,0,0,0,1,1],
+																																																																																																																																																																																																											              [0,0,0,0,0,1,1],
+																																																																																																																																																																																																														              [1,1,0,0,0,1,1],
+																																																																																																																																																																																																																	              [0,1,1,1,1,1,0]
+																																																																																																																																																																																																																					          ],//5
+																																																																																																																																																																																																																							          [
+																																																																																																																																																																																																																										              [0,0,0,0,1,1,0],
+																																																																																																																																																																																																																													              [0,0,1,1,0,0,0],
+																																																																																																																																																																																																																																              [0,1,1,0,0,0,0],
+																																																																																																																																																																																																																																			              [1,1,0,0,0,0,0],
+																																																																																																																																																																																																																																						              [1,1,0,1,1,1,0],
+																																																																																																																																																																																																																																									              [1,1,0,0,0,1,1],
+																																																																																																																																																																																																																																												              [1,1,0,0,0,1,1],
+																																																																																																																																																																																																																																															              [1,1,0,0,0,1,1],
+																																																																																																																																																																																																																																																		              [1,1,0,0,0,1,1],
+																																																																																																																																																																																																																																																					              [0,1,1,1,1,1,0]
+																																																																																																																																																																																																																																																									          ],//6
+																																																																																																																																																																																																																																																											          [
+																																																																																																																																																																																																																																																														              [1,1,1,1,1,1,1],
+																																																																																																																																																																																																																																																																	              [1,1,0,0,0,1,1],
+																																																																																																																																																																																																																																																																				              [0,0,0,0,1,1,0],
+																																																																																																																																																																																																																																																																							              [0,0,0,0,1,1,0],
+																																																																																																																																																																																																																																																																										              [0,0,0,1,1,0,0],
+																																																																																																																																																																																																																																																																													              [0,0,0,1,1,0,0],
+																																																																																																																																																																																																																																																																																              [0,0,1,1,0,0,0],
+																																																																																																																																																																																																																																																																																			              [0,0,1,1,0,0,0],
+																																																																																																																																																																																																																																																																																						              [0,0,1,1,0,0,0],
+																																																																																																																																																																																																																																																																																									              [0,0,1,1,0,0,0]
+																																																																																																																																																																																																																																																																																													          ],//7
+																																																																																																																																																																																																																																																																																															          [
+																																																																																																																																																																																																																																																																																																		              [0,1,1,1,1,1,0],
+																																																																																																																																																																																																																																																																																																					              [1,1,0,0,0,1,1],
+																																																																																																																																																																																																																																																																																																								              [1,1,0,0,0,1,1],
+																																																																																																																																																																																																																																																																																																											              [1,1,0,0,0,1,1],
+																																																																																																																																																																																																																																																																																																														              [0,1,1,1,1,1,0],
+																																																																																																																																																																																																																																																																																																																	              [1,1,0,0,0,1,1],
+																																																																																																																																																																																																																																																																																																																				              [1,1,0,0,0,1,1],
+																																																																																																																																																																																																																																																																																																																							              [1,1,0,0,0,1,1],
+																																																																																																																																																																																																																																																																																																																										              [1,1,0,0,0,1,1],
+																																																																																																																																																																																																																																																																																																																													              [0,1,1,1,1,1,0]
+																																																																																																																																																																																																																																																																																																																																	          ],//8
+																																																																																																																																																																																																																																																																																																																																			          [
+																																																																																																																																																																																																																																																																																																																																						              [0,1,1,1,1,1,0],
+																																																																																																																																																																																																																																																																																																																																									              [1,1,0,0,0,1,1],
+																																																																																																																																																																																																																																																																																																																																												              [1,1,0,0,0,1,1],
+																																																																																																																																																																																																																																																																																																																																															              [1,1,0,0,0,1,1],
+																																																																																																																																																																																																																																																																																																																																																		              [0,1,1,1,0,1,1],
+																																																																																																																																																																																																																																																																																																																																																					              [0,0,0,0,0,1,1],
+																																																																																																																																																																																																																																																																																																																																																								              [0,0,0,0,0,1,1],
+																																																																																																																																																																																																																																																																																																																																																											              [0,0,0,0,1,1,0],
+																																																																																																																																																																																																																																																																																																																																																														              [0,0,0,1,1,0,0],
+																																																																																																																																																																																																																																																																																																																																																																	              [0,1,1,0,0,0,0]
+																																																																																																																																																																																																																																																																																																																																																																					          ],//9
+																																																																																																																																																																																																																																																																																																																																																																							          [
+																																																																																																																																																																																																																																																																																																																																																																										              [0,0,0,0,0,0,0],
+																																																																																																																																																																																																																																																																																																																																																																													              [0,0,1,1,1,0,0],
+																																																																																																																																																																																																																																																																																																																																																																																              [0,0,1,1,1,0,0],
+																																																																																																																																																																																																																																																																																																																																																																																			              [0,0,1,1,1,0,0],
+																																																																																																																																																																																																																																																																																																																																																																																						              [0,0,0,0,0,0,0],
+																																																																																																																																																																																																																																																																																																																																																																																									              [0,0,0,0,0,0,0],
+																																																																																																																																																																																																																																																																																																																																																																																												              [0,0,1,1,1,0,0],
+																																																																																																																																																																																																																																																																																																																																																																																															              [0,0,1,1,1,0,0],
+																																																																																																																																																																																																																																																																																																																																																																																																		              [0,0,1,1,1,0,0],
+																																																																																																																																																																																																																																																																																																																																																																																																					              [0,0,0,0,0,0,0]
+																																																																																																																																																																																																																																																																																																																																																																																																									          ]//:
+																																																																																																																																																																																																																																																																																																																																																																																																												      ];
+
+																																																																																																																																																																																																																																																																																																																																																																																																					  var canvas = document.getElementById('canvas');
+
+																																																																																																																																																																																																																																																																																																																																																																																																					  if(canvas.getContext){
+																																																																																																																																																																																																																																																																																																																																																																																																						      var cxt = canvas.getContext('2d');
+																																																																																																																																																																																																																																																																																																																																																																																																							      //声明canvas的宽高
+																																																																																																																																																																																																																																																																																																																																																																																																							      var H = 100,W = 700;
+																																																																																																																																																																																																																																																																																																																																																																																																								      canvas.height = H;
+																																																																																																																																																																																																																																																																																																																																																																																																									      canvas.width = W;
+																																																																																																																																																																																																																																																																																																																																																																																																										      cxt.fillStyle = '#f00';
+																																																																																																																																																																																																																																																																																																																																																																																																											      cxt.fillRect(10,10,50,50);
+
+																																																																																																																																																																																																																																																																																																																																																																																																												      //存储时间数据
+																																																																																																																																																																																																																																																																																																																																																																																																												      var data = [];
+																																																																																																																																																																																																																																																																																																																																																																																																													      //存储运动的小球
+																																																																																																																																																																																																																																																																																																																																																																																																													      var balls = [];
+																																																																																																																																																																																																																																																																																																																																																																																																														      //设置粒子半径
+																																																																																																																																																																																																																																																																																																																																																																																																														      var R = canvas.height/20-1;
+																																																																																																																																																																																																																																																																																																																																																																																																															      (function(){
+																																																																																																																																																																																																																																																																																																																																																																																																																           var temp = /(\d)(\d):(\d)(\d):(\d)(\d)/.exec(new Date());
+																																																																																																																																																																																																																																																																																																																																																																																																																		           //存储时间数字，由十位小时、个位小时、冒号、十位分钟、个位分钟、冒号、十位秒钟、个位秒钟这7个数字组成
+																																																																																																																																																																																																																																																																																																																																																																																																																		           data.push(temp[1],temp[2],10,temp[3],temp[4],10,temp[5],temp[6]);
+																																																																																																																																																																																																																																																																																																																																																																																																																				       })();
+
+																																																																																																																																																																																																																																																																																																																																																																																																																      /*生成点阵数字*/
+																																																																																																																																																																																																																																																																																																																																																																																																																      function renderDigit(index,num){
+																																																																																																																																																																																																																																																																																																																																																																																																																		          for(var i = 0; i < digit[num].length; i++){
+																																																																																																																																																																																																																																																																																																																																																																																																																					              for(var j = 0; j < digit[num][i].length; j++){
+																																																																																																																																																																																																																																																																																																																																																																																																																									                  if(digit[num][i][j] == 1){
+																																																																																																																																																																																																																																																																																																																																																																																																																														                      cxt.beginPath();
+																																																																																																																																																																																																																																																																																																																																																																																																																																			                      cxt.arc(14*(R+2)*index + j*2*(R+1)+(R+1),i*2*(R+1)+(R+1),R,0,2*Math.PI);
+																																																																																																																																																																																																																																																																																																																																																																																																																																								                      cxt.closePath();
+																																																																																																																																																																																																																																																																																																																																																																																																																																													                      cxt.fill();
+																																																																																																																																																																																																																																																																																																																																																																																																																																																		                  }
+																																																																																																																																																																																																																																																																																																																																																																																																																													              }
+																																																																																																																																																																																																																																																																																																																																																																																																																								          }
+																																																																																																																																																																																																																																																																																																																																																																																																																				      }
+
+																																																																																																																																																																																																																																																																																																																																																																																																																	      /*更新时钟*/
+																																																																																																																																																																																																																																																																																																																																																																																																																	      function updateDigitTime(){
+																																																																																																																																																																																																																																																																																																																																																																																																																			          var changeNumArray = [];
+																																																																																																																																																																																																																																																																																																																																																																																																																					          var temp = /(\d)(\d):(\d)(\d):(\d)(\d)/.exec(new Date());
+																																																																																																																																																																																																																																																																																																																																																																																																																							          var NewData = [];
+																																																																																																																																																																																																																																																																																																																																																																																																																									          NewData.push(temp[1],temp[2],10,temp[3],temp[4],10,temp[5],temp[6]);
+																																																																																																																																																																																																																																																																																																																																																																																																																											          for(var i = data.length-1; i >=0 ; i--){
+																																																																																																																																																																																																																																																																																																																																																																																																																														              //时间发生变化
+																																																																																																																																																																																																																																																																																																																																																																																																																														              if(NewData[i] !== data[i]){
+																																																																																																																																																																																																																																																																																																																																																																																																																																		                  //将变化的数字值和在data数组中的索引存储在changeNumArray数组中
+																																																																																																																																																																																																																																																																																																																																																																																																																																		                  changeNumArray.push(i+'_'+(Number(data[i])+1)%10);
+																																																																																																																																																																																																																																																																																																																																																																																																																																						              }
+																																																																																																																																																																																																																																																																																																																																																																																																																																	          }
+																																																																																																																																																																																																																																																																																																																																																																																																																													          //增加小球
+																																																																																																																																																																																																																																																																																																																																																																																																																													          for(var i = 0; i< changeNumArray.length; i++){
+																																																																																																																																																																																																																																																																																																																																																																																																																																              addBalls.apply(this,changeNumArray[i].split('_'));
+																																																																																																																																																																																																																																																																																																																																																																																																																																			          }
+																																																																																																																																																																																																																																																																																																																																																																																																																															          data = NewData.concat();
+																																																																																																																																																																																																																																																																																																																																																																																																																																	      }
+
+																																																																																																																																																																																																																																																																																																																																																																																																																		      /*更新小球状态*/
+																																																																																																																																																																																																																																																																																																																																																																																																																		      function updateBalls(){
+																																																																																																																																																																																																																																																																																																																																																																																																																				          for(var i = 0; i < balls.length; i++){
+																																																																																																																																																																																																																																																																																																																																																																																																																							              balls[i].stepY += balls[i].disY;
+																																																																																																																																																																																																																																																																																																																																																																																																																										              balls[i].x += balls[i].stepX;
+																																																																																																																																																																																																																																																																																																																																																																																																																													              balls[i].y += balls[i].stepY;
+																																																																																																																																																																																																																																																																																																																																																																																																																																              if(balls[i].x > W + R || balls[i].y > H + R){
+																																																																																																																																																																																																																																																																																																																																																																																																																																				                  balls.splice(i,1);
+																																																																																																																																																																																																																																																																																																																																																																																																																																								                  i--;
+																																																																																																																																																																																																																																																																																																																																																																																																																																												              }
+																																																																																																																																																																																																																																																																																																																																																																																																																																			          }
+																																																																																																																																																																																																																																																																																																																																																																																																																						      }
+
+																																																																																																																																																																																																																																																																																																																																																																																																																			      /*增加要运动的小球*/
+																																																																																																																																																																																																																																																																																																																																																																																																																			      function addBalls(index,num){
+																																																																																																																																																																																																																																																																																																																																																																																																																					          var numArray = [1,2,3];
+																																																																																																																																																																																																																																																																																																																																																																																																																							          var colorArray =  ["#3BE","#09C","#A6C","#93C","#9C0","#690","#FB3","#F80","#F44","#C00"];
+																																																																																																																																																																																																																																																																																																																																																																																																																									          for(var i = 0; i < digit[num].length; i++){
+																																																																																																																																																																																																																																																																																																																																																																																																																												              for(var j = 0; j < digit[num][i].length; j++){
+																																																																																																																																																																																																																																																																																																																																																																																																																																                  if(digit[num][i][j] == 1){
+																																																																																																																																																																																																																																																																																																																																																																																																																																					                      var ball = {
+																																																																																																																																																																																																																																																																																																																																																																																																																																											                          x:14*(R+2)*index + j*2*(R+1)+(R+1),
+																																																																																																																																																																																																																																																																																																																																																																																																																																																		                        y:i*2*(R+1)+(R+1),
+																																																																																																																																																																																																																																																																																																																																																																																																																																																								                        stepX:Math.floor(Math.random() * 4 -2),
+																																																																																																																																																																																																																																																																																																																																																																																																																																																														                        stepY:-2*numArray[Math.floor(Math.random()*numArray.length)],
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																				                        color:colorArray[Math.floor(Math.random()*colorArray.length)],
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																										                        disY:1
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																	                    };
+																																																																																																																																																																																																																																																																																																																																																																																																																																										                      balls.push(ball);
+																																																																																																																																																																																																																																																																																																																																																																																																																																															                  }
+																																																																																																																																																																																																																																																																																																																																																																																																																																				              }
+																																																																																																																																																																																																																																																																																																																																																																																																																															          }
+																																																																																																																																																																																																																																																																																																																																																																																																																											      }
+
+																																																																																																																																																																																																																																																																																																																																																																																																																				      /*渲染*/
+																																																																																																																																																																																																																																																																																																																																																																																																																				      function render(){
+																																																																																																																																																																																																																																																																																																																																																																																																																						          //重置画布宽度，达到清空画布的效果
+																																																																																																																																																																																																																																																																																																																																																																																																																						          canvas.height = 100;
+																																																																																																																																																																																																																																																																																																																																																																																																																								          //渲染时钟
+																																																																																																																																																																																																																																																																																																																																																																																																																								          for(var i = 0; i < data.length; i++){
+																																																																																																																																																																																																																																																																																																																																																																																																																											              renderDigit(i,data[i]);
+																																																																																																																																																																																																																																																																																																																																																																																																																														          }
+																																																																																																																																																																																																																																																																																																																																																																																																																										          //渲染小球
+																																																																																																																																																																																																																																																																																																																																																																																																																										          for(var i = 0; i < balls.length; i++){
+																																																																																																																																																																																																																																																																																																																																																																																																																													              cxt.beginPath();
+																																																																																																																																																																																																																																																																																																																																																																																																																																              cxt.arc(balls[i].x,balls[i].y,R,0,2*Math.PI);
+																																																																																																																																																																																																																																																																																																																																																																																																																																			              cxt.fillStyle = balls[i].color;
+																																																																																																																																																																																																																																																																																																																																																																																																																																						              cxt.closePath();
+																																																																																																																																																																																																																																																																																																																																																																																																																																									              cxt.fill();
+																																																																																																																																																																																																																																																																																																																																																																																																																																												          }
+																																																																																																																																																																																																																																																																																																																																																																																																																												      }
+
+																																																																																																																																																																																																																																																																																																																																																																																																																					      clearInterval(oTimer);
+																																																																																																																																																																																																																																																																																																																																																																																																																						      var oTimer = setInterval(function(){
+																																																																																																																																																																																																																																																																																																																																																																																																																									          //更新时钟
+																																																																																																																																																																																																																																																																																																																																																																																																																									          updateDigitTime();
+																																																																																																																																																																																																																																																																																																																																																																																																																											          //更新小球状态
+																																																																																																																																																																																																																																																																																																																																																																																																																											          updateBalls();
+																																																																																																																																																																																																																																																																																																																																																																																																																													          //渲染
+																																																																																																																																																																																																																																																																																																																																																																																																																													          render();
+																																																																																																																																																																																																																																																																																																																																																																																																																															      },50);
+																																																																																																																																																																																																																																																																																																																																																																																																					  }
+
+  })();
+</script>
+
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#paramiko-的安装"><span class="nav-number">2.</span> <span class="nav-text">paramiko 的安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SSHClient类方法使用"><span class="nav-number">3.</span> <span class="nav-text">SSHClient类方法使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SFTPClient类"><span class="nav-number">4.</span> <span class="nav-text">SFTPClient类</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+
+<!-- 数字雨 -->
+<canvas id="canvas" width="1440" height="1080"></canvas>
+<script type="text/javascript" src="/js/DigitalRain.js"></script>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; 2015 &mdash; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">锦遥</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">167.3k</span>
+  
+  <span>   |   </span>
+<span id="showDays"></span>
+</div>
+
+
+
+
+
+
+
+
+<div>
+<a href="http://www.beian.miit.gov.cn">晋ICP备17010575号</a>
+</div>
+<!-- time -->
+<div id="show-time">
+<span id="span_dt_dt"></span>
+</div>
+<script>
+var seconds = 1000;
+var minutes = seconds * 60;
+var hours = minutes * 60;
+var days = hours * 24;
+var years = days * 365;
+var birthDay = Date.UTC(2017,07,30,00,00,00); // 这里设置建站时间
+setInterval(function() {
+var today = new Date();
+var todayYear = today.getFullYear();
+var todayMonth = today.getMonth()+1;
+var todayDate = today.getDate();
+var todayHour = today.getHours();
+var todayMinute = today.getMinutes();
+var todaySecond = today.getSeconds();
+var now = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+var diff = now - birthDay;
+var diffYears = Math.floor(diff/years);
+var diffDays = Math.floor((diff/days)-diffYears*365);
+var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+  document.getElementById('showDays').innerHTML="不間斷的運行了"+diffYears+" 年 "+diffDays+" 天 "+diffHours+" 時 "+diffMinutes+" 分 "+diffSeconds+" 秒 ";
+}, 1000);
+</script>
+
+        
+<div class="busuanzi-count">
+#  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 訪客數
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      位
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>  訪客量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+<script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
+<script type="text/javascript" src="/js/src/clipboard-use.js"></script>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://www.ssjinyao.com/2018/01/12/python-自动化之paramiko/';
+          this.page.identifier = '2018/01/12/python-自动化之paramiko/';
+          this.page.title = 'python 自动化之paramiko';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine@1.1.6/dist/Valine.min.js"></script>
+  <script type="text/javascript">
+    new Valine({
+        av: AV,
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        app_id: 'NkJqMpxu4QlRLhPIHipNUHF1-gzGzoHsz',
+        app_key: 'D2vTdueKJ8ammc2JEdje0vLW',
+        placeholder: 'From SSJinYao'
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'true') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  <!-- 点击特效 -->
+<canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas>
+<script type="text/javascript" src="/js/src/fireworks.js"></script>
+
+
+  <script src="/js/activate-power-mode.min.js"></script>
+    <script>
+	    POWERMODE.colorful = true;
+    POWERMODE.shake = false;
+    document.body.addEventListener('input', POWERMODE);
+	  </script>
+
+
+  
+<script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
+<script type="text/javascript" src="/js/src/clipboard-use.js"></script>
+<!--点击冒点-->
+<canvas width="1777" height="841" style="position: fixed; left: 0px; top: 0px; z-index: 2147483647; pointer-events: none;"></canvas>
+<script src="/js/maodian.js"></script>
+<canvas width="1390" height="797" style="position: fixed; left: 0px; top: 0px; z-index: 2147483647; pointer-events: none;"></canvas>
+</body>
+</html>

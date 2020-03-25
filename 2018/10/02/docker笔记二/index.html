@@ -1,0 +1,1817 @@
+<!DOCTYPE html>
+
+
+
+  
+
+<!-- 代码块复制功能 -->
+<script src="/live2d-widget/autoload.js"></script>
+<script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
+<script type="text/javascript" src="/js/src/clipboard-use.js"></script>
+<script src="/js/instantclick-1.2.2.js" type="module"></script>
+<!--崩溃欺骗-->
+<script type="text/javascript" src="/js/src/crash_cheat.js"></script>
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="https://fonts.cat.net/css?family=Lato:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|Roboto Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/redhat.ico?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/redhat.ico?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/redihat.ico?v=5.1.3" color="#0000EE">
+
+
+  <link rel="manifest" href="/images/manifest.json">
+
+
+  <meta name="msapplication-config" content="/images/browserconfig.xml" />
+
+
+
+  <meta name="keywords" content="linux,cloud," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="逝水锦遥" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="docker 笔记(二) Docker Data Volume关闭并重启容器，其数据不受影响; 但删除Docker容器，则其更将会全部丢失;存在的问题存储于联合文件系统中，不易于宿主机访问;容器间数据共享不便;删除容其数据会全部丢失;解决方案:”卷(volume)” “卷”是容器上的一个或多个”目录”，此类目录可绕过联合文件系统，与宿主机上的某目录”绑定(关联)”Volume 于容器初始化之时即会">
+<meta name="keywords" content="linux,cloud">
+<meta property="og:type" content="article">
+<meta property="og:title" content="docker笔记(二)">
+<meta property="og:url" content="https://www.ssjinyao.com/2018/10/02/docker笔记二/index.html">
+<meta property="og:site_name" content="逝水锦遥">
+<meta property="og:description" content="docker 笔记(二) Docker Data Volume关闭并重启容器，其数据不受影响; 但删除Docker容器，则其更将会全部丢失;存在的问题存储于联合文件系统中，不易于宿主机访问;容器间数据共享不便;删除容其数据会全部丢失;解决方案:”卷(volume)” “卷”是容器上的一个或多个”目录”，此类目录可绕过联合文件系统，与宿主机上的某目录”绑定(关联)”Volume 于容器初始化之时即会">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://www.ssjinyao.com/images/docker-image-2.png">
+<meta property="og:image" content="https://www.ssjinyao.com/images/docker-vmware-harbor.png">
+<meta property="og:image" content="https://www.ssjinyao.com/images/docker-vmware-harbor-loggin.png">
+<meta property="og:image" content="https://www.ssjinyao.com/images/docker-vmware-harbor-ssjinyao.png">
+<meta property="og:image" content="https://www.ssjinyao.com/images/docker-vmware-harbor-ssjinyao-devel.png">
+<meta property="og:image" content="https://www.ssjinyao.com/images/docker-top-stress.png">
+<meta property="og:image" content="https://www.ssjinyao.com/images/docker-status-stee.png">
+<meta property="og:image" content="https://www.ssjinyao.com/images/docker-strees-two-shares.png">
+<meta property="og:updated_time" content="2019-04-29T07:42:08.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="docker笔记(二)">
+<meta name="twitter:description" content="docker 笔记(二) Docker Data Volume关闭并重启容器，其数据不受影响; 但删除Docker容器，则其更将会全部丢失;存在的问题存储于联合文件系统中，不易于宿主机访问;容器间数据共享不便;删除容其数据会全部丢失;解决方案:”卷(volume)” “卷”是容器上的一个或多个”目录”，此类目录可绕过联合文件系统，与宿主机上的某目录”绑定(关联)”Volume 于容器初始化之时即会">
+<meta name="twitter:image" content="https://www.ssjinyao.com/images/docker-image-2.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="https://www.ssjinyao.com/2018/10/02/docker笔记二/"/>
+
+
+
+
+
+  <title>docker笔记(二) | 逝水锦遥</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta custom-logo">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">逝水锦遥</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">心有所向 将有所成</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-所有文章">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-linux"></i> <br />
+            
+            所有文章
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-python">
+          <a href="/./tags/program" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-gitlab"></i> <br />
+            
+            python
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-运维组件">
+          <a href="/./tags/rhca" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            运维组件
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-数据库">
+          <a href="/./tags/database" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-database"></i> <br />
+            
+            数据库
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-云计算">
+          <a href="/./tags/cloud" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-cloud"></i> <br />
+            
+            云计算
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-成自考">
+          <a href="/./tags/zikao" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-drupal"></i> <br />
+            
+            成自考
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-个人中心">
+          <a href="/./tags/renjin" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user-circle"></i> <br />
+            
+            个人中心
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索文章
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.ssjinyao.com/2018/10/02/docker笔记二/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="锦遥">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/rjyy.ico">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="逝水锦遥">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">docker笔记(二)</h1>
+        
+
+        <div class="post-meta">
+		          
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-02T13:29:00+08:00">
+                2018-10-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/10/02/docker笔记二/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/10/02/docker笔记二/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>  浏览
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  3.2k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  17
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="docker-笔记-二"><a href="#docker-笔记-二" class="headerlink" title="docker 笔记(二)"></a>docker 笔记(二)</h1><p><img src="/images/docker-image-2.png" alt=""></p>
+<h2 id="Docker-Data-Volume"><a href="#Docker-Data-Volume" class="headerlink" title="Docker Data Volume"></a>Docker Data Volume</h2><p>关闭并重启容器，其数据不受影响; 但删除Docker容器，则其更将会全部丢失;<br>存在的问题<br>存储于联合文件系统中，不易于宿主机访问;<br>容器间数据共享不便;<br>删除容其数据会全部丢失;<br>解决方案:”卷(volume)”</p>
+<p>“卷”是容器上的一个或多个”目录”，此类目录可绕过联合文件系统，与宿主机上的某目录”绑定(关联)”<br>Volume 于容器初始化之时即会创建，由base image提供的卷中的数据会于此期间完成复制<br>Volume 的初衷是独立于容器的生命周期实现数据持久化，因此删除容器时即不会删除卷，也<br>不会对哪怕未被引用的卷做垃圾回收操作;</p>
+<p>Docker有两种类型的卷，每种类型都在容器中存在一个挂载点，但其在宿主机上的位置有所不同;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># docker run --name b2 -it -v /data busybox</div></pre></td></tr></table></figure>
+<p>打开另一个终端查看Mount信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"># docker inspect b2 </div><div class="line">&quot;Mounts&quot;: [</div><div class="line">            &#123;</div><div class="line">                &quot;Type&quot;: &quot;volume&quot;,</div><div class="line">                &quot;Name&quot;: &quot;5d2aaa4a60dd5724bed6011c92d71df8eb093de43bae2038c992f746f97f6e7d&quot;,</div><div class="line">                &quot;Source&quot;: &quot;/var/lib/docker/volumes/5d2aaa4a60dd5724bed6011c92d71df8eb093de43bae2038c992f746f97f6e7d/_data&quot;,</div><div class="line">                &quot;Destination&quot;: &quot;/data&quot;,</div><div class="line">                &quot;Driver&quot;: &quot;local&quot;,</div><div class="line">                &quot;Mode&quot;: &quot;&quot;,</div><div class="line">                &quot;RW&quot;: true,</div><div class="line">                &quot;Propagation&quot;: &quot;&quot;</div><div class="line">            &#125;</div><div class="line">        ],</div><div class="line"># echo &quot;hello container&quot; &gt;&gt; /var/lib/docker/volumes/5d2aaa4a60dd5724bed6011c92d71df8eb093de43bae2038c992f746f97f6e7d/_data/test.html</div></pre></td></tr></table></figure>
+<p>在容器中查看</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">/ # cat data/test.html</div><div class="line">hello container</div><div class="line">/ # echo &quot;test rj&quot; &gt;&gt; data/test.html</div></pre></td></tr></table></figure>
+<p>在宿主机上查看 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"># cat /var/lib/docker/volumes/5d2aaa4a60dd5724bed6011c92d71df8eb093de43bae2038c992f746f97f6e7d/_data/test.html</div><div class="line">hello container</div><div class="line">test rj</div></pre></td></tr></table></figure>
+<p>当容器退出并删除后，数据依然存在</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"># docker run --name b2 -it --rm -v /data/volumes/b2:/data busybox</div><div class="line"># docker inspect b2 | grep volume</div><div class="line">                &quot;/data/volumes/b2:/data&quot;</div><div class="line">                &quot;Source&quot;: &quot;/data/volumes/b2&quot;,</div></pre></td></tr></table></figure>
+<p>查看inspect元素 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># docker inspect -f &#123;&#123;.Mounts&#125;&#125; b2</div><div class="line">[&#123;bind  /data/volumes/b2 /data   true rprivate&#125;]</div></pre></td></tr></table></figure>
+<p>注: 两个容器可以共享同一个存储卷</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># docker run -it --name c1 -v /docker/volumes/v1:/data busybox</div><div class="line"># docker run -it --name c2 -v /docker/volumes/v1:/data busybox</div></pre></td></tr></table></figure>
+<p>复制使用其它容器的卷，为docker run 命令使用 –volumes-from选项</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># docker run -it --name bbox1 -v /docker/volumes/v1:/data busybox </div><div class="line"># docker run -it --name bbox2 --volumes-from bbox1 busybox</div></pre></td></tr></table></figure>
+<h2 id="docker-file"><a href="#docker-file" class="headerlink" title="docker file"></a>docker file</h2><p>FROM<br>FROM的指令是最重的一个且必须为Dockefile文件开篇的第一个非注释行，<br>用于为映像文件构建过程指定基准镜像，后续的指令运行于此基准镜像所提供的<br>运行环境。<br>实践中，基准镜像可以是任何可用镜像文件，默认情况下，docker build会在<br>docker 主机上查找指定的镜像文件，在其不存在时，则会从Docker Hub<br>Registry上拉取所需要的镜像文件<br>如果找不到指定的镜像文件，docker build会返回一个错误信息。</p>
+<p>Syntax</p>
+<p>FROM <repository>[:<tag>]或<br>FROM <resository>@<digest></digest></resository></tag></repository></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"># vim Dockerfile</div><div class="line">#Deskription: test image</div><div class="line">FROM busybox:latest</div><div class="line">MAINTAINER &quot;ssjinyao &lt;renjin@ssjinyao.com&gt;&quot;</div><div class="line"># LABEL maintainer=&quot;ssjinyao&quot;</div><div class="line">COPY index.html /data/web/html</div><div class="line"># vim index.html </div><div class="line">&lt;h1&gt; ssjinyao httpd server.&lt;/h1&gt;</div><div class="line"># docker build -t ssjinyaohttpd-img:v0.1-1 ./</div><div class="line">Sending build context to Docker daemon  3.072kB</div><div class="line">Step 1/3 : FROM busybox:latest</div><div class="line"> ---&gt; e1ddd7948a1c</div><div class="line">Step 2/3 : MAINTAINER &quot;Jinyao &lt;renjin@ssjinyao.com&gt;&quot;</div><div class="line"> ---&gt; Running in aa9838facca1</div><div class="line">Removing intermediate container aa9838facca1</div><div class="line"> ---&gt; 71258688ebeb</div><div class="line">Step 3/3 : COPY index.html /data/web/html</div><div class="line"> ---&gt; b23d8149125a</div><div class="line">Successfully built b23d8149125a</div><div class="line">Successfully tagged ssjinyaohttpd-img:v0.1-1</div></pre></td></tr></table></figure>
+<p>验证</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># docker run --name ssjinyao-web1 --rm ssjinyaohttpd-img:v0.1-1 cat /data/web/html/index.html</div><div class="line">&lt;h1&gt; ssjinyao httpd server.&lt;/h1&gt;</div></pre></td></tr></table></figure>
+<p>复制目录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">FROM busybox:latest</div><div class="line">MAINTAINER &quot;ssjinyao &lt;renjin@ssjinyao.com&gt;&quot;</div><div class="line"># LABEL maintainer=&quot;ssjinyao&quot;</div><div class="line">COPY index.html /data/web/html/</div><div class="line">COPY yum.repos.d /etc/yum.repos.d/</div><div class="line"># ls</div><div class="line">Dockerfile  index.html  yum.repos.d</div><div class="line"># docker build -t tinyhttpd:v0.1-2 ./</div><div class="line"># docker build -t tinyhttpd:v0.1-2 ./</div><div class="line">Sending build context to Docker daemon  26.11kB</div><div class="line">Step 1/4 : FROM busybox:latest</div><div class="line"> ---&gt; e1ddd7948a1c</div><div class="line">Step 2/4 : MAINTAINER &quot;ssjinayo &lt;renjin@ssjinyao.com&gt;&quot;</div><div class="line"> ---&gt; Using cache</div><div class="line"> ---&gt; 708bad816b72</div><div class="line">Step 3/4 : COPY index.html /data/web/html/</div><div class="line"> ---&gt; Using cache</div><div class="line"> ---&gt; 758051947b4d</div><div class="line">Step 4/4 : COPY yum.repos.d /etc/yum.repos.d/</div><div class="line"> ---&gt; a4c01bf4fe8d</div><div class="line">Successfully built a4c01bf4fe8d</div><div class="line">Successfully tagged tinyhttpd:v0.1-2</div><div class="line"># docker run --name tinyweb1 --rm tinyhttpd:v0.1-2 ls /etc/yum.repos.d/</div><div class="line">CentOS-Base.repo</div><div class="line">CentOS-CR.repo</div><div class="line">CentOS-Debuginfo.repo</div><div class="line">CentOS-Media.repo</div><div class="line">CentOS-Sources.repo</div><div class="line">CentOS-Vault.repo</div><div class="line">CentOS-fasttrack.repo</div><div class="line">docker-ce.repo</div><div class="line">epel-testing.repo</div><div class="line">epel.repo</div></pre></td></tr></table></figure>
+<p>ADD 指令的使用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"># vim Dockerfile</div><div class="line">#Deskription: test image</div><div class="line">FROM busybox:latest</div><div class="line">MAINTAINER &quot;ssjinyao &lt;renjin@ssjinyao.com&gt;&quot;</div><div class="line"># LABEL maintainer=&quot;ssjinyao&quot;</div><div class="line">COPY index.html /data/web/html/</div><div class="line">COPY yum.repos.d /etc/yum.repos.d/</div><div class="line">ADD http://nginx.org/download/nginx-1.15.5.tar.gz /usr/local/src/</div><div class="line"># docker build -t tinyhttpd:v0.1-3 ./</div><div class="line">Sending build context to Docker daemon  26.11kB</div><div class="line">Step 1/5 : FROM busybox:latest</div><div class="line"> ---&gt; e1ddd7948a1c</div><div class="line">Step 2/5 : MAINTAINER &quot;ssjinyao &lt;renjin@ssjinyao.com&gt;&quot;</div><div class="line"> ---&gt; Using cache</div><div class="line"> ---&gt; 708bad816b72</div><div class="line">Step 3/5 : COPY index.html /data/web/html/</div><div class="line"> ---&gt; Using cache</div><div class="line"> ---&gt; 758051947b4d</div><div class="line">Step 4/5 : COPY yum.repos.d /etc/yum.repos.d/</div><div class="line"> ---&gt; Using cache</div><div class="line"> ---&gt; a4c01bf4fe8d</div><div class="line">Step 5/5 : ADD http://nginx.org/download/nginx-1.15.5.tar.gz /usr/local/src/</div><div class="line">Downloading  1.025MB/1.025MB</div><div class="line"> ---&gt; 884e8bf3725f</div><div class="line">Successfully built 884e8bf3725f</div><div class="line">Successfully tagged tinyhttpd:v0.1-3</div><div class="line"># docker run --name tinyweb1 --rm tinyhttpd:v0.1-3 ls /usr/local/src/</div><div class="line">nginx-1.15.5.tar.gz</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">#Deskription: test image</div><div class="line">FROM busybox:latest</div><div class="line">MAINTAINER &quot;ssjinyao &lt;renjin@ssjinyao.com&gt;&quot;</div><div class="line"># LABEL maintainer=&quot;ssjinyao&quot;</div><div class="line">COPY index.html /data/web/html/</div><div class="line">COPY yum.repos.d /etc/yum.repos.d/</div><div class="line">#ADD http://nginx.org/download/nginx-1.15.5.tar.gz /usr/local/src/</div><div class="line">ADD nginx-1.15.5.tar.gz /usr/local/src/</div><div class="line"># ls</div><div class="line">Dockerfile  index.html  nginx-1.15.5.tar.gz  yum.repos.d</div><div class="line"># docker build -t tinyhttpd:v0.1-4 ./</div><div class="line"># docker run --name tinyweb --rm tinyhttpd:v0.1-4 ls /usr/local/src</div><div class="line">nginx-1.15.5</div></pre></td></tr></table></figure>
+<p>另外一种写法 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"># vim Dockerfile</div><div class="line">#Deskription: test image</div><div class="line">FROM busybox:latest</div><div class="line">MAINTAINER &quot;ssjinyao &lt;renjin@ssjinyao.com&gt;&quot;</div><div class="line"># LABEL maintainer=&quot;ssjinyao&quot;</div><div class="line">COPY index.html /data/web/html/</div><div class="line">COPY yum.repos.d /etc/yum.repos.d/</div><div class="line">#ADD http://nginx.org/download/nginx-1.15.5.tar.gz /usr/local/src/</div><div class="line">WORKDIR /usr/local/src/</div><div class="line">ADD nginx-1.15.5.tar.gz ./ #这里的./相当于WORKDIR指定的目录</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line">#Deskription: test image</div><div class="line">FROM busybox:latest</div><div class="line">MAINTAINER &quot;ssjinyao &lt;renjin@ssjinyao.com&gt;&quot;</div><div class="line"># LABEL maintainer=&quot;ssjinyao&quot;</div><div class="line">COPY index.html /data/web/html/</div><div class="line">COPY yum.repos.d /etc/yum.repos.d/</div><div class="line">#ADD http://nginx.org/download/nginx-1.15.5.tar.gz /usr/local/src/</div><div class="line">WORKDIR /usr/local/</div><div class="line">ADD nginx-1.15.5.tar.gz ./src/</div><div class="line"></div><div class="line">VOLUME /data/mysql/</div><div class="line"># docker build -t tinyhttpd:v0.1-5 ./</div><div class="line">Sending build context to Docker daemon  1.052MB</div><div class="line">Step 1/7 : FROM busybox:latest</div><div class="line"> ---&gt; e1ddd7948a1c</div><div class="line">Step 2/7 : MAINTAINER &quot;ssjinyao &lt;renjin@ssjinyao.com&gt;&quot;</div><div class="line"> ---&gt; Running in 206968a461e1</div><div class="line">Removing intermediate container 206968a461e1</div><div class="line"> ---&gt; acce38db09a6</div><div class="line">Step 3/7 : COPY index.html /data/web/html/</div><div class="line"> ---&gt; cfac93db1094</div><div class="line">Step 4/7 : COPY yum.repos.d /etc/yum.repos.d/</div><div class="line"> ---&gt; ccbddff1520b</div><div class="line">Step 5/7 : WORKDIR /usr/local/</div><div class="line"> ---&gt; Running in 8bbda4faa5a4</div><div class="line">Removing intermediate container 8bbda4faa5a4</div><div class="line"> ---&gt; 1660db5c8614</div><div class="line">Step 6/7 : ADD nginx-1.15.5.tar.gz ./src/</div><div class="line"> ---&gt; cfd686660ff8</div><div class="line">Step 7/7 : VOLUME /data/mysql/</div><div class="line"> ---&gt; Running in e85008cba000</div><div class="line">Removing intermediate container e85008cba000</div><div class="line"> ---&gt; 529be777da05</div><div class="line">Successfully built 529be777da05</div><div class="line">Successfully tagged tinyhttpd:v0.1-5</div><div class="line"># docker run --name tinweb1 --rm tinyhttpd:v0.1-5 mount | grep data</div><div class="line">/dev/mapper/centos-root on /data/mysql type xfs (rw,seclabel,relatime,attr2,inode64,noquota)</div></pre></td></tr></table></figure>
+<p>EXPOSE 指令使用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">EXPOSE 1211/udp 11211/tcp # 启动镜像是要使用-P选项</div></pre></td></tr></table></figure>
+<p>ENV </p>
+<p>用于为镜像定义所需要的环境变量，并可被Dockerfile文件中位于其后其它指令<br>(ENV,ADD,COPY等)所调用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">#Deskription: test image</div><div class="line">FROM busybox:latest</div><div class="line">MAINTAINER &quot;ssjinyao &lt;renjin@ssjinyao.com&gt;&quot;</div><div class="line"># LABEL maintainer=&quot;ssjinyao&quot;</div><div class="line">ENV DOC_ROOT /data/web/html</div><div class="line"></div><div class="line">COPY index.html $DOC_ROOT</div><div class="line">COPY yum.repos.d /etc/yum.repos.d/</div><div class="line">#ADD http://nginx.org/download/nginx-1.15.5.tar.gz /usr/local/src/</div><div class="line">WORKDIR /usr/local/</div><div class="line">ADD nginx-1.15.5.tar.gz ./src/</div><div class="line"></div><div class="line">VOLUME /data/mysql/</div><div class="line"></div><div class="line">EXPOSE 80/tcp</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># docker run --name tinyweb1 --rm -P tinyhttpd:v0.1-7 printenv # 打印输出环境变量</div><div class="line"># docker run --name tinyweb --rm -P -e WEB_SERVER_PACKAGE=&quot;nginx-1.15.1&quot; tinyhttpd:v0.1-7 printenv # -e 可以外部更改或指定环境变量的</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">#Deskription: test image</div><div class="line">FROM busybox:latest</div><div class="line">MAINTAINER &quot;ssjinyao &lt;renjin@ssjinyao.com&gt;&quot;</div><div class="line"># LABEL maintainer=&quot;ssjinyao&quot;</div><div class="line">ENV DOC_ROOT=/data/web/html/ \</div><div class="line">    WEB_SERVER_PACKAGE=&quot;nginx-1.15.5.gz&quot;</div><div class="line"></div><div class="line">#当没有</div><div class="line">COPY index.html $&#123;DOC_ROOT: -/data/web/html/&#125;</div><div class="line">COPY yum.repos.d /etc/yum.repos.d/</div><div class="line">ADD http://nginx.org/download/$&#123;WEB_SERVER_PACKAGE&#125; /usr/local/src/</div><div class="line">WORKDIR /usr/local/</div><div class="line">#ADD $&#123;WEB_SERVER_PACKAGE&#125;.tar.gz ./src/</div><div class="line"></div><div class="line">VOLUME /data/mysql/</div><div class="line"></div><div class="line">EXPOSE 80/tcp</div><div class="line"></div><div class="line">RUN cd /usr/local/src &amp;&amp; \</div><div class="line">    tar xvf $&#123;WEB_SERVER_PACKAGE&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">FROM busybox</div><div class="line">LABEL maintainer=&quot;ssjinyao &lt;renjin@ssjinyao.com&gt;&quot; app=&quot;httpd&quot;</div><div class="line"></div><div class="line">ENV WEB_DOC_ROOT=&quot;/data/web/html&quot;</div><div class="line"></div><div class="line">RUN mkdir -p $WEB_DOC_ROOT &amp;&amp; \</div><div class="line">	echo &apos;&lt;h1&gt;Busybox httpd server.&lt;/h1&gt;&apos; &gt; $&#123;WEB_DOC_ROOT&#125;/index.html</div><div class="line"></div><div class="line"># COM /bin/httpd  -f -h $&#123;WEB_DOC_ROOT&#125;</div><div class="line">CMD [&quot;/bin/httpd&quot;, &quot;-f&quot;, &quot;-h $&#123;EWB_DOC_ROOT&#125;&quot;]</div><div class="line">ENTRYPOINT /bin/sh -c</div></pre></td></tr></table></figure>
+<p>Dockerfile Nginx镜像 示例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line"># mkdir img_nginx</div><div class="line"># cd img_nginx</div><div class="line"># vim Dockerfile</div><div class="line">FROM nginx:1.14-alpine</div><div class="line"></div><div class="line">ARG author=&quot;ssjinyao &lt;rejin@ssjinyao.com&gt;&quot;</div><div class="line"></div><div class="line">LABEL maintainer=&quot;$&#123;author&#125;&quot;</div><div class="line"></div><div class="line">ENV NGX_DOC_ROOT=&quot;/data/web/html/&quot;</div><div class="line"></div><div class="line">ADD index.html $&#123;NGX_DOC_ROOT&#125;</div><div class="line">ADD entrypoint.sh /bin/</div><div class="line"></div><div class="line">EXPOSE 80/tcp</div><div class="line"></div><div class="line">HEALTHCHECK --start-period=3s CMD wget -O - -q http://$&#123;IP:-0.0.0.0&#125;:$&#123;PORT:-80&#125;/</div><div class="line"></div><div class="line">CMD [&quot;/usr/sbin/nginx&quot;, &quot;-g&quot;, &quot;daemon off;&quot;]</div><div class="line"></div><div class="line">ENTRYPOINT [&quot;/bin/entrypoint.sh&quot;]</div><div class="line"></div><div class="line"></div><div class="line"># vim index.html</div><div class="line">&lt;h1&gt; Dockerfile Nginx Test Page.&lt;/h1&gt;</div><div class="line"></div><div class="line"># vim entrypoint.sh</div><div class="line">#!/bin/sh</div><div class="line">#</div><div class="line">cat &gt; /etc/nginx/conf.d/www.conf &lt;&lt;EOF</div><div class="line">server &#123;</div><div class="line">        server_name $&#123;HOSTNAME&#125;;</div><div class="line">        listen $&#123;IP:-0.0.0.0&#125;:$&#123;PORT:-80&#125;;</div><div class="line">        root $&#123;NGINX_DOC_ROOT:-/usr/share/nginx/html&#125;;</div><div class="line">&#125;</div><div class="line">EOF</div><div class="line"></div><div class="line">exec &quot;$@&quot;</div><div class="line"># docker run --name myweb1 --rm -P  -e &quot;PORT=8080&quot; nginx_web:v0.0-1</div><div class="line">127.0.0.1 - - [03/Oct/2018:07:43:31 +0000] &quot;GET / HTTP/1.1&quot; 200 612 &quot;-&quot; &quot;Wget&quot; &quot;-&quot;</div><div class="line">127.0.0.1 - - [03/Oct/2018:07:44:01 +0000] &quot;GET / HTTP/1.1&quot; 200 612 &quot;-&quot; &quot;Wget&quot; &quot;-&quot;</div></pre></td></tr></table></figure>
+<h2 id="自建docker-registry"><a href="#自建docker-registry" class="headerlink" title="自建docker-registry"></a>自建docker-registry</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># yum -y install docker-registry</div><div class="line"># rpm -ql docker-distribution</div><div class="line">/etc/docker-distribution/registry/config.yml</div><div class="line">/usr/bin/registry</div><div class="line">/usr/lib/systemd/system/docker-distribution.service</div><div class="line">/var/lib/registry</div></pre></td></tr></table></figure>
+<p>注: docker push  客户端默认是https工作的，因此在客户端配置不加密传输</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"># vim /etc/docker/daemon.json</div><div class="line">&#123;</div><div class="line">    &quot;registry-mirrors&quot;:[&quot;https://registry.docker-cn.com&quot;],</div><div class="line">    &quot;bip&quot;: &quot;10.0.0.1/16&quot;,</div><div class="line">    &quot;hosts&quot;: [&quot;tcp://0.0.0.0:2375&quot;,&quot;unix:///var/run/docker.sock&quot;],</div><div class="line">    &quot;insecure-registries&quot;: [&quot;node2:5000&quot;]</div><div class="line">&#125;</div><div class="line"># docker tag ssjinyao/httpd:v0.1.1.1-2 node2:5000/ssjinayo-web:v0.1.1.1-2</div><div class="line"># docker push node2:5000/ssjinayo-web</div><div class="line">The push refers to repository [node2:5000/ssjinayo-web]</div><div class="line">e6baf59e35e7: Pushed</div><div class="line">f9d9e4e6e2f0: Pushed</div><div class="line">v0.1.1.1-2: digest: sha256:2f3d6d2f468ee189b4b43ff2b9f99a6e3895d9832b606522176f804cba738037 size: 734</div></pre></td></tr></table></figure>
+<p>服务端镜像默认保存的路径</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># ls /var/lib/registry/docker/registry/v2/repositories/ssjinayo-web</div><div class="line">_layers  _manifests  _uploads</div></pre></td></tr></table></figure>
+<p>私有docker 源pull 使用, 前提也要配置不加密传输</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"># docker pull node2:5000/ssjinayo-web:v0.1.1.1-2</div><div class="line">v0.1.1.1-2: Pulling from ssjinayo-web</div><div class="line">Digest: sha256:2f3d6d2f468ee189b4b43ff2b9f99a6e3895d9832b606522176f804cba738037</div><div class="line">Status: Downloaded newer image for node2:5000/ssjinayo-web:v0.1.1.1-2</div></pre></td></tr></table></figure>
+<h2 id="vmware-harbor私有源的安装与使用"><a href="#vmware-harbor私有源的安装与使用" class="headerlink" title="vmware-harbor私有源的安装与使用"></a>vmware-harbor私有源的安装与使用</h2><p><a href="https://github.com/goharbor/harbor/blob/master/docs/installation_guide.md" target="_blank" rel="external">vmware/harbor安装</a><br><a href="https://github.com/goharbor/harbor/releases" target="_blank" rel="external">vmware/harbor下载</a></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">Resource</th>
+<th style="text-align:right">Capacity</th>
+<th style="text-align:right">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">CPU</td>
+<td style="text-align:right">minimal 2 CPU</td>
+<td style="text-align:right">4 CPU is prefered</td>
+</tr>
+<tr>
+<td style="text-align:right">Mem</td>
+<td style="text-align:right">minimal 4GB</td>
+<td style="text-align:right">8GB is prefered</td>
+</tr>
+<tr>
+<td style="text-align:right">Disk</td>
+<td style="text-align:right">minimal 40GB</td>
+<td style="text-align:right">160GB is prefered</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"># yum -y install docker-compose</div><div class="line"># vim harbor.cfg # 这里根据自己的需求更改配置文件</div><div class="line"># vim docker-compose.yml # </div><div class="line"># cd /usr/local/src/harbor</div><div class="line"># ./install</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">CONTAINER ID        IMAGE                                    COMMAND                  CREATED             STATUS                   PORTS                                                              NAMES</div><div class="line">f01090bf5ba1        goharbor/nginx-photon:v1.6.0             &quot;nginx -g &apos;daemon of…&quot;   3 minutes ago       Up 3 minutes (healthy)   0.0.0.0:80-&gt;80/tcp, 0.0.0.0:443-&gt;443/tcp, 0.0.0.0:4443-&gt;4443/tcp   nginx</div><div class="line">7e4849fcb12a        goharbor/harbor-jobservice:v1.6.0        &quot;/harbor/start.sh&quot;       3 minutes ago       Up 3 minutes                                                                                harbor-jobservice</div><div class="line">0d8ceb3ec5c0        goharbor/harbor-ui:v1.6.0                &quot;/harbor/start.sh&quot;       3 minutes ago       Up 3 minutes (healthy)                                                                      harbor-ui</div><div class="line">c5780037bc8f        goharbor/harbor-adminserver:v1.6.0       &quot;/harbor/start.sh&quot;       3 minutes ago       Up 3 minutes (healthy)                                                                      harbor-adminserver</div><div class="line">b184110cfac2        goharbor/registry-photon:v2.6.2-v1.6.0   &quot;/entrypoint.sh /etc…&quot;   3 minutes ago       Up 3 minutes (healthy)   5000/tcp                                                           registry</div><div class="line">83b4b2ea3b2e        goharbor/redis-photon:v1.6.0             &quot;docker-entrypoint.s…&quot;   3 minutes ago       Up 3 minutes             6379/tcp                                                           redis</div><div class="line">9055f4dcdaeb        goharbor/harbor-db:v1.6.0                &quot;/entrypoint.sh post…&quot;   3 minutes ago       Up 3 minutes (healthy)   5432/tcp                                                           harbor-db</div><div class="line">583dd6d3dc30        goharbor/harbor-log:v1.6.0               &quot;/bin/sh -c /usr/loc…&quot;   3 minutes ago       Up 3 minutes (healthy)   127.0.0.1:1514-&gt;10514/tcp                                          harbor-log</div></pre></td></tr></table></figure>
+<p><img src="/images/docker-vmware-harbor.png" alt=""></p>
+<p>登录管理员后台<br><img src="/images/docker-vmware-harbor-loggin.png" alt=""></p>
+<p>在 docker-vmware-harbor中创建普通用户，在普通用户中创建项目</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"># vim /etc/docker/daemon.json</div><div class="line">&#123;</div><div class="line">    &quot;insecure-registries&quot;: [&quot;blog.ssjinyao.com&quot;]</div><div class="line">&#125;</div><div class="line"># docker login blog.ssjinyao.com</div><div class="line">Username: ssjinyao</div><div class="line">Password:</div><div class="line">WARNING! Your password will be stored unencrypted in /root/.docker/config.json.</div><div class="line">Configure a credential helper to remove this warning. See</div><div class="line">https://docs.docker.com/engine/reference/commandline/login/#credentials-store</div><div class="line"></div><div class="line">Login Succeeded</div><div class="line">[root@ssjinyao-node2:~]# docker push blog.ssjinyao.com/devel/ssjinyao-httpd</div><div class="line">The push refers to repository [blog.ssjinyao.com/devel/ssjinyao-httpd]</div><div class="line">e6baf59e35e7: Pushed</div><div class="line">f9d9e4e6e2f0: Pushed</div><div class="line">v0.1.1.1-1: digest: sha256:7248231aa495c62947519646d25acb453fd2caf3ed6bf778b41e6201bd3e31fc size: 734</div><div class="line">e6baf59e35e7: Layer already exists</div><div class="line">f9d9e4e6e2f0: Layer already exists</div><div class="line">v0.1.1.1-2: digest: sha256:2f3d6d2f468ee189b4b43ff2b9f99a6e3895d9832b606522176f804cba738037 size: 734</div></pre></td></tr></table></figure>
+<p><img src="/images/docker-vmware-harbor-ssjinyao.png" alt=""></p>
+<p>push 镜像前可以查看vmware-harbor的打标签提示</p>
+<p><img src="/images/docker-vmware-harbor-ssjinyao-devel.png" alt=""></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"># docker-compose pause 暂停</div><div class="line"># docker-compose unpause 运行</div><div class="line"># docker-compose stop 停止</div><div class="line"># docker-compose start 启动</div></pre></td></tr></table></figure>
+<h2 id="docker-资源限制"><a href="#docker-资源限制" class="headerlink" title="docker 资源限制"></a>docker 资源限制</h2><p>OOME<br>一旦发生OOME，任何进程都有可能被杀死，包括docker daemon在内<br>为此，Dokcer特地调整了docker daemon的OOM优先级，以名它被内核”正法”<br>但容器的优先级并未被调整</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">–memory-swap</th>
+<th style="text-align:center">–memory</th>
+<th style="text-align:center">功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">正数S</td>
+<td style="text-align:center">正数M</td>
+<td style="text-align:center">容器可用总空间为S,其中ram为M,swap为(S-M)若S=M,则无可用swap资源</td>
+</tr>
+<tr>
+<td style="text-align:center">0</td>
+<td style="text-align:center">正数M</td>
+<td style="text-align:center">相当于未设置 swap(unset)</td>
+</tr>
+<tr>
+<td style="text-align:center">unset</td>
+<td style="text-align:center">正数M</td>
+<td style="text-align:center">若主机(Docker Host)启用了swap,则容器的可用swap为2*M</td>
+</tr>
+<tr>
+<td style="text-align:center">-1</td>
+<td style="text-align:center">正数M</td>
+<td style="text-align:center">若主机(Docker Host)启用了swap,则容器可使用最大至主机上所的所有swap空间的资源</td>
+</tr>
+<tr>
+<td style="text-align:center">注意: 在容器使用free命令可以看到的swap空间并不是具有其所展现出的空间指示意义</td>
+</tr>
+</tbody>
+</table>
+<p>pull 一个压测镜像</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"># docker pull lorel/docker-stress-ng</div><div class="line"># docker run --name stress -it --rm lorel/docker-stress-ng:latest stress --help</div><div class="line"># docker run --name stree -it --rm -m 256m lorel/docker-stress-ng:latest stress --vm 2</div></pre></td></tr></table></figure>
+<p>查看启用的docker进程</p>
+<p><img src="/images/docker-top-stress.png" alt=""></p>
+<p>查看stress 容器的分配内存状态 </p>
+<p><img src="/images/docker-status-stee.png" alt=""></p>
+<p>同样的，当对cpu做压测时，指定上限为两个cpu，也就是使用率为200%，当压测为8个cpu时，cpu最高占用为200%  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># docker run --name stress -it --rm --cpus 2 lorel/docker-stress-ng:latest stress --cpu 8</div><div class="line"># docker run --name stress -it --cpuset-cpus 0,2 --rm lorel/docker-stress-ng:latest stress --cpu 8  #设定只运行在第0和2个cpu上</div><div class="line"># docker run --name stress -it --cpus 2 --rm lorel/docker-stress-ng:latest stresss --cpu8 #设定cpus 2 ，说明所有核心都能用到，但是最多只能使用200%</div><div class="line"># docker run --name stress -it --cpu-shares 1024 --rm lorel/docker-stress-ng:latest stress --cpu 8 </div><div class="line"># 设定限制为尽可能多的分配cpu资源,最后这种模式，当再启一个容器时，会实时按比例分配cpu资源分到另一个容器，</div><div class="line"># docker run --name stress2 -it --cpu-shares 512 --rm lorel/docker-stress-ng:latest stress --cpu 8</div></pre></td></tr></table></figure>
+<p><img src="/images/docker-strees-two-shares.png" alt=""></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>ღ ღ ღ 如果觉得文章对您有用，不妨打赏一下ღ ღ ღ</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/weipei.png" alt="锦遥 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/zhipei.png" alt="锦遥 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    锦遥
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://www.ssjinyao.com/2018/10/02/docker笔记二/" title="docker笔记(二)">https://www.ssjinyao.com/2018/10/02/docker笔记二/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/linux/" rel="tag"># linux</a>
+          
+            <a href="/tags/cloud/" rel="tag"># cloud</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/28/docker笔记一/" rel="next" title="docker笔记(一)">
+                <i class="fa fa-chevron-left"></i> docker笔记(一)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/10/04/kubernetes 笔记一/" rel="prev" title="kubernetes笔记">
+                kubernetes笔记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/rjyy.ico"
+                alt="锦遥" />
+            
+              <p class="site-author-name" itemprop="name">锦遥</p>
+              <p class="site-description motion-element" itemprop="description">有智而性缓者思大智
+
+</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">68</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+		  <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=174079&auto=1&height=66"></iframe>
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="http://wpa.qq.com/msgrd?v=3&uin=1922006891site=qq&menu=yes" target="_blank" title="我的QQ">
+                    
+                      <i class="fa fa-fw fa-qq"></i></a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://jf.ssjinyao.com/" title="狗江博客" target="_blank">狗江博客</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          <div style="">
+  <canvas id="canvas" style="width:60%;">当前浏览器不支持canvas，请更换浏览器后再试</canvas>
+  </div>
+  <script>
+  (function(){
+
+      var digit=
+	      [
+		          [
+				              [0,0,1,1,1,0,0],
+							              [0,1,1,0,1,1,0],
+										              [1,1,0,0,0,1,1],
+													              [1,1,0,0,0,1,1],
+																              [1,1,0,0,0,1,1],
+																			              [1,1,0,0,0,1,1],
+																						              [1,1,0,0,0,1,1],
+																									              [1,1,0,0,0,1,1],
+																												              [0,1,1,0,1,1,0],
+																															              [0,0,1,1,1,0,0]
+																																		          ],//0
+																																				          [
+																																						              [0,0,0,1,1,0,0],
+																																									              [0,1,1,1,1,0,0],
+																																												              [0,0,0,1,1,0,0],
+																																															              [0,0,0,1,1,0,0],
+																																																		              [0,0,0,1,1,0,0],
+																																																					              [0,0,0,1,1,0,0],
+																																																								              [0,0,0,1,1,0,0],
+																																																											              [0,0,0,1,1,0,0],
+																																																														              [0,0,0,1,1,0,0],
+																																																																	              [1,1,1,1,1,1,1]
+																																																																					          ],//1
+																																																																							          [
+																																																																										              [0,1,1,1,1,1,0],
+																																																																													              [1,1,0,0,0,1,1],
+																																																																																              [0,0,0,0,0,1,1],
+																																																																																			              [0,0,0,0,1,1,0],
+																																																																																						              [0,0,0,1,1,0,0],
+																																																																																									              [0,0,1,1,0,0,0],
+																																																																																												              [0,1,1,0,0,0,0],
+																																																																																															              [1,1,0,0,0,0,0],
+																																																																																																		              [1,1,0,0,0,1,1],
+																																																																																																					              [1,1,1,1,1,1,1]
+																																																																																																									          ],//2
+																																																																																																											          [
+																																																																																																														              [1,1,1,1,1,1,1],
+																																																																																																																	              [0,0,0,0,0,1,1],
+																																																																																																																				              [0,0,0,0,1,1,0],
+																																																																																																																							              [0,0,0,1,1,0,0],
+																																																																																																																										              [0,0,1,1,1,0,0],
+																																																																																																																													              [0,0,0,0,1,1,0],
+																																																																																																																																              [0,0,0,0,0,1,1],
+																																																																																																																																			              [0,0,0,0,0,1,1],
+																																																																																																																																						              [1,1,0,0,0,1,1],
+																																																																																																																																									              [0,1,1,1,1,1,0]
+																																																																																																																																													          ],//3
+																																																																																																																																															          [
+																																																																																																																																																		              [0,0,0,0,1,1,0],
+																																																																																																																																																					              [0,0,0,1,1,1,0],
+																																																																																																																																																								              [0,0,1,1,1,1,0],
+																																																																																																																																																											              [0,1,1,0,1,1,0],
+																																																																																																																																																														              [1,1,0,0,1,1,0],
+																																																																																																																																																																	              [1,1,1,1,1,1,1],
+																																																																																																																																																																				              [0,0,0,0,1,1,0],
+																																																																																																																																																																							              [0,0,0,0,1,1,0],
+																																																																																																																																																																										              [0,0,0,0,1,1,0],
+																																																																																																																																																																													              [0,0,0,1,1,1,1]
+																																																																																																																																																																																	          ],//4
+																																																																																																																																																																																			          [
+																																																																																																																																																																																						              [1,1,1,1,1,1,1],
+																																																																																																																																																																																									              [1,1,0,0,0,0,0],
+																																																																																																																																																																																												              [1,1,0,0,0,0,0],
+																																																																																																																																																																																															              [1,1,1,1,1,1,0],
+																																																																																																																																																																																																		              [0,0,0,0,0,1,1],
+																																																																																																																																																																																																					              [0,0,0,0,0,1,1],
+																																																																																																																																																																																																								              [0,0,0,0,0,1,1],
+																																																																																																																																																																																																											              [0,0,0,0,0,1,1],
+																																																																																																																																																																																																														              [1,1,0,0,0,1,1],
+																																																																																																																																																																																																																	              [0,1,1,1,1,1,0]
+																																																																																																																																																																																																																					          ],//5
+																																																																																																																																																																																																																							          [
+																																																																																																																																																																																																																										              [0,0,0,0,1,1,0],
+																																																																																																																																																																																																																													              [0,0,1,1,0,0,0],
+																																																																																																																																																																																																																																              [0,1,1,0,0,0,0],
+																																																																																																																																																																																																																																			              [1,1,0,0,0,0,0],
+																																																																																																																																																																																																																																						              [1,1,0,1,1,1,0],
+																																																																																																																																																																																																																																									              [1,1,0,0,0,1,1],
+																																																																																																																																																																																																																																												              [1,1,0,0,0,1,1],
+																																																																																																																																																																																																																																															              [1,1,0,0,0,1,1],
+																																																																																																																																																																																																																																																		              [1,1,0,0,0,1,1],
+																																																																																																																																																																																																																																																					              [0,1,1,1,1,1,0]
+																																																																																																																																																																																																																																																									          ],//6
+																																																																																																																																																																																																																																																											          [
+																																																																																																																																																																																																																																																														              [1,1,1,1,1,1,1],
+																																																																																																																																																																																																																																																																	              [1,1,0,0,0,1,1],
+																																																																																																																																																																																																																																																																				              [0,0,0,0,1,1,0],
+																																																																																																																																																																																																																																																																							              [0,0,0,0,1,1,0],
+																																																																																																																																																																																																																																																																										              [0,0,0,1,1,0,0],
+																																																																																																																																																																																																																																																																													              [0,0,0,1,1,0,0],
+																																																																																																																																																																																																																																																																																              [0,0,1,1,0,0,0],
+																																																																																																																																																																																																																																																																																			              [0,0,1,1,0,0,0],
+																																																																																																																																																																																																																																																																																						              [0,0,1,1,0,0,0],
+																																																																																																																																																																																																																																																																																									              [0,0,1,1,0,0,0]
+																																																																																																																																																																																																																																																																																													          ],//7
+																																																																																																																																																																																																																																																																																															          [
+																																																																																																																																																																																																																																																																																																		              [0,1,1,1,1,1,0],
+																																																																																																																																																																																																																																																																																																					              [1,1,0,0,0,1,1],
+																																																																																																																																																																																																																																																																																																								              [1,1,0,0,0,1,1],
+																																																																																																																																																																																																																																																																																																											              [1,1,0,0,0,1,1],
+																																																																																																																																																																																																																																																																																																														              [0,1,1,1,1,1,0],
+																																																																																																																																																																																																																																																																																																																	              [1,1,0,0,0,1,1],
+																																																																																																																																																																																																																																																																																																																				              [1,1,0,0,0,1,1],
+																																																																																																																																																																																																																																																																																																																							              [1,1,0,0,0,1,1],
+																																																																																																																																																																																																																																																																																																																										              [1,1,0,0,0,1,1],
+																																																																																																																																																																																																																																																																																																																													              [0,1,1,1,1,1,0]
+																																																																																																																																																																																																																																																																																																																																	          ],//8
+																																																																																																																																																																																																																																																																																																																																			          [
+																																																																																																																																																																																																																																																																																																																																						              [0,1,1,1,1,1,0],
+																																																																																																																																																																																																																																																																																																																																									              [1,1,0,0,0,1,1],
+																																																																																																																																																																																																																																																																																																																																												              [1,1,0,0,0,1,1],
+																																																																																																																																																																																																																																																																																																																																															              [1,1,0,0,0,1,1],
+																																																																																																																																																																																																																																																																																																																																																		              [0,1,1,1,0,1,1],
+																																																																																																																																																																																																																																																																																																																																																					              [0,0,0,0,0,1,1],
+																																																																																																																																																																																																																																																																																																																																																								              [0,0,0,0,0,1,1],
+																																																																																																																																																																																																																																																																																																																																																											              [0,0,0,0,1,1,0],
+																																																																																																																																																																																																																																																																																																																																																														              [0,0,0,1,1,0,0],
+																																																																																																																																																																																																																																																																																																																																																																	              [0,1,1,0,0,0,0]
+																																																																																																																																																																																																																																																																																																																																																																					          ],//9
+																																																																																																																																																																																																																																																																																																																																																																							          [
+																																																																																																																																																																																																																																																																																																																																																																										              [0,0,0,0,0,0,0],
+																																																																																																																																																																																																																																																																																																																																																																													              [0,0,1,1,1,0,0],
+																																																																																																																																																																																																																																																																																																																																																																																              [0,0,1,1,1,0,0],
+																																																																																																																																																																																																																																																																																																																																																																																			              [0,0,1,1,1,0,0],
+																																																																																																																																																																																																																																																																																																																																																																																						              [0,0,0,0,0,0,0],
+																																																																																																																																																																																																																																																																																																																																																																																									              [0,0,0,0,0,0,0],
+																																																																																																																																																																																																																																																																																																																																																																																												              [0,0,1,1,1,0,0],
+																																																																																																																																																																																																																																																																																																																																																																																															              [0,0,1,1,1,0,0],
+																																																																																																																																																																																																																																																																																																																																																																																																		              [0,0,1,1,1,0,0],
+																																																																																																																																																																																																																																																																																																																																																																																																					              [0,0,0,0,0,0,0]
+																																																																																																																																																																																																																																																																																																																																																																																																									          ]//:
+																																																																																																																																																																																																																																																																																																																																																																																																												      ];
+
+																																																																																																																																																																																																																																																																																																																																																																																																					  var canvas = document.getElementById('canvas');
+
+																																																																																																																																																																																																																																																																																																																																																																																																					  if(canvas.getContext){
+																																																																																																																																																																																																																																																																																																																																																																																																						      var cxt = canvas.getContext('2d');
+																																																																																																																																																																																																																																																																																																																																																																																																							      //声明canvas的宽高
+																																																																																																																																																																																																																																																																																																																																																																																																							      var H = 100,W = 700;
+																																																																																																																																																																																																																																																																																																																																																																																																								      canvas.height = H;
+																																																																																																																																																																																																																																																																																																																																																																																																									      canvas.width = W;
+																																																																																																																																																																																																																																																																																																																																																																																																										      cxt.fillStyle = '#f00';
+																																																																																																																																																																																																																																																																																																																																																																																																											      cxt.fillRect(10,10,50,50);
+
+																																																																																																																																																																																																																																																																																																																																																																																																												      //存储时间数据
+																																																																																																																																																																																																																																																																																																																																																																																																												      var data = [];
+																																																																																																																																																																																																																																																																																																																																																																																																													      //存储运动的小球
+																																																																																																																																																																																																																																																																																																																																																																																																													      var balls = [];
+																																																																																																																																																																																																																																																																																																																																																																																																														      //设置粒子半径
+																																																																																																																																																																																																																																																																																																																																																																																																														      var R = canvas.height/20-1;
+																																																																																																																																																																																																																																																																																																																																																																																																															      (function(){
+																																																																																																																																																																																																																																																																																																																																																																																																																           var temp = /(\d)(\d):(\d)(\d):(\d)(\d)/.exec(new Date());
+																																																																																																																																																																																																																																																																																																																																																																																																																		           //存储时间数字，由十位小时、个位小时、冒号、十位分钟、个位分钟、冒号、十位秒钟、个位秒钟这7个数字组成
+																																																																																																																																																																																																																																																																																																																																																																																																																		           data.push(temp[1],temp[2],10,temp[3],temp[4],10,temp[5],temp[6]);
+																																																																																																																																																																																																																																																																																																																																																																																																																				       })();
+
+																																																																																																																																																																																																																																																																																																																																																																																																																      /*生成点阵数字*/
+																																																																																																																																																																																																																																																																																																																																																																																																																      function renderDigit(index,num){
+																																																																																																																																																																																																																																																																																																																																																																																																																		          for(var i = 0; i < digit[num].length; i++){
+																																																																																																																																																																																																																																																																																																																																																																																																																					              for(var j = 0; j < digit[num][i].length; j++){
+																																																																																																																																																																																																																																																																																																																																																																																																																									                  if(digit[num][i][j] == 1){
+																																																																																																																																																																																																																																																																																																																																																																																																																														                      cxt.beginPath();
+																																																																																																																																																																																																																																																																																																																																																																																																																																			                      cxt.arc(14*(R+2)*index + j*2*(R+1)+(R+1),i*2*(R+1)+(R+1),R,0,2*Math.PI);
+																																																																																																																																																																																																																																																																																																																																																																																																																																								                      cxt.closePath();
+																																																																																																																																																																																																																																																																																																																																																																																																																																													                      cxt.fill();
+																																																																																																																																																																																																																																																																																																																																																																																																																																																		                  }
+																																																																																																																																																																																																																																																																																																																																																																																																																													              }
+																																																																																																																																																																																																																																																																																																																																																																																																																								          }
+																																																																																																																																																																																																																																																																																																																																																																																																																				      }
+
+																																																																																																																																																																																																																																																																																																																																																																																																																	      /*更新时钟*/
+																																																																																																																																																																																																																																																																																																																																																																																																																	      function updateDigitTime(){
+																																																																																																																																																																																																																																																																																																																																																																																																																			          var changeNumArray = [];
+																																																																																																																																																																																																																																																																																																																																																																																																																					          var temp = /(\d)(\d):(\d)(\d):(\d)(\d)/.exec(new Date());
+																																																																																																																																																																																																																																																																																																																																																																																																																							          var NewData = [];
+																																																																																																																																																																																																																																																																																																																																																																																																																									          NewData.push(temp[1],temp[2],10,temp[3],temp[4],10,temp[5],temp[6]);
+																																																																																																																																																																																																																																																																																																																																																																																																																											          for(var i = data.length-1; i >=0 ; i--){
+																																																																																																																																																																																																																																																																																																																																																																																																																														              //时间发生变化
+																																																																																																																																																																																																																																																																																																																																																																																																																														              if(NewData[i] !== data[i]){
+																																																																																																																																																																																																																																																																																																																																																																																																																																		                  //将变化的数字值和在data数组中的索引存储在changeNumArray数组中
+																																																																																																																																																																																																																																																																																																																																																																																																																																		                  changeNumArray.push(i+'_'+(Number(data[i])+1)%10);
+																																																																																																																																																																																																																																																																																																																																																																																																																																						              }
+																																																																																																																																																																																																																																																																																																																																																																																																																																	          }
+																																																																																																																																																																																																																																																																																																																																																																																																																													          //增加小球
+																																																																																																																																																																																																																																																																																																																																																																																																																													          for(var i = 0; i< changeNumArray.length; i++){
+																																																																																																																																																																																																																																																																																																																																																																																																																																              addBalls.apply(this,changeNumArray[i].split('_'));
+																																																																																																																																																																																																																																																																																																																																																																																																																																			          }
+																																																																																																																																																																																																																																																																																																																																																																																																																															          data = NewData.concat();
+																																																																																																																																																																																																																																																																																																																																																																																																																																	      }
+
+																																																																																																																																																																																																																																																																																																																																																																																																																		      /*更新小球状态*/
+																																																																																																																																																																																																																																																																																																																																																																																																																		      function updateBalls(){
+																																																																																																																																																																																																																																																																																																																																																																																																																				          for(var i = 0; i < balls.length; i++){
+																																																																																																																																																																																																																																																																																																																																																																																																																							              balls[i].stepY += balls[i].disY;
+																																																																																																																																																																																																																																																																																																																																																																																																																										              balls[i].x += balls[i].stepX;
+																																																																																																																																																																																																																																																																																																																																																																																																																													              balls[i].y += balls[i].stepY;
+																																																																																																																																																																																																																																																																																																																																																																																																																																              if(balls[i].x > W + R || balls[i].y > H + R){
+																																																																																																																																																																																																																																																																																																																																																																																																																																				                  balls.splice(i,1);
+																																																																																																																																																																																																																																																																																																																																																																																																																																								                  i--;
+																																																																																																																																																																																																																																																																																																																																																																																																																																												              }
+																																																																																																																																																																																																																																																																																																																																																																																																																																			          }
+																																																																																																																																																																																																																																																																																																																																																																																																																						      }
+
+																																																																																																																																																																																																																																																																																																																																																																																																																			      /*增加要运动的小球*/
+																																																																																																																																																																																																																																																																																																																																																																																																																			      function addBalls(index,num){
+																																																																																																																																																																																																																																																																																																																																																																																																																					          var numArray = [1,2,3];
+																																																																																																																																																																																																																																																																																																																																																																																																																							          var colorArray =  ["#3BE","#09C","#A6C","#93C","#9C0","#690","#FB3","#F80","#F44","#C00"];
+																																																																																																																																																																																																																																																																																																																																																																																																																									          for(var i = 0; i < digit[num].length; i++){
+																																																																																																																																																																																																																																																																																																																																																																																																																												              for(var j = 0; j < digit[num][i].length; j++){
+																																																																																																																																																																																																																																																																																																																																																																																																																																                  if(digit[num][i][j] == 1){
+																																																																																																																																																																																																																																																																																																																																																																																																																																					                      var ball = {
+																																																																																																																																																																																																																																																																																																																																																																																																																																											                          x:14*(R+2)*index + j*2*(R+1)+(R+1),
+																																																																																																																																																																																																																																																																																																																																																																																																																																																		                        y:i*2*(R+1)+(R+1),
+																																																																																																																																																																																																																																																																																																																																																																																																																																																								                        stepX:Math.floor(Math.random() * 4 -2),
+																																																																																																																																																																																																																																																																																																																																																																																																																																																														                        stepY:-2*numArray[Math.floor(Math.random()*numArray.length)],
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																				                        color:colorArray[Math.floor(Math.random()*colorArray.length)],
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																										                        disY:1
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																	                    };
+																																																																																																																																																																																																																																																																																																																																																																																																																																										                      balls.push(ball);
+																																																																																																																																																																																																																																																																																																																																																																																																																																															                  }
+																																																																																																																																																																																																																																																																																																																																																																																																																																				              }
+																																																																																																																																																																																																																																																																																																																																																																																																																															          }
+																																																																																																																																																																																																																																																																																																																																																																																																																											      }
+
+																																																																																																																																																																																																																																																																																																																																																																																																																				      /*渲染*/
+																																																																																																																																																																																																																																																																																																																																																																																																																				      function render(){
+																																																																																																																																																																																																																																																																																																																																																																																																																						          //重置画布宽度，达到清空画布的效果
+																																																																																																																																																																																																																																																																																																																																																																																																																						          canvas.height = 100;
+																																																																																																																																																																																																																																																																																																																																																																																																																								          //渲染时钟
+																																																																																																																																																																																																																																																																																																																																																																																																																								          for(var i = 0; i < data.length; i++){
+																																																																																																																																																																																																																																																																																																																																																																																																																											              renderDigit(i,data[i]);
+																																																																																																																																																																																																																																																																																																																																																																																																																														          }
+																																																																																																																																																																																																																																																																																																																																																																																																																										          //渲染小球
+																																																																																																																																																																																																																																																																																																																																																																																																																										          for(var i = 0; i < balls.length; i++){
+																																																																																																																																																																																																																																																																																																																																																																																																																													              cxt.beginPath();
+																																																																																																																																																																																																																																																																																																																																																																																																																																              cxt.arc(balls[i].x,balls[i].y,R,0,2*Math.PI);
+																																																																																																																																																																																																																																																																																																																																																																																																																																			              cxt.fillStyle = balls[i].color;
+																																																																																																																																																																																																																																																																																																																																																																																																																																						              cxt.closePath();
+																																																																																																																																																																																																																																																																																																																																																																																																																																									              cxt.fill();
+																																																																																																																																																																																																																																																																																																																																																																																																																																												          }
+																																																																																																																																																																																																																																																																																																																																																																																																																												      }
+
+																																																																																																																																																																																																																																																																																																																																																																																																																					      clearInterval(oTimer);
+																																																																																																																																																																																																																																																																																																																																																																																																																						      var oTimer = setInterval(function(){
+																																																																																																																																																																																																																																																																																																																																																																																																																									          //更新时钟
+																																																																																																																																																																																																																																																																																																																																																																																																																									          updateDigitTime();
+																																																																																																																																																																																																																																																																																																																																																																																																																											          //更新小球状态
+																																																																																																																																																																																																																																																																																																																																																																																																																											          updateBalls();
+																																																																																																																																																																																																																																																																																																																																																																																																																													          //渲染
+																																																																																																																																																																																																																																																																																																																																																																																																																													          render();
+																																																																																																																																																																																																																																																																																																																																																																																																																															      },50);
+																																																																																																																																																																																																																																																																																																																																																																																																					  }
+
+  })();
+</script>
+
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#docker-笔记-二"><span class="nav-number">1.</span> <span class="nav-text">docker 笔记(二)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Docker-Data-Volume"><span class="nav-number">1.1.</span> <span class="nav-text">Docker Data Volume</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#docker-file"><span class="nav-number">1.2.</span> <span class="nav-text">docker file</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自建docker-registry"><span class="nav-number">1.3.</span> <span class="nav-text">自建docker-registry</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vmware-harbor私有源的安装与使用"><span class="nav-number">1.4.</span> <span class="nav-text">vmware-harbor私有源的安装与使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#docker-资源限制"><span class="nav-number">1.5.</span> <span class="nav-text">docker 资源限制</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+
+<!-- 数字雨 -->
+<canvas id="canvas" width="1440" height="1080"></canvas>
+<script type="text/javascript" src="/js/DigitalRain.js"></script>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; 2015 &mdash; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">锦遥</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">167.3k</span>
+  
+  <span>   |   </span>
+<span id="showDays"></span>
+</div>
+
+
+
+
+
+
+
+
+<div>
+<a href="http://www.beian.miit.gov.cn">晋ICP备17010575号</a>
+</div>
+<!-- time -->
+<div id="show-time">
+<span id="span_dt_dt"></span>
+</div>
+<script>
+var seconds = 1000;
+var minutes = seconds * 60;
+var hours = minutes * 60;
+var days = hours * 24;
+var years = days * 365;
+var birthDay = Date.UTC(2017,07,30,00,00,00); // 这里设置建站时间
+setInterval(function() {
+var today = new Date();
+var todayYear = today.getFullYear();
+var todayMonth = today.getMonth()+1;
+var todayDate = today.getDate();
+var todayHour = today.getHours();
+var todayMinute = today.getMinutes();
+var todaySecond = today.getSeconds();
+var now = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+var diff = now - birthDay;
+var diffYears = Math.floor(diff/years);
+var diffDays = Math.floor((diff/days)-diffYears*365);
+var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+  document.getElementById('showDays').innerHTML="不間斷的運行了"+diffYears+" 年 "+diffDays+" 天 "+diffHours+" 時 "+diffMinutes+" 分 "+diffSeconds+" 秒 ";
+}, 1000);
+</script>
+
+        
+<div class="busuanzi-count">
+#  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 訪客數
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      位
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>  訪客量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+<script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
+<script type="text/javascript" src="/js/src/clipboard-use.js"></script>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://www.ssjinyao.com/2018/10/02/docker笔记二/';
+          this.page.identifier = '2018/10/02/docker笔记二/';
+          this.page.title = 'docker笔记(二)';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine@1.1.6/dist/Valine.min.js"></script>
+  <script type="text/javascript">
+    new Valine({
+        av: AV,
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        app_id: 'NkJqMpxu4QlRLhPIHipNUHF1-gzGzoHsz',
+        app_key: 'D2vTdueKJ8ammc2JEdje0vLW',
+        placeholder: 'From SSJinYao'
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'true') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  <!-- 点击特效 -->
+<canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas>
+<script type="text/javascript" src="/js/src/fireworks.js"></script>
+
+
+  <script src="/js/activate-power-mode.min.js"></script>
+    <script>
+	    POWERMODE.colorful = true;
+    POWERMODE.shake = false;
+    document.body.addEventListener('input', POWERMODE);
+	  </script>
+
+
+  
+<script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
+<script type="text/javascript" src="/js/src/clipboard-use.js"></script>
+<!--点击冒点-->
+<canvas width="1777" height="841" style="position: fixed; left: 0px; top: 0px; z-index: 2147483647; pointer-events: none;"></canvas>
+<script src="/js/maodian.js"></script>
+<canvas width="1390" height="797" style="position: fixed; left: 0px; top: 0px; z-index: 2147483647; pointer-events: none;"></canvas>
+</body>
+</html>
