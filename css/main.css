@@ -2063,7 +2063,7 @@ img:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #b4ccd0;
+  background: #aa03da;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3751,4 +3751,10 @@ ul.popular-posts .popular-posts-item .popular-posts-title a {
 }
 ul.popular-posts .popular-posts-item .popular-posts-title a:hover {
   border-bottom: none;
+}
+.site-overview {
+  text-align: center;
+}
+canvas#canvas {
+  margin-top: 20px;
 }
