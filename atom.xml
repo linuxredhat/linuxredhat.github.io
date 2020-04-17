@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.ssjinyao.com/"/>
-  <updated>2020-03-11T08:01:37.000Z</updated>
+  <updated>2020-04-05T08:56:57.000Z</updated>
   <id>https://www.ssjinyao.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="https://www.ssjinyao.com/2020/04/05/docs/15860770176207/"/>
+    <id>https://www.ssjinyao.com/2020/04/05/docs/15860770176207/</id>
+    <published>2020-04-05T08:56:57.000Z</published>
+    <updated>2020-04-05T08:56:57.000Z</updated>
+    
+    <content type="html"><![CDATA[<p># </p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;# &lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>高可用gitlab服务器搭建</title>
@@ -162,9 +184,9 @@
     
       <category term="linux" scheme="https://www.ssjinyao.com/tags/linux/"/>
     
-      <category term="program" scheme="https://www.ssjinyao.com/tags/program/"/>
-    
       <category term="cloud" scheme="https://www.ssjinyao.com/tags/cloud/"/>
+    
+      <category term="program" scheme="https://www.ssjinyao.com/tags/program/"/>
     
   </entry>
   
@@ -378,9 +400,9 @@
     
       <category term="linux" scheme="https://www.ssjinyao.com/tags/linux/"/>
     
-      <category term="program" scheme="https://www.ssjinyao.com/tags/program/"/>
-    
       <category term="cloud" scheme="https://www.ssjinyao.com/tags/cloud/"/>
+    
+      <category term="program" scheme="https://www.ssjinyao.com/tags/program/"/>
     
   </entry>
   
