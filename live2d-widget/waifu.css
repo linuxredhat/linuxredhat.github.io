@@ -5,7 +5,7 @@
 	color: #fff;
 	cursor: pointer;
 	font-size: 12px;
-	right: 43px;
+	right: 42px;
 	margin-left: -100px;
 	padding: 5px 2px 5px 5px;
 	position: fixed;
@@ -24,7 +24,7 @@
 
 #waifu {
 	bottom: -1000px;
-	right: 43px;
+	right: 42px;
 	line-height: 0;
 	position: fixed;
 	transform: translateY(3px);
@@ -58,7 +58,7 @@
 	position: absolute;
 	text-overflow: ellipsis;
 	transition: opacity 1s;
-	width: 250px;
+	width: 230px;
 	word-break: break-all;
 }
 
@@ -75,7 +75,7 @@
 	cursor: grab;
 	height: 250px;
 	position: relative;
-	width: 250px;
+	width: 230px;
 }
 
 #waifu #live2d:active {
