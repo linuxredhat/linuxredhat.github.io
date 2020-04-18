@@ -1,10 +1,10 @@
 #waifu-toggle {
-	background-color: #fa0;
+	background-color: rgba(0, 0, 0, 0);
 	border-radius: 5px;
 	bottom: 66px;
-	color: #fff;
+	color: #068010;
 	cursor: pointer;
-	font-size: 12px;
+	font-size: 20px;
 	right: 42px;
 	margin-left: -100px;
 	padding: 5px 2px 5px 5px;
