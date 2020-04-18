@@ -5,7 +5,7 @@
 	color: #068010;
 	cursor: pointer;
 	font-size: 20px;
-	right: 42px;
+	right: 10px;
 	margin-left: -100px;
 	padding: 5px 2px 5px 5px;
 	position: fixed;
@@ -24,7 +24,7 @@
 
 #waifu {
 	bottom: -1000px;
-	right: 42px;
+	right: 10px;
 	line-height: 0;
 	position: fixed;
 	transform: translateY(3px);
@@ -44,21 +44,21 @@
 
 #waifu-tips {
 	animation: shake 50s ease-in-out 5s infinite;
-	background-color: rgba(236, 217, 188, .5);
-	border: 1px solid rgba(224, 186, 140, .62);
+	background-color: rgba(255, 0, 4, 0.16);
+	border: 1px solid rgba(255, 0, 0, 0.55);
 	border-radius: 12px;
 	box-shadow: 0 3px 15px 2px rgba(191, 158, 118, .2);
 	font-size: 14px;
 	line-height: 24px;
 	margin: -30px 20px;
-	min-height: 70px;
+	min-height: 20px;
 	opacity: 0;
 	overflow: hidden;
 	padding: 5px 10px;
 	position: absolute;
 	text-overflow: ellipsis;
 	transition: opacity 1s;
-	width: 230px;
+	width: 195px;
 	word-break: break-all;
 }
 
