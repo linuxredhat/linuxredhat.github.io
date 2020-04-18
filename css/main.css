@@ -203,7 +203,7 @@ body {
 }
 @media (min-width: 1600px) {
   body {
-    font-size: 16px;
+    font-size: 18px;
   }
 }
 h1,
@@ -226,51 +226,51 @@ h6 {
   margin: 20px 0 15px;
 }
 h1 {
-  font-size: 22px;
+  font-size: 23px;
 }
 @media (max-width: 767px) {
   h1 {
-    font-size: 18px;
+    font-size: 19px;
   }
 }
 h2 {
-  font-size: 20px;
+  font-size: 21px;
 }
 @media (max-width: 767px) {
   h2 {
-    font-size: 16px;
+    font-size: 17px;
   }
 }
 h3 {
-  font-size: 18px;
+  font-size: 19px;
 }
 @media (max-width: 767px) {
   h3 {
-    font-size: 14px;
+    font-size: 15px;
   }
 }
 h4 {
-  font-size: 16px;
+  font-size: 17px;
 }
 @media (max-width: 767px) {
   h4 {
-    font-size: 12px;
+    font-size: 13px;
   }
 }
 h5 {
-  font-size: 14px;
+  font-size: 15px;
 }
 @media (max-width: 767px) {
   h5 {
-    font-size: 10px;
+    font-size: 11px;
   }
 }
 h6 {
-  font-size: 12px;
+  font-size: 13px;
 }
 @media (max-width: 767px) {
   h6 {
-    font-size: 8px;
+    font-size: 9px;
   }
 }
 p {
@@ -1880,7 +1880,7 @@ pre .javascript .function {
 .site-description {
   margin-top: 0;
   text-align: center;
-  font-size: 13px;
+  font-size: 18px;
   color: #999;
 }
 .site-author-image {
@@ -2063,7 +2063,7 @@ img:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #8ec66b;
+  background: #f5332e;
 }
 .links-of-blogroll {
   font-size: 13px;
