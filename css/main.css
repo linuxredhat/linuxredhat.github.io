@@ -43,6 +43,8 @@ a {
 a:active,
 a:hover {
   outline: 0;
+  color: #555;
+  border-bottom-color: #555;
 }
 abbr[title] {
   border-bottom: 1px dotted;
@@ -1884,8 +1886,7 @@ pre .javascript .function {
   margin-top: 0;
   text-align: center;
   font-size: 18px;
-  color: #555;
-/*  color: $site-description-color;*/
+  color: #999;
 }
 .site-author-image {
   display: block;
@@ -2067,7 +2068,7 @@ img:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ff49d5;
+  background: #401200;
 }
 .links-of-blogroll {
   font-size: 13px;
