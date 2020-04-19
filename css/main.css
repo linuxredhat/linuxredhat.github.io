@@ -2066,7 +2066,7 @@ img:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ddff7a;
+  background: #05b3dd;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3533,10 +3533,4 @@ canvas {
 }
 .post-meta-item-icon {
   color: #f00;
-}
-.main-inner {
-  background: #000;
-  opacity: 0.9;
-  padding-right: 3px;
-  padding-left: 3px;
 }
