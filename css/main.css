@@ -2066,7 +2066,7 @@ img:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ff657c;
+  background: #ff1daa;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3527,4 +3527,83 @@ canvas {
   color: #262626;
   font-family: 'EB Garamond', "Noto Serif SC", sans-serif;
   font-weight: bold;
+}
+.fa-heart {
+  color: #f00;
+}
+.post-meta-item-icon {
+  color: #f00;
+}
+.main-inner {
+  background: #000;
+  opacity: 0.9;
+  padding-right: 3px;
+  padding-left: 3px;
+}
+.post {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  padding: 25px;
+  -webkit-box-shadow: 0 0 5px rgba(202,203,203,0.5);
+  -moz-box-shadow: 0 0 5px rgba(202,203,204,0.5);
+}
+@media (max-width: 767px) {
+  .post-block {
+    padding-right: 10px;
+  }
+  .posts-expand .post-eof {
+    margin: 4em auto 4em;
+    background: #fff;
+  }
+  .post-title {
+    font-size: 22px;
+    text-align: center;
+  }
+}
+pre .addition {
+  background: #e6ffed;
+}
+pre .deletion {
+  background: #ffeef0;
+}
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-button {
+  width: 0;
+  height: 0;
+}
+::-webkit-scrollbar-button:start:increment,
+::-webkit-scrollbar-button:end:decrement {
+  display: none;
+}
+::-webkit-scrollbar-corner {
+  display: block;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  background-color: rgba(0,0,0,0.2);
+}
+::-webkit-scrollbar-thumb:hover {
+  border-radius: 8px;
+  background-color: rgba(0,0,0,0.5);
+}
+::-webkit-scrollbar-track,
+::-webkit-scrollbar-thumb {
+  border-right: 1px solid transparent;
+  border-left: 1px solid transparent;
+}
+::-webkit-scrollbar-track:hover {
+  background-color: rgba(0,0,0,0.15);
+}
+::-webkit-scrollbar-button:start {
+  width: 10px;
+  height: 10px;
+/*background: url(../images/scrollbar_arrow.png) no-repeat 0 0;*/
+/*可以添加滚动条样式*/
+}
+::selection {
+  background: #fff159;
+  color: #222;
 }
