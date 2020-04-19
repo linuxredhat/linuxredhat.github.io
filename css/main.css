@@ -43,8 +43,6 @@ a {
 a:active,
 a:hover {
   outline: 0;
-  color: #555;
-  border-bottom-color: #555;
 }
 abbr[title] {
   border-bottom: 1px dotted;
@@ -2068,7 +2066,7 @@ img:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #cdff54;
+  background: #213640;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2178,7 +2176,7 @@ img:hover {
   display: block;
 }
 .post-toc .nav .active > a {
-  color: #ab82ff;
+  color: #555;
   border-bottom-color: #ab82ff;
 }
 .post-toc .nav .active-current > a {
