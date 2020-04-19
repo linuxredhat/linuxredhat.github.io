@@ -2068,7 +2068,7 @@ img:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #cf8c34;
+  background: #c2cbff;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2156,8 +2156,7 @@ img:hover {
   border-bottom-color: #ccc;
 }
 .post-toc ol a:hover {
-/*color: $toc-link-hover-color;*/
-  color: #555;
+  color: #000;
   border-bottom-color: #000;
 }
 .post-toc .nav-item {
