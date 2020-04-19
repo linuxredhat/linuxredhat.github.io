@@ -2066,7 +2066,7 @@ img:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #6cff88;
+  background: #ff657c;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3517,4 +3517,14 @@ canvas {
   height: auto;
   width: auto;
   z-index: -1;
+}
+.posts-expand .post-eof {
+  margin: 4em auto 4em;
+  background: #fff;
+}
+.footer-inner {
+  font-size: 17px;
+  color: #262626;
+  font-family: 'EB Garamond', "Noto Serif SC", sans-serif;
+  font-weight: bold;
 }
