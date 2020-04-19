@@ -1470,7 +1470,9 @@ pre .javascript .function {
 .posts-expand .post-title-link {
   display: inline-block;
   position: relative;
-  color: #555;
+/*  color: $black-light; */
+  color: rgba(187,0,0,0) 0;
+  font-weight: 600;
   border-bottom: none;
   line-height: 1.2;
   vertical-align: top;
@@ -1876,13 +1878,14 @@ pre .javascript .function {
   text-align: center;
   color: #8b0000;
   font-weight: 600;
-  font-size: 30px;
+  font-size: 25px;
 }
 .site-description {
   margin-top: 0;
   text-align: center;
   font-size: 18px;
-  color: #999;
+  color: #8b0000;
+/*  color: $site-description-color;*/
 }
 .site-author-image {
   display: block;
@@ -2064,7 +2067,7 @@ img:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #71421c;
+  background: #b62dcf;
 }
 .links-of-blogroll {
   font-size: 13px;
