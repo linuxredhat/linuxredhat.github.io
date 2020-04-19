@@ -2066,7 +2066,7 @@ img:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #05b3dd;
+  background: #4501f9;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3533,4 +3533,219 @@ canvas {
 }
 .post-meta-item-icon {
   color: #f00;
+}
+.post {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  padding: 25px;
+  -webkit-box-shadow: 0 0 5px rgba(202,203,203,0.5);
+  -moz-box-shadow: 0 0 5px rgba(202,203,204,0.5);
+}
+@media (max-width: 767px) {
+  .post-block {
+    padding-right: 10px;
+  }
+  .posts-expand .post-eof {
+    margin: 4em auto 4em;
+    background: #fff;
+  }
+  .post-title {
+    font-size: 22px;
+    text-align: center;
+  }
+}
+pre .addition {
+  background: #e6ffed;
+}
+pre .deletion {
+  background: #ffeef0;
+}
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-button {
+  width: 0;
+  height: 0;
+}
+::-webkit-scrollbar-button:start:increment,
+::-webkit-scrollbar-button:end:decrement {
+  display: none;
+}
+::-webkit-scrollbar-corner {
+  display: block;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  background-color: rgba(0,0,0,0.2);
+}
+::-webkit-scrollbar-thumb:hover {
+  border-radius: 8px;
+  background-color: rgba(0,0,0,0.5);
+}
+::-webkit-scrollbar-track,
+::-webkit-scrollbar-thumb {
+  border-right: 1px solid transparent;
+  border-left: 1px solid transparent;
+}
+::-webkit-scrollbar-track:hover {
+  background-color: rgba(0,0,0,0.15);
+}
+::-webkit-scrollbar-button:start {
+  width: 10px;
+  height: 10px;
+/*background: url(../images/scrollbar_arrow.png) no-repeat 0 0;*/
+/*可以添加滚动条样式*/
+}
+::selection {
+  background: #fff159;
+  color: #222;
+}
+div#comments.comments.v {
+  margin-top: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+div.vheader.item2 {
+  border-bottom: 1px solid #5f5f5f;
+  height: 35px;
+}
+.v .vwrap .vheader.item2 .vinput {
+  height: 30px;
+  width: 50% !important;
+  margin: 0px !important;
+}
+input.vnick.vinput {
+  border-right: 2px solid #000;
+}
+div.vcontrol {
+  padding-top: 0px;
+}
+div#comments.comments.v {
+  border: 0px;
+}
+.v .vlist .vcard .vquote {
+  border-left: none;
+}
+.v .vlist .vcard .vh {
+  border-bottom: none;
+}
+.v .vwrap {
+  border: 2px solid #000;
+  height: 250px;
+  width: 98%;
+  left: 1%;
+  border-radius: 6px;
+  overflow: visible;
+  counter-reset: avater;
+}
+.v .vwrap .vedit .vemojis {
+  width: 600px;
+  background-color: #fff;
+  border-radius: 5px;
+}
+.v .vwrap .vedit .vpreview {
+  width: 600px;
+  background-color: #fff;
+  border-radius: 5px;
+}
+.v .vbtn {
+  background-color: #971212;
+  color: #fff;
+}
+.v .vwrap .vedit .vctrl {
+  text-align: left;
+}
+.v .vwrap .vedit .vctrl span {
+  background-color: #7f7f7f;
+  color: #fff;
+  border-radius: 3px;
+  padding: 3px;
+}
+.v .vwrap .vedit .vctrl {
+  padding: 0px;
+  margin: 0px;
+}
+.v .vlist .vcard .vquote .vcontent {
+  font-size: 19px;
+  font-weight: 200;
+}
+div.vedit {
+  height: 120px;
+}
+div.vcontrol {
+  margin-top: 30px;
+}
+.v .veditor {
+  min-height: 70px;
+  height: 100px;
+}
+.v .vlist .vcard {
+  border: 1px solid #ccc;
+  width: 98%;
+  left: 1%;
+  padding-left: 14px;
+  padding-right: 14px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+}
+.v .vlist .vquote .vcard {
+  border: 0px;
+  margin-bottom: 0px;
+  border-radius: 0px;
+  padding: 0px;
+}
+.v .vlist .vcard .vhead .vsys {
+  display: none;
+  background-color: #fff;
+}
+.v .vlist .vcard .vh .vmeta .vat {
+  background-color: #177714;
+  color: #fff;
+  border-radius: 3px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.v .vlist .vcard .vimg {
+  margin: 0 12px 0 0;
+  counter-increment: avater;
+}
+div#posts.posts-expand .tag-cloud a {
+  background-color: #f5f7f1;
+  border-radius: 6px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-top: 18px;
+  color: #000;
+}
+.tag-cloud a {
+  border-radius: 4px;
+  padding-right: 5px;
+  padding-left: 5px;
+  margin-right: 5px;
+  margin-left: 0px;
+  color: #000;
+  margin-top: 8px;
+  margin-bottom: 0px;
+}
+.tag-cloud a:before {
+  content: "🔖";
+}
+.tag-cloud-tags {
+/*font-family: Helvetica, Tahoma, Arial;*/
+  font-weight: 100;
+  text-align: left;
+  counter-reset: tags;
+}
+.popular-posts-header {
+  margin-top: 45px;
+  font-size: 20px;
+  font-family: "PT Serif", "Songti SC", STZhongsong, "PingFang SC", "Microsoft YaHei", Georgia, sans;
+  font-weight: 900;
+}
+ul.popular-posts .popular-posts-item .popular-posts-title a {
+  border-bottom: 1px solid #999;
+}
+ul.popular-posts .popular-posts-item .popular-posts-title a:hover {
+  border-bottom: none;
 }
