@@ -1884,7 +1884,7 @@ pre .javascript .function {
   margin-top: 0;
   text-align: center;
   font-size: 18px;
-  color: #8b0000;
+  color: #555;
 /*  color: $site-description-color;*/
 }
 .site-author-image {
@@ -2067,7 +2067,7 @@ img:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #981b62;
+  background: #ff49d5;
 }
 .links-of-blogroll {
   font-size: 13px;
