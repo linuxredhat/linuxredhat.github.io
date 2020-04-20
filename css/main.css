@@ -2066,7 +2066,7 @@ img:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ff7153;
+  background: #50ffff;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3894,4 +3894,15 @@ a:hover {
   transition-property: all;
   color: #8b0000;
   border-bottom-color: #ccc;
+}
+.menu .menu-item a {
+  position: relative;
+  box-sizing: border-box;
+  padding: 1px 20px;
+  text-align: left;
+  line-height: inherit;
+  transition-property: background-color;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+  transition-delay: 0s;
 }
