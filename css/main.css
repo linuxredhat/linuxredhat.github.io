@@ -2066,7 +2066,7 @@ img:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #eeff5e;
+  background: #285282;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3541,19 +3541,6 @@ canvas {
   -webkit-box-shadow: 0 0 5px rgba(202,203,203,0.5);
   -moz-box-shadow: 0 0 5px rgba(202,203,204,0.5);
 }
-@media (max-width: 767px) {
-  .post-block {
-    padding-right: 10px;
-  }
-  .posts-expand .post-eof {
-    margin: 4em auto 4em;
-    background: #fff;
-  }
-  .post-title {
-    font-size: 22px;
-    text-align: center;
-  }
-}
 pre .addition {
   background: #e6ffed;
 }
@@ -3764,9 +3751,22 @@ ul.popular-posts .popular-posts-item .popular-posts-title a:hover {
   overflow: hidden;
   padding: 0;
   width: 240px;
-  background: #fff;
-  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 #8b0000;
+  background: rgba(255,255,255,0.612);
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 2px 0 #8b0000;
   border-radius: 20px 20px 20px 20px;
+}
+@media (max-width: 767px) {
+  .post-block {
+    padding-right: 10px;
+  }
+  .posts-expand .post-eof {
+    margin: 4em auto 4em;
+    background: #fff;
+  }
+  .post-title {
+    font-size: 22px;
+    text-align: center;
+  }
 }
 #posts > article + article .post-block {
   margin-top: 12px;
