@@ -2066,7 +2066,7 @@ img:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #2e1262;
+  background: #82f7ff;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3805,4 +3805,30 @@ a {
 a:hover {
   color: #555;
   border-bottom-color: #8b0000;
+}
+.posts-expand .post-body img {
+  box-sizing: border-box;
+  margin: auto;
+  padding: 3px;
+  border: 1px solid #b80000;
+}
+.btn {
+  display: inline-block;
+  padding: 0 20px;
+  font-size: 14px;
+  color: #8b0000;
+  background: #fff;
+  border: 2px solid #8b0000;
+  text-decoration: none;
+  border-radius: 16px;
+  transition-property: background-color;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+  transition-delay: 0s;
+  line-height: 2;
+}
+.btn:hover {
+  border-color: #555;
+  color: #fff;
+  background: #555;
 }
