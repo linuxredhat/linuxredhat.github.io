@@ -2066,7 +2066,7 @@ img:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #f677ff;
+  background: #c8c6f5;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3764,6 +3764,15 @@ ul.popular-posts .popular-posts-item .popular-posts-title a:hover {
   border-radius: 20px 20px 20px 20px;
 }
 @media (max-width: 767px) {
+  element.style {
+    opacity: 1;
+    display: block;
+    -webkit-transform: initial;
+    -moz-transform: initial;
+    -ms-transform: initial;
+    -o-transform: initial;
+    transform: initial;
+  }
   .sidebar-inner {
     box-sizing: border-box;
     width: 240px;
