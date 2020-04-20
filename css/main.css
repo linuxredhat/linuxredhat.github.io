@@ -2066,7 +2066,7 @@ img:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #c850ff;
+  background: #fff070;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3753,8 +3753,18 @@ ul.popular-posts .popular-posts-item .popular-posts-title a:hover {
   box-sizing: border-box;
   width: 240px;
   color: #555;
-  background: rgba(255,255,255,0);
+  background: #fff;
   box-shadow: 0 2px 2px 0 #ff0202, 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 #8b0000, 0 -1px 0.5px 0 #fff;
   border-radius: 20px;
   opacity: 0;
+}
+.header-inner {
+  position: absolute;
+  top: 0;
+  overflow: hidden;
+  padding: 0;
+  width: 240px;
+  background: #fff;
+  box-shadow: 0 2px 2px 0 #ff0202, 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 #8b0000, 0 -1px 0.5px 0 #fff;
+  border-radius: 20px 20px 20px 20px;
 }
