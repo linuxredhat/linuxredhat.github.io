@@ -2066,7 +2066,7 @@ img:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #7a1fff;
+  background: #4114a4;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3840,4 +3840,19 @@ a:hover {
 }
 .sidebar a {
   color: #8b0000;
+}
+.sidebar-nav li {
+  display: inline-block;
+  cursor: pointer;
+  border-bottom: 1px solid transparent;
+  font-size: 14px;
+  color: #8b0000;
+}
+.post-toc ol a {
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+  transition-delay: 0s;
+  transition-property: all;
+  color: #8b0000;
+  border-bottom-color: #ccc;
 }
