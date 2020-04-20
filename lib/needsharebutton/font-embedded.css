@@ -1,12 +1,4 @@
 /* SOCIAL ICON */
-@font-face {
-	    font-family: 'xingkai';
-		    src: url('/fonts/STXingkai.eot');
-				     src: url('/fonts/STXingkai.eot?#iefix') format('embedded-opentype'),
-							           url('/fonts/STXingkai.woff2') format('woff2'),
-									            url('/fonts/STXingkai.woff') format('woff'),
-												         url('/fonts/STXingkai.ttf')  format('truetype');
-}
 
 @font-face {
     font-family: 'social-icons';
