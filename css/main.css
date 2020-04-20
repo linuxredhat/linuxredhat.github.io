@@ -2066,7 +2066,7 @@ img:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ee9444;
+  background: #7a1fff;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3837,4 +3837,7 @@ a:hover {
   color: #8b0000;
   font-family: 'EB Garamond', "Noto Serif SC", sans-serif;
   font-weight: bold;
+}
+.sidebar a {
+  color: #8b0000;
 }
