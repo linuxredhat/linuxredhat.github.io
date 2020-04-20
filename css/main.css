@@ -2066,7 +2066,7 @@ img:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #1353ad;
+  background: #ff5946;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3861,13 +3861,16 @@ a:hover {
   color: #8b0000;
   border-bottom-color: #ccc;
 }
+@font-face {
+  font-family: 'xingkai';
+  src: url("/fonts/STXingkai.eot");
+  src: url("/fonts/STXingkai.eot?#iefix") format('embedded-opentype'), url("/fonts/STXingkai.woff2") format('woff2'), url("/fonts/STXingkai.woff") format('woff'), url("/fonts/STXingkai.ttf") format('truetype');
+}
 .site-title {
   display: inline-block;
   vertical-align: top;
   line-height: 36px;
   font-size: 32px;
   font-weight: normal;
-  font-family: '华文行楷';
-  src: url("/fonts/STXingkai.eot");
-  src: url("/fonts/STXingkai.eot?#iefix") format('embedded-opentype'), url("/fonts/STXingkai.woff2") format('woff2'), url("/fonts/STXingkai.woff") format('woff'), url("/fonts/STXingkai.ttf") format('truetype');
+  font-family: 'xingkai';
 }
