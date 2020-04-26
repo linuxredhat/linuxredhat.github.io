@@ -76,7 +76,7 @@
 
 
 
-  <meta name="keywords" content="rhca,linux," />
+  <meta name="keywords" content="linux,rhca," />
 
 
 
@@ -90,7 +90,7 @@
 
 
 <meta name="description" content="nginx + lua + redis 实现短链接转发长链接 重新编译安装 nginx  及相关依赖安装相关依赖包 1#  yum -y install gcc zlib zlib-devel pcre-devel openssl openssl-devel  lua-devel luajit-devel pcre pcre-devel libxml2 libxml2-dev libxslt-de">
-<meta name="keywords" content="rhca,linux">
+<meta name="keywords" content="linux,rhca">
 <meta property="og:type" content="article">
 <meta property="og:title" content="nginx+lua+redis 实现短链接转发长链接">
 <meta property="og:url" content="https://www.asjin.com/2019/03/11/nginx-lua-redis实短链接转发长链接/index.html">
@@ -532,9 +532,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/rhca/" rel="tag"># rhca</a>
-          
             <a href="/tags/linux/" rel="tag"># linux</a>
+          
+            <a href="/tags/rhca/" rel="tag"># rhca</a>
           
         </div>
       
@@ -978,7 +978,8 @@ var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours
           this.page.title = 'nginx+lua+redis 实现短链接转发长链接';
         };
         var d = document, s = d.createElement('script');
-        s.src = 'https://.disqus.com/embed.js';
+//      s.src = 'https://.disqus.com/embed.js';
+        s.src = 'https://jasonsnelders-dev.disqus.com/embed.js';
         s.setAttribute('data-timestamp', '' + +new Date());
         (d.head || d.body).appendChild(s);
       </script>
