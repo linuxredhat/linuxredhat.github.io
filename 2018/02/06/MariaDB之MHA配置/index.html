@@ -374,17 +374,6 @@
 
           
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/02/06/MariaDB之MHA配置/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/02/06/MariaDB之MHA配置/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
           
 
           
@@ -602,12 +591,7 @@ master节点和各slave节点，以及各slave节点启动其IO和SQL线程，�
 
   
     <div class="comments" id="comments">
-      <div id="disqus_thread">
-        <noscript>
-          Please enable JavaScript to view the
-          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-        </noscript>
-      </div>
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zOTE2MC8xNTY4Nw=="></div>
     </div>
 
   
@@ -982,23 +966,6 @@ var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours
 
   
 
-    
-      <script type="text/javascript">
-        var disqus_config = function () {
-          this.page.url = 'https://www.asjin.com/2018/02/06/MariaDB之MHA配置/';
-          this.page.identifier = '2018/02/06/MariaDB之MHA配置/';
-          this.page.title = 'MariaDB之MHA配置';
-        };
-        var d = document, s = d.createElement('script');
-//      s.src = 'https://.disqus.com/embed.js';
-        s.src = 'https://jasonsnelders-dev.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', '' + +new Date());
-        (d.head || d.body).appendChild(s);
-      </script>
-    
-
-  
-
 
 
 
@@ -1035,6 +1002,21 @@ var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours
 
 
 
+
+  
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine@1.1.6/dist/Valine.min.js"></script>
+  <script type="text/javascript">
+    new Valine({
+        av: AV,
+        el: '#comments' ,
+        verify: true,
+        notify: true,
+        app_id: 'NkJqMpxu4QlRLhPIHipNUHF1-gzGzoHsz',
+        app_key: 'D2vTdueKJ8ammc2JEdje0vLW',
+        placeholder: '说点啥'
+    });
+  </script>
 
 
 
