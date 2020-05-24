@@ -1,0 +1,80 @@
+以下是我的404.html代码
+
+404页面
+
+---
+comments: false
+permalink: /404.html
+---
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        #game {
+            width: 100%;
+            margin-top: 32px;
+            text-align: center;
+        }
+
+        #msg {
+            width: 100%;
+            text-align: center;
+            font-size: 70px;
+            font-family: PingFang SC, Helvetica Neue, Hiragino Sans GB, Segoe UI, Microsoft YaHei, sans-serif;
+            font-weight: bold;
+            color: #4f565f;
+        }
+
+        .have_rest {
+            height: 41px;
+            background: url("/images/have_rest.png") center no-repeat rgba(255, 255, 255, .8);
+        }
+
+        .main-inner {
+            margin-top: 60px;
+            padding: 60px 60px 60px 60px;
+            background: rgba(255, 255, 255, 1) !important;
+            min-height: 500px;
+            border-radius: 5px;
+        }
+        
+		@media screen and (max-width: 768px) {
+			canvas{
+            margin-left: -94px;
+			}
+		}
+    </style>
+    <script src="/js/src/catch-cat/catch-the-cat.min.js"></script>
+</head>
+
+<p style="text-align: center;font-size: 30px; font-weight: bold">404 Not Found</p>
+<div style="width: 320px;margin: 0 auto">
+    <p style="text-align: center;font-size: large">请试试以下办法：</p>
+    <ul>
+        <li><p style="font-size: medium">返回首页：<a href="https://chennq.com" target="_blank" rel="external">点击此处</a></p></li>
+        <li><p style="font-size: medium">我的Github：<a href="https://github.com/atlasnq" target="_blank" rel="external">atlasnq</a></p></li>
+    </ul>
+</div>
+
+<div class="have_rest"></div>
+
+<div class="error-split" id="up">
+</div>
+
+<script src="/js/phaser.min.js"></script>
+<script src="/js/catch-the-cat.min.js"></script>
+<div id="game">
+
+</div>
+<script>window.game = new CatchTheCatGame({
+    w: 8,
+    h: 8,
+    r: 19,
+    backgroundColor: 16777215,
+    parent: "game",
+    statusBarAlign: "center",
+    credit: ""
+})</script>
+
+</html>

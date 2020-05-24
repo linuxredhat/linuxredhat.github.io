@@ -7,6 +7,11 @@
     </sitemap>
 
     <sitemap>
+        <loc>https://www.asjin.com/page-sitemap.xml</loc>
+        
+    </sitemap>
+
+    <sitemap>
         <loc>https://www.asjin.com/tag-sitemap.xml</loc>
         <lastmod>2019-06-28T09:25:48.000Z</lastmod>
     </sitemap>
