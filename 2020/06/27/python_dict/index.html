@@ -98,7 +98,8 @@
 <meta property="og:description" content="python 集合、 字典 集合 基本概念全集：所有元素的集合。例如实数集，所有实数组成的集合就是全集;子集subset和超集superset: 一个集合A所有元素都在另一个集合B是A的真超集;并集: 多个集合合并的结果;交集: 多个集合的公共部分;差集: 集合中除去和其他集合公共部分。  并集将多个集合A和B的所有的元素合并到一起union(*others)返回和多个集合合并后的新的集合运算符重">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://www.asjin.com/images/python_dict.png">
-<meta property="og:updated_time" content="2020-06-29T01:15:04.000Z">
+<meta property="og:image" content="https://www.asjin.com/images/Selection-Sort.gif">
+<meta property="og:updated_time" content="2020-07-29T12:46:17.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python 集合字典">
 <meta name="twitter:description" content="python 集合、 字典 集合 基本概念全集：所有元素的集合。例如实数集，所有实数组成的集合就是全集;子集subset和超集superset: 一个集合A所有元素都在另一个集合B是A的真超集;并集: 多个集合合并的结果;交集: 多个集合的公共部分;差集: 集合中除去和其他集合公共部分。  并集将多个集合A和B的所有的元素合并到一起union(*others)返回和多个集合合并后的新的集合运算符重">
@@ -407,7 +408,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  656
+                  1.1k
                 </span>
               
 
@@ -423,7 +424,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  2
+                  4
                 </span>
               
             </div>
@@ -460,6 +461,25 @@
 <h3 id="对称差集"><a href="#对称差集" class="headerlink" title="对称差集"></a>对称差集</h3><p>集合A和B，由所有不属于A和B的交集元素组成的集合，记作(A-B)U(B-A)<br><code>symmetric_differece(other)</code><br>返回和另一个集合的差集<br><code>^</code><br>等同于<code>symmetric_differece</code><br><code>symmetric_differece_update(other)</code><br>获取和另一个集合的差集并就地修改<br><code>^=</code><br>等同于<code>symmetric_differece_update</code><br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">In [<span class="number">17</span>]: a = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>&#125;</div><div class="line">In [<span class="number">18</span>]: b = &#123;<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>&#125;</div><div class="line">In [<span class="number">19</span>]: a ^ b</div><div class="line">Out[<span class="number">19</span>]: &#123;<span class="number">1</span>&#125;</div><div class="line">In [<span class="number">20</span>]: a ^= b</div><div class="line">In [<span class="number">21</span>]: a</div><div class="line">Out[<span class="number">21</span>]: &#123;<span class="number">1</span>&#125;</div></pre></td></tr></table></figure></p>
 <h3 id="集合运算"><a href="#集合运算" class="headerlink" title="集合运算"></a>集合运算</h3><p><code>issubset(other)、&lt;=</code><br>判断当前集合是否是另一个集合的子集<br><code>set1 &lt; set2</code><br>判断set1是否是set2的真子集<br><code>issuperset(other)、&gt;=</code><br>判断当前集合是否是other的超集<br><code>set1 &gt; set2</code><br>判断set1是否是set的真超集<br><code>isdisjoint(other)</code><br>当前集合和另一个集合没有交集<br>没有交集，返回Ture</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">In [<span class="number">1</span>]: a = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;</div><div class="line">In [<span class="number">2</span>]: b = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>&#125;</div><div class="line">In [<span class="number">3</span>]: b.issuperset(a)</div><div class="line">Out[<span class="number">3</span>]: <span class="keyword">True</span></div></pre></td></tr></table></figure>
+<h2 id="set-和线性结构"><a href="#set-和线性结构" class="headerlink" title="set 和线性结构"></a>set 和线性结构</h2><ul>
+<li>线性结构的查询时间复杂度是O(n),即随着数据规模的增大而增加耗时</li>
+<li>set、dict 等结构，内部使用hash值作为key，时间复杂度可以做O(1)，查询时间和数据规模无关</li>
+</ul>
+<p>可hash 的数据类型<br>数据型 int、float、complex<br>布尔型 True、False<br>字符串string、bytes<br>tuple<br>None<br> 以上都是不可变类型，成为可哈希类型 ,hashble</p>
+<ul>
+<li>set 的元素必须是可hash的</li>
+</ul>
+<h3 id="简单选择排序"><a href="#简单选择排序" class="headerlink" title="简单选择排序"></a>简单选择排序</h3><ul>
+<li>属于选择排序</li>
+<li>两两比较在大小，找出极值(极大值或极小值)被放置在固定的位置，这个固定位置一般指的是某一端</li>
+<li>结果分为升序和降序列</li>
+<li><p>降序<br>n 个数从左至右，索引从0开始到n-1，两两依次比较，记录大值过引，此轮所有数比较完比，将大数和索引0数效换，如果大数就是索引1，不交换，第二轮，从1开始比较，找到最大值，将它和过引1位置交换，如果它就在过引1 位置则不交换。今次类推，每次左边都会固定下一个大数。</p>
+</li>
+<li><p>升序<br>和降序相反<br><img src="/images/Selection-Sort.gif" alt=""></p>
+</li>
+</ul>
+<h3 id="简单选择排序代码实现-一"><a href="#简单选择排序代码实现-一" class="headerlink" title="简单选择排序代码实现(一)"></a>简单选择排序代码实现(一)</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#!/usr/bin/env python</span></div><div class="line"><span class="comment"># -*- coding: utf-8 -*-</span></div><div class="line">m_list = [</div><div class="line">    [<span class="number">1</span>,<span class="number">9</span>,<span class="number">8</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">4</span>,<span class="number">3</span>,<span class="number">2</span>],</div><div class="line">    [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>],</div><div class="line">    [<span class="number">9</span>,<span class="number">8</span>,<span class="number">7</span>,<span class="number">6</span>,<span class="number">5</span>,<span class="number">4</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>]</div><div class="line">]</div><div class="line"></div><div class="line">nums = m_list[<span class="number">1</span>]</div><div class="line">length = len(nums)</div><div class="line">print(nums)</div><div class="line"></div><div class="line">count_swap = <span class="number">0</span></div><div class="line">count_iter = <span class="number">0</span></div><div class="line"></div><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(length):</div><div class="line">    maxindex = i</div><div class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(i+<span class="number">1</span>,length):</div><div class="line">        count_iter +=<span class="number">1</span></div><div class="line">        <span class="keyword">if</span> nums[maxindex] &lt; nums[j]:</div><div class="line">            maxindex = j</div><div class="line">    <span class="keyword">if</span> i != maxindex:</div><div class="line">        tmp = nums[i]</div><div class="line">        nums[i] = nums[maxindex]</div><div class="line">        nums[maxindex] = tmp</div><div class="line">        count_swap +=<span class="number">1</span></div><div class="line">print(nums,count_swap,count_iter)</div><div class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>]</div><div class="line">[<span class="number">9</span>, <span class="number">8</span>, <span class="number">7</span>, <span class="number">6</span>, <span class="number">5</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>] <span class="number">4</span> <span class="number">36</span></div></pre></td></tr></table></figure>
+
       
     </div>
     
@@ -547,10 +567,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/07/19/11网络1班任锦/" rel="prev" title="11计算机网络1班-任锦">
-                11计算机网络1班-任锦 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -640,7 +656,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">73</span>
+                  <span class="site-state-item-count">72</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -724,7 +740,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#python-集合、-字典"><span class="nav-number">1.</span> <span class="nav-text">python 集合、 字典</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#集合"><span class="nav-number">1.1.</span> <span class="nav-text">集合</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#并集"><span class="nav-number">1.1.1.</span> <span class="nav-text">并集</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#交集"><span class="nav-number">1.1.2.</span> <span class="nav-text">交集</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#差集"><span class="nav-number">1.1.3.</span> <span class="nav-text">差集</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对称差集"><span class="nav-number">1.1.4.</span> <span class="nav-text">对称差集</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#集合运算"><span class="nav-number">1.1.5.</span> <span class="nav-text">集合运算</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#python-集合、-字典"><span class="nav-number">1.</span> <span class="nav-text">python 集合、 字典</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#集合"><span class="nav-number">1.1.</span> <span class="nav-text">集合</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#并集"><span class="nav-number">1.1.1.</span> <span class="nav-text">并集</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#交集"><span class="nav-number">1.1.2.</span> <span class="nav-text">交集</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#差集"><span class="nav-number">1.1.3.</span> <span class="nav-text">差集</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对称差集"><span class="nav-number">1.1.4.</span> <span class="nav-text">对称差集</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#集合运算"><span class="nav-number">1.1.5.</span> <span class="nav-text">集合运算</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#set-和线性结构"><span class="nav-number">1.2.</span> <span class="nav-text">set 和线性结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#简单选择排序"><span class="nav-number">1.2.1.</span> <span class="nav-text">简单选择排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#简单选择排序代码实现-一"><span class="nav-number">1.2.2.</span> <span class="nav-text">简单选择排序代码实现(一)</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -763,7 +779,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">176.8k</span>
+    <span title="Site words total count">174.5k</span>
   
   <span>   |   </span>
 <span id="showDays"></span>
