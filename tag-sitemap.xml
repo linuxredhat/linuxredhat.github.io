@@ -30,6 +30,13 @@
     </url>
 
     <url>
+        <loc>https://www.asjin.com/tags/program/</loc>
+        <lastmod>2020-06-27T08:09:08.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://www.asjin.com/tags/rhca/</loc>
         <lastmod>2020-06-27T08:44:22.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -38,14 +45,7 @@
 
     <url>
         <loc>https://www.asjin.com/tags/linux/</loc>
-        <lastmod>2020-07-30T12:51:37.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.asjin.com/tags/program/</loc>
-        <lastmod>2020-07-30T12:51:37.000Z</lastmod>
+        <lastmod>2020-06-27T08:44:22.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
