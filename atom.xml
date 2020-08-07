@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.asjin.com/"/>
-  <updated>2020-08-06T11:36:47.000Z</updated>
+  <updated>2020-08-06T13:34:08.000Z</updated>
   <id>https://www.asjin.com/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="https://www.asjin.com/2020/08/05/python_function/"/>
     <id>https://www.asjin.com/2020/08/05/python_function/</id>
     <published>2020-08-05T12:19:00.000Z</published>
-    <updated>2020-08-06T11:36:47.000Z</updated>
+    <updated>2020-08-06T13:34:08.000Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="python-函数"><a href="#python-函数" class="headerlink" title="python 函数"></a>python 函数</h1><p><img src="/images/python_function.png" alt=""></p><h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><p>数学定义: y=f(x)，y是x的函数，x是自变量</p><ul><li>python 函数</li></ul><p>由苦干语句组成的语句块、函数名称、参数列表构成，它是组织代码的最小单元格<br>完成一定的功能</p><ul><li>函数的作用</li></ul><p>结构化编程对代码的最基本的封装，一般按照功能组织一段代码;<br>封装的目的为了复用，减少冗余代码<br>代码更加简洁美化、可读易懂</p><ul><li>函数的分类</li></ul><p>内建的函数，如max()、reversed()等<br>库函数,如math.ceil()等</p><h3 id="函数定义、调用"><a href="#函数定义、调用" class="headerlink" title="函数定义、调用"></a>函数定义、调用</h3><ul><li><p>def语句定义函数<br>def 函数名(参数列表):<br>函数体(代码块)<br>[return 返回值]</p></li><li><p>函数名就是标识符，命名要求一样：</p></li><li>语句块必须缩进，约定4个空格;</li><li>Python 的函数没有return语句，隐式返回 一个None值</li><li><p>定义中的参数列表成为形式参数，只是一种符号表达，简称<strong>形参</strong></p></li><li><p>调用<br>函数定义，只是声明了一个函数，它不会被执行，需要调用;<br>调用的方式，就是函数名加上小括号，括号内写上参数;<br>调用时写的参数是实际参数，是实实在在传的值，简称<strong>实参</strong></p></li></ul><ul><li>函数举例</li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">In [<span class="number">3</span>]: <span class="function"><span class="keyword">def</span> <span class="title">add</span><span class="params">(x,y)</span>:</span></div><div class="line">   ...:     result = x+y</div><div class="line">   ...:     <span class="keyword">return</span> result</div><div class="line">   ...:</div><div class="line">   ...:</div><div class="line"></div><div class="line">In [<span class="number">4</span>]: out = add(<span class="number">100</span>,<span class="number">255</span>)</div><div class="line">In [<span class="number">5</span>]: out</div><div class="line">Out[<span class="number">5</span>]: <span class="number">355</span></div></pre></td></tr></table></figure><p>上面只是一个函数的定义，有一个函数叫做add，接收2个参数<br>计算的结果，通过返回值返回<br>调用通过函数名add加2个参数，返回值可使用变量接收;<br>定义需要在调用前，也就是说调用时，已经被定义过了，否则抛NameError异常<br>函数是可调用的对象,callable()</p><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><ul><li>参数调用时传入的参数要和定义的个数相匹配(可变参数例外)</li><li>位置参数<br>def f(x, y, z) 调用使用 f(1, 3, 5)<br>按照参数定义顺序传入实参</li></ul><p>关键字参数<br>def f(x, y ,z) 调用使用f(x=1,y=3,z=5)<br>使用形参的名字来出入实参的方式，如果使用了形象名字，那么传参顺序就可以定义顺序不同</p><ul><li>传参</li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">f(z=<span class="keyword">None</span>, y=<span class="number">10</span>, x=[<span class="number">1</span>])</div><div class="line">f((<span class="number">1</span>,), z=<span class="number">6</span>, y=<span class="number">4.1</span>)</div><div class="line">f(y=<span class="number">5</span>,z=<span class="number">6.2</span>)</div><div class="line"><span class="comment"># 要求位置参数必须在关键字参数之前传入，位置参数是按位置对应的</span></div></pre></td></tr></table></figure><h3 id="函数参数默认值"><a href="#函数参数默认值" class="headerlink" title="函数参数默认值"></a>函数参数默认值</h3><ul><li>定义时，在形参后跟上一个值 </li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">In [<span class="number">6</span>]: <span class="function"><span class="keyword">def</span> <span class="title">add</span><span class="params">(x=<span class="number">1</span>,y=<span class="number">5</span>)</span>:</span></div><div class="line">   ...:     <span class="keyword">return</span> x+y</div><div class="line">In [<span class="number">7</span>]: callable(add)</div><div class="line">Out[<span class="number">7</span>]: <span class="keyword">True</span></div><div class="line">In [<span class="number">8</span>]: add()</div><div class="line">Out[<span class="number">8</span>]: <span class="number">6</span></div><div class="line">In [<span class="number">9</span>]: add(<span class="number">6</span>)</div><div class="line">Out[<span class="number">9</span>]: <span class="number">11</span></div><div class="line">In [<span class="number">10</span>]: add(<span class="number">6</span>,<span class="number">7</span>)</div><div class="line">Out[<span class="number">10</span>]: <span class="number">13</span></div><div class="line">In [<span class="number">11</span>]: add(y=<span class="number">8</span>,x=<span class="number">1</span>)</div><div class="line">Out[<span class="number">11</span>]: <span class="number">9</span></div></pre></td></tr></table></figure><ul><li>作用<br>参数的默认值可以在未传入足够的实参的时候，对没有给定的参数赋值为默认值<br>参数的非常多的时候，并不需要用户每次都输入所有的参数，简化函数调用</li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">In [<span class="number">12</span>]: <span class="function"><span class="keyword">def</span> <span class="title">add</span><span class="params">(x,y=<span class="number">5</span>)</span>:</span></div><div class="line">    ...:     <span class="keyword">return</span> x+y</div><div class="line">In [<span class="number">13</span>]: add(<span class="number">3</span>)</div><div class="line">Out[<span class="number">13</span>]: <span class="number">8</span></div><div class="line">In [<span class="number">14</span>]: add(<span class="number">3</span>,<span class="number">6</span>)</div><div class="line">Out[<span class="number">14</span>]: <span class="number">9</span></div></pre></td></tr></table></figure><ul><li>举例<br>定义一个函数login，参数名称为host、port、username、passwd</li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">login</span><span class="params">(host=<span class="string">'127.0.0.1'</span>,port=<span class="string">'8080'</span>,username=<span class="string">'rj'</span>,password=<span class="string">'test'</span>)</span>:</span></div><div class="line">    print(<span class="string">'&#123;&#125;:&#123;&#125;@&#123;&#125;/&#123;&#125;'</span>.format(host,port,username,password))</div><div class="line">login()</div><div class="line">login(<span class="string">'127.0.0.1'</span>,<span class="number">80</span>,<span class="string">'tom'</span>,<span class="string">'tom'</span>)</div><div class="line">login(<span class="string">'127.0.0.1'</span>,username=<span class="string">'root'</span>)</div><div class="line">login(<span class="string">'localhost'</span>, port=<span class="number">80</span>,password=<span class="string">'com'</span>)</div><div class="line">login(port=<span class="number">80</span>,password=<span class="string">'test'</span>,host=<span class="string">'web'</span>)</div></pre></td></tr></table></figure><h3 id="可变参数"><a href="#可变参数" class="headerlink" title="可变参数"></a>可变参数</h3><ul><li>问题<br>有多个数，需要求累加求和</li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">In [<span class="number">15</span>]: <span class="function"><span class="keyword">def</span> <span class="title">add</span><span class="params">(nums)</span>:</span></div><div class="line">    ...:     sum = <span class="number">0</span></div><div class="line">    ...:     <span class="keyword">for</span> x <span class="keyword">in</span> nums:</div><div class="line">    ...:         sum += x</div><div class="line">    ...:     <span class="keyword">return</span> sum</div><div class="line">In [<span class="number">16</span>]: add([<span class="number">1</span>,<span class="number">2</span>,<span class="number">5</span>])</div><div class="line">Out[<span class="number">16</span>]: <span class="number">8</span></div><div class="line">In [<span class="number">17</span>]: add((<span class="number">2</span>,<span class="number">4</span>,<span class="number">6</span>))</div><div class="line">Out[<span class="number">17</span>]: <span class="number">12</span></div></pre></td></tr></table></figure><ul><li>可变参数</li></ul><p>一个形参可以匹配任意个参数<br>有多个数，需要累加求和</p><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">In [<span class="number">22</span>]: <span class="function"><span class="keyword">def</span> <span class="title">add</span><span class="params">(*nums)</span>:</span></div><div class="line">    ...:     sum = <span class="number">0</span></div><div class="line">    ...:     print(type(nums))</div><div class="line">    ...:     <span class="keyword">for</span> x <span class="keyword">in</span> nums:</div><div class="line">    ...:         sum += x</div><div class="line">    ...:     print(sum)</div><div class="line">    ...:</div><div class="line">In [<span class="number">23</span>]: add(<span class="number">3</span>,<span class="number">6</span>,<span class="number">9</span>)</div><div class="line">&lt;<span class="class"><span class="keyword">class</span> '<span class="title">tuple</span>'&gt;</span></div><div class="line"><span class="class">18</span></div></pre></td></tr></table></figure><p>在形参前使用*表示该形参是可变参数，可以接收多个实参;<br>收集的实参名称和值组成一个tuple;</p><h3 id="可变参数-1"><a href="#可变参数-1" class="headerlink" title="可变参数"></a>可变参数</h3><p>关键字参数的可变参数</p><ul><li>配置信息打印</li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">In [<span class="number">9</span>]: <span class="function"><span class="keyword">def</span> <span class="title">showconfig</span><span class="params">(**kwargs)</span>:</span></div><div class="line">   ...:     <span class="keyword">for</span> k,v <span class="keyword">in</span> kwargs.items():</div><div class="line">   ...:         print(<span class="string">'&#123;&#125; = &#123;&#125;'</span>.format(k,v))</div><div class="line">   ...:</div><div class="line"></div><div class="line">In [<span class="number">10</span>]:</div><div class="line"></div><div class="line">In [<span class="number">10</span>]: showconfig(host=<span class="string">'127.0.0.1'</span>,port=<span class="string">'8080'</span>,username=<span class="string">'asjin'</span>,password=<span class="string">'ssjinyao'</span>)</div><div class="line">host = <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span></div><div class="line">port = <span class="number">8080</span></div><div class="line">username = asjin</div><div class="line">password = ssjinyao</div></pre></td></tr></table></figure><ul><li>形参前使用**符号，表示可以接收多个关键字参数</li><li>收集的实参名称和值组成一个字典</li></ul><p>混着写，关键的默认定义好，其它的用kwargs</p><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">showconfig</span><span class="params">(username, password, **kwargs)</span></span></div><div class="line"><span class="function"><span class="title">def</span> <span class="title">showconfig</span><span class="params">(username, *args, **kwargs)</span></span></div><div class="line"><span class="function"><span class="title">def</span> <span class="title">showconfig</span><span class="params">(username, password,**kwargs, *args)</span></span></div></pre></td></tr></table></figure><p>总结</p><ul><li>有位置可变参数和关键字可变参数;</li><li>位置可变参数在形参前使用一个星号*;</li><li>关键字可变参在形参前使用两个星号**;</li><li>位置可变参数和关键字可变参数都可以收集若干个实参，位置可变参数收集形成一个tuple，关键字可变参数收集形成一个dict;</li><li>混合使用参数的时候，可变参数要放到参数列表的最后，普通参数要放到参数列表前面，位置可变参数需要在关键字可变参数之前。</li></ul><p>举例</p><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">fn</span><span class="params">(x, y, *args, **kwargs)</span>:</span></div><div class="line">    print(x)</div><div class="line">    print(y)</div><div class="line">    print(args)</div><div class="line">    print(kwargs)</div><div class="line">fn(<span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">9</span>, <span class="number">10</span>,a=<span class="number">1</span>,b=<span class="string">'python'</span>)</div><div class="line">fn(<span class="number">3</span>, <span class="number">5</span>)</div><div class="line">fn(<span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>)</div><div class="line">fn(<span class="number">3</span>, <span class="number">5</span>, a=<span class="number">1</span>,b=<span class="string">'python'</span>)</div></pre></td></tr></table></figure><p>举例</p><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">fn</span><span class="params">(*args, x, y, **kwargs)</span></span></div><div class="line"><span class="function">    <span class="title">print</span><span class="params">(x)</span></span></div><div class="line"><span class="function">    <span class="title">print</span><span class="params">(y)</span></span></div><div class="line"><span class="function">    <span class="title">print</span><span class="params">(args)</span></span></div><div class="line"><span class="function">    <span class="title">print</span><span class="params">(kwargs)</span></span></div><div class="line"><span class="function"><span class="title">fn</span><span class="params">(<span class="number">7</span>, <span class="number">9</span>, y=<span class="number">5</span>, x=<span class="number">3</span>, a=<span class="number">1</span>, b=<span class="string">'python'</span> )</span></span></div></pre></td></tr></table></figure><h3 id="keyword-only-参数"><a href="#keyword-only-参数" class="headerlink" title="keyword-only 参数"></a>keyword-only 参数</h3><ul><li>keyword-only 参数(Python3 加入)</li></ul><p>如果在一个星号参数后，或者一个位置可变参数后，出现的普通参数，实际上已经不是普通的参数了，而是keyword-only参数</p><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">fn</span><span class="params">(*args, x)</span>:</span></div><div class="line">    print(x)</div><div class="line">    print(args)</div><div class="line">fn(<span class="number">3</span>, <span class="number">5</span>, x=<span class="number">7</span>)</div></pre></td></tr></table></figure><p>args 可以看做已经截获了所有的位置参数，x不使用关键字参数就可能拿到实参</p><ul><li>keyword-only 参数另一种形式</li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">fn</span><span class="params">(*, x, y)</span>:</span></div><div class="line">    print(x,y)</div><div class="line"></div><div class="line">fn(x=<span class="number">5</span>, y=<span class="number">6</span>)</div></pre></td></tr></table></figure><p>*号之后，普通形参都变成了必须给出的keyword-only参数</p><ul><li>可变参数和参数默认值 </li></ul><p>举例</p><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">fn</span><span class="params">(*args, x=<span class="number">5</span>)</span>:</span></div><div class="line">    print(x)</div><div class="line">    print(args)</div><div class="line"></div><div class="line">fn() <span class="comment"># 等价于fn(x=5)</span></div><div class="line">fn(<span class="number">5</span>)</div><div class="line">fn(x=<span class="number">6</span>)</div><div class="line">fn(<span class="number">1</span> , <span class="number">2</span>, <span class="number">3</span>, x=<span class="number">10</span>)</div></pre></td></tr></table></figure><p>x 是keyword-only 参数</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="python-函数"><a href="#python-函数" class="headerlink" title="python 函数"></a>python 函数</h1><p><img src="/images/python_function.png" alt=""></p><h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><p>数学定义: y=f(x)，y是x的函数，x是自变量</p><ul><li>python 函数</li></ul><p>由苦干语句组成的语句块、函数名称、参数列表构成，它是组织代码的最小单元格<br>完成一定的功能</p><ul><li>函数的作用</li></ul><p>结构化编程对代码的最基本的封装，一般按照功能组织一段代码;<br>封装的目的为了复用，减少冗余代码<br>代码更加简洁美化、可读易懂</p><ul><li>函数的分类</li></ul><p>内建的函数，如max()、reversed()等<br>库函数,如math.ceil()等</p><h3 id="函数定义、调用"><a href="#函数定义、调用" class="headerlink" title="函数定义、调用"></a>函数定义、调用</h3><ul><li><p>def语句定义函数<br>def 函数名(参数列表):<br>函数体(代码块)<br>[return 返回值]</p></li><li><p>函数名就是标识符，命名要求一样：</p></li><li>语句块必须缩进，约定4个空格;</li><li>Python 的函数没有return语句，隐式返回 一个None值</li><li><p>定义中的参数列表成为形式参数，只是一种符号表达，简称<strong>形参</strong></p></li><li><p>调用<br>函数定义，只是声明了一个函数，它不会被执行，需要调用;<br>调用的方式，就是函数名加上小括号，括号内写上参数;<br>调用时写的参数是实际参数，是实实在在传的值，简称<strong>实参</strong></p></li></ul><ul><li>函数举例</li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">In [<span class="number">3</span>]: <span class="function"><span class="keyword">def</span> <span class="title">add</span><span class="params">(x,y)</span>:</span></div><div class="line">   ...:     result = x+y</div><div class="line">   ...:     <span class="keyword">return</span> result</div><div class="line">   ...:</div><div class="line">   ...:</div><div class="line"></div><div class="line">In [<span class="number">4</span>]: out = add(<span class="number">100</span>,<span class="number">255</span>)</div><div class="line">In [<span class="number">5</span>]: out</div><div class="line">Out[<span class="number">5</span>]: <span class="number">355</span></div></pre></td></tr></table></figure><p>上面只是一个函数的定义，有一个函数叫做add，接收2个参数<br>计算的结果，通过返回值返回<br>调用通过函数名add加2个参数，返回值可使用变量接收;<br>定义需要在调用前，也就是说调用时，已经被定义过了，否则抛NameError异常<br>函数是可调用的对象,callable()</p><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><ul><li>参数调用时传入的参数要和定义的个数相匹配(可变参数例外)</li><li>位置参数<br>def f(x, y, z) 调用使用 f(1, 3, 5)<br>按照参数定义顺序传入实参</li></ul><p>关键字参数<br>def f(x, y ,z) 调用使用f(x=1,y=3,z=5)<br>使用形参的名字来出入实参的方式，如果使用了形象名字，那么传参顺序就可以定义顺序不同</p><ul><li>传参</li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">f(z=<span class="keyword">None</span>, y=<span class="number">10</span>, x=[<span class="number">1</span>])</div><div class="line">f((<span class="number">1</span>,), z=<span class="number">6</span>, y=<span class="number">4.1</span>)</div><div class="line">f(y=<span class="number">5</span>,z=<span class="number">6.2</span>)</div><div class="line"><span class="comment"># 要求位置参数必须在关键字参数之前传入，位置参数是按位置对应的</span></div></pre></td></tr></table></figure><h3 id="函数参数默认值"><a href="#函数参数默认值" class="headerlink" title="函数参数默认值"></a>函数参数默认值</h3><ul><li>定义时，在形参后跟上一个值 </li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">In [<span class="number">6</span>]: <span class="function"><span class="keyword">def</span> <span class="title">add</span><span class="params">(x=<span class="number">1</span>,y=<span class="number">5</span>)</span>:</span></div><div class="line">   ...:     <span class="keyword">return</span> x+y</div><div class="line">In [<span class="number">7</span>]: callable(add)</div><div class="line">Out[<span class="number">7</span>]: <span class="keyword">True</span></div><div class="line">In [<span class="number">8</span>]: add()</div><div class="line">Out[<span class="number">8</span>]: <span class="number">6</span></div><div class="line">In [<span class="number">9</span>]: add(<span class="number">6</span>)</div><div class="line">Out[<span class="number">9</span>]: <span class="number">11</span></div><div class="line">In [<span class="number">10</span>]: add(<span class="number">6</span>,<span class="number">7</span>)</div><div class="line">Out[<span class="number">10</span>]: <span class="number">13</span></div><div class="line">In [<span class="number">11</span>]: add(y=<span class="number">8</span>,x=<span class="number">1</span>)</div><div class="line">Out[<span class="number">11</span>]: <span class="number">9</span></div></pre></td></tr></table></figure><ul><li>作用<br>参数的默认值可以在未传入足够的实参的时候，对没有给定的参数赋值为默认值<br>参数的非常多的时候，并不需要用户每次都输入所有的参数，简化函数调用</li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">In [<span class="number">12</span>]: <span class="function"><span class="keyword">def</span> <span class="title">add</span><span class="params">(x,y=<span class="number">5</span>)</span>:</span></div><div class="line">    ...:     <span class="keyword">return</span> x+y</div><div class="line">In [<span class="number">13</span>]: add(<span class="number">3</span>)</div><div class="line">Out[<span class="number">13</span>]: <span class="number">8</span></div><div class="line">In [<span class="number">14</span>]: add(<span class="number">3</span>,<span class="number">6</span>)</div><div class="line">Out[<span class="number">14</span>]: <span class="number">9</span></div></pre></td></tr></table></figure><ul><li>举例<br>定义一个函数login，参数名称为host、port、username、passwd</li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">login</span><span class="params">(host=<span class="string">'127.0.0.1'</span>,port=<span class="string">'8080'</span>,username=<span class="string">'rj'</span>,password=<span class="string">'test'</span>)</span>:</span></div><div class="line">    print(<span class="string">'&#123;&#125;:&#123;&#125;@&#123;&#125;/&#123;&#125;'</span>.format(host,port,username,password))</div><div class="line">login()</div><div class="line">login(<span class="string">'127.0.0.1'</span>,<span class="number">80</span>,<span class="string">'tom'</span>,<span class="string">'tom'</span>)</div><div class="line">login(<span class="string">'127.0.0.1'</span>,username=<span class="string">'root'</span>)</div><div class="line">login(<span class="string">'localhost'</span>, port=<span class="number">80</span>,password=<span class="string">'com'</span>)</div><div class="line">login(port=<span class="number">80</span>,password=<span class="string">'test'</span>,host=<span class="string">'web'</span>)</div></pre></td></tr></table></figure><h3 id="可变参数"><a href="#可变参数" class="headerlink" title="可变参数"></a>可变参数</h3><ul><li>问题<br>有多个数，需要求累加求和</li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">In [<span class="number">15</span>]: <span class="function"><span class="keyword">def</span> <span class="title">add</span><span class="params">(nums)</span>:</span></div><div class="line">    ...:     sum = <span class="number">0</span></div><div class="line">    ...:     <span class="keyword">for</span> x <span class="keyword">in</span> nums:</div><div class="line">    ...:         sum += x</div><div class="line">    ...:     <span class="keyword">return</span> sum</div><div class="line">In [<span class="number">16</span>]: add([<span class="number">1</span>,<span class="number">2</span>,<span class="number">5</span>])</div><div class="line">Out[<span class="number">16</span>]: <span class="number">8</span></div><div class="line">In [<span class="number">17</span>]: add((<span class="number">2</span>,<span class="number">4</span>,<span class="number">6</span>))</div><div class="line">Out[<span class="number">17</span>]: <span class="number">12</span></div></pre></td></tr></table></figure><ul><li>可变参数</li></ul><p>一个形参可以匹配任意个参数<br>有多个数，需要累加求和</p><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">In [<span class="number">22</span>]: <span class="function"><span class="keyword">def</span> <span class="title">add</span><span class="params">(*nums)</span>:</span></div><div class="line">    ...:     sum = <span class="number">0</span></div><div class="line">    ...:     print(type(nums))</div><div class="line">    ...:     <span class="keyword">for</span> x <span class="keyword">in</span> nums:</div><div class="line">    ...:         sum += x</div><div class="line">    ...:     print(sum)</div><div class="line">    ...:</div><div class="line">In [<span class="number">23</span>]: add(<span class="number">3</span>,<span class="number">6</span>,<span class="number">9</span>)</div><div class="line">&lt;<span class="class"><span class="keyword">class</span> '<span class="title">tuple</span>'&gt;</span></div><div class="line"><span class="class">18</span></div></pre></td></tr></table></figure><p>在形参前使用*表示该形参是可变参数，可以接收多个实参;<br>收集的实参名称和值组成一个tuple;</p><h3 id="可变参数-1"><a href="#可变参数-1" class="headerlink" title="可变参数"></a>可变参数</h3><p>关键字参数的可变参数</p><ul><li>配置信息打印</li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">In [<span class="number">9</span>]: <span class="function"><span class="keyword">def</span> <span class="title">showconfig</span><span class="params">(**kwargs)</span>:</span></div><div class="line">   ...:     <span class="keyword">for</span> k,v <span class="keyword">in</span> kwargs.items():</div><div class="line">   ...:         print(<span class="string">'&#123;&#125; = &#123;&#125;'</span>.format(k,v))</div><div class="line">   ...:</div><div class="line"></div><div class="line">In [<span class="number">10</span>]:</div><div class="line"></div><div class="line">In [<span class="number">10</span>]: showconfig(host=<span class="string">'127.0.0.1'</span>,port=<span class="string">'8080'</span>,username=<span class="string">'asjin'</span>,password=<span class="string">'ssjinyao'</span>)</div><div class="line">host = <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span></div><div class="line">port = <span class="number">8080</span></div><div class="line">username = asjin</div><div class="line">password = ssjinyao</div></pre></td></tr></table></figure><ul><li>形参前使用**符号，表示可以接收多个关键字参数</li><li>收集的实参名称和值组成一个字典</li></ul><p>混着写，关键的默认定义好，其它的用kwargs</p><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">showconfig</span><span class="params">(username, password, **kwargs)</span></span></div><div class="line"><span class="function"><span class="title">def</span> <span class="title">showconfig</span><span class="params">(username, *args, **kwargs)</span></span></div><div class="line"><span class="function"><span class="title">def</span> <span class="title">showconfig</span><span class="params">(username, password,**kwargs, *args)</span></span></div></pre></td></tr></table></figure><p>总结</p><ul><li>有位置可变参数和关键字可变参数;</li><li>位置可变参数在形参前使用一个星号*;</li><li>关键字可变参在形参前使用两个星号**;</li><li>位置可变参数和关键字可变参数都可以收集若干个实参，位置可变参数收集形成一个tuple，关键字可变参数收集形成一个dict;</li><li>混合使用参数的时候，可变参数要放到参数列表的最后，普通参数要放到参数列表前面，位置可变参数需要在关键字可变参数之前。</li></ul><p>举例</p><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">fn</span><span class="params">(x, y, *args, **kwargs)</span>:</span></div><div class="line">    print(x)</div><div class="line">    print(y)</div><div class="line">    print(args)</div><div class="line">    print(kwargs)</div><div class="line">fn(<span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">9</span>, <span class="number">10</span>,a=<span class="number">1</span>,b=<span class="string">'python'</span>)</div><div class="line">fn(<span class="number">3</span>, <span class="number">5</span>)</div><div class="line">fn(<span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>)</div><div class="line">fn(<span class="number">3</span>, <span class="number">5</span>, a=<span class="number">1</span>,b=<span class="string">'python'</span>)</div></pre></td></tr></table></figure><p>举例</p><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">fn</span><span class="params">(*args, x, y, **kwargs)</span></span></div><div class="line"><span class="function">    <span class="title">print</span><span class="params">(x)</span></span></div><div class="line"><span class="function">    <span class="title">print</span><span class="params">(y)</span></span></div><div class="line"><span class="function">    <span class="title">print</span><span class="params">(args)</span></span></div><div class="line"><span class="function">    <span class="title">print</span><span class="params">(kwargs)</span></span></div><div class="line"><span class="function"><span class="title">fn</span><span class="params">(<span class="number">7</span>, <span class="number">9</span>, y=<span class="number">5</span>, x=<span class="number">3</span>, a=<span class="number">1</span>, b=<span class="string">'python'</span> )</span></span></div></pre></td></tr></table></figure><h3 id="keyword-only-参数"><a href="#keyword-only-参数" class="headerlink" title="keyword-only 参数"></a>keyword-only 参数</h3><ul><li>keyword-only 参数(Python3 加入)</li></ul><p>如果在一个星号参数后，或者一个位置可变参数后，出现的普通参数，实际上已经不是普通的参数了，而是keyword-only参数</p><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">fn</span><span class="params">(*args, x)</span>:</span></div><div class="line">    print(x)</div><div class="line">    print(args)</div><div class="line">fn(<span class="number">3</span>, <span class="number">5</span>, x=<span class="number">7</span>)</div></pre></td></tr></table></figure><p>args 可以看做已经截获了所有的位置参数，x不使用关键字参数就可能拿到实参</p><ul><li>keyword-only 参数另一种形式</li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">fn</span><span class="params">(*, x, y)</span>:</span></div><div class="line">    print(x,y)</div><div class="line"></div><div class="line">fn(x=<span class="number">5</span>, y=<span class="number">6</span>)</div></pre></td></tr></table></figure><p>*号之后，普通形参都变成了必须给出的keyword-only参数</p><ul><li>可变参数和参数默认值 </li></ul><p>举例</p><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">fn</span><span class="params">(*args, x=<span class="number">5</span>)</span>:</span></div><div class="line">    print(x)</div><div class="line">    print(args)</div><div class="line"></div><div class="line">fn() <span class="comment"># 等价于fn(x=5)</span></div><div class="line">fn(<span class="number">5</span>)</div><div class="line">fn(x=<span class="number">6</span>)</div><div class="line">fn(<span class="number">1</span> , <span class="number">2</span>, <span class="number">3</span>, x=<span class="number">10</span>)</div></pre></td></tr></table></figure><p>x 是keyword-only 参数</p><p>举例</p><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">fn</span><span class="params">(x=<span class="number">5</span>, **kwargs)</span>:</span></div><div class="line">    print(<span class="string">'x=&#123;&#125;'</span>.format(x))</div><div class="line">    print(kwargs)</div><div class="line">fn()</div><div class="line">fn(<span class="number">5</span>)</div><div class="line">fn(x=<span class="number">6</span>)</div><div class="line">fn(y=<span class="number">3</span>,x=<span class="number">10</span>)</div><div class="line">fn(<span class="number">3</span>,y=<span class="number">10</span>)</div></pre></td></tr></table></figure><p>函数参数</p><ul><li>参数规则<br>参数列表参数一般顺序是，普通参数、缺省参数、可变位置参数、keyword-only参数(可带缺省值)、可变关键字参数</li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">fn</span><span class="params">(x, y, z=<span class="number">3</span>, *arg, m=<span class="number">4</span>, n, **kwargs)</span>:</span></div><div class="line">    print(x, y, z, m,n)</div><div class="line">    print(args)</div><div class="line">    print(kwargs)</div></pre></td></tr></table></figure><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">connect</span><span class="params">(host=<span class="string">'localhost'</span>,port=<span class="string">'3306'</span>,user=<span class="string">'admin'</span>,password=<span class="string">'admin'</span>,**kwargs)</span>:</span></div><div class="line">    print(host,port)</div><div class="line">    print(user,passowrd)</div><div class="line">    print(kwargs)</div><div class="line">connect(db=<span class="string">'cmdb'</span>)</div><div class="line">connect(host=<span class="string">'172.16.0.8'</span>,db=<span class="string">'cmdb'</span>)</div><div class="line">connect(host=<span class="string">'172.160.0.9'</span>,db=<span class="string">'cmdb'</span>,password=<span class="string">'mysql'</span>)</div></pre></td></tr></table></figure><h3 id="参数解构"><a href="#参数解构" class="headerlink" title="参数解构"></a>参数解构</h3><p>举例: 加法函数</p><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">add</span><span class="params">(x, y)</span>:</span></div><div class="line">    <span class="keyword">return</span> x+y</div><div class="line"></div><div class="line">add(<span class="number">4</span>, <span class="number">5</span>)</div><div class="line">add((<span class="number">4</span>, <span class="number">5</span>))</div><div class="line">t = (<span class="number">4</span>, <span class="number">5</span>)</div><div class="line">add(t[<span class="number">0</span>], t[<span class="number">1</span>])</div><div class="line"><span class="comment"># add(*t) 或 add(*(4, 5)) add(*[4,5]) add(*&#123;4,6&#125;)</span></div><div class="line"><span class="comment"># add(*range(1,3))</span></div><div class="line">In [<span class="number">1</span>]: <span class="function"><span class="keyword">def</span> <span class="title">add</span><span class="params">(x, y)</span>:</span></div><div class="line">   ...:     <span class="keyword">return</span> x+y</div><div class="line">In [<span class="number">3</span>]: add((<span class="number">1</span>,<span class="number">2</span>)[<span class="number">0</span>],[<span class="number">3</span>][<span class="number">0</span>])</div><div class="line">Out[<span class="number">3</span>]: <span class="number">4</span></div></pre></td></tr></table></figure><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">In [<span class="number">8</span>]: <span class="function"><span class="keyword">def</span> <span class="title">add</span><span class="params">(x, y)</span>:</span></div><div class="line">   ...:     <span class="keyword">return</span> x+y</div><div class="line">In [<span class="number">9</span>]: lst = [<span class="number">1</span>,<span class="number">3</span>]</div><div class="line">In [<span class="number">10</span>]: add(*lst)</div><div class="line">Out[<span class="number">10</span>]: <span class="number">4</span></div><div class="line"><span class="comment"># 当给定一个集合</span></div><div class="line">In [<span class="number">12</span>]: add(*&#123;<span class="number">5</span>,<span class="number">6</span>&#125;)</div><div class="line">Out[<span class="number">12</span>]: <span class="number">11</span></div></pre></td></tr></table></figure><p>例:</p><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">In [<span class="number">28</span>]: <span class="function"><span class="keyword">def</span> <span class="title">add</span><span class="params">(*keys)</span>:</span></div><div class="line">    ...:     sumnum = <span class="number">0</span></div><div class="line">    ...:     <span class="keyword">for</span> i <span class="keyword">in</span> keys:</div><div class="line">    ...:         sumnum = sumnum + i</div><div class="line">    ...:     <span class="keyword">return</span> sumnum</div><div class="line">In [<span class="number">29</span>]: add(*range(<span class="number">1</span>,<span class="number">101</span>))</div><div class="line">Out[<span class="number">29</span>]: <span class="number">5050</span></div></pre></td></tr></table></figure><ul><li>参数解构</li></ul><p>给函数提供实参的时候，可以在集合类型前使用* 或者** , 把集合类型的结构解开，提取所有元素做为函数的实参<br>非字典类型使用*解构成位置参数<br>字典类型使用*解构成位置参数<br>提取出来的元素数王要和参数的要求匹配，也要和参数的类型匹配</p><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">add</span><span class="params">(x, y)</span>:</span></div><div class="line">    <span class="keyword">return</span> x+y</div><div class="line">add(*(<span class="number">4</span> ,<span class="number">5</span>)) </div><div class="line">add(*[<span class="number">4</span>,<span class="number">5</span>])</div><div class="line">add(*&#123;<span class="number">4</span>,<span class="number">6</span>&#125;)</div><div class="line">d = &#123;<span class="string">'x'</span>: <span class="number">5</span>, <span class="string">'y'</span>:<span class="number">6</span>&#125;</div><div class="line">add(**d)</div><div class="line">add(**&#123;<span class="string">'a'</span>:<span class="number">5</span>, <span class="string">'b'</span>:<span class="number">6</span>&#125;)</div></pre></td></tr></table></figure><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">In [<span class="number">39</span>]: <span class="function"><span class="keyword">def</span> <span class="title">add</span><span class="params">(x, y)</span>:</span></div><div class="line">    ...:     <span class="keyword">return</span> x+y</div><div class="line">In [<span class="number">40</span>]: dct = &#123;<span class="string">'x'</span>: <span class="number">1</span>, <span class="string">'y'</span>:<span class="number">6</span>&#125;</div><div class="line">In [<span class="number">41</span>]: add(*dct.values())</div><div class="line">Out[<span class="number">41</span>]: <span class="number">7</span></div></pre></td></tr></table></figure><h3 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h3><p>编写一个函数，能够接受至少2个参数，返回最小值和最大值。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">In [<span class="number">49</span>]: <span class="function"><span class="keyword">def</span> <span class="title">mums</span><span class="params">(x, y, *args)</span>:</span></div><div class="line">    ...:     print(min(x,y,*args))</div><div class="line">    ...:     print(max(x,y,*args))</div><div class="line">In [<span class="number">50</span>]: mums(*range(<span class="number">1</span>,<span class="number">100001</span>))</div><div class="line"><span class="number">1</span></div><div class="line"><span class="number">100000</span></div></pre></td></tr></table></figure><p>方法二</p><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">In [<span class="number">51</span>]: <span class="keyword">import</span> random</div><div class="line"></div><div class="line">In [<span class="number">52</span>]: <span class="function"><span class="keyword">def</span> <span class="title">double_values</span><span class="params">(*nums)</span>:</span></div><div class="line">    ...:     print(nums)</div><div class="line">    ...:     <span class="keyword">return</span> max(nums), min(nums)</div><div class="line">In [<span class="number">53</span>]: print(*double_values(*[random.randint(<span class="number">10</span>,<span class="number">20</span>) <span class="keyword">for</span> _ <span class="keyword">in</span> range(<span class="number">10</span>)]))</div><div class="line">(<span class="number">14</span>, <span class="number">11</span>, <span class="number">19</span>, <span class="number">11</span>, <span class="number">17</span>, <span class="number">12</span>, <span class="number">13</span>, <span class="number">18</span>, <span class="number">12</span>, <span class="number">13</span>)</div><div class="line"><span class="number">19</span> <span class="number">11</span></div></pre></td></tr></table></figure><p>编写 一个函数，接受一个参数n， n为正整数, 左右两种打印方式, 要求数字必须对齐</p><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">In [<span class="number">59</span>]: <span class="function"><span class="keyword">def</span> <span class="title">trangle_print</span><span class="params">(n)</span>:</span></div><div class="line">    ...:     <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, n+<span class="number">1</span>):</div><div class="line">    ...:         <span class="keyword">for</span> j <span class="keyword">in</span> range(n, <span class="number">0</span>, <span class="number">-1</span>):</div><div class="line">    ...:             <span class="keyword">if</span> i &lt; j:</div><div class="line">    ...:                 print(<span class="string">' '</span>*len(str(j)), end=<span class="string">' '</span>)</div><div class="line">    ...:             <span class="keyword">else</span>:</div><div class="line">    ...:                 print(j, end=<span class="string">' '</span>)</div><div class="line">    ...:         print()</div><div class="line">    ...:</div><div class="line"></div><div class="line">In [<span class="number">60</span>]: trangle_print(<span class="number">16</span>)</div><div class="line">                                     <span class="number">1</span></div><div class="line">                                   <span class="number">2</span> <span class="number">1</span></div><div class="line">                                 <span class="number">3</span> <span class="number">2</span> <span class="number">1</span></div><div class="line">                               <span class="number">4</span> <span class="number">3</span> <span class="number">2</span> <span class="number">1</span></div><div class="line">                             <span class="number">5</span> <span class="number">4</span> <span class="number">3</span> <span class="number">2</span> <span class="number">1</span></div><div class="line">                           <span class="number">6</span> <span class="number">5</span> <span class="number">4</span> <span class="number">3</span> <span class="number">2</span> <span class="number">1</span></div><div class="line">                         <span class="number">7</span> <span class="number">6</span> <span class="number">5</span> <span class="number">4</span> <span class="number">3</span> <span class="number">2</span> <span class="number">1</span></div><div class="line">                       <span class="number">8</span> <span class="number">7</span> <span class="number">6</span> <span class="number">5</span> <span class="number">4</span> <span class="number">3</span> <span class="number">2</span> <span class="number">1</span></div><div class="line">                     <span class="number">9</span> <span class="number">8</span> <span class="number">7</span> <span class="number">6</span> <span class="number">5</span> <span class="number">4</span> <span class="number">3</span> <span class="number">2</span> <span class="number">1</span></div><div class="line">                  <span class="number">10</span> <span class="number">9</span> <span class="number">8</span> <span class="number">7</span> <span class="number">6</span> <span class="number">5</span> <span class="number">4</span> <span class="number">3</span> <span class="number">2</span> <span class="number">1</span></div><div class="line">               <span class="number">11</span> <span class="number">10</span> <span class="number">9</span> <span class="number">8</span> <span class="number">7</span> <span class="number">6</span> <span class="number">5</span> <span class="number">4</span> <span class="number">3</span> <span class="number">2</span> <span class="number">1</span></div><div class="line">            <span class="number">12</span> <span class="number">11</span> <span class="number">10</span> <span class="number">9</span> <span class="number">8</span> <span class="number">7</span> <span class="number">6</span> <span class="number">5</span> <span class="number">4</span> <span class="number">3</span> <span class="number">2</span> <span class="number">1</span></div><div class="line">         <span class="number">13</span> <span class="number">12</span> <span class="number">11</span> <span class="number">10</span> <span class="number">9</span> <span class="number">8</span> <span class="number">7</span> <span class="number">6</span> <span class="number">5</span> <span class="number">4</span> <span class="number">3</span> <span class="number">2</span> <span class="number">1</span></div><div class="line">      <span class="number">14</span> <span class="number">13</span> <span class="number">12</span> <span class="number">11</span> <span class="number">10</span> <span class="number">9</span> <span class="number">8</span> <span class="number">7</span> <span class="number">6</span> <span class="number">5</span> <span class="number">4</span> <span class="number">3</span> <span class="number">2</span> <span class="number">1</span></div><div class="line">   <span class="number">15</span> <span class="number">14</span> <span class="number">13</span> <span class="number">12</span> <span class="number">11</span> <span class="number">10</span> <span class="number">9</span> <span class="number">8</span> <span class="number">7</span> <span class="number">6</span> <span class="number">5</span> <span class="number">4</span> <span class="number">3</span> <span class="number">2</span> <span class="number">1</span></div><div class="line"><span class="number">16</span> <span class="number">15</span> <span class="number">14</span> <span class="number">13</span> <span class="number">12</span> <span class="number">11</span> <span class="number">10</span> <span class="number">9</span> <span class="number">8</span> <span class="number">7</span> <span class="number">6</span> <span class="number">5</span> <span class="number">4</span> <span class="number">3</span> <span class="number">2</span> <span class="number">1</span></div></pre></td></tr></table></figure><p>方法二</p><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">In [<span class="number">61</span>]: <span class="function"><span class="keyword">def</span> <span class="title">show</span><span class="params">(n)</span>:</span></div><div class="line">    ...:     tail = <span class="string">" "</span>.join([str(i) <span class="keyword">for</span> i <span class="keyword">in</span> range(n,<span class="number">0</span>,<span class="number">-1</span>)])</div><div class="line">    ...:     print(tail)</div><div class="line">    ...:     width = len(tail)</div><div class="line">    ...:     <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,n):</div><div class="line">    ...:         print(<span class="string">"&#123;:&gt;&#123;&#125;&#125;"</span>.format(<span class="string">" "</span>.join([str(j) <span class="keyword">for</span> j <span class="keyword">in</span> range(i,<span class="number">0</span>,<span class="number">-1</span>)]), width))</div><div class="line">    ...:     print(tail)</div><div class="line">    ...:</div><div class="line"></div><div class="line">In [<span class="number">62</span>]: show(<span class="number">12</span>)</div><div class="line"><span class="number">12</span> <span class="number">11</span> <span class="number">10</span> <span class="number">9</span> <span class="number">8</span> <span class="number">7</span> <span class="number">6</span> <span class="number">5</span> <span class="number">4</span> <span class="number">3</span> <span class="number">2</span> <span class="number">1</span></div><div class="line">                         <span class="number">1</span></div><div class="line">                       <span class="number">2</span> <span class="number">1</span></div><div class="line">                     <span class="number">3</span> <span class="number">2</span> <span class="number">1</span></div><div class="line">                   <span class="number">4</span> <span class="number">3</span> <span class="number">2</span> <span class="number">1</span></div><div class="line">                 <span class="number">5</span> <span class="number">4</span> <span class="number">3</span> <span class="number">2</span> <span class="number">1</span></div><div class="line">               <span class="number">6</span> <span class="number">5</span> <span class="number">4</span> <span class="number">3</span> <span class="number">2</span> <span class="number">1</span></div><div class="line">             <span class="number">7</span> <span class="number">6</span> <span class="number">5</span> <span class="number">4</span> <span class="number">3</span> <span class="number">2</span> <span class="number">1</span></div><div class="line">           <span class="number">8</span> <span class="number">7</span> <span class="number">6</span> <span class="number">5</span> <span class="number">4</span> <span class="number">3</span> <span class="number">2</span> <span class="number">1</span></div><div class="line">         <span class="number">9</span> <span class="number">8</span> <span class="number">7</span> <span class="number">6</span> <span class="number">5</span> <span class="number">4</span> <span class="number">3</span> <span class="number">2</span> <span class="number">1</span></div><div class="line">      <span class="number">10</span> <span class="number">9</span> <span class="number">8</span> <span class="number">7</span> <span class="number">6</span> <span class="number">5</span> <span class="number">4</span> <span class="number">3</span> <span class="number">2</span> <span class="number">1</span></div><div class="line">   <span class="number">11</span> <span class="number">10</span> <span class="number">9</span> <span class="number">8</span> <span class="number">7</span> <span class="number">6</span> <span class="number">5</span> <span class="number">4</span> <span class="number">3</span> <span class="number">2</span> <span class="number">1</span></div><div class="line"><span class="number">12</span> <span class="number">11</span> <span class="number">10</span> <span class="number">9</span> <span class="number">8</span> <span class="number">7</span> <span class="number">6</span> <span class="number">5</span> <span class="number">4</span> <span class="number">3</span> <span class="number">2</span> <span class="number">1</span></div></pre></td></tr></table></figure><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">In [<span class="number">63</span>]: <span class="function"><span class="keyword">def</span> <span class="title">showtail</span><span class="params">(n)</span>:</span></div><div class="line">    ...:     tail = <span class="string">" "</span>.join([str(i) <span class="keyword">for</span> i <span class="keyword">in</span> range(n,<span class="number">0</span>,<span class="number">-1</span>)])</div><div class="line">    ...:     print(tail)</div><div class="line">    ...:     <span class="keyword">for</span> i <span class="keyword">in</span> range(len(tail)):</div><div class="line">    ...:         <span class="keyword">if</span> tail[i] == <span class="string">' '</span>:</div><div class="line">    ...:             print(<span class="string">' '</span>*i, tail[i+<span class="number">1</span>:])</div><div class="line">    ...:</div><div class="line"></div><div class="line">In [<span class="number">64</span>]: showtail(<span class="number">12</span>)</div><div class="line"><span class="number">12</span> <span class="number">11</span> <span class="number">10</span> <span class="number">9</span> <span class="number">8</span> <span class="number">7</span> <span class="number">6</span> <span class="number">5</span> <span class="number">4</span> <span class="number">3</span> <span class="number">2</span> <span class="number">1</span></div><div class="line">   <span class="number">11</span> <span class="number">10</span> <span class="number">9</span> <span class="number">8</span> <span class="number">7</span> <span class="number">6</span> <span class="number">5</span> <span class="number">4</span> <span class="number">3</span> <span class="number">2</span> <span class="number">1</span></div><div class="line">      <span class="number">10</span> <span class="number">9</span> <span class="number">8</span> <span class="number">7</span> <span class="number">6</span> <span class="number">5</span> <span class="number">4</span> <span class="number">3</span> <span class="number">2</span> <span class="number">1</span></div><div class="line">         <span class="number">9</span> <span class="number">8</span> <span class="number">7</span> <span class="number">6</span> <span class="number">5</span> <span class="number">4</span> <span class="number">3</span> <span class="number">2</span> <span class="number">1</span></div><div class="line">           <span class="number">8</span> <span class="number">7</span> <span class="number">6</span> <span class="number">5</span> <span class="number">4</span> <span class="number">3</span> <span class="number">2</span> <span class="number">1</span></div><div class="line">             <span class="number">7</span> <span class="number">6</span> <span class="number">5</span> <span class="number">4</span> <span class="number">3</span> <span class="number">2</span> <span class="number">1</span></div><div class="line">               <span class="number">6</span> <span class="number">5</span> <span class="number">4</span> <span class="number">3</span> <span class="number">2</span> <span class="number">1</span></div><div class="line">                 <span class="number">5</span> <span class="number">4</span> <span class="number">3</span> <span class="number">2</span> <span class="number">1</span></div><div class="line">                   <span class="number">4</span> <span class="number">3</span> <span class="number">2</span> <span class="number">1</span></div><div class="line">                     <span class="number">3</span> <span class="number">2</span> <span class="number">1</span></div><div class="line">                       <span class="number">2</span> <span class="number">1</span></div><div class="line">                         <span class="number">1</span></div></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
@@ -85,9 +85,9 @@
     </summary>
     
     
-      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
-    
       <category term="rhca" scheme="https://www.asjin.com/tags/rhca/"/>
+    
+      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
     
   </entry>
   
@@ -160,9 +160,9 @@
     </summary>
     
     
-      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
-    
       <category term="rhca" scheme="https://www.asjin.com/tags/rhca/"/>
+    
+      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
     
   </entry>
   
@@ -185,9 +185,9 @@
     </summary>
     
     
-      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
-    
       <category term="rhca" scheme="https://www.asjin.com/tags/rhca/"/>
+    
+      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
     
   </entry>
   
@@ -259,9 +259,9 @@
     </summary>
     
     
-      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
-    
       <category term="rhca" scheme="https://www.asjin.com/tags/rhca/"/>
+    
+      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
     
   </entry>
   
@@ -312,9 +312,9 @@
     </summary>
     
     
-      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
-    
       <category term="rhca" scheme="https://www.asjin.com/tags/rhca/"/>
+    
+      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
     
       <category term="cloud" scheme="https://www.asjin.com/tags/cloud/"/>
     
@@ -339,9 +339,9 @@
     </summary>
     
     
-      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
-    
       <category term="rhca" scheme="https://www.asjin.com/tags/rhca/"/>
+    
+      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
     
       <category term="cloud" scheme="https://www.asjin.com/tags/cloud/"/>
     
@@ -366,9 +366,9 @@
     </summary>
     
     
-      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
-    
       <category term="rhca" scheme="https://www.asjin.com/tags/rhca/"/>
+    
+      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
     
       <category term="cloud" scheme="https://www.asjin.com/tags/cloud/"/>
     
@@ -393,9 +393,9 @@
     </summary>
     
     
-      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
-    
       <category term="rhca" scheme="https://www.asjin.com/tags/rhca/"/>
+    
+      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
     
       <category term="cloud" scheme="https://www.asjin.com/tags/cloud/"/>
     
@@ -420,9 +420,9 @@
     </summary>
     
     
-      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
-    
       <category term="rhca" scheme="https://www.asjin.com/tags/rhca/"/>
+    
+      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
     
       <category term="cloud" scheme="https://www.asjin.com/tags/cloud/"/>
     
@@ -447,9 +447,9 @@
     </summary>
     
     
-      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
-    
       <category term="rhca" scheme="https://www.asjin.com/tags/rhca/"/>
+    
+      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
     
       <category term="cloud" scheme="https://www.asjin.com/tags/cloud/"/>
     
@@ -474,9 +474,9 @@
     </summary>
     
     
-      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
-    
       <category term="rhca" scheme="https://www.asjin.com/tags/rhca/"/>
+    
+      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
     
       <category term="cloud" scheme="https://www.asjin.com/tags/cloud/"/>
     
@@ -528,9 +528,9 @@
     </summary>
     
     
-      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
-    
       <category term="rhca" scheme="https://www.asjin.com/tags/rhca/"/>
+    
+      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
     
   </entry>
   
@@ -553,9 +553,9 @@
     </summary>
     
     
-      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
-    
       <category term="rhca" scheme="https://www.asjin.com/tags/rhca/"/>
+    
+      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
     
   </entry>
   
@@ -578,9 +578,9 @@
     </summary>
     
     
-      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
-    
       <category term="rhca" scheme="https://www.asjin.com/tags/rhca/"/>
+    
+      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
     
   </entry>
   
@@ -678,9 +678,9 @@
     </summary>
     
     
-      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
-    
       <category term="rhca" scheme="https://www.asjin.com/tags/rhca/"/>
+    
+      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
     
   </entry>
   
@@ -754,9 +754,9 @@
     </summary>
     
     
-      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
-    
       <category term="rhca" scheme="https://www.asjin.com/tags/rhca/"/>
+    
+      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
     
   </entry>
   
@@ -804,9 +804,9 @@
     </summary>
     
     
-      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
-    
       <category term="rhca" scheme="https://www.asjin.com/tags/rhca/"/>
+    
+      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
     
   </entry>
   
@@ -878,9 +878,9 @@
     </summary>
     
     
-      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
-    
       <category term="rhca" scheme="https://www.asjin.com/tags/rhca/"/>
+    
+      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
     
   </entry>
   
@@ -903,9 +903,9 @@
     </summary>
     
     
-      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
-    
       <category term="rhca" scheme="https://www.asjin.com/tags/rhca/"/>
+    
+      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
     
   </entry>
   
@@ -928,9 +928,9 @@
     </summary>
     
     
-      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
-    
       <category term="rhca" scheme="https://www.asjin.com/tags/rhca/"/>
+    
+      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
     
   </entry>
   
@@ -953,9 +953,9 @@
     </summary>
     
     
-      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
-    
       <category term="rhca" scheme="https://www.asjin.com/tags/rhca/"/>
+    
+      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
     
   </entry>
   
@@ -978,9 +978,9 @@
     </summary>
     
     
-      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
-    
       <category term="rhca" scheme="https://www.asjin.com/tags/rhca/"/>
+    
+      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
     
   </entry>
   
@@ -1003,9 +1003,9 @@
     </summary>
     
     
-      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
-    
       <category term="rhca" scheme="https://www.asjin.com/tags/rhca/"/>
+    
+      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
     
   </entry>
   
@@ -1052,9 +1052,9 @@
     </summary>
     
     
-      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
-    
       <category term="rhca" scheme="https://www.asjin.com/tags/rhca/"/>
+    
+      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
     
   </entry>
   
@@ -1100,9 +1100,9 @@
     </summary>
     
     
-      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
-    
       <category term="rhca" scheme="https://www.asjin.com/tags/rhca/"/>
+    
+      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
     
   </entry>
   
@@ -1174,9 +1174,9 @@
     </summary>
     
     
-      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
-    
       <category term="rhca" scheme="https://www.asjin.com/tags/rhca/"/>
+    
+      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
     
   </entry>
   
@@ -1199,9 +1199,9 @@
     </summary>
     
     
-      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
-    
       <category term="rhca" scheme="https://www.asjin.com/tags/rhca/"/>
+    
+      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
     
       <category term="database" scheme="https://www.asjin.com/tags/database/"/>
     
@@ -1228,9 +1228,9 @@
     </summary>
     
     
-      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
-    
       <category term="rhca" scheme="https://www.asjin.com/tags/rhca/"/>
+    
+      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
     
   </entry>
   
@@ -1253,9 +1253,9 @@
     </summary>
     
     
-      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
-    
       <category term="rhca" scheme="https://www.asjin.com/tags/rhca/"/>
+    
+      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
     
   </entry>
   
@@ -1279,9 +1279,9 @@
     </summary>
     
     
-      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
-    
       <category term="rhca" scheme="https://www.asjin.com/tags/rhca/"/>
+    
+      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
     
   </entry>
   
@@ -1305,9 +1305,9 @@
     </summary>
     
     
-      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
-    
       <category term="rhca" scheme="https://www.asjin.com/tags/rhca/"/>
+    
+      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
     
       <category term="database" scheme="https://www.asjin.com/tags/database/"/>
     
@@ -1332,9 +1332,9 @@
     </summary>
     
     
-      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
-    
       <category term="rhca" scheme="https://www.asjin.com/tags/rhca/"/>
+    
+      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
     
   </entry>
   
