@@ -89,19 +89,19 @@
 
 
 
-<meta name="description" content="python 函数(二) nolocal 关键字 使用了nolocal关键字，将变量标记为在上级的局部作用域中的定义，但不能是全局作用域中定义 count 是外层函数的局部变量，被内部函数引用 内部函数使用nonlocal 关键字声明count 亦是在上一级作用域中  1234567891011121314In [2]: def counter():   ...:     count =0   .">
+<meta name="description" content="python 函数(二) nolocal 关键字 使用了nolocal关键字，将变量标记为在上级的局部作用域中的定义，但不能是全局作用域中定义 count 是外层函数的局部变量，被内部函数引用 内部函数使用nonlocal 关键字声明count 变量是在上一级作用域中  1234567891011121314In [2]: def counter():   ...:     count =0">
 <meta name="keywords" content="linux,program">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python 函数(二)">
 <meta property="og:url" content="https://www.asjin.com/2020/08/11/python函数二/index.html">
 <meta property="og:site_name" content="逝水锦遥">
-<meta property="og:description" content="python 函数(二) nolocal 关键字 使用了nolocal关键字，将变量标记为在上级的局部作用域中的定义，但不能是全局作用域中定义 count 是外层函数的局部变量，被内部函数引用 内部函数使用nonlocal 关键字声明count 亦是在上一级作用域中  1234567891011121314In [2]: def counter():   ...:     count =0   .">
+<meta property="og:description" content="python 函数(二) nolocal 关键字 使用了nolocal关键字，将变量标记为在上级的局部作用域中的定义，但不能是全局作用域中定义 count 是外层函数的局部变量，被内部函数引用 内部函数使用nonlocal 关键字声明count 变量是在上一级作用域中  1234567891011121314In [2]: def counter():   ...:     count =0">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://www.asjin.com/images/python_function.png">
-<meta property="og:updated_time" content="2020-08-12T13:25:30.000Z">
+<meta property="og:updated_time" content="2020-08-19T12:00:46.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python 函数(二)">
-<meta name="twitter:description" content="python 函数(二) nolocal 关键字 使用了nolocal关键字，将变量标记为在上级的局部作用域中的定义，但不能是全局作用域中定义 count 是外层函数的局部变量，被内部函数引用 内部函数使用nonlocal 关键字声明count 亦是在上一级作用域中  1234567891011121314In [2]: def counter():   ...:     count =0   .">
+<meta name="twitter:description" content="python 函数(二) nolocal 关键字 使用了nolocal关键字，将变量标记为在上级的局部作用域中的定义，但不能是全局作用域中定义 count 是外层函数的局部变量，被内部函数引用 内部函数使用nonlocal 关键字声明count 变量是在上一级作用域中  1234567891011121314In [2]: def counter():   ...:     count =0">
 <meta name="twitter:image" content="https://www.asjin.com/images/python_function.png">
 
 
@@ -407,7 +407,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.5k
+                  2.2k
                 </span>
               
 
@@ -423,7 +423,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  5
+                  8
                 </span>
               
             </div>
@@ -448,7 +448,7 @@
 <h2 id="nolocal-关键字"><a href="#nolocal-关键字" class="headerlink" title="nolocal 关键字"></a>nolocal 关键字</h2><ul>
 <li>使用了nolocal关键字，将变量标记为在上级的局部作用域中的定义，但<strong>不能是全局作用域中</strong>定义</li>
 <li>count 是外层函数的局部变量，被内部函数引用</li>
-<li>内部函数使用nonlocal 关键字声明count 亦是在上一级作用域中</li>
+<li>内部函数使用nonlocal 关键字声明count 变量是在上一级作用域中</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">In [<span class="number">2</span>]: <span class="function"><span class="keyword">def</span> <span class="title">counter</span><span class="params">()</span>:</span></div><div class="line">   ...:     count =<span class="number">0</span></div><div class="line">   ...:     <span class="function"><span class="keyword">def</span> <span class="title">inc</span><span class="params">()</span>:</span></div><div class="line">   ...:         <span class="keyword">nonlocal</span> count</div><div class="line">   ...:         count +=<span class="number">1</span></div><div class="line">   ...:         <span class="keyword">return</span> count</div><div class="line">   ...:     <span class="keyword">return</span> inc</div><div class="line">In [<span class="number">3</span>]: foo = counter()</div><div class="line">In [<span class="number">4</span>]: print(foo())</div><div class="line"><span class="number">1</span></div><div class="line">In [<span class="number">5</span>]: print(foo())</div><div class="line"><span class="number">2</span></div><div class="line">In [<span class="number">6</span>]: print(foo())</div><div class="line"><span class="number">3</span></div></pre></td></tr></table></figure>
 <h2 id="默认值的作用域"><a href="#默认值的作用域" class="headerlink" title="默认值的作用域"></a>默认值的作用域</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">In [<span class="number">7</span>]: <span class="function"><span class="keyword">def</span> <span class="title">foo</span><span class="params">(xyz=[])</span>:</span></div><div class="line">   ...:     xyz.append(<span class="string">'100'</span>)</div><div class="line">   ...:     print(xyz)</div><div class="line">   ...:</div><div class="line"></div><div class="line">In [<span class="number">8</span>]: foo()</div><div class="line">[<span class="string">'100'</span>]</div><div class="line">In [<span class="number">9</span>]: foo()</div><div class="line">[<span class="string">'100'</span>, <span class="string">'100'</span>]</div><div class="line">In [<span class="number">10</span>]: foo()</div><div class="line">[<span class="string">'100'</span>, <span class="string">'100'</span>, <span class="string">'100'</span>]</div></pre></td></tr></table></figure>
@@ -467,20 +467,22 @@
 <li><p>第一种方法<br>  使用影子拷贝创建一个新的对象，永远不能改变传入的参数;</p>
 </li>
 <li><p>第二种方法<br>  通过值的判断就可以灵活的选择创建或者修改传入对象;<br>  这种方式灵活，应用广泛 ;<br>  很多函数的定义，都可以看到使用None这个不可变的值作为默认参数，可以说是这一种惯用法。</p>
-<h2 id="函数的销毁"><a href="#函数的销毁" class="headerlink" title="函数的销毁"></a>函数的销毁</h2><ul>
-<li>全局函数销毁<br>重新定义同名函数<br>del 语句删除函数对象<br>程序结束时</li>
-</ul>
 </li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">    In [<span class="number">5</span>]: <span class="function"><span class="keyword">def</span> <span class="title">foo</span><span class="params">(xyz=[], u=<span class="string">'abc'</span>, z=<span class="number">123</span>)</span>:</span></div><div class="line">   ...:     xyz.append(<span class="number">1</span>)</div><div class="line">   ...:     <span class="function"><span class="keyword">def</span> <span class="title">inner</span><span class="params">(a=<span class="number">10</span>)</span>:</span></div><div class="line">   ...:         <span class="keyword">pass</span></div><div class="line">   ...:     print(inner)</div><div class="line">   ...:     <span class="function"><span class="keyword">def</span> <span class="title">inner</span><span class="params">(a=<span class="number">100</span>)</span>:</span></div><div class="line">   ...:         print(xyz)</div><div class="line">   ...:     print(inner)</div><div class="line">   ...:     <span class="keyword">return</span> inner</div><div class="line"></div><div class="line">In [<span class="number">6</span>]: bar =foo()</div><div class="line">&lt;function foo.&lt;locals&gt;.inner at <span class="number">0x10529dbf8</span>&gt;</div><div class="line">&lt;function foo.&lt;locals&gt;.inner at <span class="number">0x1053c8f28</span>&gt;</div><div class="line">In [<span class="number">7</span>]: print(id(foo),id(bar), foo.__defaults__, bar.__defaults__)</div><div class="line"><span class="number">4382889232</span> <span class="number">4382822184</span> ([<span class="number">1</span>], <span class="string">'abc'</span>, <span class="number">123</span>) (<span class="number">100</span>,)</div><div class="line">In [<span class="number">8</span>]: <span class="keyword">del</span> bar</div><div class="line">In [<span class="number">9</span>]: print(id(foo),id(bar), foo.__defaults__, bar.__defaults__)</div><div class="line">---------------------------------------------------------------------------</div><div class="line">NameError                                 Traceback (most recent call last)</div><div class="line">&lt;ipython-input<span class="number">-9</span><span class="number">-7</span>b5c35b2c85a&gt; <span class="keyword">in</span> &lt;module&gt;()</div><div class="line">----&gt; 1 print(id(foo),id(bar), foo.__defaults__, bar.__defaults__)</div><div class="line">NameError: name <span class="string">'bar'</span> <span class="keyword">is</span> <span class="keyword">not</span> defined</div></pre></td></tr></table></figure>
+<h2 id="函数的销毁"><a href="#函数的销毁" class="headerlink" title="函数的销毁"></a>函数的销毁</h2><pre><code>* 全局函数销毁
+重新定义同名函数
+del 语句删除函数对象
+程序结束时
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">    In [<span class="number">5</span>]: <span class="function"><span class="keyword">def</span> <span class="title">foo</span><span class="params">(xyz=[], u=<span class="string">'abc'</span>, z=<span class="number">123</span>)</span>:</span></div><div class="line">   ...:     xyz.append(<span class="number">1</span>)</div><div class="line">   ...:     <span class="function"><span class="keyword">def</span> <span class="title">inner</span><span class="params">(a=<span class="number">10</span>)</span>:</span></div><div class="line">   ...:         <span class="keyword">pass</span></div><div class="line">   ...:     print(inner)</div><div class="line">   ...:     <span class="function"><span class="keyword">def</span> <span class="title">inner</span><span class="params">(a=<span class="number">100</span>)</span>:</span></div><div class="line">   ...:         print(xyz)</div><div class="line">   ...:     print(inner)</div><div class="line">   ...:     <span class="keyword">return</span> inner</div><div class="line"></div><div class="line">In [<span class="number">6</span>]: bar =foo()</div><div class="line">&lt;function foo.&lt;locals&gt;.inner at <span class="number">0x10529dbf8</span>&gt;</div><div class="line">&lt;function foo.&lt;locals&gt;.inner at <span class="number">0x1053c8f28</span>&gt;</div><div class="line">In [<span class="number">7</span>]: print(id(foo),id(bar), foo.__defaults__, bar.__defaults__)</div><div class="line"><span class="number">4382889232</span> <span class="number">4382822184</span> ([<span class="number">1</span>], <span class="string">'abc'</span>, <span class="number">123</span>) (<span class="number">100</span>,)</div><div class="line">In [<span class="number">8</span>]: <span class="keyword">del</span> bar</div><div class="line">In [<span class="number">9</span>]: print(id(foo),id(bar), foo.__defaults__, bar.__defaults__)</div><div class="line">---------------------------------------------------------------------------</div><div class="line">NameError                                 Traceback (most recent call last)</div><div class="line">&lt;ipython-input<span class="number">-9</span><span class="number">-7</span>b5c35b2c85a&gt; <span class="keyword">in</span> &lt;module&gt;()</div><div class="line">----&gt; 1 print(id(foo),id(bar), foo.__defaults__, bar.__defaults__)</div><div class="line">NameError: name <span class="string">'bar'</span> <span class="keyword">is</span> <span class="keyword">not</span> defined</div></pre></td></tr></table></figure>
 <h2 id="树"><a href="#树" class="headerlink" title="树"></a>树</h2><ul>
 <li>非线性结构，每个元素可以有多个前驱和后继</li>
 <li><p>树是n(n&gt;=0)个元素的集合<br>  n = 0 时， 称为空树;<br>  树只有一个特殊的没有前驱的元素，称为树的根Root;<br>  树中除了根结点外，其余元素只能有一个前驱，可以有零个或多个后继;</p>
 </li>
 <li><p>递归定义<br>  树T是n(n&gt;=0)个元素的集合。n=0时，称为空树;<br>  有且只有一个特殊元素根，剩余元素都可以被划分为m个互不相交的集合T1、T2、T3、… Tm，而每一个集合都有树，称为T的子树Subtree<br>  子树也有自己的根</p>
-<h2 id="树的概念"><a href="#树的概念" class="headerlink" title="树的概念"></a>树的概念</h2></li>
-<li><p>结点: 树中的数据元素;</p>
 </li>
+</ul>
+<h2 id="树的概念"><a href="#树的概念" class="headerlink" title="树的概念"></a>树的概念</h2><ul>
+<li>结点: 树中的数据元素;</li>
 <li>结点的度degree:结点拥有的子树的数目称为度，记作d(v);</li>
 <li>叶子结点: 结点的度0， 称为叶子结点leaf、终端结点、末端结点;</li>
 <li>分支结点: 结点的度不为0， 称为非终端结点或分结点;</li>
@@ -513,6 +515,46 @@
 <li>它是有序树，左子树、右子树是顺序的，不能交换次序;</li>
 <li>即使某个结点只有一棵子树，也要确定它是左子树还是右子树;</li>
 <li>二叉树的的五种基本形态<br>  空二叉树<br>  只有一个根结点<br>  根结点只有左子树<br>  根结点只有右子树<br>  根结点有左子树和右子树</li>
+</ul>
+<h2 id="斜树"><a href="#斜树" class="headerlink" title="斜树"></a>斜树</h2><pre><code>* 左斜树，所有结点都只有左子树;
+* 右斜树，所有节点都只有右子树;
+</code></pre><h2 id="满二叉树"><a href="#满二叉树" class="headerlink" title="满二叉树"></a>满二叉树</h2><pre><code>* 一棵二叉树的所有分支结点都存在左子树和右子树，并且所有叶子结点只存在在最下面一层;
+* 同样深度二叉树中，满二叉树结点最多;
+* k 为深度(1&lt;=k&lt;=n)，则结点总数为2^k-1;
+</code></pre><h2 id="完全二叉树Complete-Binary-Tree"><a href="#完全二叉树Complete-Binary-Tree" class="headerlink" title="完全二叉树Complete Binary Tree"></a>完全二叉树Complete Binary Tree</h2><ul>
+<li>若二叉树的深度为k, 二叉树的层数从1到k-1层的结点数都达到了最大个数,在第k层的所有结点都集中在最左边，这就是完全二叉树;</li>
+<li>完全二叉树由满二叉树引出;</li>
+<li>满二叉树一定是完全二叉树，但完全二叉树不是满二叉树;</li>
+<li>k为深度(1&lt;=k&lt;=n)，则结点总数最大值为2^k-1，当达到最大值的时候就是满二叉树；</li>
+</ul>
+<h2 id="二叉树性质"><a href="#二叉树性质" class="headerlink" title="二叉树性质"></a>二叉树性质</h2><ul>
+<li>对任何一棵二叉树T，如果其终端节点数为n0，度数为2的结点为n2，则有n0=n2+1;</li>
+<li>换句话说，就是叶子结点数-1就等于度数为2的结点数;</li>
+<li>证明:</li>
+</ul>
+<ol>
+<li>总结点数为n=n0+n1+n2，n1为度数为1的结点数;</li>
+<li>一棵树的分支数为n-1，因为除了根结点外，其余结点都有一个分支，即n0+n1+n2-1;</li>
+<li>分支数还等于n0*0+n1*1+n2*2，n2 是2分支结点所以乘以2，2*n2+n1。</li>
+<li>可得2*n2+n1 = n0+n1+n2-1 =&gt; n2 =n0-1</li>
+</ol>
+<ul>
+<li>其他性质</li>
+</ul>
+<ol>
+<li>高度为k的二叉树，至少有k个结点;</li>
+<li>含有n(n&gt;=1)的结点的二叉树高度至多为n，和上句一个意思;</li>
+<li>含有n(n&gt;=1)的结点的二叉树高度至多为n，最小为meth.ceil(log2(n+1))，不小于对数值的最小整数，向上取整;</li>
+<li>假设高度为h，2^h-1=n =&gt; h= log2(n+1)，层次数是取整。如果是8个节点，3.1699就要向上取整为4, 为4层。</li>
+</ol>
+<ul>
+<li>具有n 个结点的完全二叉树的深度为int(log2n)+1 或者meth.ceil(log2(n+1))</li>
+</ul>
+<h2 id="性质5"><a href="#性质5" class="headerlink" title="性质5"></a>性质5</h2><ul>
+<li>如果有一棵n个结点的完全二叉树，结点按照层序编号;</li>
+<li>如果i=1, 则结点i是二叉树的根，无双亲;如果i&gt;1，则其双亲是int(i/2)，向下取整。就是子节点的编号整除2得到的就是父结点的编号。父结点如果是i，那么左孩子结点就是2i，右孩子结点就是2i+1;</li>
+<li>如果2i&gt;n, 则结点i无左孩子，即结点i为叶子结点；否则其左孩子结点存在的编号为2i;</li>
+<li>如果2i+1 &gt;n，则结点i无右孩子，注意这里并不能说明结点i 没有左孩子; 否则右孩子结点存在编号为2i+1。</li>
 </ul>
 
       
@@ -775,7 +817,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#python-函数-二"><span class="nav-number">1.</span> <span class="nav-text">python 函数(二)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#nolocal-关键字"><span class="nav-number">1.1.</span> <span class="nav-text">nolocal 关键字</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#默认值的作用域"><span class="nav-number">1.2.</span> <span class="nav-text">默认值的作用域</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数的销毁"><span class="nav-number">1.3.</span> <span class="nav-text">函数的销毁</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#树"><span class="nav-number">1.4.</span> <span class="nav-text">树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#树的概念"><span class="nav-number">1.5.</span> <span class="nav-text">树的概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#树-1"><span class="nav-number">1.6.</span> <span class="nav-text">树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二叉树"><span class="nav-number">1.7.</span> <span class="nav-text">二叉树</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#python-函数-二"><span class="nav-number">1.</span> <span class="nav-text">python 函数(二)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#nolocal-关键字"><span class="nav-number">1.1.</span> <span class="nav-text">nolocal 关键字</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#默认值的作用域"><span class="nav-number">1.2.</span> <span class="nav-text">默认值的作用域</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数的销毁"><span class="nav-number">1.3.</span> <span class="nav-text">函数的销毁</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#树"><span class="nav-number">1.4.</span> <span class="nav-text">树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#树的概念"><span class="nav-number">1.5.</span> <span class="nav-text">树的概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#树-1"><span class="nav-number">1.6.</span> <span class="nav-text">树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二叉树"><span class="nav-number">1.7.</span> <span class="nav-text">二叉树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#斜树"><span class="nav-number">1.8.</span> <span class="nav-text">斜树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#满二叉树"><span class="nav-number">1.9.</span> <span class="nav-text">满二叉树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#完全二叉树Complete-Binary-Tree"><span class="nav-number">1.10.</span> <span class="nav-text">完全二叉树Complete Binary Tree</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二叉树性质"><span class="nav-number">1.11.</span> <span class="nav-text">二叉树性质</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#性质5"><span class="nav-number">1.12.</span> <span class="nav-text">性质5</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -814,7 +856,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">184.4k</span>
+    <span title="Site words total count">185.1k</span>
   
   <span>   |   </span>
 <span id="showDays"></span>
