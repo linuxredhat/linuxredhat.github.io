@@ -8,7 +8,15 @@
 
     <url>
         <loc>https://www.asjin.com/2020/08/19/python%E5%87%BD%E6%95%B0%E4%B8%89/</loc>
-        <lastmod>2020-08-21T01:31:03.000Z</lastmod>
+        <lastmod>2020-08-25T12:28:49.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://www.asjin.com/2020/08/25/docs/15983525146874/</loc>
+        <lastmod>2020-08-25T10:48:34.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
