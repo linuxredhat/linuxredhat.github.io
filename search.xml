@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[python高阶函数函数和装饰器一]]></title>
     <url>%2F2020%2F08%2F25%2Fpython%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0%E5%92%8C%E8%A3%85%E9%A5%B0%E5%99%A8%E4%B8%80%2F</url>
-    <content type="text"><![CDATA[python高阶函数和装饰器一 First Class Object; 1.函数在python中是一等公民;2.函数也是对象，可调用的对象;3.函数可以作为普通变量、参数、返回值等; 高阶函数 1.数据概念y=g(f(x));2.在数学和计算机科学中，高阶函数应当是至少满足下面一个条件的函数; 接受一个多个函数作为参数;输出一个函数; 12345678910def counter(base): def inc(step=1): nonlocal base base = base + step return base return incfoo = counter(10)foo1 = counter(10)print(foo())print(foo1())]]></content>
+    <content type="text"></content>
       <tags>
         <tag>linux</tag>
         <tag>program</tag>
