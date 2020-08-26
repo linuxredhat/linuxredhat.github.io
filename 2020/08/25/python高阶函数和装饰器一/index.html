@@ -89,18 +89,18 @@
 
 
 
-<meta name="description" content="不急不燥，稳步推进">
+<meta name="description" content="python高阶函数和装饰器一 First Class Object;  1.函数在python中是一等公民;2.函数也是对象，可调用的对象;3.函数可以作为普通变量、参数、返回值等;  高阶函数  1.数据概念y=g(f(x));2.在数学和计算机科学中，高阶函数应当是至少满足下面一个条件的函数; 接受一个多个函数作为参数;输出一个函数; 12345678910def counter(base)">
 <meta name="keywords" content="linux,program">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python高阶函数函数和装饰器一">
 <meta property="og:url" content="https://www.asjin.com/2020/08/25/python高阶函数和装饰器一/index.html">
 <meta property="og:site_name" content="逝水锦遥">
-<meta property="og:description" content="不急不燥，稳步推进">
+<meta property="og:description" content="python高阶函数和装饰器一 First Class Object;  1.函数在python中是一等公民;2.函数也是对象，可调用的对象;3.函数可以作为普通变量、参数、返回值等;  高阶函数  1.数据概念y=g(f(x));2.在数学和计算机科学中，高阶函数应当是至少满足下面一个条件的函数; 接受一个多个函数作为参数;输出一个函数; 12345678910def counter(base)">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-08-26T08:02:53.000Z">
+<meta property="og:updated_time" content="2020-08-26T07:55:12.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python高阶函数函数和装饰器一">
-<meta name="twitter:description" content="不急不燥，稳步推进">
+<meta name="twitter:description" content="python高阶函数和装饰器一 First Class Object;  1.函数在python中是一等公民;2.函数也是对象，可调用的对象;3.函数可以作为普通变量、参数、返回值等;  高阶函数  1.数据概念y=g(f(x));2.在数学和计算机科学中，高阶函数应当是至少满足下面一个条件的函数; 接受一个多个函数作为参数;输出一个函数; 12345678910def counter(base)">
 
 
 
@@ -405,7 +405,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  0
+                  367
                 </span>
               
 
@@ -442,7 +442,29 @@
       
 
       
-        
+        <h1 id="python高阶函数和装饰器一"><a href="#python高阶函数和装饰器一" class="headerlink" title="python高阶函数和装饰器一"></a>python高阶函数和装饰器一</h1><ul>
+<li>First Class Object;</li>
+</ul>
+<p>1.函数在python中是一等公民;<br>2.函数也是对象，可调用的对象;<br>3.函数可以作为普通变量、参数、返回值等;</p>
+<ul>
+<li>高阶函数</li>
+</ul>
+<p>1.数据概念<code>y=g(f(x))</code>;<br>2.在数学和计算机科学中，高阶函数应当是至少满足下面一个条件的函数;</p>
+<p>接受一个多个函数作为参数;<br>输出一个函数;</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">counter</span><span class="params">(base)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">inc</span><span class="params">(step=<span class="number">1</span>)</span>:</span></div><div class="line">        <span class="keyword">nonlocal</span> base</div><div class="line">        base = base + step</div><div class="line">        <span class="keyword">return</span> base</div><div class="line">    <span class="keyword">return</span> inc</div><div class="line">foo = counter(<span class="number">10</span>)</div><div class="line">foo1 = counter(<span class="number">10</span>)</div><div class="line">print(foo())</div><div class="line">print(foo1())</div></pre></td></tr></table></figure>
+<h2 id="自定义sort-函数"><a href="#自定义sort-函数" class="headerlink" title="自定义sort 函数"></a>自定义sort 函数</h2><ul>
+<li>排序问题</li>
+</ul>
+<p>1.仿照内建函数sorted, 请自行实现一个sort函数(不使用内建函数),能够为列表元素排序;</p>
+<ul>
+<li>思路</li>
+</ul>
+<p>1.内建函数sorted函数是一个返回一个<strong>新的列表</strong>， 可以设置<strong>升序或降序</strong>,也可以设置一个 <strong>排序的函数</strong>;自定义的sort函数也要实现这个功能;<br>2.新建一个列表, 遍历原列表，和新列表的值依次比较决定如何插入新列表中;</p>
+<ul>
+<li>思考<br>sorted  函数的实现原理，扩展到map、 filter函数的实现原理;</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">sort</span><span class="params">(iterable,key=lambda a,b:a&lt;b, reverse=False)</span>:</span></div><div class="line">    ret = []</div><div class="line">    <span class="keyword">for</span> x <span class="keyword">in</span> iterable:</div><div class="line">        <span class="keyword">for</span> i,y <span class="keyword">in</span> enumerate(ret):</div><div class="line">            flag = key(x, y) <span class="keyword">if</span> reverse <span class="keyword">else</span> key(y,x)</div><div class="line">            <span class="keyword">if</span> flag:</div><div class="line">                ret.insert(i,x)</div><div class="line">                <span class="keyword">break</span></div><div class="line">        <span class="keyword">else</span>:</div><div class="line">            ret.append(x)</div><div class="line">    <span class="keyword">return</span> ret</div><div class="line">lst = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">11</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">4</span>,<span class="number">8</span>,<span class="number">9</span>]</div><div class="line">print(sort(lst,reverse=<span class="keyword">True</span>))</div><div class="line"><span class="comment"># 输出</span></div><div class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">11</span>]</div></pre></td></tr></table></figure>
+
       
     </div>
     
@@ -521,8 +543,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/08/19/python函数三/" rel="next" title="python函数(三)">
-                <i class="fa fa-chevron-left"></i> python函数(三)
+              <a href="/2020/08/11/python函数二/" rel="next" title="python 函数(二)">
+                <i class="fa fa-chevron-left"></i> python 函数(二)
               </a>
             
           </div>
@@ -588,8 +610,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -610,7 +641,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">76</span>
+                  <span class="site-state-item-count">75</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -685,6 +716,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#python高阶函数和装饰器一"><span class="nav-number">1.</span> <span class="nav-text">python高阶函数和装饰器一</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#自定义sort-函数"><span class="nav-number">1.1.</span> <span class="nav-text">自定义sort 函数</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -717,7 +764,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">188.2k</span>
+    <span title="Site words total count">185.5k</span>
   
   <span>   |   </span>
 <span id="showDays"></span>
