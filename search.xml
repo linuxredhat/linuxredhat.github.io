@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[python 高阶函数函数和装饰器一]]></title>
-    <url>%2F2020%2F08%2F25%2Fpython%20%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0%E5%92%8C%E8%A3%85%E9%A5%B0%E5%99%A8%E4%B8%80%2F</url>
-    <content type="text"><![CDATA[python 高阶函数和装饰器一 First Class Object 函数在python中是一等公民; 函数也是对象，可调用的对象; 函数可以作为普通变量、参数、返回值等; 高阶函数 数据概念y=g(f(x)); 在数学和计算机科学中，高阶函数应当是至少满足下面一个条件的函数; 接受一个多个函数作为参数;输出一个函数; 12345678910def counter(base): def inc(step=1): nonlocal base base = base + step return base return incfoo = counter(10)foo1 = counter(10)print(foo())print(foo1()) 自定义sort 函数 排序问题 仿照内建函数sorted, 请自行实现一个sort函数(不使用内建函数),能够为列表元素排序; 思路 内建函数sorted函数是一个返回一个新的列表， 可以设置升序或降序,也可以设置一个 排序的函数; 自定义的sort函数也要实现这个功能; 新建一个列表, 遍历原列表，和新列表的值依次比较决定如何插入新列表中; 思考sorted 函数的实现原理，扩展到map、 filter函数的实现原理; 123456789101112131415def sort(iterable,key=lambda a,b:a&lt;b, reverse=False): ret = [] for x in iterable: for i,y in enumerate(ret): flag = key(x, y) if reverse else key(y,x) if flag: ret.insert(i,x) break else: ret.append(x) return retlst = [1,2,3,11,5,6,4,8,9]print(sort(lst,reverse=True))# 输出[1, 2, 3, 4, 5, 6, 8, 9, 11]]]></content>
+    <title><![CDATA[python高阶函数函数和装饰器一]]></title>
+    <url>%2F2020%2F08%2F25%2Fpython%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0%E5%92%8C%E8%A3%85%E9%A5%B0%E5%99%A8%E4%B8%80%2F</url>
+    <content type="text"><![CDATA[python 高阶函数和装饰器一 First Class Object 函数在python中是一等公民; 函数也是对象，可调用的对象; 函数可以作为普通变量、参数、返回值等; 高阶函数 数据概念y=g(f(x)); 在数学和计算机科学中，高阶函数应当是至少满足下面一个条件的函数; 接受一个多个函数作为参数;输出一个函数; 12345678910def counter(base): def inc(step=1): nonlocal base base = base + step return base return incfoo = counter(10)foo1 = counter(10)print(foo())print(foo1()) 自定义sort 函数 排序问题 仿照内建函数sorted, 请自行实现一个sort函数(不使用内建函数),能够为列表元素排序; 思路 内建函数sorted函数是一个返回一个新的列表， 可以设置升序或降序,也可以设置一个 排序的函数;自定义的sort函数也要实现这个功能; 新建一个列表, 遍历原列表，和新列表的值依次比较决定如何插入新列表中; 思考sorted 函数的实现原理，扩展到map、 filter函数的实现原理; 123456789101112131415def sort(iterable,key=lambda a,b:a&lt;b, reverse=False): ret = [] for x in iterable: for i,y in enumerate(ret): flag = key(x, y) if reverse else key(y,x) if flag: ret.insert(i,x) break else: ret.append(x) return retlst = [1,2,3,11,5,6,4,8,9]print(sort(lst,reverse=True))# 输出[1, 2, 3, 4, 5, 6, 8, 9, 11]]]></content>
       <tags>
         <tag>linux</tag>
         <tag>program</tag>
