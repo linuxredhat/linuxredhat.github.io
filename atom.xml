@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.asjin.com/"/>
-  <updated>2020-08-26T07:55:12.000Z</updated>
+  <updated>2020-08-26T08:46:04.000Z</updated>
   <id>https://www.asjin.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://www.asjin.com/2020/08/25/python%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0%E5%92%8C%E8%A3%85%E9%A5%B0%E5%99%A8%E4%B8%80/"/>
     <id>https://www.asjin.com/2020/08/25/python高阶函数和装饰器一/</id>
     <published>2020-08-25T12:33:00.000Z</published>
-    <updated>2020-08-26T07:55:12.000Z</updated>
+    <updated>2020-08-26T08:46:04.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="python高阶函数和装饰器一"><a href="#python高阶函数和装饰器一" class="headerlink" title="python高阶函数和装饰器一"></a>python高阶函数和装饰器一</h1><ul><li>First Class Object;</li></ul><p>1.函数在python中是一等公民;<br>2.函数也是对象，可调用的对象;<br>3.函数可以作为普通变量、参数、返回值等;</p><ul><li>高阶函数</li></ul><p>1.数据概念<code>y=g(f(x))</code>;<br>2.在数学和计算机科学中，高阶函数应当是至少满足下面一个条件的函数;</p><p>接受一个多个函数作为参数;<br>输出一个函数;</p><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">counter</span><span class="params">(base)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">inc</span><span class="params">(step=<span class="number">1</span>)</span>:</span></div><div class="line">        <span class="keyword">nonlocal</span> base</div><div class="line">        base = base + step</div><div class="line">        <span class="keyword">return</span> base</div><div class="line">    <span class="keyword">return</span> inc</div><div class="line">foo = counter(<span class="number">10</span>)</div><div class="line">foo1 = counter(<span class="number">10</span>)</div><div class="line">print(foo())</div><div class="line">print(foo1())</div></pre></td></tr></table></figure><h2 id="自定义sort-函数"><a href="#自定义sort-函数" class="headerlink" title="自定义sort 函数"></a>自定义sort 函数</h2><ul><li>排序问题</li></ul><p>1.仿照内建函数sorted, 请自行实现一个sort函数(不使用内建函数),能够为列表元素排序;</p><ul><li>思路</li></ul><p>1.内建函数sorted函数是一个返回一个<strong>新的列表</strong>， 可以设置<strong>升序或降序</strong>,也可以设置一个 <strong>排序的函数</strong>;自定义的sort函数也要实现这个功能;<br>2.新建一个列表, 遍历原列表，和新列表的值依次比较决定如何插入新列表中;</p><ul><li>思考<br>sorted  函数的实现原理，扩展到map、 filter函数的实现原理;</li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">sort</span><span class="params">(iterable,key=lambda a,b:a&lt;b, reverse=False)</span>:</span></div><div class="line">    ret = []</div><div class="line">    <span class="keyword">for</span> x <span class="keyword">in</span> iterable:</div><div class="line">        <span class="keyword">for</span> i,y <span class="keyword">in</span> enumerate(ret):</div><div class="line">            flag = key(x, y) <span class="keyword">if</span> reverse <span class="keyword">else</span> key(y,x)</div><div class="line">            <span class="keyword">if</span> flag:</div><div class="line">                ret.insert(i,x)</div><div class="line">                <span class="keyword">break</span></div><div class="line">        <span class="keyword">else</span>:</div><div class="line">            ret.append(x)</div><div class="line">    <span class="keyword">return</span> ret</div><div class="line">lst = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">11</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">4</span>,<span class="number">8</span>,<span class="number">9</span>]</div><div class="line">print(sort(lst,reverse=<span class="keyword">True</span>))</div><div class="line"><span class="comment"># 输出</span></div><div class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">11</span>]</div></pre></td></tr></table></figure>]]></content>
     
@@ -31,6 +31,31 @@
       
         &lt;h1 id=&quot;python高阶函数和装饰器一&quot;&gt;&lt;a href=&quot;#python高阶函数和装饰器一&quot; class=&quot;headerlink&quot; title=&quot;python高阶函数和装饰器一&quot;&gt;&lt;/a&gt;python高阶函数和装饰器一&lt;/h1&gt;&lt;ul&gt;
 &lt;li&gt;First Class 
+      
+    
+    </summary>
+    
+    
+      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
+    
+      <category term="program" scheme="https://www.asjin.com/tags/program/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>python函数(三)</title>
+    <link href="https://www.asjin.com/2020/08/19/python%E5%87%BD%E6%95%B0%E4%B8%89/"/>
+    <id>https://www.asjin.com/2020/08/19/python函数三/</id>
+    <published>2020-08-19T12:54:00.000Z</published>
+    <updated>2020-08-26T08:50:15.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="python-函数-三"><a href="#python-函数-三" class="headerlink" title="python 函数(三)"></a>python 函数(三)</h1><p><img src="/images/python_function.png" alt=""></p><h3 id="变量名解析原则LEGB"><a href="#变量名解析原则LEGB" class="headerlink" title="变量名解析原则LEGB"></a>变量名解析原则LEGB</h3><ul><li>Local本地作用域、局部作用域的local命名空间,函数调时创建,调用结束消亡;</li><li>Enclosing, Python2.2时引入了嵌套函数,实现了闭包,这个就是嵌套函数的外部函数的全名空间;</li><li>Global,全局作用域,即一个模块的命名空间。模块被import 时创建，解释器退出时消亡;</li><li>Build-in,内置模块的命名空间,生命周期从python解释器启动时创建 到解释器退出时消亡。例如 <code>print(open)</code>，<code>print</code> 和<code>open</code>都是内置的变量;</li><li>所以一个名词的查找顺序就是<code>LEGB</code>;</li></ul><h2 id="函数执行流程"><a href="#函数执行流程" class="headerlink" title="函数执行流程"></a>函数执行流程</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">foo1</span><span class="params">(b,b1=<span class="number">3</span>)</span>:</span></div><div class="line">    print(<span class="string">"foo1 called"</span>,b,b1)</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">foo2</span><span class="params">(c)</span>:</span></div><div class="line">    foo3(c)</div><div class="line">    print(<span class="string">"foo2 called"</span>,c)</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">foo3</span><span class="params">(d)</span>:</span></div><div class="line">    print(<span class="string">"foo3 called"</span>, d)</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></div><div class="line">    print(<span class="string">"main called"</span>)</div><div class="line">    foo1(<span class="number">100</span>,<span class="number">101</span>)</div><div class="line">    foo2(<span class="number">200</span>)</div><div class="line">    print(<span class="string">"main ending"</span>)</div><div class="line"></div><div class="line">main()</div><div class="line">main called</div><div class="line">foo1 called <span class="number">100</span> <span class="number">101</span></div><div class="line">foo3 called <span class="number">200</span></div><div class="line">foo2 called <span class="number">200</span></div><div class="line">main ending</div></pre></td></tr></table></figure><ul><li>全局帧中生成foo1、foo2、foo3、main函数对象;</li><li>main函数调用;</li><li>main中查找内建函数print压栈，将常量字符串压栈，调用函数，弹出栈顶;</li><li>main中全局查找函数foo1压栈，将常量100、101压栈，调用函数foo1，创建栈帧。print函数压栈，字符串和亦是b、b1压栈、调用函数，弹出栈顶，返回值。</li><li>main中全局查找foo2函数压栈，将常量200压栈，调用foo2，创建栈帧。foo3函数压栈，变量c引用压栈，调用foo3，创建栈帧。foo3完成print函数调用后返回。foo2恢复调用。执行print后，返回值。main中foo2调用结束弹出栈顶，继续执行print函数调用，弹出栈顶。main函数返回。</li></ul><h2 id="递归Recursion"><a href="#递归Recursion" class="headerlink" title="递归Recursion"></a>递归Recursion</h2><ul><li>函数直接或者间接调用自身就是 递归;</li><li>递归需要有边界条件、递归前进段、递归返回段;</li><li>递归一定要有<strong>边界操作</strong>;</li><li>当办界条件不满足的时候，递归前进;</li><li><p>当边界条件满足的时候，递归返回;</p></li><li><p>斐波那契数列<code>Fibonacci number: 1,1,2,3,5,8,13,21,34,55,89,144,...</code></p></li><li>如果设F(n)为该数列的第n项(n∈N* )，那么这句话可以写成如下形式:<code>F(n)=F(n-1)+F(n-2)</code></li><li><code>F(0)=0, F(1)=1,F(n)=F(n-1)+F(n-2)</code></li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">pre = <span class="number">0</span></div><div class="line">cur = <span class="number">1</span></div><div class="line">print(pre,cur,end=<span class="string">' '</span>)</div><div class="line">n = <span class="number">10</span></div><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(n<span class="number">-1</span>):</div><div class="line">    pre, cur = cur,pre+cur</div><div class="line">    print(cur,end=<span class="string">' '</span>)</div><div class="line"></div><div class="line"><span class="comment">#结果: 0 1 1 2 3 5 8 13 21 34 55</span></div></pre></td></tr></table></figure><p>递归实现</p><p><code>F(0)=0,F(1)=1,F(n)=F(n-1)+F(n-2)</code></p><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">fib</span><span class="params">(n)</span>:</span></div><div class="line">    <span class="keyword">return</span> <span class="number">1</span> <span class="keyword">if</span> n &lt; <span class="number">2</span> <span class="keyword">else</span> fib(n<span class="number">-1</span>) + fib(n<span class="number">-2</span>)</div><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">10</span>):</div><div class="line">    print(fib(i), end=<span class="string">' '</span>)</div><div class="line"><span class="comment"># 1 1 2 3 5 8 13 21 34 55</span></div></pre></td></tr></table></figure><p>解析:</p><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">fib(<span class="number">3</span>) + fib(<span class="number">2</span>)</div><div class="line">fib(<span class="number">3</span>) 调用fib(<span class="number">3</span>)、fib(<span class="number">2</span>)、fib(<span class="number">1</span>)</div><div class="line">fib(<span class="number">2</span>) 调用fib2(<span class="number">2</span>)、fib(<span class="number">1</span>)</div><div class="line">fib(<span class="number">1</span>) 是边界</div></pre></td></tr></table></figure><h3 id="递归要求"><a href="#递归要求" class="headerlink" title="递归要求"></a>递归要求</h3><ul><li>递归一定要有退出条件，递归调用一定要执行到这个退出条件。没有退出条件的递归调用，就是无限调用;</li><li>递归调用的深度不宜过深;</li></ul><ol><li>Python 对递归调用的深度做了限制，以保护解释器;</li><li>超过递归深度限制，抛出<code>RecurisonError: maxinum recursion depth exceeded</code>超出最大深度;</li><li><code>sys.getrecursionlimit()</code></li></ol><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">In [<span class="number">1</span>]: <span class="keyword">import</span> sys</div><div class="line">In [<span class="number">2</span>]: print(sys.getrecursionlimit())</div><div class="line"><span class="number">3000</span></div><div class="line">In [<span class="number">4</span>]: sys.setrecursionlimit(<span class="number">1000</span>)</div><div class="line">In [<span class="number">5</span>]: print(sys.getrecursionlimit())</div><div class="line"><span class="number">1000</span></div></pre></td></tr></table></figure><p>优化改进</p><p>fib函数和循环的思想类似;<br>参数n是边界条件，用n来计数;<br>上一次的计算结果直接作为函数的实参;<br>效率很高;<br>和循环比较，性能相近。所以并不是递归一定是效率底下，但是递归有深度的限制;<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">pre = <span class="number">0</span></div><div class="line">cur = <span class="number">1</span></div><div class="line">print(pre, cur)</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">fib</span><span class="params">(n, pre=<span class="number">0</span>,cur=<span class="number">1</span>)</span>:</span></div><div class="line">    pre, cur = cur, pre + cur</div><div class="line">    print(cur, end=<span class="string">' '</span>)</div><div class="line">    <span class="keyword">if</span> n == <span class="number">2</span> :</div><div class="line">        <span class="keyword">return</span></div><div class="line">    fib(n<span class="number">-1</span>, pre, cur)</div><div class="line"></div><div class="line">fib(<span class="number">10</span>)</div><div class="line"><span class="comment"># 输出 1 2 3 5 8 13 21 34 55</span></div></pre></td></tr></table></figure></p><h3 id="间接递归"><a href="#间接递归" class="headerlink" title="间接递归"></a>间接递归</h3><p>如<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">foo1</span><span class="params">()</span>:</span></div><div class="line">    foo2()</div><div class="line">    </div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">foo2</span><span class="params">()</span>:</span></div><div class="line">    foo1()</div><div class="line"></div><div class="line">foo1()</div></pre></td></tr></table></figure></p><p>间接递归，是通过别的函数调用了函数自身;<br>但是，如果构成了循环递归调用是非常危险的，但是往往这种情况下代码复杂的情况下，还是可能发生这种调用。要用代码的规范来避免这种递归调用的发生。</p><h3 id="递归总结"><a href="#递归总结" class="headerlink" title="递归总结"></a>递归总结</h3><ul><li>递归是一种很自然的表达，符合逻辑思维;</li><li>递归相对运行效率低，每一次调用函数都要开辟栈帧;</li><li>递归有深度限制，如果递归层次太深，函数反复压栈，栈内存很快就溢出了;</li><li>如果是有限次数的递归，可以使用递归调用，或者使用循环代替，循环代码稍微复杂一些，但是只要不是死trggsk以多次迭代直至算出结果；</li><li>绝大多数递归，都可以使用循环实现;</li><li>即使递归代码很简洁，但是能不用则不用递归。</li></ul><h3 id="递归练习"><a href="#递归练习" class="headerlink" title="递归练习"></a>递归练习</h3><ul><li>求n的阶乘</li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">fac</span><span class="params">(n)</span>:</span></div><div class="line">    <span class="keyword">if</span> n == <span class="number">1</span> :</div><div class="line">        <span class="keyword">return</span> <span class="number">1</span></div><div class="line">    <span class="keyword">return</span> n * fac(n<span class="number">-1</span>)</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">fac1</span><span class="params">(n, p =<span class="number">1</span> )</span>:</span></div><div class="line">    <span class="keyword">if</span> n == <span class="number">1</span>:</div><div class="line">        <span class="keyword">return</span> p</div><div class="line">    p *= n</div><div class="line">    print(p)</div><div class="line">    fac1(n<span class="number">-1</span>,p)</div><div class="line">    <span class="keyword">return</span> p</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">fac2</span><span class="params">(n, p = None)</span>:</span></div><div class="line">    <span class="keyword">if</span> p <span class="keyword">is</span> <span class="keyword">None</span>:</div><div class="line">        p = [<span class="number">1</span>]</div><div class="line">    <span class="keyword">if</span> n == <span class="number">1</span> :</div><div class="line">        <span class="keyword">return</span> p[<span class="number">0</span>]</div><div class="line">    p[<span class="number">0</span>] *= n</div><div class="line">    print(p[<span class="number">0</span>])</div><div class="line">    fac2(n<span class="number">-1</span>, p)</div><div class="line">    <span class="keyword">return</span> p</div><div class="line">n = <span class="number">10</span></div><div class="line">print(fac(n))</div><div class="line">print(fac1(n))</div><div class="line">print(fac2(n))</div><div class="line"><span class="comment"># 输出</span></div><div class="line"><span class="number">3628800</span></div><div class="line"><span class="number">10</span></div><div class="line"><span class="number">90</span></div><div class="line"><span class="number">720</span></div><div class="line"><span class="number">5040</span></div><div class="line"><span class="number">30240</span></div><div class="line"><span class="number">151200</span></div><div class="line"><span class="number">604800</span></div><div class="line"><span class="number">1814400</span></div><div class="line"><span class="number">3628800</span></div><div class="line"><span class="number">10</span></div><div class="line"><span class="number">10</span></div><div class="line"><span class="number">90</span></div><div class="line"><span class="number">720</span></div><div class="line"><span class="number">5040</span></div><div class="line"><span class="number">30240</span></div><div class="line"><span class="number">151200</span></div><div class="line"><span class="number">604800</span></div><div class="line"><span class="number">1814400</span></div><div class="line"><span class="number">3628800</span></div><div class="line">[<span class="number">3628800</span>]</div></pre></td></tr></table></figure><ul><li>将一个数逆序放入列表中，例如<code>1234 =&gt; [4,3,2,1]</code></li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">num = <span class="number">1234</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">revert</span><span class="params">(num, target=[])</span>:</span></div><div class="line">    <span class="keyword">if</span> num:</div><div class="line">        target.append(num[len(num) <span class="number">-1</span>]) <span class="comment"># target.append(num[-1:])</span></div><div class="line">        revert(num[:len(num) <span class="number">-1</span>])</div><div class="line">    <span class="keyword">return</span> target</div><div class="line">print(revert(str(num)))</div></pre></td></tr></table></figure><ul><li>解决猴子吃桃问题</li></ul><p>猴子第一天摘下苦干个桃子，当即吃了一半，还不过瘾，又多吃了一个，第二天早上又剩下的桃子吃掉一半，又多吃了一个。以后每天早上都各吃了前一天剩下的一半零一个。到第10天早上想吃时，只剩下一个桃子了。求第一天共摘多少个桃子。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">peach</span><span class="params">(days=<span class="number">10</span>)</span>:</span></div><div class="line">    <span class="keyword">if</span> days == <span class="number">1</span>:</div><div class="line">        <span class="keyword">return</span> <span class="number">1</span></div><div class="line">    <span class="keyword">return</span>(peach(days<span class="number">-1</span>)+<span class="number">1</span>)*<span class="number">2</span></div><div class="line">print(peach())</div></pre></td></tr></table></figure><p>注意这里必须是10， 因为return(peach(days-1)+1)*2 立即拿不到结果，必须通过再一次进入函数时判断是不是到了最后一天。<br>也就是当前使用的值是由下一次函数调用得到，所以要执行10次函数调用。</p><p>换种方式表达</p><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">peatch</span><span class="params">(days=<span class="number">1</span>)</span>:</span></div><div class="line">    <span class="keyword">if</span> days == <span class="number">10</span>:</div><div class="line">        <span class="keyword">return</span> <span class="number">1</span></div><div class="line">    <span class="keyword">return</span>(peatch(days+<span class="number">1</span>)+<span class="number">1</span>)*<span class="number">2</span></div><div class="line">print(peatch())</div></pre></td></tr></table></figure><h2 id="匿名函数"><a href="#匿名函数" class="headerlink" title="匿名函数"></a>匿名函数</h2><p>Python 借助Lambda表达式构建匿名函数</p><p>例<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">In [<span class="number">1</span>]: (<span class="keyword">lambda</span> x:x*<span class="number">2</span>)((<span class="number">4</span>,<span class="number">2</span>))</div><div class="line">Out[<span class="number">1</span>]: (<span class="number">4</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">2</span>)</div></pre></td></tr></table></figure></p><ul><li>使用lambda 关键字来定义匿名函数;</li><li>参数列表不需要小括号;</li><li>冒号是用来分割参数列表和表达式的;</li><li>不需要使用return，表达式的值，就是匿名函数返回值;</li><li>lambda表达式(匿名函数)<strong>只能写在一行上</strong>，被称为单行函数</li><li>用途<br>在高阶函数传参时，使用lambda表达式，往往能简化代码;</li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">print((<span class="keyword">lambda</span> :<span class="number">0</span>)())</div><div class="line">print((<span class="keyword">lambda</span> x,y=<span class="number">3</span>: x + y )(<span class="number">5</span>))</div><div class="line">print((<span class="keyword">lambda</span> x,y=<span class="number">3</span>: x + y)(<span class="number">5</span>,<span class="number">6</span>))</div><div class="line">print((<span class="keyword">lambda</span> x, *, y=<span class="number">30</span>: x + y)(<span class="number">5</span>))</div><div class="line">print((<span class="keyword">lambda</span> x, *, y=<span class="number">30</span>: x + y)(<span class="number">5</span>, y=<span class="number">10</span>))</div><div class="line">print((<span class="keyword">lambda</span> *args: (x <span class="keyword">for</span> x <span class="keyword">in</span> args))(*range(<span class="number">5</span>)))</div><div class="line">print((<span class="keyword">lambda</span> *args:[x+<span class="number">1</span> <span class="keyword">for</span> x <span class="keyword">in</span> args])(*range(<span class="number">5</span>)))</div><div class="line">print((<span class="keyword">lambda</span> *args: [x + <span class="number">2</span> <span class="keyword">for</span> x <span class="keyword">in</span> args])(*range(<span class="number">5</span>)))</div><div class="line">print((<span class="keyword">lambda</span> *args: &#123; x + <span class="number">2</span> <span class="keyword">for</span> x <span class="keyword">in</span> args &#125;)(*range(<span class="number">5</span>)))</div><div class="line"><span class="comment">###高阶函数</span></div><div class="line">lst = [x <span class="keyword">for</span> x <span class="keyword">in</span> (<span class="keyword">lambda</span> *args: map(<span class="keyword">lambda</span> x: x+<span class="number">1</span>,args))(*range(<span class="number">5</span>))]</div><div class="line">print(lst)</div><div class="line">lst2 = [x <span class="keyword">for</span> x <span class="keyword">in</span> (<span class="keyword">lambda</span> *args: map(<span class="keyword">lambda</span> x:(x+<span class="number">1</span>,args),args))(*range(<span class="number">5</span>))]</div><div class="line">print(lst2)</div><div class="line"></div><div class="line"><span class="number">0</span></div><div class="line"><span class="number">8</span></div><div class="line"><span class="number">11</span></div><div class="line"><span class="number">35</span></div><div class="line"><span class="number">15</span></div><div class="line">&lt;generator object &lt;<span class="keyword">lambda</span>&gt;.&lt;locals&gt;.&lt;genexpr&gt; at <span class="number">0x10742dcf0</span>&gt;</div><div class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</div><div class="line">[<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]</div><div class="line">&#123;<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>&#125;</div><div class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</div><div class="line">[(<span class="number">1</span>, (<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>)), (<span class="number">2</span>, (<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>)), (<span class="number">3</span>, (<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>)), (<span class="number">4</span>, (<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>)), (<span class="number">5</span>, (<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>))]</div></pre></td></tr></table></figure><h2 id="生成器"><a href="#生成器" class="headerlink" title="生成器"></a>生成器</h2><ul><li><p>生成器generator<br>生成器指的是生成器对象，可以由生成器表达式得到，也可以使用yeild关键字得到一个生成器函数，调用这个函数得到一个生成器对象</p></li><li><p>生成器函数<br>函数体中包含yield语句的函数，返回生成器对象;<br>生成器对象，是一个可迭代对象，是一个迭代对象;<br>生成器对象，是延迟计算、惰性求值的。</p></li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">inc</span><span class="params">()</span>:</span></div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">5</span>):</div><div class="line">        <span class="keyword">yield</span> i</div><div class="line">print(type(inc))</div><div class="line">print(type(inc()))</div><div class="line">x = inc()</div><div class="line">print(type(x))</div><div class="line">print(next(x))</div><div class="line"><span class="keyword">for</span> m <span class="keyword">in</span> x:</div><div class="line">    print(m, <span class="string">'*'</span>)</div><div class="line"><span class="keyword">for</span> m <span class="keyword">in</span> x:</div><div class="line">    print(m, <span class="string">'**'</span>)</div><div class="line"><span class="comment"># 输出</span></div><div class="line">&lt;<span class="class"><span class="keyword">class</span> '<span class="title">function</span>'&gt;</span></div><div class="line"><span class="class">&lt;<span class="title">class</span> '<span class="title">generator</span>'&gt;</span></div><div class="line"><span class="class">&lt;<span class="title">class</span> '<span class="title">generator</span>'&gt;</span></div><div class="line"><span class="class">0</span></div><div class="line"><span class="class">1 *</span></div><div class="line"><span class="class">2 *</span></div><div class="line"><span class="class">3 *</span></div><div class="line"><span class="class">4 *</span></div></pre></td></tr></table></figure><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">In [<span class="number">1</span>]: y = (i <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">5</span>))</div><div class="line">In [<span class="number">2</span>]: print(type(y))</div><div class="line">&lt;<span class="class"><span class="keyword">class</span> '<span class="title">generator</span>'&gt;</span></div><div class="line"><span class="class"><span class="title">In</span> [3]:</span> print(next(y))</div><div class="line"><span class="number">0</span></div><div class="line">In [<span class="number">4</span>]: print(next(y))</div><div class="line"><span class="number">1</span></div></pre></td></tr></table></figure><ul><li>普通的函数调用fn()， 函数会立即执行完毕，但是生成器函数可以使用next函数多次执行;</li><li>生成器函数等价于生成器表达式，只不过生成器函数可以更加的复杂;</li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">In [<span class="number">5</span>]: <span class="function"><span class="keyword">def</span> <span class="title">gen</span><span class="params">()</span>:</span></div><div class="line">   ...:     print(<span class="string">'line 1'</span>)</div><div class="line">   ...:     <span class="keyword">yield</span> <span class="number">1</span></div><div class="line">   ...:     print(<span class="string">'line 2'</span>)</div><div class="line">   ...:     <span class="keyword">yield</span> <span class="number">2</span></div><div class="line">   ...:     print(<span class="string">'line 3'</span>)</div><div class="line">   ...:     <span class="keyword">return</span> <span class="number">3</span></div><div class="line">In [<span class="number">6</span>]: next(gen())</div><div class="line">line <span class="number">1</span></div><div class="line">Out[<span class="number">6</span>]: <span class="number">1</span></div><div class="line"></div><div class="line">In [<span class="number">7</span>]: next(gen())</div><div class="line">line <span class="number">1</span></div><div class="line">Out[<span class="number">7</span>]: <span class="number">1</span></div><div class="line">In [<span class="number">8</span>]: g = gen()</div><div class="line">In [<span class="number">9</span>]: print(next(g))</div><div class="line">line <span class="number">1</span></div><div class="line"><span class="number">1</span></div><div class="line">In [<span class="number">10</span>]: print(next(g))</div><div class="line">line <span class="number">2</span></div><div class="line"><span class="number">2</span></div><div class="line">In [<span class="number">11</span>]: print(next(g))</div><div class="line">line <span class="number">3</span></div><div class="line">---------------------------------------------------------------------------</div><div class="line">StopIteration                             Traceback (most recent call last)</div><div class="line">&lt;ipython-input<span class="number">-11</span><span class="number">-1</span>dfb29d6357e&gt; <span class="keyword">in</span> &lt;module&gt;()</div><div class="line">----&gt; 1 print(next(g))</div><div class="line">StopIteration: <span class="number">3</span></div><div class="line">In [<span class="number">12</span>]: print(next(g, <span class="string">'End'</span>))</div><div class="line">End</div></pre></td></tr></table></figure><ul><li>在生成器函数中，使用多个yield语句，执行一次后会暂停执行，把yeild表达式的值返回;</li><li>再次执行会执行到下一个yield语句;</li><li>return语句依然可以终止函数运行,但是return语句的返回值不能被获取到;</li><li>return会导致无法继续获取一下个值，抛出StopIteration异常;</li><li>如果函数没有显示的return语句，如果生成器函数执行到结尾，一样会抛出StopIteration异常;</li></ul><h3 id="生成器函数"><a href="#生成器函数" class="headerlink" title="生成器函数"></a>生成器函数</h3><ul><li>包含yield语句的生成器函数生成生成器对象，<strong>生成器函数的函数体不会立即执行</strong></li><li>next(generator)会从函数的当前位置向后执行到之后踫到的第一个yeild语句，会弹出值，并暂停函数执行;</li><li>再次调用next函数，和上一条一样的处理过程;</li><li>没有多余的yield语句的能被执行，继续调用next函数，会抛出StopIteration异常;</li></ul><h3 id="生成器应用"><a href="#生成器应用" class="headerlink" title="生成器应用"></a>生成器应用</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">In [<span class="number">13</span>]: <span class="function"><span class="keyword">def</span> <span class="title">counter</span><span class="params">()</span>:</span></div><div class="line">    ...:     i = <span class="number">0</span></div><div class="line">    ...:     <span class="keyword">while</span> <span class="keyword">True</span>:</div><div class="line">    ...:         i +=<span class="number">1</span></div><div class="line">    ...:         <span class="keyword">yield</span> i</div><div class="line">In [<span class="number">14</span>]: <span class="function"><span class="keyword">def</span> <span class="title">inc</span><span class="params">(c)</span>:</span></div><div class="line">    ...:     <span class="keyword">return</span> next(c)</div><div class="line">In [<span class="number">15</span>]: c = counter()</div><div class="line">In [<span class="number">16</span>]: print(inc(c))</div><div class="line"><span class="number">1</span></div><div class="line">In [<span class="number">17</span>]: print(inc(c))</div><div class="line"><span class="number">2</span></div><div class="line">In [<span class="number">18</span>]: print(inc(c))</div><div class="line"><span class="number">3</span></div><div class="line">In [<span class="number">19</span>]: print(inc(c))</div><div class="line"><span class="number">4</span></div></pre></td></tr></table></figure><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">In [<span class="number">21</span>]: <span class="function"><span class="keyword">def</span> <span class="title">counter</span><span class="params">()</span>:</span></div><div class="line">    ...:     i = <span class="number">0</span></div><div class="line">    ...:     <span class="keyword">while</span> <span class="keyword">True</span>:</div><div class="line">    ...:         i += <span class="number">1</span></div><div class="line">    ...:         <span class="keyword">yield</span> i</div><div class="line">    ...:</div><div class="line"></div><div class="line">In [<span class="number">22</span>]: <span class="function"><span class="keyword">def</span> <span class="title">inc</span><span class="params">()</span>:</span></div><div class="line">    ...:     c = counter()</div><div class="line">    ...:     <span class="keyword">return</span> next(c)</div><div class="line">In [<span class="number">23</span>]: print(inc())</div><div class="line"><span class="number">1</span></div><div class="line">In [<span class="number">24</span>]: print(inc())</div><div class="line"><span class="number">1</span></div><div class="line">In [<span class="number">25</span>]: print(inc())</div><div class="line"><span class="number">1</span></div></pre></td></tr></table></figure><p>计数器 </p><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">inc</span><span class="params">()</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">counter</span><span class="params">()</span>:</span></div><div class="line">        i = <span class="number">0</span></div><div class="line">        <span class="keyword">while</span> <span class="keyword">True</span>:</div><div class="line">            i +=<span class="number">1</span></div><div class="line">            <span class="keyword">yield</span> i</div><div class="line"></div><div class="line">    c = counter()</div><div class="line">    <span class="keyword">return</span> <span class="keyword">lambda</span> : next(c)</div><div class="line">foo = inc()</div><div class="line">print(foo())</div><div class="line">print(foo())</div><div class="line">print(foo())</div><div class="line"><span class="comment"># 输出</span></div><div class="line"><span class="number">1</span></div><div class="line"><span class="number">2</span></div><div class="line"><span class="number">3</span></div></pre></td></tr></table></figure><p>lambda 表达式是匿名函数<br>return 返回的是一个匿名函数<br>等价于下面的代码 </p><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">inc</span><span class="params">()</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">counter</span><span class="params">()</span>:</span></div><div class="line">        i = <span class="number">0</span></div><div class="line">        <span class="keyword">while</span> <span class="keyword">True</span>:</div><div class="line">            i +=<span class="number">1</span></div><div class="line">            <span class="keyword">yield</span> i</div><div class="line"></div><div class="line">    c = counter()</div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">_inc</span><span class="params">()</span>:</span></div><div class="line">        <span class="keyword">return</span> next(c)</div><div class="line">    <span class="keyword">return</span> _inc</div><div class="line">foo = inc()</div><div class="line">print(foo())</div><div class="line">print(foo())</div><div class="line">print(foo())</div></pre></td></tr></table></figure><p>处理递归问题</p><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">fib</span><span class="params">()</span>:</span></div><div class="line">    x = <span class="number">0</span></div><div class="line">    y = <span class="number">1</span></div><div class="line">    <span class="keyword">while</span> <span class="keyword">True</span>:</div><div class="line">        <span class="keyword">yield</span> y</div><div class="line">        x,y = x, x+y</div><div class="line">foo = fib()</div><div class="line"><span class="keyword">for</span> _ <span class="keyword">in</span> range(<span class="number">5</span>):</div><div class="line">    print(next(foo))</div><div class="line"><span class="keyword">for</span> _ <span class="keyword">in</span> range(<span class="number">100</span>):</div><div class="line">    next(foo)</div><div class="line">print(next(foo))</div></pre></td></tr></table></figure><p>等价于下面的代码</p><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">pre = <span class="number">0</span></div><div class="line">cur = <span class="number">1</span></div><div class="line">print(pre, cur, end=<span class="string">' '</span>)</div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">fib1</span><span class="params">(n, pre=<span class="number">0</span>, cur=<span class="number">1</span>)</span>:</span></div><div class="line">    pre, cur = cur, pre + cur</div><div class="line">    print(cur, end=<span class="string">' '</span>)</div><div class="line">    <span class="keyword">if</span> n ==<span class="number">2</span> :</div><div class="line">        <span class="keyword">return</span></div><div class="line">    fib1(n<span class="number">-1</span>,pre,cur)</div></pre></td></tr></table></figure><ul><li>协程coroutine </li></ul><ol><li>生成器的高级用法 ;</li><li>比进程、线程轻量级;</li><li>是在用户空间调度函数的一种实现;</li><li>Python3 asyncio就是协程实现，已经加入到标准库;</li><li>Python3.5使用async、await关键字直接原生支持协程;</li></ol><ul><li>协程高度器实现思路;</li></ul><ol><li>有2个生成器A、B</li><li>next(A)后，A执行到了yeild语句暂停，然后去执行next(B)，B执行到yield语句也暂停，然后再次调用next(A)，再调用next(B)在，周而复始，就实现了调度的效果;</li><li>可以引入调度的策略来实现切换的方式;</li></ol><ul><li>协程是一种非抢占调度</li></ul><h3 id="yield-from"><a href="#yield-from" class="headerlink" title="yield from"></a>yield from</h3><ul><li>举例</li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">In [<span class="number">26</span>]: <span class="function"><span class="keyword">def</span> <span class="title">inc</span><span class="params">()</span>:</span></div><div class="line">    ...:     <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">1000</span>):</div><div class="line">    ...:         <span class="keyword">yield</span> x</div><div class="line">    ...:</div><div class="line"></div><div class="line">In [<span class="number">27</span>]: foo = inc()</div><div class="line"></div><div class="line">In [<span class="number">28</span>]: print(next(foo))</div><div class="line"><span class="number">0</span></div><div class="line">In [<span class="number">29</span>]: print(next(foo))</div><div class="line"><span class="number">1</span></div><div class="line">In [<span class="number">30</span>]: print(next(foo))</div><div class="line"><span class="number">2</span></div></pre></td></tr></table></figure><p>等价于下面的代码 </p><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">In [<span class="number">31</span>]: <span class="function"><span class="keyword">def</span> <span class="title">inc</span><span class="params">()</span>:</span></div><div class="line">    ...:     <span class="keyword">yield</span> <span class="keyword">from</span> range(<span class="number">1000</span>)</div><div class="line">In [<span class="number">32</span>]: foo = inc()</div><div class="line">In [<span class="number">33</span>]: print(next(foo))</div><div class="line"><span class="number">0</span></div><div class="line">In [<span class="number">34</span>]: print(next(foo))</div><div class="line"><span class="number">1</span></div><div class="line">In [<span class="number">35</span>]: print(next(foo))</div><div class="line"><span class="number">2</span></div></pre></td></tr></table></figure><ul><li>yield from 是Python 3.3 出现的新的语法</li><li><p>yield from iterable 是 for item in iterable: yield item 形式的语法粮</p></li><li><p>可迭代对象中一个个拿元素</p></li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">In [<span class="number">36</span>]: <span class="function"><span class="keyword">def</span> <span class="title">counter</span><span class="params">(n)</span>:</span></div><div class="line">    ...:     <span class="keyword">for</span> x <span class="keyword">in</span> range(n):</div><div class="line">    ...:         <span class="keyword">yield</span> x</div><div class="line">In [<span class="number">37</span>]: <span class="function"><span class="keyword">def</span> <span class="title">inc</span><span class="params">(n)</span>:</span></div><div class="line">    ...:     <span class="keyword">yield</span> <span class="keyword">from</span> counter(n)</div><div class="line">In [<span class="number">38</span>]: foo = inc(<span class="number">10</span>)</div><div class="line">In [<span class="number">39</span>]: print(next(foo))</div><div class="line"><span class="number">0</span></div><div class="line">In [<span class="number">40</span>]: print(next(foo))</div><div class="line"><span class="number">1</span></div><div class="line">In [<span class="number">41</span>]: print(next(foo))</div><div class="line"><span class="number">2</span></div></pre></td></tr></table></figure><h2 id="格言"><a href="#格言" class="headerlink" title="格言"></a>格言</h2><p><strong>知止而后有定，定而后能静，静而后能安，安而后能虑，虑而后能得</strong> 数语，尽矣;</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;python-函数-三&quot;&gt;&lt;a href=&quot;#python-函数-三&quot; class=&quot;headerlink&quot; title=&quot;python 函数(三)&quot;&gt;&lt;/a&gt;python 函数(三)&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;/images/python_functio
       
     
     </summary>
@@ -136,16 +161,16 @@
     </summary>
     
     
-      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
-    
       <category term="rhca" scheme="https://www.asjin.com/tags/rhca/"/>
+    
+      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
     
   </entry>
   
   <entry>
     <title>python 企业微信-微信信息发送</title>
-    <link href="https://www.asjin.com/2020/05/13/python%20%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1-%E5%BE%AE%E4%BF%A1%E4%BF%A1%E6%81%AF%E5%8F%91%E9%80%81/"/>
-    <id>https://www.asjin.com/2020/05/13/python 企业微信-微信信息发送/</id>
+    <link href="https://www.asjin.com/2020/05/13/python%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1-%E5%BE%AE%E4%BF%A1%E4%BF%A1%E6%81%AF%E5%8F%91%E9%80%81/"/>
+    <id>https://www.asjin.com/2020/05/13/python企业微信-微信信息发送/</id>
     <published>2020-05-13T09:47:00.000Z</published>
     <updated>2020-05-13T11:13:55.000Z</updated>
     
@@ -169,8 +194,8 @@
   
   <entry>
     <title>python表格操作</title>
-    <link href="https://www.asjin.com/2020/04/22/python%20excel%E8%A1%A8%E6%A0%BC%E6%93%8D%E4%BD%9C/"/>
-    <id>https://www.asjin.com/2020/04/22/python excel表格操作/</id>
+    <link href="https://www.asjin.com/2020/04/22/python_excel%E8%A1%A8%E6%A0%BC%E6%93%8D%E4%BD%9C/"/>
+    <id>https://www.asjin.com/2020/04/22/python_excel表格操作/</id>
     <published>2020-04-22T09:47:00.000Z</published>
     <updated>2020-04-24T02:13:53.000Z</updated>
     
@@ -211,9 +236,9 @@
     </summary>
     
     
-      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
-    
       <category term="rhca" scheme="https://www.asjin.com/tags/rhca/"/>
+    
+      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
     
   </entry>
   
@@ -236,9 +261,9 @@
     </summary>
     
     
-      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
-    
       <category term="rhca" scheme="https://www.asjin.com/tags/rhca/"/>
+    
+      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
     
   </entry>
   
@@ -267,8 +292,8 @@
   
   <entry>
     <title>python 算法</title>
-    <link href="https://www.asjin.com/2019/12/15/python%20%E7%AE%97%E6%B3%95/"/>
-    <id>https://www.asjin.com/2019/12/15/python 算法/</id>
+    <link href="https://www.asjin.com/2019/12/15/python%E7%AE%97%E6%B3%95/"/>
+    <id>https://www.asjin.com/2019/12/15/python算法/</id>
     <published>2019-12-15T09:30:00.000Z</published>
     <updated>2020-06-27T08:09:08.000Z</updated>
     
@@ -310,9 +335,9 @@
     </summary>
     
     
-      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
-    
       <category term="rhca" scheme="https://www.asjin.com/tags/rhca/"/>
+    
+      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
     
   </entry>
   
@@ -363,9 +388,9 @@
     </summary>
     
     
-      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
-    
       <category term="rhca" scheme="https://www.asjin.com/tags/rhca/"/>
+    
+      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
     
       <category term="cloud" scheme="https://www.asjin.com/tags/cloud/"/>
     
@@ -390,9 +415,9 @@
     </summary>
     
     
-      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
-    
       <category term="rhca" scheme="https://www.asjin.com/tags/rhca/"/>
+    
+      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
     
       <category term="cloud" scheme="https://www.asjin.com/tags/cloud/"/>
     
@@ -417,9 +442,9 @@
     </summary>
     
     
-      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
-    
       <category term="rhca" scheme="https://www.asjin.com/tags/rhca/"/>
+    
+      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
     
       <category term="cloud" scheme="https://www.asjin.com/tags/cloud/"/>
     
@@ -444,9 +469,9 @@
     </summary>
     
     
-      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
-    
       <category term="rhca" scheme="https://www.asjin.com/tags/rhca/"/>
+    
+      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
     
       <category term="cloud" scheme="https://www.asjin.com/tags/cloud/"/>
     
@@ -471,9 +496,9 @@
     </summary>
     
     
-      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
-    
       <category term="rhca" scheme="https://www.asjin.com/tags/rhca/"/>
+    
+      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
     
       <category term="cloud" scheme="https://www.asjin.com/tags/cloud/"/>
     
@@ -498,9 +523,9 @@
     </summary>
     
     
-      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
-    
       <category term="rhca" scheme="https://www.asjin.com/tags/rhca/"/>
+    
+      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
     
       <category term="cloud" scheme="https://www.asjin.com/tags/cloud/"/>
     
@@ -525,9 +550,9 @@
     </summary>
     
     
-      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
-    
       <category term="rhca" scheme="https://www.asjin.com/tags/rhca/"/>
+    
+      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
     
       <category term="cloud" scheme="https://www.asjin.com/tags/cloud/"/>
     
@@ -579,9 +604,9 @@
     </summary>
     
     
-      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
-    
       <category term="rhca" scheme="https://www.asjin.com/tags/rhca/"/>
+    
+      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
     
   </entry>
   
@@ -604,9 +629,9 @@
     </summary>
     
     
-      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
-    
       <category term="rhca" scheme="https://www.asjin.com/tags/rhca/"/>
+    
+      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
     
   </entry>
   
@@ -629,9 +654,9 @@
     </summary>
     
     
-      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
-    
       <category term="rhca" scheme="https://www.asjin.com/tags/rhca/"/>
+    
+      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
     
   </entry>
   
@@ -729,16 +754,16 @@
     </summary>
     
     
-      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
-    
       <category term="rhca" scheme="https://www.asjin.com/tags/rhca/"/>
+    
+      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
     
   </entry>
   
   <entry>
     <title>python日常练习</title>
-    <link href="https://www.asjin.com/2018/08/23/python%20%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A008-23/"/>
-    <id>https://www.asjin.com/2018/08/23/python 日常练习08-23/</id>
+    <link href="https://www.asjin.com/2018/08/23/python%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0%E4%BA%8C/"/>
+    <id>https://www.asjin.com/2018/08/23/python日常练习二/</id>
     <published>2018-08-23T00:30:00.000Z</published>
     <updated>2018-08-23T06:50:08.000Z</updated>
     
@@ -805,9 +830,9 @@
     </summary>
     
     
-      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
-    
       <category term="rhca" scheme="https://www.asjin.com/tags/rhca/"/>
+    
+      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
     
   </entry>
   
@@ -855,16 +880,16 @@
     </summary>
     
     
-      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
-    
       <category term="rhca" scheme="https://www.asjin.com/tags/rhca/"/>
+    
+      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
     
   </entry>
   
   <entry>
     <title>python日常练习</title>
-    <link href="https://www.asjin.com/2018/07/19/python%20%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/"/>
-    <id>https://www.asjin.com/2018/07/19/python 日常练习/</id>
+    <link href="https://www.asjin.com/2018/07/19/python%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0%E4%B8%80/"/>
+    <id>https://www.asjin.com/2018/07/19/python日常练习一/</id>
     <published>2018-07-18T17:30:00.000Z</published>
     <updated>2019-06-25T06:16:43.000Z</updated>
     
@@ -929,9 +954,9 @@
     </summary>
     
     
-      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
-    
       <category term="rhca" scheme="https://www.asjin.com/tags/rhca/"/>
+    
+      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
     
   </entry>
   
@@ -954,9 +979,9 @@
     </summary>
     
     
-      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
-    
       <category term="rhca" scheme="https://www.asjin.com/tags/rhca/"/>
+    
+      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
     
   </entry>
   
@@ -979,9 +1004,9 @@
     </summary>
     
     
-      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
-    
       <category term="rhca" scheme="https://www.asjin.com/tags/rhca/"/>
+    
+      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
     
   </entry>
   
@@ -1004,9 +1029,9 @@
     </summary>
     
     
-      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
-    
       <category term="rhca" scheme="https://www.asjin.com/tags/rhca/"/>
+    
+      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
     
   </entry>
   
@@ -1029,9 +1054,9 @@
     </summary>
     
     
-      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
-    
       <category term="rhca" scheme="https://www.asjin.com/tags/rhca/"/>
+    
+      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
     
   </entry>
   
@@ -1054,9 +1079,9 @@
     </summary>
     
     
-      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
-    
       <category term="rhca" scheme="https://www.asjin.com/tags/rhca/"/>
+    
+      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
     
   </entry>
   
@@ -1103,9 +1128,9 @@
     </summary>
     
     
-      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
-    
       <category term="rhca" scheme="https://www.asjin.com/tags/rhca/"/>
+    
+      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
     
   </entry>
   
@@ -1151,9 +1176,9 @@
     </summary>
     
     
-      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
-    
       <category term="rhca" scheme="https://www.asjin.com/tags/rhca/"/>
+    
+      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
     
   </entry>
   
@@ -1225,9 +1250,9 @@
     </summary>
     
     
-      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
-    
       <category term="rhca" scheme="https://www.asjin.com/tags/rhca/"/>
+    
+      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
     
   </entry>
   
@@ -1250,9 +1275,9 @@
     </summary>
     
     
-      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
-    
       <category term="rhca" scheme="https://www.asjin.com/tags/rhca/"/>
+    
+      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
     
       <category term="database" scheme="https://www.asjin.com/tags/database/"/>
     
@@ -1279,9 +1304,9 @@
     </summary>
     
     
-      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
-    
       <category term="rhca" scheme="https://www.asjin.com/tags/rhca/"/>
+    
+      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
     
   </entry>
   
@@ -1304,9 +1329,9 @@
     </summary>
     
     
-      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
-    
       <category term="rhca" scheme="https://www.asjin.com/tags/rhca/"/>
+    
+      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
     
   </entry>
   
@@ -1330,9 +1355,9 @@
     </summary>
     
     
-      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
-    
       <category term="rhca" scheme="https://www.asjin.com/tags/rhca/"/>
+    
+      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
     
   </entry>
   
@@ -1356,9 +1381,9 @@
     </summary>
     
     
-      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
-    
       <category term="rhca" scheme="https://www.asjin.com/tags/rhca/"/>
+    
+      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
     
       <category term="database" scheme="https://www.asjin.com/tags/database/"/>
     
@@ -1383,9 +1408,9 @@
     </summary>
     
     
-      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
-    
       <category term="rhca" scheme="https://www.asjin.com/tags/rhca/"/>
+    
+      <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
     
   </entry>
   

@@ -7,8 +7,16 @@
     </url>
 
     <url>
+        <loc>https://www.asjin.com/2020/08/19/python%E5%87%BD%E6%95%B0%E4%B8%89/</loc>
+        <lastmod>2020-08-26T08:50:15.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://www.asjin.com/2020/08/25/python%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0%E5%92%8C%E8%A3%85%E9%A5%B0%E5%99%A8%E4%B8%80/</loc>
-        <lastmod>2020-08-26T07:55:12.000Z</lastmod>
+        <lastmod>2020-08-26T08:46:04.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -55,7 +63,7 @@
     </url>
 
     <url>
-        <loc>https://www.asjin.com/2019/12/15/python%20%E7%AE%97%E6%B3%95/</loc>
+        <loc>https://www.asjin.com/2019/12/15/python%E7%AE%97%E6%B3%95/</loc>
         <lastmod>2020-06-27T08:09:08.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -63,7 +71,7 @@
     </url>
 
     <url>
-        <loc>https://www.asjin.com/2020/05/13/python%20%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1-%E5%BE%AE%E4%BF%A1%E4%BF%A1%E6%81%AF%E5%8F%91%E9%80%81/</loc>
+        <loc>https://www.asjin.com/2020/05/13/python%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1-%E5%BE%AE%E4%BF%A1%E4%BF%A1%E6%81%AF%E5%8F%91%E9%80%81/</loc>
         <lastmod>2020-05-13T11:13:55.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -71,7 +79,7 @@
     </url>
 
     <url>
-        <loc>https://www.asjin.com/2020/04/22/python%20excel%E8%A1%A8%E6%A0%BC%E6%93%8D%E4%BD%9C/</loc>
+        <loc>https://www.asjin.com/2020/04/22/python_excel%E8%A1%A8%E6%A0%BC%E6%93%8D%E4%BD%9C/</loc>
         <lastmod>2020-04-24T02:13:53.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -183,7 +191,7 @@
     </url>
 
     <url>
-        <loc>https://www.asjin.com/2018/07/19/python%20%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0/</loc>
+        <loc>https://www.asjin.com/2018/07/19/python%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0%E4%B8%80/</loc>
         <lastmod>2019-06-25T06:16:43.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -295,7 +303,7 @@
     </url>
 
     <url>
-        <loc>https://www.asjin.com/2018/08/23/python%20%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A008-23/</loc>
+        <loc>https://www.asjin.com/2018/08/23/python%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0%E4%BA%8C/</loc>
         <lastmod>2018-08-23T06:50:08.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
