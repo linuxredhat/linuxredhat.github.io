@@ -5,11 +5,11 @@
   
 
 <!-- 代码块复制功能 -->
-<!--<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard.min.js"></script> --> 
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard-use.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/instantclick-1.2.2.js" type="module"></script>
+<!--<script type="text/javascript" src="/js/src/clipboard.min.js"></script> --> 
+<script type="text/javascript" src="/js/src/clipboard-use.js"></script>
+<script src="/js/instantclick-1.2.2.js" type="module"></script>
 <!--崩溃欺骗-->
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/crash_cheat.js"></script>
+<script type="text/javascript" src="/js/src/crash_cheat.js"></script>
 <html class="theme-next gemini use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
@@ -82,7 +82,7 @@
 
 
 
-  <link rel="alternate" href="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io@master/atom.xml" title="逝水锦遥" type="application/atom+xml" />
+  <link rel="alternate" href="/atom.xml" title="逝水锦遥" type="application/atom+xml" />
 
 
 
@@ -97,12 +97,12 @@
 <meta property="og:site_name" content="逝水锦遥">
 <meta property="og:description" content="awk每日练 先熟练一些操作1、 以空格做为分格符，打印passwd 文件的第一列1#  awk &amp;apos;&amp;#123;print $1&amp;#125;&amp;apos; /etc/passwd 2、 以冒号做分格符，打印passwd 文件的第一列,即获取当前系统中存在的所有用户1# awk -F: &amp;apos;&amp;#123;print $1&amp;#125;&amp;apos; /etc/passwd 3、 以管道方式">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/awk.jpg">
+<meta property="og:image" content="https://www.asjin.com/images/awk.jpg">
 <meta property="og:updated_time" content="2018-06-08T08:23:58.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="awk 的练习">
 <meta name="twitter:description" content="awk每日练 先熟练一些操作1、 以空格做为分格符，打印passwd 文件的第一列1#  awk &amp;apos;&amp;#123;print $1&amp;#125;&amp;apos; /etc/passwd 2、 以冒号做分格符，打印passwd 文件的第一列,即获取当前系统中存在的所有用户1# awk -F: &amp;apos;&amp;#123;print $1&amp;#125;&amp;apos; /etc/passwd 3、 以管道方式">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/awk.jpg">
+<meta name="twitter:image" content="https://www.asjin.com/images/awk.jpg">
 
 
 
@@ -444,7 +444,7 @@
       
 
       
-        <h1 id="awk每日练"><a href="#awk每日练" class="headerlink" title="awk每日练"></a>awk每日练</h1><p><img src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/awk.jpg" alt=""></p>
+        <h1 id="awk每日练"><a href="#awk每日练" class="headerlink" title="awk每日练"></a>awk每日练</h1><p><img src="/images/awk.jpg" alt=""></p>
 <h2 id="先熟练一些操作"><a href="#先熟练一些操作" class="headerlink" title="先熟练一些操作"></a>先熟练一些操作</h2><h3 id="1、-以空格做为分格符，打印passwd-文件的第一列"><a href="#1、-以空格做为分格符，打印passwd-文件的第一列" class="headerlink" title="1、 以空格做为分格符，打印passwd 文件的第一列"></a>1、 以空格做为分格符，打印passwd 文件的第一列</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">#  awk &apos;&#123;print $1&#125;&apos; /etc/passwd</div></pre></td></tr></table></figure>
 <h3 id="2、-以冒号做分格符，打印passwd-文件的第一列-即获取当前系统中存在的所有用户"><a href="#2、-以冒号做分格符，打印passwd-文件的第一列-即获取当前系统中存在的所有用户" class="headerlink" title="2、 以冒号做分格符，打印passwd 文件的第一列,即获取当前系统中存在的所有用户"></a>2、 以冒号做分格符，打印passwd 文件的第一列,即获取当前系统中存在的所有用户</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># awk -F: &apos;&#123;print $1&#125;&apos; /etc/passwd</div></pre></td></tr></table></figure>
 <h3 id="3、-以管道方式，打印passwd-文件的第三列，即共获取当前系统中所有用户的id号"><a href="#3、-以管道方式，打印passwd-文件的第三列，即共获取当前系统中所有用户的id号" class="headerlink" title="3、 以管道方式，打印passwd 文件的第三列，即共获取当前系统中所有用户的id号"></a>3、 以管道方式，打印passwd 文件的第三列，即共获取当前系统中所有用户的id号</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">#  cat /etc/passwd | awk -F : &apos;&#123;print $3&#125;&apos;</div></pre></td></tr></table></figure>
@@ -1019,14 +1019,14 @@ awk &apos;!/^UUID/{print $1}&apos; /etc/fstab
 
     
       <div id="wechat" style="display: inline-block">
-        <img id="wechat_qr" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/weipei.png" alt="༺ 锦遥 ༻ 微信支付"/>
+        <img id="wechat_qr" src="/images/weipei.png" alt="༺ 锦遥 ༻ 微信支付"/>
         <p>微信支付</p>
       </div>
     
 
     
       <div id="alipay" style="display: inline-block">
-        <img id="alipay_qr" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/zhipei.png" alt="༺ 锦遥 ༻ 支付宝"/>
+        <img id="alipay_qr" src="/images/zhipei.png" alt="༺ 锦遥 ༻ 支付宝"/>
         <p>支付宝</p>
       </div>
     
@@ -1162,7 +1162,7 @@ awk &apos;!/^UUID/{print $1}&apos; /etc/fstab
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <img class="site-author-image" itemprop="image"
-                src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/rjyy.ico"
+                src="/images/rjyy.ico"
                 alt="༺ 锦遥 ༻" />
             
               <p class="site-author-name" itemprop="name">༺ 锦遥 ༻</p>
@@ -1201,7 +1201,7 @@ awk &apos;!/^UUID/{print $1}&apos; /etc/fstab
 
           
             <div class="feed-link motion-element">
-              <a href="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io@master/atom.xml" rel="alternate">
+              <a href="/atom.xml" rel="alternate">
                 <i class="fa fa-rss"></i>
                 RSS
               </a>
@@ -1281,7 +1281,7 @@ awk &apos;!/^UUID/{print $1}&apos; /etc/fstab
 
 <!-- 数字雨 -->
 <canvas id="canvas" width="1440" height="1080"></canvas>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/DigitalRain.js"></script>
+<script type="text/javascript" src="/js/DigitalRain.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css"/>
     </main>
 
@@ -1349,11 +1349,11 @@ var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours
 }, 1000);
 </script>
 <script src="https://pv.sohu.com/cityjson?ie=utf-8"></script>
-<script src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/ip.js"></script>
+<script src="/js/ip.js"></script>
 
         
 <div class="busuanzi-count">
-  <script async src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/busuanzi.pure.mini.js"></script>
+  <script async src="/js/busuanzi.pure.mini.js"></script>
   
     <span class="site-uv">
       <i class="fa fa-user"></i> 訪客數
@@ -1392,8 +1392,8 @@ var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours
     
 
 <script src="/live2d-widget/autoload.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard.min.js"></script>  
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard-use.js"></script>
+<script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
+<script type="text/javascript" src="/js/src/clipboard-use.js"></script>
   </div>
 
   
@@ -1460,32 +1460,32 @@ var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours
   
 
 
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/utils.js?v=5.1.3"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
 
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/motion.js?v=5.1.3"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/affix.js?v=5.1.3"></script>
-
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/schemes/pisces.js?v=5.1.3"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
 
 
 
   
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/scrollspy.js?v=5.1.3"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/post-details.js?v=5.1.3"></script>
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
 
 
 
   
 
 
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/bootstrap.js?v=5.1.3"></script>
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
 
 
 
@@ -1887,7 +1887,7 @@ var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours
   <!-- 点击特效 -->
 
 
-  <script src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/activate-power-mode.min.js"></script>
+  <script src="/js/activate-power-mode.min.js"></script>
     <script>
 	    POWERMODE.colorful = true;
     POWERMODE.shake = false;
@@ -1895,11 +1895,11 @@ var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours
 	  </script>
 
 
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard.min.js"></script>  
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard-use.js"></script>
+<script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
+<script type="text/javascript" src="/js/src/clipboard-use.js"></script>
 <!--点击冒点-->
 <canvas width="1777" height="841" style="position: fixed; left: 0px; top: 0px; z-index: 2147483647; pointer-events: none;"></canvas>
-<script src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/maodian.js"></script>
+<script src="/js/maodian.js"></script>
 <canvas width="1390" height="797" style="position: fixed; left: 0px; top: 0px; z-index: 2147483647; pointer-events: none;"></canvas>
 </body>
 </html>

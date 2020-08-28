@@ -5,11 +5,11 @@
   
 
 <!-- 代码块复制功能 -->
-<!--<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard.min.js"></script> --> 
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard-use.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/instantclick-1.2.2.js" type="module"></script>
+<!--<script type="text/javascript" src="/js/src/clipboard.min.js"></script> --> 
+<script type="text/javascript" src="/js/src/clipboard-use.js"></script>
+<script src="/js/instantclick-1.2.2.js" type="module"></script>
 <!--崩溃欺骗-->
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/crash_cheat.js"></script>
+<script type="text/javascript" src="/js/src/crash_cheat.js"></script>
 <html class="theme-next gemini use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
@@ -82,7 +82,7 @@
 
 
 
-  <link rel="alternate" href="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io@master/atom.xml" title="逝水锦遥" type="application/atom+xml" />
+  <link rel="alternate" href="/atom.xml" title="逝水锦遥" type="application/atom+xml" />
 
 
 
@@ -97,12 +97,12 @@
 <meta property="og:site_name" content="逝水锦遥">
 <meta property="og:description" content="python 日常练习 解压序赋值给多个变量现有一个包含N个元素的元组或者是序列，将它里面的值解压后同时赋值给N个变量 1234567891011121314151617181920212223242526272829303132In [22]: p = (1,2)In [23]: a,b = pIn [24]: aOut[24]: 1In [25]: bOut[25]: 2In [26]: da">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/python.jpg">
+<meta property="og:image" content="https://www.asjin.com/images/python.jpg">
 <meta property="og:updated_time" content="2019-06-25T06:16:43.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python日常练习">
 <meta name="twitter:description" content="python 日常练习 解压序赋值给多个变量现有一个包含N个元素的元组或者是序列，将它里面的值解压后同时赋值给N个变量 1234567891011121314151617181920212223242526272829303132In [22]: p = (1,2)In [23]: a,b = pIn [24]: aOut[24]: 1In [25]: bOut[25]: 2In [26]: da">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/python.jpg">
+<meta name="twitter:image" content="https://www.asjin.com/images/python.jpg">
 
 
 
@@ -444,7 +444,7 @@
       
 
       
-        <h1 id="python-日常练习"><a href="#python-日常练习" class="headerlink" title="python 日常练习"></a>python 日常练习</h1><p><img src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/python.jpg" alt=""></p>
+        <h1 id="python-日常练习"><a href="#python-日常练习" class="headerlink" title="python 日常练习"></a>python 日常练习</h1><p><img src="/images/python.jpg" alt=""></p>
 <h2 id="解压序赋值给多个变量"><a href="#解压序赋值给多个变量" class="headerlink" title="解压序赋值给多个变量"></a>解压序赋值给多个变量</h2><p>现有一个包含N个元素的元组或者是序列，将它里面的值解压后同时赋值给N个变量</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">In [22]: p = (1,2)</div><div class="line">In [23]: a,b = p</div><div class="line">In [24]: a</div><div class="line">Out[24]: 1</div><div class="line">In [25]: b</div><div class="line">Out[25]: 2</div><div class="line"></div><div class="line"></div><div class="line">In [26]: date = [&apos;test&apos;,&apos;frum&apos;,&apos;bind&apos;,&apos;lance&apos;,(201,202,203)]</div><div class="line">In [27]: te,fr,bi,la,data = date</div><div class="line">In [28]: te</div><div class="line">Out[28]: &apos;test&apos;</div><div class="line">In [29]: fr</div><div class="line">Out[29]: &apos;frum&apos;</div><div class="line">In [30]: bi</div><div class="line">Out[30]: &apos;bind&apos;</div><div class="line">In [31]: date</div><div class="line">Out[31]: [&apos;test&apos;, &apos;frum&apos;, &apos;bind&apos;, &apos;lance&apos;, (201, 202, 203)]</div><div class="line">In [32]: data</div><div class="line">Out[32]: (201, 202, 203)</div><div class="line"></div><div class="line"></div><div class="line">In [41]: a = &apos;Hello&apos;</div><div class="line">In [42]: b,c,d,e,f = a</div><div class="line">In [43]: b</div><div class="line">Out[43]: &apos;H&apos;</div><div class="line">In [44]: c</div><div class="line">Out[44]: &apos;e&apos;</div><div class="line">In [45]: d</div><div class="line">Out[45]: &apos;l&apos;</div><div class="line">In [46]: f</div><div class="line">Out[46]: &apos;o&apos;</div></pre></td></tr></table></figure>
 <h2 id="初级练习题"><a href="#初级练习题" class="headerlink" title="初级练习题"></a>初级练习题</h2><h3 id="给一个半径，求圆的面积和周长。圆周率3-14"><a href="#给一个半径，求圆的面积和周长。圆周率3-14" class="headerlink" title="给一个半径，求圆的面积和周长。圆周率3.14"></a>给一个半径，求圆的面积和周长。圆周率3.14</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">from math import pi</div><div class="line">r=int(input(&apos;r=&apos;))</div><div class="line">print(&apos;area=&apos;+str(pi*r*r))</div><div class="line">print(&apos;circumference=&apos;+str(2*pi*r))</div><div class="line"></div><div class="line">(py3_env) kernel ➤ python test.py                                                                                                                                                               </div><div class="line">r=10</div><div class="line">area=314.1592653589793</div><div class="line">circumference=62.83185307179586</div></pre></td></tr></table></figure>
@@ -484,14 +484,14 @@
 
     
       <div id="wechat" style="display: inline-block">
-        <img id="wechat_qr" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/weipei.png" alt="༺ 锦遥 ༻ 微信支付"/>
+        <img id="wechat_qr" src="/images/weipei.png" alt="༺ 锦遥 ༻ 微信支付"/>
         <p>微信支付</p>
       </div>
     
 
     
       <div id="alipay" style="display: inline-block">
-        <img id="alipay_qr" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/zhipei.png" alt="༺ 锦遥 ༻ 支付宝"/>
+        <img id="alipay_qr" src="/images/zhipei.png" alt="༺ 锦遥 ༻ 支付宝"/>
         <p>支付宝</p>
       </div>
     
@@ -629,7 +629,7 @@
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <img class="site-author-image" itemprop="image"
-                src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/rjyy.ico"
+                src="/images/rjyy.ico"
                 alt="༺ 锦遥 ༻" />
             
               <p class="site-author-name" itemprop="name">༺ 锦遥 ༻</p>
@@ -668,7 +668,7 @@
 
           
             <div class="feed-link motion-element">
-              <a href="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io@master/atom.xml" rel="alternate">
+              <a href="/atom.xml" rel="alternate">
                 <i class="fa fa-rss"></i>
                 RSS
               </a>
@@ -748,7 +748,7 @@
 
 <!-- 数字雨 -->
 <canvas id="canvas" width="1440" height="1080"></canvas>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/DigitalRain.js"></script>
+<script type="text/javascript" src="/js/DigitalRain.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css"/>
     </main>
 
@@ -816,11 +816,11 @@ var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours
 }, 1000);
 </script>
 <script src="https://pv.sohu.com/cityjson?ie=utf-8"></script>
-<script src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/ip.js"></script>
+<script src="/js/ip.js"></script>
 
         
 <div class="busuanzi-count">
-  <script async src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/busuanzi.pure.mini.js"></script>
+  <script async src="/js/busuanzi.pure.mini.js"></script>
   
     <span class="site-uv">
       <i class="fa fa-user"></i> 訪客數
@@ -859,8 +859,8 @@ var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours
     
 
 <script src="/live2d-widget/autoload.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard.min.js"></script>  
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard-use.js"></script>
+<script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
+<script type="text/javascript" src="/js/src/clipboard-use.js"></script>
   </div>
 
   
@@ -927,32 +927,32 @@ var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours
   
 
 
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/utils.js?v=5.1.3"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
 
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/motion.js?v=5.1.3"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/affix.js?v=5.1.3"></script>
-
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/schemes/pisces.js?v=5.1.3"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
 
 
 
   
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/scrollspy.js?v=5.1.3"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/post-details.js?v=5.1.3"></script>
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
 
 
 
   
 
 
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/bootstrap.js?v=5.1.3"></script>
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
 
 
 
@@ -1354,7 +1354,7 @@ var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours
   <!-- 点击特效 -->
 
 
-  <script src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/activate-power-mode.min.js"></script>
+  <script src="/js/activate-power-mode.min.js"></script>
     <script>
 	    POWERMODE.colorful = true;
     POWERMODE.shake = false;
@@ -1362,11 +1362,11 @@ var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours
 	  </script>
 
 
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard.min.js"></script>  
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard-use.js"></script>
+<script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
+<script type="text/javascript" src="/js/src/clipboard-use.js"></script>
 <!--点击冒点-->
 <canvas width="1777" height="841" style="position: fixed; left: 0px; top: 0px; z-index: 2147483647; pointer-events: none;"></canvas>
-<script src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/maodian.js"></script>
+<script src="/js/maodian.js"></script>
 <canvas width="1390" height="797" style="position: fixed; left: 0px; top: 0px; z-index: 2147483647; pointer-events: none;"></canvas>
 </body>
 </html>
