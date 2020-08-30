@@ -5,11 +5,11 @@
   
 
 <!-- 代码块复制功能 -->
-<!--<script type="text/javascript" src="/js/src/clipboard.min.js"></script> --> 
-<script type="text/javascript" src="/js/src/clipboard-use.js"></script>
-<script src="/js/instantclick-1.2.2.js" type="module"></script>
+<!--<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard.min.js"></script> --> 
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard-use.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/instantclick-1.2.2.js" type="module"></script>
 <!--崩溃欺骗-->
-<script type="text/javascript" src="/js/src/crash_cheat.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/crash_cheat.js"></script>
 <html class="theme-next gemini use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
@@ -76,13 +76,13 @@
 
 
 
-  <meta name="keywords" content="linux,rhca," />
+  <meta name="keywords" content="rhca,linux," />
 
 
 
 
 
-  <link rel="alternate" href="/atom.xml" title="逝水锦遥" type="application/atom+xml" />
+  <link rel="alternate" href="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io@master/atom.xml" title="逝水锦遥" type="application/atom+xml" />
 
 
 
@@ -90,19 +90,19 @@
 
 
 <meta name="description" content="ansible 自动化运维 运维工具12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849OS Provisioning: PXE, Cobbler(repository, distritution, profile)    PXE: dhcp, tftp,(http,ftp">
-<meta name="keywords" content="linux,rhca">
+<meta name="keywords" content="rhca,linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ansible 自动化运维">
 <meta property="og:url" content="https://www.asjin.com/2018/04/09/ansible的使用/index.html">
 <meta property="og:site_name" content="逝水锦遥">
 <meta property="og:description" content="ansible 自动化运维 运维工具12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849OS Provisioning: PXE, Cobbler(repository, distritution, profile)    PXE: dhcp, tftp,(http,ftp">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://www.asjin.com/images/ansbile_n1.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/ansbile_n1.png">
 <meta property="og:updated_time" content="2018-08-08T02:08:04.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ansible 自动化运维">
 <meta name="twitter:description" content="ansible 自动化运维 运维工具12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849OS Provisioning: PXE, Cobbler(repository, distritution, profile)    PXE: dhcp, tftp,(http,ftp">
-<meta name="twitter:image" content="https://www.asjin.com/images/ansbile_n1.png">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/ansbile_n1.png">
 
 
 
@@ -444,7 +444,7 @@
       
 
       
-        <h1 id="ansible-自动化运维"><a href="#ansible-自动化运维" class="headerlink" title="ansible 自动化运维"></a>ansible 自动化运维</h1><p><img src="/images/ansbile_n1.png" alt=""></p>
+        <h1 id="ansible-自动化运维"><a href="#ansible-自动化运维" class="headerlink" title="ansible 自动化运维"></a>ansible 自动化运维</h1><p><img src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/ansbile_n1.png" alt=""></p>
 <h2 id="运维工具"><a href="#运维工具" class="headerlink" title="运维工具"></a>运维工具</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div></pre></td><td class="code"><pre><div class="line">OS Provisioning: PXE, Cobbler(repository, distritution, profile)</div><div class="line">    PXE: dhcp, tftp,(http,ftp)</div><div class="line">        dnsmsq:dhcp,dns</div><div class="line">OS Config:</div><div class="line">    puppet, saltstack, func </div><div class="line">Task Excute:</div><div class="line">    fabric, func,saltstack</div><div class="line">Deployment:</div><div class="line">    fabric,</div><div class="line">运维工具分类:</div><div class="line">    agent: puppet, func  这些工具必需要有agent端;</div><div class="line">    agentless: ansible, fabirc 这些工具必需启用ssh服务;</div><div class="line">Properties:</div><div class="line">    Minimal learning curve, auditability: 入门曲线非常平缓;</div><div class="line">    No bootstrapping:  无需agent;</div><div class="line">    No DAG ordering, Fails  Fast: 没有次序; </div><div class="line">    No agents(other than sshd) -o resource consumption when not in use: 没有代理;</div><div class="line">    No Server: 也没有服务端；</div><div class="line">    No additional PKI : 无需证书等功能;</div><div class="line">    Modules in any language: 模块可以使用任意编程语言来编写;</div><div class="line">    YAML, not code: 使用yaml配置文件;</div><div class="line">    SSH by default: 使用ssh默认接口;</div><div class="line">    Strong multi-tier solution: 支持多级使用方案;</div><div class="line">Host Inventory:</div><div class="line">    定义可被 ansible管控的主机; </div><div class="line">Core Modules:</div><div class="line">    可被调用的核心模块，可以完成大部作的任务;</div><div class="line">Custom Modules:</div><div class="line">    自定义模块，当ansible实现不了时，可以使用任意编程语言来编写模块;</div><div class="line">Connection Plugins:</div><div class="line">    ansible 可以支持一些插件来实现一些功能，如发送邮件功能;</div><div class="line">ansible的核心线件:</div><div class="line">    ansible core </div><div class="line">    host iventory</div><div class="line">    core modules </div><div class="line">    custom modules</div><div class="line">    playbook (yaml, jinjia2)</div><div class="line">    connect plugin</div><div class="line">ansible特性:</div><div class="line">    基于Python语言实现，由Paramiko模块实现，PyYAML和Jinia2 三个关键的模块构建</div><div class="line">python特性:,agentless;</div><div class="line">    默认使用SSH协议: 会有安全隐患;</div><div class="line">        基于密钥认证来连接到各节点操作;</div><div class="line">    主从模式:</div><div class="line">        master: ansible, ssh client;</div><div class="line">        savle: ssh server结点;</div><div class="line">    支持自定义模块:支持各种编程语言;</div><div class="line">    支持Playbook</div><div class="line">    基于&quot;模块&quot;完成各种&quot;任务&quot;;</div></pre></td></tr></table></figure>
 <h2 id="ansible-的安装和使用"><a href="#ansible-的安装和使用" class="headerlink" title="ansible 的安装和使用"></a>ansible 的安装和使用</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"># ansible 在于epel源中</div><div class="line"># yum list all *ansible*</div><div class="line">ansible.noarch              2.4.2.0-2.el7                               @extras</div><div class="line"># 安装依赖于epel源</div><div class="line">    配置文件 /etc/ansible/ansible.cfg</div><div class="line">    Invertory: /etc/ansible/hosts</div><div class="line"># vim /etc/ansible # 保留以下配置</div><div class="line">[dbserver]</div><div class="line">172.16.55.123</div><div class="line"></div><div class="line">[webserver]</div><div class="line">172.16.55.124</div><div class="line">172.1655.125</div><div class="line"># 在ansible主机生成一组密钥</div><div class="line"># ssh-keygen</div><div class="line"># 实现双机互信</div><div class="line"># for i in &#123;3..5&#125; ; do ssh-copy-id -i ~/.ssh/id_rsa.pub root@172.16.55.12$i; done</div><div class="line"># for i in &#123;3..5&#125; ; do ssh root@172.16.55.12$i &quot;date&quot; &amp;&amp; echo &quot;The Messages From 172.16.55.12$i&quot;; done</div><div class="line">2018年 04月 09日 星期一 09:47:09 CST</div><div class="line">The Messages From 172.16.55.123</div><div class="line">2018年 04月 09日 星期一 09:47:10 CST</div><div class="line">The Messages From 172.16.55.124</div><div class="line">2018年 04月 09日 星期一 09:47:10 CST</div><div class="line">The Messages From 172.16.55.125</div><div class="line"># 此时ansbile所在的服务器可以实现对各结点的控制</div></pre></td></tr></table></figure>
 <h2 id="asnbile-doc-的使用"><a href="#asnbile-doc-的使用" class="headerlink" title="asnbile-doc 的使用"></a>asnbile-doc 的使用</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"># ansible-doc  # 用来查看asnbile 模块的使用查询;</div><div class="line"># ansible-doc -l # 例出所有可用的模块; </div><div class="line"># ansible-doc -s MODULE_NAME; # 查看某个模块的使用用法;</div><div class="line"># ansible-doc -s yum</div></pre></td></tr></table></figure>
@@ -564,14 +564,14 @@
 
     
       <div id="wechat" style="display: inline-block">
-        <img id="wechat_qr" src="/images/weipei.png" alt="༺ 锦遥 ༻ 微信支付"/>
+        <img id="wechat_qr" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/weipei.png" alt="༺ 锦遥 ༻ 微信支付"/>
         <p>微信支付</p>
       </div>
     
 
     
       <div id="alipay" style="display: inline-block">
-        <img id="alipay_qr" src="/images/zhipei.png" alt="༺ 锦遥 ༻ 支付宝"/>
+        <img id="alipay_qr" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/zhipei.png" alt="༺ 锦遥 ༻ 支付宝"/>
         <p>支付宝</p>
       </div>
     
@@ -608,9 +608,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/linux/" rel="tag"># linux</a>
-          
             <a href="/tags/rhca/" rel="tag"># rhca</a>
+          
+            <a href="/tags/linux/" rel="tag"># linux</a>
           
         </div>
       
@@ -709,7 +709,7 @@
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <img class="site-author-image" itemprop="image"
-                src="/images/rjyy.ico"
+                src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/rjyy.ico"
                 alt="༺ 锦遥 ༻" />
             
               <p class="site-author-name" itemprop="name">༺ 锦遥 ༻</p>
@@ -748,7 +748,7 @@
 
           
             <div class="feed-link motion-element">
-              <a href="/atom.xml" rel="alternate">
+              <a href="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io@master/atom.xml" rel="alternate">
                 <i class="fa fa-rss"></i>
                 RSS
               </a>
@@ -828,7 +828,7 @@
 
 <!-- 数字雨 -->
 <canvas id="canvas" width="1440" height="1080"></canvas>
-<script type="text/javascript" src="/js/DigitalRain.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/DigitalRain.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css"/>
     </main>
 
@@ -848,7 +848,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">189.2k</span>
+    <span title="Site words total count">189.3k</span>
   
   <span>   |   </span>
 <span id="showDays"></span>
@@ -896,11 +896,11 @@ var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours
 }, 1000);
 </script>
 <script src="https://pv.sohu.com/cityjson?ie=utf-8"></script>
-<script src="/js/ip.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/ip.js"></script>
 
         
 <div class="busuanzi-count">
-  <script async src="/js/busuanzi.pure.mini.js"></script>
+  <script async src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/busuanzi.pure.mini.js"></script>
   
     <span class="site-uv">
       <i class="fa fa-user"></i> 訪客數
@@ -939,8 +939,8 @@ var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours
     
 
 <script src="/live2d-widget/autoload.js"></script>
-<script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
-<script type="text/javascript" src="/js/src/clipboard-use.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard.min.js"></script>  
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard-use.js"></script>
   </div>
 
   
@@ -1007,32 +1007,32 @@ var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/utils.js?v=5.1.3"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/motion.js?v=5.1.3"></script>
 
 
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+  
+
+
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/post-details.js?v=5.1.3"></script>
 
 
 
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/bootstrap.js?v=5.1.3"></script>
 
 
 
@@ -1434,7 +1434,7 @@ var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours
   <!-- 点击特效 -->
 
 
-  <script src="/js/activate-power-mode.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/activate-power-mode.min.js"></script>
     <script>
 	    POWERMODE.colorful = true;
     POWERMODE.shake = false;
@@ -1442,11 +1442,11 @@ var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours
 	  </script>
 
 
-<script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
-<script type="text/javascript" src="/js/src/clipboard-use.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard.min.js"></script>  
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard-use.js"></script>
 <!--点击冒点-->
 <canvas width="1777" height="841" style="position: fixed; left: 0px; top: 0px; z-index: 2147483647; pointer-events: none;"></canvas>
-<script src="/js/maodian.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/maodian.js"></script>
 <canvas width="1390" height="797" style="position: fixed; left: 0px; top: 0px; z-index: 2147483647; pointer-events: none;"></canvas>
 </body>
 </html>
