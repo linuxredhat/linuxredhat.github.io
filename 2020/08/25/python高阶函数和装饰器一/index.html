@@ -98,7 +98,7 @@
 <meta property="og:description" content="python高阶函数和装饰器一  First Class Object;  1.函数在python中是一等公民;2.函数也是对象，可调用的对象;3.函数可以作为普通变量、参数、返回值等;  高阶函数  1.数据概念y=g(f(x));2.在数学和计算机科学中，高阶函数应当是至少满足下面一个条件的函数; 接受一个多个函数作为参数;输出一个函数; 12345678910def counter(base">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/python_function.png">
-<meta property="og:updated_time" content="2020-08-30T12:44:15.000Z">
+<meta property="og:updated_time" content="2020-08-31T10:44:01.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python高阶函数函数和装饰器一">
 <meta name="twitter:description" content="python高阶函数和装饰器一  First Class Object;  1.函数在python中是一等公民;2.函数也是对象，可调用的对象;3.函数可以作为普通变量、参数、返回值等;  高阶函数  1.数据概念y=g(f(x));2.在数学和计算机科学中，高阶函数应当是至少满足下面一个条件的函数; 接受一个多个函数作为参数;输出一个函数; 12345678910def counter(base">
@@ -407,7 +407,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2.2k
+                  2.3k
                 </span>
               
 
@@ -587,7 +587,7 @@
 </ul>
 <p><code>funtools.update_wrapper</code> 实例</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">copy_properties</span><span class="params">(src)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">_copy</span><span class="params">(dst)</span>:</span></div><div class="line">        dst.__name__ = src.__name__</div><div class="line">        dst.__doc__ = src.__name__</div><div class="line">        dst.__qualname__ = src.__qualname__</div><div class="line">        <span class="keyword">return</span> dst</div><div class="line">    <span class="keyword">return</span> _copy</div><div class="line"></div><div class="line"><span class="keyword">import</span> functools</div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">logger</span><span class="params">(fn)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">wrapper</span><span class="params">(*args,**kwargs)</span>:</span></div><div class="line">        <span class="string">'''This is a wrapper'''</span></div><div class="line">        print(<span class="string">'before'</span>)</div><div class="line">        ret = fn(*args,**kwargs)</div><div class="line">        print(<span class="string">'after'</span>)</div><div class="line">        <span class="keyword">return</span> ret</div><div class="line">    functools.update_wrapper(wrapper,fn)</div><div class="line">    <span class="keyword">return</span> wrapper</div><div class="line"><span class="meta">@logger</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">add</span><span class="params">(x,y)</span>:</span></div><div class="line">    <span class="string">'''</span></div><div class="line"><span class="string">    This is a function</span></div><div class="line"><span class="string">    return int</span></div><div class="line"><span class="string">    x int</span></div><div class="line"><span class="string">    y int</span></div><div class="line"><span class="string">    '''</span></div><div class="line">    ret = x + y</div><div class="line">    <span class="keyword">return</span> ret</div><div class="line">print(add.__name__,add.__doc__,add.__qualname__,sep=<span class="string">'\n'</span>)</div><div class="line">print(<span class="string">'#'</span>*<span class="number">50</span>)</div><div class="line">print(add.__wrapped__)</div><div class="line"><span class="comment">## 输出 </span></div><div class="line">add</div><div class="line"></div><div class="line">    This <span class="keyword">is</span> a function</div><div class="line">    <span class="keyword">return</span> int</div><div class="line">    x int</div><div class="line">    y int</div><div class="line">    </div><div class="line">add</div><div class="line"><span class="comment">##################################################</span></div><div class="line">&lt;function add at <span class="number">0x11539e488</span>&gt;</div></pre></td></tr></table></figure>
-<h2 id="格言"><a href="#格言" class="headerlink" title="格言"></a>格言</h2><p><strong>欲立立人，欲达达人</strong></p>
+<h2 id="格言"><a href="#格言" class="headerlink" title="格言"></a>格言</h2><p><strong>凡人做一事，便须全副精神注在些一事，首尾不懈，不可见异思迁，做这样想那样，坐之山望 那山，人而无恒，终身一事无成</strong></p>
 
       
     </div>
@@ -888,7 +888,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">190.4k</span>
+    <span title="Site words total count">190.5k</span>
   
   <span>   |   </span>
 <span id="showDays"></span>
