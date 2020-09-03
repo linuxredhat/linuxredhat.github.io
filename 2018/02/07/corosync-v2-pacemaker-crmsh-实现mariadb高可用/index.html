@@ -5,11 +5,11 @@
   
 
 <!-- 代码块复制功能 -->
-<!--<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard.min.js"></script> --> 
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard-use.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/instantclick-1.2.2.js" type="module"></script>
+<!--<script type="text/javascript" src="/js/src/clipboard.min.js"></script> --> 
+<script type="text/javascript" src="/js/src/clipboard-use.js"></script>
+<script src="/js/instantclick-1.2.2.js" type="module"></script>
 <!--崩溃欺骗-->
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/crash_cheat.js"></script>
+<script type="text/javascript" src="/js/src/crash_cheat.js"></script>
 <html class="theme-next gemini use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
@@ -76,13 +76,13 @@
 
 
 
-  <meta name="keywords" content="rhca,linux," />
+  <meta name="keywords" content="linux,rhca," />
 
 
 
 
 
-  <link rel="alternate" href="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io@master/atom.xml" title="逝水锦遥" type="application/atom+xml" />
+  <link rel="alternate" href="/atom.xml" title="逝水锦遥" type="application/atom+xml" />
 
 
 
@@ -90,25 +90,25 @@
 
 
 <meta name="description" content="高可用mariadb拓扑图  一、设计前提1、时间同步 # ntpdate 172.16.0.1 或者 # chronyc sources2、所有的主机对应的IP地址解析可以正常工作， 主机名要与命令#uname -n 所得的结果一致 因此，/etc/hosts中的内容为以下内容 123172.16.23.10 node1.rj.com node1 172.16.23.11 node2.rj.co">
-<meta name="keywords" content="rhca,linux">
+<meta name="keywords" content="linux,rhca">
 <meta property="og:type" content="article">
 <meta property="og:title" content="corosync v2 + pacemaker + crmsh 实现mariadb高可用">
 <meta property="og:url" content="https://www.asjin.com/2018/02/07/corosync-v2-pacemaker-crmsh-实现mariadb高可用/index.html">
 <meta property="og:site_name" content="逝水锦遥">
 <meta property="og:description" content="高可用mariadb拓扑图  一、设计前提1、时间同步 # ntpdate 172.16.0.1 或者 # chronyc sources2、所有的主机对应的IP地址解析可以正常工作， 主机名要与命令#uname -n 所得的结果一致 因此，/etc/hosts中的内容为以下内容 123172.16.23.10 node1.rj.com node1 172.16.23.11 node2.rj.co">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/corosync_mariadb_rhca.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/corosync_mariadb_tcpdump.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/corosync_mariadb_test1.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/corosync_mariadb_test2.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/corosync_mariadb_test3.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/corosync_mariadb_test4.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/corosync_mariadb_test5.png">
+<meta property="og:image" content="https://www.asjin.com/images/corosync_mariadb_rhca.png">
+<meta property="og:image" content="https://www.asjin.com/images/corosync_mariadb_tcpdump.png">
+<meta property="og:image" content="https://www.asjin.com/images/corosync_mariadb_test1.png">
+<meta property="og:image" content="https://www.asjin.com/images/corosync_mariadb_test2.png">
+<meta property="og:image" content="https://www.asjin.com/images/corosync_mariadb_test3.png">
+<meta property="og:image" content="https://www.asjin.com/images/corosync_mariadb_test4.png">
+<meta property="og:image" content="https://www.asjin.com/images/corosync_mariadb_test5.png">
 <meta property="og:updated_time" content="2018-02-07T08:27:55.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="corosync v2 + pacemaker + crmsh 实现mariadb高可用">
 <meta name="twitter:description" content="高可用mariadb拓扑图  一、设计前提1、时间同步 # ntpdate 172.16.0.1 或者 # chronyc sources2、所有的主机对应的IP地址解析可以正常工作， 主机名要与命令#uname -n 所得的结果一致 因此，/etc/hosts中的内容为以下内容 123172.16.23.10 node1.rj.com node1 172.16.23.11 node2.rj.co">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/corosync_mariadb_rhca.png">
+<meta name="twitter:image" content="https://www.asjin.com/images/corosync_mariadb_rhca.png">
 
 
 
@@ -180,7 +180,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle">人间失格</p>
+        <p class="site-subtitle">渡人先渡己</p>
       
   </div>
 
@@ -451,7 +451,7 @@
 
       
         <p>高可用mariadb拓扑图</p>
-<p><img src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/corosync_mariadb_rhca.png" alt=""></p>
+<p><img src="/images/corosync_mariadb_rhca.png" alt=""></p>
 <h2 id="一、设计前提"><a href="#一、设计前提" class="headerlink" title="一、设计前提"></a>一、设计前提</h2><p>1、时间同步 # ntpdate 172.16.0.1 或者 # chronyc sources<br>2、所有的主机对应的IP地址解析可以正常工作， 主机名要与命令#uname -n 所得的结果一致</p>
 <p>因此，/etc/hosts中的内容为以下内容</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">172.16.23.10 node1.rj.com node1 </div><div class="line">172.16.23.11 node2.rj.com node2 </div><div class="line">172.16.23.12 node3.rj.com node3</div></pre></td></tr></table></figure>
@@ -461,7 +461,7 @@
 </code></pre><h3 id="corosync配置"><a href="#corosync配置" class="headerlink" title="corosync配置"></a>corosync配置</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># vim /etc/corosync/corosync.conf </span></div><div class="line">加入以下信息</div><div class="line">	totem &#123;</div><div class="line">		version: 2</div><div class="line">		crypto_cipher: aes256</div><div class="line">		crypto_hash: sha1</div><div class="line">		interface &#123;</div><div class="line">			ringnumber: 0</div><div class="line">			bindnetaddr: 172.16.0.0</div><div class="line">			mcastaddr: 239.255.23.1</div><div class="line">			mcastport: 5405</div><div class="line">			ttl: 1</div><div class="line">		&#125;</div><div class="line">	logging &#123;</div><div class="line">		fileline: off</div><div class="line">		to_stderr: no</div><div class="line">		to_logfile: yes</div><div class="line">		logfile: /var/<span class="built_in">log</span>/cluster/corosync.log</div><div class="line">		to_syslog: no</div><div class="line">		debug: off</div><div class="line">		timestamp: on</div><div class="line">		logger_subsys &#123;</div><div class="line">			subsys: QUORUM</div><div class="line">			debug: off</div><div class="line">		&#125;</div><div class="line">	quorum &#123;</div><div class="line">		provider: corosync_votequorum</div><div class="line">		node &#123;</div><div class="line">			ring0_addr: node1.rj.com</div><div class="line">			nodeid:1 </div><div class="line">		&#125;</div><div class="line">		node &#123;</div><div class="line">			ring0_addr: node2.rj.com</div><div class="line">			nodeid:2 </div><div class="line">			&#125;</div><div class="line">			</div><div class="line">		node &#123;</div><div class="line">			</div><div class="line">ring0_addr: node3.rj.com</div><div class="line">			nodeid:3</div><div class="line">				&#125;</div><div class="line">		&#125;</div></pre></td></tr></table></figure>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># corosync-keygen </span></div><div class="line"><span class="comment"># ansible mariadb -m copy -a "src=/etc/corosync/authkey dest=/etc/corosync/"</span></div><div class="line"><span class="comment"># ansible mariadb -m copy -a "src=/etc/corosync/corosync.conf dest=/etc/corosync/"</span></div><div class="line"><span class="comment"># ansible mariadb -m service -a "name=corosync state=persent"</span></div><div class="line"><span class="comment"># ansible mariadb -m service -a "name=pacemaker state=persent"</span></div><div class="line"><span class="comment">#  tcpdump -i eno16777736 -nn port 5405</span></div></pre></td></tr></table></figure>
 <h3 id="抓包分析"><a href="#抓包分析" class="headerlink" title="抓包分析"></a>抓包分析</h3><p>使用tcpdump抓包工具可以来查看三台主机之间传递的心跳信息</p>
-<p><img src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/corosync_mariadb_tcpdump.png" alt=""><br>注:mariadb在集群资源的配置中必需是开机自启动的<br>这样corosync才能实别其Unitfile 文件，而不能在配置前启动所以服务一定是关闭的</p>
+<p><img src="/images/corosync_mariadb_tcpdump.png" alt=""><br>注:mariadb在集群资源的配置中必需是开机自启动的<br>这样corosync才能实别其Unitfile 文件，而不能在配置前启动所以服务一定是关闭的</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># ansible mariadb -m service -a "name=mariadb enabled=on"</span></div><div class="line"><span class="comment"># ansible mariadb -m service -a "name=corosync enabled=on"</span></div><div class="line"><span class="comment"># ansible mariadb -m service -a "name=pacemaker enabled=on"</span></div><div class="line"><span class="comment"># mkdir rpm &amp;&amp; cd rpm </span></div><div class="line"><span class="comment"># wget 172.18.0.1/pub/Sources/7.x86_64/crmsh/crmsh-2.1.4-1.1.x86_64.rpm 下载crmsh及其所依赖的rpm包 </span></div><div class="line"><span class="comment"># wget 172.18.0.1/pub/Sources/7.x86_64/crmsh/pssh*.rpm</span></div><div class="line"><span class="comment"># wget 172.18.0.1/pub/Sources/7.x86_64/crmsh/python-passh*.rpm </span></div><div class="line"><span class="comment"># ansible mariadb -m copy -a "src=/root/rpm dest=/root/"</span></div><div class="line"><span class="comment"># for i in &#123;1..3&#125;; do ssh node$i yum -y install /root/rpm/*; done</span></div></pre></td></tr></table></figure>
 <h3 id="查看corosync引擎是否已经正常启动"><a href="#查看corosync引擎是否已经正常启动" class="headerlink" title="查看corosync引擎是否已经正常启动"></a>查看corosync引擎是否已经正常启动</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># ansible mariadb -e command -a "grep -e 'Corosync Cluster Engine' -e 'configuration file' /var/log/messages" </span></div><div class="line">Feb 13 11:27:35 node1 systemd: Stopped Corosync Cluster Engine.</div><div class="line">Feb 13 14:08:03 node1 systemd: Starting Corosync Cluster Engine...</div><div class="line">Feb 13 14:08:04 node1 corosync: Starting Corosync Cluster Engine (corosync): [  OK  ]</div><div class="line">Feb 13 14:08:04 node1 systemd: Started Corosync Cluster Engine.</div><div class="line">Feb 13 14:28:16 node1 systemd: Mounted NFSD configuration filesystem.</div><div class="line">Feb 13 14:28:44 node1 smartd[787]: Opened configuration file /etc/smartmontools/smartd.conf</div><div class="line">Feb 13 14:32:12 node1 systemd: Starting Corosync Cluster Engine...</div><div class="line">        	Feb 13 14:32:13 node1 corosync: Starting Corosync Cluster Engine (corosync): [  OK  ]</div><div class="line">Feb 13 14:32:13 node1 systemd: Started Corosync Cluster Engine.</div><div class="line">Feb 13 14:43:03 node1 systemd: Started Corosync Cluster Engine.</div></pre></td></tr></table></figure>
 <h3 id="查看其成员之间的结点通知信息是否正常"><a href="#查看其成员之间的结点通知信息是否正常" class="headerlink" title="查看其成员之间的结点通知信息是否正常"></a>查看其成员之间的结点通知信息是否正常</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># ansible mariadb -e command -a "grep TOTEM /var/log/messages"</span></div><div class="line">查看启动过程中是否有错误信息产生 </div><div class="line"><span class="comment"># ansible mariadb -e command -a "grep 'ERROR' /var/log/messages"</span></div><div class="line">查看pacemaker是否已经正常启动</div><div class="line"><span class="comment"># ansible mariadb -e command -a "grep 'pacemaker' /var/log/messages "</span></div><div class="line"> 使用以下命令查看结点的状态</div><div class="line"><span class="comment"># crm status  </span></div><div class="line">Last updated: Mon Feb 13 15:43:08 2017</div><div class="line">Last change: Mon Feb 13 14:33:58 2017 by hacluster via crmd on node3.rj.com</div><div class="line">Stack: corosync		Current DC: node3.rj.com (version 1.1.13-10.el7-44eb2dd) - partition with quorum</div><div class="line">3 nodes and 0 resources configured	Online: [ node1.rj.com node2.rj.com node3.rj.com ]</div></pre></td></tr></table></figure>
@@ -471,9 +471,9 @@
 <h3 id="配置vip"><a href="#配置vip" class="headerlink" title="配置vip"></a>配置vip</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"> <span class="comment"># crm configure property stonith-enabled=false #关闭stonsth设备</span></div></pre></td></tr></table></figure>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># crm configure primitive DBIP ocf:heartbeat:IPaddr params ip=172.16.23.23 添加vip资源代理  </span></div><div class="line"><span class="comment"># crm configure verify 查看是否有错误</span></div><div class="line"><span class="comment"># crm configure commit 用来提交配置信息 </span></div><div class="line"><span class="comment"># crm configure show  可以用来查看配置信息</span></div><div class="line">	node 1: node1.rj.com</div><div class="line">	node 2: node2.rj.com</div><div class="line">	node 3: node3.rj.com</div><div class="line">	primitive DBIP IPaddr \</div><div class="line">		params ip=172.16.23.23</div><div class="line">	property cib-bootstrap-options: \</div><div class="line">		have-watchdog=<span class="literal">false</span> \</div><div class="line">		dc-version=1.1.13-10.el7-44eb2dd \</div><div class="line">		cluster-infrastructure=corosync \</div><div class="line">		stonith-enabled=<span class="literal">false</span></div></pre></td></tr></table></figure>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># crm node standby node1.rj.com	当将node1结点成为备用结点时 </span></div><div class="line"><span class="comment"># ansible mariadb -m command -a "ip addr list" 查看其vip的变化信息</span></div><div class="line"><span class="comment"># crm ra info systemd:mairadb 用来查看systemd类型的mariadb资源的语法格式 </span></div><div class="line">	systemd unit file <span class="keyword">for</span> mariadb (systemd:mariadb)</div><div class="line">		MariaDB database server</div><div class="line">	Operations<span class="string">' defaults (advisory minimum):</span></div><div class="line"><span class="string">		start         timeout=15</span></div><div class="line"><span class="string">		stop          timeout=15</span></div><div class="line"><span class="string">		status        timeout=15</span></div><div class="line"><span class="string">		restart       timeout=15</span></div><div class="line"><span class="string">		monitor       timeout=15 interval=15 start-delay=15</span></div></pre></td></tr></table></figure>
-<h3 id="vip资源"><a href="#vip资源" class="headerlink" title="vip资源"></a>vip资源</h3><p><img src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/corosync_mariadb_test1.png" alt=""></p>
+<h3 id="vip资源"><a href="#vip资源" class="headerlink" title="vip资源"></a>vip资源</h3><p><img src="/images/corosync_mariadb_test1.png" alt=""></p>
 <pre><code>当node1 # crm node standby node1.rj.com 时
-</code></pre><p><img src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/corosync_mariadb_test2.png" alt=""></p>
+</code></pre><p><img src="/images/corosync_mariadb_test2.png" alt=""></p>
 <h3 id="定义mariadbg资源并设定监控"><a href="#定义mariadbg资源并设定监控" class="headerlink" title="定义mariadbg资源并设定监控"></a>定义mariadbg资源并设定监控</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># crm configure primitive MDB systemd:mariadb op start timeout=15s op stop timeout=15s op monitor interval=15s timeout=15s </span></div><div class="line"><span class="comment"># crm configure group DBservice DBIP MDB</span></div><div class="line"><span class="comment"># crm configure verify </span></div><div class="line"><span class="comment"># crm configure commit </span></div><div class="line"><span class="comment"># crm configure show  </span></div><div class="line">	node 1: node1.rj.com \</div><div class="line">		attributes standby=on</div><div class="line">	node 2: node2.rj.com \</div><div class="line">		attributes standby=off</div><div class="line">	node 3: node3.rj.com \</div><div class="line">		attributes standby=off</div><div class="line">	primitive DBIP IPaddr \</div><div class="line">		params ip=172.16.23.23</div><div class="line">	primitive MDB systemd:mariadb \</div><div class="line">		op start timeout=15s interval=0 \</div><div class="line">		op stop timeout=15s interval=0 \</div><div class="line">		op monitor interval=15s timeout=15s</div><div class="line">	group DBservice DBIP MDB</div><div class="line">	property cib-bootstrap-options: \</div><div class="line">		have-watchdog=<span class="literal">false</span> \</div><div class="line">		dc-version=1.1.13-10.el7-44eb2dd \</div><div class="line">		cluster-infrastructure=corosync \</div><div class="line">		stonith-enabled=<span class="literal">false</span> \</div><div class="line">		no-quorum-policy=ignore</div></pre></td></tr></table></figure>
 <pre><code>为mariadb服务加入数据库资源，并配置远程用户远程接入进行测试 
 </code></pre><p>注：此时有一个资源已经启动，但其它的两个mariadb服务启动之后才能进行对数据库的更改</p>
@@ -483,12 +483,12 @@ node1 node2 node3上执行: #  mysql -e &quot;GRANT ALL  ON *.* TO &apos;root&ap
 node1 # mysql -e &quot;CREATE DATABASE NODE1&quot;
 node2 # mysql -e &quot;CREATE DATABASE NODE2&quot;
 node3 # mysql -e &quot;CREATE DATABASE NODE3&quot;
-</code></pre><h3 id="启用一台测试机进行测试"><a href="#启用一台测试机进行测试" class="headerlink" title="启用一台测试机进行测试"></a>启用一台测试机进行测试</h3><p><img src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/corosync_mariadb_test3.png" alt=""></p>
+</code></pre><h3 id="启用一台测试机进行测试"><a href="#启用一台测试机进行测试" class="headerlink" title="启用一台测试机进行测试"></a>启用一台测试机进行测试</h3><p><img src="/images/corosync_mariadb_test3.png" alt=""></p>
 <pre><code>node1    
 </code></pre><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># systemctl stop corosync.service pacemaker.service </span></div><div class="line"><span class="comment"># 当node1的服务停止时</span></div></pre></td></tr></table></figure>
-<p><img src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/corosync_mariadb_test4.png" alt=""></p>
+<p><img src="/images/corosync_mariadb_test4.png" alt=""></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># systemctl stop corosync.service pacemaker.service </span></div><div class="line"><span class="comment"># 当node2的服务停止时</span></div></pre></td></tr></table></figure>
-<p><img src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/corosync_mariadb_test5.png" alt=""></p>
+<p><img src="/images/corosync_mariadb_test5.png" alt=""></p>
 
       
     </div>
@@ -509,14 +509,14 @@ node3 # mysql -e &quot;CREATE DATABASE NODE3&quot;
 
     
       <div id="wechat" style="display: inline-block">
-        <img id="wechat_qr" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/weipei.png" alt="༺ 锦遥 ༻ 微信支付"/>
+        <img id="wechat_qr" src="/images/weipei.png" alt="༺ 锦遥 ༻ 微信支付"/>
         <p>微信支付</p>
       </div>
     
 
     
       <div id="alipay" style="display: inline-block">
-        <img id="alipay_qr" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/zhipei.png" alt="༺ 锦遥 ༻ 支付宝"/>
+        <img id="alipay_qr" src="/images/zhipei.png" alt="༺ 锦遥 ༻ 支付宝"/>
         <p>支付宝</p>
       </div>
     
@@ -553,9 +553,9 @@ node3 # mysql -e &quot;CREATE DATABASE NODE3&quot;
       
         <div class="post-tags">
           
-            <a href="/tags/rhca/" rel="tag"># rhca</a>
-          
             <a href="/tags/linux/" rel="tag"># linux</a>
+          
+            <a href="/tags/rhca/" rel="tag"># rhca</a>
           
         </div>
       
@@ -654,7 +654,7 @@ node3 # mysql -e &quot;CREATE DATABASE NODE3&quot;
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <img class="site-author-image" itemprop="image"
-                src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/rjyy.ico"
+                src="/images/rjyy.ico"
                 alt="༺ 锦遥 ༻" />
             
               <p class="site-author-name" itemprop="name">༺ 锦遥 ༻</p>
@@ -693,7 +693,7 @@ node3 # mysql -e &quot;CREATE DATABASE NODE3&quot;
 
           
             <div class="feed-link motion-element">
-              <a href="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io@master/atom.xml" rel="alternate">
+              <a href="/atom.xml" rel="alternate">
                 <i class="fa fa-rss"></i>
                 RSS
               </a>
@@ -772,7 +772,7 @@ node3 # mysql -e &quot;CREATE DATABASE NODE3&quot;
 
 <!-- 数字雨 -->
 <canvas id="canvas" width="1440" height="1080"></canvas>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/DigitalRain.js"></script>
+<script type="text/javascript" src="/js/DigitalRain.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css"/>
     </main>
 
@@ -840,11 +840,11 @@ var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours
 }, 1000);
 </script>
 <script src="https://pv.sohu.com/cityjson?ie=utf-8"></script>
-<script src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/ip.js"></script>
+<script src="/js/ip.js"></script>
 
         
 <div class="busuanzi-count">
-  <script async src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/busuanzi.pure.mini.js"></script>
+  <script async src="/js/busuanzi.pure.mini.js"></script>
   
     <span class="site-uv">
       <i class="fa fa-user"></i> 訪客數
@@ -883,8 +883,8 @@ var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours
     
 
 <script src="/live2d-widget/autoload.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard.min.js"></script>  
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard-use.js"></script>
+<script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
+<script type="text/javascript" src="/js/src/clipboard-use.js"></script>
   </div>
 
   
@@ -951,32 +951,32 @@ var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours
   
 
 
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/utils.js?v=5.1.3"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
 
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/motion.js?v=5.1.3"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/affix.js?v=5.1.3"></script>
-
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/schemes/pisces.js?v=5.1.3"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
 
 
 
   
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/scrollspy.js?v=5.1.3"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/post-details.js?v=5.1.3"></script>
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
 
 
 
   
 
 
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/bootstrap.js?v=5.1.3"></script>
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
 
 
 
@@ -1378,7 +1378,7 @@ var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours
   <!-- 点击特效 -->
 
 
-  <script src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/activate-power-mode.min.js"></script>
+  <script src="/js/activate-power-mode.min.js"></script>
     <script>
 	    POWERMODE.colorful = true;
     POWERMODE.shake = false;
@@ -1386,11 +1386,11 @@ var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours
 	  </script>
 
 
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard.min.js"></script>  
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard-use.js"></script>
+<script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
+<script type="text/javascript" src="/js/src/clipboard-use.js"></script>
 <!--点击冒点-->
 <canvas width="1777" height="841" style="position: fixed; left: 0px; top: 0px; z-index: 2147483647; pointer-events: none;"></canvas>
-<script src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/maodian.js"></script>
+<script src="/js/maodian.js"></script>
 <canvas width="1390" height="797" style="position: fixed; left: 0px; top: 0px; z-index: 2147483647; pointer-events: none;"></canvas>
 </body>
 </html>

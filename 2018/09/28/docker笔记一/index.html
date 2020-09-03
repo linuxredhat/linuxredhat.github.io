@@ -5,11 +5,11 @@
   
 
 <!-- 代码块复制功能 -->
-<!--<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard.min.js"></script> --> 
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard-use.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/instantclick-1.2.2.js" type="module"></script>
+<!--<script type="text/javascript" src="/js/src/clipboard.min.js"></script> --> 
+<script type="text/javascript" src="/js/src/clipboard-use.js"></script>
+<script src="/js/instantclick-1.2.2.js" type="module"></script>
 <!--崩溃欺骗-->
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/crash_cheat.js"></script>
+<script type="text/javascript" src="/js/src/crash_cheat.js"></script>
 <html class="theme-next gemini use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
@@ -82,7 +82,7 @@
 
 
 
-  <link rel="alternate" href="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io@master/atom.xml" title="逝水锦遥" type="application/atom+xml" />
+  <link rel="alternate" href="/atom.xml" title="逝水锦遥" type="application/atom+xml" />
 
 
 
@@ -97,18 +97,18 @@
 <meta property="og:site_name" content="逝水锦遥">
 <meta property="og:description" content="docker笔记(一) Virtualization And Container主机级虚拟化 Type-I 直接在硬件上做虚拟化; Type-II 启动系统后，再做虚拟化; 真正能产生生产力的，是应用层面; 系统运行两颗树:进程树和文件系统树; 基于用户层面的隔离(UTS,Mount,IPC,PID,User,Net); namespaces:名称空间，系统调用，向外输出(clone(),setn">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/docker-images.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/docker-event-state.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/docker-push.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/docker-image-pull-aliyun.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/docker-network.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/docker-32773.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/docker-port-8080.png">
+<meta property="og:image" content="https://www.asjin.com/images/docker-images.png">
+<meta property="og:image" content="https://www.asjin.com/images/docker-event-state.png">
+<meta property="og:image" content="https://www.asjin.com/images/docker-push.png">
+<meta property="og:image" content="https://www.asjin.com/images/docker-image-pull-aliyun.png">
+<meta property="og:image" content="https://www.asjin.com/images/docker-network.png">
+<meta property="og:image" content="https://www.asjin.com/images/docker-32773.png">
+<meta property="og:image" content="https://www.asjin.com/images/docker-port-8080.png">
 <meta property="og:updated_time" content="2019-04-29T07:42:12.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="docker笔记(一)">
 <meta name="twitter:description" content="docker笔记(一) Virtualization And Container主机级虚拟化 Type-I 直接在硬件上做虚拟化; Type-II 启动系统后，再做虚拟化; 真正能产生生产力的，是应用层面; 系统运行两颗树:进程树和文件系统树; 基于用户层面的隔离(UTS,Mount,IPC,PID,User,Net); namespaces:名称空间，系统调用，向外输出(clone(),setn">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/docker-images.png">
+<meta name="twitter:image" content="https://www.asjin.com/images/docker-images.png">
 
 
 
@@ -180,7 +180,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle">人间失格</p>
+        <p class="site-subtitle">渡人先渡己</p>
       
   </div>
 
@@ -450,7 +450,7 @@
       
 
       
-        <h1 id="docker笔记-一"><a href="#docker笔记-一" class="headerlink" title="docker笔记(一)"></a>docker笔记(一)</h1><p><img src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/docker-images.png" alt=""></p>
+        <h1 id="docker笔记-一"><a href="#docker笔记-一" class="headerlink" title="docker笔记(一)"></a>docker笔记(一)</h1><p><img src="/images/docker-images.png" alt=""></p>
 <h2 id="Virtualization-And-Container"><a href="#Virtualization-And-Container" class="headerlink" title="Virtualization And Container"></a>Virtualization And Container</h2><h3 id="主机级虚拟化"><a href="#主机级虚拟化" class="headerlink" title="主机级虚拟化"></a>主机级虚拟化</h3><ol>
 <li>Type-I 直接在硬件上做虚拟化;</li>
 <li>Type-II 启动系统后，再做虚拟化;</li>
@@ -563,7 +563,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># docker exec -it  kvstor1 /bin/sh</div><div class="line">/data # ps</div><div class="line">PID   USER     TIME  COMMAND</div><div class="line">    1 redis     0:00 redis-server</div><div class="line">   12 root      0:00 /bin/sh</div><div class="line">   16 root      0:00 ps</div></pre></td></tr></table></figure>
 <p>查看docker启动容器后的日志信息</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># docker logs web1</div></pre></td></tr></table></figure>
-<p>docker event state<br><img src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/docker-event-state.png" alt=""></p>
+<p>docker event state<br><img src="/images/docker-event-state.png" alt=""></p>
 <h2 id="Docker-镜像的使用与管理"><a href="#Docker-镜像的使用与管理" class="headerlink" title="Docker 镜像的使用与管理"></a>Docker 镜像的使用与管理</h2><p>Docker:码头工人<br>一般我们部署应用程序时，我们都是散装的。而docker可以进行集装的;</p>
 <p>Docker 镜像含有启动容器所需要的文件系统及其内容，因此，其用于创建并启动docker容器  </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">采用分层构建机制，最底层为bootfs,其之为rootfs  </div><div class="line">    bootfs: 用于系统引导的文件系统，包括bootloader和kernel，</div><div class="line">        容器启动完成后会被卸载以节约内在资源 </div><div class="line">    rootfs: 位于bootfs之上，表现为docker容器的根文件系统:</div><div class="line">        传统模式中，系统启动之时，内核挂载rootfs时会首先将其挂载为&quot;只读&quot;模式,</div><div class="line">        完整性自检后将其重新挂载为读写模式;</div><div class="line">        docker中,rootfs由内核挂载为&quot;只读&quot;模式，而后通过&quot;联合挂载&quot;技术额外提供一个可写层;</div></pre></td></tr></table></figure>
@@ -615,10 +615,10 @@
 <p>往 hub.docker.com 上面推镜像</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># docker push ssjinyao/httpd</div></pre></td></tr></table></figure>
 <p>可以看到，上传的镜像</p>
-<p><img src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/docker-push.png" alt=""></p>
+<p><img src="/images/docker-push.png" alt=""></p>
 <p><a href="https://dev.aliyun.com" target="_blank" rel="external">国内比较常用的镜像地址</a><br>在阿里云docker 镜像站点中创建REPOSITORY<br>上传本地的镜像</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"># docker tag ssjinyao/httpd:v0.1.1.1-2 registry.cn-qingdao.aliyuncs.com/ssjinyao/httpd</div><div class="line"># docker logout</div><div class="line">Removing login credentials for https://index.docker.io/v1/</div><div class="line"></div><div class="line"># docker login --username=ssjinyao registry.cn-qingdao.aliyuncs.com</div><div class="line">Password:</div><div class="line">WARNING! Your password will be stored unencrypted in /root/.docker/config.json.</div><div class="line">Configure a credential helper to remove this warning. See</div><div class="line">https://docs.docker.com/engine/reference/commandline/login/#credentials-store</div><div class="line"></div><div class="line">Login Succeeded</div><div class="line"># docker push registry.cn-qingdao.aliyuncs.com/ssjinyao/httpd</div></pre></td></tr></table></figure>
-<p><img src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/docker-image-pull-aliyun.png" alt=""></p>
+<p><img src="/images/docker-image-pull-aliyun.png" alt=""></p>
 <p>docker 镜像的导入和导出</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"># docker save -o ssjinyao-busybox-image.gz ssjinyao/httpd:v0.1.1.1-3 ssjinyao/httpd:v0.1.1.1-2</div><div class="line"># 将镜像复制到另一台服务器</div><div class="line"># scp ssjinyao-busybox-image.gz root@node2:/root/</div><div class="line">ssjinyao-busybox-image.gz                                                  100% 1370KB  23.8MB/s   00:00</div></pre></td></tr></table></figure>
 <p>在另一台服务器上导入镜像</p>
@@ -629,7 +629,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># docker start 27403687efa0</div><div class="line"># docker container run --name busybox3 -it ssjinyao/httpd:v0.1.1.1-3</div><div class="line"># 查看两个容器间基于nat的通信 </div><div class="line"># docker exec -it busybox2 /bin/sh</div><div class="line">/ # wget -O - -q http://172.17.0.5</div><div class="line">&lt;h1&gt;www.ssjinyao.com&lt;/h1&gt;</div></pre></td></tr></table></figure>
 <p>{User,Mount,Pid}, {User,Mount,Pid} –&gt; 共享{UTS,Net,IPC}</p>
 <p>让容器使用管理宿主机的网络名称空间</p>
-<p><img src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/docker-network.png" alt=""></p>
+<p><img src="/images/docker-network.png" alt=""></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># docker network inspect bridge</div></pre></td></tr></table></figure>
 <p>ip 名称空间管理</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"># yum -y install iproute</div><div class="line"># ip netns help</div><div class="line">Usage: ip netns list</div><div class="line">       ip netns add NAME</div><div class="line">       ip netns set NAME NETNSID</div><div class="line">       ip [-all] netns delete [NAME]</div><div class="line">       ip netns identify [PID]</div><div class="line">       ip netns pids NAME</div><div class="line">       ip [-all] netns exec [NAME] cmd ...</div><div class="line">       ip netns monitor</div><div class="line">       ip netns list-id</div></pre></td></tr></table></figure>
@@ -639,11 +639,11 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"># docker run --name t1 -it --network bridge -h www.ssjinyao.com --dns 114.114.114.114 --dns 8.8.8.8 --rm busybox:latest</div><div class="line">/ # cat /etc/resolv.conf</div><div class="line">search localdomain</div><div class="line">nameserver 114.114.114.114</div><div class="line">nameserver 8.8.8.8</div><div class="line">/ # hostname</div><div class="line">www.ssjinyao.com</div><div class="line"># docker run --name t1 -it --network bridge -h t1.ssjinyao.com --dns 114.114.114.114 --dns-search ssjinyao.com --add-host www.ssjinyao.com:1.1.1.1 --rm busybox:latest</div><div class="line">/ # cat /etc/hosts</div><div class="line">127.0.0.1	localhost</div><div class="line">::1	localhost ip6-localhost ip6-loopback</div><div class="line">fe00::0	ip6-localnet</div><div class="line">ff00::0	ip6-mcastprefix</div><div class="line">ff02::1	ip6-allnodes</div><div class="line">ff02::2	ip6-allrouters</div><div class="line">1.1.1.1	www.ssjinyao.com</div><div class="line">172.17.0.6	t1.ssjinyao.com t1</div></pre></td></tr></table></figure>
 <p>将容器的端口进行暴露 </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"># docker run --name myweb --rm -p 80 ssjinyao/httpd:v0.1.1.1-2</div><div class="line"># docker container ps</div><div class="line">CONTAINER ID        IMAGE                       COMMAND                  CREATED             STATUS              PORTS                   NAMES</div><div class="line">97212485437e        ssjinyao/httpd:v0.1.1.1-3   &quot;/bin/httpd -f -h /d…&quot;   4 minutes ago       Up 4 minutes        0.0.0.0:32773-&gt;80/tcp   myweb</div></pre></td></tr></table></figure>
-<p><img src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/docker-32773.png" alt=""></p>
+<p><img src="/images/docker-32773.png" alt=""></p>
 <p>Opening inbound communication</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">-p 选项的使用格式</div><div class="line">    -p &lt;containerPort&gt;</div><div class="line">    将指定的容器端口映射至主机所有地址的一个动态端口;</div><div class="line">    -p &lt;hostPort&gt;:&lt;containerPort&gt;</div><div class="line">    将容器端口&lt;containerPort&gt;映射至指定的主机端口&lt;hostPort&gt;</div><div class="line">    -p &lt;ip&gt;::&lt;containerPort&gt;</div><div class="line">    将指定的容器端口&lt;containerPort&gt;映射至主机指定&lt;ip&gt;的端口&lt;hostPort&gt;</div></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"># docker run --name myweb --rm -p 10.180.66.11:8080:80 ssjinyao/httpd:v0.1.1.1-3</div><div class="line"># docker port myweb</div><div class="line">80/tcp -&gt; 10.180.66.11:8080</div></pre></td></tr></table></figure>
-<p><img src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/docker-port-8080.png" alt=""></p>
+<p><img src="/images/docker-port-8080.png" alt=""></p>
 <p>Joined container(联盟式容器)</p>
 <p>共享b1容器的网络</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"># docker run --name b1 -it --rm busybox</div><div class="line"># docker run --name b2 --network container:b1 -it --rm busybox</div><div class="line">/ # ifconfig</div><div class="line">eth0      Link encap:Ethernet  HWaddr 02:42:AC:11:00:02</div><div class="line">          inet addr:172.17.0.2  Bcast:172.17.255.255  Mask:255.255.0.0</div><div class="line">          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1</div><div class="line">          RX packets:8 errors:0 dropped:0 overruns:0 frame:0</div><div class="line">          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0</div><div class="line">          collisions:0 txqueuelen:0</div><div class="line">          RX bytes:648 (648.0 B)  TX bytes:0 (0.0 B)</div><div class="line"></div><div class="line">lo        Link encap:Local Loopback</div><div class="line">          inet addr:127.0.0.1  Mask:255.0.0.0</div><div class="line">          UP LOOPBACK RUNNING  MTU:65536  Metric:1</div><div class="line">          RX packets:0 errors:0 dropped:0 overruns:0 frame:0</div><div class="line">          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0</div><div class="line">          collisions:0 txqueuelen:1</div><div class="line">          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)</div><div class="line"></div><div class="line">/ # echo &quot;Joined container&quot; &gt; /tmp/index.html</div><div class="line">/ # httpd -h /tmp/</div><div class="line">/ # netstat  -tnl</div><div class="line">Active Internet connections (only servers)</div><div class="line">Proto Recv-Q Send-Q Local Address           Foreign Address         State</div><div class="line">tcp        0      0 :::80                   :::*                    LISTEN</div><div class="line">/ # wget -O - -q 127.0.0.1</div><div class="line">Joined container</div></pre></td></tr></table></figure>
@@ -676,14 +676,14 @@
 
     
       <div id="wechat" style="display: inline-block">
-        <img id="wechat_qr" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/weipei.png" alt="༺ 锦遥 ༻ 微信支付"/>
+        <img id="wechat_qr" src="/images/weipei.png" alt="༺ 锦遥 ༻ 微信支付"/>
         <p>微信支付</p>
       </div>
     
 
     
       <div id="alipay" style="display: inline-block">
-        <img id="alipay_qr" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/zhipei.png" alt="༺ 锦遥 ༻ 支付宝"/>
+        <img id="alipay_qr" src="/images/zhipei.png" alt="༺ 锦遥 ༻ 支付宝"/>
         <p>支付宝</p>
       </div>
     
@@ -821,7 +821,7 @@
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <img class="site-author-image" itemprop="image"
-                src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/rjyy.ico"
+                src="/images/rjyy.ico"
                 alt="༺ 锦遥 ༻" />
             
               <p class="site-author-name" itemprop="name">༺ 锦遥 ༻</p>
@@ -860,7 +860,7 @@
 
           
             <div class="feed-link motion-element">
-              <a href="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io@master/atom.xml" rel="alternate">
+              <a href="/atom.xml" rel="alternate">
                 <i class="fa fa-rss"></i>
                 RSS
               </a>
@@ -939,7 +939,7 @@
 
 <!-- 数字雨 -->
 <canvas id="canvas" width="1440" height="1080"></canvas>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/DigitalRain.js"></script>
+<script type="text/javascript" src="/js/DigitalRain.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css"/>
     </main>
 
@@ -1007,11 +1007,11 @@ var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours
 }, 1000);
 </script>
 <script src="https://pv.sohu.com/cityjson?ie=utf-8"></script>
-<script src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/ip.js"></script>
+<script src="/js/ip.js"></script>
 
         
 <div class="busuanzi-count">
-  <script async src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/busuanzi.pure.mini.js"></script>
+  <script async src="/js/busuanzi.pure.mini.js"></script>
   
     <span class="site-uv">
       <i class="fa fa-user"></i> 訪客數
@@ -1050,8 +1050,8 @@ var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours
     
 
 <script src="/live2d-widget/autoload.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard.min.js"></script>  
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard-use.js"></script>
+<script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
+<script type="text/javascript" src="/js/src/clipboard-use.js"></script>
   </div>
 
   
@@ -1118,32 +1118,32 @@ var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours
   
 
 
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/utils.js?v=5.1.3"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
 
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/motion.js?v=5.1.3"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/affix.js?v=5.1.3"></script>
-
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/schemes/pisces.js?v=5.1.3"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
 
 
 
   
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/scrollspy.js?v=5.1.3"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/post-details.js?v=5.1.3"></script>
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
 
 
 
   
 
 
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/bootstrap.js?v=5.1.3"></script>
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
 
 
 
@@ -1545,7 +1545,7 @@ var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours
   <!-- 点击特效 -->
 
 
-  <script src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/activate-power-mode.min.js"></script>
+  <script src="/js/activate-power-mode.min.js"></script>
     <script>
 	    POWERMODE.colorful = true;
     POWERMODE.shake = false;
@@ -1553,11 +1553,11 @@ var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours
 	  </script>
 
 
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard.min.js"></script>  
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard-use.js"></script>
+<script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
+<script type="text/javascript" src="/js/src/clipboard-use.js"></script>
 <!--点击冒点-->
 <canvas width="1777" height="841" style="position: fixed; left: 0px; top: 0px; z-index: 2147483647; pointer-events: none;"></canvas>
-<script src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/maodian.js"></script>
+<script src="/js/maodian.js"></script>
 <canvas width="1390" height="797" style="position: fixed; left: 0px; top: 0px; z-index: 2147483647; pointer-events: none;"></canvas>
 </body>
 </html>

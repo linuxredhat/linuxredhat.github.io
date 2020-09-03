@@ -5,11 +5,11 @@
   
 
 <!-- 代码块复制功能 -->
-<!--<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard.min.js"></script> --> 
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard-use.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/instantclick-1.2.2.js" type="module"></script>
+<!--<script type="text/javascript" src="/js/src/clipboard.min.js"></script> --> 
+<script type="text/javascript" src="/js/src/clipboard-use.js"></script>
+<script src="/js/instantclick-1.2.2.js" type="module"></script>
 <!--崩溃欺骗-->
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/crash_cheat.js"></script>
+<script type="text/javascript" src="/js/src/crash_cheat.js"></script>
 <html class="theme-next gemini use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
@@ -76,13 +76,13 @@
 
 
 
-  <meta name="keywords" content="rhca,linux,database," />
+  <meta name="keywords" content="linux,rhca,database," />
 
 
 
 
 
-  <link rel="alternate" href="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io@master/atom.xml" title="逝水锦遥" type="application/atom+xml" />
+  <link rel="alternate" href="/atom.xml" title="逝水锦遥" type="application/atom+xml" />
 
 
 
@@ -90,19 +90,19 @@
 
 
 <meta name="description" content="一、配置openssl1、   在master server(node0)上根CA的搭建(及生成自签名证书)1234567891011121314151617181920212223[root@node0 ~]# cd /etc/pki/CA/[root@node0 CA]# (umask 077;openssl genrsa -out private/cakey.pem 2048)Generat">
-<meta name="keywords" content="rhca,linux,database">
+<meta name="keywords" content="linux,rhca,database">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MariaDB之基于openssl的主从复制">
 <meta property="og:url" content="https://www.asjin.com/2018/02/07/MariaDB之基于openssl的主从复制/index.html">
 <meta property="og:site_name" content="逝水锦遥">
 <meta property="og:description" content="一、配置openssl1、   在master server(node0)上根CA的搭建(及生成自签名证书)1234567891011121314151617181920212223[root@node0 ~]# cd /etc/pki/CA/[root@node0 CA]# (umask 077;openssl genrsa -out private/cakey.pem 2048)Generat">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/mariadb_openssl.png">
+<meta property="og:image" content="https://www.asjin.com/images/mariadb_openssl.png">
 <meta property="og:updated_time" content="2018-02-07T08:04:33.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MariaDB之基于openssl的主从复制">
 <meta name="twitter:description" content="一、配置openssl1、   在master server(node0)上根CA的搭建(及生成自签名证书)1234567891011121314151617181920212223[root@node0 ~]# cd /etc/pki/CA/[root@node0 CA]# (umask 077;openssl genrsa -out private/cakey.pem 2048)Generat">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/mariadb_openssl.png">
+<meta name="twitter:image" content="https://www.asjin.com/images/mariadb_openssl.png">
 
 
 
@@ -174,7 +174,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle">人间失格</p>
+        <p class="site-subtitle">渡人先渡己</p>
       
   </div>
 
@@ -450,7 +450,7 @@
 <h3 id="4、为slave结点-node1-配置openssl"><a href="#4、为slave结点-node1-配置openssl" class="headerlink" title="4、为slave结点(node1)配置openssl"></a>4、为slave结点(node1)配置openssl</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">[root@node1 CA]<span class="comment"># cd /etc/my.cnf.d/</span></div><div class="line">[root@node1 my.cnf.d]<span class="comment"># (umask 077;openssl genrsa -out slave.key 2048)</span></div><div class="line">Generating RSA private key, 2048 bit long modulus</div><div class="line">.............+++</div><div class="line">......................................................................................................................................................................................................................................................+++</div><div class="line">e is 65537 (0x10001)</div><div class="line">[root@node1 my.cnf.d]<span class="comment"># openssl req -new -key slave.key -out slave.csr</span></div><div class="line">You are about to be asked to enter information that will be incorporated</div><div class="line">into your certificate request.</div><div class="line">What you are about to enter is what is called a Distinguished Name or a DN.</div><div class="line">There are quite a few fields but you can leave some blank</div><div class="line">For some fields there will be a default value,</div><div class="line">If you enter <span class="string">'.'</span>, the field will be left blank.</div><div class="line">-----</div><div class="line">Country Name (2 letter code) [XX]:CN</div><div class="line">State or Province Name (full name) []:BJ</div><div class="line">Locality Name (eg, city) [Default City]:BJ</div><div class="line">Organization Name (eg, company) [Default Company Ltd]:rj</div><div class="line">Organizational Unit Name (eg, section) []:rj</div><div class="line">Common Name (eg, your name or your server<span class="string">'s hostname) []:www.rj.com</span></div><div class="line"><span class="string">Email Address []:</span></div><div class="line"><span class="string"></span></div><div class="line"><span class="string">Please enter the following '</span>extra<span class="string">' attributes</span></div><div class="line"><span class="string">to be sent with your certificate request</span></div><div class="line"><span class="string">A challenge password []:</span></div><div class="line"><span class="string">An optional company name []:</span></div><div class="line"><span class="string">[root@node1 my.cnf.d]# scp slave.csr node0:/tmp</span></div><div class="line"><span class="string">The authenticity of host '</span>node0 (172.16.23.10)<span class="string">' can'</span>t be established.</div><div class="line">ECDSA key fingerprint is 2b:98:49:35:5b:78:24:ed:f0:ab:fa:54:b1:8e:df:29.</div><div class="line">Are you sure you want to <span class="built_in">continue</span> connecting (yes/no)? yes</div><div class="line">Warning: Permanently added <span class="string">'node0,172.16.23.10'</span> (ECDSA) to the list of known hosts.</div><div class="line">root@node0<span class="string">'s password: </span></div><div class="line"><span class="string">slave.csr</span></div></pre></td></tr></table></figure>
 <h3 id="5、为slave结点签发请求"><a href="#5、为slave结点签发请求" class="headerlink" title="5、为slave结点签发请求"></a>5、为slave结点签发请求</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line">[root@node0 my.cnf.d]<span class="comment"># mv /etc/pki/CA/serial /root/</span></div><div class="line">[root@node0 my.cnf.d]<span class="comment"># mv /etc/pki/CA/index.txt /root/</span></div><div class="line">[root@node0 my.cnf.d]<span class="comment"># touch /etc/pki/CA/index.txt</span></div><div class="line">[root@node0 my.cnf.d]<span class="comment"># echo 01 &gt; /etc/pki/CA/serial</span></div><div class="line">[root@node0 my.cnf.d]<span class="comment"># openssl ca -in /tmp/slave.csr -out slave.crt -days 3650</span></div><div class="line">Using configuration from /etc/pki/tls/openssl.cnf</div><div class="line">Check that the request matches the signature</div><div class="line">Signature ok</div><div class="line">Certificate Details:</div><div class="line">        Serial Number: 1 (0x1)</div><div class="line">        Validity</div><div class="line">            Not Before: Feb 16 07:07:14 2017 GMT</div><div class="line">            Not After : Feb 14 07:07:14 2027 GMT</div><div class="line">        Subject:</div><div class="line">            countryName               = CN</div><div class="line">            stateOrProvinceName       = BJ</div><div class="line">            organizationName          = rj</div><div class="line">            organizationalUnitName    = rj</div><div class="line">            commonName                = www.rj.com</div><div class="line">        X509v3 extensions:</div><div class="line">            X509v3 Basic Constraints: </div><div class="line">                CA:FALSE</div><div class="line">            Netscape Comment: </div><div class="line">                OpenSSL Generated Certificate</div><div class="line">            X509v3 Subject Key Identifier: </div><div class="line">                A5:FE:11:EB:4D:B5:F1:85:61:E7:18:E3:1D:B7:25:C6:1B:24:97:AF</div><div class="line">            X509v3 Authority Key Identifier: </div><div class="line">                keyid:71:DD:03:78:51:12:5F:58:C2:1B:53:76:A0:2B:E9:BF:60:D8:67:36</div><div class="line"></div><div class="line">Certificate is to be certified until Feb 14 07:07:14 2027 GMT (3650 days)</div><div class="line">Sign the certificate? [y/n]:y</div><div class="line"></div><div class="line"></div><div class="line">1 out of 1 certificate requests certified, commit? [y/n]y</div><div class="line">Write out database with 1 new entries</div><div class="line">Data Base Updated</div></pre></td></tr></table></figure>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[root@node0 my.cnf.d]<span class="comment"># scp slave.crt node1:/etc/my.cnf.d/</span></div><div class="line">slave.crt                                                                                                                                                    100% 4382     4.3KB/s   00:00    </div><div class="line"><span class="comment"># 此时主从结点的证书都已经准备好</span></div></pre></td></tr></table></figure>
-<h2 id="二、配置mariadb主从服务器"><a href="#二、配置mariadb主从服务器" class="headerlink" title="二、配置mariadb主从服务器"></a>二、配置mariadb主从服务器</h2><h3 id="1、工作拓扑图"><a href="#1、工作拓扑图" class="headerlink" title="1、工作拓扑图"></a>1、工作拓扑图</h3><p><img src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/mariadb_openssl.png" alt=""></p>
+<h2 id="二、配置mariadb主从服务器"><a href="#二、配置mariadb主从服务器" class="headerlink" title="二、配置mariadb主从服务器"></a>二、配置mariadb主从服务器</h2><h3 id="1、工作拓扑图"><a href="#1、工作拓扑图" class="headerlink" title="1、工作拓扑图"></a>1、工作拓扑图</h3><p><img src="/images/mariadb_openssl.png" alt=""></p>
 <h3 id="2、主服务器配置"><a href="#2、主服务器配置" class="headerlink" title="2、主服务器配置"></a>2、主服务器配置</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">[root@node0 ~]<span class="comment"># yum -y install mariadb</span></div><div class="line">[root@node0 my.cnf.d]<span class="comment"># vim /etc/my.cnf</span></div><div class="line">将mysqld段中的配置修改为以下内容</div><div class="line"></div><div class="line">[mysqld]</div><div class="line">datadir=/var/lib/mysql</div><div class="line">socket=/var/lib/mysql/mysql.sock</div><div class="line">symbolic-links=0</div><div class="line">innodb-file-per-table = ON</div><div class="line">skip-name-resolve = ON</div><div class="line">server-id = 1 </div><div class="line"><span class="built_in">log</span>-bin = master-log</div><div class="line">ssl</div><div class="line">ssl_ca=/etc/my.cnf.d/cacert.pem </div><div class="line">ssl_cert=/etc/my.cnf.d/master.crt</div><div class="line">ssl_key=/etc/my.cnf.d/master.key </div><div class="line">[root@node0 my.cnf.d]<span class="comment"># cp /etc/pki/CA/cacert.pem  .</span></div><div class="line">[root@node0 my.cnf.d]<span class="comment"># chown mysql.mysql cacert.pem master.*</span></div><div class="line">[root@node0 my.cnf.d]<span class="comment"># systemctl start mariadb</span></div></pre></td></tr></table></figure>
 <h3 id="3、从服务配置"><a href="#3、从服务配置" class="headerlink" title="3、从服务配置"></a>3、从服务配置</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">[root@node0 ~]<span class="comment"># yum -y install mariadb</span></div><div class="line">[root@node0 my.cnf.d]<span class="comment"># vim /etc/my.cnf</span></div><div class="line">将mysqld段中的配置修改为以下内容</div><div class="line">[mysqld]</div><div class="line">datadir=/var/lib/mysql</div><div class="line">socket=/var/lib/mysql/mysql.sock</div><div class="line">symbolic-links=0</div><div class="line">skip_name_resolve = ON </div><div class="line">relay-log = relay-log</div><div class="line">server-id = 2 注id号不能与主服务的一样</div><div class="line">ssl</div><div class="line">ssl-ca = /etc/my.cnf.d/cacert.pem</div><div class="line">ssl-cert = /etc/my.cnf.d/slave.crt</div><div class="line">ssl-key = /etc/my.cnf.d/slave.key</div><div class="line">[root@node0 my.cnf.d]<span class="comment"># scp /etc/pki/CA/cacert.pem node1:/etc/my.cnf.d/</span></div><div class="line">cacert.pem </div><div class="line">[root@node1 my.cnf.d]<span class="comment"># cd /etc/my.cnf.d/ &amp;&amp; chown mysql.mysql cacert.pem slave.*</span></div><div class="line">[root@node1 my.cnf.d]<span class="comment"># systemctl start mariadb</span></div></pre></td></tr></table></figure>
 <h3 id="4、主服务器授权一个用户可连接mysql拉取二进制文件"><a href="#4、主服务器授权一个用户可连接mysql拉取二进制文件" class="headerlink" title="4、主服务器授权一个用户可连接mysql拉取二进制文件"></a>4、主服务器授权一个用户可连接mysql拉取二进制文件</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">MariaDB [(none)]&gt; GRANT REPLICATION SLAVE,REPLICATION CLIENT ON *.* TO 'rj'@'172.16.23.11' IDENTIFIED BY 'centos.123' REQUIRE ssl;</div></pre></td></tr></table></figure>
@@ -484,14 +484,14 @@
 
     
       <div id="wechat" style="display: inline-block">
-        <img id="wechat_qr" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/weipei.png" alt="༺ 锦遥 ༻ 微信支付"/>
+        <img id="wechat_qr" src="/images/weipei.png" alt="༺ 锦遥 ༻ 微信支付"/>
         <p>微信支付</p>
       </div>
     
 
     
       <div id="alipay" style="display: inline-block">
-        <img id="alipay_qr" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/zhipei.png" alt="༺ 锦遥 ༻ 支付宝"/>
+        <img id="alipay_qr" src="/images/zhipei.png" alt="༺ 锦遥 ༻ 支付宝"/>
         <p>支付宝</p>
       </div>
     
@@ -528,9 +528,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/rhca/" rel="tag"># rhca</a>
-          
             <a href="/tags/linux/" rel="tag"># linux</a>
+          
+            <a href="/tags/rhca/" rel="tag"># rhca</a>
           
             <a href="/tags/database/" rel="tag"># database</a>
           
@@ -631,7 +631,7 @@
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <img class="site-author-image" itemprop="image"
-                src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/rjyy.ico"
+                src="/images/rjyy.ico"
                 alt="༺ 锦遥 ༻" />
             
               <p class="site-author-name" itemprop="name">༺ 锦遥 ༻</p>
@@ -670,7 +670,7 @@
 
           
             <div class="feed-link motion-element">
-              <a href="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io@master/atom.xml" rel="alternate">
+              <a href="/atom.xml" rel="alternate">
                 <i class="fa fa-rss"></i>
                 RSS
               </a>
@@ -749,7 +749,7 @@
 
 <!-- 数字雨 -->
 <canvas id="canvas" width="1440" height="1080"></canvas>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/DigitalRain.js"></script>
+<script type="text/javascript" src="/js/DigitalRain.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css"/>
     </main>
 
@@ -817,11 +817,11 @@ var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours
 }, 1000);
 </script>
 <script src="https://pv.sohu.com/cityjson?ie=utf-8"></script>
-<script src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/ip.js"></script>
+<script src="/js/ip.js"></script>
 
         
 <div class="busuanzi-count">
-  <script async src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/busuanzi.pure.mini.js"></script>
+  <script async src="/js/busuanzi.pure.mini.js"></script>
   
     <span class="site-uv">
       <i class="fa fa-user"></i> 訪客數
@@ -860,8 +860,8 @@ var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours
     
 
 <script src="/live2d-widget/autoload.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard.min.js"></script>  
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard-use.js"></script>
+<script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
+<script type="text/javascript" src="/js/src/clipboard-use.js"></script>
   </div>
 
   
@@ -928,32 +928,32 @@ var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours
   
 
 
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/utils.js?v=5.1.3"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
 
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/motion.js?v=5.1.3"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/affix.js?v=5.1.3"></script>
-
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/schemes/pisces.js?v=5.1.3"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
 
 
 
   
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/scrollspy.js?v=5.1.3"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/post-details.js?v=5.1.3"></script>
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
 
 
 
   
 
 
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/bootstrap.js?v=5.1.3"></script>
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
 
 
 
@@ -1355,7 +1355,7 @@ var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours
   <!-- 点击特效 -->
 
 
-  <script src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/activate-power-mode.min.js"></script>
+  <script src="/js/activate-power-mode.min.js"></script>
     <script>
 	    POWERMODE.colorful = true;
     POWERMODE.shake = false;
@@ -1363,11 +1363,11 @@ var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours
 	  </script>
 
 
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard.min.js"></script>  
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard-use.js"></script>
+<script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
+<script type="text/javascript" src="/js/src/clipboard-use.js"></script>
 <!--点击冒点-->
 <canvas width="1777" height="841" style="position: fixed; left: 0px; top: 0px; z-index: 2147483647; pointer-events: none;"></canvas>
-<script src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/maodian.js"></script>
+<script src="/js/maodian.js"></script>
 <canvas width="1390" height="797" style="position: fixed; left: 0px; top: 0px; z-index: 2147483647; pointer-events: none;"></canvas>
 </body>
 </html>

@@ -5,11 +5,11 @@
   
 
 <!-- 代码块复制功能 -->
-<!--<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard.min.js"></script> --> 
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard-use.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/instantclick-1.2.2.js" type="module"></script>
+<!--<script type="text/javascript" src="/js/src/clipboard.min.js"></script> --> 
+<script type="text/javascript" src="/js/src/clipboard-use.js"></script>
+<script src="/js/instantclick-1.2.2.js" type="module"></script>
 <!--崩溃欺骗-->
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/crash_cheat.js"></script>
+<script type="text/javascript" src="/js/src/crash_cheat.js"></script>
 <html class="theme-next gemini use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
@@ -82,7 +82,7 @@
 
 
 
-  <link rel="alternate" href="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io@master/atom.xml" title="逝水锦遥" type="application/atom+xml" />
+  <link rel="alternate" href="/atom.xml" title="逝水锦遥" type="application/atom+xml" />
 
 
 
@@ -97,14 +97,14 @@
 <meta property="og:site_name" content="逝水锦遥">
 <meta property="og:description" content="kvm 学习笔记 kvm相关知识梳理123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051KVM: kernel-based Virtual Machine, Qumranet 公司，依赖于HVM: Intel VT-x, ADM  ADM-V:KVM模块载入后的系统">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/kvm_study.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/qemu-kvm-cirros.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/qemu-kvm-vnc-all-port.png">
+<meta property="og:image" content="https://www.asjin.com/images/kvm_study.png">
+<meta property="og:image" content="https://www.asjin.com/images/qemu-kvm-cirros.png">
+<meta property="og:image" content="https://www.asjin.com/images/qemu-kvm-vnc-all-port.png">
 <meta property="og:updated_time" content="2019-09-11T07:32:38.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="kvm学习笔记">
 <meta name="twitter:description" content="kvm 学习笔记 kvm相关知识梳理123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051KVM: kernel-based Virtual Machine, Qumranet 公司，依赖于HVM: Intel VT-x, ADM  ADM-V:KVM模块载入后的系统">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/kvm_study.png">
+<meta name="twitter:image" content="https://www.asjin.com/images/kvm_study.png">
 
 
 
@@ -176,7 +176,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle">人间失格</p>
+        <p class="site-subtitle">渡人先渡己</p>
       
   </div>
 
@@ -446,7 +446,7 @@
       
 
       
-        <h1 id="kvm-学习笔记"><a href="#kvm-学习笔记" class="headerlink" title="kvm 学习笔记"></a>kvm 学习笔记</h1><p><img src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/kvm_study.png" alt=""></p>
+        <h1 id="kvm-学习笔记"><a href="#kvm-学习笔记" class="headerlink" title="kvm 学习笔记"></a>kvm 学习笔记</h1><p><img src="/images/kvm_study.png" alt=""></p>
 <h2 id="kvm相关知识梳理"><a href="#kvm相关知识梳理" class="headerlink" title="kvm相关知识梳理"></a>kvm相关知识梳理</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div></pre></td><td class="code"><pre><div class="line">KVM: kernel-based Virtual Machine, Qumranet 公司，依赖于HVM: Intel VT-x, ADM  ADM-V:</div><div class="line">KVM模块载入后的系统的运行模式:</div><div class="line">    内核模式: GuestOS执行I/O类操作，或其它的特殊指令的操作：称作“来宾-内核”模式;</div><div class="line">    用户模式: 代表GuestOS请求I/O类操作，宿主机用户模式;</div><div class="line">    来宾模式: GuestOS的非I/O类操作；事实上，它被称为“来宾-用户”模式。</div><div class="line">    kvm hypervisor:</div><div class="line">KVM的组件:</div><div class="line">    /dev/kvm: 工作于hypervisor,在用户空间，可通过ioctl()系统调用来完成VM创建、启动管理功能；它是一个字符设备，功能: 创建VM、为VM分配内存、读写VCPU的寄存器、向VCPU注入中断、运行VCPU等等;</div><div class="line">    qemu进程: 工作于用户空间，主要用于实现模拟PC机的IO设备;</div><div class="line">KVM特性:</div><div class="line">    内存管理: </div><div class="line">    将分配给VM的内存交换至SWAP;</div><div class="line">    支持使用Huge Page;</div><div class="line">    支持使用Intel EPT或AMD RVI技术完成内存地址映射; GVA--&gt; GPA --&gt;HPA</div><div class="line">    支持KSM(Kernel Same-page Merging)</div><div class="line">硬件支持: </div><div class="line">    取决于Linux内核</div><div class="line">存储:</div><div class="line">    本地存储:</div><div class="line">    网络附加存储:</div><div class="line">    存储区域名网络</div><div class="line">    分布式存储: 例如GlustFS</div><div class="line">实时迁移:</div><div class="line">    实时迁移:</div><div class="line">    支持的GuestOS:</div><div class="line">        Linux, Windows, OpenBSD, FreeBSD, OpenSolaris;</div><div class="line">    设备驱动：</div><div class="line">        IO设备的完全虚拟化: 模拟硬件</div><div class="line">        IO设备的半虚拟化: 在GuestOS中安装驱动: virtio </div><div class="line">            virtio-blk, virtio-net, virtio-pci,virtio-console, virtio-ballon</div><div class="line">KVM局限性:</div><div class="line">    一般局限性:</div><div class="line">             CPU overcommit</div><div class="line">            时间记录难以精确，依赖于时间同步机制</div><div class="line">    MAC地址:</div><div class="line">            VM量特别大时，存在冲突的可能性;</div><div class="line">            实时迁移:</div><div class="line">            性能局限性:</div><div class="line">KVM的工具栈</div><div class="line">    qemu:</div><div class="line">        qemu-kvm</div><div class="line">        qemu-img</div><div class="line">    libvirt</div><div class="line">        GUI: virt-manager, virt-viewer</div><div class="line">        CLI: virt-install, virsh </div><div class="line">    QEMU主要用到以下几个部分:</div><div class="line">        处理器模拟器</div><div class="line">        仿真IO设备</div><div class="line">        关联模拟的设备至真实设备;</div><div class="line">        调试器</div><div class="line">        与模拟器交互的用户接口</div></pre></td></tr></table></figure>
 <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>1、确保CPU支持HVM<br>    <code># grep -E --color=auto &quot;(vmx|svm)&quot; /proc/cpuinfo</code><br>2、装载模块<br>    <code># modeprobe kvm</code><br>    <code># modeprobe kvm-intel</code><br>3、验证 <code>/dev/kvm</code></p>
 <h2 id="管理工具栈"><a href="#管理工具栈" class="headerlink" title="管理工具栈"></a>管理工具栈</h2><p>qemu-kvm<br>libvirt<br>管理kvm虚拟的方案:<br>    <code>qemu: /usr/libexec/</code><br>    安装工具:<br>    <code>libvirt: virt-install virt-manager</code><br>    管理工具:<br>    <code>virsh virt-manager virt-viewer  VM Platform</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"># yum install qemu-kvm</div><div class="line"># ln -sv /usr/libexec/qemu-kvm  /usr/bin/</div><div class="line">命令选项 </div><div class="line">    标准选项:</div><div class="line">    显示选项:</div><div class="line">    块设备选项:</div><div class="line">    i386平台专用选项:</div><div class="line">    字符设备选项:</div><div class="line">    蓝牙设备选项:</div><div class="line">    Linux 启动专用选项:</div><div class="line">    调试/专家模式选项:</div></pre></td></tr></table></figure></p>
@@ -462,7 +462,7 @@
 <p><a href="https://launchpad.net/cirros" target="_blank" rel="external">cirros</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># qemu-kvm -m 128 -smp 2 -name &quot;test&quot; -hda /images/kvm/cirros-0.3.4-x86_64-disk.img</div><div class="line">VNC server running on `::1:5900&apos;</div></pre></td></tr></table></figure></p>
 <p>安装tigervnc </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># yum -y install tigervnc</div></pre></td></tr></table></figure>
-<p><img src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/qemu-kvm-cirros.png" alt=""></p>
+<p><img src="/images/qemu-kvm-cirros.png" alt=""></p>
 <p>用-drive指定磁盘映像文件 </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">#   qemu-kvm -m 128 -name test -smp 2 -drive  file=/images/kvm/cirros-0.3.4-x86_64-disk.img,if=virtio,media=disk,cache=writeback,fromat=qcow2</div></pre></td></tr></table></figure>
 <p>通过cdrom启动winxp的安装:</p>
@@ -485,7 +485,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"># qemu-kvm -m 128 -cpu host -smp 2 -name &quot;test&quot; -drive file=/images/kvm/cirros-0.3.4-x86_64-disk.img,if=virtio,media=disk,format=qcow2,cache=writeback</div><div class="line"># qemu-img create -o size=20G,preallocation=metadata -f qcow2 /images/winxp.qcow2</div><div class="line"># qemu-kvm -m 512 -smp 2 -cpu  host -drive file=/images/windows/winxp.qcow2,media=disk -drive file=/root/winxp_ghost.iso,media=cdrom --boot order=dc, once=d</div></pre></td></tr></table></figure>
 <p>指定vnc 桌面，如指定桌面号为1 则启用端口为5901, 若指定桌面号为0，则启用端口为5900</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># qemu-kvm -m 128 -cpu host -smp 2 -name &quot;test&quot; -drive file=/images/kvm/cirros-0.3.4-x86_64-disk.img,if=virtio,media=disk,format=qcow2,cache=writeback -vnc 0.0.0.0:1</div></pre></td></tr></table></figure>
-<p><img src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/qemu-kvm-vnc-all-port.png" alt=""></p>
+<p><img src="/images/qemu-kvm-vnc-all-port.png" alt=""></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div></pre></td><td class="code"><pre><div class="line">qemu-kvm命令</div><div class="line"></div><div class="line">在RHEL6上，qemu-kvm位于/usr/libexec目录中。由于此目录不属于PATH环境变量，故无法直接使用，这样也阻止了可以直接使用qemu作为创建并管理虚拟机。如若想使用qemu虚拟机，可以通过将/usr/libexec/qemu-kvm链接为/usr/bin/qemu实现。</div><div class="line"></div><div class="line"># ln  -sv  /usr/lib/exec/qemu-kvm  /usr/bin/qemu-kvm</div><div class="line"></div><div class="line">qemu-kvm命令使用格式为“qemu-kvm  [options]  [disk_image]”，其选项非常多，不过，大致可分为如下几类。</div><div class="line"></div><div class="line">👉🏾	标准选项；</div><div class="line">👉🏾	USB选项；</div><div class="line">👉🏾	显示选项；</div><div class="line">👉🏾	i386平台专用选项；</div><div class="line">👉🏾	网络选项；</div><div class="line">👉🏾	字符设备选项；</div><div class="line">👉🏾	蓝牙相关选项；</div><div class="line">👉🏾	Linux系统引导专用选项；</div><div class="line">👉🏾	调试/专家模式选项；</div><div class="line">👉🏾	PowerPC专用选项；</div><div class="line">👉🏾	Sparc32专用选项；</div><div class="line"></div><div class="line">考虑到篇幅及使用需要，这里介绍的选项主要涉及到标准选项、显示选项、i386平台专用选项及Linux系统引导专用选项等相关的选项。</div><div class="line"></div><div class="line">qemu-kvm的标准选项</div><div class="line"></div><div class="line">qemu-kvm的标准选项主要涉及指定主机类型、CPU模式、NUMA、软驱设备、光驱设备及硬件设备等。</div><div class="line">👉🏾	-name name：设定虚拟机名称；</div><div class="line">👉🏾	-M machine：指定要模拟的主机类型，如Standard PC、ISA-only PC或Intel-Mac等，可以使用“qemu-kvm -M ?”获取所支持的所有类型；</div><div class="line">👉🏾	-m megs：设定虚拟机的RAM大小；</div><div class="line">👉🏾	-cpu model：设定CPU模型，如coreduo、qemu64等，可以使用“qemu-kvm -cpu ?”获取所支持的所有模型；</div><div class="line">👉🏾	-smp n[,cores=cores][,threads=threads][,sockets=sockets][,maxcpus=maxcpus]：设定模拟的SMP架构中CPU的个数等、每个CPU的核心数及CPU的socket数目等；PC机上最多可以模拟255颗CPU；maxcpus用于指定热插入的CPU个数上限；</div><div class="line">👉🏾	-numa opts：指定模拟多节点的numa设备；</div><div class="line">👉🏾	-fda file</div><div class="line">👉🏾	-fdb file：使用指定文件(file)作为软盘镜像，file为/dev/fd0表示使用物理软驱；</div><div class="line">👉🏾	-hda file</div><div class="line">👉🏾	-hdb file</div><div class="line">👉🏾	-hdc file</div><div class="line">👉🏾	-hdd file：使用指定file作为硬盘镜像；</div><div class="line">👉🏾	-cdrom file：使用指定file作为CD-ROM镜像，需要注意的是-cdrom和-hdc不能同时使用；将file指定为/dev/cdrom可以直接使用物理光驱；</div><div class="line">👉🏾	-drive option[,option[,option[,...]]]：定义一个硬盘设备；可用子选项有很多。</div><div class="line">👉🏾	file=/path/to/somefile：硬件映像文件路径；</div><div class="line">👉🏾	if=interface：指定硬盘设备所连接的接口类型，即控制器类型，如ide、scsi、sd、mtd、floppy、pflash及virtio等；</div><div class="line">👉🏾	index=index：设定同一种控制器类型中不同设备的索引号，即标识号；</div><div class="line">👉🏾	media=media：定义介质类型为硬盘(disk)还是光盘(cdrom)；</div><div class="line">👉🏾	snapshot=snapshot：指定当前硬盘设备是否支持快照功能：on或off；</div><div class="line">👉🏾	cache=cache：定义如何使用物理机缓存来访问块数据，其可用值有none、writeback、unsafe和writethrough四个；</div><div class="line">👉🏾	format=format：指定映像文件的格式，具体格式可参见qemu-img命令；</div><div class="line">👉🏾	-boot [order=drives][,once=drives][,menu=on|off]：定义启动设备的引导次序，每种设备使用一个字符表示；不同的架构所支持的设备及其表示字符不尽相同，在x86 PC架构上，a、b表示软驱、c表示第一块硬盘，d表示第一个光驱设备，n-p表示网络适配器；默认为硬盘设备；</div><div class="line">	-boot order=dc,once=d</div><div class="line"></div><div class="line">qemu-kvm的显示选项</div><div class="line"></div><div class="line">显示选项用于定义虚拟机启动后的显示接口相关类型及属性等。</div><div class="line"></div><div class="line">👉🏾	-nographic：默认情况下，qemu使用SDL来显示VGA输出；而此选项用于禁止图形接口，此时,qemu类似一个简单的命令行程序，其仿真串口设备将被重定向到控制台；</div><div class="line">👉🏾	-curses：禁止图形接口，并使用curses/ncurses作为交互接口；</div><div class="line">👉🏾	-alt-grab：使用Ctrl+Alt+Shift组合键释放鼠标；</div><div class="line">👉🏾	-ctrl-grab：使用右Ctrl键释放鼠标；</div><div class="line">👉🏾	-sdl：启用SDL；</div><div class="line">👉🏾	-spice option[,option[,...]]：启用spice远程桌面协议；其有许多子选项，具体请参照qemu-kvm的手册；</div><div class="line">👉🏾	-vga type：指定要仿真的VGA接口类型，常见类型有：</div><div class="line">👉🏾	cirrus：Cirrus Logic GD5446显示卡；</div><div class="line">👉🏾	std：带有Bochs VBI扩展的标准VGA显示卡；</div><div class="line">👉🏾	vmware：VMWare SVGA-II兼容的显示适配器；</div><div class="line">👉🏾	qxl：QXL半虚拟化显示卡；与VGA兼容；在Guest中安装qxl驱动后能以很好的方式工作，在使用spice协议时推荐使用此类型；</div><div class="line">👉🏾	none：禁用VGA卡；</div><div class="line">👉🏾	-vnc display[,option[,option[,...]]]：默认情况下，qemu使用SDL显示VGA输出；使用-vnc选项，可以让qemu监听在VNC上，并将VGA输出重定向至VNC会话；使用此选项时，必须使用-k选项指定键盘布局类型；其有许多子选项，具体请参照qemu-kvm的手册；</div><div class="line"></div><div class="line">	display:</div><div class="line">		（1）host:N</div><div class="line">			172.16.100.7:1, 监听于172.16.100.7主的5900+N的端口上</div><div class="line">		(2) unix:/path/to/socket_file</div><div class="line">		(3) none</div><div class="line">	options:</div><div class="line">		password: 连接时需要验正密码；设定密码通过monitor接口使用change</div><div class="line">		reverse: “反向”连接至某处于监听状态的vncview上；</div><div class="line">	-monitor stdio：表示在标准输入输出上显示monitor界面</div><div class="line">	-nographic</div><div class="line">		Ctrl-a, c: 在console和monitor之间切换</div><div class="line">		Ctrl-a, h: 显示帮助信息</div><div class="line">SDL: Simple Directmedia Layer</div><div class="line">VNC: Virtual Network Computing，基于RFB</div></pre></td></tr></table></figure>
 <p><code># rpm -ql bridge-utils</code></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"># brctl addbr br0</div><div class="line"># brctl stp br0 off</div><div class="line"># brctl delbr br0</div><div class="line"># brctl show</div><div class="line"># ip link set dev br0 down</div><div class="line"># ip link set dev br0 up</div><div class="line"># ip link show</div><div class="line"># 临时生效</div></pre></td></tr></table></figure>
@@ -524,14 +524,14 @@
 
     
       <div id="wechat" style="display: inline-block">
-        <img id="wechat_qr" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/weipei.png" alt="༺ 锦遥 ༻ 微信支付"/>
+        <img id="wechat_qr" src="/images/weipei.png" alt="༺ 锦遥 ༻ 微信支付"/>
         <p>微信支付</p>
       </div>
     
 
     
       <div id="alipay" style="display: inline-block">
-        <img id="alipay_qr" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/zhipei.png" alt="༺ 锦遥 ༻ 支付宝"/>
+        <img id="alipay_qr" src="/images/zhipei.png" alt="༺ 锦遥 ༻ 支付宝"/>
         <p>支付宝</p>
       </div>
     
@@ -671,7 +671,7 @@
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <img class="site-author-image" itemprop="image"
-                src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/rjyy.ico"
+                src="/images/rjyy.ico"
                 alt="༺ 锦遥 ༻" />
             
               <p class="site-author-name" itemprop="name">༺ 锦遥 ༻</p>
@@ -710,7 +710,7 @@
 
           
             <div class="feed-link motion-element">
-              <a href="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io@master/atom.xml" rel="alternate">
+              <a href="/atom.xml" rel="alternate">
                 <i class="fa fa-rss"></i>
                 RSS
               </a>
@@ -789,7 +789,7 @@
 
 <!-- 数字雨 -->
 <canvas id="canvas" width="1440" height="1080"></canvas>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/DigitalRain.js"></script>
+<script type="text/javascript" src="/js/DigitalRain.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css"/>
     </main>
 
@@ -857,11 +857,11 @@ var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours
 }, 1000);
 </script>
 <script src="https://pv.sohu.com/cityjson?ie=utf-8"></script>
-<script src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/ip.js"></script>
+<script src="/js/ip.js"></script>
 
         
 <div class="busuanzi-count">
-  <script async src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/busuanzi.pure.mini.js"></script>
+  <script async src="/js/busuanzi.pure.mini.js"></script>
   
     <span class="site-uv">
       <i class="fa fa-user"></i> 訪客數
@@ -900,8 +900,8 @@ var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours
     
 
 <script src="/live2d-widget/autoload.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard.min.js"></script>  
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard-use.js"></script>
+<script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
+<script type="text/javascript" src="/js/src/clipboard-use.js"></script>
   </div>
 
   
@@ -968,32 +968,32 @@ var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours
   
 
 
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/utils.js?v=5.1.3"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
 
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/motion.js?v=5.1.3"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/affix.js?v=5.1.3"></script>
-
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/schemes/pisces.js?v=5.1.3"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
 
 
 
   
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/scrollspy.js?v=5.1.3"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/post-details.js?v=5.1.3"></script>
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
 
 
 
   
 
 
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/bootstrap.js?v=5.1.3"></script>
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
 
 
 
@@ -1395,7 +1395,7 @@ var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours
   <!-- 点击特效 -->
 
 
-  <script src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/activate-power-mode.min.js"></script>
+  <script src="/js/activate-power-mode.min.js"></script>
     <script>
 	    POWERMODE.colorful = true;
     POWERMODE.shake = false;
@@ -1403,11 +1403,11 @@ var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours
 	  </script>
 
 
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard.min.js"></script>  
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard-use.js"></script>
+<script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
+<script type="text/javascript" src="/js/src/clipboard-use.js"></script>
 <!--点击冒点-->
 <canvas width="1777" height="841" style="position: fixed; left: 0px; top: 0px; z-index: 2147483647; pointer-events: none;"></canvas>
-<script src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/maodian.js"></script>
+<script src="/js/maodian.js"></script>
 <canvas width="1390" height="797" style="position: fixed; left: 0px; top: 0px; z-index: 2147483647; pointer-events: none;"></canvas>
 </body>
 </html>
