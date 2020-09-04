@@ -98,7 +98,16 @@
 <meta property="og:description" content="python高阶函数和装饰器二 练习1. 把一个字典扁平化 源字典{&amp;#39;a&amp;#39;:{&amp;#39;b&amp;#39;:1,&amp;#39;c&amp;#39;:2},&amp;#39;d&amp;#39;:{&amp;#39;e&amp;#39;:3,&amp;#39;f&amp;#39;:{&amp;#39;g&amp;#39;:4}}}  1234567891011121314#!/usr/bin/env pythonsource = &amp;#123;&apos;a&apos;:&amp;#123;&apos;">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/python_function.png">
-<meta property="og:updated_time" content="2020-09-03T08:18:13.000Z">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/erchashu001.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/erchashu002.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/erchashu003.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/erchashu004.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/erchashu005.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/dadingdui001.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/xiaodingdui001.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/heap_sort001.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/goujiandadui001.png">
+<meta property="og:updated_time" content="2020-09-04T02:49:55.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python高阶函数函数和装饰器二">
 <meta name="twitter:description" content="python高阶函数和装饰器二 练习1. 把一个字典扁平化 源字典{&amp;#39;a&amp;#39;:{&amp;#39;b&amp;#39;:1,&amp;#39;c&amp;#39;:2},&amp;#39;d&amp;#39;:{&amp;#39;e&amp;#39;:3,&amp;#39;f&amp;#39;:{&amp;#39;g&amp;#39;:4}}}  1234567891011121314#!/usr/bin/env pythonsource = &amp;#123;&apos;a&apos;:&amp;#123;&apos;">
@@ -407,7 +416,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.5k
+                  2.7k
                 </span>
               
 
@@ -423,7 +432,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  6
+                  11
                 </span>
               
             </div>
@@ -513,6 +522,210 @@
 </table>
 <p>上面都是s1的索引<br>看与斜对角线平行的线，这个线是穿过1的，那么最长的就是最长子串;<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">print(s1[<span class="number">3</span>:<span class="number">3</span>+<span class="number">3</span>])</div><div class="line">print(s1[<span class="number">0</span>:<span class="number">0</span>+<span class="number">4</span>])最长</div></pre></td></tr></table></figure></p>
 <p>矩阵求法还fdms一个字符扫描最子子串的过程，扫描的过程就是<code>len(s1) len(s2)次，0(nm)</code><br>有办法一遍循环就找出最长的子串吗？<br><code>0001000</code>第一行，索引为3,0;<br>第二行的时候如果4,1是1，就判断3,0是否为1，为1就把3,0加1;<br>第二行的进修如果5,2是1，就判断4,1是否为1，是1就加1，再就判断3,0是否为1，为1就把3,0加1;</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>S1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>s1</td>
+<td>0003000</td>
+</tr>
+<tr>
+<td>s1</td>
+<td>0000200</td>
+</tr>
+<tr>
+<td>s1</td>
+<td>0000010</td>
+</tr>
+<tr>
+<td>s1</td>
+<td>4000000</td>
+</tr>
+<tr>
+<td>s1</td>
+<td>0300000</td>
+</tr>
+<tr>
+<td>s1</td>
+<td>0020000</td>
+</tr>
+<tr>
+<td>s1</td>
+<td>0001000</td>
+</tr>
+</tbody>
+</table>
+<p>上面的方法是个递归问题，不好。<br>最后在矩阵中找到最大的元素，从它开始就能写出最长的子串了。<br>但是这个不好算，因为是逆推的，改为顺推。</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>s1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>S1</td>
+<td>0001000</td>
+</tr>
+<tr>
+<td>s1</td>
+<td>0000200</td>
+</tr>
+<tr>
+<td>s1</td>
+<td>0000030</td>
+</tr>
+<tr>
+<td>s1</td>
+<td>1000000</td>
+</tr>
+<tr>
+<td>s1</td>
+<td>0200000</td>
+</tr>
+<tr>
+<td>s1</td>
+<td>0030000</td>
+</tr>
+<tr>
+<td>s1</td>
+<td>0004000</td>
+</tr>
+</tbody>
+</table>
+<p>顺推的意思，就是如果找到一个就看前一个的数字是几，然后在它的基础上加1。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">s1 = <span class="string">'abcdefg'</span></div><div class="line">s2 = <span class="string">'defabcd'</span></div><div class="line">s2 = <span class="string">'defabcdoabcdeftw'</span></div><div class="line">s3 = <span class="string">'1234a'</span></div><div class="line">s4 = <span class="string">'5678'</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">findit</span><span class="params">(str1,str2)</span>:</span></div><div class="line">    matrix = []</div><div class="line">    <span class="comment"># 从x轴或者y轴取都可以，选择x轴，xmax和xindex</span></div><div class="line">    xmax = <span class="number">0</span></div><div class="line">    xindex = <span class="number">0</span></div><div class="line"></div><div class="line">    <span class="keyword">for</span> i,x <span class="keyword">in</span> enumerate(str2):</div><div class="line">        matrix.append([])</div><div class="line">        <span class="keyword">for</span> j,y <span class="keyword">in</span> enumerate(str1):</div><div class="line">            <span class="keyword">if</span> x !=y :</div><div class="line">                matrix[i].append(<span class="number">0</span>)</div><div class="line">            <span class="keyword">else</span>:</div><div class="line">                <span class="keyword">if</span> x == <span class="number">0</span> <span class="keyword">or</span> y ==<span class="number">0</span>: <span class="comment"># 在边上</span></div><div class="line">                    matrix[i].append(<span class="number">1</span>)</div><div class="line">                <span class="keyword">else</span>: <span class="comment"># 不在边上</span></div><div class="line">                    matrix[i].append(matrix[i<span class="number">-1</span>][j<span class="number">-1</span>]+<span class="number">1</span>)</div><div class="line"></div><div class="line">                <span class="keyword">if</span> matrix[i][j] &gt; xmax: <span class="comment"># 判断当前加入的值和记录的最大值比较</span></div><div class="line">                    xmax =  matrix[i][j]<span class="comment"># 记录最大值，用于下次比较</span></div><div class="line">                    xindex = j          <span class="comment"># 记录当前值的x轴偏移量</span></div><div class="line">                    xindex += <span class="number">1</span>         <span class="comment"># 切片的时候不包，因此+1</span></div><div class="line">    <span class="keyword">return</span> str1[xindex - xmax: xindex]<span class="comment"># xmax 正好是子串的长度</span></div><div class="line"></div><div class="line">print(findit(s1,s2))</div><div class="line">print(findit(s1,s3)) <span class="comment">#a</span></div><div class="line">print(findit(s1,s4)) <span class="comment">#空串</span></div><div class="line"><span class="comment"># 输出</span></div><div class="line">abcdef</div><div class="line">a</div></pre></td></tr></table></figure>
+<h2 id="Python树的遍历和堆排序"><a href="#Python树的遍历和堆排序" class="headerlink" title="Python树的遍历和堆排序"></a>Python树的遍历和堆排序</h2><h3 id="二叉树的遍历"><a href="#二叉树的遍历" class="headerlink" title="二叉树的遍历"></a>二叉树的遍历</h3><ul>
+<li>遍历: 迭代所有元素一遍;</li>
+<li><p>树的遍历: 对树中的所有元素不重复地访问一遍，也称作扫描;</p>
+</li>
+<li><p>广度优先遍历</p>
+</li>
+</ul>
+<ol>
+<li>层序遍历</li>
+</ol>
+<ul>
+<li>深度优先遍历</li>
+</ul>
+<ol>
+<li>前序遍历</li>
+<li>中序遍历</li>
+<li>后序遍历</li>
+</ol>
+<ul>
+<li><p>遍历序列: 将树中的所有元素遍历一遍后，得到的无素的序列。将层次结构转换成了线性结构;</p>
+</li>
+<li><p>层序遍历</p>
+</li>
+</ul>
+<ol>
+<li>按照树的层次，从第一层开始，自左向右的遍历元素;</li>
+<li><p>遍历序列<br> ABCDEFGHI</p>
+<p> <img src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/erchashu001.png" alt=""></p>
+</li>
+</ol>
+<ul>
+<li>深度优先遍历</li>
+</ul>
+<ol>
+<li>设树的根结点为D，左子树为L，右子树为R，且要求L一定在R之前，则有下面几种遍历方式:</li>
+<li>前序遍历，也叫先序遍历，也叫先根遍历，DLR;</li>
+<li>中序遍历，也叫中根遍历， LDR;</li>
+<li>后序遍历，也叫后根遍历，LRD;</li>
+</ol>
+<p>二叉树的遍历</p>
+<ul>
+<li>前序遍历DLR</li>
+</ul>
+<ol>
+<li>从根结点开始，先左子树后右子树;</li>
+<li>每个子树内部依然是先根结点，再左子树后右子树，递归遍历;</li>
+<li>遍历序列;<br> A BDGH CEIF</li>
+</ol>
+<p><img src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/erchashu002.png" alt=""></p>
+<ul>
+<li>中序遍历LDR</li>
+</ul>
+<ol>
+<li>从根结点的左子树开始遍历，然后是根结点，再右子树；</li>
+<li>每个子树内部，也是先左子树，后根结点，再右子树。递归遍历;</li>
+<li>遍历序列;</li>
+</ol>
+<p>GDHB A IECF</p>
+<p><img src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/erchashu003.png" alt=""></p>
+<p>GDHB A EICF</p>
+<p><img src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/erchashu004.png" alt=""></p>
+<ul>
+<li>后序遍历LRD</li>
+</ul>
+<ol>
+<li>先左子树，后右子树，再根结点;</li>
+<li>每个子树内部依然是先左子树，后右子树，再根结点。递归遍历;</li>
+<li>遍历序列;</li>
+</ol>
+<p>GHDB IEFC A </p>
+<p><img src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/erchashu005.png" alt=""></p>
+<h4 id="堆排序Heap-Sort"><a href="#堆排序Heap-Sort" class="headerlink" title="堆排序Heap Sort"></a>堆排序Heap Sort</h4><ul>
+<li>堆Heap</li>
+</ul>
+<ol>
+<li>堆是一个完全二叉树;</li>
+<li>每个非叶子结点都要大于或者等于其左右孩子结点的值称为大顶堆;</li>
+<li>每个非叶子结点都要小于或者等于其左右孩子结点的值称为小顶堆;</li>
+<li>根结点一定是大顶堆中的最大值，一定是小顶堆中的最小值;</li>
+</ol>
+<ul>
+<li>大顶堆</li>
+</ul>
+<ol>
+<li>完全二叉树的每个非叶子结点都要大于或者等于其左右孩子结点的值称为大顶堆;</li>
+<li>根结点一定是大顶堆中的最大值;</li>
+</ol>
+<p><img src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/dadingdui001.png" alt=""></p>
+<ul>
+<li>小顶堆</li>
+</ul>
+<ol>
+<li>完全二叉树的每个非叶子结点都要小于或者等于其左右孩子结点的值称为小顶堆;</li>
+<li>根结点一定是小顶堆的最小值;</li>
+</ol>
+<p><img src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/xiaodingdui001.png" alt=""></p>
+<ul>
+<li>构建完全二叉树</li>
+</ul>
+<ol>
+<li>待排序数字为 30,20,80,40,50,10,60,70,90;</li>
+<li>构建一个完全二叉存放数据，并根据性质5对元素编号，放入顺序的数据结构中;</li>
+<li>构建一个列表为[0,30,20,80,40,50,10,60,70,90]</li>
+</ol>
+<p><img src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/heap_sort001.png" alt=""></p>
+<ul>
+<li>构建大顶堆–核心算法</li>
+</ul>
+<ol>
+<li>度数为2的结点A, 如果它的左右孩子结点的最大值比它大的，将这个最大值和该结点交换;</li>
+<li>度数为1的结点A, 如果它的左孩子的值在于它，则交换;</li>
+<li>如果结点A被交换到新的位置，还需要和其孩子结点重复上面的过程;</li>
+</ol>
+<p><img src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/goujiandadui001.png" alt=""></p>
+<ul>
+<li>构建大顶堆–起点结点的选择;</li>
+</ul>
+<ol>
+<li>从完全二叉树的最后一个结点的双亲结点开始，即最后一层的最右边叶子结点的父结点开始;</li>
+<li>结点数为n，则起始结点的编号n//2</li>
+</ol>
+<ul>
+<li>构建大顶堆–下一个结点的把选择</li>
+<li>从起始结点开始向左找其同层结点，到头后再从上一层的最右边结开始继续向左逐个查找，下直到根结点;</li>
+</ul>
 
       
     </div>
@@ -773,7 +986,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#python高阶函数和装饰器二"><span class="nav-number">1.</span> <span class="nav-text">python高阶函数和装饰器二</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#练习"><span class="nav-number">1.1.</span> <span class="nav-text">练习</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-把一个字典扁平化"><span class="nav-number">1.1.1.</span> <span class="nav-text">1. 把一个字典扁平化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-实现Base64编码"><span class="nav-number">1.1.2.</span> <span class="nav-text">2. 实现Base64编码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-求2个字符串的最长公共子串"><span class="nav-number">1.1.3.</span> <span class="nav-text">3. 求2个字符串的最长公共子串</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#python高阶函数和装饰器二"><span class="nav-number">1.</span> <span class="nav-text">python高阶函数和装饰器二</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#练习"><span class="nav-number">1.1.</span> <span class="nav-text">练习</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-把一个字典扁平化"><span class="nav-number">1.1.1.</span> <span class="nav-text">1. 把一个字典扁平化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-实现Base64编码"><span class="nav-number">1.1.2.</span> <span class="nav-text">2. 实现Base64编码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-求2个字符串的最长公共子串"><span class="nav-number">1.1.3.</span> <span class="nav-text">3. 求2个字符串的最长公共子串</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Python树的遍历和堆排序"><span class="nav-number">1.2.</span> <span class="nav-text">Python树的遍历和堆排序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#二叉树的遍历"><span class="nav-number">1.2.1.</span> <span class="nav-text">二叉树的遍历</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#堆排序Heap-Sort"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">堆排序Heap Sort</span></a></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -812,7 +1025,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">192k</span>
+    <span title="Site words total count">193.2k</span>
   
   <span>   |   </span>
 <span id="showDays"></span>
