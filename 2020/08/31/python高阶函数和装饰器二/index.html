@@ -107,7 +107,10 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/xiaodingdui001.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/heap_sort001.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/goujiandadui001.png">
-<meta property="og:updated_time" content="2020-09-04T02:59:12.000Z">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/dadingdui-sort.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/dadingdui-sort-001.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/dadingdui_sort003.png">
+<meta property="og:updated_time" content="2020-09-06T05:34:32.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python高阶函数函数和装饰器二">
 <meta name="twitter:description" content="python高阶函数和装饰器二 练习1. 把一个字典扁平化 源字典{&amp;#39;a&amp;#39;:{&amp;#39;b&amp;#39;:1,&amp;#39;c&amp;#39;:2},&amp;#39;d&amp;#39;:{&amp;#39;e&amp;#39;:3,&amp;#39;f&amp;#39;:{&amp;#39;g&amp;#39;:4}}}  1234567891011121314#!/usr/bin/env pythonsource = &amp;#123;&apos;a&apos;:&amp;#123;&apos;">
@@ -416,7 +419,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2.7k
+                  2.8k
                 </span>
               
 
@@ -725,8 +728,29 @@
 <ul>
 <li>构建大顶堆–下一个结点的把选择</li>
 <li>从起始结点开始向左找其同层结点，到头后再从上一层的最右边结开始继续向左逐个查找，下直到根结点;</li>
+<li><p>大顶堆的目标</p>
+<p>确保每个结点的都比左右右结点的值大;</p>
+</li>
+<li><p>排序</p>
+</li>
 </ul>
-
+<ol>
+<li><p>将大顶堆根结点这个最大值和最后一个叶子结点交换，那么最后一个叶子结点就是最大值，将这个叶子结点排除在待排序结点之后;</p>
+</li>
+<li><p>从根结点开始(新的结点)，重新调整为大顶堆后，重复上一步;</p>
+</li>
+</ol>
+<p><img src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/dadingdui-sort.png" alt=""></p>
+<ul>
+<li>排序</li>
+</ul>
+<ol>
+<li>堆顶和最后一个结点交换，并排除最后一个结点;</li>
+</ol>
+<p><img src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/dadingdui-sort-001.png" alt=""></p>
+<p><img src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/dadingdui_sort003.png" alt=""></p>
+<h4 id="练习-1"><a href="#练习-1" class="headerlink" title="练习"></a>练习</h4><p>打印一个树</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">origin = [<span class="number">30</span>,<span class="number">20</span>,<span class="number">80</span>,<span class="number">40</span>,<span class="number">50</span>,<span class="number">10</span>,<span class="number">60</span>,<span class="number">70</span>,<span class="number">90</span>]</div><div class="line">                                <span class="number">30</span></div><div class="line">                        <span class="number">20</span>                  <span class="number">80</span></div><div class="line">                <span class="number">40</span>              <span class="number">50</span>  <span class="number">10</span>              <span class="number">60</span></div><div class="line">        <span class="number">70</span>              <span class="number">90</span></div></pre></td></tr></table></figure>
       
     </div>
     
@@ -814,6 +838,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/09/04/docs/15992034517548/" rel="prev" title="">
+                 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -903,7 +931,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">77</span>
+                  <span class="site-state-item-count">78</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -986,7 +1014,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#python高阶函数和装饰器二"><span class="nav-number">1.</span> <span class="nav-text">python高阶函数和装饰器二</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#练习"><span class="nav-number">1.1.</span> <span class="nav-text">练习</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-把一个字典扁平化"><span class="nav-number">1.1.1.</span> <span class="nav-text">1. 把一个字典扁平化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-实现Base64编码"><span class="nav-number">1.1.2.</span> <span class="nav-text">2. 实现Base64编码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-求2个字符串的最长公共子串"><span class="nav-number">1.1.3.</span> <span class="nav-text">3. 求2个字符串的最长公共子串</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Python树的遍历和堆排序"><span class="nav-number">1.2.</span> <span class="nav-text">Python树的遍历和堆排序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#二叉树的遍历"><span class="nav-number">1.2.1.</span> <span class="nav-text">二叉树的遍历</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#堆排序Heap-Sort"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">堆排序Heap Sort</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#python高阶函数和装饰器二"><span class="nav-number">1.</span> <span class="nav-text">python高阶函数和装饰器二</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#练习"><span class="nav-number">1.1.</span> <span class="nav-text">练习</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-把一个字典扁平化"><span class="nav-number">1.1.1.</span> <span class="nav-text">1. 把一个字典扁平化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-实现Base64编码"><span class="nav-number">1.1.2.</span> <span class="nav-text">2. 实现Base64编码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-求2个字符串的最长公共子串"><span class="nav-number">1.1.3.</span> <span class="nav-text">3. 求2个字符串的最长公共子串</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Python树的遍历和堆排序"><span class="nav-number">1.2.</span> <span class="nav-text">Python树的遍历和堆排序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#二叉树的遍历"><span class="nav-number">1.2.1.</span> <span class="nav-text">二叉树的遍历</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#堆排序Heap-Sort"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">堆排序Heap Sort</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#练习-1"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">练习</span></a></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -1025,7 +1053,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">193.2k</span>
+    <span title="Site words total count">193.3k</span>
   
   <span>   |   </span>
 <span id="showDays"></span>
