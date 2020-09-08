@@ -30,13 +30,6 @@
     </url>
 
     <url>
-        <loc>https://www.asjin.com/tags/renjin/</loc>
-        <lastmod>2020-08-10T13:13:49.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://www.asjin.com/tags/linux/</loc>
         <lastmod>2020-09-07T13:40:24.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -46,6 +39,13 @@
     <url>
         <loc>https://www.asjin.com/tags/program/</loc>
         <lastmod>2020-09-07T13:40:24.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.asjin.com/tags/renjin/</loc>
+        <lastmod>2020-09-08T03:32:54.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
