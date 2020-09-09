@@ -98,7 +98,7 @@
 <meta property="og:description" content="python高阶函数和装饰器三 函数定义的弊端 Python 是动态语言，变量随时可以被赋值，且能赋值为不同的类型; Python 不是表态编译型语言，变量类型是在运行时决定的; 动态语言很灵活，但是这种我也是弊端;  12345678In [1]: def add(x,y):   ...:     return x + yIn [2]: print(add(4,5))9In [3]: print">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/python_function.png">
-<meta property="og:updated_time" content="2020-09-07T13:40:24.000Z">
+<meta property="og:updated_time" content="2020-09-08T11:54:07.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python高阶函数函数和装饰器三">
 <meta name="twitter:description" content="python高阶函数和装饰器三 函数定义的弊端 Python 是动态语言，变量随时可以被赋值，且能赋值为不同的类型; Python 不是表态编译型语言，变量类型是在运行时决定的; 动态语言很灵活，但是这种我也是弊端;  12345678In [1]: def add(x,y):   ...:     return x + yIn [2]: print(add(4,5))9In [3]: print">
@@ -407,7 +407,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  319
+                  963
                 </span>
               
 
@@ -423,7 +423,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  4
                 </span>
               
             </div>
@@ -473,7 +473,32 @@
 <ul>
 <li>变量注解<br>  Pyton3.6引入<br>  <code>i:int =3</code></li>
 </ul>
-
+<h3 id="业务应用"><a href="#业务应用" class="headerlink" title="业务应用"></a>业务应用</h3><pre><code>* 函数参数类型检查
+* 思路
+</code></pre><ol>
+<li>函数参数的检查，一定是在函数外;</li>
+<li>函数应该作为参数，传入到检查函数中;</li>
+<li>检查函数拿到函数传的实际参数，与形参声明对比;</li>
+<li><code>__annotations__</code>属jntg是一个字典，其中包括返回值类型的声明。假设要做位置参数的判断，无法和字典中的声明对应，使用inpsect 模块;</li>
+<li><code>inspect</code>模块: 提供获取对象信息的函数，可以检查函数和类、类型检查;</li>
+</ol>
+<h3 id="inspect-模块"><a href="#inspect-模块" class="headerlink" title="inspect 模块"></a>inspect 模块</h3><p><code>signature(callable)</code>，获取签名(函数签名包含了一个函数的信息，包括函数名，它的参数类型、它所在的类和名称空间及其他信息)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> inspect</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">add</span><span class="params">(x:int,y:int,*args,**kwargs)</span>-&gt;int:</span></div><div class="line">    <span class="keyword">return</span> x+y</div><div class="line">sig = inspect.signature(add)</div><div class="line">print(sig)</div><div class="line">print(<span class="string">'params:'</span>,sig.parameters) <span class="comment"># OrderedDict</span></div><div class="line">print(<span class="string">'return:'</span>,sig.return_annotation)</div><div class="line">print(sig.parameters[<span class="string">'y'</span>])</div><div class="line">print(sig.parameters[<span class="string">'x'</span>].annotation)</div><div class="line">print(sig.parameters[<span class="string">'args'</span>])</div><div class="line">print(sig.parameters[<span class="string">'args'</span>].annotation)</div><div class="line">print(sig.parameters[<span class="string">'kwargs'</span>])</div><div class="line">print(sig.parameters[<span class="string">'kwargs'</span>].annotation)</div><div class="line"><span class="comment"># 输出信息</span></div><div class="line">(x: int, y: int, *args, **kwargs) -&gt; int</div><div class="line">params: OrderedDict([(<span class="string">'x'</span>, &lt;Parameter <span class="string">"x: int"</span>&gt;), (<span class="string">'y'</span>, &lt;Parameter <span class="string">"y: int"</span>&gt;), (<span class="string">'args'</span>, &lt;Parameter <span class="string">"*args"</span>&gt;), (<span class="string">'kwargs'</span>, &lt;Parameter <span class="string">"**kwargs"</span>&gt;)])</div><div class="line"><span class="keyword">return</span>: &lt;<span class="class"><span class="keyword">class</span> '<span class="title">int</span>'&gt;</span></div><div class="line"><span class="class"><span class="title">y</span>:</span> int</div><div class="line">&lt;<span class="class"><span class="keyword">class</span> '<span class="title">int</span>'&gt;</span></div><div class="line"><span class="class">*<span class="title">args</span></span></div><div class="line"><span class="class">&lt;<span class="title">class</span> '<span class="title">inspect</span>.<span class="title">_empty</span>'&gt;</span></div><div class="line"><span class="class">**<span class="title">kwargs</span></span></div><div class="line"><span class="class">&lt;<span class="title">class</span> '<span class="title">inspect</span>.<span class="title">_empty</span>'&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">inspect.isfunction(add) <span class="comment"># 是否是函数</span></div><div class="line">inspect.ismethod(add) <span class="comment"># 是否是类的方法</span></div><div class="line">inspect.isgenerator(add) <span class="comment"># 是否是生成器对象</span></div><div class="line">inspect.isgenratorfunction(add)<span class="comment"># 是否是生成器函数</span></div><div class="line">inspect.isclass(add) <span class="comment"># 是否是类</span></div><div class="line">inspect.ismodule(inspect) <span class="comment">#是否是模块</span></div><div class="line">inspect.isbuiltin(<span class="keyword">print</span>) <span class="comment">#是否是内建对象</span></div><div class="line"><span class="comment"># 还很多is函数，需要的时候查阅inpect模块帮助</span></div></pre></td></tr></table></figure>
+<ul>
+<li>Parameter对象</li>
+</ul>
+<ol>
+<li>保存在元组中，是只读的;</li>
+<li>name, 参数的名字;</li>
+<li>annotation，参数的注解，可能没有定义;</li>
+<li>default，参数的缺省值，可能没有定义;</li>
+<li>empty, 特殊的类，用来标记default属性或者注释annotation属性的空值;</li>
+<li><p>kind，实参如何绑定到形参，就是形参的类型;</p>
+<p> <code>POSITIONAL_ONLY</code>, 值必须是位置参数提供;<br> <code>VAR_POSITIONAL</code>, 可变位置参数,对应<code>*args</code>;<br> <code>KEKWORD_ONLY</code>, keyword-only参数，对应* 或者*args之后的出现的非可变关键字参数;<br> <code>VAR_KEYWORD</code>, 可变关键字参数, 对应<code>**kwargs</code></p>
+</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> inspect</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">add</span><span class="params">(x, y:int=<span class="number">7</span>, *args, z, t=<span class="number">10</span>,**kwargs)</span> -&gt; int:</span></div><div class="line">    <span class="keyword">return</span> x + y</div><div class="line">sig = inspect.signature(add)</div><div class="line">print(<span class="string">'params: '</span>, sig.parameters)</div><div class="line">print(<span class="string">'return: '</span>, sig.return_annotation)</div><div class="line"></div><div class="line"><span class="keyword">for</span> i,(name,param) <span class="keyword">in</span> enumerate(sig.parameters.items()):</div><div class="line">    print(i+<span class="number">1</span>, name, param.annotation, param.kind, param.default)</div><div class="line">    print(param.default <span class="keyword">is</span> param.empty, end = <span class="string">'\n'</span>)</div><div class="line"><span class="comment"># 输出</span></div><div class="line"><span class="number">1</span> x &lt;<span class="class"><span class="keyword">class</span> '<span class="title">inspect</span>.<span class="title">_empty</span>'&gt; <span class="title">POSITIONAL_OR_KEYWORD</span> &lt;<span class="title">class</span> '<span class="title">inspect</span>.<span class="title">_empty</span>'&gt;</span></div><div class="line"><span class="class"><span class="title">True</span></span></div><div class="line"><span class="class">2 <span class="title">y</span> &lt;<span class="title">class</span> '<span class="title">int</span>'&gt; <span class="title">POSITIONAL_OR_KEYWORD</span> 7</span></div><div class="line"><span class="class"><span class="title">False</span></span></div><div class="line"><span class="class">3 <span class="title">args</span> &lt;<span class="title">class</span> '<span class="title">inspect</span>.<span class="title">_empty</span>'&gt; <span class="title">VAR_POSITIONAL</span> &lt;<span class="title">class</span> '<span class="title">inspect</span>.<span class="title">_empty</span>'&gt;</span></div><div class="line"><span class="class"><span class="title">True</span></span></div><div class="line"><span class="class">4 <span class="title">z</span> &lt;<span class="title">class</span> '<span class="title">inspect</span>.<span class="title">_empty</span>'&gt; <span class="title">KEYWORD_ONLY</span> &lt;<span class="title">class</span> '<span class="title">inspect</span>.<span class="title">_empty</span>'&gt;</span></div><div class="line"><span class="class"><span class="title">True</span></span></div><div class="line"><span class="class">5 <span class="title">t</span> &lt;<span class="title">class</span> '<span class="title">inspect</span>.<span class="title">_empty</span>'&gt; <span class="title">KEYWORD_ONLY</span> 10</span></div><div class="line"><span class="class"><span class="title">False</span></span></div><div class="line"><span class="class">6 <span class="title">kwargs</span> &lt;<span class="title">class</span> '<span class="title">inspect</span>.<span class="title">_empty</span>'&gt; <span class="title">VAR_KEYWORD</span> &lt;<span class="title">class</span> '<span class="title">inspect</span>.<span class="title">_empty</span>'&gt;</span></div><div class="line"><span class="class"><span class="title">True</span></span></div></pre></td></tr></table></figure>
       
     </div>
     
@@ -733,7 +758,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#python高阶函数和装饰器三"><span class="nav-number">1.</span> <span class="nav-text">python高阶函数和装饰器三</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#函数定义的弊端"><span class="nav-number">1.1.</span> <span class="nav-text">函数定义的弊端</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#python高阶函数和装饰器三"><span class="nav-number">1.</span> <span class="nav-text">python高阶函数和装饰器三</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#函数定义的弊端"><span class="nav-number">1.1.</span> <span class="nav-text">函数定义的弊端</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#业务应用"><span class="nav-number">1.1.1.</span> <span class="nav-text">业务应用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#inspect-模块"><span class="nav-number">1.1.2.</span> <span class="nav-text">inspect 模块</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -772,7 +797,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">195.4k</span>
+    <span title="Site words total count">196k</span>
   
   <span>   |   </span>
 <span id="showDays"></span>
