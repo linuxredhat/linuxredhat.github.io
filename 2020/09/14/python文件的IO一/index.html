@@ -76,7 +76,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="linux,program," />
 
 
 
@@ -89,17 +89,20 @@
 
 
 
-<meta name="description" content="简介 paramiko 是基于Python实现的SSH2远程安全连接，支支认证及密钥方式 。可以实现远程命令执行;文件传输、中间SSH代理等功能，相对于Pexpect，封装的层次更高，更贴近SSH协议的功能;    paramiko 的安装1、 paramiko 支持pip、 easy_install 或者源安装方式，很方便解决依赖的问题，具体安装命令如下;    12# pip easy_ins">
+<meta name="description" content="python 文件的IO一 函数相关练习补充 实现Base64 解码  1234567891011121314151617181920212223242526272829303132333435363738394041424344#!/usr/bin/env python# base64 解码实现alphabet = b&quot;ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijkl">
+<meta name="keywords" content="linux,program">
 <meta property="og:type" content="article">
-<meta property="og:title" content="python 自动化之paramiko">
-<meta property="og:url" content="https://www.asjin.com/2018/01/12/python-自动化之paramiko/index.html">
+<meta property="og:title" content="python 文件的IO一">
+<meta property="og:url" content="https://www.asjin.com/2020/09/14/python文件的IO一/index.html">
 <meta property="og:site_name" content="逝水锦遥">
-<meta property="og:description" content="简介 paramiko 是基于Python实现的SSH2远程安全连接，支支认证及密钥方式 。可以实现远程命令执行;文件传输、中间SSH代理等功能，相对于Pexpect，封装的层次更高，更贴近SSH协议的功能;    paramiko 的安装1、 paramiko 支持pip、 easy_install 或者源安装方式，很方便解决依赖的问题，具体安装命令如下;    12# pip easy_ins">
+<meta property="og:description" content="python 文件的IO一 函数相关练习补充 实现Base64 解码  1234567891011121314151617181920212223242526272829303132333435363738394041424344#!/usr/bin/env python# base64 解码实现alphabet = b&quot;ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijkl">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-12T10:36:10.000Z">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/python-file-io-01.jpg">
+<meta property="og:updated_time" content="2020-09-14T13:31:09.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="python 自动化之paramiko">
-<meta name="twitter:description" content="简介 paramiko 是基于Python实现的SSH2远程安全连接，支支认证及密钥方式 。可以实现远程命令执行;文件传输、中间SSH代理等功能，相对于Pexpect，封装的层次更高，更贴近SSH协议的功能;    paramiko 的安装1、 paramiko 支持pip、 easy_install 或者源安装方式，很方便解决依赖的问题，具体安装命令如下;    12# pip easy_ins">
+<meta name="twitter:title" content="python 文件的IO一">
+<meta name="twitter:description" content="python 文件的IO一 函数相关练习补充 实现Base64 解码  1234567891011121314151617181920212223242526272829303132333435363738394041424344#!/usr/bin/env python# base64 解码实现alphabet = b&quot;ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijkl">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/python-file-io-01.jpg">
 
 
 
@@ -130,13 +133,13 @@
 
 
 
-  <link rel="canonical" href="https://www.asjin.com/2018/01/12/python-自动化之paramiko/"/>
+  <link rel="canonical" href="https://www.asjin.com/2020/09/14/python文件的IO一/"/>
 
 
 
 
 
-  <title>python 自动化之paramiko | 逝水锦遥</title>
+  <title>python 文件的IO一 | 逝水锦遥</title>
   
 
 
@@ -337,7 +340,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.asjin.com/2018/01/12/python-自动化之paramiko/">
+    <link itemprop="mainEntityOfPage" href="https://www.asjin.com/2020/09/14/python文件的IO一/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="༺ 锦遥 ༻">
@@ -354,7 +357,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">python 自动化之paramiko</h1>
+          <h1 class="post-title" itemprop="name headline">python 文件的IO一</h1>
         
 
         <div class="post-meta">
@@ -367,8 +370,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-12T15:50:25+08:00">
-                2018-01-12
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-09-14T21:30:00+08:00">
+                2020-09-14
               </time>
             
 
@@ -404,7 +407,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.8k
+                  1.5k
                 </span>
               
 
@@ -420,7 +423,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  8
+                  6
                 </span>
               
             </div>
@@ -441,68 +444,72 @@
       
 
       
-        <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><blockquote>
-<p>paramiko 是基于Python实现的SSH2远程安全连接，支支认证及密钥方式 。可以实现远程命令执行;<br>文件传输、中间SSH代理等功能，相对于Pexpect，封装的层次更高，更贴近SSH协议的功能;  </p>
-</blockquote>
-<h2 id="paramiko-的安装"><a href="#paramiko-的安装" class="headerlink" title="paramiko 的安装"></a>paramiko 的安装</h2><p>1、 paramiko 支持pip、 easy_install 或者源安装方式，很方便解决依赖的问题，具体安装命令如下;   </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># pip easy_install paramiko</span></div><div class="line"><span class="comment"># easy_install paramiko</span></div></pre></td></tr></table></figure>
-<p>2、 paramiko 依赖第三方的Crypto、Ecdsa包及Python开发包python-devel的支持，源码如下;  </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># yum -y install python-devel </span></div><div class="line"><span class="comment"># wget http://ftp.dlitz.net/pub/dlitz/crypto/pycrypto/pycrypto-2.6.tar.gz</span></div><div class="line"><span class="comment"># tar -zxvf pycrypto-2.6.tar.gz</span></div><div class="line"><span class="comment"># cd pycrypto-2.6</span></div><div class="line"><span class="comment"># python setup.py install</span></div><div class="line"><span class="comment"># cd ..</span></div><div class="line"><span class="comment"># wget https://pypi.python.org/packages/source/e/ecdsa/ecdsa-0.10.tar.gz --no-check-certificate </span></div><div class="line"><span class="comment"># tar -zxvf ecdsa-0.10.tar.gz</span></div><div class="line"><span class="comment"># cd ecdsa-0.10</span></div><div class="line"><span class="comment"># python setup.py install </span></div><div class="line"><span class="comment"># cd ..</span></div><div class="line"><span class="comment"># git clone https://github.com/paramiko/paramiko.git</span></div><div class="line"><span class="comment"># cd paramiko</span></div><div class="line"><span class="comment"># python setup.py install</span></div></pre></td></tr></table></figure>
-<p>3、 校验安装结果，导入模块 没有提示异常，则说明该包安装成功;   </p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">➜  ~ ipython</div><div class="line">Python <span class="number">2.7</span><span class="number">.14</span> (default, Sep <span class="number">25</span> <span class="number">2017</span>, <span class="number">09</span>:<span class="number">53</span>:<span class="number">22</span>) </div><div class="line">Type <span class="string">"copyright"</span>, <span class="string">"credits"</span> <span class="keyword">or</span> <span class="string">"license"</span> <span class="keyword">for</span> more information.</div><div class="line"></div><div class="line">IPython <span class="number">5.5</span><span class="number">.0</span> -- An enhanced Interactive Python.</div><div class="line">?         -&gt; Introduction and overview of IPython's features.</div><div class="line">%quickref -&gt; Quick reference.</div><div class="line">help      -&gt; Python's own help system.</div><div class="line">object?   -&gt; Details about 'object', use 'object??' for extra details.</div><div class="line"></div><div class="line">In [<span class="number">1</span>]: <span class="keyword">import</span> paramiko </div><div class="line"></div><div class="line">In [<span class="number">2</span>]:</div></pre></td></tr></table></figure>
-<p>4、使用密码认证方式，通过exec_command()方法执行命令;   </p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">➜  test cat paramiko_ssh.py </div><div class="line"><span class="comment">#!/usr/bin/env python </span></div><div class="line"><span class="comment"># -*- coding: utf-8 -*-</span></div><div class="line"><span class="keyword">import</span> paramiko</div><div class="line"></div><div class="line">hostname = <span class="string">'192.168.0.78'</span></div><div class="line">username = <span class="string">'root'</span></div><div class="line">password = <span class="string">'paramiko_test*5'</span></div><div class="line">paramiko.util.log_to_file(<span class="string">'syslogin.log'</span>) <span class="comment"># 发送paramiko 日志到syslog 文件</span></div><div class="line">ssh=paramiko.SSHClient() <span class="comment"># 创建一个ssh客户端 client对象</span></div><div class="line">ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())</div><div class="line">ssh.load_system_host_keys()</div><div class="line"><span class="comment"># 获取客户端host_keys，默认 ~/.ssh/known_hosts</span></div><div class="line"><span class="comment">#ssh.load_system_host_keys(filname='/Users/macbookdzsbe/.ssh/known_hosts')  # 获取客户端host_keys，默认 ~/.ssh/known_hosts</span></div><div class="line"><span class="comment"># ssh.load_host_keys(filename='/root/.ssh/known_hosts')</span></div><div class="line">ssh.connect(hostname=hostname,username=username,password=password)<span class="comment"># 创建ssh连接</span></div><div class="line">stdin,stdout,stderr=ssh.exec_command(<span class="string">'netstat -tnlup'</span>) <span class="comment">#调用远程执行命令方法exec_command</span></div><div class="line"><span class="comment"># 打印命令执行结果，得到Pyhton列表形，可以使用stdout.readlines()</span></div><div class="line"><span class="keyword">print</span> stdout.read()</div><div class="line">stdin,stdout,stderr=ssh.exec_command(<span class="string">'date'</span>)</div><div class="line"><span class="keyword">print</span> stdout.readlines()</div><div class="line">ssh.close <span class="comment"># 关闭 ssh 连接</span></div><div class="line">➜  test python paramiko_ssh.py </div><div class="line">Active Internet connections (only servers)</div><div class="line">Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name    </div><div class="line">tcp        <span class="number">0</span>      <span class="number">0</span> <span class="number">0.0</span><span class="number">.0</span><span class="number">.0</span>:<span class="number">22</span>              <span class="number">0.0</span><span class="number">.0</span><span class="number">.0</span>:*               LISTEN      <span class="number">885</span>/sshd            </div><div class="line">tcp        <span class="number">0</span>      <span class="number">0</span> <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">25</span>            <span class="number">0.0</span><span class="number">.0</span><span class="number">.0</span>:*               LISTEN      <span class="number">1341</span>/master         </div><div class="line">tcp        <span class="number">0</span>      <span class="number">0</span> <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">27017</span>         <span class="number">0.0</span><span class="number">.0</span><span class="number">.0</span>:*               LISTEN      <span class="number">18341</span>/mongod        </div><div class="line">tcp        <span class="number">0</span>      <span class="number">0</span> <span class="number">0.0</span><span class="number">.0</span><span class="number">.0</span>:<span class="number">3306</span>            <span class="number">0.0</span><span class="number">.0</span><span class="number">.0</span>:*               LISTEN      <span class="number">1266</span>/mysqld         </div><div class="line">tcp6       <span class="number">0</span>      <span class="number">0</span> :::<span class="number">22</span>                   :::*                    LISTEN      <span class="number">885</span>/sshd            </div><div class="line">tcp6       <span class="number">0</span>      <span class="number">0</span> ::<span class="number">1</span>:<span class="number">25</span>                  :::*                    LISTEN      <span class="number">1341</span>/master         </div><div class="line">udp        <span class="number">0</span>      <span class="number">0</span> <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">323</span>           <span class="number">0.0</span><span class="number">.0</span><span class="number">.0</span>:*                           <span class="number">624</span>/chronyd         </div><div class="line">udp6       <span class="number">0</span>      <span class="number">0</span> ::<span class="number">1</span>:<span class="number">323</span>                 :::*                                <span class="number">624</span>/chronyd         </div><div class="line"></div><div class="line">[<span class="string">u'2018\u5e74 01\u6708 12\u65e5 \u661f\u671f\u4e94 16:50:33 CST\n'</span>]</div></pre></td></tr></table></figure>
-<p>5、 paramiko 的核组件</p>
-<blockquote>
-<p>paramiko 包含两个核心组件，一个为SSHClient类，另一个为SFTPClient类 </p>
-</blockquote>
-<p>6、 SSHClient类 </p>
-<blockquote>
-<p>SSHClient类是SSH服务会话的高级表示，该类封装了传输(transport)、通道(channel)<br>及SFTPClient的检验、建立的方法，通常用于执行远程命令</p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 例 </span></div><div class="line">client = SSHClient() </div><div class="line">client.load_system_host_keys()</div><div class="line">client.connect(<span class="string">'ssh.example.com'</span>)</div><div class="line">stdin, stdout, stderr = client.exec_command(<span class="string">'ls -l'</span>)</div></pre></td></tr></table></figure>
-<h2 id="SSHClient类方法使用"><a href="#SSHClient类方法使用" class="headerlink" title="SSHClient类方法使用"></a>SSHClient类方法使用</h2><p>1、 connect 方法</p>
-<blockquote>
-<p>connect 方法实现了远程SSH连接并检验</p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 方法定义</span></div><div class="line">connect(self, hostname, port=<span class="number">22</span>, username=<span class="keyword">None</span>, password=<span class="keyword">None</span>, pkey=<span class="keyword">None</span>,</div><div class="line">key_filename=<span class="keyword">None</span>, timeout=<span class="keyword">None</span>, allow_agent=<span class="keyword">True</span>, look_for_keys=<span class="keyword">True</span>, compress=<span class="keyword">False</span>)</div><div class="line"><span class="comment"># 参数说明</span></div><div class="line"><span class="comment"># hostname (str类型)，连接的目标主机地址；</span></div><div class="line"><span class="comment"># prot (int 类型)，连接目录主机的端口，默认为22;  </span></div><div class="line"><span class="comment"># username (str 类型), 校验的用户名 (默认为当前的本地用户名);  </span></div><div class="line"><span class="comment"># password (str 类型), 密码用于身份检验或解锁私钥; </span></div><div class="line"><span class="comment"># pkey (PKey 类型), 私钥方式用于身份难; </span></div><div class="line"><span class="comment"># key_filename(str or list(str) 类型),一个文件名或者文件名的列表，用于私钥的身份验证;</span></div><div class="line"><span class="comment"># timeout (float 类型),一个可选 的超时时间(以秒为单位)的TCP连接;</span></div><div class="line"><span class="comment"># allow_agent (bool 类型)，设置为False时用于禁用连接到SSH代理; </span></div><div class="line"><span class="comment"># look_for_keys (bool 类型)，设置False时用来禁用在~/.ssh中搜索私钥文件; </span></div><div class="line"><span class="comment"># compress (bool 类型), 设置为True时打开压缩</span></div></pre></td></tr></table></figure>
-<p>2、 exec_command 方法</p>
-<blockquote>
-<p>远程命令执行方法，该命令的输入与输出流为标准输入(stdin)、输出(stdout)、错误(stderr)</p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 方法定义 </span></div><div class="line">exec_command(self, command, bufsize=<span class="number">-1</span>)</div><div class="line"><span class="comment"># 参数说明</span></div><div class="line"><span class="comment"># command (str 类型), 执行的命令串;</span></div><div class="line"><span class="comment"># bufsize (int 类型), 文件缓冲区大小，默认为-1（不局限）;</span></div></pre></td></tr></table></figure>
-<p>3、loa_syste_host_keys 方法 </p>
-<blockquote>
-<p>加载本地公钥校验文件，默认为~/.ssh/known_hosts，非默认路径需要手工指定;  </p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">load_system_host_keys(self, filename=<span class="keyword">None</span>)</div><div class="line"></div><div class="line"><span class="comment"># 参数说明</span></div><div class="line">fiename(str类型 ),指定远程主机公钥记录文件;</div></pre></td></tr></table></figure>
-<p>4、 set_missing_host_key_policy 方法</p>
-<blockquote>
-<p>设置连接的远程主机没有本地主机密钥或HostKeys对象时的策略，目前支持三种<br>分别是 AutoAddPolicy、RejectPolicy(默认),WarnningPolicy，仅限于SSHClient类  </p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 使用方法如下</span></div><div class="line">ssh=paramiko.SSHClient() </div><div class="line">ssh.set_missing_host_keypolicy(paramiko.AutoAddPolicy)</div><div class="line"></div><div class="line"><span class="comment"># AutoAddPolicy,自动添加主机名及主机密钥到本地HostKeys对象，并将其保存</span></div><div class="line"><span class="comment"># 不依赖load_system_host_keys()的配置，即使 ~/.ssh/known_hosts不存在也不产生影响  </span></div><div class="line"><span class="comment"># RejectPolicy,自动拒绝未知的主机名和密钥，依赖load_system_host_keys()的配置</span></div><div class="line"><span class="comment"># WarningPolicy,用于记录一个未知的主机密钥的Python警告并接受它，功能上与AutoAddPolicy相似</span></div><div class="line"><span class="comment"># 但区别在于，未知的主机会有警告</span></div></pre></td></tr></table></figure>
-<h2 id="SFTPClient类"><a href="#SFTPClient类" class="headerlink" title="SFTPClient类"></a>SFTPClient类</h2><blockquote>
-<p>SFTPClient 作为一个SFTP客户端对象,根据SSH传输协议的sftp会话，实现远客程文件操作<br>比如文件上传、下载、权限、状态等操作; </p>
-</blockquote>
-<p>1、 from_transport 方法</p>
-<blockquote>
-<p>创建一个已连接通的SFTP客户端通道;  </p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 方法定义 </span></div><div class="line">from_transport(cls, t)</div><div class="line"><span class="comment"># 参数说明</span></div><div class="line">t(Transport),一个已经通过验证的传输对象。</div><div class="line">t = paramiko.Transport((<span class="string">"192.168.0.78"</span>, <span class="number">22</span>))</div><div class="line">t.connect(username=<span class="string">"root"</span>,password=<span class="string">"paramiko_test*5"</span>)</div><div class="line">sftp =paramiko.SFTPClient.from_transport(t)</div></pre></td></tr></table></figure>
-<p>2、 put 方法 </p>
-<blockquote>
-<p>上传本地文件到远程SFTP服务端;  </p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">put(self, localpath, remotepath, callback=<span class="keyword">None</span>, confirm=<span class="keyword">True</span>)</div><div class="line"><span class="comment"># 参数说明</span></div><div class="line"><span class="comment"># localpath (str 类型)，需上传的本地文件(源);</span></div><div class="line"><span class="comment"># remotepath (str 类型),远程路径(目标); </span></div><div class="line"><span class="comment"># collback(functioin(int,int))，获取已接收的字字数及总传输字节数，以便回调函数高用,默认为None;  </span></div><div class="line"><span class="comment"># connfirm (bool类型),文件上传完毕后是否调用 stat()方法，以便确认文件的大小。 </span></div><div class="line">localpath=<span class="string">'/var/log/httpd/access.log'</span></div><div class="line">remotepath=<span class="string">'/data/bak/log/httpd/access.log'</span></div><div class="line">sftp.put(localpath,remotepath)</div></pre></td></tr></table></figure>
-<p>3、 get方法</p>
-<blockquote>
-<p>从远程SFTP服务端下载文件到本地;  </p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">get(self, remotepth, localpath, callbak=<span class="keyword">None</span>)</div><div class="line"><span class="comment"># 参数说明</span></div><div class="line"><span class="comment"># remotepath (str类型)，需下载的远程文件 (源文件); </span></div><div class="line"><span class="comment"># localpath (str类型)，本地路径(目标);</span></div><div class="line"><span class="comment"># callback(function(int, int)),获取已接收的字节数及总传输字节数，以便回调函数及调用，默认为None</span></div><div class="line">remotepath=<span class="string">'/var/log/httpd/access.og'</span></div><div class="line">localpath=<span class="string">'/data/bak/log/httpd/access.log'</span></div><div class="line">sftp.get(remotepath,localpath)</div></pre></td></tr></table></figure>
-<p>4、其他方法</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">mkdir，在SFTP服务器端创建目录，如sftp.mkdir(<span class="string">"/home/testdir"</span>,<span class="number">0700</span>)</div><div class="line">remove, 删除SFTP服务端创指定目录，如sftp.remove(<span class="string">"/home/testdir"</span>)</div><div class="line">rename, 重命名SFTP服务器端文件或目录，如sftp.rename(<span class="string">"/home/testdir"</span>,<span class="string">"/home/test"</span>)</div><div class="line">state, 获取远程SFTP服务器指定文件信息，如sftp.stat(<span class="string">"/home/test"</span>) </div><div class="line">listdir, 获取远程SFTP服务器端指定目录列表, 以Python的(List)形式返回, 如sftp.listdir(<span class="string">"/home"</span>)</div></pre></td></tr></table></figure>
-<p>5、SFTPClient类应用示例</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#!/usr/bin/env python </span></div><div class="line"><span class="comment"># -*- coding: utf-8 -*-</span></div><div class="line"><span class="keyword">import</span> paramiko</div><div class="line"><span class="keyword">import</span> os</div><div class="line">username = <span class="string">"root"</span></div><div class="line">password = <span class="string">"paramiko_test*5"</span></div><div class="line">hostname = <span class="string">"10.180.55.118"</span></div><div class="line">port = <span class="number">22</span></div><div class="line"></div><div class="line"><span class="keyword">try</span>:</div><div class="line">	t = paramiko.Transport((hostname, port))</div><div class="line">	t.connect(username=username, password=password)</div><div class="line">	sftp =paramiko.SFTPClient.from_transport(t)</div><div class="line">	</div><div class="line">	sftp.put(<span class="string">"/tmp/next.vim.log"</span>, <span class="string">"/home/root/next.vim.log"</span>) <span class="comment">#上传文件 </span></div><div class="line">	sftp.get(<span class="string">"/etc/hosts"</span>, <span class="string">"/tmp/hosts"</span>) <span class="comment">#下载文件 </span></div><div class="line">	sftp.mkdir(<span class="string">"/home/testdir"</span>,<span class="number">0700</span>) <span class="comment">#创建文件 </span></div><div class="line">	sftp.rmdir(<span class="string">"/home/root/test5.sql"</span>) <span class="comment">#删除目录 </span></div><div class="line">	sftp.rename(<span class="string">"/home/root/test1.sql"</span>, <span class="string">"/home/root/test5.sql"</span>) <span class="comment">#文件重命名</span></div><div class="line">	<span class="keyword">print</span> sftp.stat(<span class="string">"/home/root/test5.sql"</span>) <span class="comment">#打印文件信息</span></div><div class="line">	<span class="keyword">print</span> sftp.listdir(<span class="string">"/home/root"</span>) <span class="comment"># 打印目录列表</span></div><div class="line">	t.close();</div><div class="line"><span class="keyword">except</span> Exception, e:</div><div class="line">	<span class="keyword">print</span> str(e)</div></pre></td></tr></table></figure>
+        <h1 id="python-文件的IO一"><a href="#python-文件的IO一" class="headerlink" title="python 文件的IO一"></a>python 文件的IO一</h1><p><img src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/python-file-io-01.jpg" alt=""></p>
+<h2 id="函数相关练习补充"><a href="#函数相关练习补充" class="headerlink" title="函数相关练习补充"></a>函数相关练习补充</h2><ul>
+<li>实现Base64 解码</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#!/usr/bin/env python</span></div><div class="line"></div><div class="line"><span class="comment"># base64 解码实现</span></div><div class="line">alphabet = <span class="string">b"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">base64decode</span><span class="params">(src:bytes)</span>:</span></div><div class="line">    ret = bytearray()</div><div class="line">    length = len(src)</div><div class="line"></div><div class="line">    step = <span class="number">4</span> <span class="comment">#对齐的，每次取4个</span></div><div class="line"></div><div class="line">    <span class="keyword">for</span> offset <span class="keyword">in</span> range(<span class="number">0</span>,length, step):</div><div class="line">        tmp = <span class="number">0x00</span></div><div class="line">        block = src[offset:offset + step]</div><div class="line"></div><div class="line">        <span class="comment"># 开始移位计算</span></div><div class="line"></div><div class="line">        <span class="keyword">for</span> i,c <span class="keyword">in</span> enumerate(reversed(block)):</div><div class="line">            <span class="comment"># 替换字符为序号</span></div><div class="line">            index = alphabet.find(c)</div><div class="line">            <span class="keyword">if</span> index == <span class="number">-1</span>:</div><div class="line">                <span class="keyword">continue</span> <span class="comment"># 找不到就是0.</span></div><div class="line">            tmp += index &lt;&lt; i*<span class="number">6</span></div><div class="line"></div><div class="line">        ret.extend(tmp.to_bytes(<span class="number">3</span>,<span class="string">'big'</span>))</div><div class="line">    <span class="keyword">return</span> bytes(ret.rstrip(<span class="string">b'\x00'</span>)) <span class="comment"># 把最右的 \x00去掉，不可变</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="comment"># base64的decode</span></div><div class="line"><span class="comment">#txt = "TWFu"</span></div><div class="line"><span class="comment">#txt = "TWE="</span></div><div class="line"><span class="comment">#txt = "TQ=="</span></div><div class="line"><span class="comment">#txt = "TWEuTWE="</span></div><div class="line">txt = <span class="string">"TWEUTQ=="</span></div><div class="line">txt = txt.encode()</div><div class="line">print(txt)</div><div class="line">print(base64decode(txt).decode())</div><div class="line"><span class="comment"># base64实现</span></div><div class="line"><span class="keyword">import</span> base64</div><div class="line">print(base64.b64decode(txt).decode())</div><div class="line"><span class="comment"># 输出</span></div><div class="line"><span class="string">b'TWEUTQ=='</span></div><div class="line">MaM</div><div class="line">MaM</div></pre></td></tr></table></figure>
+<p>还是有提高效率的地方</p>
+<ol>
+<li>revesed可以不需要</li>
+<li>alphabet.find效率底</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> OrderedDict</div><div class="line">base_tbl = <span class="string">b"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"</span></div><div class="line">alphabet = OrderedDict(zip(base_tbl,range(<span class="number">64</span>)))</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">base64decode</span><span class="params">(src:bytes)</span>:</span></div><div class="line">    ret = bytearray()</div><div class="line">    length = len(src)</div><div class="line"></div><div class="line">    step = <span class="number">4</span> <span class="comment"># 对齐的，每次取4个</span></div><div class="line"></div><div class="line">    <span class="keyword">for</span> offset <span class="keyword">in</span> range(<span class="number">0</span>,length, step):</div><div class="line">        tmp = <span class="number">0x00</span></div><div class="line">        block = src[offset:offset + step]</div><div class="line"></div><div class="line">        <span class="comment"># 开始移位计算</span></div><div class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">4</span>):</div><div class="line">            index = alphabet.get(block[-i<span class="number">-1</span>])</div><div class="line">            <span class="keyword">if</span> index <span class="keyword">is</span> <span class="keyword">not</span> <span class="keyword">None</span>:</div><div class="line">                tmp += index &lt;&lt; i*<span class="number">6</span></div><div class="line">        <span class="comment"># 找不到，不用移位相加了</span></div><div class="line"></div><div class="line">        ret.extend(tmp.to_bytes(<span class="number">3</span>,<span class="string">'big'</span>))</div><div class="line">    <span class="keyword">return</span> bytes(ret.rstrip(<span class="string">b'\x00'</span>)) <span class="comment"># 把最右边的\x00 去掉，不可变</span></div><div class="line"></div><div class="line"><span class="comment"># base64的decode</span></div><div class="line"><span class="comment">#txt = "TWFu"</span></div><div class="line"><span class="comment">#txt = "TWE="</span></div><div class="line"><span class="comment">#txt = "TQ=="</span></div><div class="line"><span class="comment">#txt = "TWEuTWE="</span></div><div class="line">txt = <span class="string">"TWEUTQ=="</span></div><div class="line">txt = txt.encode()</div><div class="line">print(txt)</div><div class="line">print(base64decode(txt).decode())</div><div class="line"></div><div class="line"><span class="comment"># base64实现</span></div><div class="line"><span class="keyword">import</span> base64</div><div class="line">print(base64.b64decode(txt).decode())</div></pre></td></tr></table></figure>
+<ul>
+<li>完善命令分发器，实现函数可以带任意参数(可变参数除外)，解析参数并要求用户输入</li>
+</ul>
+<p>即解决下面的问题:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">cmds_dispatcher</span><span class="params">()</span>:</span></div><div class="line">    <span class="comment">#命令和函数存储的地方</span></div><div class="line">    commands = &#123;&#125;</div><div class="line">    <span class="comment"># 注册</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">reg</span><span class="params">(name)</span>:</span></div><div class="line">        <span class="function"><span class="keyword">def</span> <span class="title">_reg</span><span class="params">(fn)</span>:</span></div><div class="line">            commands[name] =fn</div><div class="line">        <span class="keyword">return</span> _reg</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">defaultfunc</span><span class="params">()</span>:</span></div><div class="line">        print(<span class="string">"Unknown command"</span>)</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">dispatcher</span><span class="params">()</span>:</span></div><div class="line">        <span class="keyword">while</span> <span class="keyword">True</span>:</div><div class="line">            cmd = input(<span class="string">"&gt;&gt; "</span>)</div><div class="line">            <span class="keyword">if</span> cmd.strip() == <span class="string">'quit'</span>:</div><div class="line">                <span class="keyword">return</span></div><div class="line">            commands.get(cmd,defaultfunc)()</div><div class="line">    <span class="keyword">return</span> reg,dispatcher</div><div class="line">    </div><div class="line">cr,cp = cmds_dispatcher()</div><div class="line"></div><div class="line"><span class="comment"># 自定久函数，注册</span></div><div class="line"><span class="meta">@cr('mag')</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">foo1</span><span class="params">()</span>:</span></div><div class="line">    print(<span class="string">"welcome ssjinyao"</span>)</div><div class="line"><span class="meta">@cr('py')</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">foo2</span><span class="params">()</span>:</span></div><div class="line">    print(<span class="string">"welcome python"</span>)</div><div class="line">cp()</div></pre></td></tr></table></figure>
+<ul>
+<li>思路:</li>
+</ul>
+<ol>
+<li>注册的时候，因定死，<code>@reg(&#39;py&#39;,200,100)</code><br>可以认为<code>@reg(&#39;py&#39;,200,100)</code>和 <code>@reg(&#39;py&#39;,300,100)</code>是不同的函数，可以用partial函数;</li>
+<li>运行时，在输出cmd的时候，逗号分割 ，获取参数;</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#!/usr/bin/env python</span></div><div class="line"></div><div class="line"><span class="keyword">from</span> functools <span class="keyword">import</span> partial</div><div class="line"></div><div class="line"><span class="comment"># 自定义函数可以有任意参数，可变参数、keyword-only 除外</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">command_dispatcher</span><span class="params">()</span>:</span></div><div class="line">    <span class="comment"># 构建全局字典</span></div><div class="line">    cmd_tbl = &#123;&#125;</div><div class="line">    <span class="comment"># 注册函数</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">reg</span><span class="params">(cmd,*args,**kwargs)</span>:</span></div><div class="line">        <span class="function"><span class="keyword">def</span> <span class="title">_reg</span><span class="params">(fn)</span>:</span></div><div class="line">            func = partial(fn,*args,**kwargs)</div><div class="line">            cmd_tbl[cmd] = func</div><div class="line">            <span class="keyword">return</span> func</div><div class="line">        <span class="keyword">return</span> _reg</div><div class="line">    <span class="comment"># 缺省函数</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">default_func</span><span class="params">()</span>:</span></div><div class="line">        print(<span class="string">"Unknown command"</span>)</div><div class="line"></div><div class="line">    <span class="comment"># 调度器</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">dispatcher</span><span class="params">()</span>:</span></div><div class="line">        <span class="keyword">while</span> <span class="keyword">True</span>:</div><div class="line">            cmd = input(<span class="string">'Pleaase input cmd &gt;&gt;&gt; '</span>)</div><div class="line">            <span class="comment"># 退出条件</span></div><div class="line">            <span class="keyword">if</span> cmd.strip() == <span class="string">''</span>:</div><div class="line">                <span class="keyword">return</span></div><div class="line">            cmd_tbl.get(cmd,default_func)()</div><div class="line">    <span class="keyword">return</span> reg,dispatcher</div><div class="line"></div><div class="line">reg,dispatcher = command_dispatcher()</div><div class="line"></div><div class="line"><span class="comment"># 自定义函数</span></div><div class="line"></div><div class="line"><span class="meta">@reg('jy',z=200,y=300,x=100)</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">foo1</span><span class="params">(x,y,z)</span>:</span></div><div class="line">    print(<span class="string">'ssjinyao'</span>,x,y,z)</div><div class="line"></div><div class="line"><span class="meta">@reg('py',300,b=400)</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">foo2</span><span class="params">(a,b=<span class="number">200</span>)</span>:</span></div><div class="line">    print(<span class="string">'python'</span>,a,b)</div><div class="line"></div><div class="line">dispatcher()</div></pre></td></tr></table></figure>
+<h2 id="文件IO常用操作"><a href="#文件IO常用操作" class="headerlink" title="文件IO常用操作"></a>文件IO常用操作</h2><h3 id="encoding-编码，-仅文本模式使用"><a href="#encoding-编码，-仅文本模式使用" class="headerlink" title="encoding: 编码， 仅文本模式使用"></a>encoding: 编码， 仅文本模式使用</h3><p>None 表示使用缺省编码，依赖操作系统。win、 linux下测试如下代码<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">f = open(<span class="string">'test1'</span>,w)</div><div class="line">f.write(<span class="string">'写入'</span>)</div><div class="line">f.close()</div><div class="line"><span class="comment">#windows下缺缺省GBK(0XBOA1), Linux下缺省UTF-8(0xE5 95 8a)</span></div></pre></td></tr></table></figure></p>
+<h3 id="其它参数"><a href="#其它参数" class="headerlink" title="其它参数"></a>其它参数</h3><ol>
+<li>errors: 什么样的编码错误将被捕获;</li>
+<li>None和strict表示有编码错误将抛出ValueError异常;ignore表示忽略;</li>
+<li>newline: 文本模式中，换行的转换。可以为None、’’、’\r’、’\n’、’\r\n’</li>
+<li>读时，None表示’\r’、’\n’、’\r\n’都被转换为’\n’； 表示不会自动转换通用换行符;</li>
+<li>其它合法字符表示换行符就是指定字符，就会按照指定字符分行;</li>
+<li>写时，None表示’\n’都会被替换为系统缺省分隔符os.linesep;’\n’或’’表示’\n’不替换; 其它合法字符表示’\n’会被替换为指定 的字符;</li>
+<li>colsefd: 关闭文件描述符，True表示关闭它。False会在文件关闭后保持这个描述符；</li>
+<li><code>fileobj.fileno()</code>查看;</li>
+</ol>
+<h3 id="read"><a href="#read" class="headerlink" title="read"></a>read</h3><p><code>read(size=-1)</code><br>size表示读取多少个字符或字节; 负数或者None表示读取到EOF;</p>
+<h3 id="行读取"><a href="#行读取" class="headerlink" title="行读取"></a>行读取</h3><p><code>readline(size=-1)</code><br>一行行读取文件内容，size设置一次能读取行内几个字符或字节;<br><code>readline(hint=-1)</code><br>读取所有行的列表。指定hint则返回指定的行数;</p>
+<h3 id="write"><a href="#write" class="headerlink" title="write"></a>write</h3><p><code>write(s)</code>把字符串s写入到文件中并返回字符的个数;</p>
+<h3 id="close"><a href="#close" class="headerlink" title="close"></a>close</h3><p>flush并关闭文件对象;<br>文件已经关闭，再次关闭没有任何效果</p>
+<h3 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h3><p><code>seekable()</code> 是否可seek<br><code>readable()</code> 是否可读<br><code>writeable()</code> 是否可写<br><code>closed</code> 是否已经关闭</p>
+<h2 id="上下文件管理"><a href="#上下文件管理" class="headerlink" title="上下文件管理"></a>上下文件管理</h2><p>问题的引出<br>在Linux中执行</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">In [<span class="number">13</span>]: lst = []</div><div class="line"></div><div class="line">In [<span class="number">14</span>]: <span class="keyword">for</span> _ <span class="keyword">in</span> range(<span class="number">60000</span>):</div><div class="line">    ...:     lst.append(open(<span class="string">'test'</span>))</div><div class="line">    ...:</div></pre></td></tr></table></figure>
+<p>在linux上查看</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># lsof | grep ipython | wc -l</span></div><div class="line">120158</div><div class="line"><span class="comment"># ulimit  -a | grep "open file"</span></div><div class="line">open files                      (-n) 65535</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">In [<span class="number">18</span>]: <span class="keyword">for</span> x <span class="keyword">in</span> lst:</div><div class="line">    ...:     x.close()</div><div class="line">    ...:</div></pre></td></tr></table></figure>
+<p>关闭后对比</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># lsof | grep ipython | wc -l</span></div><div class="line">158</div></pre></td></tr></table></figure>
+<p>ulimit -a 查看所有限制。其中open files 就是打开文件数的限制，默认1024;<br>将文件一次关闭，然后就可以继续打开了。再看一次losf</p>
+<p>如何解决 ？</p>
+<p>1、 异常处理<br>当出现异常的时候，拦截异常。但是，因为很多代码可都可能出现OSError异常，还不好判断异常就是应为资源限制产生的。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">f = open(<span class="string">'test'</span>)</div><div class="line"><span class="keyword">try</span>:</div><div class="line">    f.write(<span class="string">"abc"</span>) <span class="comment"># 文件只读，写入失败</span></div><div class="line"><span class="keyword">finally</span>:</div><div class="line">    f.close()  <span class="comment"># 这样才行</span></div></pre></td></tr></table></figure>
+<p>2、 上下文管理</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">f</span> </span></div><div class="line"><span class="function"><span class="title">with</span> <span class="title">open</span><span class="params">(<span class="string">'test'</span>)</span> <span class="title">as</span> <span class="title">f</span>:</span></div><div class="line">    f.write(<span class="string">"abc"</span>) <span class="comment"># 文件只读，写入失败</span></div><div class="line"><span class="comment">#测试f是否关闭</span></div><div class="line">f.closed <span class="comment"># f 的作用域</span></div></pre></td></tr></table></figure>
+<p>一种特殊的语法、交级解释器去释放文件对象;</p>
+<ol>
+<li>使用with .. as 关键字;</li>
+<li>上下文管理的语句块并不会开启新的作用域;</li>
+<li>with语句块执行完的时候，会自动关闭文件;</li>
+</ol>
+<p>另一种写法</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">f1 = open(<span class="string">'test'</span>)</div><div class="line"><span class="keyword">with</span> f1:</div><div class="line">    f1.write(<span class="string">"abc"</span>) <span class="comment">#文件只读，写入失败</span></div><div class="line"><span class="comment"># 测试f是否关闭</span></div><div class="line">f1.closed <span class="comment"># f1的作用域</span></div></pre></td></tr></table></figure>
+<p>对于类似于文件对象的IO对象，一般来说都需要在不使用的时候关闭、注销，以释放资源;<br>IO被打开的时候，会获得一个文件描述符。计算机资源是有限的，所有操作系统都会做限制;<br>就是为了保护计算机的资源要被完全耗尽，计算资源是共享的，不是独占的;<br>一般情况下，除非特别明确的知道资源情况，否则不要提高资源的限制值来解决问题，不好的情况下只会让系统资源崩溃;</p>
+<h3 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h3><ul>
+<li>有一个文件，对其进行单词统计，不区分大小写;</li>
+</ul>
+
       
     </div>
     
@@ -551,7 +558,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://www.asjin.com/2018/01/12/python-自动化之paramiko/" title="python 自动化之paramiko">https://www.asjin.com/2018/01/12/python-自动化之paramiko/</a>
+    <a href="https://www.asjin.com/2020/09/14/python文件的IO一/" title="python 文件的IO一">https://www.asjin.com/2020/09/14/python文件的IO一/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -564,6 +571,14 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/linux/" rel="tag"># linux</a>
+          
+            <a href="/tags/program/" rel="tag"># program</a>
+          
+        </div>
+      
 
       
       
@@ -573,8 +588,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/01/07/自习之python基础语法/" rel="next" title="自习之python基础语法">
-                <i class="fa fa-chevron-left"></i> 自习之python基础语法
+              <a href="/2020/09/07/python高阶函数和装饰器三/" rel="next" title="python高阶函数函数和装饰器三">
+                <i class="fa fa-chevron-left"></i> python高阶函数函数和装饰器三
               </a>
             
           </div>
@@ -582,10 +597,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/01/16/python-wxpy-模块实现微信通知与告警/" rel="prev" title="python wxpy 模块实现微信通知与告警">
-                python wxpy 模块实现微信通知与告警 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -758,7 +769,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#paramiko-的安装"><span class="nav-number">2.</span> <span class="nav-text">paramiko 的安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SSHClient类方法使用"><span class="nav-number">3.</span> <span class="nav-text">SSHClient类方法使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SFTPClient类"><span class="nav-number">4.</span> <span class="nav-text">SFTPClient类</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#python-文件的IO一"><span class="nav-number">1.</span> <span class="nav-text">python 文件的IO一</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#函数相关练习补充"><span class="nav-number">1.1.</span> <span class="nav-text">函数相关练习补充</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件IO常用操作"><span class="nav-number">1.2.</span> <span class="nav-text">文件IO常用操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#encoding-编码，-仅文本模式使用"><span class="nav-number">1.2.1.</span> <span class="nav-text">encoding: 编码， 仅文本模式使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其它参数"><span class="nav-number">1.2.2.</span> <span class="nav-text">其它参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#read"><span class="nav-number">1.2.3.</span> <span class="nav-text">read</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#行读取"><span class="nav-number">1.2.4.</span> <span class="nav-text">行读取</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#write"><span class="nav-number">1.2.5.</span> <span class="nav-text">write</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#close"><span class="nav-number">1.2.6.</span> <span class="nav-text">close</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其它"><span class="nav-number">1.2.7.</span> <span class="nav-text">其它</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#上下文件管理"><span class="nav-number">1.3.</span> <span class="nav-text">上下文件管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#练习"><span class="nav-number">1.3.1.</span> <span class="nav-text">练习</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
