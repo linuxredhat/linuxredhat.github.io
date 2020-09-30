@@ -89,18 +89,18 @@
 
 
 
-<meta name="description" content="gitlab的备份与同步gitlab备份12# sudo gitlab-rake gitlab:backup:create# sudo scp -r /var/opt/gitlab/backups/ root@xx.xxx.xx.xxx:/root 由于版本问题，在迁移目标主机安装同样版本123# scp gitlab-ci-multi-runner_1.4.2_amd64.deb gitlab-">
+<meta name="description" content="[toc] gitlab的备份与同步gitlab备份12# sudo gitlab-rake gitlab:backup:create# sudo scp -r /var/opt/gitlab/backups/ root@xx.xxx.xx.xxx:/root 由于版本问题，在迁移目标主机安装同样版本123# scp gitlab-ci-multi-runner_1.4.2_amd64.deb g">
 <meta name="keywords" content="database">
 <meta property="og:type" content="article">
 <meta property="og:title" content="gitlab备份与迁移">
 <meta property="og:url" content="https://www.asjin.com/2017/11/22/gitlab备份与迁移/index.html">
 <meta property="og:site_name" content="逝水锦遥">
-<meta property="og:description" content="gitlab的备份与同步gitlab备份12# sudo gitlab-rake gitlab:backup:create# sudo scp -r /var/opt/gitlab/backups/ root@xx.xxx.xx.xxx:/root 由于版本问题，在迁移目标主机安装同样版本123# scp gitlab-ci-multi-runner_1.4.2_amd64.deb gitlab-">
+<meta property="og:description" content="[toc] gitlab的备份与同步gitlab备份12# sudo gitlab-rake gitlab:backup:create# sudo scp -r /var/opt/gitlab/backups/ root@xx.xxx.xx.xxx:/root 由于版本问题，在迁移目标主机安装同样版本123# scp gitlab-ci-multi-runner_1.4.2_amd64.deb g">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-06-28T09:25:48.000Z">
+<meta property="og:updated_time" content="2020-09-29T11:05:29.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="gitlab备份与迁移">
-<meta name="twitter:description" content="gitlab的备份与同步gitlab备份12# sudo gitlab-rake gitlab:backup:create# sudo scp -r /var/opt/gitlab/backups/ root@xx.xxx.xx.xxx:/root 由于版本问题，在迁移目标主机安装同样版本123# scp gitlab-ci-multi-runner_1.4.2_amd64.deb gitlab-">
+<meta name="twitter:description" content="[toc] gitlab的备份与同步gitlab备份12# sudo gitlab-rake gitlab:backup:create# sudo scp -r /var/opt/gitlab/backups/ root@xx.xxx.xx.xxx:/root 由于版本问题，在迁移目标主机安装同样版本123# scp gitlab-ci-multi-runner_1.4.2_amd64.deb g">
 
 
 
@@ -405,7 +405,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  627
+                  628
                 </span>
               
 
@@ -442,7 +442,8 @@
       
 
       
-        <h1 id="gitlab的备份与同步"><a href="#gitlab的备份与同步" class="headerlink" title="gitlab的备份与同步"></a>gitlab的备份与同步</h1><h2 id="gitlab备份"><a href="#gitlab备份" class="headerlink" title="gitlab备份"></a>gitlab备份</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># sudo gitlab-rake gitlab:backup:create</span></div><div class="line"><span class="comment"># sudo scp -r /var/opt/gitlab/backups/ root@xx.xxx.xx.xxx:/root</span></div></pre></td></tr></table></figure>
+        <p>[toc]</p>
+<h1 id="gitlab的备份与同步"><a href="#gitlab的备份与同步" class="headerlink" title="gitlab的备份与同步"></a>gitlab的备份与同步</h1><h2 id="gitlab备份"><a href="#gitlab备份" class="headerlink" title="gitlab备份"></a>gitlab备份</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># sudo gitlab-rake gitlab:backup:create</span></div><div class="line"><span class="comment"># sudo scp -r /var/opt/gitlab/backups/ root@xx.xxx.xx.xxx:/root</span></div></pre></td></tr></table></figure>
 <h2 id="由于版本问题，在迁移目标主机安装同样版本"><a href="#由于版本问题，在迁移目标主机安装同样版本" class="headerlink" title="由于版本问题，在迁移目标主机安装同样版本"></a>由于版本问题，在迁移目标主机安装同样版本</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># scp gitlab-ci-multi-runner_1.4.2_amd64.deb gitlab-ce_8.6.2-ce.0_amd64.deb root@xx.xxx.xx.xxx:/root</span></div><div class="line"><span class="comment"># 若无此版本的备份包时选择以下方式下载</span></div><div class="line">链接:http://pan.baidu.com/s/1eS4H6NK  密码:e7i6</div></pre></td></tr></table></figure>
 <h2 id="迁移目标主机安装与恢复"><a href="#迁移目标主机安装与恢复" class="headerlink" title="迁移目标主机安装与恢复"></a>迁移目标主机安装与恢复</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># dpkg -i /root/gitlab-ci-multi-runner_1.4.2_amd64.deb</span></div><div class="line"><span class="comment"># dpkg -i /root/gitlab-ce_8.6.2-ce.0_amd64.deb </span></div><div class="line"><span class="comment"># mv /root/1510889754_gitlab_backup.tar /var/opt/gitlab/backups/</span></div><div class="line"><span class="comment"># gitlab-rake gitlab:backup:restore BACKUP=1510889754</span></div><div class="line"><span class="comment"># gitlab-ctl start</span></div><div class="line"><span class="comment"># vim /etc/gitlab/gitlab.rb</span></div><div class="line">	 unicorn[<span class="string">'listen'</span>] = <span class="string">'0.0.0.0'</span></div><div class="line">	 unicorn[<span class="string">'port'</span>] = 8080</div><div class="line"><span class="comment"># gitlab-ctl reconfigure</span></div><div class="line"><span class="comment"># gitlab-ctl start</span></div></pre></td></tr></table></figure>
 <h2 id="检查8080端口是否启动"><a href="#检查8080端口是否启动" class="headerlink" title="检查8080端口是否启动"></a>检查8080端口是否启动</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># netstat  -tnlup | grep 8080</span></div><div class="line">tcp        0      0 0.0.0.0:8080            0.0.0.0:*               LISTEN      3290/config.ru</div></pre></td></tr></table></figure>
@@ -630,7 +631,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">79</span>
+                  <span class="site-state-item-count">81</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -752,7 +753,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">200.7k</span>
+    <span title="Site words total count">201.2k</span>
   
   <span>   |   </span>
 <span id="showDays"></span>

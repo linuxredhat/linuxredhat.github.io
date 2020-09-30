@@ -89,20 +89,20 @@
 
 
 
-<meta name="description" content="MongoDB NoSQL使用NoSQL: Not Only SQL  常用需求及实现1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980大数据问题:">
+<meta name="description" content="MongoDB NoSQL使用[toc] NoSQL: Not Only SQL  常用需求及实现1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980">
 <meta name="keywords" content="rhca,linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MongoDB NOSQL的使用、分布式搭建、切片存储">
 <meta property="og:url" content="https://www.asjin.com/2018/04/17/MongoDB NoSQL使用/index.html">
 <meta property="og:site_name" content="逝水锦遥">
-<meta property="og:description" content="MongoDB NoSQL使用NoSQL: Not Only SQL  常用需求及实现1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980大数据问题:">
+<meta property="og:description" content="MongoDB NoSQL使用[toc] NoSQL: Not Only SQL  常用需求及实现1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://www.asjin.com/images/mongodb_logo.png">
 <meta property="og:image" content="https://www.asjin.com/images/mongofs.png">
-<meta property="og:updated_time" content="2018-05-02T02:33:29.000Z">
+<meta property="og:updated_time" content="2020-09-29T10:56:26.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MongoDB NOSQL的使用、分布式搭建、切片存储">
-<meta name="twitter:description" content="MongoDB NoSQL使用NoSQL: Not Only SQL  常用需求及实现1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980大数据问题:">
+<meta name="twitter:description" content="MongoDB NoSQL使用[toc] NoSQL: Not Only SQL  常用需求及实现1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980">
 <meta name="twitter:image" content="https://www.asjin.com/images/mongodb_logo.png">
 
 
@@ -445,7 +445,8 @@
       
 
       
-        <h1 id="MongoDB-NoSQL使用"><a href="#MongoDB-NoSQL使用" class="headerlink" title="MongoDB NoSQL使用"></a>MongoDB NoSQL使用</h1><p>NoSQL: Not Only SQL</p>
+        <h1 id="MongoDB-NoSQL使用"><a href="#MongoDB-NoSQL使用" class="headerlink" title="MongoDB NoSQL使用"></a>MongoDB NoSQL使用</h1><p>[toc]</p>
+<p>NoSQL: Not Only SQL</p>
 <p><img src="/images/mongodb_logo.png" alt=""></p>
 <h2 id="常用需求及实现"><a href="#常用需求及实现" class="headerlink" title="常用需求及实现"></a>常用需求及实现</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div></pre></td><td class="code"><pre><div class="line">大数据问题: BigData</div><div class="line">    并行数据库系统，无共享体系结构中，采用关系结构模型，像MySQL的水平切片技术,分区查询;</div><div class="line">    NoSQL数据库管理系统: 不是一种单一单纯的技术，非关系模型、分布式、不支持ACID数据库设计范式;</div><div class="line">        简单数据模型;</div><div class="line">        元数据和数据分离;</div><div class="line">        弱一致性;</div><div class="line">        高吞吐量;</div><div class="line">        高水平扩展能力和低端硬件集群;</div><div class="line">   NewSQL数据库管理系统</div><div class="line">        相关产品: Clustrix、 GenleDB 、ScaleBase、NimbusDB、mysql(NDBCluster、Drizzle)</div><div class="line">    云数据管理系统:</div><div class="line">        相关产品: DBAAS,RDS</div><div class="line"></div><div class="line">大数据的分析处理:</div><div class="line">    常见的有MapReduce机制:将大的数据映射成键值对，而后对各各键值对处理后进行聚合;</div><div class="line">    而hadoop 就是类似于这种系统; habase也是NoSQL的一种;</div><div class="line">    CAP: 强一致性;可用性;分区容错性(出现脑裂的时候可否处理业务需求);</div><div class="line">        最终一致性细分:</div><div class="line">            困果一致性;</div><div class="line">            读自己写一致性;</div><div class="line">            会话一致性;</div><div class="line">            单调读一致性;</div><div class="line">            时间轴一致性;</div><div class="line">            </div><div class="line">    ACID &amp; BASE</div><div class="line">        Atomicity  原子性;</div><div class="line">        Consistency 一致性;</div><div class="line">        Isolation 隔离性 ;</div><div class="line">        Durability 持久性;</div><div class="line">        BASE 基本可用;</div><div class="line">        </div><div class="line">    ACID特性: 强一致性、隔离性、采用悲观保守的方法、难以变化;</div><div class="line">    BASE特性: 弱一致性、可用性优先、采用乐观的方法、更简单、更快;</div><div class="line"></div><div class="line">    数据一致性的实现技术:</div><div class="line">            NRW</div><div class="line">            2PC</div><div class="line">            Paxos</div><div class="line">            Vecotr Clock </div><div class="line"></div><div class="line">数据存储模型:   www.nosql-databases.org</div><div class="line">    列式存储模型 </div><div class="line">    文档存储模型</div><div class="line">    键值数据模型</div><div class="line">    图式数据模型</div><div class="line">    列式模型:</div><div class="line">        应用场景: 在分布式文件系统之上提供支持随机读写分布式数据存储;</div><div class="line">        典型产品: HBase、Hypertable、Cassandra</div><div class="line">        数据模型: 以&quot;列&quot;为中心进行存储 ，将同一列数据存储在一起;</div><div class="line">        优点: 快速查询、高可扩展性、易于实现分布式扩展;</div><div class="line">    </div><div class="line">    文档模型:</div><div class="line">        应用场景:非强事务需求的web应用;</div><div class="line">        典型产品:MongoDB、ElasticSearch(构建的搜索引擎工具)、CouchDB、CouchBase Server</div><div class="line">        数据模型: 键值模型，存储为文档;</div><div class="line">        优点: 数据模型无需事先定义</div><div class="line">        </div><div class="line">    键值模型:</div><div class="line">        应用场景: 内容缓存，用于大量并行数据访问高载场景;</div><div class="line">        典型产品: Redis、DynamoDB、Riak、Redis;</div><div class="line">        数据模型: 基于哈希表实现的key-value模型;</div><div class="line">        优点: 查询迅速， 缺点：数据没有结构;</div><div class="line">        </div><div class="line">    图式模型:</div><div class="line">        应用场景: 社交网络、推荐系统、关系图普</div><div class="line">        典型产品: Neo4J  、TITAN 、 Infinite Graph</div><div class="line">        数据模型: 图式结构</div><div class="line">        优点: 适应于图式计算场景</div><div class="line"></div><div class="line">MongoDB: NoSQL、文档存储、Json数据模型</div><div class="line">    适用场景: </div><div class="line">        Websites</div><div class="line">        Caching</div><div class="line">        High volume, low value</div><div class="line">        High scalability </div><div class="line">        Storage of program objects and json</div><div class="line">     不适用场景:</div><div class="line">        Hightly transactional</div><div class="line">        Ad-hoc business intelligence</div><div class="line">        Problems requiring SQL</div></pre></td></tr></table></figure>
 <h2 id="mongo-的安装与使用"><a href="#mongo-的安装与使用" class="headerlink" title="mongo 的安装与使用"></a>mongo 的安装与使用</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"> # vim /etc/yum.repos.d/mongodb.repo</div><div class="line"> [mongodb-org-3.4]  </div><div class="line">name=MongoDB Repository  </div><div class="line">baseurl=https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/3.4/x86_64/  </div><div class="line">gpgcheck=1  </div><div class="line">enabled=1  </div><div class="line">gpgkey=https://www.mongodb.org/static/pgp/server-3.4.asc</div><div class="line"># yum clean all</div><div class="line"># yum makeacahe</div><div class="line"># yum -y install mongodb-org</div></pre></td></tr></table></figure>
@@ -665,7 +666,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">79</span>
+                  <span class="site-state-item-count">81</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -787,7 +788,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">200.7k</span>
+    <span title="Site words total count">201.2k</span>
   
   <span>   |   </span>
 <span id="showDays"></span>

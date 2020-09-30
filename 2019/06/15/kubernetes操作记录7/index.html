@@ -89,13 +89,13 @@
 
 
 
-<meta name="description" content="kubernetes 操作记录七 资源指标API及自定义指标API资源指标: metrics-server自定义指标: prometheus, k8s-prometheus-adapter 新一代架构:    核心指标流水线：由kubelet、metrics-server 以及由API server 提供的api组成;CPU、内存实时使用率、Pod的资源占用率及窗口的磁盘占用率;    监控流水线">
+<meta name="description" content="[toc] kubernetes 操作记录七 资源指标API及自定义指标API资源指标: metrics-server自定义指标: prometheus, k8s-prometheus-adapter 新一代架构:    核心指标流水线：由kubelet、metrics-server 以及由API server 提供的api组成;CPU、内存实时使用率、Pod的资源占用率及窗口的磁盘占用率;">
 <meta name="keywords" content="rhca,linux,cloud">
 <meta property="og:type" content="article">
 <meta property="og:title" content="kubernetes操作记录(七)">
 <meta property="og:url" content="https://www.asjin.com/2019/06/15/kubernetes操作记录7/index.html">
 <meta property="og:site_name" content="逝水锦遥">
-<meta property="og:description" content="kubernetes 操作记录七 资源指标API及自定义指标API资源指标: metrics-server自定义指标: prometheus, k8s-prometheus-adapter 新一代架构:    核心指标流水线：由kubelet、metrics-server 以及由API server 提供的api组成;CPU、内存实时使用率、Pod的资源占用率及窗口的磁盘占用率;    监控流水线">
+<meta property="og:description" content="[toc] kubernetes 操作记录七 资源指标API及自定义指标API资源指标: metrics-server自定义指标: prometheus, k8s-prometheus-adapter 新一代架构:    核心指标流水线：由kubelet、metrics-server 以及由API server 提供的api组成;CPU、内存实时使用率、Pod的资源占用率及窗口的磁盘占用率;">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/docker_kubernetes.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/kubernetes-prometheus-deploy.png">
@@ -103,10 +103,10 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/kubernetes-prometheus-datasources.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/kubernetest-prometheus-dashboard.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/kubernetes-helm-efk-kibana.png">
-<meta property="og:updated_time" content="2019-06-25T08:03:31.000Z">
+<meta property="og:updated_time" content="2020-09-29T10:49:02.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="kubernetes操作记录(七)">
-<meta name="twitter:description" content="kubernetes 操作记录七 资源指标API及自定义指标API资源指标: metrics-server自定义指标: prometheus, k8s-prometheus-adapter 新一代架构:    核心指标流水线：由kubelet、metrics-server 以及由API server 提供的api组成;CPU、内存实时使用率、Pod的资源占用率及窗口的磁盘占用率;    监控流水线">
+<meta name="twitter:description" content="[toc] kubernetes 操作记录七 资源指标API及自定义指标API资源指标: metrics-server自定义指标: prometheus, k8s-prometheus-adapter 新一代架构:    核心指标流水线：由kubelet、metrics-server 以及由API server 提供的api组成;CPU、内存实时使用率、Pod的资源占用率及窗口的磁盘占用率;">
 <meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/docker_kubernetes.png">
 
 
@@ -449,7 +449,8 @@
       
 
       
-        <h1 id="kubernetes-操作记录七"><a href="#kubernetes-操作记录七" class="headerlink" title="kubernetes 操作记录七"></a>kubernetes 操作记录七</h1><p><img src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/docker_kubernetes.png" alt=""></p>
+        <p>[toc]</p>
+<h1 id="kubernetes-操作记录七"><a href="#kubernetes-操作记录七" class="headerlink" title="kubernetes 操作记录七"></a>kubernetes 操作记录七</h1><p><img src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/docker_kubernetes.png" alt=""></p>
 <h2 id="资源指标API及自定义指标API"><a href="#资源指标API及自定义指标API" class="headerlink" title="资源指标API及自定义指标API"></a>资源指标API及自定义指标API</h2><p>资源指标: metrics-server<br>自定义指标: prometheus, k8s-prometheus-adapter</p>
 <p>新一代架构:<br>    核心指标流水线：由kubelet、metrics-server 以及由API server 提供的api组成;CPU、内存实时使用率、Pod的资源占用率及窗口的磁盘占用率;<br>    监控流水线: 用于从系统收集各种指标数据并提供终端用户、存储系统以及HPA。它们包含核心指标及许多非核心指标。非核心指标本身不能被k8s所解析;<br>    metrics-server: API server </p>
 <hr>
@@ -717,7 +718,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">79</span>
+                  <span class="site-state-item-count">81</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -839,7 +840,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">200.7k</span>
+    <span title="Site words total count">201.2k</span>
   
   <span>   |   </span>
 <span id="showDays"></span>

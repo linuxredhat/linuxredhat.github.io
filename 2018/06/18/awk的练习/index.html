@@ -89,19 +89,19 @@
 
 
 
-<meta name="description" content="awk每日练 先熟练一些操作1、 以空格做为分格符，打印passwd 文件的第一列1#  awk &amp;apos;&amp;#123;print $1&amp;#125;&amp;apos; /etc/passwd 2、 以冒号做分格符，打印passwd 文件的第一列,即获取当前系统中存在的所有用户1# awk -F: &amp;apos;&amp;#123;print $1&amp;#125;&amp;apos; /etc/passwd 3、 以管道方式">
+<meta name="description" content="[toc] awk每日练 先熟练一些操作1、 以空格做为分格符，打印passwd 文件的第一列1#  awk &amp;apos;&amp;#123;print $1&amp;#125;&amp;apos; /etc/passwd 2、 以冒号做分格符，打印passwd 文件的第一列,即获取当前系统中存在的所有用户1# awk -F: &amp;apos;&amp;#123;print $1&amp;#125;&amp;apos; /etc/passwd 3、">
 <meta name="keywords" content="linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="awk 的练习">
 <meta property="og:url" content="https://www.asjin.com/2018/06/18/awk的练习/index.html">
 <meta property="og:site_name" content="逝水锦遥">
-<meta property="og:description" content="awk每日练 先熟练一些操作1、 以空格做为分格符，打印passwd 文件的第一列1#  awk &amp;apos;&amp;#123;print $1&amp;#125;&amp;apos; /etc/passwd 2、 以冒号做分格符，打印passwd 文件的第一列,即获取当前系统中存在的所有用户1# awk -F: &amp;apos;&amp;#123;print $1&amp;#125;&amp;apos; /etc/passwd 3、 以管道方式">
+<meta property="og:description" content="[toc] awk每日练 先熟练一些操作1、 以空格做为分格符，打印passwd 文件的第一列1#  awk &amp;apos;&amp;#123;print $1&amp;#125;&amp;apos; /etc/passwd 2、 以冒号做分格符，打印passwd 文件的第一列,即获取当前系统中存在的所有用户1# awk -F: &amp;apos;&amp;#123;print $1&amp;#125;&amp;apos; /etc/passwd 3、">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/awk.jpg">
-<meta property="og:updated_time" content="2018-06-08T08:23:58.000Z">
+<meta property="og:updated_time" content="2020-09-28T07:30:32.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="awk 的练习">
-<meta name="twitter:description" content="awk每日练 先熟练一些操作1、 以空格做为分格符，打印passwd 文件的第一列1#  awk &amp;apos;&amp;#123;print $1&amp;#125;&amp;apos; /etc/passwd 2、 以冒号做分格符，打印passwd 文件的第一列,即获取当前系统中存在的所有用户1# awk -F: &amp;apos;&amp;#123;print $1&amp;#125;&amp;apos; /etc/passwd 3、 以管道方式">
+<meta name="twitter:description" content="[toc] awk每日练 先熟练一些操作1、 以空格做为分格符，打印passwd 文件的第一列1#  awk &amp;apos;&amp;#123;print $1&amp;#125;&amp;apos; /etc/passwd 2、 以冒号做分格符，打印passwd 文件的第一列,即获取当前系统中存在的所有用户1# awk -F: &amp;apos;&amp;#123;print $1&amp;#125;&amp;apos; /etc/passwd 3、">
 <meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/awk.jpg">
 
 
@@ -444,7 +444,8 @@
       
 
       
-        <h1 id="awk每日练"><a href="#awk每日练" class="headerlink" title="awk每日练"></a>awk每日练</h1><p><img src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/awk.jpg" alt=""></p>
+        <p>[toc]</p>
+<h1 id="awk每日练"><a href="#awk每日练" class="headerlink" title="awk每日练"></a>awk每日练</h1><p><img src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/awk.jpg" alt=""></p>
 <h2 id="先熟练一些操作"><a href="#先熟练一些操作" class="headerlink" title="先熟练一些操作"></a>先熟练一些操作</h2><h3 id="1、-以空格做为分格符，打印passwd-文件的第一列"><a href="#1、-以空格做为分格符，打印passwd-文件的第一列" class="headerlink" title="1、 以空格做为分格符，打印passwd 文件的第一列"></a>1、 以空格做为分格符，打印passwd 文件的第一列</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">#  awk &apos;&#123;print $1&#125;&apos; /etc/passwd</div></pre></td></tr></table></figure>
 <h3 id="2、-以冒号做分格符，打印passwd-文件的第一列-即获取当前系统中存在的所有用户"><a href="#2、-以冒号做分格符，打印passwd-文件的第一列-即获取当前系统中存在的所有用户" class="headerlink" title="2、 以冒号做分格符，打印passwd 文件的第一列,即获取当前系统中存在的所有用户"></a>2、 以冒号做分格符，打印passwd 文件的第一列,即获取当前系统中存在的所有用户</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># awk -F: &apos;&#123;print $1&#125;&apos; /etc/passwd</div></pre></td></tr></table></figure>
 <h3 id="3、-以管道方式，打印passwd-文件的第三列，即共获取当前系统中所有用户的id号"><a href="#3、-以管道方式，打印passwd-文件的第三列，即共获取当前系统中所有用户的id号" class="headerlink" title="3、 以管道方式，打印passwd 文件的第三列，即共获取当前系统中所有用户的id号"></a>3、 以管道方式，打印passwd 文件的第三列，即共获取当前系统中所有用户的id号</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">#  cat /etc/passwd | awk -F : &apos;&#123;print $3&#125;&apos;</div></pre></td></tr></table></figure>
@@ -1178,7 +1179,7 @@ awk &apos;!/^UUID/{print $1}&apos; /etc/fstab
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">79</span>
+                  <span class="site-state-item-count">81</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1300,7 +1301,7 @@ awk &apos;!/^UUID/{print $1}&apos; /etc/fstab
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">200.7k</span>
+    <span title="Site words total count">201.2k</span>
   
   <span>   |   </span>
 <span id="showDays"></span>

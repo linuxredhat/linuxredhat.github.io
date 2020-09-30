@@ -89,20 +89,20 @@
 
 
 
-<meta name="description" content="python 表格操作将awk生成的数据导入表格pandas ：pannel data analysis（面板数据分析）。pandas是基于numpy构建的，为时间序列分析提供了很好的支持。pandas中有两个主要的数据结构，一个是Series，另一个是DataFrame。 Series 类似于一维数组与字典(map)数据结构的结合。它由一组数据和一组与数据相对应的数据标签（索引index）组成。">
+<meta name="description" content="[toc] python 表格操作将awk生成的数据导入表格pandas ：pannel data analysis（面板数据分析）。pandas是基于numpy构建的，为时间序列分析提供了很好的支持。pandas中有两个主要的数据结构，一个是Series，另一个是DataFrame。 Series 类似于一维数组与字典(map)数据结构的结合。它由一组数据和一组与数据相对应的数据标签（索引ind">
 <meta name="keywords" content="linux,program">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python表格操作">
 <meta property="og:url" content="https://www.asjin.com/2020/04/22/python_excel表格操作/index.html">
 <meta property="og:site_name" content="逝水锦遥">
-<meta property="og:description" content="python 表格操作将awk生成的数据导入表格pandas ：pannel data analysis（面板数据分析）。pandas是基于numpy构建的，为时间序列分析提供了很好的支持。pandas中有两个主要的数据结构，一个是Series，另一个是DataFrame。 Series 类似于一维数组与字典(map)数据结构的结合。它由一组数据和一组与数据相对应的数据标签（索引index）组成。">
+<meta property="og:description" content="[toc] python 表格操作将awk生成的数据导入表格pandas ：pannel data analysis（面板数据分析）。pandas是基于numpy构建的，为时间序列分析提供了很好的支持。pandas中有两个主要的数据结构，一个是Series，另一个是DataFrame。 Series 类似于一维数组与字典(map)数据结构的结合。它由一组数据和一组与数据相对应的数据标签（索引ind">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/python-pandas1.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/python-pandas1.png">
-<meta property="og:updated_time" content="2020-04-24T02:13:53.000Z">
+<meta property="og:updated_time" content="2020-09-29T10:48:27.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python表格操作">
-<meta name="twitter:description" content="python 表格操作将awk生成的数据导入表格pandas ：pannel data analysis（面板数据分析）。pandas是基于numpy构建的，为时间序列分析提供了很好的支持。pandas中有两个主要的数据结构，一个是Series，另一个是DataFrame。 Series 类似于一维数组与字典(map)数据结构的结合。它由一组数据和一组与数据相对应的数据标签（索引index）组成。">
+<meta name="twitter:description" content="[toc] python 表格操作将awk生成的数据导入表格pandas ：pannel data analysis（面板数据分析）。pandas是基于numpy构建的，为时间序列分析提供了很好的支持。pandas中有两个主要的数据结构，一个是Series，另一个是DataFrame。 Series 类似于一维数组与字典(map)数据结构的结合。它由一组数据和一组与数据相对应的数据标签（索引ind">
 <meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/python-pandas1.png">
 
 
@@ -445,7 +445,8 @@
       
 
       
-        <h1 id="python-表格操作"><a href="#python-表格操作" class="headerlink" title="python 表格操作"></a>python 表格操作</h1><h2 id="将awk生成的数据导入表格"><a href="#将awk生成的数据导入表格" class="headerlink" title="将awk生成的数据导入表格"></a>将awk生成的数据导入表格</h2><p><img src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/python-pandas1.png" alt=""><br>pandas ：pannel data analysis（面板数据分析）。pandas是基于numpy构建的，为时间序列分析提供了很好的支持。pandas中有两个主要的数据结构，一个是Series，另一个是DataFrame。</p>
+        <p>[toc]</p>
+<h1 id="python-表格操作"><a href="#python-表格操作" class="headerlink" title="python 表格操作"></a>python 表格操作</h1><h2 id="将awk生成的数据导入表格"><a href="#将awk生成的数据导入表格" class="headerlink" title="将awk生成的数据导入表格"></a>将awk生成的数据导入表格</h2><p><img src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/python-pandas1.png" alt=""><br>pandas ：pannel data analysis（面板数据分析）。pandas是基于numpy构建的，为时间序列分析提供了很好的支持。pandas中有两个主要的数据结构，一个是Series，另一个是DataFrame。</p>
 <p>Series 类似于一维数组与字典(map)数据结构的结合。它由一组数据和一组与数据相对应的数据标签（索引index）组成。这组数据和索引标签的基础都是一个一维ndarray数组。可将index索引理解为行索引。 Series的表现形式为：索引在左，数据在右。</p>
 <p>DataFrame是一个类似表格的数据结构，索引包括列索引和行索引，包含有一组有序的列，每列可以是不同的值类型（数值、字符串、布尔值等）。DataFrame的每一行和每一列都是一个Series，这个Series的name属性为当前的行索引名/列索引名。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/python-pandas1.png" alt="python-pandas1"></p>
@@ -631,7 +632,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">79</span>
+                  <span class="site-state-item-count">81</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -753,7 +754,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">200.7k</span>
+    <span title="Site words total count">201.2k</span>
   
   <span>   |   </span>
 <span id="showDays"></span>

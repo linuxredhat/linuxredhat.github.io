@@ -89,13 +89,13 @@
 
 
 
-<meta name="description" content="环境架构与实现实验环境介绍   服务器ip 操作系统 主机名 用途     10.180.66.11 CentOS7.4 node1 ansible自动推送   10.180.66.12 CentOS7.4 node2 keepalived+nginx+rsync客户端   10.180.66.13 CentOS7.4 node3 keepalived+nginx+rsync服务端     实现逻">
+<meta name="description" content="环境架构与实现[toc] 实验环境介绍   服务器ip 操作系统 主机名 用途     10.180.66.11 CentOS7.4 node1 ansible自动推送   10.180.66.12 CentOS7.4 node2 keepalived+nginx+rsync客户端   10.180.66.13 CentOS7.4 node3 keepalived+nginx+rsync服务端">
 <meta name="keywords" content="rhca,linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="keepalived+nginx+inotify+rsync的实现">
 <meta property="og:url" content="https://www.asjin.com/2018/08/08/keepalived+nginx+inotify+rsync的实现/index.html">
 <meta property="og:site_name" content="逝水锦遥">
-<meta property="og:description" content="环境架构与实现实验环境介绍   服务器ip 操作系统 主机名 用途     10.180.66.11 CentOS7.4 node1 ansible自动推送   10.180.66.12 CentOS7.4 node2 keepalived+nginx+rsync客户端   10.180.66.13 CentOS7.4 node3 keepalived+nginx+rsync服务端     实现逻">
+<meta property="og:description" content="环境架构与实现[toc] 实验环境介绍   服务器ip 操作系统 主机名 用途     10.180.66.11 CentOS7.4 node1 ansible自动推送   10.180.66.12 CentOS7.4 node2 keepalived+nginx+rsync客户端   10.180.66.13 CentOS7.4 node3 keepalived+nginx+rsync服务端">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/keepalived-huajin1.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/keepalived+nginx+rsync+inotify.png">
@@ -111,10 +111,10 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/ansible-keepalived.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/rysnc+inotify.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/rsync+inotify2.png">
-<meta property="og:updated_time" content="2019-05-22T02:27:11.000Z">
+<meta property="og:updated_time" content="2020-09-29T10:56:19.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="keepalived+nginx+inotify+rsync的实现">
-<meta name="twitter:description" content="环境架构与实现实验环境介绍   服务器ip 操作系统 主机名 用途     10.180.66.11 CentOS7.4 node1 ansible自动推送   10.180.66.12 CentOS7.4 node2 keepalived+nginx+rsync客户端   10.180.66.13 CentOS7.4 node3 keepalived+nginx+rsync服务端     实现逻">
+<meta name="twitter:description" content="环境架构与实现[toc] 实验环境介绍   服务器ip 操作系统 主机名 用途     10.180.66.11 CentOS7.4 node1 ansible自动推送   10.180.66.12 CentOS7.4 node2 keepalived+nginx+rsync客户端   10.180.66.13 CentOS7.4 node3 keepalived+nginx+rsync服务端">
 <meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/keepalived-huajin1.png">
 
 
@@ -461,7 +461,8 @@
       
 
       
-        <h1 id="环境架构与实现"><a href="#环境架构与实现" class="headerlink" title="环境架构与实现"></a>环境架构与实现</h1><h2 id="实验环境介绍"><a href="#实验环境介绍" class="headerlink" title="实验环境介绍"></a>实验环境介绍</h2><table>
+        <h1 id="环境架构与实现"><a href="#环境架构与实现" class="headerlink" title="环境架构与实现"></a>环境架构与实现</h1><p>[toc]</p>
+<h2 id="实验环境介绍"><a href="#实验环境介绍" class="headerlink" title="实验环境介绍"></a>实验环境介绍</h2><table>
 <thead>
 <tr>
 <th>服务器ip</th>
@@ -718,7 +719,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">79</span>
+                  <span class="site-state-item-count">81</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -840,7 +841,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">200.7k</span>
+    <span title="Site words total count">201.2k</span>
   
   <span>   |   </span>
 <span id="showDays"></span>

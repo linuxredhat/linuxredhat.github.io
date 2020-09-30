@@ -89,17 +89,17 @@
 
 
 
-<meta name="description" content="温故而知新123456789101112131415161718192021222324252627282930313233Messaaging Layer:	heartbaet v1,v2,v3 	corosync v1, v2(votequorum)	OpenAISCRM:	pacemaker 需要一个配置接口		配置接口:crmsh (由SUSE研发的),由pssh管理工具来实现				 p">
+<meta name="description" content="[toc] 温故而知新123456789101112131415161718192021222324252627282930313233Messaaging Layer:	heartbaet v1,v2,v3 	corosync v1, v2(votequorum)	OpenAISCRM:	pacemaker 需要一个配置接口		配置接口:crmsh (由SUSE研发的),由pssh管理工具来实现">
 <meta property="og:type" content="article">
 <meta property="og:title" content="自习之 Linux HA Cluster 2">
 <meta property="og:url" content="https://www.asjin.com/2018/01/03/Linux-HA-Cluster-2/index.html">
 <meta property="og:site_name" content="逝水锦遥">
-<meta property="og:description" content="温故而知新123456789101112131415161718192021222324252627282930313233Messaaging Layer:	heartbaet v1,v2,v3 	corosync v1, v2(votequorum)	OpenAISCRM:	pacemaker 需要一个配置接口		配置接口:crmsh (由SUSE研发的),由pssh管理工具来实现				 p">
+<meta property="og:description" content="[toc] 温故而知新123456789101112131415161718192021222324252627282930313233Messaaging Layer:	heartbaet v1,v2,v3 	corosync v1, v2(votequorum)	OpenAISCRM:	pacemaker 需要一个配置接口		配置接口:crmsh (由SUSE研发的),由pssh管理工具来实现">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-24T08:50:00.000Z">
+<meta property="og:updated_time" content="2020-09-29T11:05:37.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="自习之 Linux HA Cluster 2">
-<meta name="twitter:description" content="温故而知新123456789101112131415161718192021222324252627282930313233Messaaging Layer:	heartbaet v1,v2,v3 	corosync v1, v2(votequorum)	OpenAISCRM:	pacemaker 需要一个配置接口		配置接口:crmsh (由SUSE研发的),由pssh管理工具来实现				 p">
+<meta name="twitter:description" content="[toc] 温故而知新123456789101112131415161718192021222324252627282930313233Messaaging Layer:	heartbaet v1,v2,v3 	corosync v1, v2(votequorum)	OpenAISCRM:	pacemaker 需要一个配置接口		配置接口:crmsh (由SUSE研发的),由pssh管理工具来实现">
 
 
 
@@ -441,7 +441,8 @@
       
 
       
-        <h2 id="温故而知新"><a href="#温故而知新" class="headerlink" title="温故而知新"></a>温故而知新</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">Messaaging Layer:</div><div class="line">	heartbaet v1,v2,v3 </div><div class="line">	corosync v1, v2(votequorum)</div><div class="line">	OpenAIS</div><div class="line">CRM:</div><div class="line">	pacemaker 需要一个配置接口</div><div class="line">		配置接口:crmsh (由SUSE研发的),由pssh管理工具来实现</div><div class="line">				 pcs (agent c/s ),pcsd来实现</div><div class="line">				 conga(ricci运行在各结点上的进程/luci发送指令到各节点)组成</div><div class="line">				 </div><div class="line">				 group,constraint(基于约束)</div><div class="line">				 </div><div class="line">				 rgmanager(cman)</div><div class="line">				 	resouce group(资源组):</div><div class="line">				 		failover domain</div><div class="line">RA:</div><div class="line">	LSB: /etc/rc.d/init.d</div><div class="line">	systemd: /etc/systemd/system/multi-user.wants</div><div class="line">		服务开机处于<span class="built_in">enable</span>状态;</div><div class="line">	OCF:[provider]</div><div class="line">		heartbeat</div><div class="line">		pacemaker </div><div class="line">		linbit 基于内核跨节点的块设备</div><div class="line">	service</div><div class="line">	stonith</div><div class="line">	高可用集群的可用方案:</div><div class="line">		heartbeat v1</div><div class="line">		heartbeat v2</div><div class="line">		heartbeat v3 + pacemaker X </div><div class="line">		corosync + pacemaker </div><div class="line">		cman + rgmanager </div><div class="line">		corosync + cman + pacemaker</div><div class="line">		keepalived</div></pre></td></tr></table></figure>
+        <p>[toc]</p>
+<h2 id="温故而知新"><a href="#温故而知新" class="headerlink" title="温故而知新"></a>温故而知新</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">Messaaging Layer:</div><div class="line">	heartbaet v1,v2,v3 </div><div class="line">	corosync v1, v2(votequorum)</div><div class="line">	OpenAIS</div><div class="line">CRM:</div><div class="line">	pacemaker 需要一个配置接口</div><div class="line">		配置接口:crmsh (由SUSE研发的),由pssh管理工具来实现</div><div class="line">				 pcs (agent c/s ),pcsd来实现</div><div class="line">				 conga(ricci运行在各结点上的进程/luci发送指令到各节点)组成</div><div class="line">				 </div><div class="line">				 group,constraint(基于约束)</div><div class="line">				 </div><div class="line">				 rgmanager(cman)</div><div class="line">				 	resouce group(资源组):</div><div class="line">				 		failover domain</div><div class="line">RA:</div><div class="line">	LSB: /etc/rc.d/init.d</div><div class="line">	systemd: /etc/systemd/system/multi-user.wants</div><div class="line">		服务开机处于<span class="built_in">enable</span>状态;</div><div class="line">	OCF:[provider]</div><div class="line">		heartbeat</div><div class="line">		pacemaker </div><div class="line">		linbit 基于内核跨节点的块设备</div><div class="line">	service</div><div class="line">	stonith</div><div class="line">	高可用集群的可用方案:</div><div class="line">		heartbeat v1</div><div class="line">		heartbeat v2</div><div class="line">		heartbeat v3 + pacemaker X </div><div class="line">		corosync + pacemaker </div><div class="line">		cman + rgmanager </div><div class="line">		corosync + cman + pacemaker</div><div class="line">		keepalived</div></pre></td></tr></table></figure>
 <h2 id="Linux-HA-Cluster-2"><a href="#Linux-HA-Cluster-2" class="headerlink" title="Linux-HA-Cluster 2"></a>Linux-HA-Cluster 2</h2><blockquote>
 <p>Heartbeat集群之间传递心跳的方法<br>1、使用串型线缆<br>2、使用以太网通信<br>3、Unicast  单播，使用udpu，一般在不支持多播的网络中使用的<br>4、Mutlicast  多播/组播, 使用udp<br>5、Broadcast  广播，占用过高的网络资源    </p>
 </blockquote>
@@ -634,7 +635,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">79</span>
+                  <span class="site-state-item-count">81</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -756,7 +757,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">200.7k</span>
+    <span title="Site words total count">201.2k</span>
   
   <span>   |   </span>
 <span id="showDays"></span>

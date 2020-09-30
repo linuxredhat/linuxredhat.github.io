@@ -89,20 +89,20 @@
 
 
 
-<meta name="description" content="总结glibc的升级操作 遇到的执行程序报错123fastp.sh 的时候报下面的错，其他节点都没问题fastp: /lib64/libc.so.6: version `GLIBC_2.14&amp;apos; not found (required by fastp)fastp: /lib64/libc.so.6: version `GLIBC_2.14&amp;apos; not found (require">
+<meta name="description" content="[toc] 总结glibc的升级操作 遇到的执行程序报错123fastp.sh 的时候报下面的错，其他节点都没问题fastp: /lib64/libc.so.6: version `GLIBC_2.14&amp;apos; not found (required by fastp)fastp: /lib64/libc.so.6: version `GLIBC_2.14&amp;apos; not found (r">
 <meta name="keywords" content="rhca,linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="总结glibc的升级操作">
 <meta property="og:url" content="https://www.asjin.com/2020/03/11/glibc 升级处理/index.html">
 <meta property="og:site_name" content="逝水锦遥">
-<meta property="og:description" content="总结glibc的升级操作 遇到的执行程序报错123fastp.sh 的时候报下面的错，其他节点都没问题fastp: /lib64/libc.so.6: version `GLIBC_2.14&amp;apos; not found (required by fastp)fastp: /lib64/libc.so.6: version `GLIBC_2.14&amp;apos; not found (require">
+<meta property="og:description" content="[toc] 总结glibc的升级操作 遇到的执行程序报错123fastp.sh 的时候报下面的错，其他节点都没问题fastp: /lib64/libc.so.6: version `GLIBC_2.14&amp;apos; not found (required by fastp)fastp: /lib64/libc.so.6: version `GLIBC_2.14&amp;apos; not found (r">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://www.asjin.com/images/glibc.png">
 <meta property="og:image" content="https://www.asjin.com/images/glibc-not.jpeg">
-<meta property="og:updated_time" content="2020-04-18T16:23:14.000Z">
+<meta property="og:updated_time" content="2020-09-29T10:48:54.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="总结glibc的升级操作">
-<meta name="twitter:description" content="总结glibc的升级操作 遇到的执行程序报错123fastp.sh 的时候报下面的错，其他节点都没问题fastp: /lib64/libc.so.6: version `GLIBC_2.14&amp;apos; not found (required by fastp)fastp: /lib64/libc.so.6: version `GLIBC_2.14&amp;apos; not found (require">
+<meta name="twitter:description" content="[toc] 总结glibc的升级操作 遇到的执行程序报错123fastp.sh 的时候报下面的错，其他节点都没问题fastp: /lib64/libc.so.6: version `GLIBC_2.14&amp;apos; not found (required by fastp)fastp: /lib64/libc.so.6: version `GLIBC_2.14&amp;apos; not found (r">
 <meta name="twitter:image" content="https://www.asjin.com/images/glibc.png">
 
 
@@ -408,7 +408,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  599
+                  600
                 </span>
               
 
@@ -445,7 +445,8 @@
       
 
       
-        <h1 id="总结glibc的升级操作"><a href="#总结glibc的升级操作" class="headerlink" title="总结glibc的升级操作"></a>总结glibc的升级操作</h1><p><img src="/images/glibc.png" alt=""></p>
+        <p>[toc]</p>
+<h1 id="总结glibc的升级操作"><a href="#总结glibc的升级操作" class="headerlink" title="总结glibc的升级操作"></a>总结glibc的升级操作</h1><p><img src="/images/glibc.png" alt=""></p>
 <h2 id="遇到的执行程序报错"><a href="#遇到的执行程序报错" class="headerlink" title="遇到的执行程序报错"></a>遇到的执行程序报错</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">fastp.sh 的时候报下面的错，其他节点都没问题</div><div class="line">fastp: /lib64/libc.so.6: version `GLIBC_2.14&apos; not found (required by fastp)</div><div class="line">fastp: /lib64/libc.so.6: version `GLIBC_2.14&apos; not found (required by /zlib/lib/libz.so.1)</div></pre></td></tr></table></figure>
 <p>在操作之前最好先备份 <code>/lib64/libc.so.6</code> 和它对应指向的链接文件</p>
 <h2 id="处理过程"><a href="#处理过程" class="headerlink" title="处理过程"></a>处理过程</h2><p><code>注: 操作服务器的时候，一定要把这个节点从集群中去除。确保不影响业务的使用</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"># cat /etc/redhat-release </div><div class="line">CentOS release 6.5 (Final)</div><div class="line"># strings /lib64/libc.so.6 |grep GLIBC_ </div><div class="line">GLIBC_2.2.5</div><div class="line">GLIBC_2.2.6</div><div class="line">GLIBC_2.3</div><div class="line">GLIBC_2.3.2</div><div class="line">GLIBC_2.3.3</div><div class="line">GLIBC_2.3.4</div><div class="line">GLIBC_2.4</div><div class="line">GLIBC_2.5</div><div class="line">GLIBC_2.6</div><div class="line">GLIBC_2.7</div><div class="line">GLIBC_2.8</div><div class="line">GLIBC_2.9</div><div class="line">GLIBC_2.10</div><div class="line">GLIBC_2.11</div><div class="line">GLIBC_2.12</div><div class="line">GLIBC_PRIVATE</div></pre></td></tr></table></figure></p>
@@ -650,7 +651,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">79</span>
+                  <span class="site-state-item-count">81</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -772,7 +773,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">200.7k</span>
+    <span title="Site words total count">201.2k</span>
   
   <span>   |   </span>
 <span id="showDays"></span>

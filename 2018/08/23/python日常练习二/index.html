@@ -89,19 +89,19 @@
 
 
 
-<meta name="description" content="python 日常练习 和并两个有序列表，并且保持合并后的两个列表有序123456789101112131415161718In [11]: l1 = [1,2,3,4]In [12]: l2 = [2,3,7,9]In [13]: l3 = []In [14]: for x in l1:    ...:     while len(l2) &amp;gt; 0 :    ...:         if">
+<meta name="description" content="[toc] python 日常练习 和并两个有序列表，并且保持合并后的两个列表有序123456789101112131415161718In [11]: l1 = [1,2,3,4]In [12]: l2 = [2,3,7,9]In [13]: l3 = []In [14]: for x in l1:    ...:     while len(l2) &amp;gt; 0 :    ...:">
 <meta name="keywords" content="linux,program">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python日常练习">
 <meta property="og:url" content="https://www.asjin.com/2018/08/23/python日常练习二/index.html">
 <meta property="og:site_name" content="逝水锦遥">
-<meta property="og:description" content="python 日常练习 和并两个有序列表，并且保持合并后的两个列表有序123456789101112131415161718In [11]: l1 = [1,2,3,4]In [12]: l2 = [2,3,7,9]In [13]: l3 = []In [14]: for x in l1:    ...:     while len(l2) &amp;gt; 0 :    ...:         if">
+<meta property="og:description" content="[toc] python 日常练习 和并两个有序列表，并且保持合并后的两个列表有序123456789101112131415161718In [11]: l1 = [1,2,3,4]In [12]: l2 = [2,3,7,9]In [13]: l3 = []In [14]: for x in l1:    ...:     while len(l2) &amp;gt; 0 :    ...:">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/python.jpg">
-<meta property="og:updated_time" content="2018-08-23T06:50:08.000Z">
+<meta property="og:updated_time" content="2020-09-29T10:55:59.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python日常练习">
-<meta name="twitter:description" content="python 日常练习 和并两个有序列表，并且保持合并后的两个列表有序123456789101112131415161718In [11]: l1 = [1,2,3,4]In [12]: l2 = [2,3,7,9]In [13]: l3 = []In [14]: for x in l1:    ...:     while len(l2) &amp;gt; 0 :    ...:         if">
+<meta name="twitter:description" content="[toc] python 日常练习 和并两个有序列表，并且保持合并后的两个列表有序123456789101112131415161718In [11]: l1 = [1,2,3,4]In [12]: l2 = [2,3,7,9]In [13]: l3 = []In [14]: for x in l1:    ...:     while len(l2) &amp;gt; 0 :    ...:">
 <meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/python.jpg">
 
 
@@ -407,7 +407,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  716
+                  717
                 </span>
               
 
@@ -423,7 +423,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  3
+                  4
                 </span>
               
             </div>
@@ -444,7 +444,8 @@
       
 
       
-        <h1 id="python-日常练习"><a href="#python-日常练习" class="headerlink" title="python 日常练习"></a>python 日常练习</h1><p><img src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/python.jpg" alt=""></p>
+        <p>[toc]</p>
+<h1 id="python-日常练习"><a href="#python-日常练习" class="headerlink" title="python 日常练习"></a>python 日常练习</h1><p><img src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/python.jpg" alt=""></p>
 <h2 id="和并两个有序列表，并且保持合并后的两个列表有序"><a href="#和并两个有序列表，并且保持合并后的两个列表有序" class="headerlink" title="和并两个有序列表，并且保持合并后的两个列表有序"></a>和并两个有序列表，并且保持合并后的两个列表有序</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">In [11]: l1 = [1,2,3,4]</div><div class="line">In [12]: l2 = [2,3,7,9]</div><div class="line">In [13]: l3 = []</div><div class="line">In [14]: <span class="keyword">for</span> x <span class="keyword">in</span> l1:</div><div class="line">    ...:     <span class="keyword">while</span> len(l2) &gt; 0 :</div><div class="line">    ...:         <span class="keyword">if</span> x &gt; l2[0]:</div><div class="line">    ...:             l3.append(l2.pop(0))</div><div class="line">    ...:         <span class="keyword">else</span>:</div><div class="line">    ...:             l3.append(x)</div><div class="line">    ...:             <span class="built_in">break</span></div><div class="line">    ...:     <span class="keyword">if</span> len(l2)  &lt;= 0:</div><div class="line">    ...:         l3.append(x)</div><div class="line">    ...: l3.append(l2)</div><div class="line">    ...:</div><div class="line">    ...:</div><div class="line">In [15]:</div><div class="line">In [15]: l3</div><div class="line">Out[15]: [1, 2, 2, 3, 3, 4, [7, 9]]</div></pre></td></tr></table></figure>
 <h2 id="按单词反转字符串，-如’I-love-Linux’-反转为-‘Linux-love-I’"><a href="#按单词反转字符串，-如’I-love-Linux’-反转为-‘Linux-love-I’" class="headerlink" title="按单词反转字符串， 如’I love Linux’ 反转为 ‘Linux love I’"></a>按单词反转字符串， 如’I love Linux’ 反转为 ‘Linux love I’</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">In [<span class="number">30</span>]: <span class="string">' '</span>.join(s.split()[::<span class="number">-1</span>])</div><div class="line">Out[<span class="number">30</span>]: <span class="string">'Linux love I'</span></div><div class="line">In [<span class="number">31</span>]: s = <span class="string">"I love Linux"</span></div><div class="line">In [<span class="number">32</span>]: <span class="string">' '</span>.join(s.split()[::<span class="number">-1</span>])</div><div class="line">Out[<span class="number">32</span>]: <span class="string">'Linux love I'</span></div><div class="line">In [<span class="number">33</span>]: s.split()[::<span class="number">-1</span>]</div><div class="line">Out[<span class="number">33</span>]: [<span class="string">'Linux'</span>, <span class="string">'love'</span>, <span class="string">'I'</span>]</div></pre></td></tr></table></figure>
 <h2 id="找出一个列表中只出现了一次的数字，并且保持原来的次序，例如-1-2-1-3-2-5-，结果为-3-5"><a href="#找出一个列表中只出现了一次的数字，并且保持原来的次序，例如-1-2-1-3-2-5-，结果为-3-5" class="headerlink" title="找出一个列表中只出现了一次的数字，并且保持原来的次序，例如[1,2,1,3,2,5]，结果为[3,5]"></a>找出一个列表中只出现了一次的数字，并且保持原来的次序，例如[1,2,1,3,2,5]，结果为[3,5]</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Number（数字）</div><div class="line">String（字符串）</div><div class="line">List（列表）</div><div class="line">Tuple（元组）</div><div class="line">Set（集合）</div><div class="line">Dictionary（字典）</div></pre></td></tr></table></figure>
@@ -636,7 +637,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">79</span>
+                  <span class="site-state-item-count">81</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -758,7 +759,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">200.7k</span>
+    <span title="Site words total count">201.2k</span>
   
   <span>   |   </span>
 <span id="showDays"></span>

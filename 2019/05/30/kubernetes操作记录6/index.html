@@ -89,21 +89,21 @@
 
 
 
-<meta name="description" content="kubernetes 操作记录六 调度器、预选策略及优选函数整个调度大致可以分为三个过程: Predicate(预先) –&amp;gt; Priority(优选) –&amp;gt; Select(选定)  调度器:    预选策略:        CheckNodeCondition: 检查节点本身是否正常;        GeneralPredicates:            HostName:  检查">
+<meta name="description" content="[toc] kubernetes 操作记录六 调度器、预选策略及优选函数整个调度大致可以分为三个过程: Predicate(预先) –&amp;gt; Priority(优选) –&amp;gt; Select(选定)  调度器:    预选策略:        CheckNodeCondition: 检查节点本身是否正常;        GeneralPredicates:            HostNam">
 <meta name="keywords" content="rhca,linux,cloud">
 <meta property="og:type" content="article">
 <meta property="og:title" content="kubernetes操作记录(六)">
 <meta property="og:url" content="https://www.asjin.com/2019/05/30/kubernetes操作记录6/index.html">
 <meta property="og:site_name" content="逝水锦遥">
-<meta property="og:description" content="kubernetes 操作记录六 调度器、预选策略及优选函数整个调度大致可以分为三个过程: Predicate(预先) –&amp;gt; Priority(优选) –&amp;gt; Select(选定)  调度器:    预选策略:        CheckNodeCondition: 检查节点本身是否正常;        GeneralPredicates:            HostName:  检查">
+<meta property="og:description" content="[toc] kubernetes 操作记录六 调度器、预选策略及优选函数整个调度大致可以分为三个过程: Predicate(预先) –&amp;gt; Priority(优选) –&amp;gt; Select(选定)  调度器:    预选策略:        CheckNodeCondition: 检查节点本身是否正常;        GeneralPredicates:            HostNam">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/docker_kubernetes.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/kubernetes-heapster-404.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/kubernetes-grafana-test.png">
-<meta property="og:updated_time" content="2019-06-13T07:44:18.000Z">
+<meta property="og:updated_time" content="2020-09-29T10:49:02.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="kubernetes操作记录(六)">
-<meta name="twitter:description" content="kubernetes 操作记录六 调度器、预选策略及优选函数整个调度大致可以分为三个过程: Predicate(预先) –&amp;gt; Priority(优选) –&amp;gt; Select(选定)  调度器:    预选策略:        CheckNodeCondition: 检查节点本身是否正常;        GeneralPredicates:            HostName:  检查">
+<meta name="twitter:description" content="[toc] kubernetes 操作记录六 调度器、预选策略及优选函数整个调度大致可以分为三个过程: Predicate(预先) –&amp;gt; Priority(优选) –&amp;gt; Select(选定)  调度器:    预选策略:        CheckNodeCondition: 检查节点本身是否正常;        GeneralPredicates:            HostNam">
 <meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/docker_kubernetes.png">
 
 
@@ -446,7 +446,8 @@
       
 
       
-        <h1 id="kubernetes-操作记录六"><a href="#kubernetes-操作记录六" class="headerlink" title="kubernetes 操作记录六"></a>kubernetes 操作记录六</h1><p><img src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/docker_kubernetes.png" alt=""></p>
+        <p>[toc]</p>
+<h1 id="kubernetes-操作记录六"><a href="#kubernetes-操作记录六" class="headerlink" title="kubernetes 操作记录六"></a>kubernetes 操作记录六</h1><p><img src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/docker_kubernetes.png" alt=""></p>
 <h2 id="调度器、预选策略及优选函数"><a href="#调度器、预选策略及优选函数" class="headerlink" title="调度器、预选策略及优选函数"></a>调度器、预选策略及优选函数</h2><p>整个调度大致可以分为三个过程: Predicate(预先) –&gt; Priority(优选) –&gt; Select(选定)</p>
 <hr>
 <p>调度器:<br>    预选策略:<br>        CheckNodeCondition: 检查节点本身是否正常;<br>        GeneralPredicates:<br>            HostName:  检查Pod对象是否定义了 pod.spec.hostname,<br>            PodFitsHostPorts:pods.spec.containers.ports.hostPort<br>            MatchNodeSelector: pods.sepc.nodeSelector<br>            PodFitsResources: 检查Pod的资源需求是否能被节点的需求所满足<br>        NoDiskConflicts:检查Pod依赖的存储卷是否能满足需求;<br>        PodToleratesNodeTaints: 检查Pod上的spec.tolerations可容忍的污点是否完全包含节点上的污点;<br>        PodToleratesNodeNoExecuteTaints:  不能执行的污点,这个预选策略默认是不检查的;<br>        CheckNodeLabelPresence: 检查节点指定标签的存在性;<br>        CheckServiceAffinity: 把这个Pod调度到它所属的Service,已经调度完成其它Pod所在的节点上去;<br>        MaxEBSVolumeCount:<br>        MaxGCEPDVolumeCount:<br>        MaxAzureDiskVolumeCount:<br>        CheckVolumeBinding:<br>        NoVolumeZoneConflict:<br>        CheckNodeMemoryPressure:检查节点内存资源是否处于压力过大的状态;<br>        CheckNodePidPressure:检查PId状态是否紧缺;<br>        CheckNodeDiskPressure:<br>        MatchInterPodAffity:</p>
@@ -664,7 +665,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">79</span>
+                  <span class="site-state-item-count">81</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -786,7 +787,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">200.7k</span>
+    <span title="Site words total count">201.2k</span>
   
   <span>   |   </span>
 <span id="showDays"></span>

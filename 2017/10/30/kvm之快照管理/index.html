@@ -89,17 +89,17 @@
 
 
 
-<meta name="description" content="kvm之快照管理使用kvm快照，磁盘则必需要使用qcow2的格式123456# qemu-img info centos6.test-x86_64.raw image: centos6.test-x86_64.rawfile format: rawvirtual size: 80G (85899345920 bytes)disk size: 1.2G# 关闭虚拟机并改变磁盘的格式123456789">
+<meta name="description" content="[toc] kvm之快照管理使用kvm快照，磁盘则必需要使用qcow2的格式123456# qemu-img info centos6.test-x86_64.raw image: centos6.test-x86_64.rawfile format: rawvirtual size: 80G (85899345920 bytes)disk size: 1.2G# 关闭虚拟机并改变磁盘的格式123">
 <meta property="og:type" content="article">
 <meta property="og:title" content="kvm之快照管理">
 <meta property="og:url" content="https://www.asjin.com/2017/10/30/kvm之快照管理/index.html">
 <meta property="og:site_name" content="逝水锦遥">
-<meta property="og:description" content="kvm之快照管理使用kvm快照，磁盘则必需要使用qcow2的格式123456# qemu-img info centos6.test-x86_64.raw image: centos6.test-x86_64.rawfile format: rawvirtual size: 80G (85899345920 bytes)disk size: 1.2G# 关闭虚拟机并改变磁盘的格式123456789">
+<meta property="og:description" content="[toc] kvm之快照管理使用kvm快照，磁盘则必需要使用qcow2的格式123456# qemu-img info centos6.test-x86_64.raw image: centos6.test-x86_64.rawfile format: rawvirtual size: 80G (85899345920 bytes)disk size: 1.2G# 关闭虚拟机并改变磁盘的格式123">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-19T01:28:05.000Z">
+<meta property="og:updated_time" content="2020-09-29T11:08:55.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="kvm之快照管理">
-<meta name="twitter:description" content="kvm之快照管理使用kvm快照，磁盘则必需要使用qcow2的格式123456# qemu-img info centos6.test-x86_64.raw image: centos6.test-x86_64.rawfile format: rawvirtual size: 80G (85899345920 bytes)disk size: 1.2G# 关闭虚拟机并改变磁盘的格式123456789">
+<meta name="twitter:description" content="[toc] kvm之快照管理使用kvm快照，磁盘则必需要使用qcow2的格式123456# qemu-img info centos6.test-x86_64.raw image: centos6.test-x86_64.rawfile format: rawvirtual size: 80G (85899345920 bytes)disk size: 1.2G# 关闭虚拟机并改变磁盘的格式123">
 
 
 
@@ -404,7 +404,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  642
+                  643
                 </span>
               
 
@@ -441,7 +441,8 @@
       
 
       
-        <h1 id="kvm之快照管理"><a href="#kvm之快照管理" class="headerlink" title="kvm之快照管理"></a>kvm之快照管理</h1><h3 id="使用kvm快照，磁盘则必需要使用qcow2的格式"><a href="#使用kvm快照，磁盘则必需要使用qcow2的格式" class="headerlink" title="使用kvm快照，磁盘则必需要使用qcow2的格式"></a>使用kvm快照，磁盘则必需要使用qcow2的格式</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># qemu-img info centos6.test-x86_64.raw </span></div><div class="line">image: centos6.test-x86_64.raw</div><div class="line">file format: raw</div><div class="line">virtual size: 80G (85899345920 bytes)</div><div class="line">disk size: 1.2G</div><div class="line"><span class="comment">#</span></div></pre></td></tr></table></figure>
+        <p>[toc]</p>
+<h1 id="kvm之快照管理"><a href="#kvm之快照管理" class="headerlink" title="kvm之快照管理"></a>kvm之快照管理</h1><h3 id="使用kvm快照，磁盘则必需要使用qcow2的格式"><a href="#使用kvm快照，磁盘则必需要使用qcow2的格式" class="headerlink" title="使用kvm快照，磁盘则必需要使用qcow2的格式"></a>使用kvm快照，磁盘则必需要使用qcow2的格式</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># qemu-img info centos6.test-x86_64.raw </span></div><div class="line">image: centos6.test-x86_64.raw</div><div class="line">file format: raw</div><div class="line">virtual size: 80G (85899345920 bytes)</div><div class="line">disk size: 1.2G</div><div class="line"><span class="comment">#</span></div></pre></td></tr></table></figure>
 <h3 id="关闭虚拟机并改变磁盘的格式"><a href="#关闭虚拟机并改变磁盘的格式" class="headerlink" title="关闭虚拟机并改变磁盘的格式"></a>关闭虚拟机并改变磁盘的格式</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># virsh list</span></div><div class="line"> Id    名称                         状态</div><div class="line">----------------------------------------------------</div><div class="line"> 2     ubuntu-14.4-n1                 running</div><div class="line"> 14    ubuntu-14.4-113-pycharm        running</div><div class="line"> 16    ubuntu-14.4-n2                 running</div><div class="line"> 20    centos-6.8-grafana             running</div><div class="line"> 22    centos-6.8-data                running</div><div class="line"> 24    centos-6.8-test                running</div><div class="line"><span class="comment"># virsh destroy centos-6.8-test</span></div><div class="line">域 centos-6.8-test 被删除</div><div class="line"><span class="comment"># virsh  list --all</span></div><div class="line"> Id    名称                         状态</div><div class="line">----------------------------------------------------</div><div class="line"> 2     ubuntu-14.4-n1                 running</div><div class="line"> 14    ubuntu-14.4-113-pycharm        running</div><div class="line"> 16    ubuntu-14.4-n2                 running</div><div class="line"> 20    centos-6.8-grafana             running</div><div class="line"> 22    centos-6.8-data                running</div><div class="line"> -     centos-6.8-n1                  关闭</div><div class="line"> -     centos-6.8-test                关闭</div><div class="line"> -     renjin-scripts                 关闭</div><div class="line"> -     ubuntu-14.4-n3                 关闭</div><div class="line"><span class="comment"># qemu-img convert -f raw -O qcow2 centos6.test-x86_64.raw centos6.test-x86_64.qcow2</span></div><div class="line"><span class="comment"># virsh edit centos-6.8-test</span></div><div class="line">    &lt;disk <span class="built_in">type</span>=<span class="string">'file'</span> device=<span class="string">'disk'</span>&gt;</div><div class="line">      &lt;driver name=<span class="string">'qemu'</span> <span class="built_in">type</span>=<span class="string">'qcow2'</span> cache=<span class="string">'none'</span>/&gt;</div><div class="line">      &lt;<span class="built_in">source</span> file=<span class="string">'/media/67cbdcec-6419-4571-9632-c605b3e2b910/data/centos6.test-x86_64.qcow2'</span>/&gt;</div></pre></td></tr></table></figure>
 <h3 id="查看管理快照的命令有哪些"><a href="#查看管理快照的命令有哪些" class="headerlink" title="查看管理快照的命令有哪些"></a>查看管理快照的命令有哪些</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># virsh --help | grep snap</span></div><div class="line">  iface-begin                    create a snapshot of current interfaces settings, <span class="built_in">which</span> can be later committed (iface-commit) or restored (iface-rollback)</div><div class="line"> Snapshot (<span class="built_in">help</span> keyword <span class="string">'snapshot'</span>)</div><div class="line">    snapshot-create                Create a snapshot from XML</div><div class="line">    snapshot-create-as             Create a snapshot from a <span class="built_in">set</span> of args</div><div class="line">    snapshot-current               Get or <span class="built_in">set</span> the current snapshot</div><div class="line">    snapshot-delete                Delete a domain snapshot</div><div class="line">    snapshot-dumpxml               Dump XML <span class="keyword">for</span> a domain snapshot</div><div class="line">    snapshot-edit                  edit XML <span class="keyword">for</span> a snapshot</div><div class="line">    snapshot-info                  snapshot information</div><div class="line">    snapshot-list                  List snapshots <span class="keyword">for</span> a domain</div><div class="line">    snapshot-parent                Get the name of the parent of a snapshot</div><div class="line">    snapshot-revert                Revert a domain to a snapshot</div></pre></td></tr></table></figure>
 <h3 id="创建快照"><a href="#创建快照" class="headerlink" title="创建快照"></a>创建快照</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># virsh snapshot-create centos-6.8-test</span></div><div class="line"><span class="comment"># virsh snapshot-list centos-6.8-test</span></div><div class="line"> 名称               Creation Time             状态</div><div class="line">------------------------------------------------------------</div><div class="line"> 1509359245           2017-10-30 18:27:25 +0800 shutoff</div><div class="line"><span class="comment"># 其中快照配置文件放到了/var/lib/libvirt/qemu/snapshot/</span></div></pre></td></tr></table></figure>
@@ -622,7 +623,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">79</span>
+                  <span class="site-state-item-count">81</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -744,7 +745,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">200.7k</span>
+    <span title="Site words total count">201.2k</span>
   
   <span>   |   </span>
 <span id="showDays"></span>

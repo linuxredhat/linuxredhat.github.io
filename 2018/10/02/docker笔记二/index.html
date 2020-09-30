@@ -89,13 +89,13 @@
 
 
 
-<meta name="description" content="docker 笔记(二) Docker Data Volume关闭并重启容器，其数据不受影响; 但删除Docker容器，则其更将会全部丢失;存在的问题存储于联合文件系统中，不易于宿主机访问;容器间数据共享不便;删除容其数据会全部丢失;解决方案:”卷(volume)” “卷”是容器上的一个或多个”目录”，此类目录可绕过联合文件系统，与宿主机上的某目录”绑定(关联)”Volume 于容器初始化之时即会">
+<meta name="description" content="[toc] docker 笔记(二) Docker Data Volume关闭并重启容器，其数据不受影响; 但删除Docker容器，则其更将会全部丢失;存在的问题存储于联合文件系统中，不易于宿主机访问;容器间数据共享不便;删除容其数据会全部丢失;解决方案:”卷(volume)” “卷”是容器上的一个或多个”目录”，此类目录可绕过联合文件系统，与宿主机上的某目录”绑定(关联)”Volume 于容器初">
 <meta name="keywords" content="linux,cloud">
 <meta property="og:type" content="article">
 <meta property="og:title" content="docker笔记(二)">
 <meta property="og:url" content="https://www.asjin.com/2018/10/02/docker笔记二/index.html">
 <meta property="og:site_name" content="逝水锦遥">
-<meta property="og:description" content="docker 笔记(二) Docker Data Volume关闭并重启容器，其数据不受影响; 但删除Docker容器，则其更将会全部丢失;存在的问题存储于联合文件系统中，不易于宿主机访问;容器间数据共享不便;删除容其数据会全部丢失;解决方案:”卷(volume)” “卷”是容器上的一个或多个”目录”，此类目录可绕过联合文件系统，与宿主机上的某目录”绑定(关联)”Volume 于容器初始化之时即会">
+<meta property="og:description" content="[toc] docker 笔记(二) Docker Data Volume关闭并重启容器，其数据不受影响; 但删除Docker容器，则其更将会全部丢失;存在的问题存储于联合文件系统中，不易于宿主机访问;容器间数据共享不便;删除容其数据会全部丢失;解决方案:”卷(volume)” “卷”是容器上的一个或多个”目录”，此类目录可绕过联合文件系统，与宿主机上的某目录”绑定(关联)”Volume 于容器初">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/docker-image-2.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/docker-vmware-harbor.png">
@@ -105,10 +105,10 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/docker-top-stress.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/docker-status-stee.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/docker-strees-two-shares.png">
-<meta property="og:updated_time" content="2019-04-29T07:42:08.000Z">
+<meta property="og:updated_time" content="2020-09-29T10:54:53.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="docker笔记(二)">
-<meta name="twitter:description" content="docker 笔记(二) Docker Data Volume关闭并重启容器，其数据不受影响; 但删除Docker容器，则其更将会全部丢失;存在的问题存储于联合文件系统中，不易于宿主机访问;容器间数据共享不便;删除容其数据会全部丢失;解决方案:”卷(volume)” “卷”是容器上的一个或多个”目录”，此类目录可绕过联合文件系统，与宿主机上的某目录”绑定(关联)”Volume 于容器初始化之时即会">
+<meta name="twitter:description" content="[toc] docker 笔记(二) Docker Data Volume关闭并重启容器，其数据不受影响; 但删除Docker容器，则其更将会全部丢失;存在的问题存储于联合文件系统中，不易于宿主机访问;容器间数据共享不便;删除容其数据会全部丢失;解决方案:”卷(volume)” “卷”是容器上的一个或多个”目录”，此类目录可绕过联合文件系统，与宿主机上的某目录”绑定(关联)”Volume 于容器初">
 <meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/docker-image-2.png">
 
 
@@ -451,7 +451,8 @@
       
 
       
-        <h1 id="docker-笔记-二"><a href="#docker-笔记-二" class="headerlink" title="docker 笔记(二)"></a>docker 笔记(二)</h1><p><img src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/docker-image-2.png" alt=""></p>
+        <p>[toc]</p>
+<h1 id="docker-笔记-二"><a href="#docker-笔记-二" class="headerlink" title="docker 笔记(二)"></a>docker 笔记(二)</h1><p><img src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/docker-image-2.png" alt=""></p>
 <h2 id="Docker-Data-Volume"><a href="#Docker-Data-Volume" class="headerlink" title="Docker Data Volume"></a>Docker Data Volume</h2><p>关闭并重启容器，其数据不受影响; 但删除Docker容器，则其更将会全部丢失;<br>存在的问题<br>存储于联合文件系统中，不易于宿主机访问;<br>容器间数据共享不便;<br>删除容其数据会全部丢失;<br>解决方案:”卷(volume)”</p>
 <p>“卷”是容器上的一个或多个”目录”，此类目录可绕过联合文件系统，与宿主机上的某目录”绑定(关联)”<br>Volume 于容器初始化之时即会创建，由base image提供的卷中的数据会于此期间完成复制<br>Volume 的初衷是独立于容器的生命周期实现数据持久化，因此删除容器时即不会删除卷，也<br>不会对哪怕未被引用的卷做垃圾回收操作;</p>
 <p>Docker有两种类型的卷，每种类型都在容器中存在一个挂载点，但其在宿主机上的位置有所不同;</p>
@@ -763,7 +764,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">79</span>
+                  <span class="site-state-item-count">81</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -885,7 +886,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">200.7k</span>
+    <span title="Site words total count">201.2k</span>
   
   <span>   |   </span>
 <span id="showDays"></span>
