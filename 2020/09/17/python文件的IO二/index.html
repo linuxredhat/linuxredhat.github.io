@@ -98,7 +98,7 @@
 <meta property="og:description" content="[toc] python 文件的IO一 练习有一个文件，对其进行单词统计，不区分大小写，并显示单词重复最多的10个单词 12345678910111213141516171819202122232425262728293031# 第一次处理# os.path /usr/local/lib &apos;/usr/local/lib&apos;def wordcount(file=&apos;sample.txt&apos;):    ch">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/python-file-io-01.jpg">
-<meta property="og:updated_time" content="2020-10-11T14:16:58.000Z">
+<meta property="og:updated_time" content="2020-10-11T15:19:26.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python 文件的IO二">
 <meta name="twitter:description" content="[toc] python 文件的IO一 练习有一个文件，对其进行单词统计，不区分大小写，并显示单词重复最多的10个单词 12345678910111213141516171819202122232425262728293031# 第一次处理# os.path /usr/local/lib &apos;/usr/local/lib&apos;def wordcount(file=&apos;sample.txt&apos;):    ch">
@@ -407,7 +407,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2.5k
+                  2.9k
                 </span>
               
 
@@ -423,7 +423,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  12
+                  14
                 </span>
               
             </div>
@@ -523,6 +523,25 @@
 <p><strong>copymode(src,dst,*,follow_symlinks=True)</strong></p>
 <p>仅仅复制权限</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">(py3_env) testpy ➤chmod <span class="number">400</span> kernel/test2</div><div class="line"><span class="keyword">import</span> shutil</div><div class="line">shutil.copymode(<span class="string">'./test'</span>,<span class="string">'./test2'</span>)</div><div class="line"><span class="comment">#执行后再查看copy的权限</span></div><div class="line">-rw-r--r--  <span class="number">1</span> ssjinyao  staff     <span class="number">0</span>B Oct <span class="number">11</span> <span class="number">21</span>:<span class="number">58</span> kernel/test1</div><div class="line">-rw-r--r--  <span class="number">1</span> ssjinyao  staff    <span class="number">11</span>B Oct <span class="number">11</span> <span class="number">22</span>:<span class="number">10</span> kernel/test2</div></pre></td></tr></table></figure>
+<p><strong>copystat(src,dst,*,follow_symlinks=True)</strong></p>
+<p>复制元数据，stat包含权限</p>
+<p><strong>copy(src,dst,*,follow_symlinks=True)</strong></p>
+<p>复制文件内容、权限和部分元数据，不包括创建时间和修改时间。<br>本质上调用的是</p>
+<p><strong>copyfile(src,dst,follow_symlinks=follow_symlinks)</strong><br><strong>copymode(src,dst,follow_symlinks=follow_symlinks)</strong></p>
+<p>copy2 比copy多了复制全部元数据，但需要平台支持;<br>本质上调用的是<br><strong>copyfile(src,dst,follow_symlinks=follow_symlinks)</strong><br><strong>copystat(src,dst,follow_symlinks=follow_symlinks)</strong></p>
+<p><strong>copytree(src,dst,symlinks=False,ignore=None,copy_function=copy2,ignore_dangling_symlinks=False)</strong></p>
+<p>递归复制目录。默认使用copy2，也就是带更多的元数据复制；</p>
+<p>src、dst 必须是目录，src必须是存在 dst必须不存在;<br>ignore=func, 提供一个callabe(src,names) -&gt; ignored_names。提供一个函数，它会被调用。src是源目录，names是os.listdir(src)的结果，就是列出src中的文件名，返回值是要被过滤的文件名的set类型数据。</p>
+<p><strong>copytree</strong> 是最常用的</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">ignore</span><span class="params">(src, names)</span>:</span></div><div class="line">    ig = filter(<span class="keyword">lambda</span> x: x.startswith(<span class="string">'a'</span>), names) <span class="comment">#忽略a</span></div><div class="line">    <span class="keyword">return</span> set(ig)</div><div class="line">shutil.copytree(<span class="string">'./testdir'</span>,<span class="string">'/test/dir'</span>,ignore=ignore)</div></pre></td></tr></table></figure>
+<h2 id="rm删除"><a href="#rm删除" class="headerlink" title="rm删除"></a>rm删除</h2><p><strong>shutil.rmtree(path,ignore_errors=False,onerror=None)</strong><br>递归删除。如同<strong>rm -rf</strong> 一样危险，慎用。<br>它不是原子操作，有可能删除错误，就会中断，已经删除的就删除了;<br>ignore_errors为ture，忽略错误。当为False或者omitted时onerror生效;<br>onerror为callable，接受函数function、path和execinfo。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">shutil.rmtree(<span class="string">'./test'</span>) <span class="comment">#类似rm -rf</span></div></pre></td></tr></table></figure>
+<h2 id="move-移动"><a href="#move-移动" class="headerlink" title="move 移动"></a>move 移动</h2><p><strong>move(src,dst,copy_function=copy2)</strong></p>
+<p>递归移动文件、目录到目标，返回目录;<br>本身移动文件、目录到目标，返回目标;<br>如果不支持rename，如果是目录则想copytree再删除源目录;<br>默认使用copy2方法。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">os.rename(<span class="string">'./test.txt'</span>,<span class="string">'/temp/t'</span>)</div><div class="line">os.rename(<span class="string">'test3'</span>,<span class="string">'/temp/test/test300'</span>)</div></pre></td></tr></table></figure>
+<p>shutil还有打包功能。生成tar并压缩。支持zip、gz、bz、xz。</p>
+<h2 id="格言"><a href="#格言" class="headerlink" title="格言"></a>格言</h2><p><strong>共情的实质–把你的生活扩展到别人的生活里，把你的耳朵放到别人的灵魂中，用心去聆听那里最急切的喃喃私语</strong></p>
+
       
     </div>
     
@@ -782,7 +801,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#python-文件的IO一"><span class="nav-number">1.</span> <span class="nav-text">python 文件的IO一</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#练习"><span class="nav-number">1.1.</span> <span class="nav-text">练习</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#StringIO"><span class="nav-number">1.2.</span> <span class="nav-text">StringIO</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#StringIO操作"><span class="nav-number">1.3.</span> <span class="nav-text">StringIO操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BytesIO"><span class="nav-number">1.4.</span> <span class="nav-text">BytesIO</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#file-like-对象"><span class="nav-number">1.5.</span> <span class="nav-text">file-like 对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#os-path-模块"><span class="nav-number">1.6.</span> <span class="nav-text">os.path 模块</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4版本开始"><span class="nav-number">1.6.1.</span> <span class="nav-text">3.4版本开始</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pathlib模块"><span class="nav-number">1.6.2.</span> <span class="nav-text">pathlib模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件操作"><span class="nav-number">1.6.3.</span> <span class="nav-text">文件操作</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#os模块"><span class="nav-number">1.7.</span> <span class="nav-text">os模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#shutil-模块"><span class="nav-number">1.8.</span> <span class="nav-text">shutil 模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#copy复制"><span class="nav-number">1.9.</span> <span class="nav-text">copy复制</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#python-文件的IO一"><span class="nav-number">1.</span> <span class="nav-text">python 文件的IO一</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#练习"><span class="nav-number">1.1.</span> <span class="nav-text">练习</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#StringIO"><span class="nav-number">1.2.</span> <span class="nav-text">StringIO</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#StringIO操作"><span class="nav-number">1.3.</span> <span class="nav-text">StringIO操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BytesIO"><span class="nav-number">1.4.</span> <span class="nav-text">BytesIO</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#file-like-对象"><span class="nav-number">1.5.</span> <span class="nav-text">file-like 对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#os-path-模块"><span class="nav-number">1.6.</span> <span class="nav-text">os.path 模块</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4版本开始"><span class="nav-number">1.6.1.</span> <span class="nav-text">3.4版本开始</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pathlib模块"><span class="nav-number">1.6.2.</span> <span class="nav-text">pathlib模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件操作"><span class="nav-number">1.6.3.</span> <span class="nav-text">文件操作</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#os模块"><span class="nav-number">1.7.</span> <span class="nav-text">os模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#shutil-模块"><span class="nav-number">1.8.</span> <span class="nav-text">shutil 模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#copy复制"><span class="nav-number">1.9.</span> <span class="nav-text">copy复制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rm删除"><span class="nav-number">1.10.</span> <span class="nav-text">rm删除</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#move-移动"><span class="nav-number">1.11.</span> <span class="nav-text">move 移动</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#格言"><span class="nav-number">1.12.</span> <span class="nav-text">格言</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -821,7 +840,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">203.2k</span>
+    <span title="Site words total count">203.7k</span>
   
   <span>   |   </span>
 <span id="showDays"></span>
