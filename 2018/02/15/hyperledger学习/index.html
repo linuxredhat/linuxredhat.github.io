@@ -76,7 +76,7 @@
 
 
 
-  <meta name="keywords" content="rhca,linux," />
+  <meta name="keywords" content="linux,rhca," />
 
 
 
@@ -90,7 +90,7 @@
 
 
 <meta name="description" content="[toc] 从头开始了解Hyperledger Hyperledger词汇表 Anchor Peer -锚节点  锚节点是通道中能被所有对等节点探测、并能与之进行通信的一种对等节点;通道中的每个成员都有一个(或者多个，以防单点故障) 锚节点 ;允许属于不同成员身份的节点来发现通道中存在的其它节点;     Block - 区块  在一个通道上，(区块是)一组有序交易的集合;区块往往通过密码学手段(">
-<meta name="keywords" content="rhca,linux">
+<meta name="keywords" content="linux,rhca">
 <meta property="og:type" content="article">
 <meta property="og:title" content="从头开始了解Hyperledger">
 <meta property="og:url" content="https://www.asjin.com/2018/02/15/hyperledger学习/index.html">
@@ -445,8 +445,8 @@
 
       
         <p>[toc]</p>
-<h1 id="从头开始了解Hyperledger"><a href="#从头开始了解Hyperledger" class="headerlink" title="从头开始了解Hyperledger"></a>从头开始了解Hyperledger</h1><p><img src="images/fabric.png" alt=""></p>
-<h2 id="Hyperledger词汇表"><a href="#Hyperledger词汇表" class="headerlink" title="Hyperledger词汇表"></a>Hyperledger词汇表</h2><ul>
+<h1><span id="从头开始了解hyperledger">从头开始了解Hyperledger</span></h1><p><img src="images/fabric.png" alt=""></p>
+<h2><span id="hyperledger词汇表">Hyperledger词汇表</span></h2><ul>
 <li>Anchor Peer -锚节点</li>
 </ul>
 <p>锚节点是通道中能被所有对等节点探测、并能与之进行通信的一种对等节点;<br>通道中的每个成员都有一个(或者多个，以防单点故障) 锚节点 ;<br>允许属于不同成员身份的节点来发现通道中存在的其它节点;   </p>
@@ -584,33 +584,33 @@
 <p>包含在系统级定义网络的配置区块。系统链存在于ordering service中;<br>具有包含以下信息的初始配置:MSP信息、策略和信息配置。对整个网络的任何变化;<br>(例如新的Or加入或者添加新的Ordering 节点)将导致新的配置区块被添加到系统链;   </p>
 <p>Transaction- 交易</p>
 <p>Caincode的invoke或instantiate操作; Invoke是从ledger中请求read-write set；<br>Instantiate是请求在peer上启动Chaincode容器;   </p>
-<h2 id="了解Hyperledger-Farbic"><a href="#了解Hyperledger-Farbic" class="headerlink" title="了解Hyperledger Farbic"></a>了解Hyperledger Farbic</h2><p>Hyperledger Fabric是一个提供 分布式账本方案的平台。Hyperledger Fabric由模块化架构支撑;  并具备极佳的保密性、可伸缩性、灵活性和可扩展平台; Hyperledger Fabirc被设计成支持不同的模块组件直接拔插启动;  并能适应在经济生态系统中错综复杂的和种场景;   </p>
+<h2><span id="了解hyperledger-farbic">了解Hyperledger Farbic</span></h2><p>Hyperledger Fabric是一个提供 分布式账本方案的平台。Hyperledger Fabric由模块化架构支撑;  并具备极佳的保密性、可伸缩性、灵活性和可扩展平台; Hyperledger Fabirc被设计成支持不同的模块组件直接拔插启动;  并能适应在经济生态系统中错综复杂的和种场景;   </p>
 <p>Hyperledger Fabric提供了一个独特的可伸缩、可扩展的架构，这也是Hyperledger Fabric与其他区块的链解决方案的显著区别;如果正计划部署具备完整审查机制以及开源架构的企业级区块链; Hyperledger Fabric昌一个不错的起点;   </p>
-<h2 id="区块链"><a href="#区块链" class="headerlink" title="区块链"></a>区块链</h2><h3 id="分布式账本"><a href="#分布式账本" class="headerlink" title="分布式账本"></a>分布式账本</h3><p>一个区链网络的核心是一个分布式账本，在这个账本中记录了网络发生的所有交易信息;   </p>
+<h2><span id="区块链">区块链</span></h2><h3><span id="分布式账本">分布式账本</span></h3><p>一个区链网络的核心是一个分布式账本，在这个账本中记录了网络发生的所有交易信息;   </p>
 <p>区块链账本通常被定义为去中心化，这是因为在整个网络中，每个参与者都保存着一个区块链账本的副本，所有参与者通过协作 共同维护着账本; 去中心化与协作 这两个特点在现实世界的商业货物交易和商务服务中展出现的显著优点;  </p>
 <p>除了去中心化与协作，区链链的另一个显著特点是信息在只能以”附加”的方式记录在区块链中;   同时使用加密码技术保障了交易一旦被添加进账本中，就无法被篡改。区块链的这种不可篡改性使得信息来源的确认变得异常容易，这是由于参与者可以肯定信息一旦被写入区块链中就几乎不可被 篡改。这也是为什么区块链常常也被称为证明的系统的原因;  </p>
-<h3 id="智能合约"><a href="#智能合约" class="headerlink" title="智能合约"></a>智能合约</h3><p>为了持续的进行信息的更新，以及帐本进行管理(写入交易，进行查询等)，区块链网络引入了智能合约来实现对账本的访问和控制;  </p>
+<h3><span id="智能合约">智能合约</span></h3><p>为了持续的进行信息的更新，以及帐本进行管理(写入交易，进行查询等)，区块链网络引入了智能合约来实现对账本的访问和控制;  </p>
 <p>智能合约不仅仅可用于在区块链网络中打包信息，它们也可以被用于自动的执行由参与者定义的特定交易操作;   </p>
 <p>例如,买卖双方要以定义一个智能合约，以保证当卖方发货的端口运送到达时，买方支付的货款会自二甲双胍转帐给卖方;   </p>
-<h3 id="共识"><a href="#共识" class="headerlink" title="共识"></a>共识</h3><p>保持网络中所有账本交易的同步流程，就是共识。共识保证 了账本只会在交易双方都确认后才进行更新。同时在账本更新时，交易双方能够在在账本中的相同位置 ，更新一个相同的交易信息;   </p>
+<h3><span id="共识">共识</span></h3><p>保持网络中所有账本交易的同步流程，就是共识。共识保证 了账本只会在交易双方都确认后才进行更新。同时在账本更新时，交易双方能够在在账本中的相同位置 ，更新一个相同的交易信息;   </p>
 <p>##区块链因何可行 </p>
-<h3 id="当前的记录系统"><a href="#当前的记录系统" class="headerlink" title="当前的记录系统"></a>当前的记录系统</h3><p>自从商业数据记录网络系统诞生以来，直到今天的交易网络并不骨发生太大的变化;   在商业网络中的成员进行相互交易时，他们各自维护着自己独立的交易记录。同时，人们交易的物品–无论是16世纪佛兰德的挂毯，还是现代的有价证券–都任然需要在每次卖出交易过程中提供来源信息，以确保卖方拥有所出售端口的所有权;   </p>
+<h3><span id="当前的记录系统">当前的记录系统</span></h3><p>自从商业数据记录网络系统诞生以来，直到今天的交易网络并不骨发生太大的变化;   在商业网络中的成员进行相互交易时，他们各自维护着自己独立的交易记录。同时，人们交易的物品–无论是16世纪佛兰德的挂毯，还是现代的有价证券–都任然需要在每次卖出交易过程中提供来源信息，以确保卖方拥有所出售端口的所有权;   </p>
 <p>随着科技的进步，交易流程不断深化发展，经历了从使用用石碑、使用纸质账本、使用硬盘存储器直到使用云计算平台的不同阶段，但流程的底层架构并没有发生任何变化。并不存一个可以统一管理网络参与者身份的系统，确认商品来源十分费劲,常常会耗费数天的时间 明确证券的交易(包含数以万计美元的数量)。人们必需签订合约并手动执行，每一个系统中的数据库都包含着独立 的信息并最终代表一个单点的错误。  </p>
 <p>在今天的信息和过程共享断裂的方法中，建立一个跨越商业网络的记录系统是不可能的，尽管可见性和信任的需求是明确的;   </p>
 <p>区块链的不同点</p>
 <p>为什么不用”现代”的交易系统来替代这种效率低下的网络？新的商业网络可以具有标准的方法建立身份信息，执行交易，并且存储数据。为什么不建立一个可住的交易链条记录？通过查询这个链条上的所有交易，来确定交易商品来源，并且这个链条上的信息一旦被写入，就无法被再次篡改;  </p>
 <p>这就是区块链网络。在区块链网络中，每一个参与者都保有一份账本的副本。在区块链网络中，不仅仅是账本信息会被共享，更新账本的流程是共享的。不同于目前的系统–参与者使用私有的程序对私胡的账本进行更新，而区块链系统使用共享的程序对共享的账本进行更新;   </p>
 <p>通过使用共享账协调整个商业网络，区块链网络能免减少时间、成本以及隐私信息泄露的风险，并且能使用流程更加可信和透明;   </p>
-<h3 id="Hyperledger-Fabric"><a href="#Hyperledger-Fabric" class="headerlink" title="Hyperledger Fabric"></a>Hyperledger Fabric</h3><p>2015年，Linux基金会启动了Hyperledger项目，hhsfi是发展跨行业的区块链技术。Hyperledger项目并不仅仅是定义一个单一的区块链标准，它更鼓励能过开源社区的力量协作开发区块链技术 ;   </p>
+<h3><span id="hyperledger-fabric">Hyperledger Fabric</span></h3><p>2015年，Linux基金会启动了Hyperledger项目，hhsfi是发展跨行业的区块链技术。Hyperledger项目并不仅仅是定义一个单一的区块链标准，它更鼓励能过开源社区的力量协作开发区块链技术 ;   </p>
 <p>Hyperledger Fabric是Hyperledger中的一个区块链项目。与其他区块链技术类似, Hyperledger Fabric包含一个账本，使用智能合约并且是一个通过所有参与者管理 交易的系统;  </p>
 <p>Hyperledger Fabric 与其他区块链系统最大的不同体现在私有和许可。与开放无需许可的网络系统允许未知身份的参与者加入网络不同(需要能过工作量证明协议来保证交易有效并维护网络的安全)，Hyperledger Fabric通过Membership Service Provider(MSP)来登记所有的成员;   </p>
 <p>Hyperledger Fabric也提供了多个可拔插选项。账本数据可被存储为多种格式，共识机制可被接入或者断开，同时支持多种不同的MSP。 </p>
 <p>Hyperledger Fabric提供了建立 channel的功能，这允许参与者为交易新建一个单独的账本。当网络中的一些参与者是竞争对手时，这个功能变得尤为重要。因为这些参与者并不希望所有的交易信息–比如提供给部分客户的特定价格信息–都对网络中所有参与者公开。只有在同一个channel中的参与者，才会拥有该channel中的账本，而其他不在此channel中的参与者则看不到这个账本;   </p>
-<h2 id="共享账本"><a href="#共享账本" class="headerlink" title="共享账本"></a>共享账本</h2><p>Hyperledger Fabric包含一个账本子系统，这个子系统包含两个组件:世界状态(world state) 和交易记录。在Hyperledger Fabric网络中的每一个参与者都拥有一个账本的副本;  </p>
+<h2><span id="共享账本">共享账本</span></h2><p>Hyperledger Fabric包含一个账本子系统，这个子系统包含两个组件:世界状态(world state) 和交易记录。在Hyperledger Fabric网络中的每一个参与者都拥有一个账本的副本;  </p>
 <p>世界状态组件描述了账本在特定时间点的状态，它是账本的数据库。交易记录组件记录了产生世界状态当前值的所有交易，它是世界状态的更新历史。那么，账本则是世界状态数据库和交易历史记录的集合;   </p>
 <p>账本的世界状态存储数据库是可更换的。默认配置下，这是一个key-value存储数据库。交易记录模 块不需要被不接入。只需要记录在区块链网络中曲棍球数据库被 使用时之前和之后的值就可以了;   </p>
-<h2 id="智能合约-1"><a href="#智能合约-1" class="headerlink" title="智能合约"></a>智能合约</h2><p>Hyperledger Fabric智能合约被称为chaincode，当一个区块链外部的一个应用程序需要访问账本时,就会调用chaincode。大多数情况下，chaincode只会访问账本的数据库组件和世界状态(world sate)(比如查询)，但不会查询交易记录;  </p>
-<p>chaincode可通过多种不同编程语言实现。目前支持chaincode的语言是Go(包含对java的支持) </p>
+<h2><span id="智能合约">智能合约</span></h2><p>Hyperledger Fabric智能合约被称为chaincode，当一个区块链外部的一个应用程序需要访问账本时,就会调用chaincode。大多数情况下，chaincode只会访问账本的数据库组件和世界状态(world sate)(比如查询)，但不会查询交易记录;  </p>
+<p>chaincode可通过多种不同编程语言实现。目前支持chaincode的语言是Go(包含对java的支持)</p>
 
       
     </div>
@@ -675,9 +675,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/rhca/" rel="tag"># rhca</a>
-          
             <a href="/tags/linux/" rel="tag"># linux</a>
+          
+            <a href="/tags/rhca/" rel="tag"># rhca</a>
           
         </div>
       
@@ -875,7 +875,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#从头开始了解Hyperledger"><span class="nav-number">1.</span> <span class="nav-text">从头开始了解Hyperledger</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Hyperledger词汇表"><span class="nav-number">1.1.</span> <span class="nav-text">Hyperledger词汇表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#了解Hyperledger-Farbic"><span class="nav-number">1.2.</span> <span class="nav-text">了解Hyperledger Farbic</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#区块链"><span class="nav-number">1.3.</span> <span class="nav-text">区块链</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#分布式账本"><span class="nav-number">1.3.1.</span> <span class="nav-text">分布式账本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#智能合约"><span class="nav-number">1.3.2.</span> <span class="nav-text">智能合约</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#共识"><span class="nav-number">1.3.3.</span> <span class="nav-text">共识</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#当前的记录系统"><span class="nav-number">1.3.4.</span> <span class="nav-text">当前的记录系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hyperledger-Fabric"><span class="nav-number">1.3.5.</span> <span class="nav-text">Hyperledger Fabric</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#共享账本"><span class="nav-number">1.4.</span> <span class="nav-text">共享账本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#智能合约-1"><span class="nav-number">1.5.</span> <span class="nav-text">智能合约</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">从头开始了解Hyperledger</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.</span> <span class="nav-text">Hyperledger词汇表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.</span> <span class="nav-text">了解Hyperledger Farbic</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.3.</span> <span class="nav-text">区块链</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.3.1.</span> <span class="nav-text">分布式账本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.3.2.</span> <span class="nav-text">智能合约</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.3.3.</span> <span class="nav-text">共识</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.3.4.</span> <span class="nav-text">当前的记录系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.3.5.</span> <span class="nav-text">Hyperledger Fabric</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.4.</span> <span class="nav-text">共享账本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.5.</span> <span class="nav-text">智能合约</span></a></li></ol></li></ol></div>
             
 
           </div>

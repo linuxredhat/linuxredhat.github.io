@@ -442,10 +442,10 @@
 
       
         <p>[toc]</p>
-<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><blockquote>
+<h2><span id="简介">简介</span></h2><blockquote>
 <p>paramiko 是基于Python实现的SSH2远程安全连接，支支认证及密钥方式 。可以实现远程命令执行;<br>文件传输、中间SSH代理等功能，相对于Pexpect，封装的层次更高，更贴近SSH协议的功能;  </p>
 </blockquote>
-<h2 id="paramiko-的安装"><a href="#paramiko-的安装" class="headerlink" title="paramiko 的安装"></a>paramiko 的安装</h2><p>1、 paramiko 支持pip、 easy_install 或者源安装方式，很方便解决依赖的问题，具体安装命令如下;   </p>
+<h2><span id="paramiko-的安装">paramiko 的安装</span></h2><p>1、 paramiko 支持pip、 easy_install 或者源安装方式，很方便解决依赖的问题，具体安装命令如下;   </p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># pip easy_install paramiko</span></div><div class="line"><span class="comment"># easy_install paramiko</span></div></pre></td></tr></table></figure>
 <p>2、 paramiko 依赖第三方的Crypto、Ecdsa包及Python开发包python-devel的支持，源码如下;  </p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># yum -y install python-devel </span></div><div class="line"><span class="comment"># wget http://ftp.dlitz.net/pub/dlitz/crypto/pycrypto/pycrypto-2.6.tar.gz</span></div><div class="line"><span class="comment"># tar -zxvf pycrypto-2.6.tar.gz</span></div><div class="line"><span class="comment"># cd pycrypto-2.6</span></div><div class="line"><span class="comment"># python setup.py install</span></div><div class="line"><span class="comment"># cd ..</span></div><div class="line"><span class="comment"># wget https://pypi.python.org/packages/source/e/ecdsa/ecdsa-0.10.tar.gz --no-check-certificate </span></div><div class="line"><span class="comment"># tar -zxvf ecdsa-0.10.tar.gz</span></div><div class="line"><span class="comment"># cd ecdsa-0.10</span></div><div class="line"><span class="comment"># python setup.py install </span></div><div class="line"><span class="comment"># cd ..</span></div><div class="line"><span class="comment"># git clone https://github.com/paramiko/paramiko.git</span></div><div class="line"><span class="comment"># cd paramiko</span></div><div class="line"><span class="comment"># python setup.py install</span></div></pre></td></tr></table></figure>
@@ -462,7 +462,7 @@
 <p>SSHClient类是SSH服务会话的高级表示，该类封装了传输(transport)、通道(channel)<br>及SFTPClient的检验、建立的方法，通常用于执行远程命令</p>
 </blockquote>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 例 </span></div><div class="line">client = SSHClient() </div><div class="line">client.load_system_host_keys()</div><div class="line">client.connect(<span class="string">'ssh.example.com'</span>)</div><div class="line">stdin, stdout, stderr = client.exec_command(<span class="string">'ls -l'</span>)</div></pre></td></tr></table></figure>
-<h2 id="SSHClient类方法使用"><a href="#SSHClient类方法使用" class="headerlink" title="SSHClient类方法使用"></a>SSHClient类方法使用</h2><p>1、 connect 方法</p>
+<h2><span id="sshclient类方法使用">SSHClient类方法使用</span></h2><p>1、 connect 方法</p>
 <blockquote>
 <p>connect 方法实现了远程SSH连接并检验</p>
 </blockquote>
@@ -482,7 +482,7 @@
 <p>设置连接的远程主机没有本地主机密钥或HostKeys对象时的策略，目前支持三种<br>分别是 AutoAddPolicy、RejectPolicy(默认),WarnningPolicy，仅限于SSHClient类  </p>
 </blockquote>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 使用方法如下</span></div><div class="line">ssh=paramiko.SSHClient() </div><div class="line">ssh.set_missing_host_keypolicy(paramiko.AutoAddPolicy)</div><div class="line"></div><div class="line"><span class="comment"># AutoAddPolicy,自动添加主机名及主机密钥到本地HostKeys对象，并将其保存</span></div><div class="line"><span class="comment"># 不依赖load_system_host_keys()的配置，即使 ~/.ssh/known_hosts不存在也不产生影响  </span></div><div class="line"><span class="comment"># RejectPolicy,自动拒绝未知的主机名和密钥，依赖load_system_host_keys()的配置</span></div><div class="line"><span class="comment"># WarningPolicy,用于记录一个未知的主机密钥的Python警告并接受它，功能上与AutoAddPolicy相似</span></div><div class="line"><span class="comment"># 但区别在于，未知的主机会有警告</span></div></pre></td></tr></table></figure>
-<h2 id="SFTPClient类"><a href="#SFTPClient类" class="headerlink" title="SFTPClient类"></a>SFTPClient类</h2><blockquote>
+<h2><span id="sftpclient类">SFTPClient类</span></h2><blockquote>
 <p>SFTPClient 作为一个SFTP客户端对象,根据SSH传输协议的sftp会话，实现远客程文件操作<br>比如文件上传、下载、权限、状态等操作; </p>
 </blockquote>
 <p>1、 from_transport 方法</p>
@@ -759,7 +759,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#paramiko-的安装"><span class="nav-number">2.</span> <span class="nav-text">paramiko 的安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SSHClient类方法使用"><span class="nav-number">3.</span> <span class="nav-text">SSHClient类方法使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SFTPClient类"><span class="nav-number">4.</span> <span class="nav-text">SFTPClient类</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">paramiko 的安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">SSHClient类方法使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">SFTPClient类</span></a></li></ol></div>
             
 
           </div>

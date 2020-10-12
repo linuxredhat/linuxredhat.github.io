@@ -442,7 +442,7 @@
 
       
         <p>[toc]</p>
-<h2 id="Linux-HA-Cluster"><a href="#Linux-HA-Cluster" class="headerlink" title="Linux HA Cluster"></a>Linux HA Cluster</h2><h2 id="一、理论介绍"><a href="#一、理论介绍" class="headerlink" title="一、理论介绍"></a>一、理论介绍</h2><blockquote>
+<h2><span id="linux-ha-cluster">Linux HA Cluster</span></h2><h2><span id="一-理论介绍">一、理论介绍</span></h2><blockquote>
 <p>LB,HA,HP,hadoop  </p>
 </blockquote>
 <p>1、LB（负载均衡）:  </p>
@@ -471,7 +471,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">Resource Agent:</div><div class="line">	hearteat legacy: /etc/ha.d/haresources.d/目录下的脚本；</div><div class="line">	LSB: /etc/rc.d/init.d/ 目录下的脚本；</div><div class="line">	OCF: Open Cluster Framework;</div><div class="line">		provider: </div><div class="line">	STONITH设备:</div><div class="line">	Systemctl:</div></pre></td></tr></table></figure>
 <p>8、资源类型: </p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">primitive: 主资源，原始资源:在集群中只能运行一个实例;</div><div class="line"><span class="built_in">clone</span>:克隆资源，在集群中可以运行多个实例: </div><div class="line">	匿名克隆，全局惟一克隆、状态克隆(主动、被动)</div><div class="line">multi-state(master/slave);克隆资源的特殊实现;多状态资源:</div><div class="line">group: 组资源:</div><div class="line">	启动或停止:</div><div class="line">	资源监视;</div><div class="line">	相关性;</div><div class="line">资源属性:</div><div class="line">	priority:优先级;</div><div class="line">	target-role:started,stopped,master 目标角色;</div><div class="line">	is-managed:是否允许群集管理此资源;</div><div class="line">	resource-stickiness: 资源粘性; </div><div class="line">	allow-migrate:是否允许资源迁移;</div><div class="line">约束:score</div><div class="line">	位置约束:资源对节点的倾向性；</div><div class="line">		(-oo,+oo)</div><div class="line">			任何值+无穷大=无穷大</div><div class="line">			任何值+负无穷大=负无穷大</div><div class="line">			无穷大+负无穷大=负无穷大</div><div class="line">	排列约束:资源彼此间是否能运行同一节点的倾向性;</div><div class="line">		(-oo,+oo)</div><div class="line">	顺序的约束:多个资源启动顺序依赖关系;</div><div class="line">		(-oo,+oo)</div><div class="line">			Mandatory</div></pre></td></tr></table></figure>
-<h2 id="二、安装配置"><a href="#二、安装配置" class="headerlink" title="二、安装配置"></a>二、安装配置</h2><p>1、 CentOS 7: corosync v2 + pacemaker<br>        corosync v2: vote system<br>        pacemaker:独立服务<br>    集群的全生命周期管理工具:<br>        pcs: agent(pcsd)<br>        crmsh : agentless (pssh)</p>
+<h2><span id="二-安装配置">二、安装配置</span></h2><p>1、 CentOS 7: corosync v2 + pacemaker<br>        corosync v2: vote system<br>        pacemaker:独立服务<br>    集群的全生命周期管理工具:<br>        pcs: agent(pcsd)<br>        crmsh : agentless (pssh)</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># yum info pcs</span></div></pre></td></tr></table></figure>
 <p>2、集群配置前提</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">a、时间同步;</div><div class="line">b、基于当前正在使用的主机名互相访问; </div><div class="line">c、是否会用到仲裁设备; </div><div class="line">e、双机互信</div></pre></td></tr></table></figure>
@@ -746,7 +746,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux-HA-Cluster"><span class="nav-number">1.</span> <span class="nav-text">Linux HA Cluster</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一、理论介绍"><span class="nav-number">2.</span> <span class="nav-text">一、理论介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、安装配置"><span class="nav-number">3.</span> <span class="nav-text">二、安装配置</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">Linux HA Cluster</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">一、理论介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">二、安装配置</span></a></li></ol></div>
             
 
           </div>

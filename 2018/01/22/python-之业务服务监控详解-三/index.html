@@ -445,11 +445,11 @@
 
       
         <p>[toc]</p>
-<h2 id="DNS处理模块dnspython"><a href="#DNS处理模块dnspython" class="headerlink" title="DNS处理模块dnspython"></a>DNS处理模块dnspython</h2><blockquote>
+<h2><span id="dns处理模块dnspython">DNS处理模块dnspython</span></h2><blockquote>
 <p>dnspython(<a href="https://www.dnspython.org/)是Python实现的一个DNS式具包，它支持几乎所有的" target="_blank" rel="external">https://www.dnspython.org/)是Python实现的一个DNS式具包，它支持几乎所有的</a><br>记录类型 ，可以用于查询、传输并动态更新ZONE信息， 同时支持TSIG(事务签名)验证消息和<br>EDNS0(扩展DNS)。在系统管理方面，我们可以利用其查询功能来实现DNS服务监控以及解析<br>结果的校验，可以代替nslookup及dig等，轻松做到与现有平台的整合</p>
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># pip install dnspython </div><div class="line"># easy_install dnspython </div><div class="line"># wget http://www.dnspython.org/kits/1.9.4/dnspython-1.9.4.tar.gz</div><div class="line"># tar -zxvf dnspython-1.9.4.tar.gz</div><div class="line"># cd dnspython-1.9.4</div><div class="line"># python setuppy install</div></pre></td></tr></table></figure>
-<h2 id="模块域名解析方法详解"><a href="#模块域名解析方法详解" class="headerlink" title="模块域名解析方法详解"></a>模块域名解析方法详解</h2><blockquote>
+<h2><span id="模块域名解析方法详解">模块域名解析方法详解</span></h2><blockquote>
 <p>dnspython 模块提供了大量的DNS处理方法，最常用的方法是域名查询。dnspython提供了一个<br>DNS解析器类–resolver，使用它的uquery方法来实现域名的查询功能。query方法定义如下;  </p>
 </blockquote>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">query(self, qname, rdtype=<span class="number">1</span>, rdclass=<span class="number">1</span>, tcp=<span class="keyword">False</span>, source=<span class="keyword">None</span>, </div><div class="line">raise_on_no_answer=<span class="keyword">True</span>, source_port=<span class="number">0</span>)</div></pre></td></tr></table></figure>
@@ -460,7 +460,7 @@
 <blockquote>
 <p>rdclass参数用于指定网络类型，可选的值有IN、CH与HS、其中IN为默认，使用最广泛;<br>tcp参数用于指定查询是否启用TCP协议，默认为False(不启用);<br>source 与source_port 参数作为指定查询源地址与端口;<br>默认值为查询设备IP地址和0。raise_on_no_answer;<br>参当用于指定当查询无应答时是否触发异常。默认为True;  </p>
 </blockquote>
-<h2 id="常见解析类型"><a href="#常见解析类型" class="headerlink" title="常见解析类型"></a>常见解析类型</h2><blockquote>
+<h2><span id="常见解析类型">常见解析类型</span></h2><blockquote>
 <p>常见的DNS解析类型包括A、MX、NS、CNAME等。利用dnspython和dns.resolver.query方法<br>可以简单实现这些DNS类型的查询，为后面要实现的功能提供数据来源，比如对一个使用DNS轮循<br>业务的域名进行可用性可用性，需要得到当前的解析结果。  </p>
 </blockquote>
 <p>1、实现A记录查询方法</p>
@@ -742,7 +742,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#DNS处理模块dnspython"><span class="nav-number">1.</span> <span class="nav-text">DNS处理模块dnspython</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模块域名解析方法详解"><span class="nav-number">2.</span> <span class="nav-text">模块域名解析方法详解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常见解析类型"><span class="nav-number">3.</span> <span class="nav-text">常见解析类型</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">DNS处理模块dnspython</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">模块域名解析方法详解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">常见解析类型</span></a></li></ol></div>
             
 
           </div>
