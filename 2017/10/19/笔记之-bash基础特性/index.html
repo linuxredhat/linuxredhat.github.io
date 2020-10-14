@@ -442,9 +442,9 @@
 
       
         <p>[toc]</p>
-<h1><span id="bash-基础特性">bash 基础特性</span></h1><h3><span id="命令模式">命令模式</span></h3><p>systemctl set-default multi-user.target  </p>
-<h3><span id="图形模式">图形模式</span></h3><p>systemctl set-default graphical.target  </p>
-<h3><span id="ipython安装使用">ipython安装使用</span></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"># python ipython </div><div class="line"># tar -xvf pip-8.1.2.tar.gz</div><div class="line"># tar -xvf setuptools-28.2.0.tar.gz</div><div class="line"># tar -xvf ipython-5.1.0</div><div class="line"># cd 到其各个目录中  python setup.py build &amp;&amp; pyton setup.py install </div><div class="line"># pip install traitlets</div><div class="line"># pip install pygments</div><div class="line"># pip install simplegeneric</div><div class="line"># pip install --upgrade setuptools pi</div><div class="line"># pip unistall ipython</div><div class="line"># pip uninstall ipython</div><div class="line"># pip install ipython</div><div class="line"># pip install jupyter</div></pre></td></tr></table></figure>
+<h1 id="bash-基础特性"><a href="#bash-基础特性" class="headerlink" title="bash 基础特性"></a>bash 基础特性</h1><h3 id="命令模式"><a href="#命令模式" class="headerlink" title="命令模式"></a>命令模式</h3><p>systemctl set-default multi-user.target  </p>
+<h3 id="图形模式"><a href="#图形模式" class="headerlink" title="图形模式"></a>图形模式</h3><p>systemctl set-default graphical.target  </p>
+<h3 id="ipython安装使用"><a href="#ipython安装使用" class="headerlink" title="ipython安装使用"></a>ipython安装使用</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"># python ipython </div><div class="line"># tar -xvf pip-8.1.2.tar.gz</div><div class="line"># tar -xvf setuptools-28.2.0.tar.gz</div><div class="line"># tar -xvf ipython-5.1.0</div><div class="line"># cd 到其各个目录中  python setup.py build &amp;&amp; pyton setup.py install </div><div class="line"># pip install traitlets</div><div class="line"># pip install pygments</div><div class="line"># pip install simplegeneric</div><div class="line"># pip install --upgrade setuptools pi</div><div class="line"># pip unistall ipython</div><div class="line"># pip uninstall ipython</div><div class="line"># pip install ipython</div><div class="line"># pip install jupyter</div></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">jupyter-notebook --ip 0.0.0.0 --port 46  启动jupyter </div><div class="line">jupyter-nbconvert --to html filename.ipynb</div><div class="line">ipython nbconvert --to python &lt;YourNotebook&gt;.ipynb</div></pre></td></tr></table></figure>
 <ul>
 <li>历史记录的使用格式  </li>
@@ -490,7 +490,7 @@
 <p>stat /tmp/functions 用来显示文件的状态<br>stat FILE…   文件：两类数据  元数所：metadata   据数：data<br>时间戳 access time<br>       modify time<br>       change time    </p>
 <p>touch 摸一个不存在的文件时，会创建空文件<br>      touch - change file timestamps<br>      touch [OPTION]…FILE…<br>      -c:指定的文件不存在时不予创建；<br>      -a:仅修改access time;<br>      -m:仅修改modify time;<br>      -t STAMP [[CC]YY]MMDDhhmm[-ss].  </p>
 </blockquote>
-<h2><span id="bash基础特性">bash基础特性</span></h2><ul>
+<h2 id="bash基础特性"><a href="#bash基础特性" class="headerlink" title="bash基础特性"></a>bash基础特性</h2><ul>
 <li>globbing:文件名通配(整体文件名匹配，而非部分)</li>
 <li>*：匹配任意长度的任意字符</li>
 <li>pa*所有以pa开头的文件</li>
@@ -501,7 +501,7 @@
 <li>有几种特殊格式 [ a-z],[A-Z],[a-z,0-9]</li>
 <li>pa[0-9][0-9],2[0-9][0-9]</li>
 </ul>
-<h2><span id="nmtui-networkmanager">nmtui  NetworkManager</span></h2><ul>
+<h2 id="nmtui-NetworkManager"><a href="#nmtui-NetworkManager" class="headerlink" title="nmtui  NetworkManager"></a>nmtui  NetworkManager</h2><ul>
 <li>root用户不一直是管理员，原因：管理员是可以更改的</li>
 <li>tty命令查看终端类型：物理终端，伪终端，pts  虚拟终端tty 图形终端</li>
 </ul>
@@ -737,7 +737,7 @@ touch `hostname`.txt  $() 与</code>是等价的<br>linux ls 列出的顺序尊�
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">80</span>
+                  <span class="site-state-item-count">81</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -820,7 +820,7 @@ touch `hostname`.txt  $() 与</code>是等价的<br>linux ls 列出的顺序尊�
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">bash 基础特性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.1.</span> <span class="nav-text">命令模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.2.</span> <span class="nav-text">图形模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.3.</span> <span class="nav-text">ipython安装使用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.</span> <span class="nav-text">bash基础特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.</span> <span class="nav-text">nmtui  NetworkManager</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#bash-基础特性"><span class="nav-number">1.</span> <span class="nav-text">bash 基础特性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#命令模式"><span class="nav-number">1.0.1.</span> <span class="nav-text">命令模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#图形模式"><span class="nav-number">1.0.2.</span> <span class="nav-text">图形模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ipython安装使用"><span class="nav-number">1.0.3.</span> <span class="nav-text">ipython安装使用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bash基础特性"><span class="nav-number">1.1.</span> <span class="nav-text">bash基础特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#nmtui-NetworkManager"><span class="nav-number">1.2.</span> <span class="nav-text">nmtui  NetworkManager</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -859,7 +859,7 @@ touch `hostname`.txt  $() 与</code>是等价的<br>linux ls 列出的顺序尊�
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">203.7k</span>
+    <span title="Site words total count">204.1k</span>
   
   <span>   |   </span>
 <span id="showDays"></span>

@@ -450,8 +450,8 @@
 
       
         <p>[toc]</p>
-<h2><span id="关于某系统阵发性网络问题的处理">关于某系统阵发性网络问题的处理。</span></h2><p> <img src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/tcp_problem.jpeg" alt=""></p>
-<h3><span id="一-问题描述">一、问题描述</span></h3><ul>
+<h2 id="关于某系统阵发性网络问题的处理。"><a href="#关于某系统阵发性网络问题的处理。" class="headerlink" title="关于某系统阵发性网络问题的处理。"></a>关于某系统阵发性网络问题的处理。</h2><p> <img src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/tcp_problem.jpeg" alt=""></p>
+<h3 id="一、问题描述"><a href="#一、问题描述" class="headerlink" title="一、问题描述"></a>一、问题描述</h3><ul>
 <li>1、xxx 、移动 xx 等系统阵发性网络连接失败;</li>
 <li>2、keepalived 虚拟ip未发生切换，nginx 访问日志记录正常，未收到错误日志，网络及链路测试正常;</li>
 <li>3、keepalvied+ nginx 反代的其余系统未发现阵发性网络问题;</li>
@@ -459,13 +459,13 @@
 <p><img src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/granfana-network-problem.jpg" alt=""></p>
 </li>
 </ul>
-<h3><span id="二-应急切换与故障重现">二、应急切换与故障重现</span></h3><ul>
+<h3 id="二、应急切换与故障重现"><a href="#二、应急切换与故障重现" class="headerlink" title="二、应急切换与故障重现"></a>二、应急切换与故障重现</h3><ul>
 <li>1、周二频繁出现阵发性网络连接失败，应急将XXX虚ip切换回原私有云服务器，系统恢复;</li>
 <li>2、后考虑移动xx系统出现的网络问题频率较高，因此考虑在个人客户端重现故障;</li>
 <li>3、在个人macos中搭建dns服务器，配置xx域名解析到非XXX 系统keepavlied虚ip所映射的公网ip;</li>
 <li>4、在手机上刷新app，多次刷新，锁屏再打开后故障重现。</li>
 </ul>
-<h3><span id="三-问题定位">三、问题定位</span></h3><ul>
+<h3 id="三、问题定位"><a href="#三、问题定位" class="headerlink" title="三、问题定位"></a>三、问题定位</h3><ul>
 <li>1、故障重现后，在XXX系统 keepailved 所在的服务器上进行 tcpdump 抓包分析;</li>
 <li>2、因目前只有一个客户端访问非XXX nginx，因此可以看到nginx日志是一个公网ip访问过来的;</li>
 <li>3、开启两个终端，一个实时监控日志，另一个用于tcpdump抓包保存</li>
@@ -478,10 +478,10 @@
 <li>7、net.ipv4.tcp_timestamps net.ipv4.tcp_tw_recycle;</li>
 <li>8、发现服务器上的net.ipv4.tcp_timestamps，net.ipv4.tcp_tw_recycle 都为1;</li>
 </ul>
-<h3><span id="四-故障处理">四、故障处理</span></h3><p>修改两台服务器的 /etc/sysctl.conf  以下两条内核参数，并生效;</p>
+<h3 id="四、故障处理"><a href="#四、故障处理" class="headerlink" title="四、故障处理"></a>四、故障处理</h3><p>修改两台服务器的 /etc/sysctl.conf  以下两条内核参数，并生效;</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"># vim  /etc/sysctl.conf</div><div class="line">net.ipv4.tcp_tw_recycle = 0</div><div class="line">net.ipv4.tcp_timestamps = 0 </div><div class="line"></div><div class="line"># sysctl -p 生效</div></pre></td></tr></table></figure>
 <p>将keepalived 虚拟ip再切换回物理服务器，故障处理;</p>
-<h3><span id="五-内核参数说明">五、内核参数说明;</span></h3><ul>
+<h3 id="五、内核参数说明"><a href="#五、内核参数说明" class="headerlink" title="五、内核参数说明;"></a>五、内核参数说明;</h3><ul>
 <li>1、net.ipv4.tcp_timestamps 是给所有进入服务器网卡的流量打时间标签，就像生产的面包打印生产日期;</li>
 <li>2、net.ipv4.tcp_tw_recycle 是对连接时间超过60s的tcp资源进行回收并reject，同一时间内同一ip访问过多的tcp连接，它只会认为最近的一次SYN有效，其余的SYN拒绝;</li>
 <li>这两条参数配合起来，当都开启时用于防范tcp攻击;</li>
@@ -668,7 +668,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">80</span>
+                  <span class="site-state-item-count">81</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -751,7 +751,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">关于某系统阵发性网络问题的处理。</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.</span> <span class="nav-text">一、问题描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.</span> <span class="nav-text">二、应急切换与故障重现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.3.</span> <span class="nav-text">三、问题定位</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.4.</span> <span class="nav-text">四、故障处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.5.</span> <span class="nav-text">五、内核参数说明;</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#关于某系统阵发性网络问题的处理。"><span class="nav-number">1.</span> <span class="nav-text">关于某系统阵发性网络问题的处理。</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、问题描述"><span class="nav-number">1.1.</span> <span class="nav-text">一、问题描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、应急切换与故障重现"><span class="nav-number">1.2.</span> <span class="nav-text">二、应急切换与故障重现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、问题定位"><span class="nav-number">1.3.</span> <span class="nav-text">三、问题定位</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、故障处理"><span class="nav-number">1.4.</span> <span class="nav-text">四、故障处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五、内核参数说明"><span class="nav-number">1.5.</span> <span class="nav-text">五、内核参数说明;</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -790,7 +790,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">203.7k</span>
+    <span title="Site words total count">204.1k</span>
   
   <span>   |   </span>
 <span id="showDays"></span>

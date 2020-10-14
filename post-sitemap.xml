@@ -7,6 +7,22 @@
     </url>
 
     <url>
+        <loc>https://www.asjin.com/2020/10/13/python%E6%96%87%E4%BB%B6%E7%9A%84IO%E4%B8%89/</loc>
+        <lastmod>2020-10-13T11:32:07.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://www.asjin.com/2018/09/28/docker%E7%AC%94%E8%AE%B0%E4%B8%80/</loc>
+        <lastmod>2020-10-12T11:26:54.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://www.asjin.com/2020/09/17/python%E6%96%87%E4%BB%B6%E7%9A%84IO%E4%BA%8C/</loc>
         <lastmod>2020-10-11T15:19:26.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -392,14 +408,6 @@
 
     <url>
         <loc>https://www.asjin.com/2018/10/02/docker%E7%AC%94%E8%AE%B0%E4%BA%8C/</loc>
-        <lastmod>2020-09-29T10:54:53.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://www.asjin.com/2018/09/28/docker%E7%AC%94%E8%AE%B0%E4%B8%80/</loc>
         <lastmod>2020-09-29T10:54:53.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>

@@ -448,8 +448,8 @@
 
       
         <p>[toc]</p>
-<h1><span id="kubernetes-操作记录四">kubernetes 操作记录四</span></h1><p><img src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/docker_kubernetes.png" alt=""></p>
-<h2><span id="kubernetes认证及service-account">kubernetes认证及Service Account</span></h2><p>在master服务器上启动 proxy 并监听至8080</p>
+<h1 id="kubernetes-操作记录四"><a href="#kubernetes-操作记录四" class="headerlink" title="kubernetes 操作记录四"></a>kubernetes 操作记录四</h1><p><img src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/docker_kubernetes.png" alt=""></p>
+<h2 id="kubernetes认证及Service-Account"><a href="#kubernetes认证及Service-Account" class="headerlink" title="kubernetes认证及Service Account"></a>kubernetes认证及Service Account</h2><p>在master服务器上启动 proxy 并监听至8080</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># kubectl  proxy --port=8080 &amp;</span></div><div class="line"><span class="comment"># curl http://localhost:8080/api/v1/namespaces</span></div></pre></td></tr></table></figure>
 <p>仅有权限获取当前Pod自身的相关信息</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># kubectl get secret -n ingress-nginx</span></div><div class="line">NAME                                       TYPE                                  DATA   AGE</div><div class="line">default-token-t54dl                        kubernetes.io/service-account-token   3      5d23h</div><div class="line">nginx-ingress-serviceaccount-token-5dwv4   kubernetes.io/service-account-token   3      5d23h</div></pre></td></tr></table></figure>
@@ -465,7 +465,7 @@
 <p>这时候多了一个context, 可切换用户</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># kubectl config use-context ssjinyao@kubernetes</div><div class="line">Switched to context &quot;ssjinyao@kubernetes&quot;.</div></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"># kubectl config set-cluster mycluster --kubeconfig=/tmp/test.conf --server=&quot;https://10.1.87.80:6443&quot; --certificate-authority=/etc/kubernetes/pki/ca.crt  --embed-certs=true</div><div class="line">Cluster &quot;mycluster&quot; set.</div><div class="line"># kubectl config view --kubeconfig=/tmp/test.conf</div><div class="line">apiVersion: v1</div><div class="line">clusters:</div><div class="line">- cluster:</div><div class="line">    certificate-authority-data: DATA+OMITTED</div><div class="line">    server: https://10.1.87.80:6443</div><div class="line">  name: mycluster</div><div class="line">contexts: []</div><div class="line">current-context: &quot;&quot;</div><div class="line">kind: Config</div><div class="line">preferences: &#123;&#125;</div><div class="line">users: []</div></pre></td></tr></table></figure>
-<h2><span id="rbac">RBAC</span></h2><p>授权插件: Node, ABAC,RBAC,Webhook(基于http的回调来实现)<br>RBAC: Role-based AC</p>
+<h2 id="RBAC"><a href="#RBAC" class="headerlink" title="RBAC"></a>RBAC</h2><p>授权插件: Node, ABAC,RBAC,Webhook(基于http的回调来实现)<br>RBAC: Role-based AC</p>
 <p>角色  (role)<br>许可 (permission)</p>
 <p>role: operations,objects<br>rolebinding: user account OR service account  , role<br>clusterrole: clusterrolebinding</p>
 <p>操作: GET HEAD PUT PUST PATCH DELETE</p>
@@ -478,7 +478,7 @@
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># kubectl create rolebinding ssjinyao-read-pods --clusterrole=cluster-reader --user=ssjinayo --dry-run -o yaml  &gt; rolebinding-clusterrole-demo.yaml</span></div></pre></td></tr></table></figure>
 <p>查看系统默认的授权<br>引用授权</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># kubectl get clusterrole admin -o yaml</span></div><div class="line"><span class="comment"># kubectl create rolebinding default-ns-admin --clusterrole=admin --user=ssjinyao</span></div><div class="line"><span class="string">rolebinding.rbac.authorization.k8s.io/default-ns-admin</span> <span class="string">created</span></div></pre></td></tr></table></figure>
-<h2><span id="dashboard-及认证分级授权">dashboard 及认证分级授权</span></h2><p>部署 dashboard</p>
+<h2 id="dashboard-及认证分级授权"><a href="#dashboard-及认证分级授权" class="headerlink" title="dashboard 及认证分级授权"></a>dashboard 及认证分级授权</h2><p>部署 dashboard</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v1.10.1/src/deploy/recommended/kubernetes-dashboard.yaml</span></div></pre></td></tr></table></figure>
 <p>部署时下载镜像出错</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#  kubectl describe pods -n kube-system kubernetes-dashboard-5f7b999d65-jpmhs</span></div><div class="line">Events:</div><div class="line">  Type     Reason     Age                 From                           Message</div><div class="line">  ----     ------     ----                ----                           -------</div><div class="line">  Normal   Scheduled  113s                default-scheduler              Successfully assigned kube-system/kubernetes-dashboard-5f7b999d65-jpmhs to node01</div><div class="line">  Warning  Failed     53s (x3 over 105s)  kubelet, node01  Failed to pull image <span class="string">"k8s.gcr.io/kubernetes-dashboard-amd64:v1.10.1"</span>: rpc error: code = Unknown desc = Error response from daemon: Get https://k8s.gcr.io/v2/: dial tcp 74.125.203.82:443: connect: connection timed out</div><div class="line">  Warning  Failed     53s (x3 over 105s)  kubelet, node01  Error: ErrImagePull</div><div class="line">  Normal   BackOff    15s (x5 over 105s)  kubelet, node01  Back-off pulling image <span class="string">"k8s.gcr.io/kubernetes-dashboard-amd64:v1.10.1"</span></div><div class="line">  Warning  Failed     15s (x5 over 105s)  kubelet, node01  Error: ImagePullBackOff</div><div class="line">  Normal   Pulling    2s (x4 over 112s)   kubelet, 01  Pulling image <span class="string">"k8s.gcr.io/kubernetes-dashboard-amd64:v1.10.1"</span></div></pre></td></tr></table></figure>
@@ -489,7 +489,7 @@
 <p>可以看到kubernetes-dashbroad 已经运行 </p>
 <p>默认服务暴露为ClusterIP类型的，我们需要将其改为NodePort 类型<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># kubectl patch svc kubernetes-dashboard -p '&#123;"spec":&#123;"type":"NodePort"&#125;&#125;' -n kube-system</span></div><div class="line"><span class="comment"># kubectl get svc -n kube-system</span></div><div class="line">\NAME                   TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)                  AGE</div><div class="line">kube-dns               ClusterIP   10.96.0.10       &lt;none&gt;        53/UDP,53/TCP,9153/TCP   27d</div><div class="line">kubernetes-dashboard   NodePort    10.109.190.204   &lt;none&gt;        443:31984/TCP            3m41s</div></pre></td></tr></table></figure></p>
 <p>这个时候可以看到登录界面<br><img src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/kubernetes-dashboard-login.png" alt=""></p>
-<h3><span id="使用用token实现认证登录">使用用token实现认证登录</span></h3><p>这里登录需要的是serviceaccount用户， 所以这里创建 serviceaccount</p>
+<h3 id="使用用token实现认证登录"><a href="#使用用token实现认证登录" class="headerlink" title="使用用token实现认证登录"></a>使用用token实现认证登录</h3><p>这里登录需要的是serviceaccount用户， 所以这里创建 serviceaccount</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># kubectl create serviceaccount dashboard-admin -n kube-system</span></div><div class="line">serviceaccount/dashboard-admin created </div><div class="line"><span class="comment"># kubectl  get sa -n kube-system  |  grep dash</span></div><div class="line">dashboard-admin                      1         6m33s</div></pre></td></tr></table></figure>
 <p>serviceaccount 创建好后， 需要将serviceaccount绑定cluster这个角色上</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># kubectl create clusterrolebinding dashboard-cluster-admin --clusterrole=cluster-admin --serviceaccount=kube-system:dashboard-admin</span></div><div class="line">clusterrolebinding.rbac.authorization.k8s.io/dashboard-cluster-admin created</div><div class="line"><span class="comment"># kubectl get secret -n kube-system | grep dash</span></div><div class="line">dashboard-admin-token-grj84                      kubernetes.io/service-account-token   3      5m46s</div></pre></td></tr></table></figure>
@@ -692,7 +692,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">80</span>
+                  <span class="site-state-item-count">81</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -775,7 +775,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">kubernetes 操作记录四</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.</span> <span class="nav-text">kubernetes认证及Service Account</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.</span> <span class="nav-text">RBAC</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.3.</span> <span class="nav-text">dashboard 及认证分级授权</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.3.1.</span> <span class="nav-text">使用用token实现认证登录</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#kubernetes-操作记录四"><span class="nav-number">1.</span> <span class="nav-text">kubernetes 操作记录四</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#kubernetes认证及Service-Account"><span class="nav-number">1.1.</span> <span class="nav-text">kubernetes认证及Service Account</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RBAC"><span class="nav-number">1.2.</span> <span class="nav-text">RBAC</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#dashboard-及认证分级授权"><span class="nav-number">1.3.</span> <span class="nav-text">dashboard 及认证分级授权</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用用token实现认证登录"><span class="nav-number">1.3.1.</span> <span class="nav-text">使用用token实现认证登录</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -814,7 +814,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">203.7k</span>
+    <span title="Site words total count">204.1k</span>
   
   <span>   |   </span>
 <span id="showDays"></span>
