@@ -5,16 +5,16 @@
   
 
 <!-- 代码块复制功能 -->
-<!--<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard.min.js"></script> --> 
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard-use.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/instantclick-1.2.2.js" type="module"></script>
+<!--<script type="text/javascript" src="/js/src/clipboard.min.js"></script> --> 
+<script type="text/javascript" src="/js/src/clipboard-use.js"></script>
+<script src="/js/instantclick-1.2.2.js" type="module"></script>
 <!--崩溃欺骗-->
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/crash_cheat.js"></script>
+<script type="text/javascript" src="/js/src/crash_cheat.js"></script>
 <html class="theme-next gemini use-motion" lang="zh-Hans">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
@@ -24,8 +24,8 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -44,7 +44,7 @@
 
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
 
 
@@ -52,9 +52,9 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
@@ -72,17 +72,17 @@
   <link rel="manifest" href="/images/manifest.json">
 
 
-  <meta name="msapplication-config" content="/images/browserconfig.xml" />
+  <meta name="msapplication-config" content="/images/browserconfig.xml">
 
 
 
-  <meta name="keywords" content="rhca,linux," />
+  <meta name="keywords" content="rhca,linux,">
 
 
 
 
 
-  <link rel="alternate" href="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io@master/atom.xml" title="逝水锦遥" type="application/atom+xml" />
+  <link rel="alternate" href="/atom.xml" title="逝水锦遥" type="application/atom+xml">
 
 
 
@@ -97,12 +97,12 @@
 <meta property="og:site_name" content="逝水锦遥">
 <meta property="og:description" content="[toc] sge高性能集群的搭建与使用 集群环境的准备   Node1(master) CentOS7.4 iptables/selinux(off) IP:10.180.66.11 hostname:node1 ali yum源     Node2(slave) CentOS7.4 iptables/selinux(off) IP:10.180.66.12 hostname:node2 ali">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/sge.jpg">
+<meta property="og:image" content="https://www.asjin.com/images/sge.jpg">
 <meta property="og:updated_time" content="2020-09-29T10:46:29.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="sge linux高性能集群的搭建与使用">
 <meta name="twitter:description" content="[toc] sge高性能集群的搭建与使用 集群环境的准备   Node1(master) CentOS7.4 iptables/selinux(off) IP:10.180.66.11 hostname:node1 ali yum源     Node2(slave) CentOS7.4 iptables/selinux(off) IP:10.180.66.12 hostname:node2 ali">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/sge.jpg">
+<meta name="twitter:image" content="https://www.asjin.com/images/sge.jpg">
 
 
 
@@ -133,7 +133,7 @@
 
 
 
-  <link rel="canonical" href="https://www.asjin.com/2019/11/12/sge集群的搭建与使用/"/>
+  <link rel="canonical" href="https://www.asjin.com/2019/11/12/sge集群的搭建与使用/">
 
 
 
@@ -167,7 +167,7 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">逝水锦遥</span>
         <span class="logo-line-after"><i></i></span>
@@ -197,7 +197,7 @@
         <li class="menu-item menu-item-所有文章">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-linux"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-linux"></i> <br>
             
             所有文章
           </a>
@@ -207,7 +207,7 @@
         <li class="menu-item menu-item-python">
           <a href="/./tags/program" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-gitlab"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-gitlab"></i> <br>
             
             python
           </a>
@@ -217,7 +217,7 @@
         <li class="menu-item menu-item-运维组件">
           <a href="/./tags/rhca" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>
             
             运维组件
           </a>
@@ -227,7 +227,7 @@
         <li class="menu-item menu-item-数据库">
           <a href="/./tags/database" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-database"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-database"></i> <br>
             
             数据库
           </a>
@@ -237,7 +237,7 @@
         <li class="menu-item menu-item-云计算">
           <a href="/./tags/cloud" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-cloud"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-cloud"></i> <br>
             
             云计算
           </a>
@@ -247,7 +247,7 @@
         <li class="menu-item menu-item-成自考">
           <a href="/./tags/zikao" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-drupal"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-drupal"></i> <br>
             
             成自考
           </a>
@@ -257,7 +257,7 @@
         <li class="menu-item menu-item-个人中心">
           <a href="/./tags/renjin" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-user-circle"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-user-circle"></i> <br>
             
             个人中心
           </a>
@@ -267,7 +267,7 @@
         <li class="menu-item menu-item-工具箱">
           <a href="/./box" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-flag"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-flag"></i> <br>
             
             工具箱
           </a>
@@ -280,7 +280,7 @@
             <a href="javascript:;" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
             
             搜索文章
           </a>
@@ -301,9 +301,7 @@
       <i class="fa fa-times-circle"></i>
     </span>
     <div class="local-search-input-wrapper">
-      <input autocomplete="off"
-             placeholder="搜索..." spellcheck="false"
-             type="text" id="local-search-input">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
     </div>
   </div>
   <div id="local-search-result"></div>
@@ -344,7 +342,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="༺ 锦遥 ༻">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/rjyy.ico">
     </span>
 
@@ -392,7 +390,7 @@
           
             <span class="post-meta-divider">|</span>
             <span class="page-pv"><i class="fa fa-file-o"></i>  浏览
-            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>次
             </span>
           
 
@@ -445,7 +443,7 @@
 
       
         <p>[toc]</p>
-<h1 id="sge高性能集群的搭建与使用"><a href="#sge高性能集群的搭建与使用" class="headerlink" title="sge高性能集群的搭建与使用"></a>sge高性能集群的搭建与使用</h1><p><img src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/sge.jpg" alt=""></p>
+<h1 id="sge高性能集群的搭建与使用"><a href="#sge高性能集群的搭建与使用" class="headerlink" title="sge高性能集群的搭建与使用"></a>sge高性能集群的搭建与使用</h1><p><img src="/images/sge.jpg" alt></p>
 <h2 id="集群环境的准备"><a href="#集群环境的准备" class="headerlink" title="集群环境的准备"></a>集群环境的准备</h2><table>
 <thead>
 <tr>
@@ -492,27 +490,27 @@
 </tr>
 </tbody>
 </table>
-<h2 id="master-节点安装"><a href="#master-节点安装" class="headerlink" title="master 节点安装"></a>master 节点安装</h2><h3 id="安装相关依赖包"><a href="#安装相关依赖包" class="headerlink" title="安装相关依赖包"></a>安装相关依赖包</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># yum -y install jemalloc-devel openssl-devel ncurses-devel pam-devel libXmu-devel hwloc-devel hwloc hwloc-libs java-devel javacc ant-junit libdb-devel motif-devel csh ksh xterm db4-utils perl-XML-Simple perl-Env xorg-x11-fonts-ISO8859-1-100dpi xorg-x11-fonts-ISO8859-1-75dpi</div></pre></td></tr></table></figure>
-<h3 id="新建sge管理员用户"><a href="#新建sge管理员用户" class="headerlink" title="新建sge管理员用户"></a>新建sge管理员用户</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">#  groupadd -g 490 sgeadmin</div><div class="line"># useradd -u 495 -g 490 -r -m  -d /home/sgeadmin -s /bin/bash -c &quot;SGE Admin&quot; sgeadmin</div><div class="line"># sed -i &apos;/^%wheel/a\%sgeadmin       ALL=(ALL)       NOPASSWD: ALL&apos; /etc/sudoers</div></pre></td></tr></table></figure>
-<h3 id="安装sge"><a href="#安装sge" class="headerlink" title="安装sge"></a>安装sge</h3><p><a href="https://pan.baidu.com/s/1GDxo7sKDrr1BcIdERgNU1w" target="_blank" rel="external">sge 链接</a>  密码:c7hy</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># cd /usr/local/src/</span></div><div class="line"><span class="comment"># tar -xvf ge2011.11.tar.gz</span></div><div class="line"><span class="comment"># mkdir -pv /data</span></div><div class="line"><span class="comment"># cp -a ge2011.11 /data/sge</span></div><div class="line"><span class="comment"># chown sgeadmin.sgeadmin /data/sge</span></div></pre></td></tr></table></figure>
+<h2 id="master-节点安装"><a href="#master-节点安装" class="headerlink" title="master 节点安装"></a>master 节点安装</h2><h3 id="安装相关依赖包"><a href="#安装相关依赖包" class="headerlink" title="安装相关依赖包"></a>安装相关依赖包</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># yum -y install jemalloc-devel openssl-devel ncurses-devel pam-devel libXmu-devel hwloc-devel hwloc hwloc-libs java-devel javacc ant-junit libdb-devel motif-devel csh ksh xterm db4-utils perl-XML-Simple perl-Env xorg-x11-fonts-ISO8859-1-100dpi xorg-x11-fonts-ISO8859-1-75dpi</span><br></pre></td></tr></table></figure>
+<h3 id="新建sge管理员用户"><a href="#新建sge管理员用户" class="headerlink" title="新建sge管理员用户"></a>新建sge管理员用户</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#  groupadd -g 490 sgeadmin</span><br><span class="line"># useradd -u 495 -g 490 -r -m  -d /home/sgeadmin -s /bin/bash -c &quot;SGE Admin&quot; sgeadmin</span><br><span class="line"># sed -i &apos;/^%wheel/a\%sgeadmin       ALL=(ALL)       NOPASSWD: ALL&apos; /etc/sudoers</span><br></pre></td></tr></table></figure>
+<h3 id="安装sge"><a href="#安装sge" class="headerlink" title="安装sge"></a>安装sge</h3><p><a href="https://pan.baidu.com/s/1GDxo7sKDrr1BcIdERgNU1w" target="_blank" rel="noopener">sge 链接</a>  密码:c7hy</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># cd /usr/local/src/</span></span><br><span class="line"><span class="comment"># tar -xvf ge2011.11.tar.gz</span></span><br><span class="line"><span class="comment"># mkdir -pv /data</span></span><br><span class="line"><span class="comment"># cp -a ge2011.11 /data/sge</span></span><br><span class="line"><span class="comment"># chown sgeadmin.sgeadmin /data/sge</span></span><br></pre></td></tr></table></figure>
 <p><strong> qmaster 安装自动回答脚本，依赖软件包<code>expect</code>, 所有节点都需要安装 </strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># cd /data/sge/</span></div><div class="line"><span class="comment"># vim master.sh</span></div><div class="line"><span class="meta">#!/bin/bash</span></div><div class="line">user=<span class="string">"sgeadmin"</span></div><div class="line">/usr/bin/expect &lt;&lt;-EOF</div><div class="line">spawn ./install_qmaster</div><div class="line">expect <span class="string">"*&gt;&gt;"</span></div><div class="line">send <span class="string">"</span></div><div class="line"><span class="string">"</span></div><div class="line">expect <span class="string">"*&gt;&gt;"</span></div><div class="line">send <span class="string">"y</span></div><div class="line"><span class="string">"</span></div><div class="line">expect <span class="string">"*&gt;&gt;"</span></div><div class="line">send <span class="string">"</span></div><div class="line"><span class="string">"</span></div><div class="line">expect <span class="string">"*&gt;&gt;"</span></div><div class="line">send <span class="string">"</span></div><div class="line"><span class="string">"</span></div><div class="line">expect <span class="string">"*&gt;&gt;"</span></div><div class="line">send <span class="string">"</span></div><div class="line"><span class="string">"</span></div><div class="line">expect <span class="string">"*&gt;&gt;"</span></div><div class="line">send <span class="string">"</span></div><div class="line"><span class="string">"</span></div><div class="line">expect <span class="string">"*&gt;&gt;"</span></div><div class="line">send <span class="string">"</span></div><div class="line"><span class="string">"</span></div><div class="line">expect <span class="string">"*&gt;&gt;"</span></div><div class="line">send <span class="string">"</span></div><div class="line"><span class="string">"</span></div><div class="line">expect <span class="string">"*&gt;&gt;"</span></div><div class="line">send <span class="string">"</span></div><div class="line"><span class="string">"</span></div><div class="line">expect <span class="string">"*&gt;&gt;"</span></div><div class="line">send <span class="string">"</span></div><div class="line"><span class="string">"</span></div><div class="line">expect <span class="string">"*&gt;&gt;"</span></div><div class="line">send <span class="string">"</span></div><div class="line"><span class="string">"</span></div><div class="line">expect <span class="string">"*&gt;&gt;"</span></div><div class="line">send <span class="string">"</span></div><div class="line"><span class="string">"</span></div><div class="line">expect <span class="string">"*&gt;&gt;"</span></div><div class="line">send <span class="string">"</span></div><div class="line"><span class="string">"</span></div><div class="line">expect <span class="string">"*&gt;&gt;"</span></div><div class="line">send <span class="string">"</span></div><div class="line"><span class="string">"</span></div><div class="line">expect <span class="string">"*&gt;&gt;"</span></div><div class="line">send <span class="string">"</span></div><div class="line"><span class="string">"</span></div><div class="line">expect <span class="string">"*&gt;&gt;"</span></div><div class="line">send <span class="string">"</span></div><div class="line"><span class="string">"</span></div><div class="line">expect <span class="string">"*&gt;&gt;"</span></div><div class="line">send <span class="string">"</span></div><div class="line"><span class="string">"</span></div><div class="line">expect <span class="string">"*&gt;&gt;"</span></div><div class="line">send <span class="string">"</span></div><div class="line"><span class="string">"</span></div><div class="line">expect <span class="string">"*&gt;&gt;"</span></div><div class="line">send <span class="string">"n</span></div><div class="line"><span class="string">"</span></div><div class="line"></div><div class="line">expect <span class="string">"*&gt;&gt;"</span></div><div class="line">send <span class="string">"</span></div><div class="line"><span class="string">"</span></div><div class="line">expect <span class="string">"*&gt;&gt;"</span></div><div class="line">send <span class="string">"</span></div><div class="line"><span class="string">"</span></div><div class="line">expect <span class="string">"*&gt;&gt;"</span></div><div class="line">send <span class="string">"</span></div><div class="line"><span class="string">"</span></div><div class="line">expect <span class="string">"*&gt;&gt;"</span></div><div class="line">send <span class="string">"</span></div><div class="line"><span class="string">"</span></div><div class="line">expect <span class="string">"*&gt;&gt;"</span></div><div class="line">send <span class="string">"</span></div><div class="line"><span class="string">"</span></div><div class="line">expect <span class="string">"*&gt;&gt;"</span></div><div class="line">send <span class="string">"</span></div><div class="line"><span class="string">"</span></div><div class="line">expect <span class="string">"*&gt;&gt;"</span></div><div class="line">send <span class="string">"</span></div><div class="line"><span class="string">"</span></div><div class="line">expect <span class="string">"*&gt;&gt;"</span></div><div class="line">send <span class="string">"</span></div><div class="line"><span class="string">"</span></div><div class="line">expect <span class="string">"*&gt;&gt;"</span></div><div class="line">send <span class="string">"</span></div><div class="line"><span class="string">"</span></div><div class="line">expect <span class="string">"*&gt;&gt;"</span></div><div class="line">send <span class="string">"</span></div><div class="line"><span class="string">"</span></div><div class="line">expect <span class="string">"*&gt;&gt;"</span></div><div class="line">send <span class="string">"</span></div><div class="line"><span class="string">"</span></div><div class="line">expect <span class="string">"*&gt;&gt;"</span></div><div class="line">send <span class="string">"</span></div><div class="line"><span class="string">"</span></div><div class="line">expect <span class="string">"*&gt;&gt;"</span></div><div class="line">send <span class="string">"</span></div><div class="line"><span class="string">"</span></div><div class="line">expect <span class="string">"*&gt;&gt;"</span></div><div class="line">send <span class="string">"</span></div><div class="line"><span class="string">"</span></div><div class="line">expect <span class="string">"*&gt;&gt;"</span></div><div class="line">send <span class="string">"</span></div><div class="line"><span class="string">"</span></div><div class="line">expect <span class="string">"*&gt;&gt;"</span></div><div class="line">send <span class="string">"</span></div><div class="line"><span class="string">"</span></div><div class="line">expect <span class="string">"*&gt;&gt;"</span></div><div class="line">send <span class="string">"</span></div><div class="line"><span class="string">"</span></div><div class="line">expect <span class="string">"*&gt;&gt;"</span></div><div class="line">send <span class="string">"</span></div><div class="line"><span class="string">"</span></div><div class="line">expect <span class="string">"*&gt;&gt;"</span></div><div class="line">send <span class="string">"</span></div><div class="line"><span class="string">"</span></div><div class="line">expect <span class="string">"*&gt;&gt;"</span></div><div class="line">send <span class="string">"</span></div><div class="line"><span class="string">"</span></div><div class="line">expect <span class="string">"*&gt;&gt;"</span></div><div class="line">send <span class="string">"</span></div><div class="line"><span class="string">"</span></div><div class="line">expect <span class="string">"*&gt;&gt;"</span></div><div class="line">send <span class="string">"</span></div><div class="line"><span class="string">"</span></div><div class="line">expect <span class="string">"*&gt;&gt;"</span></div><div class="line">send <span class="string">"</span></div><div class="line"><span class="string">"</span></div><div class="line">expect <span class="string">"*&gt;&gt;"</span></div><div class="line">send <span class="string">"</span></div><div class="line"><span class="string">"</span></div><div class="line">expect <span class="string">"*&gt;&gt;"</span></div><div class="line">send <span class="string">"</span></div><div class="line"><span class="string">"</span></div><div class="line">expect <span class="string">"*&gt;&gt;"</span></div><div class="line">send <span class="string">"</span></div><div class="line"><span class="string">"</span></div><div class="line">expect <span class="string">"*&gt;&gt;"</span></div><div class="line">send <span class="string">"</span></div><div class="line"><span class="string">"</span></div><div class="line">expect <span class="string">"*&gt;&gt;"</span></div><div class="line">send <span class="string">"</span></div><div class="line"><span class="string">"</span></div><div class="line">expect <span class="string">"*&gt;&gt;"</span></div><div class="line">send <span class="string">"</span></div><div class="line"><span class="string">"</span></div><div class="line">expect <span class="string">"*&gt;&gt;"</span></div><div class="line">send <span class="string">"</span></div><div class="line"><span class="string">"</span></div><div class="line">expect <span class="string">"*&gt;&gt;"</span></div><div class="line">send <span class="string">"</span></div><div class="line"><span class="string">"</span></div><div class="line">expect eof</div><div class="line">EOF</div><div class="line"><span class="comment"># sh  master.sh</span></div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># cd /data/sge/</span></span><br><span class="line"><span class="comment"># vim master.sh</span></span><br><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line">user=<span class="string">"sgeadmin"</span></span><br><span class="line">/usr/bin/expect &lt;&lt;-EOF</span><br><span class="line">spawn ./install_qmaster</span><br><span class="line">expect <span class="string">"*&gt;&gt;"</span></span><br><span class="line">send <span class="string">"</span></span><br><span class="line"><span class="string">"</span></span><br><span class="line">expect <span class="string">"*&gt;&gt;"</span></span><br><span class="line">send <span class="string">"y</span></span><br><span class="line"><span class="string">"</span></span><br><span class="line">expect <span class="string">"*&gt;&gt;"</span></span><br><span class="line">send <span class="string">"</span></span><br><span class="line"><span class="string">"</span></span><br><span class="line">expect <span class="string">"*&gt;&gt;"</span></span><br><span class="line">send <span class="string">"</span></span><br><span class="line"><span class="string">"</span></span><br><span class="line">expect <span class="string">"*&gt;&gt;"</span></span><br><span class="line">send <span class="string">"</span></span><br><span class="line"><span class="string">"</span></span><br><span class="line">expect <span class="string">"*&gt;&gt;"</span></span><br><span class="line">send <span class="string">"</span></span><br><span class="line"><span class="string">"</span></span><br><span class="line">expect <span class="string">"*&gt;&gt;"</span></span><br><span class="line">send <span class="string">"</span></span><br><span class="line"><span class="string">"</span></span><br><span class="line">expect <span class="string">"*&gt;&gt;"</span></span><br><span class="line">send <span class="string">"</span></span><br><span class="line"><span class="string">"</span></span><br><span class="line">expect <span class="string">"*&gt;&gt;"</span></span><br><span class="line">send <span class="string">"</span></span><br><span class="line"><span class="string">"</span></span><br><span class="line">expect <span class="string">"*&gt;&gt;"</span></span><br><span class="line">send <span class="string">"</span></span><br><span class="line"><span class="string">"</span></span><br><span class="line">expect <span class="string">"*&gt;&gt;"</span></span><br><span class="line">send <span class="string">"</span></span><br><span class="line"><span class="string">"</span></span><br><span class="line">expect <span class="string">"*&gt;&gt;"</span></span><br><span class="line">send <span class="string">"</span></span><br><span class="line"><span class="string">"</span></span><br><span class="line">expect <span class="string">"*&gt;&gt;"</span></span><br><span class="line">send <span class="string">"</span></span><br><span class="line"><span class="string">"</span></span><br><span class="line">expect <span class="string">"*&gt;&gt;"</span></span><br><span class="line">send <span class="string">"</span></span><br><span class="line"><span class="string">"</span></span><br><span class="line">expect <span class="string">"*&gt;&gt;"</span></span><br><span class="line">send <span class="string">"</span></span><br><span class="line"><span class="string">"</span></span><br><span class="line">expect <span class="string">"*&gt;&gt;"</span></span><br><span class="line">send <span class="string">"</span></span><br><span class="line"><span class="string">"</span></span><br><span class="line">expect <span class="string">"*&gt;&gt;"</span></span><br><span class="line">send <span class="string">"</span></span><br><span class="line"><span class="string">"</span></span><br><span class="line">expect <span class="string">"*&gt;&gt;"</span></span><br><span class="line">send <span class="string">"</span></span><br><span class="line"><span class="string">"</span></span><br><span class="line">expect <span class="string">"*&gt;&gt;"</span></span><br><span class="line">send <span class="string">"n</span></span><br><span class="line"><span class="string">"</span></span><br><span class="line"></span><br><span class="line">expect <span class="string">"*&gt;&gt;"</span></span><br><span class="line">send <span class="string">"</span></span><br><span class="line"><span class="string">"</span></span><br><span class="line">expect <span class="string">"*&gt;&gt;"</span></span><br><span class="line">send <span class="string">"</span></span><br><span class="line"><span class="string">"</span></span><br><span class="line">expect <span class="string">"*&gt;&gt;"</span></span><br><span class="line">send <span class="string">"</span></span><br><span class="line"><span class="string">"</span></span><br><span class="line">expect <span class="string">"*&gt;&gt;"</span></span><br><span class="line">send <span class="string">"</span></span><br><span class="line"><span class="string">"</span></span><br><span class="line">expect <span class="string">"*&gt;&gt;"</span></span><br><span class="line">send <span class="string">"</span></span><br><span class="line"><span class="string">"</span></span><br><span class="line">expect <span class="string">"*&gt;&gt;"</span></span><br><span class="line">send <span class="string">"</span></span><br><span class="line"><span class="string">"</span></span><br><span class="line">expect <span class="string">"*&gt;&gt;"</span></span><br><span class="line">send <span class="string">"</span></span><br><span class="line"><span class="string">"</span></span><br><span class="line">expect <span class="string">"*&gt;&gt;"</span></span><br><span class="line">send <span class="string">"</span></span><br><span class="line"><span class="string">"</span></span><br><span class="line">expect <span class="string">"*&gt;&gt;"</span></span><br><span class="line">send <span class="string">"</span></span><br><span class="line"><span class="string">"</span></span><br><span class="line">expect <span class="string">"*&gt;&gt;"</span></span><br><span class="line">send <span class="string">"</span></span><br><span class="line"><span class="string">"</span></span><br><span class="line">expect <span class="string">"*&gt;&gt;"</span></span><br><span class="line">send <span class="string">"</span></span><br><span class="line"><span class="string">"</span></span><br><span class="line">expect <span class="string">"*&gt;&gt;"</span></span><br><span class="line">send <span class="string">"</span></span><br><span class="line"><span class="string">"</span></span><br><span class="line">expect <span class="string">"*&gt;&gt;"</span></span><br><span class="line">send <span class="string">"</span></span><br><span class="line"><span class="string">"</span></span><br><span class="line">expect <span class="string">"*&gt;&gt;"</span></span><br><span class="line">send <span class="string">"</span></span><br><span class="line"><span class="string">"</span></span><br><span class="line">expect <span class="string">"*&gt;&gt;"</span></span><br><span class="line">send <span class="string">"</span></span><br><span class="line"><span class="string">"</span></span><br><span class="line">expect <span class="string">"*&gt;&gt;"</span></span><br><span class="line">send <span class="string">"</span></span><br><span class="line"><span class="string">"</span></span><br><span class="line">expect <span class="string">"*&gt;&gt;"</span></span><br><span class="line">send <span class="string">"</span></span><br><span class="line"><span class="string">"</span></span><br><span class="line">expect <span class="string">"*&gt;&gt;"</span></span><br><span class="line">send <span class="string">"</span></span><br><span class="line"><span class="string">"</span></span><br><span class="line">expect <span class="string">"*&gt;&gt;"</span></span><br><span class="line">send <span class="string">"</span></span><br><span class="line"><span class="string">"</span></span><br><span class="line">expect <span class="string">"*&gt;&gt;"</span></span><br><span class="line">send <span class="string">"</span></span><br><span class="line"><span class="string">"</span></span><br><span class="line">expect <span class="string">"*&gt;&gt;"</span></span><br><span class="line">send <span class="string">"</span></span><br><span class="line"><span class="string">"</span></span><br><span class="line">expect <span class="string">"*&gt;&gt;"</span></span><br><span class="line">send <span class="string">"</span></span><br><span class="line"><span class="string">"</span></span><br><span class="line">expect <span class="string">"*&gt;&gt;"</span></span><br><span class="line">send <span class="string">"</span></span><br><span class="line"><span class="string">"</span></span><br><span class="line">expect <span class="string">"*&gt;&gt;"</span></span><br><span class="line">send <span class="string">"</span></span><br><span class="line"><span class="string">"</span></span><br><span class="line">expect <span class="string">"*&gt;&gt;"</span></span><br><span class="line">send <span class="string">"</span></span><br><span class="line"><span class="string">"</span></span><br><span class="line">expect <span class="string">"*&gt;&gt;"</span></span><br><span class="line">send <span class="string">"</span></span><br><span class="line"><span class="string">"</span></span><br><span class="line">expect <span class="string">"*&gt;&gt;"</span></span><br><span class="line">send <span class="string">"</span></span><br><span class="line"><span class="string">"</span></span><br><span class="line">expect <span class="string">"*&gt;&gt;"</span></span><br><span class="line">send <span class="string">"</span></span><br><span class="line"><span class="string">"</span></span><br><span class="line">expect <span class="string">"*&gt;&gt;"</span></span><br><span class="line">send <span class="string">"</span></span><br><span class="line"><span class="string">"</span></span><br><span class="line">expect <span class="string">"*&gt;&gt;"</span></span><br><span class="line">send <span class="string">"</span></span><br><span class="line"><span class="string">"</span></span><br><span class="line">expect <span class="string">"*&gt;&gt;"</span></span><br><span class="line">send <span class="string">"</span></span><br><span class="line"><span class="string">"</span></span><br><span class="line">expect eof</span><br><span class="line">EOF</span><br><span class="line"><span class="comment"># sh  master.sh</span></span><br></pre></td></tr></table></figure>
 <p>修改主节点环境变量</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># export SGE_ROOT=/data/sge</span></div><div class="line"><span class="comment"># echo 'export SGE_ROOT=/data/sge' &gt;&gt; ~/.bashrc</span></div><div class="line"><span class="comment"># echo 'PATH=$PATH:/data/sge/bin/linux-x64/:/data/sge/bin/' &gt;&gt; ~/.bashrc</span></div><div class="line"><span class="comment"># cp /data/sge/default/common/settings.sh  /etc/profile.d/</span></div><div class="line"><span class="comment"># sh /etc/profile.d/settings.sh</span></div><div class="line"><span class="comment"># source  /etc/profile</span></div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># export SGE_ROOT=/data/sge</span></span><br><span class="line"><span class="comment"># echo 'export SGE_ROOT=/data/sge' &gt;&gt; ~/.bashrc</span></span><br><span class="line"><span class="comment"># echo 'PATH=$PATH:/data/sge/bin/linux-x64/:/data/sge/bin/' &gt;&gt; ~/.bashrc</span></span><br><span class="line"><span class="comment"># cp /data/sge/default/common/settings.sh  /etc/profile.d/</span></span><br><span class="line"><span class="comment"># sh /etc/profile.d/settings.sh</span></span><br><span class="line"><span class="comment"># source  /etc/profile</span></span><br></pre></td></tr></table></figure>
 <p>添加节点</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># qconf -ah node1</span></div><div class="line"><span class="comment"># qconf -ah node2</span></div><div class="line"><span class="comment"># qconf -ah node3</span></div><div class="line"><span class="comment"># qconf -ah node4</span></div><div class="line"><span class="comment"># qconf -ah node5</span></div></pre></td></tr></table></figure>
-<h3 id="master-服务器搭建-nfs-服务"><a href="#master-服务器搭建-nfs-服务" class="headerlink" title="master 服务器搭建 nfs 服务"></a>master 服务器搭建 nfs 服务</h3><p>所有节点都需要安装<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># yum -y install nfs-utils</span></div></pre></td></tr></table></figure></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># qconf -ah node1</span></span><br><span class="line"><span class="comment"># qconf -ah node2</span></span><br><span class="line"><span class="comment"># qconf -ah node3</span></span><br><span class="line"><span class="comment"># qconf -ah node4</span></span><br><span class="line"><span class="comment"># qconf -ah node5</span></span><br></pre></td></tr></table></figure>
+<h3 id="master-服务器搭建-nfs-服务"><a href="#master-服务器搭建-nfs-服务" class="headerlink" title="master 服务器搭建 nfs 服务"></a>master 服务器搭建 nfs 服务</h3><p>所有节点都需要安装<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># yum -y install nfs-utils</span></span><br></pre></td></tr></table></figure></p>
 <p>master节点操作</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># vim /etc/exports</span></div><div class="line">/data/sge 10.180.66.0/24(rw,sync)</div><div class="line"><span class="comment"># systemctl restart nfs</span></div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># vim /etc/exports</span></span><br><span class="line">/data/sge 10.180.66.0/24(rw,sync)</span><br><span class="line"><span class="comment"># systemctl restart nfs</span></span><br></pre></td></tr></table></figure>
 <h3 id="slave-节点挂载"><a href="#slave-节点挂载" class="headerlink" title="slave 节点挂载"></a>slave 节点挂载</h3><p>(node2,node3,node4,node5)执行</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># mkdir  /data/sge -pv</span></div><div class="line"><span class="comment"># mount -t nfs 10.180.66.11:/data/sge /data/sge/</span></div><div class="line"><span class="comment"># chown sgeadmin.sgeadmin /data/</span></div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># mkdir  /data/sge -pv</span></span><br><span class="line"><span class="comment"># mount -t nfs 10.180.66.11:/data/sge /data/sge/</span></span><br><span class="line"><span class="comment"># chown sgeadmin.sgeadmin /data/</span></span><br></pre></td></tr></table></figure>
 <h3 id="slave-服务器安装sgeexecd"><a href="#slave-服务器安装sgeexecd" class="headerlink" title="slave 服务器安装sgeexecd"></a>slave 服务器安装sgeexecd</h3><p>(node2,node3,node4,node5) 执行</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># yum -y install hwloc-devel</span></div><div class="line"><span class="comment"># useradd -u 495 -g 490 -r -m  -d /home/sgeadmin -s /bin/bash -c "SGE Admin" sgeadmin</span></div><div class="line"><span class="comment"># sed -i '/^%wheel/a\%sgeadmin       ALL=(ALL)       NOPASSWD: ALL' /etc/sudoers</span></div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># yum -y install hwloc-devel</span></span><br><span class="line"><span class="comment"># useradd -u 495 -g 490 -r -m  -d /home/sgeadmin -s /bin/bash -c "SGE Admin" sgeadmin</span></span><br><span class="line"><span class="comment"># sed -i '/^%wheel/a\%sgeadmin       ALL=(ALL)       NOPASSWD: ALL' /etc/sudoers</span></span><br></pre></td></tr></table></figure>
 <p>生效环境变量</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># echo 'export SGE_ROOT=/data/sge' &gt;&gt; ~/.bashrc</span></div><div class="line"><span class="comment"># echo 'PATH=$PATH:/data/sge/bin/linux-x64/:/data/sge/bin/' &gt;&gt; ~/.bashrc</span></div><div class="line"><span class="comment"># echo 'export SGE_CELL=default' &gt;&gt; ~/.bashrc</span></div><div class="line"><span class="comment"># cp /data/sge/default/common/settings.sh /etc/profile.d/ -a</span></div><div class="line"><span class="comment"># source ~/.bashrc</span></div><div class="line"><span class="comment"># source /etc/profile</span></div></pre></td></tr></table></figure>
-<p>进行安装，所有节点都执行此脚本<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># vim slave.sh</span></div><div class="line"><span class="comment"># cat slave.sh</span></div><div class="line"><span class="meta">#!/bin/bash</span></div><div class="line">user=<span class="string">"sgeadmin"</span></div><div class="line">/usr/bin/expect &lt;&lt;-EOF</div><div class="line">spawn  ./install_execd</div><div class="line"></div><div class="line">expect <span class="string">"*&gt;&gt;"</span></div><div class="line">send <span class="string">"</span></div><div class="line"><span class="string">"</span></div><div class="line">expect <span class="string">"*&gt;&gt;"</span></div><div class="line">send <span class="string">"</span></div><div class="line"><span class="string">"</span></div><div class="line">expect <span class="string">"*&gt;&gt;"</span></div><div class="line">send <span class="string">"</span></div><div class="line"><span class="string">"</span></div><div class="line">expect <span class="string">"*&gt;&gt;"</span></div><div class="line">send <span class="string">"</span></div><div class="line"><span class="string">"</span></div><div class="line">expect <span class="string">"*&gt;&gt;"</span></div><div class="line">send <span class="string">"</span></div><div class="line"><span class="string">"</span></div><div class="line">expect <span class="string">"*&gt;&gt;"</span></div><div class="line">send <span class="string">"</span></div><div class="line"><span class="string">"</span></div><div class="line">expect <span class="string">"*&gt;&gt;"</span></div><div class="line">send <span class="string">"</span></div><div class="line"><span class="string">"</span></div><div class="line">expect <span class="string">"*&gt;&gt;"</span></div><div class="line">send <span class="string">"</span></div><div class="line"><span class="string">"</span></div><div class="line">expect <span class="string">"*&gt;&gt;"</span></div><div class="line">send <span class="string">"</span></div><div class="line"><span class="string">"</span></div><div class="line">expect <span class="string">"*&gt;&gt;"</span></div><div class="line">send <span class="string">"</span></div><div class="line"><span class="string">"</span></div><div class="line">expect <span class="string">"*&gt;&gt;"</span></div><div class="line">send <span class="string">"</span></div><div class="line"><span class="string">"</span></div><div class="line">expect <span class="string">"*&gt;&gt;"</span></div><div class="line">send <span class="string">"</span></div><div class="line"><span class="string">"</span></div><div class="line">expect <span class="string">"*&gt;&gt;"</span></div><div class="line">send <span class="string">"</span></div><div class="line"><span class="string">"</span></div><div class="line">expect <span class="string">"*&gt;&gt;"</span></div><div class="line">send <span class="string">"</span></div><div class="line"><span class="string">"</span></div><div class="line">expect <span class="string">"*&gt;&gt;"</span></div><div class="line">send <span class="string">"</span></div><div class="line"><span class="string">"</span></div><div class="line">expect <span class="string">"*&gt;&gt;"</span></div><div class="line">send <span class="string">"</span></div><div class="line"><span class="string">"</span></div><div class="line">expect <span class="string">"*&gt;&gt;"</span></div><div class="line">send <span class="string">"</span></div><div class="line"><span class="string">"</span></div><div class="line">expect eof</div><div class="line">EOF</div><div class="line"><span class="comment"># sh slave.sh</span></div></pre></td></tr></table></figure></p>
-<h2 id="完成集群搭建"><a href="#完成集群搭建" class="headerlink" title="完成集群搭建"></a>完成集群搭建</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># qhost</span></div><div class="line">HOSTNAME                ARCH         NCPU  LOAD  MEMTOT  MEMUSE  SWAPTO  SWAPUS</div><div class="line">-------------------------------------------------------------------------------</div><div class="line">global                  -               -     -       -       -       -       -</div><div class="line">node1                   linux-x64       1  0.01  968.3M  193.0M    2.0G   64.0K</div><div class="line">node2                   linux-x64       1  0.01  976.3M  151.0M    2.0G     0.0</div><div class="line">node3                   linux-x64       1  0.02  978.3M  152.2M    2.0G   84.0K</div><div class="line">node4                   linux-x64       1  0.02  976.3M  155.4M    2.0G     0.0</div><div class="line">node5                   linux-x64       1  0.01  978.3M  148.5M    2.0G   84.0K</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># echo 'export SGE_ROOT=/data/sge' &gt;&gt; ~/.bashrc</span></span><br><span class="line"><span class="comment"># echo 'PATH=$PATH:/data/sge/bin/linux-x64/:/data/sge/bin/' &gt;&gt; ~/.bashrc</span></span><br><span class="line"><span class="comment"># echo 'export SGE_CELL=default' &gt;&gt; ~/.bashrc</span></span><br><span class="line"><span class="comment"># cp /data/sge/default/common/settings.sh /etc/profile.d/ -a</span></span><br><span class="line"><span class="comment"># source ~/.bashrc</span></span><br><span class="line"><span class="comment"># source /etc/profile</span></span><br></pre></td></tr></table></figure>
+<p>进行安装，所有节点都执行此脚本<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># vim slave.sh</span></span><br><span class="line"><span class="comment"># cat slave.sh</span></span><br><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line">user=<span class="string">"sgeadmin"</span></span><br><span class="line">/usr/bin/expect &lt;&lt;-EOF</span><br><span class="line">spawn  ./install_execd</span><br><span class="line"></span><br><span class="line">expect <span class="string">"*&gt;&gt;"</span></span><br><span class="line">send <span class="string">"</span></span><br><span class="line"><span class="string">"</span></span><br><span class="line">expect <span class="string">"*&gt;&gt;"</span></span><br><span class="line">send <span class="string">"</span></span><br><span class="line"><span class="string">"</span></span><br><span class="line">expect <span class="string">"*&gt;&gt;"</span></span><br><span class="line">send <span class="string">"</span></span><br><span class="line"><span class="string">"</span></span><br><span class="line">expect <span class="string">"*&gt;&gt;"</span></span><br><span class="line">send <span class="string">"</span></span><br><span class="line"><span class="string">"</span></span><br><span class="line">expect <span class="string">"*&gt;&gt;"</span></span><br><span class="line">send <span class="string">"</span></span><br><span class="line"><span class="string">"</span></span><br><span class="line">expect <span class="string">"*&gt;&gt;"</span></span><br><span class="line">send <span class="string">"</span></span><br><span class="line"><span class="string">"</span></span><br><span class="line">expect <span class="string">"*&gt;&gt;"</span></span><br><span class="line">send <span class="string">"</span></span><br><span class="line"><span class="string">"</span></span><br><span class="line">expect <span class="string">"*&gt;&gt;"</span></span><br><span class="line">send <span class="string">"</span></span><br><span class="line"><span class="string">"</span></span><br><span class="line">expect <span class="string">"*&gt;&gt;"</span></span><br><span class="line">send <span class="string">"</span></span><br><span class="line"><span class="string">"</span></span><br><span class="line">expect <span class="string">"*&gt;&gt;"</span></span><br><span class="line">send <span class="string">"</span></span><br><span class="line"><span class="string">"</span></span><br><span class="line">expect <span class="string">"*&gt;&gt;"</span></span><br><span class="line">send <span class="string">"</span></span><br><span class="line"><span class="string">"</span></span><br><span class="line">expect <span class="string">"*&gt;&gt;"</span></span><br><span class="line">send <span class="string">"</span></span><br><span class="line"><span class="string">"</span></span><br><span class="line">expect <span class="string">"*&gt;&gt;"</span></span><br><span class="line">send <span class="string">"</span></span><br><span class="line"><span class="string">"</span></span><br><span class="line">expect <span class="string">"*&gt;&gt;"</span></span><br><span class="line">send <span class="string">"</span></span><br><span class="line"><span class="string">"</span></span><br><span class="line">expect <span class="string">"*&gt;&gt;"</span></span><br><span class="line">send <span class="string">"</span></span><br><span class="line"><span class="string">"</span></span><br><span class="line">expect <span class="string">"*&gt;&gt;"</span></span><br><span class="line">send <span class="string">"</span></span><br><span class="line"><span class="string">"</span></span><br><span class="line">expect <span class="string">"*&gt;&gt;"</span></span><br><span class="line">send <span class="string">"</span></span><br><span class="line"><span class="string">"</span></span><br><span class="line">expect eof</span><br><span class="line">EOF</span><br><span class="line"><span class="comment"># sh slave.sh</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="完成集群搭建"><a href="#完成集群搭建" class="headerlink" title="完成集群搭建"></a>完成集群搭建</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># qhost</span></span><br><span class="line">HOSTNAME                ARCH         NCPU  LOAD  MEMTOT  MEMUSE  SWAPTO  SWAPUS</span><br><span class="line">-------------------------------------------------------------------------------</span><br><span class="line">global                  -               -     -       -       -       -       -</span><br><span class="line">node1                   linux-x64       1  0.01  968.3M  193.0M    2.0G   64.0K</span><br><span class="line">node2                   linux-x64       1  0.01  976.3M  151.0M    2.0G     0.0</span><br><span class="line">node3                   linux-x64       1  0.02  978.3M  152.2M    2.0G   84.0K</span><br><span class="line">node4                   linux-x64       1  0.02  976.3M  155.4M    2.0G     0.0</span><br><span class="line">node5                   linux-x64       1  0.01  978.3M  148.5M    2.0G   84.0K</span><br></pre></td></tr></table></figure>
 <h1 id="sge集群的使用"><a href="#sge集群的使用" class="headerlink" title="sge集群的使用"></a>sge集群的使用</h1>
       
     </div>
@@ -533,14 +531,14 @@
 
     
       <div id="wechat" style="display: inline-block">
-        <img id="wechat_qr" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/weipei.png" alt="༺ 锦遥 ༻ 微信支付"/>
+        <img id="wechat_qr" src="/images/weipei.png" alt="༺ 锦遥 ༻ 微信支付">
         <p>微信支付</p>
       </div>
     
 
     
       <div id="alipay" style="display: inline-block">
-        <img id="alipay_qr" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/zhipei.png" alt="༺ 锦遥 ༻ 支付宝"/>
+        <img id="alipay_qr" src="/images/zhipei.png" alt="༺ 锦遥 ༻ 支付宝">
         <p>支付宝</p>
       </div>
     
@@ -677,9 +675,7 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image"
-                src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/rjyy.ico"
-                alt="༺ 锦遥 ༻" />
+              <img class="site-author-image" itemprop="image" src="/images/rjyy.ico" alt="༺ 锦遥 ༻">
             
               <p class="site-author-name" itemprop="name">༺ 锦遥 ༻</p>
               <p class="site-description motion-element" itemprop="description">不急不燥，稳步推进
@@ -694,7 +690,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">81</span>
+                  <span class="site-state-item-count">84</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -717,7 +713,7 @@
 
           
             <div class="feed-link motion-element">
-              <a href="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io@master/atom.xml" rel="alternate">
+              <a href="/atom.xml" rel="alternate">
                 <i class="fa fa-rss"></i>
                 RSS
               </a>
@@ -796,8 +792,8 @@
 
 <!-- 数字雨 -->
 <canvas id="canvas" width="1440" height="1080"></canvas>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/DigitalRain.js"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css"/>
+<script type="text/javascript" src="/js/DigitalRain.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
     </main>
 
     <footer id="footer" class="footer">
@@ -816,7 +812,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">206.6k</span>
+    <span title="Site words total count">208.1k</span>
   
   <span>   |   </span>
 <span id="showDays"></span>
@@ -829,10 +825,10 @@
 
 
 
-<div class=BbeiAn-info style="color:#8B0000">
+<div class="BbeiAn-info" style="color:#8B0000">
 晋ICP备 -
-    <a href="http://www.beian.miit.gov.cn/" style='color:red;'>17010575号-1 && 17010575号-4</a>
-</a>
+    <a href="http://www.beian.miit.gov.cn/" style="color:red;">17010575号-1 && 17010575号-4</a>
+
 </div>
 <!-- time -->
 <div id="show-time">
@@ -864,11 +860,11 @@ var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours
 }, 1000);
 </script>
 <script src="https://pv.sohu.com/cityjson?ie=utf-8"></script>
-<script src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/ip.js"></script>
+<script src="/js/ip.js"></script>
 
         
 <div class="busuanzi-count">
-  <script async src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/busuanzi.pure.mini.js"></script>
+  <script async src="/js/busuanzi.pure.mini.js"></script>
   
     <span class="site-uv">
       <i class="fa fa-user"></i> 訪客數
@@ -907,8 +903,8 @@ var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours
     
 
 <script src="/live2d-widget/autoload.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard.min.js"></script>  
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard-use.js"></script>
+<script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
+<script type="text/javascript" src="/js/src/clipboard-use.js"></script>
   </div>
 
   
@@ -975,32 +971,32 @@ var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours
   
 
 
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/utils.js?v=5.1.3"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
 
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/motion.js?v=5.1.3"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/affix.js?v=5.1.3"></script>
-
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/schemes/pisces.js?v=5.1.3"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
 
 
 
   
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/scrollspy.js?v=5.1.3"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/post-details.js?v=5.1.3"></script>
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
 
 
 
   
 
 
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/bootstrap.js?v=5.1.3"></script>
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
 
 
 
@@ -1402,7 +1398,7 @@ var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours
   <!-- 点击特效 -->
 
 
-  <script src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/activate-power-mode.min.js"></script>
+  <script src="/js/activate-power-mode.min.js"></script>
     <script>
 	    POWERMODE.colorful = true;
     POWERMODE.shake = false;
@@ -1410,11 +1406,11 @@ var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours
 	  </script>
 
 
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard.min.js"></script>  
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard-use.js"></script>
+<script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
+<script type="text/javascript" src="/js/src/clipboard-use.js"></script>
 <!--点击冒点-->
 <canvas width="1777" height="841" style="position: fixed; left: 0px; top: 0px; z-index: 2147483647; pointer-events: none;"></canvas>
-<script src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/maodian.js"></script>
+<script src="/js/maodian.js"></script>
 <canvas width="1390" height="797" style="position: fixed; left: 0px; top: 0px; z-index: 2147483647; pointer-events: none;"></canvas>
 </body>
 </html>

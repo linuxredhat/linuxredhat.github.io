@@ -5,16 +5,16 @@
   
 
 <!-- 代码块复制功能 -->
-<!--<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard.min.js"></script> --> 
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard-use.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/instantclick-1.2.2.js" type="module"></script>
+<!--<script type="text/javascript" src="/js/src/clipboard.min.js"></script> --> 
+<script type="text/javascript" src="/js/src/clipboard-use.js"></script>
+<script src="/js/instantclick-1.2.2.js" type="module"></script>
 <!--崩溃欺骗-->
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/crash_cheat.js"></script>
+<script type="text/javascript" src="/js/src/crash_cheat.js"></script>
 <html class="theme-next gemini use-motion" lang="zh-Hans">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
@@ -24,8 +24,8 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -44,7 +44,7 @@
 
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
 
 
@@ -52,9 +52,9 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
@@ -72,17 +72,17 @@
   <link rel="manifest" href="/images/manifest.json">
 
 
-  <meta name="msapplication-config" content="/images/browserconfig.xml" />
+  <meta name="msapplication-config" content="/images/browserconfig.xml">
 
 
 
-  <meta name="keywords" content="rhca,linux," />
+  <meta name="keywords" content="rhca,linux,">
 
 
 
 
 
-  <link rel="alternate" href="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io@master/atom.xml" title="逝水锦遥" type="application/atom+xml" />
+  <link rel="alternate" href="/atom.xml" title="逝水锦遥" type="application/atom+xml">
 
 
 
@@ -97,12 +97,12 @@
 <meta property="og:site_name" content="逝水锦遥">
 <meta property="og:description" content="[toc] 实操智能合约 什么是Chaincode chaincode是一个程序，它是使用Go语言编写的，最终在Java等其它编程语言中实现了指定的接口；chaincode运行一个被 背书peer进程独立出来的安全的Docker容器中;chaincode通过应用程序提交的事务初始化和管理帐本状态;    chaincode通常处理被网络成员认可的业务逻辑;因此它被认为是一种”智能合约”;由chai">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/heyue.jpg">
+<meta property="og:image" content="https://www.asjin.com/images/heyue.jpg">
 <meta property="og:updated_time" content="2020-09-29T10:59:20.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hyperledger Fabric Chaincode for Operators">
 <meta name="twitter:description" content="[toc] 实操智能合约 什么是Chaincode chaincode是一个程序，它是使用Go语言编写的，最终在Java等其它编程语言中实现了指定的接口；chaincode运行一个被 背书peer进程独立出来的安全的Docker容器中;chaincode通过应用程序提交的事务初始化和管理帐本状态;    chaincode通常处理被网络成员认可的业务逻辑;因此它被认为是一种”智能合约”;由chai">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/heyue.jpg">
+<meta name="twitter:image" content="https://www.asjin.com/images/heyue.jpg">
 
 
 
@@ -133,7 +133,7 @@
 
 
 
-  <link rel="canonical" href="https://www.asjin.com/2018/03/20/智能合约/"/>
+  <link rel="canonical" href="https://www.asjin.com/2018/03/20/智能合约/">
 
 
 
@@ -167,7 +167,7 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">逝水锦遥</span>
         <span class="logo-line-after"><i></i></span>
@@ -197,7 +197,7 @@
         <li class="menu-item menu-item-所有文章">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-linux"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-linux"></i> <br>
             
             所有文章
           </a>
@@ -207,7 +207,7 @@
         <li class="menu-item menu-item-python">
           <a href="/./tags/program" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-gitlab"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-gitlab"></i> <br>
             
             python
           </a>
@@ -217,7 +217,7 @@
         <li class="menu-item menu-item-运维组件">
           <a href="/./tags/rhca" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>
             
             运维组件
           </a>
@@ -227,7 +227,7 @@
         <li class="menu-item menu-item-数据库">
           <a href="/./tags/database" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-database"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-database"></i> <br>
             
             数据库
           </a>
@@ -237,7 +237,7 @@
         <li class="menu-item menu-item-云计算">
           <a href="/./tags/cloud" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-cloud"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-cloud"></i> <br>
             
             云计算
           </a>
@@ -247,7 +247,7 @@
         <li class="menu-item menu-item-成自考">
           <a href="/./tags/zikao" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-drupal"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-drupal"></i> <br>
             
             成自考
           </a>
@@ -257,7 +257,7 @@
         <li class="menu-item menu-item-个人中心">
           <a href="/./tags/renjin" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-user-circle"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-user-circle"></i> <br>
             
             个人中心
           </a>
@@ -267,7 +267,7 @@
         <li class="menu-item menu-item-工具箱">
           <a href="/./box" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-flag"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-flag"></i> <br>
             
             工具箱
           </a>
@@ -280,7 +280,7 @@
             <a href="javascript:;" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
             
             搜索文章
           </a>
@@ -301,9 +301,7 @@
       <i class="fa fa-times-circle"></i>
     </span>
     <div class="local-search-input-wrapper">
-      <input autocomplete="off"
-             placeholder="搜索..." spellcheck="false"
-             type="text" id="local-search-input">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
     </div>
   </div>
   <div id="local-search-result"></div>
@@ -344,7 +342,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="༺ 锦遥 ༻">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/rjyy.ico">
     </span>
 
@@ -392,7 +390,7 @@
           
             <span class="post-meta-divider">|</span>
             <span class="page-pv"><i class="fa fa-file-o"></i>  浏览
-            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>次
             </span>
           
 
@@ -445,7 +443,7 @@
 
       
         <p>[toc]</p>
-<h1 id="实操智能合约"><a href="#实操智能合约" class="headerlink" title="实操智能合约"></a>实操智能合约</h1><p><img src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/heyue.jpg" alt=""></p>
+<h1 id="实操智能合约"><a href="#实操智能合约" class="headerlink" title="实操智能合约"></a>实操智能合约</h1><p><img src="/images/heyue.jpg" alt></p>
 <h2 id="什么是Chaincode"><a href="#什么是Chaincode" class="headerlink" title="什么是Chaincode"></a>什么是Chaincode</h2><blockquote>
 <p>chaincode是一个程序，它是使用Go语言编写的，最终在Java等其它编程语言中实现了指定的接口；<br>chaincode运行一个被 背书peer进程独立出来的安全的Docker容器中;<br>chaincode通过应用程序提交的事务初始化和管理帐本状态;   </p>
 <p>chaincode通常处理被网络成员认可的业务逻辑;<br>因此它被认为是一种”智能合约”;<br>由chaincode创建的状态只作用于该chaincode，而不能通过另一个chaincode直接访问;<br>但是，在同一个网络中，给定适当的权限;<br>chaincode可以调用另一个chaincode来访问它的状态;   </p>
@@ -472,7 +470,7 @@
 <p>更简单的工作流程是正在发行安装事务的节点的身份签名时部署已部署的CDS;<br>首先将处理更复杂的情况，但是，如果不需要担心多个所有者;  那么可以跳过下在的安装chaincode部分;  </p>
 <p>要创建一个已签名的chaincode包，使用如下命令: </p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">root@6edc4e6c7b9c:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer chaincode package -n mycc -p github.com/hyperledger/fabric/examples/chaincode/go/chaincode_example02 -v 0 -s -S -i &quot;AND(&apos;OrgA.admin&apos;)&quot; ccpack.out</div><div class="line">2018-03-20 06:28:29.298 UTC [msp] GetLocalMSP -&gt; DEBU 001 Returning existing local MSP</div><div class="line">2018-03-20 06:28:29.299 UTC [msp] GetDefaultSigningIdentity -&gt; DEBU 002 Obtaining default signing identity</div><div class="line">2018-03-20 06:28:29.299 UTC [chaincodeCmd] checkChaincodeCmdParams -&gt; INFO 003 Using default escc</div><div class="line">2018-03-20 06:28:29.299 UTC [chaincodeCmd] checkChaincodeCmdParams -&gt; INFO 004 Using default vscc</div><div class="line">2018-03-20 06:28:29.526 UTC [golang-platform] getCodeFromFS -&gt; DEBU 005 getCodeFromFS github.com/hyperledger/fabric/examples/chaincode/go/chaincode_example02</div><div class="line">2018-03-20 06:28:29.965 UTC [golang-platform] func1 -&gt; DEBU 006 Discarding GOROOT package fmt</div><div class="line">2018-03-20 06:28:29.965 UTC [golang-platform] func1 -&gt; DEBU 007 Discarding provided package github.com/hyperledger/fabric/core/chaincode/shim</div><div class="line">2018-03-20 06:28:29.965 UTC [golang-platform] func1 -&gt; DEBU 008 Discarding provided package github.com/hyperledger/fabric/protos/peer</div><div class="line">2018-03-20 06:28:29.965 UTC [golang-platform] func1 -&gt; DEBU 009 Discarding GOROOT package strconv</div><div class="line">2018-03-20 06:28:29.965 UTC [golang-platform] GetDeploymentPayload -&gt; DEBU 00a done</div><div class="line">2018-03-20 06:28:29.968 UTC [msp/identity] Sign -&gt; DEBU 00b Sign: plaintext: 0A58080112520A476769746875622E63...0A2D2D2D2D2D454E44202D2D2D2D2D0A </div><div class="line">2018-03-20 06:28:29.968 UTC [msp/identity] Sign -&gt; DEBU 00c Sign: digest: 8A854844B0721EB24D348CC38C19A3D5E182CBE46FDFFE8CB9ECA7C44406F720 </div><div class="line">2018-03-20 06:28:29.969 UTC [chaincodeCmd] chaincodePackage -&gt; DEBU 00d Packaged chaincode into deployment spec of size &lt;3409&gt;, with args = [ccpack.out]</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">root@6edc4e6c7b9c:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer chaincode package -n mycc -p github.com/hyperledger/fabric/examples/chaincode/go/chaincode_example02 -v 0 -s -S -i &quot;AND(&apos;OrgA.admin&apos;)&quot; ccpack.out</span><br><span class="line">2018-03-20 06:28:29.298 UTC [msp] GetLocalMSP -&gt; DEBU 001 Returning existing local MSP</span><br><span class="line">2018-03-20 06:28:29.299 UTC [msp] GetDefaultSigningIdentity -&gt; DEBU 002 Obtaining default signing identity</span><br><span class="line">2018-03-20 06:28:29.299 UTC [chaincodeCmd] checkChaincodeCmdParams -&gt; INFO 003 Using default escc</span><br><span class="line">2018-03-20 06:28:29.299 UTC [chaincodeCmd] checkChaincodeCmdParams -&gt; INFO 004 Using default vscc</span><br><span class="line">2018-03-20 06:28:29.526 UTC [golang-platform] getCodeFromFS -&gt; DEBU 005 getCodeFromFS github.com/hyperledger/fabric/examples/chaincode/go/chaincode_example02</span><br><span class="line">2018-03-20 06:28:29.965 UTC [golang-platform] func1 -&gt; DEBU 006 Discarding GOROOT package fmt</span><br><span class="line">2018-03-20 06:28:29.965 UTC [golang-platform] func1 -&gt; DEBU 007 Discarding provided package github.com/hyperledger/fabric/core/chaincode/shim</span><br><span class="line">2018-03-20 06:28:29.965 UTC [golang-platform] func1 -&gt; DEBU 008 Discarding provided package github.com/hyperledger/fabric/protos/peer</span><br><span class="line">2018-03-20 06:28:29.965 UTC [golang-platform] func1 -&gt; DEBU 009 Discarding GOROOT package strconv</span><br><span class="line">2018-03-20 06:28:29.965 UTC [golang-platform] GetDeploymentPayload -&gt; DEBU 00a done</span><br><span class="line">2018-03-20 06:28:29.968 UTC [msp/identity] Sign -&gt; DEBU 00b Sign: plaintext: 0A58080112520A476769746875622E63...0A2D2D2D2D2D454E44202D2D2D2D2D0A </span><br><span class="line">2018-03-20 06:28:29.968 UTC [msp/identity] Sign -&gt; DEBU 00c Sign: digest: 8A854844B0721EB24D348CC38C19A3D5E182CBE46FDFFE8CB9ECA7C44406F720 </span><br><span class="line">2018-03-20 06:28:29.969 UTC [chaincodeCmd] chaincodePackage -&gt; DEBU 00d Packaged chaincode into deployment spec of size &lt;3409&gt;, with args = [ccpack.out]</span><br></pre></td></tr></table></figure>
 <p>-s 参数是指可以创建一个由多个所有签署的包，而不是简单地创建一个未处理/修饰过的CDS；<br>当指定了-s时，如果其他所有者需要签名，也必需要指定-s参数; 否则，这个进程会创建一个除了CDS<br>实例化策略之外的已签署CDS;  </p>
 <p>-S 参数使用在core.yaml中由localMspid属性值标识的MSP来指示该程序的签名;   </p>
 <p>-S 参数是可选的。但是，如果一个包是在没有签名的情况下创建的，那么它就不能由任何其他<br>所有者使用signpackage来签署; </p>
@@ -486,7 +484,7 @@
 </ol>
 <p><code>注: 当chaincode在某些channel上实例化时，此背书策略是由带外决定的，以提供适当的MSP原则。</code><br><code>如果没有指定实例化策略，则默认策略是channel的任何MSP的admin</code></p>
 <p>每个所有都通过将其与所有者的身份(例如证书) 相结合，并签署结合后的结果来为ChaincodeDeploymentSpec背书;<br>一个caincode所有者可以使用下面的命令来签署一个以前创建的签名包: </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">root@6edc4e6c7b9c:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer chaincode signpackage ccpack.out signedccpack.out</div><div class="line">2018-03-20 06:48:52.479 UTC [msp] GetLocalMSP -&gt; DEBU 001 Returning existing local MSP</div><div class="line">2018-03-20 06:48:52.479 UTC [msp] GetDefaultSigningIdentity -&gt; DEBU 002 Obtaining default signing identity</div><div class="line">2018-03-20 06:48:52.479 UTC [msp/identity] Sign -&gt; DEBU 003 Sign: plaintext: 0A58080112520A476769746875622E63...0A2D2D2D2D2D454E44202D2D2D2D2D0A </div><div class="line">2018-03-20 06:48:52.479 UTC [msp/identity] Sign -&gt; DEBU 004 Sign: digest: 8A854844B0721EB24D348CC38C19A3D5E182CBE46FDFFE8CB9ECA7C44406F720 </div><div class="line">Wrote signed package to signedccpack.out successfully</div><div class="line">2018-03-20 06:48:52.480 UTC [main] main -&gt; INFO 005 Exiting.....</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">root@6edc4e6c7b9c:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer chaincode signpackage ccpack.out signedccpack.out</span><br><span class="line">2018-03-20 06:48:52.479 UTC [msp] GetLocalMSP -&gt; DEBU 001 Returning existing local MSP</span><br><span class="line">2018-03-20 06:48:52.479 UTC [msp] GetDefaultSigningIdentity -&gt; DEBU 002 Obtaining default signing identity</span><br><span class="line">2018-03-20 06:48:52.479 UTC [msp/identity] Sign -&gt; DEBU 003 Sign: plaintext: 0A58080112520A476769746875622E63...0A2D2D2D2D2D454E44202D2D2D2D2D0A </span><br><span class="line">2018-03-20 06:48:52.479 UTC [msp/identity] Sign -&gt; DEBU 004 Sign: digest: 8A854844B0721EB24D348CC38C19A3D5E182CBE46FDFFE8CB9ECA7C44406F720 </span><br><span class="line">Wrote signed package to signedccpack.out successfully</span><br><span class="line">2018-03-20 06:48:52.480 UTC [main] main -&gt; INFO 005 Exiting.....</span><br></pre></td></tr></table></figure>
 <p>ccpack.out 和signedccpack.out分别是输入和输出包。signedccpack.out包含了使用的包附加签名;  </p>
 <h2 id="安装chaincode"><a href="#安装chaincode" class="headerlink" title="安装chaincode"></a>安装chaincode</h2><p>安装事务将chaincode的源代码打包成一种指定的格式，称为ChaincodeDeploymentSpec(chaincode部署规范或CDS);<br>并将其安装到运行该chaincode的peer节点上;   </p>
 <p><code>必须在channel中的每个背书节点上安装chaincode。以运行chaincode;</code></p>
@@ -495,14 +493,14 @@
 <p><code>那些没有chaincode的成员，不能成为chaincode交易的背书人; 也就是说，它们不能执行chaincode</code></p>
 <p><code>但是，它们仍然可以难并将事务提交到账本上;</code></p>
 <p>要安装一个chainocde，请将一个签署的提案发送到system chaincode(系统智能合约) 其中被描述为生命周期系统智能合约(lifecycle system chaincode –LSCC) 的部分;<br>例如，要安装使用CLI的简单资产chaincode中描述的sacc示例chaincode，使用如下命令: </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># peer chaincode install -n asset_mgmt -v 1.0 -p sacc</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># peer chaincode install -n asset_mgmt -v 1.0 -p sacc</span><br></pre></td></tr></table></figure>
 <p>CLI容器执行创建的SignedChaincodeDeploymentSpec sacc ，并将其发送给本地peer；<br>本地peer会调用LSCC上的安装方法。对-p选项的参数指定 了chaincode的路径；<br>它必需们位于用户的GOPATH的源码树中，例如 $GOPATH/src/sacc;<br><code>为了在peer上安装，签署的提案的签名必需来自peer的地本MSP管理员的一个签名</code></p>
 <h2 id="chaincode实例化"><a href="#chaincode实例化" class="headerlink" title="chaincode实例化"></a>chaincode实例化</h2><p>实例化事务调用生命击期系统chaincode(LSCC)来创建和初始化一个channel的chaincode;<br>这是一个chaincode-chanel绑定过程: chaincode可以绑定到任意数量的channel，并分别在每个channel上独立操作;<br>不管chaincode安装和实例化了多少个其他channel，状态都被隔离到一个事务提交到channel上; </p>
 <p>实例化事务的创建者必需满足在SingedCDS中包含的chincode的实例化策略;<br>并且该创建者作为创建该channel配置信息的一部分，也必需是channel上的一个写入者;<br>这对于channel的安全性来说是非常重要的，它可以防止恶意实体部署chaincode或欺骗成员在一个未绑定的channel上执行chaincode; </p>
 <p>例如，默认的实例化策略是任何channel的MSP管理员，因此一个chaincode实例化事务的创建者必须是channel管理员的成员;<br>当事务提案到达背书(节点)的时候，它将验证创建者的签名与实例化策略; 并且在将其提交给账本之前;<br>在事务验证期间再次执行此操作;   </p>
 <p>实例化事务还为channel 上的chaincode设置了背书策略。背书策略描述了交易结果的认证需求;<br>被该channel的所有成员所接受;  </p>
 <p>例如,使用CLI实例化sacc chaincode，并使用john和0初始化状态，命令如下: </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">peer chaincode instantiate -n sacc -v 1.0 -c &apos;&#123;&quot;Args&quot;:[&quot;john&quot;,&quot;0&quot;]&#125;&apos; -P &quot;OR (&apos;Org1.member&apos;,&apos;Org2.member&apos;)&quot;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">peer chaincode instantiate -n sacc -v 1.0 -c &apos;&#123;&quot;Args&quot;:[&quot;john&quot;,&quot;0&quot;]&#125;&apos; -P &quot;OR (&apos;Org1.member&apos;,&apos;Org2.member&apos;)&quot;</span><br></pre></td></tr></table></figure>
 <p><code>签注策略(CLI使用波兰表示法)，它需要来自Org1或Org2的任意成员的支持</code><br><code>以支持所有的事务到sacc。也就是说，无论是Org1还是Org2都必须签署在sacc上执行调用的结果，以使用事务是有效的</code>  </p>
 <p>波兰表示法(Polish notation,或波兰记法)，是一种逻辑、算术和代数表示方法;<br>其特点是操作符置于操作数的前面,因此也称做前缀表示法;<br>如果操作符的元数(arity)是固定的，则语法上不需要括号仍然能被无歧义的解析;<br>波兰记法是波兰数学家扬. 武卡谢维奇1920年代引入的。用于简化命题逻辑;  </p>
 <p>在chaincode成功实例化之后,chaincode在channel上进入活跃状态;<br>并准备处理任何背书事务类武技的事务协议。。这些事务是并发处理的，因为它们到达了背书peer;  </p>
@@ -514,25 +512,25 @@
 <p><code>在升级过程中，调用chaincode Init函数来执行任何与数据 相关的更新或重新初始化它;</code><br><code>因此在升级chaincode时必需注意避免重新设置状态;</code></p>
 <h2 id="停止和启动chaincode"><a href="#停止和启动chaincode" class="headerlink" title="停止和启动chaincode"></a>停止和启动chaincode</h2><p><code>停止和启动生命周期事务还没有实现。但是，可以通过每个背书人删除chaincode容器和SignedCDS包来手动停止chaincode</code><br><code>这是通过peer节点运行的每个主机或虚拟机上删除chaincode的容器来完成的,然后从每个背书peer节点 上删除SignedCDS</code> </p>
 <p><code>TODO-为了peer节点删除CDS，首先需要进入peer节点的容器，我们确实需要提供一个能够执行功能的实用程序脚本</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">#docker rm -f &lt;container id&gt;</div><div class="line">rm /var/hyperledger/production/chaincodes/&lt;ccname&gt;:&lt;ccversion&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#docker rm -f &lt;container id&gt;</span><br><span class="line">rm /var/hyperledger/production/chaincodes/&lt;ccname&gt;:&lt;ccversion&gt;</span><br></pre></td></tr></table></figure>
 <p> Stop在工作iytkk是有用的,可以控制方式上进行升级，在进行升级之前，可以在所有peer上停止一个chaincode ;</p>
 <h2 id="CLI-客户端"><a href="#CLI-客户端" class="headerlink" title="CLI(客户端)"></a>CLI(客户端)</h2><p> 官方正在评估为Hyperledger Fabric peer二进制文件分发特定平台的二进制文件的需求;<br> 目前，可以简单地运行dodcker 容器中调用命令; </p>
 <p> 查看当前的可用的CLI命令，运行的fabric-peer Docker容器中执行以下命令: </p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># docker run -it hyperledger/fabric-peer bash</div><div class="line"># peer chaincode --help</div></pre></td></tr></table></figure>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># docker run -it hyperledger/fabric-peer bash</span><br><span class="line"># peer chaincode --help</span><br></pre></td></tr></table></figure>
 <p> 注: 可使用docker exec -it cli (容器名) bash命令进入cli  </p>
 <p> 与下面类似的输出</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">Usage:</div><div class="line">  peer chaincode [command]</div><div class="line"></div><div class="line">Available Commands:</div><div class="line">  install     Package the specified chaincode into a deployment spec and save it on the peer&apos;s path.</div><div class="line">  instantiate Deploy the specified chaincode to the network.</div><div class="line">  invoke      Invoke the specified chaincode.</div><div class="line">  package     Package the specified chaincode into a deployment spec.</div><div class="line">  query       Query using the specified chaincode.</div><div class="line">  signpackage Sign the specified chaincode package</div><div class="line">  upgrade     Upgrade chaincode.</div><div class="line"></div><div class="line">Flags:</div><div class="line">      --cafile string     Path to file containing PEM-encoded trusted certificate(s) for the ordering endpoint</div><div class="line">  -C, --chainID string    The chain on which this command should be executed (default &quot;testchainid&quot;)</div><div class="line">  -c, --ctor string       Constructor message for the chaincode in JSON format (default &quot;&#123;&#125;&quot;)</div><div class="line">  -E, --escc string       The name of the endorsement system chaincode to be used for this chaincode</div><div class="line">  -l, --lang string       Language the chaincode is written in (default &quot;golang&quot;)</div><div class="line">  -n, --name string       Name of the chaincode</div><div class="line">  -o, --orderer string    Ordering service endpoint</div><div class="line">  -p, --path string       Path to chaincode</div><div class="line">  -P, --policy string     The endorsement policy associated to this chaincode</div><div class="line">  -t, --tid string        Name of a custom ID generation algorithm (hashing and decoding) e.g. sha256base64</div><div class="line">      --tls               Use TLS when communicating with the orderer endpoint</div><div class="line">  -u, --username string   Username for chaincode operations when security is enabled</div><div class="line">  -v, --version string    Version of the chaincode specified in install/instantiate/upgrade commands</div><div class="line">  -V, --vscc string       The name of the verification system chaincode to be used for this chaincode</div><div class="line"></div><div class="line">Global Flags:</div><div class="line">      --logging-level string       Default logging level and overrides, see core.yaml for full syntax</div><div class="line">      --test.coverprofile string   Done (default &quot;coverage.cov&quot;)</div><div class="line"></div><div class="line">Use &quot;peer chaincode [command] --help&quot; for more information about a command.</div><div class="line">2018-03-20 07:55:59.840 UTC [main] main -&gt; INFO 003 Exiting.....</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">Usage:</span><br><span class="line">  peer chaincode [command]</span><br><span class="line"></span><br><span class="line">Available Commands:</span><br><span class="line">  install     Package the specified chaincode into a deployment spec and save it on the peer&apos;s path.</span><br><span class="line">  instantiate Deploy the specified chaincode to the network.</span><br><span class="line">  invoke      Invoke the specified chaincode.</span><br><span class="line">  package     Package the specified chaincode into a deployment spec.</span><br><span class="line">  query       Query using the specified chaincode.</span><br><span class="line">  signpackage Sign the specified chaincode package</span><br><span class="line">  upgrade     Upgrade chaincode.</span><br><span class="line"></span><br><span class="line">Flags:</span><br><span class="line">      --cafile string     Path to file containing PEM-encoded trusted certificate(s) for the ordering endpoint</span><br><span class="line">  -C, --chainID string    The chain on which this command should be executed (default &quot;testchainid&quot;)</span><br><span class="line">  -c, --ctor string       Constructor message for the chaincode in JSON format (default &quot;&#123;&#125;&quot;)</span><br><span class="line">  -E, --escc string       The name of the endorsement system chaincode to be used for this chaincode</span><br><span class="line">  -l, --lang string       Language the chaincode is written in (default &quot;golang&quot;)</span><br><span class="line">  -n, --name string       Name of the chaincode</span><br><span class="line">  -o, --orderer string    Ordering service endpoint</span><br><span class="line">  -p, --path string       Path to chaincode</span><br><span class="line">  -P, --policy string     The endorsement policy associated to this chaincode</span><br><span class="line">  -t, --tid string        Name of a custom ID generation algorithm (hashing and decoding) e.g. sha256base64</span><br><span class="line">      --tls               Use TLS when communicating with the orderer endpoint</span><br><span class="line">  -u, --username string   Username for chaincode operations when security is enabled</span><br><span class="line">  -v, --version string    Version of the chaincode specified in install/instantiate/upgrade commands</span><br><span class="line">  -V, --vscc string       The name of the verification system chaincode to be used for this chaincode</span><br><span class="line"></span><br><span class="line">Global Flags:</span><br><span class="line">      --logging-level string       Default logging level and overrides, see core.yaml for full syntax</span><br><span class="line">      --test.coverprofile string   Done (default &quot;coverage.cov&quot;)</span><br><span class="line"></span><br><span class="line">Use &quot;peer chaincode [command] --help&quot; for more information about a command.</span><br><span class="line">2018-03-20 07:55:59.840 UTC [main] main -&gt; INFO 003 Exiting.....</span><br></pre></td></tr></table></figure>
 <p>全局flags: –logging-level string<br>默认的日志记录level和overrides   </p>
 <ul>
 <li>test.coverprofile string Done(default “coverage.cov”)<br>-v ,–version<br>使用”peer chaincode [command] -help” 获取更多关于命令的信息;<br>为了方便在脚本化的应用程序中使用，peer命令总是在发生命令失败时生成非零返回代码;  </li>
 </ul>
 <p>chaincode命令的例子: </p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">peer chaincode install -n mycc -v 0 -p path/to/my/chaincode/v0</div><div class="line">peer chaincode instantiate -n mycc -v 0 -c &apos;&#123;&quot;Args&quot;:[&quot;a&quot;, &quot;b&quot;, &quot;c&quot;]&#125;&apos; -C mychannel</div><div class="line">peer chaincode install -n mycc -v 1 -p path/to/my/chaincode/v1</div><div class="line">peer chaincode upgrade -n mycc -v 1 -c &apos;&#123;&quot;Args&quot;:[&quot;d&quot;, &quot;e&quot;, &quot;f&quot;]&#125;&apos; -C mychannel</div><div class="line">peer chaincode query -C mychannel -n mycc -c &apos;&#123;&quot;Args&quot;:[&quot;query&quot;,&quot;e&quot;]&#125;&apos;</div><div class="line">peer chaincode invoke -o orderer.example.com:7050  --tls --cafile $ORDERER_CA -C mychannel -n mycc -c &apos;&#123;&quot;Args&quot;:[&quot;invoke&quot;,&quot;a&quot;,&quot;b&quot;,&quot;10&quot;]&#125;&apos;</div></pre></td></tr></table></figure>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">peer chaincode install -n mycc -v 0 -p path/to/my/chaincode/v0</span><br><span class="line">peer chaincode instantiate -n mycc -v 0 -c &apos;&#123;&quot;Args&quot;:[&quot;a&quot;, &quot;b&quot;, &quot;c&quot;]&#125;&apos; -C mychannel</span><br><span class="line">peer chaincode install -n mycc -v 1 -p path/to/my/chaincode/v1</span><br><span class="line">peer chaincode upgrade -n mycc -v 1 -c &apos;&#123;&quot;Args&quot;:[&quot;d&quot;, &quot;e&quot;, &quot;f&quot;]&#125;&apos; -C mychannel</span><br><span class="line">peer chaincode query -C mychannel -n mycc -c &apos;&#123;&quot;Args&quot;:[&quot;query&quot;,&quot;e&quot;]&#125;&apos;</span><br><span class="line">peer chaincode invoke -o orderer.example.com:7050  --tls --cafile $ORDERER_CA -C mychannel -n mycc -c &apos;&#123;&quot;Args&quot;:[&quot;invoke&quot;,&quot;a&quot;,&quot;b&quot;,&quot;10&quot;]&#125;&apos;</span><br></pre></td></tr></table></figure>
 <h2 id="系统智能合约-System-chaincode"><a href="#系统智能合约-System-chaincode" class="headerlink" title="系统智能合约(System chaincode)"></a>系统智能合约(System chaincode)</h2><p>系统chaincode具有相同的编程模型，除了它在peer进程中运行，而不是普通的chaincode那样在一个单独的容器中运行; 因此，系统chaincode被构建到peer中可执行文件中，并且不遵循上面描述的相同的生命周期。特别是安装、实例化和升级 并不适用于系统chaincode；  </p>
 <p>系统chaincode的目的是为了在peer和chaincode之间减少gRPC的通信成本，并权衡管理 的灵活性;<br>例如,系统chaincode只能用peer二进制进行升级。它还必须注册一个固定的参数集，并且没有背书策略或背书策略的功能;  </p>
 <p>系统chaincode用于Hyperledger Fabric以实现许多系统行为，使它们可以被系统集成所取代或修改;  </p>
 <p>系统chaincode列表:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">1. LSCC(Lifecycle system chaincode): 生命周期系统chaindoe处理上描述的生命周期请求;  </div><div class="line">2. CSCC(Configuration system chaincode):配置系统chaincode在peer端处理channel配置;  </div><div class="line">3. QSCC(Query system chaincode): 查询系统chaincode提供了分类查询api,例如获取块和事务;  </div><div class="line">4. ESCC(Query system chaincode): 背书系统chaincode通过签署事务提案响应来处理支持;  </div><div class="line">5. VSCC(Validation system chaincode): 验证系统chaincode处理事务验证,策略和多版本并发控制;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1. LSCC(Lifecycle system chaincode): 生命周期系统chaindoe处理上描述的生命周期请求;  </span><br><span class="line">2. CSCC(Configuration system chaincode):配置系统chaincode在peer端处理channel配置;  </span><br><span class="line">3. QSCC(Query system chaincode): 查询系统chaincode提供了分类查询api,例如获取块和事务;  </span><br><span class="line">4. ESCC(Query system chaincode): 背书系统chaincode通过签署事务提案响应来处理支持;  </span><br><span class="line">5. VSCC(Validation system chaincode): 验证系统chaincode处理事务验证,策略和多版本并发控制;</span><br></pre></td></tr></table></figure>
 <p>在修改或替换这些系统chaincode时必需注意,特别是LSCC、ESCC和VSCC，因为它们在主事务执行路径 中；<br>值得注意的是，当VSCC在将其提交到账本之前一个块，重要的是，channel中的所有peer节点都要计算相同的验证，以避免账本差异。因此，如果VSCC被修改或替换，就需要特别的处理和维护;  </p>
 
       
@@ -554,14 +552,14 @@
 
     
       <div id="wechat" style="display: inline-block">
-        <img id="wechat_qr" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/weipei.png" alt="༺ 锦遥 ༻ 微信支付"/>
+        <img id="wechat_qr" src="/images/weipei.png" alt="༺ 锦遥 ༻ 微信支付">
         <p>微信支付</p>
       </div>
     
 
     
       <div id="alipay" style="display: inline-block">
-        <img id="alipay_qr" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/zhipei.png" alt="༺ 锦遥 ༻ 支付宝"/>
+        <img id="alipay_qr" src="/images/zhipei.png" alt="༺ 锦遥 ༻ 支付宝">
         <p>支付宝</p>
       </div>
     
@@ -698,9 +696,7 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image"
-                src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/rjyy.ico"
-                alt="༺ 锦遥 ༻" />
+              <img class="site-author-image" itemprop="image" src="/images/rjyy.ico" alt="༺ 锦遥 ༻">
             
               <p class="site-author-name" itemprop="name">༺ 锦遥 ༻</p>
               <p class="site-description motion-element" itemprop="description">不急不燥，稳步推进
@@ -715,7 +711,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">81</span>
+                  <span class="site-state-item-count">84</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -738,7 +734,7 @@
 
           
             <div class="feed-link motion-element">
-              <a href="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io@master/atom.xml" rel="alternate">
+              <a href="/atom.xml" rel="alternate">
                 <i class="fa fa-rss"></i>
                 RSS
               </a>
@@ -817,8 +813,8 @@
 
 <!-- 数字雨 -->
 <canvas id="canvas" width="1440" height="1080"></canvas>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/DigitalRain.js"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css"/>
+<script type="text/javascript" src="/js/DigitalRain.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
     </main>
 
     <footer id="footer" class="footer">
@@ -837,7 +833,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">206.6k</span>
+    <span title="Site words total count">208.1k</span>
   
   <span>   |   </span>
 <span id="showDays"></span>
@@ -850,10 +846,10 @@
 
 
 
-<div class=BbeiAn-info style="color:#8B0000">
+<div class="BbeiAn-info" style="color:#8B0000">
 晋ICP备 -
-    <a href="http://www.beian.miit.gov.cn/" style='color:red;'>17010575号-1 && 17010575号-4</a>
-</a>
+    <a href="http://www.beian.miit.gov.cn/" style="color:red;">17010575号-1 && 17010575号-4</a>
+
 </div>
 <!-- time -->
 <div id="show-time">
@@ -885,11 +881,11 @@ var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours
 }, 1000);
 </script>
 <script src="https://pv.sohu.com/cityjson?ie=utf-8"></script>
-<script src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/ip.js"></script>
+<script src="/js/ip.js"></script>
 
         
 <div class="busuanzi-count">
-  <script async src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/busuanzi.pure.mini.js"></script>
+  <script async src="/js/busuanzi.pure.mini.js"></script>
   
     <span class="site-uv">
       <i class="fa fa-user"></i> 訪客數
@@ -928,8 +924,8 @@ var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours
     
 
 <script src="/live2d-widget/autoload.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard.min.js"></script>  
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard-use.js"></script>
+<script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
+<script type="text/javascript" src="/js/src/clipboard-use.js"></script>
   </div>
 
   
@@ -996,32 +992,32 @@ var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours
   
 
 
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/utils.js?v=5.1.3"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
 
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/motion.js?v=5.1.3"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/affix.js?v=5.1.3"></script>
-
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/schemes/pisces.js?v=5.1.3"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
 
 
 
   
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/scrollspy.js?v=5.1.3"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/post-details.js?v=5.1.3"></script>
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
 
 
 
   
 
 
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/bootstrap.js?v=5.1.3"></script>
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
 
 
 
@@ -1423,7 +1419,7 @@ var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours
   <!-- 点击特效 -->
 
 
-  <script src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/activate-power-mode.min.js"></script>
+  <script src="/js/activate-power-mode.min.js"></script>
     <script>
 	    POWERMODE.colorful = true;
     POWERMODE.shake = false;
@@ -1431,11 +1427,11 @@ var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours
 	  </script>
 
 
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard.min.js"></script>  
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard-use.js"></script>
+<script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
+<script type="text/javascript" src="/js/src/clipboard-use.js"></script>
 <!--点击冒点-->
 <canvas width="1777" height="841" style="position: fixed; left: 0px; top: 0px; z-index: 2147483647; pointer-events: none;"></canvas>
-<script src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/maodian.js"></script>
+<script src="/js/maodian.js"></script>
 <canvas width="1390" height="797" style="position: fixed; left: 0px; top: 0px; z-index: 2147483647; pointer-events: none;"></canvas>
 </body>
 </html>

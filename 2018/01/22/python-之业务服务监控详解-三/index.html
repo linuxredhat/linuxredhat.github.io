@@ -5,16 +5,16 @@
   
 
 <!-- 代码块复制功能 -->
-<!--<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard.min.js"></script> --> 
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard-use.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/instantclick-1.2.2.js" type="module"></script>
+<!--<script type="text/javascript" src="/js/src/clipboard.min.js"></script> --> 
+<script type="text/javascript" src="/js/src/clipboard-use.js"></script>
+<script src="/js/instantclick-1.2.2.js" type="module"></script>
 <!--崩溃欺骗-->
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/crash_cheat.js"></script>
+<script type="text/javascript" src="/js/src/crash_cheat.js"></script>
 <html class="theme-next gemini use-motion" lang="zh-Hans">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
@@ -24,8 +24,8 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -44,7 +44,7 @@
 
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
 
 
@@ -52,9 +52,9 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
@@ -72,17 +72,17 @@
   <link rel="manifest" href="/images/manifest.json">
 
 
-  <meta name="msapplication-config" content="/images/browserconfig.xml" />
+  <meta name="msapplication-config" content="/images/browserconfig.xml">
 
 
 
-  <meta name="keywords" content="program," />
+  <meta name="keywords" content="program,">
 
 
 
 
 
-  <link rel="alternate" href="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io@master/atom.xml" title="逝水锦遥" type="application/atom+xml" />
+  <link rel="alternate" href="/atom.xml" title="逝水锦遥" type="application/atom+xml">
 
 
 
@@ -97,12 +97,12 @@
 <meta property="og:site_name" content="逝水锦遥">
 <meta property="og:description" content="[toc] DNS处理模块dnspython dnspython(https://www.dnspython.org/)是Python实现的一个DNS式具包，它支持几乎所有的记录类型 ，可以用于查询、传输并动态更新ZONE信息， 同时支持TSIG(事务签名)验证消息和EDNS0(扩展DNS)。在系统管理方面，我们可以利用其查询功能来实现DNS服务监控以及解析结果的校验，可以代替nslookup及d">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/dnspython.png">
+<meta property="og:image" content="https://www.asjin.com/images/dnspython.png">
 <meta property="og:updated_time" content="2020-09-29T11:05:37.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python 之业务服务监控详解(三)">
 <meta name="twitter:description" content="[toc] DNS处理模块dnspython dnspython(https://www.dnspython.org/)是Python实现的一个DNS式具包，它支持几乎所有的记录类型 ，可以用于查询、传输并动态更新ZONE信息， 同时支持TSIG(事务签名)验证消息和EDNS0(扩展DNS)。在系统管理方面，我们可以利用其查询功能来实现DNS服务监控以及解析结果的校验，可以代替nslookup及d">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/dnspython.png">
+<meta name="twitter:image" content="https://www.asjin.com/images/dnspython.png">
 
 
 
@@ -133,7 +133,7 @@
 
 
 
-  <link rel="canonical" href="https://www.asjin.com/2018/01/22/python-之业务服务监控详解-三/"/>
+  <link rel="canonical" href="https://www.asjin.com/2018/01/22/python-之业务服务监控详解-三/">
 
 
 
@@ -167,7 +167,7 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">逝水锦遥</span>
         <span class="logo-line-after"><i></i></span>
@@ -197,7 +197,7 @@
         <li class="menu-item menu-item-所有文章">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-linux"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-linux"></i> <br>
             
             所有文章
           </a>
@@ -207,7 +207,7 @@
         <li class="menu-item menu-item-python">
           <a href="/./tags/program" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-gitlab"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-gitlab"></i> <br>
             
             python
           </a>
@@ -217,7 +217,7 @@
         <li class="menu-item menu-item-运维组件">
           <a href="/./tags/rhca" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>
             
             运维组件
           </a>
@@ -227,7 +227,7 @@
         <li class="menu-item menu-item-数据库">
           <a href="/./tags/database" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-database"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-database"></i> <br>
             
             数据库
           </a>
@@ -237,7 +237,7 @@
         <li class="menu-item menu-item-云计算">
           <a href="/./tags/cloud" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-cloud"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-cloud"></i> <br>
             
             云计算
           </a>
@@ -247,7 +247,7 @@
         <li class="menu-item menu-item-成自考">
           <a href="/./tags/zikao" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-drupal"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-drupal"></i> <br>
             
             成自考
           </a>
@@ -257,7 +257,7 @@
         <li class="menu-item menu-item-个人中心">
           <a href="/./tags/renjin" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-user-circle"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-user-circle"></i> <br>
             
             个人中心
           </a>
@@ -267,7 +267,7 @@
         <li class="menu-item menu-item-工具箱">
           <a href="/./box" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-flag"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-flag"></i> <br>
             
             工具箱
           </a>
@@ -280,7 +280,7 @@
             <a href="javascript:;" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
             
             搜索文章
           </a>
@@ -301,9 +301,7 @@
       <i class="fa fa-times-circle"></i>
     </span>
     <div class="local-search-input-wrapper">
-      <input autocomplete="off"
-             placeholder="搜索..." spellcheck="false"
-             type="text" id="local-search-input">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
     </div>
   </div>
   <div id="local-search-result"></div>
@@ -344,7 +342,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="༺ 锦遥 ༻">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/rjyy.ico">
     </span>
 
@@ -392,7 +390,7 @@
           
             <span class="post-meta-divider">|</span>
             <span class="page-pv"><i class="fa fa-file-o"></i>  浏览
-            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>次
             </span>
           
 
@@ -446,17 +444,17 @@
       
         <p>[toc]</p>
 <h2 id="DNS处理模块dnspython"><a href="#DNS处理模块dnspython" class="headerlink" title="DNS处理模块dnspython"></a>DNS处理模块dnspython</h2><blockquote>
-<p>dnspython(<a href="https://www.dnspython.org/)是Python实现的一个DNS式具包，它支持几乎所有的" target="_blank" rel="external">https://www.dnspython.org/)是Python实现的一个DNS式具包，它支持几乎所有的</a><br>记录类型 ，可以用于查询、传输并动态更新ZONE信息， 同时支持TSIG(事务签名)验证消息和<br>EDNS0(扩展DNS)。在系统管理方面，我们可以利用其查询功能来实现DNS服务监控以及解析<br>结果的校验，可以代替nslookup及dig等，轻松做到与现有平台的整合</p>
+<p>dnspython(<a href="https://www.dnspython.org/)是Python实现的一个DNS式具包，它支持几乎所有的" target="_blank" rel="noopener">https://www.dnspython.org/)是Python实现的一个DNS式具包，它支持几乎所有的</a><br>记录类型 ，可以用于查询、传输并动态更新ZONE信息， 同时支持TSIG(事务签名)验证消息和<br>EDNS0(扩展DNS)。在系统管理方面，我们可以利用其查询功能来实现DNS服务监控以及解析<br>结果的校验，可以代替nslookup及dig等，轻松做到与现有平台的整合</p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># pip install dnspython </div><div class="line"># easy_install dnspython </div><div class="line"># wget http://www.dnspython.org/kits/1.9.4/dnspython-1.9.4.tar.gz</div><div class="line"># tar -zxvf dnspython-1.9.4.tar.gz</div><div class="line"># cd dnspython-1.9.4</div><div class="line"># python setuppy install</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># pip install dnspython </span><br><span class="line"># easy_install dnspython </span><br><span class="line"># wget http://www.dnspython.org/kits/1.9.4/dnspython-1.9.4.tar.gz</span><br><span class="line"># tar -zxvf dnspython-1.9.4.tar.gz</span><br><span class="line"># cd dnspython-1.9.4</span><br><span class="line"># python setuppy install</span><br></pre></td></tr></table></figure>
 <h2 id="模块域名解析方法详解"><a href="#模块域名解析方法详解" class="headerlink" title="模块域名解析方法详解"></a>模块域名解析方法详解</h2><blockquote>
 <p>dnspython 模块提供了大量的DNS处理方法，最常用的方法是域名查询。dnspython提供了一个<br>DNS解析器类–resolver，使用它的uquery方法来实现域名的查询功能。query方法定义如下;  </p>
 </blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">query(self, qname, rdtype=<span class="number">1</span>, rdclass=<span class="number">1</span>, tcp=<span class="keyword">False</span>, source=<span class="keyword">None</span>, </div><div class="line">raise_on_no_answer=<span class="keyword">True</span>, source_port=<span class="number">0</span>)</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">query(self, qname, rdtype=<span class="number">1</span>, rdclass=<span class="number">1</span>, tcp=<span class="keyword">False</span>, source=<span class="keyword">None</span>, </span><br><span class="line">raise_on_no_answer=<span class="keyword">True</span>, source_port=<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>其中，qnae参数为查询的域名。rdtype参数用来指定RR资源的类型，常用的有以下几种:  </p>
 </blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># A 记录，将主机名转换成IP地址:  </span></div><div class="line"><span class="comment"># MX 记录，邮件交换记录，定义邮件服务器的域名； </span></div><div class="line"><span class="comment"># CNAME记录，指别名记录，实现域名间的映射; </span></div><div class="line"><span class="comment"># NS记录，标记区域的域名服务器及授权子域; </span></div><div class="line"><span class="comment"># PTR记录，反向解析，与A记录相反，将IP转换成主机名;   </span></div><div class="line"><span class="comment"># SOA记录，SOA标记，一个起妈授权区的定义;</span></div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># A 记录，将主机名转换成IP地址:  </span></span><br><span class="line"><span class="comment"># MX 记录，邮件交换记录，定义邮件服务器的域名； </span></span><br><span class="line"><span class="comment"># CNAME记录，指别名记录，实现域名间的映射; </span></span><br><span class="line"><span class="comment"># NS记录，标记区域的域名服务器及授权子域; </span></span><br><span class="line"><span class="comment"># PTR记录，反向解析，与A记录相反，将IP转换成主机名;   </span></span><br><span class="line"><span class="comment"># SOA记录，SOA标记，一个起妈授权区的定义;</span></span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>rdclass参数用于指定网络类型，可选的值有IN、CH与HS、其中IN为默认，使用最广泛;<br>tcp参数用于指定查询是否启用TCP协议，默认为False(不启用);<br>source 与source_port 参数作为指定查询源地址与端口;<br>默认值为查询设备IP地址和0。raise_on_no_answer;<br>参当用于指定当查询无应答时是否触发异常。默认为True;  </p>
 </blockquote>
@@ -464,22 +462,22 @@
 <p>常见的DNS解析类型包括A、MX、NS、CNAME等。利用dnspython和dns.resolver.query方法<br>可以简单实现这些DNS类型的查询，为后面要实现的功能提供数据来源，比如对一个使用DNS轮循<br>业务的域名进行可用性可用性，需要得到当前的解析结果。  </p>
 </blockquote>
 <p>1、实现A记录查询方法</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">➜  test cat dns_domain.py </div><div class="line"><span class="comment">#!/usr/bin/env python2.7</span></div><div class="line"><span class="comment"># -*- coding: utf-8 -*-</span></div><div class="line"><span class="comment">#from dns import resolver</span></div><div class="line"><span class="keyword">import</span> dns.resolver</div><div class="line">domain = raw_input(<span class="string">"Please input an domain: "</span>)  <span class="comment"># 输入域名地址</span></div><div class="line">A = dns.resolver.query(domain, <span class="string">'A'</span>) <span class="comment"># 指定查询类型为A记录 </span></div><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> A.response.answer: <span class="comment"># 通过 response.answer 方法获取查询回应信息</span></div><div class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> i.items: <span class="comment"># 遍历回应信息</span></div><div class="line">        <span class="keyword">print</span> j.address</div><div class="line">➜  test ./dns_domain.py </div><div class="line">Please input an domain: www.ssjinyao.com</div><div class="line"><span class="number">47.94</span><span class="number">.3</span><span class="number">.76</span></div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">➜  test cat dns_domain.py </span><br><span class="line"><span class="comment">#!/usr/bin/env python2.7</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment">#from dns import resolver</span></span><br><span class="line"><span class="keyword">import</span> dns.resolver</span><br><span class="line">domain = raw_input(<span class="string">"Please input an domain: "</span>)  <span class="comment"># 输入域名地址</span></span><br><span class="line">A = dns.resolver.query(domain, <span class="string">'A'</span>) <span class="comment"># 指定查询类型为A记录 </span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> A.response.answer: <span class="comment"># 通过 response.answer 方法获取查询回应信息</span></span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> i.items: <span class="comment"># 遍历回应信息</span></span><br><span class="line">        <span class="keyword">print</span> j.address</span><br><span class="line">➜  test ./dns_domain.py </span><br><span class="line">Please input an domain: www.ssjinyao.com</span><br><span class="line"><span class="number">47.94</span><span class="number">.3</span><span class="number">.76</span></span><br></pre></td></tr></table></figure>
 <p>2、实现MX记录查询方法</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">➜  test ./dns_mx.py</div><div class="line">Please input an domain: ^CTraceback (most recent call last):</div><div class="line">  File <span class="string">"./dns_mx.py"</span>, line <span class="number">4</span>, <span class="keyword">in</span> &lt;module&gt;</div><div class="line">    domain = raw_input(<span class="string">"Please input an domain: "</span>)</div><div class="line">KeyboardInterrupt</div><div class="line">➜  test cat ./dns_mx.py</div><div class="line"><span class="comment">#!/usr/bin/env python2.7</span></div><div class="line"><span class="comment"># -*- coding: utf-8 -*-</span></div><div class="line"><span class="keyword">import</span> dns.resolver </div><div class="line">domain = raw_input(<span class="string">"Please input an domain: "</span>)</div><div class="line">MX = dns.resolver.query(domain, <span class="string">'MX'</span>)  <span class="comment"># 指定查询类型为MX记录</span></div><div class="line"></div><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> MX: <span class="comment"># 遍历回应结果，输出MX记录的preference 及exchanger信息</span></div><div class="line">    <span class="keyword">print</span> <span class="string">'MX preference ='</span> , i.preference, <span class="string">'mail exchanger='</span> , i.exchange</div><div class="line">➜  test ./dns_mx.py</div><div class="line">Please input an domain: <span class="number">139.</span>com</div><div class="line">MX preference = <span class="number">10</span> mail exchanger= mx2.mail<span class="number">.139</span>.com.</div><div class="line">MX preference = <span class="number">20</span> mail exchanger= mx3.mail<span class="number">.139</span>.com.</div><div class="line">MX preference = <span class="number">5</span> mail exchanger= mx1.mail<span class="number">.139</span>.com.</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">➜  test ./dns_mx.py</span><br><span class="line">Please input an domain: ^CTraceback (most recent call last):</span><br><span class="line">  File <span class="string">"./dns_mx.py"</span>, line <span class="number">4</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">    domain = raw_input(<span class="string">"Please input an domain: "</span>)</span><br><span class="line">KeyboardInterrupt</span><br><span class="line">➜  test cat ./dns_mx.py</span><br><span class="line"><span class="comment">#!/usr/bin/env python2.7</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">import</span> dns.resolver </span><br><span class="line">domain = raw_input(<span class="string">"Please input an domain: "</span>)</span><br><span class="line">MX = dns.resolver.query(domain, <span class="string">'MX'</span>)  <span class="comment"># 指定查询类型为MX记录</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> MX: <span class="comment"># 遍历回应结果，输出MX记录的preference 及exchanger信息</span></span><br><span class="line">    <span class="keyword">print</span> <span class="string">'MX preference ='</span> , i.preference, <span class="string">'mail exchanger='</span> , i.exchange</span><br><span class="line">➜  test ./dns_mx.py</span><br><span class="line">Please input an domain: <span class="number">139.</span>com</span><br><span class="line">MX preference = <span class="number">10</span> mail exchanger= mx2.mail<span class="number">.139</span>.com.</span><br><span class="line">MX preference = <span class="number">20</span> mail exchanger= mx3.mail<span class="number">.139</span>.com.</span><br><span class="line">MX preference = <span class="number">5</span> mail exchanger= mx1.mail<span class="number">.139</span>.com.</span><br></pre></td></tr></table></figure>
 <p>3、 实现 NS 记录查询方法源码</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">➜  test cat dns_ns.py </div><div class="line"><span class="comment">#!/usr/bin/env python2.7</span></div><div class="line"><span class="comment"># -*- coding: utf-8 -*-</span></div><div class="line"><span class="keyword">import</span> dns.resolver </div><div class="line">domain = raw_input(<span class="string">'Please input an domain: '</span>)</div><div class="line">ns = dns.resolver.query(domain, <span class="string">'NS'</span>)  <span class="comment"># 指定查询类型为NS记录</span></div><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> ns.response.answer:</div><div class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> i.items:</div><div class="line">        <span class="keyword">print</span> j.to_text()</div><div class="line">➜  test ./dns_ns.py            </div><div class="line">Please input an domain: ssjinyao.com</div><div class="line">dns30.hichina.com.</div><div class="line">dns29.hichina.com.</div><div class="line">➜  test ./dns_ns.py</div><div class="line">Please input an domain: baidu.com</div><div class="line">ns2.baidu.com.</div><div class="line">ns7.baidu.com.</div><div class="line">dns.baidu.com.</div><div class="line">ns3.baidu.com.</div><div class="line">ns4.baidu.com.</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">➜  test cat dns_ns.py </span><br><span class="line"><span class="comment">#!/usr/bin/env python2.7</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">import</span> dns.resolver </span><br><span class="line">domain = raw_input(<span class="string">'Please input an domain: '</span>)</span><br><span class="line">ns = dns.resolver.query(domain, <span class="string">'NS'</span>)  <span class="comment"># 指定查询类型为NS记录</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> ns.response.answer:</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> i.items:</span><br><span class="line">        <span class="keyword">print</span> j.to_text()</span><br><span class="line">➜  test ./dns_ns.py            </span><br><span class="line">Please input an domain: ssjinyao.com</span><br><span class="line">dns30.hichina.com.</span><br><span class="line">dns29.hichina.com.</span><br><span class="line">➜  test ./dns_ns.py</span><br><span class="line">Please input an domain: baidu.com</span><br><span class="line">ns2.baidu.com.</span><br><span class="line">ns7.baidu.com.</span><br><span class="line">dns.baidu.com.</span><br><span class="line">ns3.baidu.com.</span><br><span class="line">ns4.baidu.com.</span><br></pre></td></tr></table></figure>
 <p>4、 实现CNAME记录查询方法 </p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">➜  test cat dns_cname.py </div><div class="line"><span class="comment">#!/usr/bin/env python2.7</span></div><div class="line"><span class="comment"># -*- coding: utf-8 -*-</span></div><div class="line"><span class="keyword">import</span> dns.resolver </div><div class="line">domain = raw_input(<span class="string">"Please input an domain: "</span>)</div><div class="line">cname = dns.resolver.query(domain, <span class="string">'CNAME'</span>) <span class="comment"># 指定查询类型为CNAME记录</span></div><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> cname.response.answer:  <span class="comment"># 结果将回应 cname 后的目标域名</span></div><div class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> i.items:</div><div class="line">        <span class="keyword">print</span> j.to_text()</div><div class="line">➜  test ./dns_cname.py  </div><div class="line">Please input an domain: mail.ssjinyao.com</div><div class="line">mail.mxhichina.com.</div><div class="line">➜  test ./dns_cname.py</div><div class="line">Please input an domain: ll.ssjinyao.com</div><div class="line">www.leleol.com.</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">➜  test cat dns_cname.py </span><br><span class="line"><span class="comment">#!/usr/bin/env python2.7</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">import</span> dns.resolver </span><br><span class="line">domain = raw_input(<span class="string">"Please input an domain: "</span>)</span><br><span class="line">cname = dns.resolver.query(domain, <span class="string">'CNAME'</span>) <span class="comment"># 指定查询类型为CNAME记录</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> cname.response.answer:  <span class="comment"># 结果将回应 cname 后的目标域名</span></span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> i.items:</span><br><span class="line">        <span class="keyword">print</span> j.to_text()</span><br><span class="line">➜  test ./dns_cname.py  </span><br><span class="line">Please input an domain: mail.ssjinyao.com</span><br><span class="line">mail.mxhichina.com.</span><br><span class="line">➜  test ./dns_cname.py</span><br><span class="line">Please input an domain: ll.ssjinyao.com</span><br><span class="line">www.leleol.com.</span><br></pre></td></tr></table></figure>
 <p>5、 DNS域名轮循业务监控 </p>
 <blockquote>
 <p>大部分的DNS解析都是一个域名对应一个IP地址，但是通过DNS轮循可以做到一个域名对应多个IP<br>从而实现最简单且最高效的负载均衡，不过此方案最大的弊端是目标主机不可以用时，无法被自动<br>剔除，因此做好业务主机的服务可用监控是至关重要的，通过分析当前域名的解析IP<br>再结合服务端口探测来实现自动监控，在域名解析中添加、删除IP时无须对监控脚本进行更改  </p>
 </blockquote>
 <p>a、 步骤 </p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 实现对域名的解析，获取域名 所有的A记录解析IP列表; </span></div><div class="line"><span class="comment"># 对IP 列表进行HTTP级别的探测;</span></div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 实现对域名的解析，获取域名 所有的A记录解析IP列表; </span></span><br><span class="line"><span class="comment"># 对IP 列表进行HTTP级别的探测;</span></span><br></pre></td></tr></table></figure>
 <p>b、 实现拓扑图 </p>
-<p><img src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/dnspython.png" alt=""></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#!/usr/bin/env python2.7</span></div><div class="line"><span class="comment"># -*- coding: utf-8 -*-</span></div><div class="line"><span class="keyword">import</span> dns.resolver </div><div class="line"><span class="keyword">import</span> os </div><div class="line"><span class="keyword">import</span> httplib</div><div class="line"></div><div class="line">iplist = [] <span class="comment"># 定义域名IP列表变量</span></div><div class="line">appdomain = <span class="string">"www.qqlilin.com"</span> <span class="comment"># 定义业务域名</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_iplist</span><span class="params">(domain=<span class="string">""</span>)</span>:</span> <span class="comment"># 域名解析函数，解析成功IP将被追加到iplist</span></div><div class="line">    <span class="keyword">try</span>:</div><div class="line">        A = dns.resolver.query(domain, <span class="string">'A'</span>) <span class="comment"># 解析A记录类型</span></div><div class="line">    <span class="keyword">except</span> Exception, e:</div><div class="line">        <span class="keyword">print</span> <span class="string">"dns resolver error:"</span> + str(e)</div><div class="line">        <span class="keyword">return</span></div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> A.response.answer:</div><div class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> i.items:</div><div class="line">                iplist.append(j.address)  <span class="comment"># 追加到iplist</span></div><div class="line">    <span class="keyword">return</span> <span class="keyword">True</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">checkip</span><span class="params">(ip)</span>:</span></div><div class="line">    checkurl=ip+<span class="string">":80"</span></div><div class="line">    getcontent=<span class="string">""</span></div><div class="line">    httplib.socket.setdefaulttimeout(<span class="number">5</span>) <span class="comment"># 定义http连接超时间为5秒</span></div><div class="line">    conn=httplib.HTTPConnection(checkurl) <span class="comment"># 创建http连接对象</span></div><div class="line">    </div><div class="line">    <span class="keyword">try</span>:</div><div class="line">        conn.request(<span class="string">"GET"</span>, <span class="string">"/"</span>, headers = &#123;<span class="string">"Host"</span>: appdomain&#125;)  <span class="comment"># 发起URL请求，添加host 主机头</span></div><div class="line">        r=conn.getresponse()</div><div class="line">        getcontent = r.read(<span class="number">15</span>) <span class="comment"># 获取URL页面前15个字符，以便做可用性校验</span></div><div class="line"></div><div class="line">    <span class="keyword">finally</span>:</div><div class="line">        <span class="keyword">if</span> getcontent==<span class="string">"&lt;!doctype html&gt;"</span>: <span class="comment"># 监控URL页的内容一般是事先定义好的，比如 "HTTP200" 等 </span></div><div class="line">            <span class="keyword">print</span> (getcontent)</div><div class="line">            <span class="keyword">print</span> ip + <span class="string">" [OK]"</span></div><div class="line">        </div><div class="line">        <span class="keyword">else</span>:</div><div class="line">            <span class="keyword">print</span> ip + <span class="string">" [Error]"</span> <span class="comment"># 此处可放告警程序，可以是邮件，短信通知</span></div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</div><div class="line">    <span class="keyword">if</span> get_iplist(appdomain) <span class="keyword">and</span> len(iplist) &gt; <span class="number">0</span>:  <span class="comment"># 条件:域名解析正确至少返回一个IP</span></div><div class="line">        <span class="keyword">for</span> ip <span class="keyword">in</span> iplist:</div><div class="line">            checkip(ip)</div><div class="line">        </div><div class="line">        <span class="keyword">else</span>:</div><div class="line">            <span class="keyword">print</span> <span class="string">"dns resolver error"</span></div></pre></td></tr></table></figure>
+<p><img src="/images/dnspython.png" alt></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python2.7</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">import</span> dns.resolver </span><br><span class="line"><span class="keyword">import</span> os </span><br><span class="line"><span class="keyword">import</span> httplib</span><br><span class="line"></span><br><span class="line">iplist = [] <span class="comment"># 定义域名IP列表变量</span></span><br><span class="line">appdomain = <span class="string">"www.qqlilin.com"</span> <span class="comment"># 定义业务域名</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_iplist</span><span class="params">(domain=<span class="string">""</span>)</span>:</span> <span class="comment"># 域名解析函数，解析成功IP将被追加到iplist</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        A = dns.resolver.query(domain, <span class="string">'A'</span>) <span class="comment"># 解析A记录类型</span></span><br><span class="line">    <span class="keyword">except</span> Exception, e:</span><br><span class="line">        <span class="keyword">print</span> <span class="string">"dns resolver error:"</span> + str(e)</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> A.response.answer:</span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> i.items:</span><br><span class="line">                iplist.append(j.address)  <span class="comment"># 追加到iplist</span></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">True</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">checkip</span><span class="params">(ip)</span>:</span></span><br><span class="line">    checkurl=ip+<span class="string">":80"</span></span><br><span class="line">    getcontent=<span class="string">""</span></span><br><span class="line">    httplib.socket.setdefaulttimeout(<span class="number">5</span>) <span class="comment"># 定义http连接超时间为5秒</span></span><br><span class="line">    conn=httplib.HTTPConnection(checkurl) <span class="comment"># 创建http连接对象</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        conn.request(<span class="string">"GET"</span>, <span class="string">"/"</span>, headers = &#123;<span class="string">"Host"</span>: appdomain&#125;)  <span class="comment"># 发起URL请求，添加host 主机头</span></span><br><span class="line">        r=conn.getresponse()</span><br><span class="line">        getcontent = r.read(<span class="number">15</span>) <span class="comment"># 获取URL页面前15个字符，以便做可用性校验</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">finally</span>:</span><br><span class="line">        <span class="keyword">if</span> getcontent==<span class="string">"&lt;!doctype html&gt;"</span>: <span class="comment"># 监控URL页的内容一般是事先定义好的，比如 "HTTP200" 等 </span></span><br><span class="line">            <span class="keyword">print</span> (getcontent)</span><br><span class="line">            <span class="keyword">print</span> ip + <span class="string">" [OK]"</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">print</span> ip + <span class="string">" [Error]"</span> <span class="comment"># 此处可放告警程序，可以是邮件，短信通知</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    <span class="keyword">if</span> get_iplist(appdomain) <span class="keyword">and</span> len(iplist) &gt; <span class="number">0</span>:  <span class="comment"># 条件:域名解析正确至少返回一个IP</span></span><br><span class="line">        <span class="keyword">for</span> ip <span class="keyword">in</span> iplist:</span><br><span class="line">            checkip(ip)</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">print</span> <span class="string">"dns resolver error"</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -500,14 +498,14 @@
 
     
       <div id="wechat" style="display: inline-block">
-        <img id="wechat_qr" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/weipei.png" alt="༺ 锦遥 ༻ 微信支付"/>
+        <img id="wechat_qr" src="/images/weipei.png" alt="༺ 锦遥 ༻ 微信支付">
         <p>微信支付</p>
       </div>
     
 
     
       <div id="alipay" style="display: inline-block">
-        <img id="alipay_qr" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/zhipei.png" alt="༺ 锦遥 ༻ 支付宝"/>
+        <img id="alipay_qr" src="/images/zhipei.png" alt="༺ 锦遥 ༻ 支付宝">
         <p>支付宝</p>
       </div>
     
@@ -642,9 +640,7 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image"
-                src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/rjyy.ico"
-                alt="༺ 锦遥 ༻" />
+              <img class="site-author-image" itemprop="image" src="/images/rjyy.ico" alt="༺ 锦遥 ༻">
             
               <p class="site-author-name" itemprop="name">༺ 锦遥 ༻</p>
               <p class="site-description motion-element" itemprop="description">不急不燥，稳步推进
@@ -659,7 +655,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">81</span>
+                  <span class="site-state-item-count">84</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -682,7 +678,7 @@
 
           
             <div class="feed-link motion-element">
-              <a href="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io@master/atom.xml" rel="alternate">
+              <a href="/atom.xml" rel="alternate">
                 <i class="fa fa-rss"></i>
                 RSS
               </a>
@@ -761,8 +757,8 @@
 
 <!-- 数字雨 -->
 <canvas id="canvas" width="1440" height="1080"></canvas>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/DigitalRain.js"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css"/>
+<script type="text/javascript" src="/js/DigitalRain.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
     </main>
 
     <footer id="footer" class="footer">
@@ -781,7 +777,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">206.6k</span>
+    <span title="Site words total count">208.1k</span>
   
   <span>   |   </span>
 <span id="showDays"></span>
@@ -794,10 +790,10 @@
 
 
 
-<div class=BbeiAn-info style="color:#8B0000">
+<div class="BbeiAn-info" style="color:#8B0000">
 晋ICP备 -
-    <a href="http://www.beian.miit.gov.cn/" style='color:red;'>17010575号-1 && 17010575号-4</a>
-</a>
+    <a href="http://www.beian.miit.gov.cn/" style="color:red;">17010575号-1 && 17010575号-4</a>
+
 </div>
 <!-- time -->
 <div id="show-time">
@@ -829,11 +825,11 @@ var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours
 }, 1000);
 </script>
 <script src="https://pv.sohu.com/cityjson?ie=utf-8"></script>
-<script src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/ip.js"></script>
+<script src="/js/ip.js"></script>
 
         
 <div class="busuanzi-count">
-  <script async src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/busuanzi.pure.mini.js"></script>
+  <script async src="/js/busuanzi.pure.mini.js"></script>
   
     <span class="site-uv">
       <i class="fa fa-user"></i> 訪客數
@@ -872,8 +868,8 @@ var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours
     
 
 <script src="/live2d-widget/autoload.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard.min.js"></script>  
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard-use.js"></script>
+<script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
+<script type="text/javascript" src="/js/src/clipboard-use.js"></script>
   </div>
 
   
@@ -940,32 +936,32 @@ var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours
   
 
 
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/utils.js?v=5.1.3"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
 
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/motion.js?v=5.1.3"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/affix.js?v=5.1.3"></script>
-
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/schemes/pisces.js?v=5.1.3"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
 
 
 
   
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/scrollspy.js?v=5.1.3"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/post-details.js?v=5.1.3"></script>
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
 
 
 
   
 
 
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/bootstrap.js?v=5.1.3"></script>
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
 
 
 
@@ -1367,7 +1363,7 @@ var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours
   <!-- 点击特效 -->
 
 
-  <script src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/activate-power-mode.min.js"></script>
+  <script src="/js/activate-power-mode.min.js"></script>
     <script>
 	    POWERMODE.colorful = true;
     POWERMODE.shake = false;
@@ -1375,11 +1371,11 @@ var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours
 	  </script>
 
 
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard.min.js"></script>  
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard-use.js"></script>
+<script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
+<script type="text/javascript" src="/js/src/clipboard-use.js"></script>
 <!--点击冒点-->
 <canvas width="1777" height="841" style="position: fixed; left: 0px; top: 0px; z-index: 2147483647; pointer-events: none;"></canvas>
-<script src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/maodian.js"></script>
+<script src="/js/maodian.js"></script>
 <canvas width="1390" height="797" style="position: fixed; left: 0px; top: 0px; z-index: 2147483647; pointer-events: none;"></canvas>
 </body>
 </html>

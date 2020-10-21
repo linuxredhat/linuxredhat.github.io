@@ -5,16 +5,16 @@
   
 
 <!-- 代码块复制功能 -->
-<!--<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard.min.js"></script> --> 
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard-use.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/instantclick-1.2.2.js" type="module"></script>
+<!--<script type="text/javascript" src="/js/src/clipboard.min.js"></script> --> 
+<script type="text/javascript" src="/js/src/clipboard-use.js"></script>
+<script src="/js/instantclick-1.2.2.js" type="module"></script>
 <!--崩溃欺骗-->
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/crash_cheat.js"></script>
+<script type="text/javascript" src="/js/src/crash_cheat.js"></script>
 <html class="theme-next gemini use-motion" lang="zh-Hans">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
@@ -24,8 +24,8 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -44,7 +44,7 @@
 
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
 
 
@@ -52,9 +52,9 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
@@ -72,17 +72,17 @@
   <link rel="manifest" href="/images/manifest.json">
 
 
-  <meta name="msapplication-config" content="/images/browserconfig.xml" />
+  <meta name="msapplication-config" content="/images/browserconfig.xml">
 
 
 
-  <meta name="keywords" content="linux," />
+  <meta name="keywords" content="linux,">
 
 
 
 
 
-  <link rel="alternate" href="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io@master/atom.xml" title="逝水锦遥" type="application/atom+xml" />
+  <link rel="alternate" href="/atom.xml" title="逝水锦遥" type="application/atom+xml">
 
 
 
@@ -97,12 +97,12 @@
 <meta property="og:site_name" content="逝水锦遥">
 <meta property="og:description" content="[toc] 运行一个简单的Fabric网络设定一个简单的Fabric的网络场景,包括2个organization,每个有2个peer,并使用”solo” ordering服务;网络实体所需的加密材料(x509证书)已预先生成并放到相应目录和配置文件里了。无需修改这些配置; example/e2e_cli文件夹里包含了docker-compose文件和要用来创建和测试的网络的脚本文件;   另外如何">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/fabric.png">
+<meta property="og:image" content="https://www.asjin.com/images/fabric.png">
 <meta property="og:updated_time" content="2020-09-29T10:55:54.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="运行一个简单的Fabric网络">
 <meta name="twitter:description" content="[toc] 运行一个简单的Fabric网络设定一个简单的Fabric的网络场景,包括2个organization,每个有2个peer,并使用”solo” ordering服务;网络实体所需的加密材料(x509证书)已预先生成并放到相应目录和配置文件里了。无需修改这些配置; example/e2e_cli文件夹里包含了docker-compose文件和要用来创建和测试的网络的脚本文件;   另外如何">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/fabric.png">
+<meta name="twitter:image" content="https://www.asjin.com/images/fabric.png">
 
 
 
@@ -133,7 +133,7 @@
 
 
 
-  <link rel="canonical" href="https://www.asjin.com/2018/03/21/运行一个简单的Fabric网络/"/>
+  <link rel="canonical" href="https://www.asjin.com/2018/03/21/运行一个简单的Fabric网络/">
 
 
 
@@ -167,7 +167,7 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">逝水锦遥</span>
         <span class="logo-line-after"><i></i></span>
@@ -197,7 +197,7 @@
         <li class="menu-item menu-item-所有文章">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-linux"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-linux"></i> <br>
             
             所有文章
           </a>
@@ -207,7 +207,7 @@
         <li class="menu-item menu-item-python">
           <a href="/./tags/program" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-gitlab"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-gitlab"></i> <br>
             
             python
           </a>
@@ -217,7 +217,7 @@
         <li class="menu-item menu-item-运维组件">
           <a href="/./tags/rhca" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>
             
             运维组件
           </a>
@@ -227,7 +227,7 @@
         <li class="menu-item menu-item-数据库">
           <a href="/./tags/database" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-database"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-database"></i> <br>
             
             数据库
           </a>
@@ -237,7 +237,7 @@
         <li class="menu-item menu-item-云计算">
           <a href="/./tags/cloud" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-cloud"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-cloud"></i> <br>
             
             云计算
           </a>
@@ -247,7 +247,7 @@
         <li class="menu-item menu-item-成自考">
           <a href="/./tags/zikao" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-drupal"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-drupal"></i> <br>
             
             成自考
           </a>
@@ -257,7 +257,7 @@
         <li class="menu-item menu-item-个人中心">
           <a href="/./tags/renjin" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-user-circle"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-user-circle"></i> <br>
             
             个人中心
           </a>
@@ -267,7 +267,7 @@
         <li class="menu-item menu-item-工具箱">
           <a href="/./box" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-flag"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-flag"></i> <br>
             
             工具箱
           </a>
@@ -280,7 +280,7 @@
             <a href="javascript:;" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
             
             搜索文章
           </a>
@@ -301,9 +301,7 @@
       <i class="fa fa-times-circle"></i>
     </span>
     <div class="local-search-input-wrapper">
-      <input autocomplete="off"
-             placeholder="搜索..." spellcheck="false"
-             type="text" id="local-search-input">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
     </div>
   </div>
   <div id="local-search-result"></div>
@@ -344,7 +342,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="༺ 锦遥 ༻">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/rjyy.ico">
     </span>
 
@@ -392,7 +390,7 @@
           
             <span class="post-meta-divider">|</span>
             <span class="page-pv"><i class="fa fa-file-o"></i>  浏览
-            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>次
             </span>
           
 
@@ -445,66 +443,66 @@
 
       
         <p>[toc]</p>
-<h1 id="运行一个简单的Fabric网络"><a href="#运行一个简单的Fabric网络" class="headerlink" title="运行一个简单的Fabric网络"></a>运行一个简单的Fabric网络</h1><p><img src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/fabric.png" alt=""><br>设定一个简单的Fabric的网络场景,包括2个organization,每个有2个peer,并使用”solo” ordering服务;网络实体所需的加密材料(x509证书)已预先生成并放到相应目录和配置文件里了。无需修改这些配置; example/e2e_cli文件夹里包含了docker-compose文件和要用来创建和测试的网络的脚本文件;  </p>
+<h1 id="运行一个简单的Fabric网络"><a href="#运行一个简单的Fabric网络" class="headerlink" title="运行一个简单的Fabric网络"></a>运行一个简单的Fabric网络</h1><p><img src="/images/fabric.png" alt><br>设定一个简单的Fabric的网络场景,包括2个organization,每个有2个peer,并使用”solo” ordering服务;网络实体所需的加密材料(x509证书)已预先生成并放到相应目录和配置文件里了。无需修改这些配置; example/e2e_cli文件夹里包含了docker-compose文件和要用来创建和测试的网络的脚本文件;  </p>
 <p>另外如何使用配置生成工具configtxgen生成网络配置;  </p>
 <h2 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h2><p>完成以下安装Fabric源码和编译configtxgen工具: </p>
 <ul>
 <li>完成环境，并设置正确的$GOPATH环境变量;  </li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">在/etc/profile/go.sh 中加入以下内容</div><div class="line">export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/srv/jdk1.8.0_66/bin:/root/bin:/usr/local/go/bin</div><div class="line">export GOPATH=/opt/gopath</div><div class="line">chmod +x /etc/profile/go.sh   &amp;&amp; source /etc/profile/go.sh</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">在/etc/profile/go.sh 中加入以下内容</span><br><span class="line">export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/srv/jdk1.8.0_66/bin:/root/bin:/usr/local/go/bin</span><br><span class="line">export GOPATH=/opt/gopath</span><br><span class="line">chmod +x /etc/profile/go.sh   &amp;&amp; source /etc/profile/go.sh</span><br></pre></td></tr></table></figure>
 <ul>
 <li>接取Fabric源码;  </li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># git clone https://github.com/hyperledger/fabric.git</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># git clone https://github.com/hyperledger/fabric.git</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>如果运行在linux，在Fabric目录下执行以下命令:</p>
 </blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># cd $GOPATH/src/github.com/hyperledger/fabric</span></div><div class="line"><span class="comment"># make configtxgen </span></div><div class="line"><span class="comment"># 输出</span></div><div class="line">build/bin/configtxgen</div><div class="line">CGO_CFLAGS=<span class="string">" "</span> GOBIN=/opt/gopath/src/github.com/hyperledger/fabric/build/bin go install -tags <span class="string">"nopkcs11"</span> -ldflags <span class="string">"-X github.com/hyperledger/fabric/common/configtx/tool/configtxgen/metadata.Version=1.0.7-snapshot-84a7e5c"</span> github.com/hyperledger/fabric/common/configtx/tool/configtxgen</div><div class="line">Binary available as build/bin/configtxgen</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># cd $GOPATH/src/github.com/hyperledger/fabric</span></span><br><span class="line"><span class="comment"># make configtxgen </span></span><br><span class="line"><span class="comment"># 输出</span></span><br><span class="line">build/bin/configtxgen</span><br><span class="line">CGO_CFLAGS=<span class="string">" "</span> GOBIN=/opt/gopath/src/github.com/hyperledger/fabric/build/bin go install -tags <span class="string">"nopkcs11"</span> -ldflags <span class="string">"-X github.com/hyperledger/fabric/common/configtx/tool/configtxgen/metadata.Version=1.0.7-snapshot-84a7e5c"</span> github.com/hyperledger/fabric/common/configtx/tool/configtxgen</span><br><span class="line">Binary available as build/bin/configtxgen</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>如果运行在OSX，先安装Xcode 8.0或者以上版本，然后在Fabric目录下执行以下命令: </p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"># 安装 Homebrew,若mac上有brew的可以跳过此步骤</div><div class="line">/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot; </div><div class="line"></div><div class="line">#添加  gnu-tar</div><div class="line"># brew install gnu-tar --with-default-name </div><div class="line"></div><div class="line">#添加 libtool</div><div class="line"># brew install libtool</div><div class="line"></div><div class="line"># 编译 configtxgen </div><div class="line"># make confgitxgen</div><div class="line">build/bin/configtxgen</div><div class="line">CGO_CFLAGS=&quot; &quot; GOBIN=/Users/johndoe/work/src/github.com/hyperledger/fabric/build/bin go install -ldflags &quot;-X github.com/hyperledger/fabric/common/metadata.Version=1.0.0-snapshot-8d3275f -X github.com/hyperledger/fabric/common /metadata.BaseVersion=0.3.0 -X github.com/hyperledger/fabric/common/metadata.BaseDockerLabel=org.hyperledger.fabric&quot;       github.com/hyperledger/fabric/common/configtx/tool/configtxgen</div><div class="line">Binary available as build/bin/configtxgen``</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"># 安装 Homebrew,若mac上有brew的可以跳过此步骤</span><br><span class="line">/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot; </span><br><span class="line"></span><br><span class="line">#添加  gnu-tar</span><br><span class="line"># brew install gnu-tar --with-default-name </span><br><span class="line"></span><br><span class="line">#添加 libtool</span><br><span class="line"># brew install libtool</span><br><span class="line"></span><br><span class="line"># 编译 configtxgen </span><br><span class="line"># make confgitxgen</span><br><span class="line">build/bin/configtxgen</span><br><span class="line">CGO_CFLAGS=&quot; &quot; GOBIN=/Users/johndoe/work/src/github.com/hyperledger/fabric/build/bin go install -ldflags &quot;-X github.com/hyperledger/fabric/common/metadata.Version=1.0.0-snapshot-8d3275f -X github.com/hyperledger/fabric/common /metadata.BaseVersion=0.3.0 -X github.com/hyperledger/fabric/common/metadata.BaseDockerLabel=org.hyperledger.fabric&quot;       github.com/hyperledger/fabric/common/configtx/tool/configtxgen</span><br><span class="line">Binary available as build/bin/configtxgen``</span><br></pre></td></tr></table></figure>
 <p>编译后扫行文件放在Fabric目录下的 build/bin/configtxgen中 </p>
 <h2 id="执行完整脚本"><a href="#执行完整脚本" class="headerlink" title="执行完整脚本"></a>执行完整脚本</h2><p>为了加快部署过程，Fabric提供了一个脚本 来执行所有任务。执行该脚本 会生成配置结果、本地网络、Chaincode测试;   </p>
 <p>进入 <code>examples/e2e_cli</code>目录，首先从Dcoker Hub摘取镜像:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># 执行脚本</div><div class="line">#  bash ./download-dockerimages.sh</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 执行脚本</span><br><span class="line">#  bash ./download-dockerimages.sh</span><br></pre></td></tr></table></figure>
 <p>这个执行过程耗时会比较长，脚本执行后输出: </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">===&gt; List out hyperledger docker images</div><div class="line">hyperledger/fabric-ca          latest               35311d8617b4        7 days ago          240 MB</div><div class="line">hyperledger/fabric-ca          x86_64-1.0.0-alpha   35311d8617b4        7 days ago          240 MB</div><div class="line">hyperledger/fabric-couchdb     latest               f3ce31e25872        7 days ago          1.51 GB</div><div class="line">hyperledger/fabric-couchdb     x86_64-1.0.0-alpha   f3ce31e25872        7 days ago          1.51 GB</div><div class="line">hyperledger/fabric-kafka       latest               589dad0b93fc        7 days ago          1.3 GB</div><div class="line">hyperledger/fabric-kafka       x86_64-1.0.0-alpha   589dad0b93fc        7 days ago          1.3 GB</div><div class="line">hyperledger/fabric-zookeeper   latest               9a51f5be29c1        7 days ago          1.31 GB</div><div class="line">hyperledger/fabric-zookeeper   x86_64-1.0.0-alpha   9a51f5be29c1        7 days ago          1.31 GB</div><div class="line">hyperledger/fabric-orderer     latest               5685fd77ab7c        7 days ago          182 MB</div><div class="line">hyperledger/fabric-orderer     x86_64-1.0.0-alpha   5685fd77ab7c        7 days ago          182 MB</div><div class="line">hyperledger/fabric-peer        latest               784c5d41ac1d        7 days ago          184 MB</div><div class="line">hyperledger/fabric-peer        x86_64-1.0.0-alpha   784c5d41ac1d        7 days ago          184 MB</div><div class="line">hyperledger/fabric-javaenv     latest               a08f85d8f0a9        7 days ago          1.42 GB</div><div class="line">hyperledger/fabric-javaenv     x86_64-1.0.0-alpha   a08f85d8f0a9        7 days ago          1.42 GB</div><div class="line">hyperledger/fabric-ccenv       latest               91792014b61f        7 days ago          1.29 GB</div><div class="line">hyperledger/fabric-ccenv       x86_64-1.0.0-alpha   91792014b61f        7 days ago          1.29 GB</div><div class="line">现在运行完整脚本：</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">===&gt; List out hyperledger docker images</span><br><span class="line">hyperledger/fabric-ca          latest               35311d8617b4        7 days ago          240 MB</span><br><span class="line">hyperledger/fabric-ca          x86_64-1.0.0-alpha   35311d8617b4        7 days ago          240 MB</span><br><span class="line">hyperledger/fabric-couchdb     latest               f3ce31e25872        7 days ago          1.51 GB</span><br><span class="line">hyperledger/fabric-couchdb     x86_64-1.0.0-alpha   f3ce31e25872        7 days ago          1.51 GB</span><br><span class="line">hyperledger/fabric-kafka       latest               589dad0b93fc        7 days ago          1.3 GB</span><br><span class="line">hyperledger/fabric-kafka       x86_64-1.0.0-alpha   589dad0b93fc        7 days ago          1.3 GB</span><br><span class="line">hyperledger/fabric-zookeeper   latest               9a51f5be29c1        7 days ago          1.31 GB</span><br><span class="line">hyperledger/fabric-zookeeper   x86_64-1.0.0-alpha   9a51f5be29c1        7 days ago          1.31 GB</span><br><span class="line">hyperledger/fabric-orderer     latest               5685fd77ab7c        7 days ago          182 MB</span><br><span class="line">hyperledger/fabric-orderer     x86_64-1.0.0-alpha   5685fd77ab7c        7 days ago          182 MB</span><br><span class="line">hyperledger/fabric-peer        latest               784c5d41ac1d        7 days ago          184 MB</span><br><span class="line">hyperledger/fabric-peer        x86_64-1.0.0-alpha   784c5d41ac1d        7 days ago          184 MB</span><br><span class="line">hyperledger/fabric-javaenv     latest               a08f85d8f0a9        7 days ago          1.42 GB</span><br><span class="line">hyperledger/fabric-javaenv     x86_64-1.0.0-alpha   a08f85d8f0a9        7 days ago          1.42 GB</span><br><span class="line">hyperledger/fabric-ccenv       latest               91792014b61f        7 days ago          1.29 GB</span><br><span class="line">hyperledger/fabric-ccenv       x86_64-1.0.0-alpha   91792014b61f        7 days ago          1.29 GB</span><br><span class="line">现在运行完整脚本：</span><br></pre></td></tr></table></figure>
 <p>现在运行完整脚本: </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">bash network_setup.sh up mychannel</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash network_setup.sh up mychannel</span><br></pre></td></tr></table></figure>
 <p>如果没有设置 <code>channel-ID</code>参数，channel名默认是<code>mychannel</code>。脚本执行成功后输出: </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">===================== Query on PEER3 on channel &apos;mychannel&apos; is successful =====================</div><div class="line"></div><div class="line">===================== All GOOD, End-2-End execution completed =====================</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">===================== Query on PEER3 on channel &apos;mychannel&apos; is successful =====================</span><br><span class="line"></span><br><span class="line">===================== All GOOD, End-2-End execution completed =====================</span><br></pre></td></tr></table></figure>
 <p>此时，网络启动运行并测试成功</p>
 <h2 id="清理"><a href="#清理" class="headerlink" title="清理"></a>清理</h2><p>停止网络:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 在e2e_cli目录下 </span></div><div class="line"><span class="comment"># docker rm -f $(docker ps -aq)</span></div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在e2e_cli目录下 </span></span><br><span class="line"><span class="comment"># docker rm -f $(docker ps -aq)</span></span><br></pre></td></tr></table></figure>
 <p>然后执行 <code>docker images</code>命令查看Chaincode镜像，类似输出如下:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">REPOSITORY                     TAG                  IMAGE ID            CREATED             SIZE</div><div class="line">dev-peer3-mycc-1.0             latest               13f6c8b042c6        5 minutes ago       176 MB</div><div class="line">dev-peer0-mycc-1.0             latest               e27456b2bd92        5 minutes ago       176 MB</div><div class="line">dev-peer2-mycc-1.0             latest               111098a7c98c        5 minutes ago       176 MB</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">REPOSITORY                     TAG                  IMAGE ID            CREATED             SIZE</span><br><span class="line">dev-peer3-mycc-1.0             latest               13f6c8b042c6        5 minutes ago       176 MB</span><br><span class="line">dev-peer0-mycc-1.0             latest               e27456b2bd92        5 minutes ago       176 MB</span><br><span class="line">dev-peer2-mycc-1.0             latest               111098a7c98c        5 minutes ago       176 MB</span><br></pre></td></tr></table></figure>
 <p>删除镜像:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker rmi &lt;IMAGE ID&gt; &lt;IMAGE ID&gt; &lt;IMAGE ID&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker rmi &lt;IMAGE ID&gt; &lt;IMAGE ID&gt; &lt;IMAGE ID&gt;</span><br></pre></td></tr></table></figure>
 <p>例如:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># docker rmi -f 13e e122 333</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># docker rmi -f 13e e122 333</span><br></pre></td></tr></table></figure>
 <p>最后删除配置结果， 在<code>crypto/orderer</code> 目录删除 <code>orderer.block</code>和channel.tx;   </p>
 <h2 id="configtxgen"><a href="#configtxgen" class="headerlink" title="configtxgen"></a>configtxgen</h2><p>configtxgen 工具生成两个内容: Orderer的bootstrap block和Fabric的channel configuration transaction;    </p>
 <p>roderer block是ordering服务的创世区块; channel transaction文件在create channel时会被广播给orderer;   </p>
 <p><code>configtx.yaml</code>包含网络的定义，并给出了网络组件的拓扑结构-2个成员(Org0和Org1)分别管理维护2个peer。 还指出每个网络实体的加密材料的存储位置。<code>crypto</code>目录包含每个实体的admin证书、ca证书、签名证书和私钥;  </p>
 <p>为了方便使用，官方提供了一个脚本 <code>generateCfgTrx.sh</code>,该脚本整合了<code>configtxgen</code>的执行过程，执行后会生成两个配置结果:<code>orderer.block</code>和<code>channel.tx</code>。如果运行过上边<code>network_setup.sh</code>则这两个配置结果已生成，要先到<code>crypto/orderere</code>目录将之删除;  </p>
 <h2 id="执行generateCfgTrx-sh脚本"><a href="#执行generateCfgTrx-sh脚本" class="headerlink" title="执行generateCfgTrx.sh脚本"></a>执行<code>generateCfgTrx.sh</code>脚本</h2><p>在<code>e2e_cli</code>目录下:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># cd $GOPATH/src/github.com/hyperledger/fabric/examples/e2e_cli</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># cd $GOPATH/src/github.com/hyperledger/fabric/examples/e2e_cli</span><br></pre></td></tr></table></figure>
 <p><code>generateCfgTrx.sh</code>脚本有个可选能数channel-ID,如果不设此参数，则默认为mychannel；  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># &lt;channel-ID&gt;参数是要可选的</div><div class="line"># bash generateCfgTrx.sh &lt;channel-ID&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># &lt;channel-ID&gt;参数是要可选的</span><br><span class="line"># bash generateCfgTrx.sh &lt;channel-ID&gt;</span><br></pre></td></tr></table></figure>
 <p>执行成功后输出:   </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">2017/02/28 17:01:52 Generating new channel configtx</div><div class="line">2017/02/28 17:01:52 Creating no-op MSP instance</div><div class="line">2017/02/28 17:01:52 Obtaining default signing identity</div><div class="line">2017/02/28 17:01:52 Creating no-op signing identity instance</div><div class="line">2017/02/28 17:01:52 Serializing identity</div><div class="line">2017/02/28 17:01:52 signing message</div><div class="line">2017/02/28 17:01:52 signing message</div><div class="line">2017/02/28 17:01:52 Writing new channel tx</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">2017/02/28 17:01:52 Generating new channel configtx</span><br><span class="line">2017/02/28 17:01:52 Creating no-op MSP instance</span><br><span class="line">2017/02/28 17:01:52 Obtaining default signing identity</span><br><span class="line">2017/02/28 17:01:52 Creating no-op signing identity instance</span><br><span class="line">2017/02/28 17:01:52 Serializing identity</span><br><span class="line">2017/02/28 17:01:52 signing message</span><br><span class="line">2017/02/28 17:01:52 signing message</span><br><span class="line">2017/02/28 17:01:52 Writing new channel tx</span><br></pre></td></tr></table></figure>
 <p>生成的<code>orderer.block</code>和<code>channel.tx</code>两个文件存放在<code>corypto/orderer</code>目录;  </p>
 <p><code>orderer.block</code>是ordering服务的创世区块，<code>channel.tx</code>包含新channel的配置信息。如前所述，这俩文件 都来自configtx.yaml及其所包含的加密材料和网络信息的数据;   </p>
 <p>注: 也可以手动执行脚本<code>generateCfgTrx.sh</code>里的命令。如果傅这种方式，则必需先用<code>e2e_cli</code>目录下的<code>configtx.yaml</code>替换Fabric sampleconfgi目录下默认的<code>configtx.yaml</code>，然后返回fabric目录执行这些命令，前提是删除之前的<code>generateCfgTrx.sh</code>生成的两个文件;    </p>
 <h2 id="启动网络"><a href="#启动网络" class="headerlink" title="启动网络"></a>启动网络</h2><p>使用docker-compose启动网络，如果还没有摘取 Fabric镜像，则返回之前的操作去拉取镜像;  </p>
 <p>脚本<code>scrpit.sh</code>嵌入到docker-compose文件里，该脚本将peer加入到channel并向peer发送read/write请求，如此便可自动执行交易流程。如果还不想使用这个脚本自动执行交易，可以跳到下面”手动执行交易”一节;    </p>
 <p>在<code>e2e_cli</code>目录下使用docker-compose生成网络实体并执行嵌入的脚本:    </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CHANNEL_NAME=&lt;channel-id&gt; docker-compose up -d</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CHANNEL_NAME=&lt;channel-id&gt; docker-compose up -d</span><br></pre></td></tr></table></figure>
 <p>如果之前创建了个channel名，就必须将其作为参数，否则使用默认的mychannel。例如:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CHANNEL_NAME=mychannel dcoker -comopse up -d</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CHANNEL_NAME=mychannel dcoker -comopse up -d</span><br></pre></td></tr></table></figure>
 <p>等待一会儿，因为背后有交易会发送到peer。执行<code>docker ps</code>查看运行状态的container，可以看到以下内容:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">vagrant@hyperledger-devenv:v0.3.0-4eec836:/opt/gopath/src/github.com/hyperledger/fabric/examples/e2e_cli$ docker ps</div><div class="line">CONTAINER ID        IMAGE                        COMMAND                  CREATED              STATUS              PORTS                                              NAMES</div><div class="line">45e3e114f7a2        dev-peer3-mycc-1.0           &quot;chaincode -peer.a...&quot;   4 seconds ago        Up 4 seconds                                                           dev-peer3-mycc-1.0</div><div class="line">5970f740ad2b        dev-peer0-mycc-1.0           &quot;chaincode -peer.a...&quot;   24 seconds ago       Up 23 seconds                                                          dev-peer0-mycc-1.0</div><div class="line">b84808d66e99        dev-peer2-mycc-1.0           &quot;chaincode -peer.a...&quot;   48 seconds ago       Up 47 seconds                                                          dev-peer2-mycc-1.0</div><div class="line">16d7d94c8773        hyperledger/fabric-peer      &quot;peer node start -...&quot;   About a minute ago   Up About a minute   0.0.0.0:10051-&gt;7051/tcp, 0.0.0.0:10053-&gt;7053/tcp   peer3</div><div class="line">3561a99e35e6        hyperledger/fabric-peer      &quot;peer node start -...&quot;   About a minute ago   Up About a minute   0.0.0.0:9051-&gt;7051/tcp, 0.0.0.0:9053-&gt;7053/tcp     peer2</div><div class="line">0baad3047d92        hyperledger/fabric-peer      &quot;peer node start -...&quot;   About a minute ago   Up About a minute   0.0.0.0:8051-&gt;7051/tcp, 0.0.0.0:8053-&gt;7053/tcp     peer1</div><div class="line">1216896b7b4f        hyperledger/fabric-peer      &quot;peer node start -...&quot;   About a minute ago   Up About a minute   0.0.0.0:7051-&gt;7051/tcp, 0.0.0.0:7053-&gt;7053/tcp     peer0</div><div class="line">155ff8747b4d        hyperledger/fabric-orderer   &quot;orderer&quot;                About a minute ago   Up About a minute   0.0.0.0:7050-&gt;7050/tcp                             orderer</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">vagrant@hyperledger-devenv:v0.3.0-4eec836:/opt/gopath/src/github.com/hyperledger/fabric/examples/e2e_cli$ docker ps</span><br><span class="line">CONTAINER ID        IMAGE                        COMMAND                  CREATED              STATUS              PORTS                                              NAMES</span><br><span class="line">45e3e114f7a2        dev-peer3-mycc-1.0           &quot;chaincode -peer.a...&quot;   4 seconds ago        Up 4 seconds                                                           dev-peer3-mycc-1.0</span><br><span class="line">5970f740ad2b        dev-peer0-mycc-1.0           &quot;chaincode -peer.a...&quot;   24 seconds ago       Up 23 seconds                                                          dev-peer0-mycc-1.0</span><br><span class="line">b84808d66e99        dev-peer2-mycc-1.0           &quot;chaincode -peer.a...&quot;   48 seconds ago       Up 47 seconds                                                          dev-peer2-mycc-1.0</span><br><span class="line">16d7d94c8773        hyperledger/fabric-peer      &quot;peer node start -...&quot;   About a minute ago   Up About a minute   0.0.0.0:10051-&gt;7051/tcp, 0.0.0.0:10053-&gt;7053/tcp   peer3</span><br><span class="line">3561a99e35e6        hyperledger/fabric-peer      &quot;peer node start -...&quot;   About a minute ago   Up About a minute   0.0.0.0:9051-&gt;7051/tcp, 0.0.0.0:9053-&gt;7053/tcp     peer2</span><br><span class="line">0baad3047d92        hyperledger/fabric-peer      &quot;peer node start -...&quot;   About a minute ago   Up About a minute   0.0.0.0:8051-&gt;7051/tcp, 0.0.0.0:8053-&gt;7053/tcp     peer1</span><br><span class="line">1216896b7b4f        hyperledger/fabric-peer      &quot;peer node start -...&quot;   About a minute ago   Up About a minute   0.0.0.0:7051-&gt;7051/tcp, 0.0.0.0:7053-&gt;7053/tcp     peer0</span><br><span class="line">155ff8747b4d        hyperledger/fabric-orderer   &quot;orderer&quot;                About a minute ago   Up About a minute   0.0.0.0:7050-&gt;7050/tcp                             orderer</span><br></pre></td></tr></table></figure>
 <h2 id="背后发生了什么？"><a href="#背后发生了什么？" class="headerlink" title="背后发生了什么？"></a>背后发生了什么？</h2><ul>
 <li><p>在CLI容器中执行了脚本<code>script.sh</code>。该脚本用默认的<code>mychannel</code>执行<code>createChannel</code>命令，这个命令用到了之前<code>configtxgen</code>工具生成的<code>channel.tx</code>。   </p>
 </li>
@@ -532,109 +530,109 @@
 <p>Chaincode必须被 install到一个peer上才能成功的对这个peer的ledger执行read/write操作。此外，只有当在peer上针对chaincode执行read/writer操作时，这个peer上才会启该chaincode容器(比如，查询”a”的值)交易到容器启动。channel中的所有peer（包括那结没有install chaincode的peer，就像上例中的<code>PEER3</code>）都会维护一个准确的ledger，ledger包含存储了不可变的、有序的交易记录的block，还有维护current state的statedb。在peer上install chaincode之后就可以直接使用该peer上的chaincode了（就像上例中的<code>PEER3</code>），因为之前已经instantiated过了;    </p>
 <p>查看交易</p>
 <p>查看CLI容器的log:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># docker logs -f cli</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># docker logs -f cli</span><br></pre></td></tr></table></figure>
 <p>输出: </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">2017-02-28 04:31:20.841 UTC [logging] InitFromViper -&gt; DEBU 001 Setting default logging level to DEBUG for command &apos;chaincode&apos;</div><div class="line">2017-02-28 04:31:20.842 UTC [msp] GetLocalMSP -&gt; DEBU 002 Returning existing local MSP</div><div class="line">2017-02-28 04:31:20.842 UTC [msp] GetDefaultSigningIdentity -&gt; DEBU 003 Obtaining default signing identity</div><div class="line">2017-02-28 04:31:20.843 UTC [msp] Sign -&gt; DEBU 004 Sign: plaintext: 0A8F050A59080322096D796368616E6E...6D7963631A0A0A0571756572790A0161</div><div class="line">2017-02-28 04:31:20.843 UTC [msp] Sign -&gt; DEBU 005 Sign: digest: 52F1A41B7B0B08CF3FC94D9D7E916AC4C01C54399E71BC81D551B97F5619AB54</div><div class="line">Query Result: 90</div><div class="line">2017-02-28 04:31:30.425 UTC [main] main -&gt; INFO 006 Exiting.....</div><div class="line">===================== Query on chaincode on PEER3 on channel &apos;mychannel&apos; is successful =====================</div><div class="line"></div><div class="line">===================== All GOOD, End-2-End execution completed =====================</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">2017-02-28 04:31:20.841 UTC [logging] InitFromViper -&gt; DEBU 001 Setting default logging level to DEBUG for command &apos;chaincode&apos;</span><br><span class="line">2017-02-28 04:31:20.842 UTC [msp] GetLocalMSP -&gt; DEBU 002 Returning existing local MSP</span><br><span class="line">2017-02-28 04:31:20.842 UTC [msp] GetDefaultSigningIdentity -&gt; DEBU 003 Obtaining default signing identity</span><br><span class="line">2017-02-28 04:31:20.843 UTC [msp] Sign -&gt; DEBU 004 Sign: plaintext: 0A8F050A59080322096D796368616E6E...6D7963631A0A0A0571756572790A0161</span><br><span class="line">2017-02-28 04:31:20.843 UTC [msp] Sign -&gt; DEBU 005 Sign: digest: 52F1A41B7B0B08CF3FC94D9D7E916AC4C01C54399E71BC81D551B97F5619AB54</span><br><span class="line">Query Result: 90</span><br><span class="line">2017-02-28 04:31:30.425 UTC [main] main -&gt; INFO 006 Exiting.....</span><br><span class="line">===================== Query on chaincode on PEER3 on channel &apos;mychannel&apos; is successful =====================</span><br><span class="line"></span><br><span class="line">===================== All GOOD, End-2-End execution completed =====================</span><br></pre></td></tr></table></figure>
 <p>实时查看日志时，需要打开两个终端;  </p>
 <p>首先，停止运行着的docker容器:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># docker rm -f $(docker ps -aq)</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># docker rm -f $(docker ps -aq)</span><br></pre></td></tr></table></figure>
 <p>在第一个终端启动docker-compose脚本:  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CHANNEL_NAME=&lt;channel-id&gt; docker-compose up -d</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CHANNEL_NAME=&lt;channel-id&gt; docker-compose up -d</span><br></pre></td></tr></table></figure>
 <p>在第二个终端查看log：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># docker logs -f cli</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># docker logs -f cli</span><br></pre></td></tr></table></figure>
 <p>这将实时输出通过<code>script.sh</code>执行的交易信息;  </p>
 <h2 id="查看chaincode日志"><a href="#查看chaincode日志" class="headerlink" title="查看chaincode日志"></a>查看chaincode日志</h2><p>对每个chaincode容器单独查看log，输出:   </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">$ docker logs dev-peer2-mycc-1.0</div><div class="line">04:30:45.947 [BCCSP_FACTORY] DEBU : Initialize BCCSP [SW]</div><div class="line">ex02 Init</div><div class="line">Aval = 100, Bval = 200</div><div class="line"></div><div class="line">$ docker logs dev-peer0-mycc-1.0</div><div class="line">04:31:10.569 [BCCSP_FACTORY] DEBU : Initialize BCCSP [SW]</div><div class="line">ex02 Invoke</div><div class="line">Query Response:&#123;&quot;Name&quot;:&quot;a&quot;,&quot;Amount&quot;:&quot;100&quot;&#125;</div><div class="line">ex02 Invoke</div><div class="line">Aval = 90, Bval = 210</div><div class="line"></div><div class="line">$ docker logs dev-peer3-mycc-1.0</div><div class="line">04:31:30.420 [BCCSP_FACTORY] DEBU : Initialize BCCSP [SW]</div><div class="line">ex02 Invoke</div><div class="line">Query Response:&#123;&quot;Name&quot;:&quot;a&quot;,&quot;Amount&quot;:&quot;90&quot;&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">$ docker logs dev-peer2-mycc-1.0</span><br><span class="line">04:30:45.947 [BCCSP_FACTORY] DEBU : Initialize BCCSP [SW]</span><br><span class="line">ex02 Init</span><br><span class="line">Aval = 100, Bval = 200</span><br><span class="line"></span><br><span class="line">$ docker logs dev-peer0-mycc-1.0</span><br><span class="line">04:31:10.569 [BCCSP_FACTORY] DEBU : Initialize BCCSP [SW]</span><br><span class="line">ex02 Invoke</span><br><span class="line">Query Response:&#123;&quot;Name&quot;:&quot;a&quot;,&quot;Amount&quot;:&quot;100&quot;&#125;</span><br><span class="line">ex02 Invoke</span><br><span class="line">Aval = 90, Bval = 210</span><br><span class="line"></span><br><span class="line">$ docker logs dev-peer3-mycc-1.0</span><br><span class="line">04:31:30.420 [BCCSP_FACTORY] DEBU : Initialize BCCSP [SW]</span><br><span class="line">ex02 Invoke</span><br><span class="line">Query Response:&#123;&quot;Name&quot;:&quot;a&quot;,&quot;Amount&quot;:&quot;90&quot;&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="手动执行交易"><a href="#手动执行交易" class="headerlink" title="手动执行交易"></a>手动执行交易</h2><p>停止所有容器:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># docker rm -f $(docker ps -aq)</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># docker rm -f $(docker ps -aq)</span><br></pre></td></tr></table></figure>
 <p>然后，执行<code>docker iamge</code> 命令查看chaincode镜像，会有类似以下内容:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">REPOSITORY                     TAG                  IMAGE ID            CREATED             SIZE</div><div class="line">dev-peer3-mycc-1.0             latest               13f6c8b042c6        5 minutes ago       176 MB</div><div class="line">dev-peer0-mycc-1.0             latest               e27456b2bd92        5 minutes ago       176 MB</div><div class="line">dev-peer2-mycc-1.0             latest               111098a7c98c        5 minutes ago       176 MB</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">REPOSITORY                     TAG                  IMAGE ID            CREATED             SIZE</span><br><span class="line">dev-peer3-mycc-1.0             latest               13f6c8b042c6        5 minutes ago       176 MB</span><br><span class="line">dev-peer0-mycc-1.0             latest               e27456b2bd92        5 minutes ago       176 MB</span><br><span class="line">dev-peer2-mycc-1.0             latest               111098a7c98c        5 minutes ago       176 MB</span><br></pre></td></tr></table></figure>
 <p>删除这些镜像：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker rmi &lt;IMAGE ID&gt; &lt;IMAGE ID&gt; &lt;IMAGE ID&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker rmi &lt;IMAGE ID&gt; &lt;IMAGE ID&gt; &lt;IMAGE ID&gt;</span><br></pre></td></tr></table></figure>
 <p>比如:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># docker rmi -f 12f e27 111</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># docker rmi -f 12f e27 111</span><br></pre></td></tr></table></figure>
 <p>确保之前生成的配置内容还在，如果删除了就再执行脚本:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./generatecCfgTrx.sh&lt;channel-ID&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./generatecCfgTrx.sh&lt;channel-ID&gt;</span><br></pre></td></tr></table></figure>
 <p>或者使用脚本中的命令手动生成;   </p>
 <h2 id="修改docker-compose文件"><a href="#修改docker-compose文件" class="headerlink" title="修改docker-compose文件"></a>修改docker-compose文件</h2><p>打开docker-compose文件注释掉执行<code>script.sh</code>脚本的命令，如下:  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">working_dir: /opt/gopath/src/github.com/hyperledger/fabric/peer</div><div class="line"># command: /bin/bash -c &apos;./scripts/script.sh $&#123;CHANNEL_NAME&#125;&apos;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">working_dir: /opt/gopath/src/github.com/hyperledger/fabric/peer</span><br><span class="line"># command: /bin/bash -c &apos;./scripts/script.sh $&#123;CHANNEL_NAME&#125;&apos;</span><br></pre></td></tr></table></figure>
 <p>保存文件 ，重启网络:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># 在e2e_cli目录下执行，设置正确的CHANNEL_NAME</div><div class="line">CHANNEL_NAME=&lt;channel-id&gt; docker-compose up -d</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 在e2e_cli目录下执行，设置正确的CHANNEL_NAME</span><br><span class="line">CHANNEL_NAME=&lt;channel-id&gt; docker-compose up -d</span><br></pre></td></tr></table></figure>
 <p>命令语法</p>
 <p>参照 <code>script.sh</code>脚本中的creaete和join命令。下面的命令只是针对<code>PEER0</code>的，当对orderer和peer执行命令，需要修改下面给出的四个环境变量的值;   </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"># 对PEER0所用的环境变量</div><div class="line">CORE_PEER_MSPCONFIGPATH=$GOPATH/src/github.com/hyperledger/fabric/peer/crypto/peer/peer0/localMspConfig</div><div class="line">CORE_PEER_ADDRESS=peer0:7051</div><div class="line">CORE_PEER_LOCALMSPID=&quot;Org0MSP&quot;</div><div class="line">CORE_PEER_TLS_ROOTCERT_FILE=$GOPATH/src/github.com/hyperledger/fabric/peer/crypto/peer/ peer0/localMspConfig/cacerts/peerOrg0.pem</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 对PEER0所用的环境变量</span><br><span class="line">CORE_PEER_MSPCONFIGPATH=$GOPATH/src/github.com/hyperledger/fabric/peer/crypto/peer/peer0/localMspConfig</span><br><span class="line">CORE_PEER_ADDRESS=peer0:7051</span><br><span class="line">CORE_PEER_LOCALMSPID=&quot;Org0MSP&quot;</span><br><span class="line">CORE_PEER_TLS_ROOTCERT_FILE=$GOPATH/src/github.com/hyperledger/fabric/peer/crypto/peer/ peer0/localMspConfig/cacerts/peerOrg0.pem</span><br></pre></td></tr></table></figure>
 <p>第个peer的环境变的值都在docker-compose文件中</p>
 <h2 id="Create-channel"><a href="#Create-channel" class="headerlink" title="Create channel"></a>Create channel</h2><p>进去cli容器:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># docker exec -it cli bash</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># docker exec -it cli bash</span><br></pre></td></tr></table></figure>
 <p>执行成功输出: </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">root@0d78bb69300d:/opt/gopath/src/github.com/hyperledger/fabric/peer#</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@0d78bb69300d:/opt/gopath/src/github.com/hyperledger/fabric/peer#</span><br></pre></td></tr></table></figure>
 <p>用<code>-c</code>指定channel name, <code>-f</code>指定channel configruation transaction(此例中是<code>channel.tx</code>)当然也可以使用不同的名称安装configuration transaction;  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># channel.tx 和 orderer.block 在 cli 容器的 crypto/orderer 目录下</div><div class="line">peer channel create -o orderer0:7050 -c mychannel -f crypto/orderer/channel.tx --tls $CORE_PEER_TLS_ENABLED --cafile $GOPATH/src/github.com/hyperledger/fabric/peer/crypto/orderer/localMspConfig/cacerts/ordererOrg0.pem</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># channel.tx 和 orderer.block 在 cli 容器的 crypto/orderer 目录下</span><br><span class="line">peer channel create -o orderer0:7050 -c mychannel -f crypto/orderer/channel.tx --tls $CORE_PEER_TLS_ENABLED --cafile $GOPATH/src/github.com/hyperledger/fabric/peer/crypto/orderer/localMspConfig/cacerts/ordererOrg0.pem</span><br></pre></td></tr></table></figure>
 <p>由于此例的<code>peer channel create</code>命令是针对orderer的，所以需要修改之前的环境变量，因此上边的命令应该是: </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CORE_PEER_MSPCONFIGPATH=$GOPATH/src/github.com/hyperledger/fabric/peer/crypto/orderer/localMspConfig CORE_PEER_LOCALMSPID=&quot;OrdererMSP&quot; peer channel create -o orderer0:7050 -c mychannel -f crypto/orderer/channel.tx --tls $CORE_PEER_TLS_ENABLED --cafile $GOPATH/src/github.com/hyperledger/fabric/peer/crypto/orderer/localMspConfig/cacerts/ordererOrg0.pem</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CORE_PEER_MSPCONFIGPATH=$GOPATH/src/github.com/hyperledger/fabric/peer/crypto/orderer/localMspConfig CORE_PEER_LOCALMSPID=&quot;OrdererMSP&quot; peer channel create -o orderer0:7050 -c mychannel -f crypto/orderer/channel.tx --tls $CORE_PEER_TLS_ENABLED --cafile $GOPATH/src/github.com/hyperledger/fabric/peer/crypto/orderer/localMspConfig/cacerts/ordererOrg0.pem</span><br></pre></td></tr></table></figure>
 <p>注意:下面的其他命令依然在CLI容中执行，而且要记住命令里每个peer对应的环境变量;   </p>
 <p>将指定的peer加入到channel:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">#默认只将 PEER0 加入 </div><div class="line">peer channel join -b mychannel.block</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#默认只将 PEER0 加入 </span><br><span class="line">peer channel join -b mychannel.block</span><br></pre></td></tr></table></figure>
 <p>完整的命令应该是: </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CORE_PEER_MSPCONFIGPATH=$GOPATH/src/github.com/hyperledger/fabric/peer/crypto/peer/peer0/localMspConfig CORE_PEER_ADDRESS=peer0:7051 CORE_PEER_LOCALMSPID=&quot;Org0MSP&quot; CORE_PEER_TLS_ROOTCERT_FILE=$GOPATH/src/github.com/hyperledger/fabric/peer/crypto/peer/peer0/localMspConfig/cacerts/peerOrg0.pem peer channel join -b mychannel.block</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CORE_PEER_MSPCONFIGPATH=$GOPATH/src/github.com/hyperledger/fabric/peer/crypto/peer/peer0/localMspConfig CORE_PEER_ADDRESS=peer0:7051 CORE_PEER_LOCALMSPID=&quot;Org0MSP&quot; CORE_PEER_TLS_ROOTCERT_FILE=$GOPATH/src/github.com/hyperledger/fabric/peer/crypto/peer/peer0/localMspConfig/cacerts/peerOrg0.pem peer channel join -b mychannel.block</span><br></pre></td></tr></table></figure>
 <p>修改这四个环境变量将其他的peer加入到channel中 </p>
 <p>将示例chaincode代码安装到四个对等节点中的一个:</p>
-<p>Install chaincode<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># 在命令前面要加上peer对应的四个环境变量</div><div class="line">peer chaincode install -n mycc -v 1.0 -p github.com/hyperledger/fabric/examples/chaincode/go/chaincode_example02</div></pre></td></tr></table></figure></p>
+<p>Install chaincode<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 在命令前面要加上peer对应的四个环境变量</span><br><span class="line">peer chaincode install -n mycc -v 1.0 -p github.com/hyperledger/fabric/examples/chaincode/go/chaincode_example02</span><br></pre></td></tr></table></figure></p>
 <p>在一个peer上实例化chaincode，这将对该peer启动一个chaincode容器，并为该chaincode设置背书策略。此例中定义的策略是有<code>org0</code>或<code>org1</code>中的一个peer背书即可;  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"># 在命令前面要加上peer对应的四个环境变量</div><div class="line"># 用 -C 参数设置正确的channel名，默认是 mychannel</div><div class="line">peer chaincode instantiate -o orderer0:7050 --tls $CORE_PEER_TLS_ENABLED --cafile $GOPATH/src/github.com/hyperledger/fabric/peer/crypto/orderer/localMspConfig/cacerts/ordererOrg0.pem -C mychannel -n mycc -v 1.0 -p github.com/hyperledger/fabric/examples/chaincode/go/chaincode_example02 -c &apos;&#123;&quot;Args&quot;:[&quot;init&quot;,&quot;a&quot;, &quot;100&quot;, &quot;b&quot;,&quot;200&quot;]&#125;&apos; -P &quot;OR (&apos;Org0MSP.member&apos;,&apos;Org1MSP.member&apos;)&quot;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 在命令前面要加上peer对应的四个环境变量</span><br><span class="line"># 用 -C 参数设置正确的channel名，默认是 mychannel</span><br><span class="line">peer chaincode instantiate -o orderer0:7050 --tls $CORE_PEER_TLS_ENABLED --cafile $GOPATH/src/github.com/hyperledger/fabric/peer/crypto/orderer/localMspConfig/cacerts/ordererOrg0.pem -C mychannel -n mycc -v 1.0 -p github.com/hyperledger/fabric/examples/chaincode/go/chaincode_example02 -c &apos;&#123;&quot;Args&quot;:[&quot;init&quot;,&quot;a&quot;, &quot;100&quot;, &quot;b&quot;,&quot;200&quot;]&#125;&apos; -P &quot;OR (&apos;Org0MSP.member&apos;,&apos;Org1MSP.member&apos;)&quot;</span><br></pre></td></tr></table></figure>
 <p>Invoke chaincode </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># 在命令前面要加上peer对应的四个环境变量</div><div class="line">peer chaincode invoke -o orderer0:7050  --tls $CORE_PEER_TLS_ENABLED --cafile $GOPATH/src/github.com/hyperledger/fabric/peer/crypto/orderer/localMspConfig/cacerts/ordererOrg0.pem  -C mychannel -n mycc -c &apos;&#123;&quot;Args&quot;:[&quot;invoke&quot;,&quot;a&quot;,&quot;b&quot;,&quot;10&quot;]&#125;&apos;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 在命令前面要加上peer对应的四个环境变量</span><br><span class="line">peer chaincode invoke -o orderer0:7050  --tls $CORE_PEER_TLS_ENABLED --cafile $GOPATH/src/github.com/hyperledger/fabric/peer/crypto/orderer/localMspConfig/cacerts/ordererOrg0.pem  -C mychannel -n mycc -c &apos;&#123;&quot;Args&quot;:[&quot;invoke&quot;,&quot;a&quot;,&quot;b&quot;,&quot;10&quot;]&#125;&apos;</span><br></pre></td></tr></table></figure>
 <p>Query chaincode </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># 在命令前面要加上peer对应的四个环境变量</div><div class="line">peer chaincode query -C mychannel -n mycc -c &apos;&#123;&quot;Args&quot;:[&quot;query&quot;,&quot;a&quot;]&#125;&apos;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 在命令前面要加上peer对应的四个环境变量</span><br><span class="line">peer chaincode query -C mychannel -n mycc -c &apos;&#123;&quot;Args&quot;:[&quot;query&quot;,&quot;a&quot;]&#125;&apos;</span><br></pre></td></tr></table></figure>
 <p>执行结果:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Query Result: 90</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Query Result: 90</span><br></pre></td></tr></table></figure>
 <h2 id="手动构建镜像"><a href="#手动构建镜像" class="headerlink" title="手动构建镜像"></a>手动构建镜像</h2><p>构建peer和orderer镜像:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># 在farbic目录下执行，如果不能顺利生成镜像，则使用vagrant环境</div><div class="line"># make peer-docker orderer-docker</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 在farbic目录下执行，如果不能顺利生成镜像，则使用vagrant环境</span><br><span class="line"># make peer-docker orderer-docker</span><br></pre></td></tr></table></figure>
 <p>执行<code>docker images</code>命令输出</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">vagrant@hyperledger-devenv:v0.3.0-4eec836:/opt/gopath/src/github.com/hyperledger/fabric$ docker images</div><div class="line">REPOSITORY                     TAG                             IMAGE ID            CREATED             SIZE</div><div class="line">hyperledger/fabric-orderer     latest                          264e45897bfb        10 minutes ago      180 MB</div><div class="line">hyperledger/fabric-orderer     x86_64-0.7.0-snapshot-a0d032b   264e45897bfb        10 minutes ago      180 MB</div><div class="line">hyperledger/fabric-peer        latest                          b3d44cff07c6        10 minutes ago      184 MB</div><div class="line">hyperledger/fabric-peer        x86_64-0.7.0-snapshot-a0d032b   b3d44cff07c6        10 minutes ago      184 MB</div><div class="line">hyperledger/fabric-javaenv     latest                          6e2a2adb998a        10 minutes ago      1.42 GB</div><div class="line">hyperledger/fabric-javaenv     x86_64-0.7.0-snapshot-a0d032b   6e2a2adb998a        10 minutes ago      1.42 GB</div><div class="line">hyperledger/fabric-ccenv       latest                          0ce0e7dc043f        12 minutes ago      1.29 GB</div><div class="line">hyperledger/fabric-ccenv       x86_64-0.7.0-snapshot-a0d032b   0ce0e7dc043f        12 minutes ago      1.29 GB</div><div class="line">hyperledger/fabric-baseimage   x86_64-0.3.0                    f4751a503f02        4 weeks ago         1.27 GB</div><div class="line">hyperledger/fabric-baseos      x86_64-0.3.0                    c3a4cf3b3350        4 weeks ago         161 MB</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">vagrant@hyperledger-devenv:v0.3.0-4eec836:/opt/gopath/src/github.com/hyperledger/fabric$ docker images</span><br><span class="line">REPOSITORY                     TAG                             IMAGE ID            CREATED             SIZE</span><br><span class="line">hyperledger/fabric-orderer     latest                          264e45897bfb        10 minutes ago      180 MB</span><br><span class="line">hyperledger/fabric-orderer     x86_64-0.7.0-snapshot-a0d032b   264e45897bfb        10 minutes ago      180 MB</span><br><span class="line">hyperledger/fabric-peer        latest                          b3d44cff07c6        10 minutes ago      184 MB</span><br><span class="line">hyperledger/fabric-peer        x86_64-0.7.0-snapshot-a0d032b   b3d44cff07c6        10 minutes ago      184 MB</span><br><span class="line">hyperledger/fabric-javaenv     latest                          6e2a2adb998a        10 minutes ago      1.42 GB</span><br><span class="line">hyperledger/fabric-javaenv     x86_64-0.7.0-snapshot-a0d032b   6e2a2adb998a        10 minutes ago      1.42 GB</span><br><span class="line">hyperledger/fabric-ccenv       latest                          0ce0e7dc043f        12 minutes ago      1.29 GB</span><br><span class="line">hyperledger/fabric-ccenv       x86_64-0.7.0-snapshot-a0d032b   0ce0e7dc043f        12 minutes ago      1.29 GB</span><br><span class="line">hyperledger/fabric-baseimage   x86_64-0.3.0                    f4751a503f02        4 weeks ago         1.27 GB</span><br><span class="line">hyperledger/fabric-baseos      x86_64-0.3.0                    c3a4cf3b3350        4 weeks ago         161 MB</span><br></pre></td></tr></table></figure>
 <h2 id="使用本地二进制文件"><a href="#使用本地二进制文件" class="headerlink" title="使用本地二进制文件"></a>使用本地二进制文件</h2><p>进支vagrant环境 </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">cd $GOPATH/src/github.com/hyperledger/fabric/devenv</div><div class="line"></div><div class="line"># 第一次启动VM用 vagrant up </div><div class="line">vagrant ssh</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd $GOPATH/src/github.com/hyperledger/fabric/devenv</span><br><span class="line"></span><br><span class="line"># 第一次启动VM用 vagrant up </span><br><span class="line">vagrant ssh</span><br></pre></td></tr></table></figure>
 <p>在fabric目录编译peer和orderer:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">make clean</div><div class="line">make native</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">make clean</span><br><span class="line">make native</span><br></pre></td></tr></table></figure>
 <p>生成<code>ccenv</code>镜像</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">make peer-docker</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make peer-docker</span><br></pre></td></tr></table></figure>
 <p>然后打开两个终端都进入vagrant，至此有三个终端都在vagrant里;<br>首先清空ledger文件<code>/var/hyperledger/</code> (每次运行后，为避免错误或重复，都要清空): </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rm -rf /var/hyperledger/*</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm -rf /var/hyperledger/*</span><br></pre></td></tr></table></figure>
 <p>使用<code>configtxgen</code>工具创建orderer创世区块:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">configtxgen -profile SampleMSPSolo -outputBlock orderer.block</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">configtxgen -profile SampleMSPSolo -outputBlock orderer.block</span><br></pre></td></tr></table></figure>
 <p>用刚生成的创世区块启动orderer: </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ORDERER_GENERAL_GENESISMETHOD=file ORDERER_GENERAL_GENESISFILE=./orderer.block orderer</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ORDERER_GENERAL_GENESISMETHOD=file ORDERER_GENERAL_GENESISFILE=./orderer.block orderer</span><br></pre></td></tr></table></figure>
 <p>创建 channel  configuration transaction: </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">configtxgen -profile  SampleSingleMSPSolo -outputCreateChannelTx channel.tx -channelID &lt;channel-ID&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">configtxgen -profile  SampleSingleMSPSolo -outputCreateChannelTx channel.tx -channelID &lt;channel-ID&gt;</span><br></pre></td></tr></table></figure>
 <p>执行成功会在当前目录生成<code>channel.tx</code></p>
 <p>以<code>chanless</code>模块启动peer: </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">peer node start --peer-defaultchain-false</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">peer node start --peer-defaultchain-false</span><br></pre></td></tr></table></figure>
 <p>以<code>channel.tx</code>为参数创建channel:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">peer channel create -o 127.0.0.1:7050 -c mychannel -f channel.tx</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">peer channel create -o 127.0.0.1:7050 -c mychannel -f channel.tx</span><br></pre></td></tr></table></figure>
 <p>执行后在当前目录生成一个channel的创世区块<code>mychannel.block</code> </p>
 <p>Join channel<br>通过channel的创世区块<code>mychannel.block</code>加入channel: </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">peer channel join -b mychannel.block</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">peer channel join -b mychannel.block</span><br></pre></td></tr></table></figure>
 <p>Install chaincode<br>在peer上安装chaincode:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">peer chaincode install -o 127.0.0.1:7050 -n mycc -v 1.0 -p github.com/hyperledger/fabric/examples/chaincode/go/chaincode_example02</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">peer chaincode install -o 127.0.0.1:7050 -n mycc -v 1.0 -p github.com/hyperledger/fabric/examples/chaincode/go/chaincode_example02</span><br></pre></td></tr></table></figure>
 <p>执行成功后查看文件可以看到mycc.1.0: </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ls /var/hyperledger/production/chaincodes</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls /var/hyperledger/production/chaincodes</span><br></pre></td></tr></table></figure>
 <p>Instantiate chaincode </p>
 <p>实例化chaincode:  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">peer chaincode instantiate -o 127.0.0.1:7050 -C mychannel -n mycc -v 1.0 -p github.com/hyperledger/fabric/examples/chaincode/go/chaincode_example02 -c &apos;&#123;&quot;Args&quot;:[&quot;init&quot;,&quot;a&quot;, &quot;100&quot;, &quot;b&quot;,&quot;200&quot;]&#125;&apos;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">peer chaincode instantiate -o 127.0.0.1:7050 -C mychannel -n mycc -v 1.0 -p github.com/hyperledger/fabric/examples/chaincode/go/chaincode_example02 -c &apos;&#123;&quot;Args&quot;:[&quot;init&quot;,&quot;a&quot;, &quot;100&quot;, &quot;b&quot;,&quot;200&quot;]&#125;&apos;</span><br></pre></td></tr></table></figure>
 <p><code>docker ps</code>查看运行中的容器，如果chaincode启动成功，则显示: </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS               NAMES</div><div class="line">bd9c6bda7560        dev-jdoe-mycc-1.0   &quot;chaincode -peer.a...&quot;   5 seconds ago       Up 5 seconds                            dev-jdoe-mycc-1.0</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS               NAMES</span><br><span class="line">bd9c6bda7560        dev-jdoe-mycc-1.0   &quot;chaincode -peer.a...&quot;   5 seconds ago       Up 5 seconds                            dev-jdoe-mycc-1.0</span><br></pre></td></tr></table></figure>
 <p>Invoke chaincode<br>调用chaincode从”a”转移”10”给”b”:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">peer chaincode invoke -o 127.0.0.1:7050 -C mychannel -n mycc -c &apos;&#123;&quot;Args&quot;:[&quot;invoke&quot;,&quot;a&quot;,&quot;b&quot;,&quot;10&quot;]&#125;&apos;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">peer chaincode invoke -o 127.0.0.1:7050 -C mychannel -n mycc -c &apos;&#123;&quot;Args&quot;:[&quot;invoke&quot;,&quot;a&quot;,&quot;b&quot;,&quot;10&quot;]&#125;&apos;</span><br></pre></td></tr></table></figure>
 <p>Query chaincode<br>查询”a”的值: </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># 返回值应是 90</div><div class="line">peer chaincode query -o 127.0.0.1:7050 -C mychannel -n mycc -c &apos;&#123;&quot;Args&quot;:[&quot;query&quot;,&quot;a&quot;]&#125;&apos;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 返回值应是 90</span><br><span class="line">peer chaincode query -o 127.0.0.1:7050 -C mychannel -n mycc -c &apos;&#123;&quot;Args&quot;:[&quot;query&quot;,&quot;a&quot;]&#125;&apos;</span><br></pre></td></tr></table></figure>
 <p>运行完成后不要忘记清空ledger文件夹<code>/var/hyperledger</code>:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rm -rf /var/hyperledger/*</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm -rf /var/hyperledger/*</span><br></pre></td></tr></table></figure>
 <h2 id="使用CouchDB"><a href="#使用CouchDB" class="headerlink" title="使用CouchDB"></a>使用CouchDB</h2><p>可以将stateDB默认的goleveldb替换成CouchDB。对于CouchDB, chainocde各功能依然可用，但将chaincode数据以JSON方式存储的话就可以使用CouchDB的复杂查询的功能;    </p>
 <p>为了使用CouchDB，除了最前面的”前提”一节的操作外，还需要下边两步启动CouchDB容器并将之与peer容器关联;   </p>
 <ul>
 <li>构建 CouchDB镜像 </li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># make sure you are in the fabric directory</div><div class="line">make couchdb</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># make sure you are in the fabric directory</span><br><span class="line">make couchdb</span><br></pre></td></tr></table></figure>
 <ul>
 <li>编辑<code>fabric/example/e2e_cli/docker-compose.yaml</code> 和<code>docker-compose.yam</code> 将所有与CouchDB有关的内容取消注释。这样  <code>chaincode_xample02</code>就可以CouchDB下运行了;   </li>
 </ul>
@@ -644,57 +642,57 @@
 <ul>
 <li>在<code>PEER0</code>上安装实例化chaincode</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">peer chaincode install -o orderer0:7050 -n marbles -v 1.0 -p github.com/hyperledger/fabric/examples/chaincode/go/marbles02</div><div class="line">peer chaincode instantiate -o orderer0:7050 --tls $CORE_PEER_TLS_ENABLED --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/orderer/localMspConfig/cacerts/ordererOrg0.pem -C mychannel -n marbles -v 1.0 -p github.com/hyperledger/fabric/examples/chaincode/go/marbles02 -c &apos;&#123;&quot;Args&quot;:[&quot;init&quot;]&#125;&apos; -P &quot;OR (&apos;Org0MSP.member&apos;,&apos;Org1MSP.member&apos;)&quot;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">peer chaincode install -o orderer0:7050 -n marbles -v 1.0 -p github.com/hyperledger/fabric/examples/chaincode/go/marbles02</span><br><span class="line">peer chaincode instantiate -o orderer0:7050 --tls $CORE_PEER_TLS_ENABLED --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/orderer/localMspConfig/cacerts/ordererOrg0.pem -C mychannel -n marbles -v 1.0 -p github.com/hyperledger/fabric/examples/chaincode/go/marbles02 -c &apos;&#123;&quot;Args&quot;:[&quot;init&quot;]&#125;&apos; -P &quot;OR (&apos;Org0MSP.member&apos;,&apos;Org1MSP.member&apos;)&quot;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>创建一些marble并移动它们</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">peer chaincode invoke -o orderer0:7050 --tls $CORE_PEER_TLS_ENABLED --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/orderer/localMspConfig/cacerts/ordererOrg0.pem -C mychannel -n marbles -c &apos;&#123;&quot;Args&quot;:[&quot;initMarble&quot;,&quot;marble1&quot;,&quot;blue&quot;,&quot;35&quot;,&quot;tom&quot;]&#125;&apos;</div><div class="line">peer chaincode invoke -o orderer0:7050 --tls $CORE_PEER_TLS_ENABLED --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/orderer/localMspConfig/cacerts/ordererOrg0.pem -C mychannel -n marbles -c &apos;&#123;&quot;Args&quot;:[&quot;initMarble&quot;,&quot;marble2&quot;,&quot;red&quot;,&quot;50&quot;,&quot;tom&quot;]&#125;&apos;</div><div class="line">peer chaincode invoke -o orderer0:7050 --tls $CORE_PEER_TLS_ENABLED --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/orderer/localMspConfig/cacerts/ordererOrg0.pem -C mychannel -n marbles -c &apos;&#123;&quot;Args&quot;:[&quot;initMarble&quot;,&quot;marble3&quot;,&quot;blue&quot;,&quot;70&quot;,&quot;tom&quot;]&#125;&apos;</div><div class="line">peer chaincode invoke -o orderer0:7050 --tls $CORE_PEER_TLS_ENABLED --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/orderer/localMspConfig/cacerts/ordererOrg0.pem -C mychannel -n marbles -c &apos;&#123;&quot;Args&quot;:[&quot;transferMarble&quot;,&quot;marble2&quot;,&quot;jerry&quot;]&#125;&apos;</div><div class="line">peer chaincode invoke -o orderer0:7050 --tls $CORE_PEER_TLS_ENABLED --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/orderer/localMspConfig/cacerts/ordererOrg0.pem -C mychannel -n marbles -c &apos;&#123;&quot;Args&quot;:[&quot;transferMarblesBasedOnColor&quot;,&quot;blue&quot;,&quot;jerry&quot;]&#125;&apos;</div><div class="line">peer chaincode invoke -o orderer0:7050 --tls $CORE_PEER_TLS_ENABLED --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/orderer/localMspConfig/cacerts/ordererOrg0.pem -C mychannel -n marbles -c &apos;&#123;&quot;Args&quot;:[&quot;delete&quot;,&quot;marble1&quot;]&#125;&apos;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">peer chaincode invoke -o orderer0:7050 --tls $CORE_PEER_TLS_ENABLED --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/orderer/localMspConfig/cacerts/ordererOrg0.pem -C mychannel -n marbles -c &apos;&#123;&quot;Args&quot;:[&quot;initMarble&quot;,&quot;marble1&quot;,&quot;blue&quot;,&quot;35&quot;,&quot;tom&quot;]&#125;&apos;</span><br><span class="line">peer chaincode invoke -o orderer0:7050 --tls $CORE_PEER_TLS_ENABLED --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/orderer/localMspConfig/cacerts/ordererOrg0.pem -C mychannel -n marbles -c &apos;&#123;&quot;Args&quot;:[&quot;initMarble&quot;,&quot;marble2&quot;,&quot;red&quot;,&quot;50&quot;,&quot;tom&quot;]&#125;&apos;</span><br><span class="line">peer chaincode invoke -o orderer0:7050 --tls $CORE_PEER_TLS_ENABLED --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/orderer/localMspConfig/cacerts/ordererOrg0.pem -C mychannel -n marbles -c &apos;&#123;&quot;Args&quot;:[&quot;initMarble&quot;,&quot;marble3&quot;,&quot;blue&quot;,&quot;70&quot;,&quot;tom&quot;]&#125;&apos;</span><br><span class="line">peer chaincode invoke -o orderer0:7050 --tls $CORE_PEER_TLS_ENABLED --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/orderer/localMspConfig/cacerts/ordererOrg0.pem -C mychannel -n marbles -c &apos;&#123;&quot;Args&quot;:[&quot;transferMarble&quot;,&quot;marble2&quot;,&quot;jerry&quot;]&#125;&apos;</span><br><span class="line">peer chaincode invoke -o orderer0:7050 --tls $CORE_PEER_TLS_ENABLED --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/orderer/localMspConfig/cacerts/ordererOrg0.pem -C mychannel -n marbles -c &apos;&#123;&quot;Args&quot;:[&quot;transferMarblesBasedOnColor&quot;,&quot;blue&quot;,&quot;jerry&quot;]&#125;&apos;</span><br><span class="line">peer chaincode invoke -o orderer0:7050 --tls $CORE_PEER_TLS_ENABLED --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/orderer/localMspConfig/cacerts/ordererOrg0.pem -C mychannel -n marbles -c &apos;&#123;&quot;Args&quot;:[&quot;delete&quot;,&quot;marble1&quot;]&#125;&apos;</span><br></pre></td></tr></table></figure>
 <ul>
 <li><p>如果做了CouchDB容器的端口映射，可以通过web界面查看数据，可以看到名为<code>mychannel</code>的数据库及其文档 </p>
 </li>
 <li><p>如果使用的是vagrant环境 </p>
 </li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">http://localhost:15984/_utils</div><div class="line">* 如果不是vagrant环境，使用CouchDB容器指定的端口</div><div class="line"></div><div class="line">http://localhost:5984/_utils</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">http://localhost:15984/_utils</span><br><span class="line">* 如果不是vagrant环境，使用CouchDB容器指定的端口</span><br><span class="line"></span><br><span class="line">http://localhost:5984/_utils</span><br></pre></td></tr></table></figure>
 <ul>
 <li>有可规律的查询chaincode(例如,读取marble2) </li>
 </ul>
 <p>peer chaincode query-C mychannel -n marbles -c {“Args”:[“readMarble”,”marble2”]}’</p>
 <p>可以看到<code>mable2</code>的详细信息:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Query Result: &#123;&quot;color&quot;:&quot;red&quot;,&quot;docType&quot;:&quot;marble&quot;,&quot;name&quot;:&quot;marble2&quot;,&quot;owner&quot;:&quot;jerry&quot;,&quot;size&quot;:50&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Query Result: &#123;&quot;color&quot;:&quot;red&quot;,&quot;docType&quot;:&quot;marble&quot;,&quot;name&quot;:&quot;marble2&quot;,&quot;owner&quot;:&quot;jerry&quot;,&quot;size&quot;:50&#125;</span><br></pre></td></tr></table></figure>
 <p>获取 <code>marble1</code>的历史 </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">peer chaincode query -C mychannel -n marbles -c &apos;&#123;&quot;Args&quot;:[&quot;getHistoryForMarble&quot;,&quot;marble1&quot;]&#125;&apos;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">peer chaincode query -C mychannel -n marbles -c &apos;&#123;&quot;Args&quot;:[&quot;getHistoryForMarble&quot;,&quot;marble1&quot;]&#125;&apos;</span><br></pre></td></tr></table></figure>
 <p>可以看到操作过<code>marbel1</code>的交易: </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Query Result: [&#123;&quot;TxId&quot;:&quot;1c3d3caf124c89f91a4c0f353723ac736c58155325f02890adebaa15e16e6464&quot;, &quot;Value&quot;:&#123;&quot;docType&quot;:&quot;marble&quot;,&quot;name&quot;:&quot;marble1&quot;,&quot;color&quot;:&quot;blue&quot;,&quot;size&quot;:35,&quot;owner&quot;:&quot;tom&quot;&#125;&#125;,&#123;&quot;TxId&quot;:&quot;755d55c281889eaeebf405586f9e25d71d36eb3d35420af833a20a2f53a3eefd&quot;, &quot;Value&quot;:&#123;&quot;docType&quot;:&quot;marble&quot;,&quot;name&quot;:&quot;marble1&quot;,&quot;color&quot;:&quot;blue&quot;,&quot;size&quot;:35,&quot;owner&quot;:&quot;jerry&quot;&#125;&#125;,&#123;&quot;TxId&quot;:&quot;819451032d813dde6247f85e56a89262555e04f14788ee33e28b232eef36d98f&quot;, &quot;Value&quot;:&#125;]</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Query Result: [&#123;&quot;TxId&quot;:&quot;1c3d3caf124c89f91a4c0f353723ac736c58155325f02890adebaa15e16e6464&quot;, &quot;Value&quot;:&#123;&quot;docType&quot;:&quot;marble&quot;,&quot;name&quot;:&quot;marble1&quot;,&quot;color&quot;:&quot;blue&quot;,&quot;size&quot;:35,&quot;owner&quot;:&quot;tom&quot;&#125;&#125;,&#123;&quot;TxId&quot;:&quot;755d55c281889eaeebf405586f9e25d71d36eb3d35420af833a20a2f53a3eefd&quot;, &quot;Value&quot;:&#123;&quot;docType&quot;:&quot;marble&quot;,&quot;name&quot;:&quot;marble1&quot;,&quot;color&quot;:&quot;blue&quot;,&quot;size&quot;:35,&quot;owner&quot;:&quot;jerry&quot;&#125;&#125;,&#123;&quot;TxId&quot;:&quot;819451032d813dde6247f85e56a89262555e04f14788ee33e28b232eef36d98f&quot;, &quot;Value&quot;:&#125;]</span><br></pre></td></tr></table></figure>
 <p> 还可以执行复杂查询,比喻如查询<code>jerry</code>所拥有的marble:</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">peer chaincode query -C mychannel -n marbles -c &apos;&#123;&quot;Args&quot;:[&quot;queryMarblesByOwner&quot;,&quot;jerry&quot;]&#125;&apos;</div></pre></td></tr></table></figure>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">peer chaincode query -C mychannel -n marbles -c &apos;&#123;&quot;Args&quot;:[&quot;queryMarblesByOwner&quot;,&quot;jerry&quot;]&#125;&apos;</span><br></pre></td></tr></table></figure>
 <p>查询结果为<code>jerry</code>所拥有的2个marble的信息: </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">peer chaincode query -C mychannel -n marbles -c &apos;&#123;&quot;Args&quot;:[&quot;queryMarblesByOwner&quot;,&quot;jerry&quot;]&#125;&apos;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">peer chaincode query -C mychannel -n marbles -c &apos;&#123;&quot;Args&quot;:[&quot;queryMarblesByOwner&quot;,&quot;jerry&quot;]&#125;&apos;</span><br></pre></td></tr></table></figure>
 <p>查询结果为<code>jerry</code>所拥有的2个marble的信息:  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Query Result: [&#123;&quot;Key&quot;:&quot;marble2&quot;, &quot;Record&quot;:&#123;&quot;color&quot;:&quot;red&quot;,&quot;docType&quot;:&quot;marble&quot;,&quot;name&quot;:&quot;marble2&quot;,&quot;owner&quot;:&quot;jerry&quot;,&quot;size&quot;:50&#125;&#125;,&#123;&quot;Key&quot;:&quot;marble3&quot;, &quot;Record&quot;:&#123;&quot;color&quot;:&quot;blue&quot;,&quot;docType&quot;:&quot;marble&quot;,&quot;name&quot;:&quot;marble3&quot;,&quot;owner&quot;:&quot;jerry&quot;,&quot;size&quot;:70&#125;&#125;]</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Query Result: [&#123;&quot;Key&quot;:&quot;marble2&quot;, &quot;Record&quot;:&#123;&quot;color&quot;:&quot;red&quot;,&quot;docType&quot;:&quot;marble&quot;,&quot;name&quot;:&quot;marble2&quot;,&quot;owner&quot;:&quot;jerry&quot;,&quot;size&quot;:50&#125;&#125;,&#123;&quot;Key&quot;:&quot;marble3&quot;, &quot;Record&quot;:&#123;&quot;color&quot;:&quot;blue&quot;,&quot;docType&quot;:&quot;marble&quot;,&quot;name&quot;:&quot;marble3&quot;,&quot;owner&quot;:&quot;jerry&quot;,&quot;size&quot;:70&#125;&#125;]</span><br></pre></td></tr></table></figure>
 <p>通过<code>owner</code>字段等于<code>jerry</code>查询:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">peer chaincode query -C mychannel -n marbles -c &apos;&#123;&quot;Args&quot;:[&quot;queryMarbles&quot;,&quot;&#123;\&quot;selector\&quot;:&#123;\&quot;owner\&quot;:\&quot;jerry\&quot;&#125;&#125;&quot;]&#125;&apos;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">peer chaincode query -C mychannel -n marbles -c &apos;&#123;&quot;Args&quot;:[&quot;queryMarbles&quot;,&quot;&#123;\&quot;selector\&quot;:&#123;\&quot;owner\&quot;:\&quot;jerry\&quot;&#125;&#125;&quot;]&#125;&apos;</span><br></pre></td></tr></table></figure>
 <p>查询结果如下:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Query Result: [&#123;&quot;Key&quot;:&quot;marble2&quot;, &quot;Record&quot;:&#123;&quot;color&quot;:&quot;red&quot;,&quot;docType&quot;:&quot;marble&quot;,&quot;name&quot;:&quot;marble2&quot;,&quot;owner&quot;:&quot;jerry&quot;,&quot;size&quot;:50&#125;&#125;,&#123;&quot;Key&quot;:&quot;marble3&quot;, &quot;Record&quot;:&#123;&quot;color&quot;:&quot;blue&quot;,&quot;docType&quot;:&quot;marble&quot;,&quot;name&quot;:&quot;marble3&quot;,&quot;owner&quot;:&quot;jerry&quot;,&quot;size&quot;:70&#125;&#125;]</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Query Result: [&#123;&quot;Key&quot;:&quot;marble2&quot;, &quot;Record&quot;:&#123;&quot;color&quot;:&quot;red&quot;,&quot;docType&quot;:&quot;marble&quot;,&quot;name&quot;:&quot;marble2&quot;,&quot;owner&quot;:&quot;jerry&quot;,&quot;size&quot;:50&#125;&#125;,&#123;&quot;Key&quot;:&quot;marble3&quot;, &quot;Record&quot;:&#123;&quot;color&quot;:&quot;blue&quot;,&quot;docType&quot;:&quot;marble&quot;,&quot;name&quot;:&quot;marble3&quot;,&quot;owner&quot;:&quot;jerry&quot;,&quot;size&quot;:70&#125;&#125;]</span><br></pre></td></tr></table></figure>
 <h2 id="数据持久化"><a href="#数据持久化" class="headerlink" title="数据持久化"></a>数据持久化</h2><p>如果需要对peer或CouchDB容器的数据持久化，一种是选择是将容器的相关目录挂载到docker主机;<br>例如，将下面两内容器入到<code>docker-compose.yaml</code>文件中的对应peer处:  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">volumes:</div><div class="line"> - /var/hyperledger/peer0:/var/hyperledger/production</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">volumes:</div><div class="line">- /var/hyperledger/couchdb0:/opt/couchdb/data</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">volumes:</span><br><span class="line"> - /var/hyperledger/peer0:/var/hyperledger/production</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">volumes:</span><br><span class="line">- /var/hyperledger/couchdb0:/opt/couchdb/data</span><br></pre></td></tr></table></figure>
 <p>故障排除 </p>
 <ul>
 <li>每次运行后要清理文件</li>
 <li>如果出现docker错误，则删除镜像，从头再操作一遍;  </li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">make clean </div><div class="line">make peer-docker orderer-docker</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">make clean </span><br><span class="line">make peer-docker orderer-docker</span><br></pre></td></tr></table></figure>
 <ul>
 <li>如果出现下面的错误 </li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Error: Error endorsing chaincode: rpc error: code = 2 desc = Error installing chaincode code mycc:1.0(chaincode /var/hyperledger/production/chaincodes/mycc.1.0 exits)</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Error: Error endorsing chaincode: rpc error: code = 2 desc = Error installing chaincode code mycc:1.0(chaincode /var/hyperledger/production/chaincodes/mycc.1.0 exits)</span><br></pre></td></tr></table></figure>
 <p>chaincode镜像(如<code>dev-peer0-mycc-1.0</code>或<code>dev-peer1-mycc-1.0</code>)可能是以前运行过的，删除它们然后重试;  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker rmi -f $(docker images | grep peer[0-9]-peer[0-9] | awk &apos;&#123;print $3&#125;&apos;)</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker rmi -f $(docker images | grep peer[0-9]-peer[0-9] | awk &apos;&#123;print $3&#125;&apos;)</span><br></pre></td></tr></table></figure>
 <ul>
 <li>使用 <code>down</code>选项清理网络 </li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">./network_setup.sh down </div><div class="line">Next Previous</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">./network_setup.sh down </span><br><span class="line">Next Previous</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -715,14 +713,14 @@
 
     
       <div id="wechat" style="display: inline-block">
-        <img id="wechat_qr" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/weipei.png" alt="༺ 锦遥 ༻ 微信支付"/>
+        <img id="wechat_qr" src="/images/weipei.png" alt="༺ 锦遥 ༻ 微信支付">
         <p>微信支付</p>
       </div>
     
 
     
       <div id="alipay" style="display: inline-block">
-        <img id="alipay_qr" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/zhipei.png" alt="༺ 锦遥 ༻ 支付宝"/>
+        <img id="alipay_qr" src="/images/zhipei.png" alt="༺ 锦遥 ༻ 支付宝">
         <p>支付宝</p>
       </div>
     
@@ -857,9 +855,7 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image"
-                src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/rjyy.ico"
-                alt="༺ 锦遥 ༻" />
+              <img class="site-author-image" itemprop="image" src="/images/rjyy.ico" alt="༺ 锦遥 ༻">
             
               <p class="site-author-name" itemprop="name">༺ 锦遥 ༻</p>
               <p class="site-description motion-element" itemprop="description">不急不燥，稳步推进
@@ -874,7 +870,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">81</span>
+                  <span class="site-state-item-count">84</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -897,7 +893,7 @@
 
           
             <div class="feed-link motion-element">
-              <a href="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io@master/atom.xml" rel="alternate">
+              <a href="/atom.xml" rel="alternate">
                 <i class="fa fa-rss"></i>
                 RSS
               </a>
@@ -976,8 +972,8 @@
 
 <!-- 数字雨 -->
 <canvas id="canvas" width="1440" height="1080"></canvas>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/DigitalRain.js"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css"/>
+<script type="text/javascript" src="/js/DigitalRain.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
     </main>
 
     <footer id="footer" class="footer">
@@ -996,7 +992,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">206.6k</span>
+    <span title="Site words total count">208.1k</span>
   
   <span>   |   </span>
 <span id="showDays"></span>
@@ -1009,10 +1005,10 @@
 
 
 
-<div class=BbeiAn-info style="color:#8B0000">
+<div class="BbeiAn-info" style="color:#8B0000">
 晋ICP备 -
-    <a href="http://www.beian.miit.gov.cn/" style='color:red;'>17010575号-1 && 17010575号-4</a>
-</a>
+    <a href="http://www.beian.miit.gov.cn/" style="color:red;">17010575号-1 && 17010575号-4</a>
+
 </div>
 <!-- time -->
 <div id="show-time">
@@ -1044,11 +1040,11 @@ var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours
 }, 1000);
 </script>
 <script src="https://pv.sohu.com/cityjson?ie=utf-8"></script>
-<script src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/ip.js"></script>
+<script src="/js/ip.js"></script>
 
         
 <div class="busuanzi-count">
-  <script async src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/busuanzi.pure.mini.js"></script>
+  <script async src="/js/busuanzi.pure.mini.js"></script>
   
     <span class="site-uv">
       <i class="fa fa-user"></i> 訪客數
@@ -1087,8 +1083,8 @@ var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours
     
 
 <script src="/live2d-widget/autoload.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard.min.js"></script>  
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard-use.js"></script>
+<script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
+<script type="text/javascript" src="/js/src/clipboard-use.js"></script>
   </div>
 
   
@@ -1155,32 +1151,32 @@ var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours
   
 
 
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/utils.js?v=5.1.3"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
 
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/motion.js?v=5.1.3"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/affix.js?v=5.1.3"></script>
-
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/schemes/pisces.js?v=5.1.3"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
 
 
 
   
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/scrollspy.js?v=5.1.3"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/post-details.js?v=5.1.3"></script>
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
 
 
 
   
 
 
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/bootstrap.js?v=5.1.3"></script>
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
 
 
 
@@ -1582,7 +1578,7 @@ var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours
   <!-- 点击特效 -->
 
 
-  <script src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/activate-power-mode.min.js"></script>
+  <script src="/js/activate-power-mode.min.js"></script>
     <script>
 	    POWERMODE.colorful = true;
     POWERMODE.shake = false;
@@ -1590,11 +1586,11 @@ var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours
 	  </script>
 
 
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard.min.js"></script>  
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard-use.js"></script>
+<script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
+<script type="text/javascript" src="/js/src/clipboard-use.js"></script>
 <!--点击冒点-->
 <canvas width="1777" height="841" style="position: fixed; left: 0px; top: 0px; z-index: 2147483647; pointer-events: none;"></canvas>
-<script src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/maodian.js"></script>
+<script src="/js/maodian.js"></script>
 <canvas width="1390" height="797" style="position: fixed; left: 0px; top: 0px; z-index: 2147483647; pointer-events: none;"></canvas>
 </body>
 </html>

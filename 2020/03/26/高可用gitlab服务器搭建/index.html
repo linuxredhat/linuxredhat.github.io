@@ -5,16 +5,16 @@
   
 
 <!-- 代码块复制功能 -->
-<!--<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard.min.js"></script> --> 
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard-use.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/instantclick-1.2.2.js" type="module"></script>
+<!--<script type="text/javascript" src="/js/src/clipboard.min.js"></script> --> 
+<script type="text/javascript" src="/js/src/clipboard-use.js"></script>
+<script src="/js/instantclick-1.2.2.js" type="module"></script>
 <!--崩溃欺骗-->
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/crash_cheat.js"></script>
+<script type="text/javascript" src="/js/src/crash_cheat.js"></script>
 <html class="theme-next gemini use-motion" lang="zh-Hans">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
@@ -24,8 +24,8 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -44,7 +44,7 @@
 
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
 
 
@@ -52,9 +52,9 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
@@ -72,17 +72,17 @@
   <link rel="manifest" href="/images/manifest.json">
 
 
-  <meta name="msapplication-config" content="/images/browserconfig.xml" />
+  <meta name="msapplication-config" content="/images/browserconfig.xml">
 
 
 
-  <meta name="keywords" content="rhca,linux," />
+  <meta name="keywords" content="rhca,linux,">
 
 
 
 
 
-  <link rel="alternate" href="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io@master/atom.xml" title="逝水锦遥" type="application/atom+xml" />
+  <link rel="alternate" href="/atom.xml" title="逝水锦遥" type="application/atom+xml">
 
 
 
@@ -97,12 +97,12 @@
 <meta property="og:site_name" content="逝水锦遥">
 <meta property="og:description" content="[toc] 高可用gitlab服务器搭建 环境准备,单节点部署   CentOS7.4 64C 192G     CentOS7.4 64C 192G    服务器时间同步1~]# ntpdate ntp.aliyun.com 确保SELinux 是关闭的12~]# getenforce Disabled 配置postfix1234~]# yum -y install postfix~]# sed">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/gitlab.jpg">
+<meta property="og:image" content="https://www.asjin.com/images/gitlab.jpg">
 <meta property="og:updated_time" content="2020-09-29T10:48:54.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="高可用gitlab服务器搭建">
 <meta name="twitter:description" content="[toc] 高可用gitlab服务器搭建 环境准备,单节点部署   CentOS7.4 64C 192G     CentOS7.4 64C 192G    服务器时间同步1~]# ntpdate ntp.aliyun.com 确保SELinux 是关闭的12~]# getenforce Disabled 配置postfix1234~]# yum -y install postfix~]# sed">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/gitlab.jpg">
+<meta name="twitter:image" content="https://www.asjin.com/images/gitlab.jpg">
 
 
 
@@ -133,7 +133,7 @@
 
 
 
-  <link rel="canonical" href="https://www.asjin.com/2020/03/26/高可用gitlab服务器搭建/"/>
+  <link rel="canonical" href="https://www.asjin.com/2020/03/26/高可用gitlab服务器搭建/">
 
 
 
@@ -167,7 +167,7 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">逝水锦遥</span>
         <span class="logo-line-after"><i></i></span>
@@ -197,7 +197,7 @@
         <li class="menu-item menu-item-所有文章">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-linux"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-linux"></i> <br>
             
             所有文章
           </a>
@@ -207,7 +207,7 @@
         <li class="menu-item menu-item-python">
           <a href="/./tags/program" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-gitlab"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-gitlab"></i> <br>
             
             python
           </a>
@@ -217,7 +217,7 @@
         <li class="menu-item menu-item-运维组件">
           <a href="/./tags/rhca" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>
             
             运维组件
           </a>
@@ -227,7 +227,7 @@
         <li class="menu-item menu-item-数据库">
           <a href="/./tags/database" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-database"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-database"></i> <br>
             
             数据库
           </a>
@@ -237,7 +237,7 @@
         <li class="menu-item menu-item-云计算">
           <a href="/./tags/cloud" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-cloud"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-cloud"></i> <br>
             
             云计算
           </a>
@@ -247,7 +247,7 @@
         <li class="menu-item menu-item-成自考">
           <a href="/./tags/zikao" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-drupal"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-drupal"></i> <br>
             
             成自考
           </a>
@@ -257,7 +257,7 @@
         <li class="menu-item menu-item-个人中心">
           <a href="/./tags/renjin" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-user-circle"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-user-circle"></i> <br>
             
             个人中心
           </a>
@@ -267,7 +267,7 @@
         <li class="menu-item menu-item-工具箱">
           <a href="/./box" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-flag"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-flag"></i> <br>
             
             工具箱
           </a>
@@ -280,7 +280,7 @@
             <a href="javascript:;" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
             
             搜索文章
           </a>
@@ -301,9 +301,7 @@
       <i class="fa fa-times-circle"></i>
     </span>
     <div class="local-search-input-wrapper">
-      <input autocomplete="off"
-             placeholder="搜索..." spellcheck="false"
-             type="text" id="local-search-input">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
     </div>
   </div>
   <div id="local-search-result"></div>
@@ -344,7 +342,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="༺ 锦遥 ༻">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/rjyy.ico">
     </span>
 
@@ -392,7 +390,7 @@
           
             <span class="post-meta-divider">|</span>
             <span class="page-pv"><i class="fa fa-file-o"></i>  浏览
-            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>次
             </span>
           
 
@@ -445,7 +443,7 @@
 
       
         <p>[toc]</p>
-<h1 id="高可用gitlab服务器搭建"><a href="#高可用gitlab服务器搭建" class="headerlink" title="高可用gitlab服务器搭建"></a>高可用gitlab服务器搭建</h1><p><img src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/gitlab.jpg" alt=""></p>
+<h1 id="高可用gitlab服务器搭建"><a href="#高可用gitlab服务器搭建" class="headerlink" title="高可用gitlab服务器搭建"></a>高可用gitlab服务器搭建</h1><p><img src="/images/gitlab.jpg" alt></p>
 <h2 id="环境准备-单节点部署"><a href="#环境准备-单节点部署" class="headerlink" title="环境准备,单节点部署"></a>环境准备,单节点部署</h2><table>
 <thead>
 <tr>
@@ -462,23 +460,23 @@
 </tr>
 </tbody>
 </table>
-<h3 id="服务器时间同步"><a href="#服务器时间同步" class="headerlink" title="服务器时间同步"></a>服务器时间同步</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">~]# ntpdate ntp.aliyun.com</div></pre></td></tr></table></figure>
-<h3 id="确保SELinux-是关闭的"><a href="#确保SELinux-是关闭的" class="headerlink" title="确保SELinux 是关闭的"></a>确保SELinux 是关闭的</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">~]# getenforce </div><div class="line">Disabled</div></pre></td></tr></table></figure>
-<h3 id="配置postfix"><a href="#配置postfix" class="headerlink" title="配置postfix"></a>配置postfix</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">~]# yum -y install postfix</div><div class="line">~]# sed -i &apos;s/inet_interfaces = localhost/inet_interfaces = all/g&apos; /etc/postfix/main.cf</div><div class="line">~]# systemctl start postfix</div><div class="line">~]# systemctl restart postfix</div></pre></td></tr></table></figure>
-<h3 id="配置gitlab-ce-yum源并安装"><a href="#配置gitlab-ce-yum源并安装" class="headerlink" title="配置gitlab-ce yum源并安装"></a>配置gitlab-ce yum源并安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">~]# vim /etc/yum.repos.d/gitlab-ce.repo</div><div class="line">[gitlab-ce]</div><div class="line">name=Gitlab CE Repository</div><div class="line">baseurl=https://mirrors.tuna.tsinghua.edu.cn/gitlab-ce/yum/el$releasever/</div><div class="line">gpgcheck=0</div><div class="line">enabled=1</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">~]# yum clean all</div><div class="line">~]# yum makecache </div><div class="line">~]# yum -y install gitlab-ce</div></pre></td></tr></table></figure>
-<h3 id="gitlab-配置"><a href="#gitlab-配置" class="headerlink" title="gitlab 配置"></a>gitlab 配置</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">~]# cd /etc/gitlab/</div><div class="line">~]# cp gitlab.rb&#123;,.bak&#125;</div></pre></td></tr></table></figure>
-<h3 id="gitlab-配置文件"><a href="#gitlab-配置文件" class="headerlink" title="gitlab 配置文件"></a>gitlab 配置文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 地址配置</span></div><div class="line">external_url <span class="string">'https://gitdb.novogene.com'</span></div></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># ldap AD域配置</span></div><div class="line">gitlab_rails[<span class="string">'ldap_enabled'</span>] = <span class="literal">true</span></div><div class="line">gitlab_rails[<span class="string">'ldap_servers'</span>] = YAML.load &lt;&lt;-<span class="string">'EOS'</span></div><div class="line">  main:</div><div class="line">    label: <span class="string">'诺禾AD'</span></div><div class="line">    host: <span class="string">'xx.xxx.xx.xxx'</span></div><div class="line">    port: 3xx</div><div class="line">    uid: <span class="string">'sAMAccountName'</span></div><div class="line">    method: <span class="string">'plain'</span></div><div class="line">    bind_dn: <span class="string">'CN=xxx,OU=xxx,DC=xxx,DC=xxx'</span></div><div class="line">    password: <span class="string">'xxxxxxxx'</span></div><div class="line">    active_directory: <span class="literal">true</span></div><div class="line">    allow_username_or_email_login: ture</div><div class="line">    block_auto_created_users: <span class="literal">false</span></div><div class="line">    base: <span class="string">'OU=xxx,DC=xxx,DC=xxx'</span></div><div class="line">    user_filter: <span class="string">''</span></div><div class="line">EOS</div></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># gitlab 邮件配置</span></div><div class="line">gitlab_rails[<span class="string">'smtp_enable'</span>] = <span class="literal">true</span>;</div><div class="line">gitlab_rails[<span class="string">'smtp_address'</span>] = <span class="string">'smtp.exmail.qq.com'</span>;</div><div class="line">gitlab_rails[<span class="string">'smtp_port'</span>] = 465;</div><div class="line">gitlab_rails[<span class="string">'smtp_user_name'</span>] = <span class="string">"xx@xxxxx.com"</span></div><div class="line">gitlab_rails[<span class="string">'smtp_password'</span>] = <span class="string">"xxxxxxx"</span></div><div class="line">gitlab_rails[<span class="string">'smtp_domain'</span>] = <span class="string">'smtp.exmail.qq.com'</span>;</div><div class="line">gitlab_rails[<span class="string">'smtp_authentication'</span>] = <span class="string">"login"</span></div><div class="line">gitlab_rails[<span class="string">'smtp_enable_starttls_auto'</span>] = <span class="literal">true</span></div><div class="line">gitlab_rails[<span class="string">'smtp_tls'</span>] = <span class="literal">true</span></div><div class="line">gitlab_rails[<span class="string">'gitlab_email_from'</span>] = <span class="string">'xxx@xxxxxx.com'</span></div><div class="line">nginx[<span class="string">'redirect_http_to_https'</span>] = <span class="literal">true</span></div><div class="line">nginx[<span class="string">'ssl_certificate'</span>] = <span class="string">"/etc/gitlab/ssl/gitdb.pem"</span></div><div class="line">nginx[<span class="string">'ssl_certificate_key'</span>] = <span class="string">"/etc/gitlab/ssl/gitdb.key"</span></div><div class="line">nginx[<span class="string">'redirect_http_to_https_port'</span>] = 80</div><div class="line">nginx[<span class="string">'listen_port'</span>] = 443</div></pre></td></tr></table></figure>
-<h2 id="gitlab服务启动"><a href="#gitlab服务启动" class="headerlink" title="gitlab服务启动"></a>gitlab服务启动</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">~]# gitlab-ctl start</div></pre></td></tr></table></figure>
-<h2 id="lsyncd-主从同步配置"><a href="#lsyncd-主从同步配置" class="headerlink" title="lsyncd 主从同步配置"></a>lsyncd 主从同步配置</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">~]<span class="comment">#  /etc/lsyncd.conf </span></div><div class="line">settings &#123;</div><div class="line">    logfile =<span class="string">"/var/log/lsyncd/lsyncd.log"</span>,</div><div class="line">    statusFile =<span class="string">"/var/log/lsyncd/lsyncd.status"</span>,</div><div class="line">    inotifyMode = <span class="string">"Modify"</span>,</div><div class="line">    maxProcesses = 20,</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">sync &#123;</div><div class="line">    default.rsync,</div><div class="line">    <span class="built_in">source</span>    = <span class="string">"/var/opt/gitlab"</span>,</div><div class="line">    target    = <span class="string">"root@172.30.1.17:/var/opt/gitlab/"</span>,</div><div class="line">    exclude = &#123; <span class="string">"backups"</span>, <span class="string">"gitlab-ci"</span>, <span class="string">"sockets"</span>,<span class="string">"gitlab.yml"</span>,<span class="string">"redis"</span>,<span class="string">"postmaster.pid "</span>&#125;,</div><div class="line">    maxDelays = 5,</div><div class="line">    delay = 30,</div><div class="line">    -- init = <span class="literal">true</span>,</div><div class="line">    rsync     = &#123;</div><div class="line">        binary = <span class="string">"/usr/bin/rsync"</span>,</div><div class="line">        archive = <span class="literal">true</span>,</div><div class="line">        compress = <span class="literal">true</span>,</div><div class="line">        bwlimit   = 2000</div><div class="line">        -- rsh = <span class="string">"/usr/bin/ssh -p 22 -o StrictHostKeyChecking=no"</span></div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">sync &#123;</div><div class="line">    default.rsync,</div><div class="line">    <span class="built_in">source</span>    = <span class="string">"/etc/gitlab/"</span>,</div><div class="line">    target    = <span class="string">"root@172.30.1.17:/etc/gitlab/"</span>,</div><div class="line">    maxDelays = 5,</div><div class="line">    delay = 30,</div><div class="line">    -- init = <span class="literal">true</span>,</div><div class="line">    rsync     = &#123;</div><div class="line">        binary = <span class="string">"/usr/bin/rsync"</span>,</div><div class="line">        archive = <span class="literal">true</span>,</div><div class="line">        compress = <span class="literal">true</span>,</div><div class="line">        bwlimit   = 2000</div><div class="line">        -- rsh = <span class="string">"/usr/bin/ssh -p 22 -o StrictHostKeyChecking=no"</span></div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">! Configuration File <span class="keyword">for</span> keepalived</div><div class="line">global_defs &#123;</div><div class="line">   notification_email &#123;</div><div class="line">     root@localhost</div><div class="line">   &#125;</div><div class="line">   notification_email_from Alexandre.Cassen@firewall.loc</div><div class="line">   smtp_server 127.0.0.1</div><div class="line">   smtp_connect_timeout 30</div><div class="line">   router_id node1</div><div class="line">   &#125;</div><div class="line">vrrp_script chk_gitlab &#123;</div><div class="line">    script <span class="string">"/bin/bash /usr/local/keepalived/etc/keepalived/check_gitlab.sh"</span></div><div class="line">    interval 5</div><div class="line">    weight -20</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">vrrp_instance VI_1 &#123;</div><div class="line">    state BACKUP</div><div class="line">    interface em1</div><div class="line">    virtual_router_id 55</div><div class="line">    priority 100</div><div class="line">    nopreempt</div><div class="line">    advert_int 1</div><div class="line">    notify_master <span class="string">"/usr/local/keepalived/etc/keepalived/message.sh  master"</span></div><div class="line">    notify_backup <span class="string">"/usr/local/keepalived/etc/keepalived/message.sh  backup"</span></div><div class="line">    notify_fault  <span class="string">"/usr/local/keepalived/etc/keepalived/message.sh  fault"</span></div><div class="line">    unicast_src_ip 172.30.1.16</div><div class="line">    unicast_peer &#123;</div><div class="line">     172.30.1.17</div><div class="line">    &#125;</div><div class="line">    track_script &#123;</div><div class="line">       chk_gitlab</div><div class="line">    &#125;</div><div class="line">    authentication &#123;</div><div class="line">        auth_type PASS</div><div class="line">        auth_pass xxxxxxxx</div><div class="line">    &#125;</div><div class="line">    virtual_ipaddress &#123;</div><div class="line">        172.30.1.20</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="keepalived-检测脚本"><a href="#keepalived-检测脚本" class="headerlink" title="keepalived 检测脚本"></a>keepalived 检测脚本</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#!/bin/bash</span></div><div class="line"><span class="function"><span class="title">package</span></span>() &#123;</div><div class="line">    rpm -qf /usr/bin/curl &amp;&gt; /dev/null || yum -y install curl &amp;&gt; /dev/null</div><div class="line">&#125;</div><div class="line">package</div><div class="line"><span class="function"><span class="title">gitlab_state</span></span> () &#123; </div><div class="line">    /usr/bin/curl -s  https://gitdb.novogene.com/users/sign_in | grep <span class="string">"Username"</span> &amp;&gt; /dev/null</div><div class="line">&#125;</div><div class="line">gitlab_state ; gitlab_state_num=$? ; <span class="built_in">echo</span> <span class="variable">$gitlab_state_num</span></div><div class="line"><span class="function"><span class="title">gitlab_state2</span></span> () &#123;</div><div class="line">   /usr/bin/curl -s  https://gitdb.novogene.com/users/sign_in | grep <span class="string">"Password"</span> &amp;&gt; /dev/null</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="title">kill_keepalived</span></span> () &#123;</div><div class="line">      <span class="built_in">kill</span> -9 `cat /var/run/keepalived.pid`</div><div class="line">&#125;</div><div class="line"><span class="keyword">if</span> [ <span class="variable">$gitlab_state_num</span> -ne 0 ] ; <span class="keyword">then</span></div><div class="line">   <span class="built_in">echo</span> <span class="string">"`date +"</span>%Y-%m-%d-%H-%M-%S<span class="string">"` gitlab_status_one_check problem "</span> &gt;&gt; /var/<span class="built_in">log</span>/keepalived/check_gitlab.log</div><div class="line">   gitlab_state2 ; gitlab_state2_num=$? ; <span class="built_in">echo</span> <span class="variable">$gitlab_state2_num</span> </div><div class="line">   <span class="keyword">if</span> [ <span class="variable">$gitlab_state2_num</span> -ne 0 ] ; <span class="keyword">then</span></div><div class="line">        <span class="built_in">echo</span> <span class="string">"`date +"</span>%Y-%m-%d-%H-%M-%S<span class="string">"`  gitlab_status2_one_check problem"</span> &gt;&gt; /var/<span class="built_in">log</span>/keepalived/check_gitlab.log     </div><div class="line">        sleep 1</div><div class="line">   <span class="keyword">fi</span></div><div class="line"><span class="keyword">fi</span></div><div class="line">gitlab_state ; gitlab_state_num=$? ; <span class="built_in">echo</span> <span class="variable">$gitlab_state_num</span></div><div class="line"><span class="keyword">if</span> [ <span class="variable">$gitlab_state_num</span> -ne 0 ] ; <span class="keyword">then</span></div><div class="line">    <span class="built_in">echo</span> <span class="string">"`date +"</span>%Y-%m-%d-%H-%M-%S<span class="string">"` gitlab_status_two_check problem "</span> &gt;&gt; /var/<span class="built_in">log</span>/keepalived/check_gitlab.log</div><div class="line">    gitlab_state2 ; gitlab_state2_num=$? ; <span class="built_in">echo</span> <span class="variable">$gitlab_state2_num</span> </div><div class="line">    <span class="keyword">if</span> [ <span class="variable">$gitlab_state2_num</span> -ne 0 ] ; <span class="keyword">then</span></div><div class="line">        <span class="built_in">echo</span> <span class="string">"`date +"</span>%Y-%m-%d-%H-%M-%S<span class="string">"` gitlab_status2_two_check problem "</span> &gt;&gt; /var/<span class="built_in">log</span>/keepalived/check_gitlab.log</div><div class="line">        <span class="built_in">echo</span> <span class="string">"gitdb jiqun change node1"</span> | mutt -s <span class="string">"gitdb.novogene.com"</span> renjin@novogene.com</div><div class="line">        kill_keepalived</div><div class="line">   <span class="keyword">fi</span></div><div class="line"><span class="keyword">fi</span></div></pre></td></tr></table></figure>
-<h2 id="git-客户端常用命令"><a href="#git-客户端常用命令" class="headerlink" title="git 客户端常用命令"></a>git 客户端常用命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"># git config --global user.name &quot;name&quot; #设置全局用户名</div><div class="line"># git config --global user.email  xxx@novogene.com # 设置全局邮箱</div><div class="line"># git config --global --list #列出用户全局设置</div><div class="line"># git add index.html / . #添加指定文件、目录或当前目录下所有数据到暂存区</div><div class="line"># git commit -m &quot;xx&quot; #提交文件到工作区</div><div class="line"># git status #查看工作区的状态</div><div class="line"># git push #提交代码到服务器</div><div class="line"># git pull # 获取代码到本地</div><div class="line"># git log # 查看操作日志</div><div class="line"># vim .gitignore  # 定义忽略文件</div><div class="line"># git rest --hard HEAD^^ # git版本回滚，HEAD为当前版本，加一个^为上一个，^^为上上一个版本</div><div class="line"># git reflog # 获取每次提交的ID,可以使用--hard根据提交的ID进行版本回退</div><div class="line"># git reset --hard 5ae4b06 #回退到指定id的版本</div><div class="line"># git branch # 查看当前所处的分支</div><div class="line"># git checkout -b develop # 创建并切换到一个新分支</div><div class="line"># git checkout  develop #切换分支</div></pre></td></tr></table></figure>
+<h3 id="服务器时间同步"><a href="#服务器时间同步" class="headerlink" title="服务器时间同步"></a>服务器时间同步</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~]# ntpdate ntp.aliyun.com</span><br></pre></td></tr></table></figure>
+<h3 id="确保SELinux-是关闭的"><a href="#确保SELinux-是关闭的" class="headerlink" title="确保SELinux 是关闭的"></a>确保SELinux 是关闭的</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">~]# getenforce </span><br><span class="line">Disabled</span><br></pre></td></tr></table></figure>
+<h3 id="配置postfix"><a href="#配置postfix" class="headerlink" title="配置postfix"></a>配置postfix</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">~]# yum -y install postfix</span><br><span class="line">~]# sed -i &apos;s/inet_interfaces = localhost/inet_interfaces = all/g&apos; /etc/postfix/main.cf</span><br><span class="line">~]# systemctl start postfix</span><br><span class="line">~]# systemctl restart postfix</span><br></pre></td></tr></table></figure>
+<h3 id="配置gitlab-ce-yum源并安装"><a href="#配置gitlab-ce-yum源并安装" class="headerlink" title="配置gitlab-ce yum源并安装"></a>配置gitlab-ce yum源并安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">~]# vim /etc/yum.repos.d/gitlab-ce.repo</span><br><span class="line">[gitlab-ce]</span><br><span class="line">name=Gitlab CE Repository</span><br><span class="line">baseurl=https://mirrors.tuna.tsinghua.edu.cn/gitlab-ce/yum/el$releasever/</span><br><span class="line">gpgcheck=0</span><br><span class="line">enabled=1</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">~]# yum clean all</span><br><span class="line">~]# yum makecache </span><br><span class="line">~]# yum -y install gitlab-ce</span><br></pre></td></tr></table></figure>
+<h3 id="gitlab-配置"><a href="#gitlab-配置" class="headerlink" title="gitlab 配置"></a>gitlab 配置</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">~]# cd /etc/gitlab/</span><br><span class="line">~]# cp gitlab.rb&#123;,.bak&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="gitlab-配置文件"><a href="#gitlab-配置文件" class="headerlink" title="gitlab 配置文件"></a>gitlab 配置文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 地址配置</span></span><br><span class="line">external_url <span class="string">'https://gitdb.novogene.com'</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ldap AD域配置</span></span><br><span class="line">gitlab_rails[<span class="string">'ldap_enabled'</span>] = <span class="literal">true</span></span><br><span class="line">gitlab_rails[<span class="string">'ldap_servers'</span>] = YAML.load &lt;&lt;-<span class="string">'EOS'</span></span><br><span class="line">  main:</span><br><span class="line">    label: <span class="string">'诺禾AD'</span></span><br><span class="line">    host: <span class="string">'xx.xxx.xx.xxx'</span></span><br><span class="line">    port: 3xx</span><br><span class="line">    uid: <span class="string">'sAMAccountName'</span></span><br><span class="line">    method: <span class="string">'plain'</span></span><br><span class="line">    bind_dn: <span class="string">'CN=xxx,OU=xxx,DC=xxx,DC=xxx'</span></span><br><span class="line">    password: <span class="string">'xxxxxxxx'</span></span><br><span class="line">    active_directory: <span class="literal">true</span></span><br><span class="line">    allow_username_or_email_login: ture</span><br><span class="line">    block_auto_created_users: <span class="literal">false</span></span><br><span class="line">    base: <span class="string">'OU=xxx,DC=xxx,DC=xxx'</span></span><br><span class="line">    user_filter: <span class="string">''</span></span><br><span class="line">EOS</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># gitlab 邮件配置</span></span><br><span class="line">gitlab_rails[<span class="string">'smtp_enable'</span>] = <span class="literal">true</span>;</span><br><span class="line">gitlab_rails[<span class="string">'smtp_address'</span>] = <span class="string">'smtp.exmail.qq.com'</span>;</span><br><span class="line">gitlab_rails[<span class="string">'smtp_port'</span>] = 465;</span><br><span class="line">gitlab_rails[<span class="string">'smtp_user_name'</span>] = <span class="string">"xx@xxxxx.com"</span></span><br><span class="line">gitlab_rails[<span class="string">'smtp_password'</span>] = <span class="string">"xxxxxxx"</span></span><br><span class="line">gitlab_rails[<span class="string">'smtp_domain'</span>] = <span class="string">'smtp.exmail.qq.com'</span>;</span><br><span class="line">gitlab_rails[<span class="string">'smtp_authentication'</span>] = <span class="string">"login"</span></span><br><span class="line">gitlab_rails[<span class="string">'smtp_enable_starttls_auto'</span>] = <span class="literal">true</span></span><br><span class="line">gitlab_rails[<span class="string">'smtp_tls'</span>] = <span class="literal">true</span></span><br><span class="line">gitlab_rails[<span class="string">'gitlab_email_from'</span>] = <span class="string">'xxx@xxxxxx.com'</span></span><br><span class="line">nginx[<span class="string">'redirect_http_to_https'</span>] = <span class="literal">true</span></span><br><span class="line">nginx[<span class="string">'ssl_certificate'</span>] = <span class="string">"/etc/gitlab/ssl/gitdb.pem"</span></span><br><span class="line">nginx[<span class="string">'ssl_certificate_key'</span>] = <span class="string">"/etc/gitlab/ssl/gitdb.key"</span></span><br><span class="line">nginx[<span class="string">'redirect_http_to_https_port'</span>] = 80</span><br><span class="line">nginx[<span class="string">'listen_port'</span>] = 443</span><br></pre></td></tr></table></figure>
+<h2 id="gitlab服务启动"><a href="#gitlab服务启动" class="headerlink" title="gitlab服务启动"></a>gitlab服务启动</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~]# gitlab-ctl start</span><br></pre></td></tr></table></figure>
+<h2 id="lsyncd-主从同步配置"><a href="#lsyncd-主从同步配置" class="headerlink" title="lsyncd 主从同步配置"></a>lsyncd 主从同步配置</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">~]<span class="comment">#  /etc/lsyncd.conf </span></span><br><span class="line">settings &#123;</span><br><span class="line">    logfile =<span class="string">"/var/log/lsyncd/lsyncd.log"</span>,</span><br><span class="line">    statusFile =<span class="string">"/var/log/lsyncd/lsyncd.status"</span>,</span><br><span class="line">    inotifyMode = <span class="string">"Modify"</span>,</span><br><span class="line">    maxProcesses = 20,</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">sync &#123;</span><br><span class="line">    default.rsync,</span><br><span class="line">    <span class="built_in">source</span>    = <span class="string">"/var/opt/gitlab"</span>,</span><br><span class="line">    target    = <span class="string">"root@172.30.1.17:/var/opt/gitlab/"</span>,</span><br><span class="line">    exclude = &#123; <span class="string">"backups"</span>, <span class="string">"gitlab-ci"</span>, <span class="string">"sockets"</span>,<span class="string">"gitlab.yml"</span>,<span class="string">"redis"</span>,<span class="string">"postmaster.pid "</span>&#125;,</span><br><span class="line">    maxDelays = 5,</span><br><span class="line">    delay = 30,</span><br><span class="line">    -- init = <span class="literal">true</span>,</span><br><span class="line">    rsync     = &#123;</span><br><span class="line">        binary = <span class="string">"/usr/bin/rsync"</span>,</span><br><span class="line">        archive = <span class="literal">true</span>,</span><br><span class="line">        compress = <span class="literal">true</span>,</span><br><span class="line">        bwlimit   = 2000</span><br><span class="line">        -- rsh = <span class="string">"/usr/bin/ssh -p 22 -o StrictHostKeyChecking=no"</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">sync &#123;</span><br><span class="line">    default.rsync,</span><br><span class="line">    <span class="built_in">source</span>    = <span class="string">"/etc/gitlab/"</span>,</span><br><span class="line">    target    = <span class="string">"root@172.30.1.17:/etc/gitlab/"</span>,</span><br><span class="line">    maxDelays = 5,</span><br><span class="line">    delay = 30,</span><br><span class="line">    -- init = <span class="literal">true</span>,</span><br><span class="line">    rsync     = &#123;</span><br><span class="line">        binary = <span class="string">"/usr/bin/rsync"</span>,</span><br><span class="line">        archive = <span class="literal">true</span>,</span><br><span class="line">        compress = <span class="literal">true</span>,</span><br><span class="line">        bwlimit   = 2000</span><br><span class="line">        -- rsh = <span class="string">"/usr/bin/ssh -p 22 -o StrictHostKeyChecking=no"</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">! Configuration File <span class="keyword">for</span> keepalived</span><br><span class="line">global_defs &#123;</span><br><span class="line">   notification_email &#123;</span><br><span class="line">     root@localhost</span><br><span class="line">   &#125;</span><br><span class="line">   notification_email_from Alexandre.Cassen@firewall.loc</span><br><span class="line">   smtp_server 127.0.0.1</span><br><span class="line">   smtp_connect_timeout 30</span><br><span class="line">   router_id node1</span><br><span class="line">   &#125;</span><br><span class="line">vrrp_script chk_gitlab &#123;</span><br><span class="line">    script <span class="string">"/bin/bash /usr/local/keepalived/etc/keepalived/check_gitlab.sh"</span></span><br><span class="line">    interval 5</span><br><span class="line">    weight -20</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">vrrp_instance VI_1 &#123;</span><br><span class="line">    state BACKUP</span><br><span class="line">    interface em1</span><br><span class="line">    virtual_router_id 55</span><br><span class="line">    priority 100</span><br><span class="line">    nopreempt</span><br><span class="line">    advert_int 1</span><br><span class="line">    notify_master <span class="string">"/usr/local/keepalived/etc/keepalived/message.sh  master"</span></span><br><span class="line">    notify_backup <span class="string">"/usr/local/keepalived/etc/keepalived/message.sh  backup"</span></span><br><span class="line">    notify_fault  <span class="string">"/usr/local/keepalived/etc/keepalived/message.sh  fault"</span></span><br><span class="line">    unicast_src_ip 172.30.1.16</span><br><span class="line">    unicast_peer &#123;</span><br><span class="line">     172.30.1.17</span><br><span class="line">    &#125;</span><br><span class="line">    track_script &#123;</span><br><span class="line">       chk_gitlab</span><br><span class="line">    &#125;</span><br><span class="line">    authentication &#123;</span><br><span class="line">        auth_type PASS</span><br><span class="line">        auth_pass xxxxxxxx</span><br><span class="line">    &#125;</span><br><span class="line">    virtual_ipaddress &#123;</span><br><span class="line">        172.30.1.20</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="keepalived-检测脚本"><a href="#keepalived-检测脚本" class="headerlink" title="keepalived 检测脚本"></a>keepalived 检测脚本</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="function"><span class="title">package</span></span>() &#123;</span><br><span class="line">    rpm -qf /usr/bin/curl &amp;&gt; /dev/null || yum -y install curl &amp;&gt; /dev/null</span><br><span class="line">&#125;</span><br><span class="line">package</span><br><span class="line"><span class="function"><span class="title">gitlab_state</span></span> () &#123; </span><br><span class="line">    /usr/bin/curl -s  https://gitdb.novogene.com/users/sign_in | grep <span class="string">"Username"</span> &amp;&gt; /dev/null</span><br><span class="line">&#125;</span><br><span class="line">gitlab_state ; gitlab_state_num=$? ; <span class="built_in">echo</span> <span class="variable">$gitlab_state_num</span></span><br><span class="line"><span class="function"><span class="title">gitlab_state2</span></span> () &#123;</span><br><span class="line">   /usr/bin/curl -s  https://gitdb.novogene.com/users/sign_in | grep <span class="string">"Password"</span> &amp;&gt; /dev/null</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="title">kill_keepalived</span></span> () &#123;</span><br><span class="line">      <span class="built_in">kill</span> -9 `cat /var/run/keepalived.pid`</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span> [ <span class="variable">$gitlab_state_num</span> -ne 0 ] ; <span class="keyword">then</span></span><br><span class="line">   <span class="built_in">echo</span> <span class="string">"`date +"</span>%Y-%m-%d-%H-%M-%S<span class="string">"` gitlab_status_one_check problem "</span> &gt;&gt; /var/<span class="built_in">log</span>/keepalived/check_gitlab.log</span><br><span class="line">   gitlab_state2 ; gitlab_state2_num=$? ; <span class="built_in">echo</span> <span class="variable">$gitlab_state2_num</span> </span><br><span class="line">   <span class="keyword">if</span> [ <span class="variable">$gitlab_state2_num</span> -ne 0 ] ; <span class="keyword">then</span></span><br><span class="line">        <span class="built_in">echo</span> <span class="string">"`date +"</span>%Y-%m-%d-%H-%M-%S<span class="string">"`  gitlab_status2_one_check problem"</span> &gt;&gt; /var/<span class="built_in">log</span>/keepalived/check_gitlab.log     </span><br><span class="line">        sleep 1</span><br><span class="line">   <span class="keyword">fi</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line">gitlab_state ; gitlab_state_num=$? ; <span class="built_in">echo</span> <span class="variable">$gitlab_state_num</span></span><br><span class="line"><span class="keyword">if</span> [ <span class="variable">$gitlab_state_num</span> -ne 0 ] ; <span class="keyword">then</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">"`date +"</span>%Y-%m-%d-%H-%M-%S<span class="string">"` gitlab_status_two_check problem "</span> &gt;&gt; /var/<span class="built_in">log</span>/keepalived/check_gitlab.log</span><br><span class="line">    gitlab_state2 ; gitlab_state2_num=$? ; <span class="built_in">echo</span> <span class="variable">$gitlab_state2_num</span> </span><br><span class="line">    <span class="keyword">if</span> [ <span class="variable">$gitlab_state2_num</span> -ne 0 ] ; <span class="keyword">then</span></span><br><span class="line">        <span class="built_in">echo</span> <span class="string">"`date +"</span>%Y-%m-%d-%H-%M-%S<span class="string">"` gitlab_status2_two_check problem "</span> &gt;&gt; /var/<span class="built_in">log</span>/keepalived/check_gitlab.log</span><br><span class="line">        <span class="built_in">echo</span> <span class="string">"gitdb jiqun change node1"</span> | mutt -s <span class="string">"gitdb.novogene.com"</span> renjin@novogene.com</span><br><span class="line">        kill_keepalived</span><br><span class="line">   <span class="keyword">fi</span></span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
+<h2 id="git-客户端常用命令"><a href="#git-客户端常用命令" class="headerlink" title="git 客户端常用命令"></a>git 客户端常用命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"># git config --global user.name &quot;name&quot; #设置全局用户名</span><br><span class="line"># git config --global user.email  xxx@novogene.com # 设置全局邮箱</span><br><span class="line"># git config --global --list #列出用户全局设置</span><br><span class="line"># git add index.html / . #添加指定文件、目录或当前目录下所有数据到暂存区</span><br><span class="line"># git commit -m &quot;xx&quot; #提交文件到工作区</span><br><span class="line"># git status #查看工作区的状态</span><br><span class="line"># git push #提交代码到服务器</span><br><span class="line"># git pull # 获取代码到本地</span><br><span class="line"># git log # 查看操作日志</span><br><span class="line"># vim .gitignore  # 定义忽略文件</span><br><span class="line"># git rest --hard HEAD^^ # git版本回滚，HEAD为当前版本，加一个^为上一个，^^为上上一个版本</span><br><span class="line"># git reflog # 获取每次提交的ID,可以使用--hard根据提交的ID进行版本回退</span><br><span class="line"># git reset --hard 5ae4b06 #回退到指定id的版本</span><br><span class="line"># git branch # 查看当前所处的分支</span><br><span class="line"># git checkout -b develop # 创建并切换到一个新分支</span><br><span class="line"># git checkout  develop #切换分支</span><br></pre></td></tr></table></figure>
 <h2 id="git缓存区与工作区等概念"><a href="#git缓存区与工作区等概念" class="headerlink" title="git缓存区与工作区等概念"></a>git缓存区与工作区等概念</h2><ul>
 <li>工作区: clone 的代码或者开发自己编写的代码文件所在的目录，通常是代码所在的一个服务的目录名称;</li>
 </ul>
@@ -491,11 +489,11 @@
 </li>
 </ul>
 <h2 id="macos-安装-git"><a href="#macos-安装-git" class="headerlink" title="macos 安装 git"></a>macos 安装 git</h2><p>未安装 Homebrew 的需要先安装Homebrew</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># /usr/bin/ruby -e \ </span></div><div class="line"><span class="string">"<span class="variable">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span>"</span></div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># /usr/bin/ruby -e \ </span></span><br><span class="line"><span class="string">"<span class="variable">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span>"</span></span><br></pre></td></tr></table></figure>
 <p>安装git</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># brew install git</div></pre></td></tr></table></figure>
-<h2 id="CentOS-安装-git"><a href="#CentOS-安装-git" class="headerlink" title="CentOS 安装 git"></a>CentOS 安装 git</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># yum -y install git</div></pre></td></tr></table></figure>
-<h2 id="Ubuntu-安装-git"><a href="#Ubuntu-安装-git" class="headerlink" title="Ubuntu 安装 git"></a>Ubuntu 安装 git</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># apt-get install git</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># brew install git</span><br></pre></td></tr></table></figure>
+<h2 id="CentOS-安装-git"><a href="#CentOS-安装-git" class="headerlink" title="CentOS 安装 git"></a>CentOS 安装 git</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># yum -y install git</span><br></pre></td></tr></table></figure>
+<h2 id="Ubuntu-安装-git"><a href="#Ubuntu-安装-git" class="headerlink" title="Ubuntu 安装 git"></a>Ubuntu 安装 git</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># apt-get install git</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -515,14 +513,14 @@
 
     
       <div id="wechat" style="display: inline-block">
-        <img id="wechat_qr" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/weipei.png" alt="༺ 锦遥 ༻ 微信支付"/>
+        <img id="wechat_qr" src="/images/weipei.png" alt="༺ 锦遥 ༻ 微信支付">
         <p>微信支付</p>
       </div>
     
 
     
       <div id="alipay" style="display: inline-block">
-        <img id="alipay_qr" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/zhipei.png" alt="༺ 锦遥 ༻ 支付宝"/>
+        <img id="alipay_qr" src="/images/zhipei.png" alt="༺ 锦遥 ༻ 支付宝">
         <p>支付宝</p>
       </div>
     
@@ -659,9 +657,7 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image"
-                src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/rjyy.ico"
-                alt="༺ 锦遥 ༻" />
+              <img class="site-author-image" itemprop="image" src="/images/rjyy.ico" alt="༺ 锦遥 ༻">
             
               <p class="site-author-name" itemprop="name">༺ 锦遥 ༻</p>
               <p class="site-description motion-element" itemprop="description">不急不燥，稳步推进
@@ -676,7 +672,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">81</span>
+                  <span class="site-state-item-count">84</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -699,7 +695,7 @@
 
           
             <div class="feed-link motion-element">
-              <a href="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io@master/atom.xml" rel="alternate">
+              <a href="/atom.xml" rel="alternate">
                 <i class="fa fa-rss"></i>
                 RSS
               </a>
@@ -778,8 +774,8 @@
 
 <!-- 数字雨 -->
 <canvas id="canvas" width="1440" height="1080"></canvas>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/DigitalRain.js"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css"/>
+<script type="text/javascript" src="/js/DigitalRain.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
     </main>
 
     <footer id="footer" class="footer">
@@ -798,7 +794,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">206.6k</span>
+    <span title="Site words total count">208.1k</span>
   
   <span>   |   </span>
 <span id="showDays"></span>
@@ -811,10 +807,10 @@
 
 
 
-<div class=BbeiAn-info style="color:#8B0000">
+<div class="BbeiAn-info" style="color:#8B0000">
 晋ICP备 -
-    <a href="http://www.beian.miit.gov.cn/" style='color:red;'>17010575号-1 && 17010575号-4</a>
-</a>
+    <a href="http://www.beian.miit.gov.cn/" style="color:red;">17010575号-1 && 17010575号-4</a>
+
 </div>
 <!-- time -->
 <div id="show-time">
@@ -846,11 +842,11 @@ var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours
 }, 1000);
 </script>
 <script src="https://pv.sohu.com/cityjson?ie=utf-8"></script>
-<script src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/ip.js"></script>
+<script src="/js/ip.js"></script>
 
         
 <div class="busuanzi-count">
-  <script async src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/busuanzi.pure.mini.js"></script>
+  <script async src="/js/busuanzi.pure.mini.js"></script>
   
     <span class="site-uv">
       <i class="fa fa-user"></i> 訪客數
@@ -889,8 +885,8 @@ var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours
     
 
 <script src="/live2d-widget/autoload.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard.min.js"></script>  
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard-use.js"></script>
+<script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
+<script type="text/javascript" src="/js/src/clipboard-use.js"></script>
   </div>
 
   
@@ -957,32 +953,32 @@ var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours
   
 
 
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/utils.js?v=5.1.3"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
 
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/motion.js?v=5.1.3"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/affix.js?v=5.1.3"></script>
-
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/schemes/pisces.js?v=5.1.3"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
 
 
 
   
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/scrollspy.js?v=5.1.3"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/post-details.js?v=5.1.3"></script>
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
 
 
 
   
 
 
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/bootstrap.js?v=5.1.3"></script>
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
 
 
 
@@ -1384,7 +1380,7 @@ var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours
   <!-- 点击特效 -->
 
 
-  <script src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/activate-power-mode.min.js"></script>
+  <script src="/js/activate-power-mode.min.js"></script>
     <script>
 	    POWERMODE.colorful = true;
     POWERMODE.shake = false;
@@ -1392,11 +1388,11 @@ var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours
 	  </script>
 
 
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard.min.js"></script>  
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard-use.js"></script>
+<script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
+<script type="text/javascript" src="/js/src/clipboard-use.js"></script>
 <!--点击冒点-->
 <canvas width="1777" height="841" style="position: fixed; left: 0px; top: 0px; z-index: 2147483647; pointer-events: none;"></canvas>
-<script src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/maodian.js"></script>
+<script src="/js/maodian.js"></script>
 <canvas width="1390" height="797" style="position: fixed; left: 0px; top: 0px; z-index: 2147483647; pointer-events: none;"></canvas>
 </body>
 </html>

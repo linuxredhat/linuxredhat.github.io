@@ -23,13 +23,6 @@
     </url>
 
     <url>
-        <loc>https://www.asjin.com/tags/rhca/</loc>
-        <lastmod>2020-09-29T11:05:45.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://www.asjin.com/tags/cloud/</loc>
         <lastmod>2020-10-12T11:26:54.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -37,15 +30,22 @@
     </url>
 
     <url>
+        <loc>https://www.asjin.com/tags/rhca/</loc>
+        <lastmod>2020-10-19T09:01:44.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://www.asjin.com/tags/linux/</loc>
-        <lastmod>2020-10-18T09:35:33.000Z</lastmod>
+        <lastmod>2020-10-19T11:41:02.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://www.asjin.com/tags/program/</loc>
-        <lastmod>2020-10-18T09:35:33.000Z</lastmod>
+        <lastmod>2020-10-19T11:41:02.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
