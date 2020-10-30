@@ -5,11 +5,11 @@
   
 
 <!-- 代码块复制功能 -->
-<!--<script type="text/javascript" src="/js/src/clipboard.min.js"></script> --> 
-<script type="text/javascript" src="/js/src/clipboard-use.js"></script>
-<script src="/js/instantclick-1.2.2.js" type="module"></script>
+<!--<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard.min.js"></script> --> 
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard-use.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/instantclick-1.2.2.js" type="module"></script>
 <!--崩溃欺骗-->
-<script type="text/javascript" src="/js/src/crash_cheat.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/crash_cheat.js"></script>
 <html class="theme-next gemini use-motion" lang="zh-Hans">
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
@@ -82,7 +82,7 @@
 
 
 
-  <link rel="alternate" href="/atom.xml" title="逝水锦遥" type="application/atom+xml">
+  <link rel="alternate" href="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io@master/atom.xml" title="逝水锦遥" type="application/atom+xml">
 
 
 
@@ -97,13 +97,13 @@
 <meta property="og:site_name" content="逝水锦遥">
 <meta property="og:description" content="[toc] python 表格操作将awk生成的数据导入表格pandas ：pannel data analysis（面板数据分析）。pandas是基于numpy构建的，为时间序列分析提供了很好的支持。pandas中有两个主要的数据结构，一个是Series，另一个是DataFrame。 Series 类似于一维数组与字典(map)数据结构的结合。它由一组数据和一组与数据相对应的数据标签（索引ind">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://www.asjin.com/images/python-pandas1.png">
-<meta property="og:image" content="https://www.asjin.com/images/python-pandas1.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/python-pandas1.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/python-pandas1.png">
 <meta property="og:updated_time" content="2020-09-29T10:48:27.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python表格操作">
 <meta name="twitter:description" content="[toc] python 表格操作将awk生成的数据导入表格pandas ：pannel data analysis（面板数据分析）。pandas是基于numpy构建的，为时间序列分析提供了很好的支持。pandas中有两个主要的数据结构，一个是Series，另一个是DataFrame。 Series 类似于一维数组与字典(map)数据结构的结合。它由一组数据和一组与数据相对应的数据标签（索引ind">
-<meta name="twitter:image" content="https://www.asjin.com/images/python-pandas1.png">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/python-pandas1.png">
 
 
 
@@ -444,10 +444,10 @@
 
       
         <p>[toc]</p>
-<h1 id="python-表格操作"><a href="#python-表格操作" class="headerlink" title="python 表格操作"></a>python 表格操作</h1><h2 id="将awk生成的数据导入表格"><a href="#将awk生成的数据导入表格" class="headerlink" title="将awk生成的数据导入表格"></a>将awk生成的数据导入表格</h2><p><img src="/images/python-pandas1.png" alt><br>pandas ：pannel data analysis（面板数据分析）。pandas是基于numpy构建的，为时间序列分析提供了很好的支持。pandas中有两个主要的数据结构，一个是Series，另一个是DataFrame。</p>
+<h1 id="python-表格操作"><a href="#python-表格操作" class="headerlink" title="python 表格操作"></a>python 表格操作</h1><h2 id="将awk生成的数据导入表格"><a href="#将awk生成的数据导入表格" class="headerlink" title="将awk生成的数据导入表格"></a>将awk生成的数据导入表格</h2><p><img src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/python-pandas1.png" alt><br>pandas ：pannel data analysis（面板数据分析）。pandas是基于numpy构建的，为时间序列分析提供了很好的支持。pandas中有两个主要的数据结构，一个是Series，另一个是DataFrame。</p>
 <p>Series 类似于一维数组与字典(map)数据结构的结合。它由一组数据和一组与数据相对应的数据标签（索引index）组成。这组数据和索引标签的基础都是一个一维ndarray数组。可将index索引理解为行索引。 Series的表现形式为：索引在左，数据在右。</p>
 <p>DataFrame是一个类似表格的数据结构，索引包括列索引和行索引，包含有一组有序的列，每列可以是不同的值类型（数值、字符串、布尔值等）。DataFrame的每一行和每一列都是一个Series，这个Series的name属性为当前的行索引名/列索引名。</p>
-<p><img src="/images/python-pandas1.png" alt="python-pandas1"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/python-pandas1.png" alt="python-pandas1"></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">import</span> openpyxl <span class="keyword">as</span> xl</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> datetime</span><br><span class="line"></span><br><span class="line">cycle=<span class="number">38</span></span><br><span class="line">time_year_month_day = str(datetime.date.today()-datetime.timedelta(days=cycle))</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">proj_xls_to_xlsx</span><span class="params">(file_path,sheet_name,save_name,tableTitle=None)</span>:</span></span><br><span class="line">    <span class="keyword">with</span> open(file_path) <span class="keyword">as</span> f:</span><br><span class="line">        data = f.readlines()</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(save_name):</span><br><span class="line">        wb = xl.Workbook()</span><br><span class="line">        wb.save(save_name)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        wb = xl.load_workbook(save_name)</span><br><span class="line">    ws1 = wb.create_sheet(<span class="number">0</span>)</span><br><span class="line">    ws1.title = sheet_name</span><br><span class="line">    <span class="keyword">if</span> tableTitle != <span class="keyword">None</span>:</span><br><span class="line">        <span class="keyword">for</span> n <span class="keyword">in</span> range(len(tableTitle)):</span><br><span class="line">            c = n + <span class="number">1</span></span><br><span class="line">            ws1.cell(row=<span class="number">1</span>, column=c).value = tableTitle[n]</span><br><span class="line">    <span class="keyword">for</span> d <span class="keyword">in</span> data:</span><br><span class="line">        value = d.split(<span class="string">'\t'</span>)</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line"></span><br><span class="line">           <span class="comment"># print(value)</span></span><br><span class="line">            value[<span class="number">5</span>]=float(value[<span class="number">5</span>])</span><br><span class="line">        <span class="keyword">except</span>:</span><br><span class="line">            <span class="keyword">pass</span></span><br><span class="line">        ws1.append(value)</span><br><span class="line">    wb.save(save_name)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">crate_shuju_toushi</span><span class="params">(save_name,sheet_name,sheet_name2,index_name,values_name,department_name,new_department_name,personnel_name)</span>:</span></span><br><span class="line">    f = pd.read_excel(io=save_name,sheet_name=sheet_name)</span><br><span class="line">    res = pd.pivot_table(f,index=[index_name],values=[values_name],aggfunc=np.sum, margins=<span class="keyword">True</span>)</span><br><span class="line"></span><br><span class="line">    wb = xl.load_workbook(save_name)</span><br><span class="line">    old_title = wb.worksheets[<span class="number">0</span>]</span><br><span class="line">    old_title.title = sheet_name2</span><br><span class="line"></span><br><span class="line">    all_xinxi_title=list(zip(list((res.index)),list(res[values_name])))</span><br><span class="line">    department_personnel = list(zip(f[department_name],f[index_name]))</span><br><span class="line">    department_personnel_size_list = []</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> user <span class="keyword">in</span> all_xinxi_title:</span><br><span class="line">         <span class="keyword">for</span> department_personnel_list <span class="keyword">in</span> department_personnel:</span><br><span class="line">             <span class="keyword">if</span> user[<span class="number">0</span>] <span class="keyword">in</span> department_personnel_list:</span><br><span class="line">                 <span class="keyword">if</span> user[<span class="number">0</span>] == <span class="string">'-'</span>:</span><br><span class="line">                     <span class="keyword">continue</span></span><br><span class="line">                 <span class="keyword">if</span> user[<span class="number">0</span>] == <span class="string">' '</span>:</span><br><span class="line">                     <span class="keyword">continue</span></span><br><span class="line">                 department_personnel_size_list.append((department_personnel_list[<span class="number">0</span>],user[<span class="number">0</span>],user[<span class="number">1</span>]))</span><br><span class="line"></span><br><span class="line">    end_department_personnel_size_list = sorted(list(set(department_personnel_size_list)), key=<span class="keyword">lambda</span> x:x[<span class="number">2</span>] ,reverse=<span class="keyword">True</span>)</span><br><span class="line">    all_xinxi_title_end = all_xinxi_title[<span class="number">-1</span>]</span><br><span class="line">    all_xinxi_title_end = list(all_xinxi_title_end)</span><br><span class="line">    all_xinxi_title_end.insert(<span class="number">0</span>,<span class="string">''</span>)</span><br><span class="line">    end_department_personnel_size_list.append(all_xinxi_title_end)</span><br><span class="line">    end_department_personnel_size_list.insert(<span class="number">0</span>,[new_department_name,personnel_name,values_name])</span><br><span class="line">    end_department_personnel_size_list.pop()</span><br><span class="line"></span><br><span class="line">    user_volue = []</span><br><span class="line">    <span class="keyword">for</span> user2 <span class="keyword">in</span> end_department_personnel_size_list:</span><br><span class="line">        user2 = list(user2)</span><br><span class="line">        <span class="keyword">if</span> user2[<span class="number">1</span>] == user_volue:</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">        user_volue = user2[<span class="number">1</span>]</span><br><span class="line">        old_title.append(user2)</span><br><span class="line">    wb.save(save_name)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">create_space_toushi</span><span class="params">(save_name,sheet_name,sheet_name2,department_num,sum_name,data_total,index_name,values_name)</span>:</span></span><br><span class="line">    f = pd.read_excel(io=save_name,sheet_name=sheet_name,dtype=&#123;<span class="string">'业务XX利润编号'</span>:str&#125;)</span><br><span class="line">    res = pd.pivot_table(f,index=index_name,values=values_name,aggfunc=np.sum,margins=<span class="keyword">True</span>)</span><br><span class="line">    all_list = list(zip(list(res.index),list(res[values_name])))</span><br><span class="line"></span><br><span class="line">    wb = xl.load_workbook(save_name)</span><br><span class="line">    sheet = wb.create_sheet(sheet_name2)</span><br><span class="line"></span><br><span class="line">    space_list = []</span><br><span class="line">    <span class="keyword">for</span> user <span class="keyword">in</span> all_list:</span><br><span class="line">        user2 = list(user)[<span class="number">1</span>]</span><br><span class="line">        user3 = list(list(user)[<span class="number">0</span>])</span><br><span class="line">        <span class="keyword">if</span> user3[<span class="number">0</span>] == <span class="string">'-'</span>:</span><br><span class="line">            space_list.append((user3[<span class="number">1</span>],user2))</span><br><span class="line">        <span class="keyword">if</span> user3[<span class="number">0</span>] == <span class="string">' '</span>:</span><br><span class="line">            space_list.append((user3[<span class="number">1</span>],user2))</span><br><span class="line">    sum_list = []</span><br><span class="line">    <span class="keyword">for</span> slist <span class="keyword">in</span> space_list:</span><br><span class="line">        sum_list.append(slist[<span class="number">1</span>])</span><br><span class="line">    sum_list=sum(sum_list)</span><br><span class="line">    sort_space_list = sorted(list(set(space_list)), key=<span class="keyword">lambda</span> x:x[<span class="number">1</span>] ,reverse=<span class="keyword">True</span>)</span><br><span class="line">    sort_space_list.append((sum_name, sum_list))</span><br><span class="line">    sort_space_list.insert(<span class="number">0</span>,(department_num,data_total))</span><br><span class="line">    <span class="keyword">for</span> all_space_list <span class="keyword">in</span> sort_space_list:</span><br><span class="line">        sheet.append(all_space_list)</span><br><span class="line">    wb.save(save_name)</span><br><span class="line">    </span><br><span class="line"><span class="keyword">if</span> __name__==<span class="string">'__main__'</span>:</span><br><span class="line">    sheet_name = <span class="string">'XXX详情'</span></span><br><span class="line">    save_name = <span class="string">'TJ-XJ-DATASHOW-'</span> + time_year_month_day + <span class="string">'.xlsx'</span></span><br><span class="line">    save_name = <span class="string">'TJ-XJ-DATASHOW-'</span> + time_year_month_day + <span class="string">'.xlsx'</span></span><br><span class="line">    file_path = <span class="string">'./able.'</span> + time_year_month_day +<span class="string">'.lib.xls'</span></span><br><span class="line">    proj_xls_to_xlsx(file_path=file_path,</span><br><span class="line">                     sheet_name=sheet_name,</span><br><span class="line">                     save_name=save_name)</span><br><span class="line">                     </span><br><span class="line">    sheet_name = <span class="string">'XXX总体情况'</span></span><br><span class="line">    save_name = <span class="string">'TJ-XJ-DATASHOW-'</span> +  time_year_month_day + <span class="string">'.xlsx'</span></span><br><span class="line">    file_path = <span class="string">'./'</span> + time_year_month_day + <span class="string">'.ProjInfo.XJpath.xls'</span></span><br><span class="line">    table_title = [<span class="string">'业务XX名称'</span>,<span class="string">'业务XX利润编号'</span>,</span><br><span class="line">                   <span class="string">'运营经理'</span>,<span class="string">'信息分析'</span>,<span class="string">'涉及项目数'</span>,</span><br><span class="line">                   <span class="string">'涉及数据量大小（G）'</span>,<span class="string">'项目编号1'</span>,</span><br><span class="line">                   <span class="string">'项目名称1'</span>,<span class="string">'数据量(G)1'</span>,</span><br><span class="line">                   <span class="string">'文库编号1'</span>,<span class="string">'项目编号2'</span>,</span><br><span class="line">                   <span class="string">'项目名称2'</span>,<span class="string">'数据量(G)2'</span>,</span><br><span class="line">                   <span class="string">'文库编号2'</span>,<span class="string">'项目编号3'</span>,</span><br><span class="line">                   <span class="string">'项目名称3'</span>,<span class="string">'数据量(G)3'</span>,</span><br><span class="line">                   <span class="string">'文库编号3'</span>,<span class="string">'项目编号4'</span>,</span><br><span class="line">                   <span class="string">'项目名称4   数据量(G)4'</span>,<span class="string">'文库编号4'</span>,]</span><br><span class="line">    proj_xls_to_xlsx(file_path=file_path,</span><br><span class="line">                     sheet_name=sheet_name,</span><br><span class="line">                     tableTitle=table_title,</span><br><span class="line">                     save_name=save_name)</span><br><span class="line"></span><br><span class="line">    save_name = <span class="string">'TJ-XJ-DATASHOW-'</span> + time_year_month_day + <span class="string">'.xlsx'</span></span><br><span class="line">    sheet_name = <span class="string">'XXX总体情况'</span></span><br><span class="line">    sheet_name2 = <span class="string">'XXX概况'</span></span><br><span class="line">    index_name = <span class="string">'信息分析'</span></span><br><span class="line">    values_name = <span class="string">'涉及数据量大小（G）'</span></span><br><span class="line">    department_name = <span class="string">'业务XX名称'</span></span><br><span class="line">    new_department_name = <span class="string">'XX'</span></span><br><span class="line">    personnel_name = <span class="string">'人员'</span></span><br><span class="line">    crate_shuju_toushi(save_name=save_name,</span><br><span class="line">                       sheet_name=sheet_name,</span><br><span class="line">                       sheet_name2=sheet_name2,</span><br><span class="line">                       index_name=index_name,</span><br><span class="line">                       values_name=values_name,</span><br><span class="line">                       department_name=department_name,</span><br><span class="line">                       new_department_name=new_department_name,</span><br><span class="line">                       personnel_name=personnel_name)</span><br><span class="line"></span><br><span class="line">    index_name = [<span class="string">'信息分析'</span>,<span class="string">'业务XX利润编号'</span>]</span><br><span class="line">    save_name = <span class="string">'TJ-XJ-DATASHOW-'</span> + time_year_month_day + <span class="string">'.xlsx'</span></span><br><span class="line">    sheet_name = <span class="string">'XXX总体情况'</span></span><br><span class="line">    department_num = <span class="string">'XX编号'</span></span><br><span class="line">    data_total = <span class="string">'数据量（G）'</span></span><br><span class="line">    values_name = <span class="string">'涉及数据量大小（G）'</span></span><br><span class="line">    sheet_name2 = <span class="string">'未匹配人员数据量'</span></span><br><span class="line">    sum_name = <span class="string">'ALL'</span></span><br><span class="line">    create_space_toushi(index_name=index_name,</span><br><span class="line">                        save_name=save_name,</span><br><span class="line">                        sheet_name=sheet_name,</span><br><span class="line">                        department_num=department_num,</span><br><span class="line">                        data_total=data_total,</span><br><span class="line">                        values_name=values_name,</span><br><span class="line">                        sheet_name2=sheet_name2,</span><br><span class="line">                        sum_name=sum_name,)</span><br></pre></td></tr></table></figure>
 <h2 id="完成数据透视"><a href="#完成数据透视" class="headerlink" title="完成数据透视,"></a>完成数据透视,</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> openpyxl <span class="keyword">as</span> xl</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> datetime</span><br><span class="line">difference_cycle=<span class="number">33</span></span><br><span class="line">time_year_month_day = str(datetime.date.today()-datetime.timedelta(days=difference_cycle))</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add_last_excel</span><span class="params">(old_sheet,new_sheet,gaikuang)</span>:</span></span><br><span class="line">    pd01 = pd.read_excel(old_sheet,sheet_name=gaikuang,encoding=<span class="string">'utf-8'</span>)</span><br><span class="line">    pd02 = pd.read_excel(new_sheet,sheet_name=gaikuang,encoding=<span class="string">'utf-8'</span>)</span><br><span class="line"></span><br><span class="line">    pd11 = pd.read_excel(old_sheet,sheet_name=<span class="string">'未匹配人员数据量'</span>,encoding=<span class="string">'utf-8'</span>)</span><br><span class="line">    pd12 = pd.read_excel(new_sheet,sheet_name=<span class="string">'未匹配人员数据量'</span>,encoding=<span class="string">'utf-8'</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    result = pd.merge(pd01,pd02[[<span class="string">'人员'</span>,<span class="string">'涉及数据量大小（G）'</span>]],on=<span class="string">'人员'</span>)</span><br><span class="line">    result_list = list(zip(list((result[<span class="string">'XXX'</span>])),list((result[<span class="string">'人员'</span>])),list((result[<span class="string">'涉及数据量大小（G）_x'</span>])),list((result[<span class="string">'涉及数据量大小（G）_y'</span>]))))</span><br><span class="line"></span><br><span class="line">    not_match = pd.merge(pd11,pd12[[<span class="string">'XXX编号'</span>,<span class="string">'数据量（G）'</span>]],left_on=<span class="string">'XXX编号'</span>,right_on=<span class="string">'XXX编号'</span>)</span><br><span class="line">    print(not_match)</span><br><span class="line">    not_match_list = list(zip(list((not_match[<span class="string">'XXX编号'</span>])),list((not_match[<span class="string">'数据量（G）_x'</span>])),list((not_match[<span class="string">'数据量（G）_y'</span>]))))</span><br><span class="line"></span><br><span class="line">    wb2 = xl.load_workbook(new_sheet)</span><br><span class="line">    remove_sheet1 = wb2[gaikuang]</span><br><span class="line">    remove_sheet2 = wb2[<span class="string">'未匹配人员数据量'</span>]</span><br><span class="line">    wb2.remove(remove_sheet1)</span><br><span class="line">    wb2.remove(remove_sheet2)</span><br><span class="line">    wb2.save(new_sheet)</span><br><span class="line"></span><br><span class="line">    wb2 = xl.load_workbook(new_sheet)</span><br><span class="line">    sheet21 = wb2.create_sheet(gaikuang,<span class="number">0</span>)</span><br><span class="line">    sheet22 = wb2.create_sheet(<span class="string">'未匹配人员数据量'</span>)</span><br><span class="line"></span><br><span class="line">    result_head = [<span class="string">'XXX'</span>,<span class="string">'人员'</span>,<span class="string">'涉及数据量（G）'</span>,<span class="string">'第二次涉及数据量（G）'</span>,<span class="string">'任务额差'</span>]</span><br><span class="line">    result_list.insert(<span class="number">0</span>,result_head)</span><br><span class="line">    result_for_num = <span class="number">1</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> result_list:</span><br><span class="line">        result_i = list(i)</span><br><span class="line">        <span class="keyword">if</span> result_for_num != <span class="number">1</span>:</span><br><span class="line">            result_chae=i[<span class="number">2</span>]-i[<span class="number">3</span>]-i[<span class="number">2</span>]*<span class="number">0.2</span></span><br><span class="line">            result_i.append(float(<span class="string">'%.2f'</span>% result_chae))</span><br><span class="line">        result_for_num = result_for_num + <span class="number">1</span></span><br><span class="line">        sheet21.append(result_i)</span><br><span class="line"></span><br><span class="line">    not_match_head = [<span class="string">'XXX编号'</span>,<span class="string">'数据量（G）'</span>,<span class="string">'第二次数据量（G）'</span>,<span class="string">'任务额差'</span>]</span><br><span class="line">    not_match_list.insert(<span class="number">0</span>,not_match_head)</span><br><span class="line">    not_match_for_num = <span class="number">1</span></span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span>  not_match_list:</span><br><span class="line">        not_match_j = list(j)</span><br><span class="line">        <span class="keyword">if</span> not_match_for_num != <span class="number">1</span>:</span><br><span class="line">            not_match_chae=j[<span class="number">1</span>]-j[<span class="number">2</span>]-j[<span class="number">1</span>]*<span class="number">0.2</span></span><br><span class="line">            not_match_j.append(float(<span class="string">'%.2f'</span>% not_match_chae))</span><br><span class="line">        not_match_for_num = not_match_for_num + <span class="number">1</span></span><br><span class="line">        sheet22.append(not_match_j)</span><br><span class="line">    wb2.save(new_sheet)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    old_sheet=<span class="string">'TJ-XJ-DATASHOW-'</span> + time_year_month_day + <span class="string">'-old.xlsx'</span></span><br><span class="line">    new_sheet=<span class="string">'TJ-XJ-DATASHOW-'</span> + time_year_month_day + <span class="string">'.xlsx'</span></span><br><span class="line">    gaikuang=<span class="string">'XXX概况'</span></span><br><span class="line">    add_last_excel(old_sheet=old_sheet,new_sheet=new_sheet,gaikuang=gaikuang)</span><br></pre></td></tr></table></figure>
       
@@ -469,14 +469,14 @@
 
     
       <div id="wechat" style="display: inline-block">
-        <img id="wechat_qr" src="/images/weipei.png" alt="༺ 锦遥 ༻ 微信支付">
+        <img id="wechat_qr" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/weipei.png" alt="༺ 锦遥 ༻ 微信支付">
         <p>微信支付</p>
       </div>
     
 
     
       <div id="alipay" style="display: inline-block">
-        <img id="alipay_qr" src="/images/zhipei.png" alt="༺ 锦遥 ༻ 支付宝">
+        <img id="alipay_qr" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/zhipei.png" alt="༺ 锦遥 ༻ 支付宝">
         <p>支付宝</p>
       </div>
     
@@ -613,7 +613,7 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image" src="/images/rjyy.ico" alt="༺ 锦遥 ༻">
+              <img class="site-author-image" itemprop="image" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/rjyy.ico" alt="༺ 锦遥 ༻">
             
               <p class="site-author-name" itemprop="name">༺ 锦遥 ༻</p>
               <p class="site-description motion-element" itemprop="description">不急不燥，稳步推进
@@ -651,7 +651,7 @@
 
           
             <div class="feed-link motion-element">
-              <a href="/atom.xml" rel="alternate">
+              <a href="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io@master/atom.xml" rel="alternate">
                 <i class="fa fa-rss"></i>
                 RSS
               </a>
@@ -730,7 +730,7 @@
 
 <!-- 数字雨 -->
 <canvas id="canvas" width="1440" height="1080"></canvas>
-<script type="text/javascript" src="/js/DigitalRain.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/DigitalRain.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
     </main>
 
@@ -750,7 +750,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">208.1k</span>
+    <span title="Site words total count">208.7k</span>
   
   <span>   |   </span>
 <span id="showDays"></span>
@@ -798,11 +798,11 @@ var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours
 }, 1000);
 </script>
 <script src="https://pv.sohu.com/cityjson?ie=utf-8"></script>
-<script src="/js/ip.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/ip.js"></script>
 
         
 <div class="busuanzi-count">
-  <script async src="/js/busuanzi.pure.mini.js"></script>
+  <script async src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/busuanzi.pure.mini.js"></script>
   
     <span class="site-uv">
       <i class="fa fa-user"></i> 訪客數
@@ -841,8 +841,8 @@ var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours
     
 
 <script src="/live2d-widget/autoload.js"></script>
-<script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
-<script type="text/javascript" src="/js/src/clipboard-use.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard.min.js"></script>  
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard-use.js"></script>
   </div>
 
   
@@ -909,32 +909,32 @@ var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/utils.js?v=5.1.3"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/motion.js?v=5.1.3"></script>
 
 
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+  
+
+
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/post-details.js?v=5.1.3"></script>
 
 
 
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/bootstrap.js?v=5.1.3"></script>
 
 
 
@@ -1336,7 +1336,7 @@ var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours
   <!-- 点击特效 -->
 
 
-  <script src="/js/activate-power-mode.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/activate-power-mode.min.js"></script>
     <script>
 	    POWERMODE.colorful = true;
     POWERMODE.shake = false;
@@ -1344,11 +1344,11 @@ var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours
 	  </script>
 
 
-<script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
-<script type="text/javascript" src="/js/src/clipboard-use.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard.min.js"></script>  
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard-use.js"></script>
 <!--点击冒点-->
 <canvas width="1777" height="841" style="position: fixed; left: 0px; top: 0px; z-index: 2147483647; pointer-events: none;"></canvas>
-<script src="/js/maodian.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/maodian.js"></script>
 <canvas width="1390" height="797" style="position: fixed; left: 0px; top: 0px; z-index: 2147483647; pointer-events: none;"></canvas>
 </body>
 </html>

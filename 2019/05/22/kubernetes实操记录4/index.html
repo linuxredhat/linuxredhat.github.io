@@ -5,11 +5,11 @@
   
 
 <!-- 代码块复制功能 -->
-<!--<script type="text/javascript" src="/js/src/clipboard.min.js"></script> --> 
-<script type="text/javascript" src="/js/src/clipboard-use.js"></script>
-<script src="/js/instantclick-1.2.2.js" type="module"></script>
+<!--<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard.min.js"></script> --> 
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard-use.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/instantclick-1.2.2.js" type="module"></script>
 <!--崩溃欺骗-->
-<script type="text/javascript" src="/js/src/crash_cheat.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/crash_cheat.js"></script>
 <html class="theme-next gemini use-motion" lang="zh-Hans">
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
@@ -76,13 +76,13 @@
 
 
 
-  <meta name="keywords" content="rhca,linux,cloud,">
+  <meta name="keywords" content="linux,rhca,cloud,">
 
 
 
 
 
-  <link rel="alternate" href="/atom.xml" title="逝水锦遥" type="application/atom+xml">
+  <link rel="alternate" href="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io@master/atom.xml" title="逝水锦遥" type="application/atom+xml">
 
 
 
@@ -90,22 +90,22 @@
 
 
 <meta name="description" content="[toc] kubernetes 操作记录四 kubernetes认证及Service Account在master服务器上启动 proxy 并监听至8080 12# kubectl  proxy --port=8080 &amp;amp;# curl http://localhost:8080/api/v1/namespaces 仅有权限获取当前Pod自身的相关信息 1234# kubectl get">
-<meta name="keywords" content="rhca,linux,cloud">
+<meta name="keywords" content="linux,rhca,cloud">
 <meta property="og:type" content="article">
 <meta property="og:title" content="kubernetes操作记录(四)">
 <meta property="og:url" content="https://www.asjin.com/2019/05/22/kubernetes实操记录4/index.html">
 <meta property="og:site_name" content="逝水锦遥">
 <meta property="og:description" content="[toc] kubernetes 操作记录四 kubernetes认证及Service Account在master服务器上启动 proxy 并监听至8080 12# kubectl  proxy --port=8080 &amp;amp;# curl http://localhost:8080/api/v1/namespaces 仅有权限获取当前Pod自身的相关信息 1234# kubectl get">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://www.asjin.com/images/docker_kubernetes.png">
-<meta property="og:image" content="https://www.asjin.com/images/kubernetes-dashboard-login.png">
-<meta property="og:image" content="https://www.asjin.com/images/kubernetes-dashboard-loging-token.png">
-<meta property="og:image" content="https://www.asjin.com/images/kubernetes-dashborad-loging-kubeconfig.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/docker_kubernetes.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/kubernetes-dashboard-login.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/kubernetes-dashboard-loging-token.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/kubernetes-dashborad-loging-kubeconfig.png">
 <meta property="og:updated_time" content="2020-09-29T10:49:02.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="kubernetes操作记录(四)">
 <meta name="twitter:description" content="[toc] kubernetes 操作记录四 kubernetes认证及Service Account在master服务器上启动 proxy 并监听至8080 12# kubectl  proxy --port=8080 &amp;amp;# curl http://localhost:8080/api/v1/namespaces 仅有权限获取当前Pod自身的相关信息 1234# kubectl get">
-<meta name="twitter:image" content="https://www.asjin.com/images/docker_kubernetes.png">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/docker_kubernetes.png">
 
 
 
@@ -446,7 +446,7 @@
 
       
         <p>[toc]</p>
-<h1 id="kubernetes-操作记录四"><a href="#kubernetes-操作记录四" class="headerlink" title="kubernetes 操作记录四"></a>kubernetes 操作记录四</h1><p><img src="/images/docker_kubernetes.png" alt></p>
+<h1 id="kubernetes-操作记录四"><a href="#kubernetes-操作记录四" class="headerlink" title="kubernetes 操作记录四"></a>kubernetes 操作记录四</h1><p><img src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/docker_kubernetes.png" alt></p>
 <h2 id="kubernetes认证及Service-Account"><a href="#kubernetes认证及Service-Account" class="headerlink" title="kubernetes认证及Service Account"></a>kubernetes认证及Service Account</h2><p>在master服务器上启动 proxy 并监听至8080</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># kubectl  proxy --port=8080 &amp;</span></span><br><span class="line"><span class="comment"># curl http://localhost:8080/api/v1/namespaces</span></span><br></pre></td></tr></table></figure>
 <p>仅有权限获取当前Pod自身的相关信息</p>
@@ -486,7 +486,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v1.10.1/src/deploy/recommended/kubernetes-dashboard.yaml</span><br><span class="line"> <span class="comment"># kubectl  get pods -n kube-system  | grep dash</span></span><br><span class="line">kubernetes-dashboard-5f7b999d65-fcb28        1/1     Running   0          71s</span><br></pre></td></tr></table></figure>
 <p>可以看到kubernetes-dashbroad 已经运行 </p>
 <p>默认服务暴露为ClusterIP类型的，我们需要将其改为NodePort 类型<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># kubectl patch svc kubernetes-dashboard -p '&#123;"spec":&#123;"type":"NodePort"&#125;&#125;' -n kube-system</span></span><br><span class="line"><span class="comment"># kubectl get svc -n kube-system</span></span><br><span class="line">\NAME                   TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)                  AGE</span><br><span class="line">kube-dns               ClusterIP   10.96.0.10       &lt;none&gt;        53/UDP,53/TCP,9153/TCP   27d</span><br><span class="line">kubernetes-dashboard   NodePort    10.109.190.204   &lt;none&gt;        443:31984/TCP            3m41s</span><br></pre></td></tr></table></figure></p>
-<p>这个时候可以看到登录界面<br><img src="/images/kubernetes-dashboard-login.png" alt></p>
+<p>这个时候可以看到登录界面<br><img src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/kubernetes-dashboard-login.png" alt></p>
 <h3 id="使用用token实现认证登录"><a href="#使用用token实现认证登录" class="headerlink" title="使用用token实现认证登录"></a>使用用token实现认证登录</h3><p>这里登录需要的是serviceaccount用户， 所以这里创建 serviceaccount</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># kubectl create serviceaccount dashboard-admin -n kube-system</span></span><br><span class="line">serviceaccount/dashboard-admin created </span><br><span class="line"><span class="comment"># kubectl  get sa -n kube-system  |  grep dash</span></span><br><span class="line">dashboard-admin                      1         6m33s</span><br></pre></td></tr></table></figure>
 <p>serviceaccount 创建好后， 需要将serviceaccount绑定cluster这个角色上</p>
@@ -494,7 +494,7 @@
 <p>绑定好 cluster 后， 查看token信息，并拿token进行登录</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># kubectl describe secret -n kube-system dashboard-admin-token-grj84</span></span><br></pre></td></tr></table></figure>
 <p>登录后，可以看到整个kubernetes集群的概况</p>
-<p><img src="/images/kubernetes-dashboard-loging-token.png" alt></p>
+<p><img src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/kubernetes-dashboard-loging-token.png" alt></p>
 <p>建立专用dashborad用户</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># cd /etc/kubernetes/pki/</span></span><br><span class="line"><span class="comment"># (umask 077; openssl genrsa -out dashboard.key 2048)</span></span><br><span class="line"><span class="comment"># openssl req -new -key dashboard.key -out dashboard.csr -subj "/O=ssjinyao/CN=dashboard"</span></span><br><span class="line"><span class="comment"># openssl x509 -req -in dashboard.csr  -CA ca.crt -CAkey ca.key  -CAcreateserial -out dashboard.crt -days 3650</span></span><br><span class="line">Signature ok</span><br><span class="line">subject=/O=ssjinyao/CN=dashboard</span><br><span class="line">Getting CA Private Key</span><br><span class="line"><span class="comment"># kubectl create secret generic dashboard-cert  -n kube-system --from-file=dashboard.crt=./dashboard.crt --from-file=dashboard.key=./dashboard.key</span></span><br><span class="line">secret/dashboard-cert created</span><br></pre></td></tr></table></figure>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># kubectl create serviceaccount def-ns-admin -n default</span></span><br><span class="line">serviceaccount/def-ns-admin created</span><br></pre></td></tr></table></figure>
@@ -506,7 +506,7 @@
 <p>将生成的conf文件远程复制到桌面上 </p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssjinyao ➤ scp root@10.1.87.80:/root/def-ns-admin.conf ~/Desktop</span><br></pre></td></tr></table></figure>
 <p>此时使用可以用 kubeconfig 来登录dashboard 了</p>
-<p><img src="/images/kubernetes-dashborad-loging-kubeconfig.png" alt></p>
+<p><img src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/kubernetes-dashborad-loging-kubeconfig.png" alt></p>
 
       
     </div>
@@ -527,14 +527,14 @@
 
     
       <div id="wechat" style="display: inline-block">
-        <img id="wechat_qr" src="/images/weipei.png" alt="༺ 锦遥 ༻ 微信支付">
+        <img id="wechat_qr" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/weipei.png" alt="༺ 锦遥 ༻ 微信支付">
         <p>微信支付</p>
       </div>
     
 
     
       <div id="alipay" style="display: inline-block">
-        <img id="alipay_qr" src="/images/zhipei.png" alt="༺ 锦遥 ༻ 支付宝">
+        <img id="alipay_qr" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/zhipei.png" alt="༺ 锦遥 ༻ 支付宝">
         <p>支付宝</p>
       </div>
     
@@ -571,9 +571,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/rhca/" rel="tag"># rhca</a>
-          
             <a href="/tags/linux/" rel="tag"># linux</a>
+          
+            <a href="/tags/rhca/" rel="tag"># rhca</a>
           
             <a href="/tags/cloud/" rel="tag"># cloud</a>
           
@@ -673,7 +673,7 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image" src="/images/rjyy.ico" alt="༺ 锦遥 ༻">
+              <img class="site-author-image" itemprop="image" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/rjyy.ico" alt="༺ 锦遥 ༻">
             
               <p class="site-author-name" itemprop="name">༺ 锦遥 ༻</p>
               <p class="site-description motion-element" itemprop="description">不急不燥，稳步推进
@@ -711,7 +711,7 @@
 
           
             <div class="feed-link motion-element">
-              <a href="/atom.xml" rel="alternate">
+              <a href="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io@master/atom.xml" rel="alternate">
                 <i class="fa fa-rss"></i>
                 RSS
               </a>
@@ -790,7 +790,7 @@
 
 <!-- 数字雨 -->
 <canvas id="canvas" width="1440" height="1080"></canvas>
-<script type="text/javascript" src="/js/DigitalRain.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/DigitalRain.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
     </main>
 
@@ -810,7 +810,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">208.1k</span>
+    <span title="Site words total count">208.7k</span>
   
   <span>   |   </span>
 <span id="showDays"></span>
@@ -858,11 +858,11 @@ var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours
 }, 1000);
 </script>
 <script src="https://pv.sohu.com/cityjson?ie=utf-8"></script>
-<script src="/js/ip.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/ip.js"></script>
 
         
 <div class="busuanzi-count">
-  <script async src="/js/busuanzi.pure.mini.js"></script>
+  <script async src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/busuanzi.pure.mini.js"></script>
   
     <span class="site-uv">
       <i class="fa fa-user"></i> 訪客數
@@ -901,8 +901,8 @@ var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours
     
 
 <script src="/live2d-widget/autoload.js"></script>
-<script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
-<script type="text/javascript" src="/js/src/clipboard-use.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard.min.js"></script>  
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard-use.js"></script>
   </div>
 
   
@@ -969,32 +969,32 @@ var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/utils.js?v=5.1.3"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/motion.js?v=5.1.3"></script>
 
 
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+  
+
+
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/post-details.js?v=5.1.3"></script>
 
 
 
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/bootstrap.js?v=5.1.3"></script>
 
 
 
@@ -1396,7 +1396,7 @@ var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours
   <!-- 点击特效 -->
 
 
-  <script src="/js/activate-power-mode.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/activate-power-mode.min.js"></script>
     <script>
 	    POWERMODE.colorful = true;
     POWERMODE.shake = false;
@@ -1404,11 +1404,11 @@ var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours
 	  </script>
 
 
-<script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
-<script type="text/javascript" src="/js/src/clipboard-use.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard.min.js"></script>  
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard-use.js"></script>
 <!--点击冒点-->
 <canvas width="1777" height="841" style="position: fixed; left: 0px; top: 0px; z-index: 2147483647; pointer-events: none;"></canvas>
-<script src="/js/maodian.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/maodian.js"></script>
 <canvas width="1390" height="797" style="position: fixed; left: 0px; top: 0px; z-index: 2147483647; pointer-events: none;"></canvas>
 </body>
 </html>
