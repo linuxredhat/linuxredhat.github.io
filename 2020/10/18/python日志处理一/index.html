@@ -98,7 +98,7 @@
 <meta property="og:description" content="[toc] python 日志处理一 练习 实现ls 命令功能，实现-l、-a和 -all、 -h 选项   实现显示路径下的文件列表; -a和 -all显示包含.开头的文件; -l 详细列表显示; -h 和 -l 配合，人性化显示文件大小，例如1K、1G、1T等。可以认为1G=1000M; c 字符;d目录;-普通文件;l软链接;b块设备;s socket文件;p pip文件，即FIFO; -r">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/python-log-parsing.png">
-<meta property="og:updated_time" content="2020-10-19T11:41:02.000Z">
+<meta property="og:updated_time" content="2020-11-03T09:17:20.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python 日志处理一">
 <meta name="twitter:description" content="[toc] python 日志处理一 练习 实现ls 命令功能，实现-l、-a和 -all、 -h 选项   实现显示路径下的文件列表; -a和 -all显示包含.开头的文件; -l 详细列表显示; -h 和 -l 配合，人性化显示文件大小，例如1K、1G、1T等。可以认为1G=1000M; c 字符;d目录;-普通文件;l软链接;b块设备;s socket文件;p pip文件，即FIFO; -r">
@@ -458,10 +458,7 @@
 <li>按照文件名排序输出，可以和ls的顺序不一样，但要求文件名排序;</li>
 <li>要求详细列表显示时，时间可以按照”年-月-日 时:分:秒” 格式显示。</li>
 </ol>
-<ul>
-<li>argparse 模块</li>
-</ul>
-<p>一个可执行文件或者脚本可以接收参数;</p>
+<h1 id="argparse-模块"><a href="#argparse-模块" class="headerlink" title="* argparse 模块"></a>* argparse 模块</h1><p>一个可执行文件或者脚本可以接收参数;</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ls -l /etc</span></span><br><span class="line">/etc <span class="comment"># 是位置参数</span></span><br><span class="line">-l <span class="comment"># 是短选项</span></span><br></pre></td></tr></table></figure>
 <p>如何把这些参数传递给程序呢  ？<br>从3.2开始Python提供了参数分析的argparse。</p>
 <ul>
@@ -648,7 +645,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">83</span>
+                  <span class="site-state-item-count">84</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -731,7 +728,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#python-日志处理一"><span class="nav-number">1.</span> <span class="nav-text">python 日志处理一</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#练习"><span class="nav-number">1.1.</span> <span class="nav-text">练习</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#python-日志处理一"><span class="nav-number">1.</span> <span class="nav-text">python 日志处理一</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#练习"><span class="nav-number">1.1.</span> <span class="nav-text">练习</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#argparse-模块"><span class="nav-number">2.</span> <span class="nav-text">* argparse 模块</span></a></li></ol></div>
             
 
           </div>
@@ -770,7 +767,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">211.1k</span>
+    <span title="Site words total count">216.7k</span>
   
   <span>   |   </span>
 <span id="showDays"></span>
