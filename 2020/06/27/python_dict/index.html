@@ -5,11 +5,11 @@
   
 
 <!-- 代码块复制功能 -->
-<!--<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard.min.js"></script> --> 
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard-use.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/instantclick-1.2.2.js" type="module"></script>
+<!--<script type="text/javascript" src="/js/src/clipboard.min.js"></script> --> 
+<script type="text/javascript" src="/js/src/clipboard-use.js"></script>
+<script src="/js/instantclick-1.2.2.js" type="module"></script>
 <!--崩溃欺骗-->
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/crash_cheat.js"></script>
+<script type="text/javascript" src="/js/src/crash_cheat.js"></script>
 <html class="theme-next gemini use-motion" lang="zh-Hans">
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
@@ -82,7 +82,7 @@
 
 
 
-  <link rel="alternate" href="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io@master/atom.xml" title="逝水锦遥" type="application/atom+xml">
+  <link rel="alternate" href="/atom.xml" title="逝水锦遥" type="application/atom+xml">
 
 
 
@@ -97,13 +97,13 @@
 <meta property="og:site_name" content="逝水锦遥">
 <meta property="og:description" content="[toc] python 集合、 字典 集合 基本概念全集：所有元素的集合。例如实数集，所有实数组成的集合就是全集;子集subset和超集superset: 一个集合A所有元素都在另一个集合B是A的真超集;并集: 多个集合合并的结果;交集: 多个集合的公共部分;差集: 集合中除去和其他集合公共部分。  并集将多个集合A和B的所有的元素合并到一起union(*others)返回和多个集合合并后的新的">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/python_dict.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/Selection-Sort.gif">
+<meta property="og:image" content="https://www.asjin.com/images/python_dict.png">
+<meta property="og:image" content="https://www.asjin.com/images/Selection-Sort.gif">
 <meta property="og:updated_time" content="2020-09-29T10:44:13.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python 集合字典">
 <meta name="twitter:description" content="[toc] python 集合、 字典 集合 基本概念全集：所有元素的集合。例如实数集，所有实数组成的集合就是全集;子集subset和超集superset: 一个集合A所有元素都在另一个集合B是A的真超集;并集: 多个集合合并的结果;交集: 多个集合的公共部分;差集: 集合中除去和其他集合公共部分。  并集将多个集合A和B的所有的元素合并到一起union(*others)返回和多个集合合并后的新的">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/python_dict.png">
+<meta name="twitter:image" content="https://www.asjin.com/images/python_dict.png">
 
 
 
@@ -444,7 +444,7 @@
 
       
         <p>[toc]</p>
-<h1 id="python-集合、-字典"><a href="#python-集合、-字典" class="headerlink" title="python 集合、 字典"></a>python 集合、 字典</h1><p><img src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/python_dict.png" alt></p>
+<h1 id="python-集合、-字典"><a href="#python-集合、-字典" class="headerlink" title="python 集合、 字典"></a>python 集合、 字典</h1><p><img src="/images/python_dict.png" alt></p>
 <h2 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h2><ul>
 <li>基本概念<br>全集：所有元素的集合。例如实数集，所有实数组成的集合就是全集;<br>子集subset和超集superset: 一个集合A所有元素都在另一个集合B是A的真超集;<br>并集: 多个集合合并的结果;<br>交集: 多个集合的公共部分;<br>差集: 集合中除去和其他集合公共部分。</li>
 </ul>
@@ -479,7 +479,7 @@
 <p>   和降序相反</p>
 </li>
 </ul>
-<p><img src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/Selection-Sort.gif" alt></p>
+<p><img src="/images/Selection-Sort.gif" alt></p>
 <h3 id="简单选择排序代码实现-一"><a href="#简单选择排序代码实现-一" class="headerlink" title="简单选择排序代码实现(一)"></a>简单选择排序代码实现(一)</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line">m_list = [</span><br><span class="line">    [<span class="number">1</span>,<span class="number">9</span>,<span class="number">8</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">4</span>,<span class="number">3</span>,<span class="number">2</span>],</span><br><span class="line">    [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>],</span><br><span class="line">    [<span class="number">9</span>,<span class="number">8</span>,<span class="number">7</span>,<span class="number">6</span>,<span class="number">5</span>,<span class="number">4</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>]</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">nums = m_list[<span class="number">1</span>]</span><br><span class="line">length = len(nums)</span><br><span class="line">print(nums)</span><br><span class="line"></span><br><span class="line">count_swap = <span class="number">0</span></span><br><span class="line">count_iter = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(length):</span><br><span class="line">    maxindex = i</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(i+<span class="number">1</span>,length):</span><br><span class="line">        count_iter +=<span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> nums[maxindex] &lt; nums[j]:</span><br><span class="line">            maxindex = j</span><br><span class="line">    <span class="keyword">if</span> i != maxindex:</span><br><span class="line">        tmp = nums[i]</span><br><span class="line">        nums[i] = nums[maxindex]</span><br><span class="line">        nums[maxindex] = tmp</span><br><span class="line">        count_swap +=<span class="number">1</span></span><br><span class="line">print(nums,count_swap,count_iter)</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>]</span><br><span class="line">[<span class="number">9</span>, <span class="number">8</span>, <span class="number">7</span>, <span class="number">6</span>, <span class="number">5</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>] <span class="number">4</span> <span class="number">36</span></span><br></pre></td></tr></table></figure>
 <h3 id="简单选择排序代码实现-二-，二元排序法"><a href="#简单选择排序代码实现-二-，二元排序法" class="headerlink" title="简单选择排序代码实现(二)，二元排序法"></a>简单选择排序代码实现(二)，二元排序法</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line">m_list = [</span><br><span class="line">    [<span class="number">1</span>,<span class="number">9</span>,<span class="number">8</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">4</span>,<span class="number">3</span>,<span class="number">2</span>],</span><br><span class="line">    [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>],</span><br><span class="line">    [<span class="number">9</span>,<span class="number">8</span>,<span class="number">7</span>,<span class="number">6</span>,<span class="number">5</span>,<span class="number">4</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>]</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">nums = m_list[<span class="number">1</span>]</span><br><span class="line">length = len(nums)</span><br><span class="line">print(nums)</span><br><span class="line"></span><br><span class="line">count_swap = <span class="number">0</span></span><br><span class="line">count_iter = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(length // <span class="number">2</span>):</span><br><span class="line">    maxindex = i</span><br><span class="line">    minindex = -i <span class="number">-1</span></span><br><span class="line">    minorigin = minindex</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(i + <span class="number">1</span>, length -i):</span><br><span class="line">        count_iter += <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> nums[maxindex] &lt; nums[j]:</span><br><span class="line">            maxindex = j</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> nums[minindex] &gt; nums[-j <span class="number">-1</span>]:</span><br><span class="line">            minindex = -j <span class="number">-1</span></span><br><span class="line">        print(maxindex,minindex)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> i != maxindex:</span><br><span class="line">        tmp = nums[i]</span><br><span class="line">        nums[i] = nums[maxindex]</span><br><span class="line">        nums[maxindex] = tmp</span><br><span class="line">        count_swap += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> i == minindex <span class="keyword">or</span> i == length + minindex:</span><br><span class="line">            minindex = maxindex</span><br><span class="line">    <span class="keyword">if</span> minorigin != minindex:</span><br><span class="line">        tmp = nums[minorigin]</span><br><span class="line">        nums[minorigin] = nums[minindex]</span><br><span class="line">        nums[minindex] = tmp</span><br><span class="line">        count_swap +=<span class="number">1</span></span><br><span class="line">print(nums, count_swap,count_iter)</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>]</span><br><span class="line"><span class="number">1</span> <span class="number">-2</span></span><br><span class="line"><span class="number">2</span> <span class="number">-3</span></span><br><span class="line"><span class="number">3</span> <span class="number">-4</span></span><br><span class="line"><span class="number">4</span> <span class="number">-5</span></span><br><span class="line"><span class="number">5</span> <span class="number">-6</span></span><br><span class="line"><span class="number">6</span> <span class="number">-7</span></span><br><span class="line"><span class="number">7</span> <span class="number">-8</span></span><br><span class="line"><span class="number">8</span> <span class="number">-9</span></span><br><span class="line"><span class="number">2</span> <span class="number">-3</span></span><br><span class="line"><span class="number">3</span> <span class="number">-4</span></span><br><span class="line"><span class="number">4</span> <span class="number">-5</span></span><br><span class="line"><span class="number">5</span> <span class="number">-6</span></span><br><span class="line"><span class="number">6</span> <span class="number">-7</span></span><br><span class="line"><span class="number">7</span> <span class="number">-8</span></span><br><span class="line"><span class="number">3</span> <span class="number">-4</span></span><br><span class="line"><span class="number">4</span> <span class="number">-5</span></span><br><span class="line"><span class="number">5</span> <span class="number">-6</span></span><br><span class="line"><span class="number">6</span> <span class="number">-7</span></span><br><span class="line"><span class="number">4</span> <span class="number">-5</span></span><br><span class="line"><span class="number">5</span> <span class="number">-6</span></span><br><span class="line">[<span class="number">9</span>, <span class="number">8</span>, <span class="number">7</span>, <span class="number">6</span>, <span class="number">5</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>] <span class="number">8</span> <span class="number">20</span></span><br></pre></td></tr></table></figure>
 <h3 id="简单选择排序总结"><a href="#简单选择排序总结" class="headerlink" title="简单选择排序总结"></a>简单选择排序总结</h3><ul>
@@ -734,14 +734,14 @@
 
     
       <div id="wechat" style="display: inline-block">
-        <img id="wechat_qr" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/weipei.png" alt="༺ 锦遥 ༻ 微信支付">
+        <img id="wechat_qr" src="/images/weipei.png" alt="༺ 锦遥 ༻ 微信支付">
         <p>微信支付</p>
       </div>
     
 
     
       <div id="alipay" style="display: inline-block">
-        <img id="alipay_qr" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/zhipei.png" alt="༺ 锦遥 ༻ 支付宝">
+        <img id="alipay_qr" src="/images/zhipei.png" alt="༺ 锦遥 ༻ 支付宝">
         <p>支付宝</p>
       </div>
     
@@ -878,7 +878,7 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/rjyy.ico" alt="༺ 锦遥 ༻">
+              <img class="site-author-image" itemprop="image" src="/images/rjyy.ico" alt="༺ 锦遥 ༻">
             
               <p class="site-author-name" itemprop="name">༺ 锦遥 ༻</p>
               <p class="site-description motion-element" itemprop="description">不急不燥，稳步推进
@@ -893,7 +893,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">84</span>
+                  <span class="site-state-item-count">83</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -916,7 +916,7 @@
 
           
             <div class="feed-link motion-element">
-              <a href="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io@master/atom.xml" rel="alternate">
+              <a href="/atom.xml" rel="alternate">
                 <i class="fa fa-rss"></i>
                 RSS
               </a>
@@ -995,7 +995,7 @@
 
 <!-- 数字雨 -->
 <canvas id="canvas" width="1440" height="1080"></canvas>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/DigitalRain.js"></script>
+<script type="text/javascript" src="/js/DigitalRain.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
     </main>
 
@@ -1063,11 +1063,11 @@ var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours
 }, 1000);
 </script>
 <script src="https://pv.sohu.com/cityjson?ie=utf-8"></script>
-<script src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/ip.js"></script>
+<script src="/js/ip.js"></script>
 
         
 <div class="busuanzi-count">
-  <script async src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/busuanzi.pure.mini.js"></script>
+  <script async src="/js/busuanzi.pure.mini.js"></script>
   
     <span class="site-uv">
       <i class="fa fa-user"></i> 訪客數
@@ -1106,8 +1106,8 @@ var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours
     
 
 <script src="/live2d-widget/autoload.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard.min.js"></script>  
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard-use.js"></script>
+<script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
+<script type="text/javascript" src="/js/src/clipboard-use.js"></script>
   </div>
 
   
@@ -1174,32 +1174,32 @@ var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours
   
 
 
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/utils.js?v=5.1.3"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
 
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/motion.js?v=5.1.3"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/affix.js?v=5.1.3"></script>
-
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/schemes/pisces.js?v=5.1.3"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
 
 
 
   
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/scrollspy.js?v=5.1.3"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/post-details.js?v=5.1.3"></script>
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
 
 
 
   
 
 
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/bootstrap.js?v=5.1.3"></script>
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
 
 
 
@@ -1601,7 +1601,7 @@ var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours
   <!-- 点击特效 -->
 
 
-  <script src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/activate-power-mode.min.js"></script>
+  <script src="/js/activate-power-mode.min.js"></script>
     <script>
 	    POWERMODE.colorful = true;
     POWERMODE.shake = false;
@@ -1609,11 +1609,11 @@ var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours
 	  </script>
 
 
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard.min.js"></script>  
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard-use.js"></script>
+<script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
+<script type="text/javascript" src="/js/src/clipboard-use.js"></script>
 <!--点击冒点-->
 <canvas width="1777" height="841" style="position: fixed; left: 0px; top: 0px; z-index: 2147483647; pointer-events: none;"></canvas>
-<script src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/maodian.js"></script>
+<script src="/js/maodian.js"></script>
 <canvas width="1390" height="797" style="position: fixed; left: 0px; top: 0px; z-index: 2147483647; pointer-events: none;"></canvas>
 </body>
 </html>

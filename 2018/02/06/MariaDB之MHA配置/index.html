@@ -5,11 +5,11 @@
   
 
 <!-- 代码块复制功能 -->
-<!--<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard.min.js"></script> --> 
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard-use.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/instantclick-1.2.2.js" type="module"></script>
+<!--<script type="text/javascript" src="/js/src/clipboard.min.js"></script> --> 
+<script type="text/javascript" src="/js/src/clipboard-use.js"></script>
+<script src="/js/instantclick-1.2.2.js" type="module"></script>
 <!--崩溃欺骗-->
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/crash_cheat.js"></script>
+<script type="text/javascript" src="/js/src/crash_cheat.js"></script>
 <html class="theme-next gemini use-motion" lang="zh-Hans">
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
@@ -76,13 +76,13 @@
 
 
 
-  <meta name="keywords" content="rhca,linux,database,">
+  <meta name="keywords" content="linux,rhca,database,">
 
 
 
 
 
-  <link rel="alternate" href="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io@master/atom.xml" title="逝水锦遥" type="application/atom+xml">
+  <link rel="alternate" href="/atom.xml" title="逝水锦遥" type="application/atom+xml">
 
 
 
@@ -90,19 +90,19 @@
 
 
 <meta name="description" content="[toc] 工作拓扑 一、MHA简明12345678910MHA（Master HA）是一款开源的MySQL的高可用程序，它为MySQL主从复制架构提供了    automating master failover 功能。MHA在监控到master节点故障时，会提升其中    拥有最新数据的slave节点来成为新的master节点。在此期间，MHA会通过于其它从节点    获取额外信息来避免一致性">
-<meta name="keywords" content="rhca,linux,database">
+<meta name="keywords" content="linux,rhca,database">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MariaDB之MHA配置">
 <meta property="og:url" content="https://www.asjin.com/2018/02/06/MariaDB之MHA配置/index.html">
 <meta property="og:site_name" content="逝水锦遥">
 <meta property="og:description" content="[toc] 工作拓扑 一、MHA简明12345678910MHA（Master HA）是一款开源的MySQL的高可用程序，它为MySQL主从复制架构提供了    automating master failover 功能。MHA在监控到master节点故障时，会提升其中    拥有最新数据的slave节点来成为新的master节点。在此期间，MHA会通过于其它从节点    获取额外信息来避免一致性">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/mariadb_mha.png">
+<meta property="og:image" content="https://www.asjin.com/images/mariadb_mha.png">
 <meta property="og:updated_time" content="2020-09-29T10:59:20.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MariaDB之MHA配置">
 <meta name="twitter:description" content="[toc] 工作拓扑 一、MHA简明12345678910MHA（Master HA）是一款开源的MySQL的高可用程序，它为MySQL主从复制架构提供了    automating master failover 功能。MHA在监控到master节点故障时，会提升其中    拥有最新数据的slave节点来成为新的master节点。在此期间，MHA会通过于其它从节点    获取额外信息来避免一致性">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/mariadb_mha.png">
+<meta name="twitter:image" content="https://www.asjin.com/images/mariadb_mha.png">
 
 
 
@@ -443,7 +443,7 @@
 
       
         <p>[toc]</p>
-<h2 id="工作拓扑"><a href="#工作拓扑" class="headerlink" title="工作拓扑"></a>工作拓扑</h2><p><img src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/mariadb_mha.png" alt></p>
+<h2 id="工作拓扑"><a href="#工作拓扑" class="headerlink" title="工作拓扑"></a>工作拓扑</h2><p><img src="/images/mariadb_mha.png" alt></p>
 <h2 id="一、MHA简明"><a href="#一、MHA简明" class="headerlink" title="一、MHA简明"></a>一、MHA简明</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">MHA（Master HA）是一款开源的MySQL的高可用程序，它为MySQL主从复制架构提供了</span><br><span class="line">    automating master failover 功能。MHA在监控到master节点故障时，会提升其中</span><br><span class="line">    拥有最新数据的slave节点来成为新的master节点。在此期间，MHA会通过于其它从节点</span><br><span class="line">    获取额外信息来避免一致性方面的问题。MHA还提供了master节点的在线切换功能，即按</span><br><span class="line">    需切换master/slave节点。</span><br><span class="line">MHA服务有两咱角色。MHA Mangager(管理节点)和MHA Node(数据节点)：</span><br><span class="line">    MHA Manager：通常单独部署在一台独立机器上管理多个master/slave集群，每个</span><br><span class="line">    master/slave集群称作一个application:</span><br><span class="line">    MHA node:运行在每台MySQL服务器之上(master/slave/manager),它通过监控</span><br><span class="line">    具务解析和清理logs功能来脚本来加快故障转移。</span><br></pre></td></tr></table></figure>
 <h2 id="二、MHA-组件"><a href="#二、MHA-组件" class="headerlink" title="二、MHA 组件"></a>二、MHA 组件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">    MHA会提供诸多工具程序，其常见的如下所示。 </span><br><span class="line">    Manager节点:</span><br><span class="line">       masterha_check_ssh:MHA依赖的SSH环境检测工具；</span><br><span class="line">        masterha_check_repl:MySQL复制环境检测工具；</span><br><span class="line">        masterha_mamager:MHA服务主程序；</span><br><span class="line">        masterha_check_status:MHA运行状态探测工具；</span><br><span class="line">        masterha_master_monitor:MySQL master节点可用性监测工具；</span><br><span class="line">        masterha_master_swith:master节点切换工具；</span><br><span class="line">        masterha_conf_host:添加或删除配置的节点；</span><br><span class="line">        masterha_stop:斗闭MHA服务的工具 ；</span><br><span class="line">        </span><br><span class="line"></span><br><span class="line">    Node 节点:</span><br><span class="line">        save_binary_logs:保存和复制Master的二进制日志 ；</span><br><span class="line">        apply_diff_replay_logs:识别差异的中继日志事件并应用于其它slave;</span><br><span class="line">        filter_mysqlbinlog:去除不必要的ROLLBACK事件(MHA已不再使用这个工具)；</span><br><span class="line">        purge_replay_logs:清除中继日志(不会阻塞SQL线程)；</span><br><span class="line">        </span><br><span class="line">    自定义扩展:</span><br><span class="line">        secondary_check_script:通过多条网络路由检测master的可用性；</span><br><span class="line">        master_ip_failover_scipt:更新application使用的masterip;</span><br><span class="line">        shutdown_script：强制关闭master节点；</span><br><span class="line">        report_scipt:发送报告；</span><br><span class="line">        init_conf_load_script:加载初始配置参数；</span><br><span class="line">        master_ip_online_change_scipt:更新master节点ip地址；</span><br></pre></td></tr></table></figure>
 <h2 id="三、准备MySQL-Replicatin环境"><a href="#三、准备MySQL-Replicatin环境" class="headerlink" title="三、准备MySQL Replicatin环境"></a>三、准备MySQL Replicatin环境</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">    MHA对MySQL复制环境有特殊要求，例如各节点都要开启二进制日志及中继日志，</span><br><span class="line">    各从节点 必须启用其read-only skip_name_resolve innodb_file_per_table=ON 属性，</span><br><span class="line">    并关闭relay_log_purge功能等，还有体集事物所必需的同步；</span><br></pre></td></tr></table></figure>
@@ -496,14 +496,14 @@ master节点和各slave节点，以及各slave节点启动其IO和SQL线程，�
 
     
       <div id="wechat" style="display: inline-block">
-        <img id="wechat_qr" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/weipei.png" alt="༺ 锦遥 ༻ 微信支付">
+        <img id="wechat_qr" src="/images/weipei.png" alt="༺ 锦遥 ༻ 微信支付">
         <p>微信支付</p>
       </div>
     
 
     
       <div id="alipay" style="display: inline-block">
-        <img id="alipay_qr" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/zhipei.png" alt="༺ 锦遥 ༻ 支付宝">
+        <img id="alipay_qr" src="/images/zhipei.png" alt="༺ 锦遥 ༻ 支付宝">
         <p>支付宝</p>
       </div>
     
@@ -540,9 +540,9 @@ master节点和各slave节点，以及各slave节点启动其IO和SQL线程，�
       
         <div class="post-tags">
           
-            <a href="/tags/rhca/" rel="tag"># rhca</a>
-          
             <a href="/tags/linux/" rel="tag"># linux</a>
+          
+            <a href="/tags/rhca/" rel="tag"># rhca</a>
           
             <a href="/tags/database/" rel="tag"># database</a>
           
@@ -642,7 +642,7 @@ master节点和各slave节点，以及各slave节点启动其IO和SQL线程，�
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/rjyy.ico" alt="༺ 锦遥 ༻">
+              <img class="site-author-image" itemprop="image" src="/images/rjyy.ico" alt="༺ 锦遥 ༻">
             
               <p class="site-author-name" itemprop="name">༺ 锦遥 ༻</p>
               <p class="site-description motion-element" itemprop="description">不急不燥，稳步推进
@@ -657,7 +657,7 @@ master节点和各slave节点，以及各slave节点启动其IO和SQL线程，�
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">84</span>
+                  <span class="site-state-item-count">83</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -680,7 +680,7 @@ master节点和各slave节点，以及各slave节点启动其IO和SQL线程，�
 
           
             <div class="feed-link motion-element">
-              <a href="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io@master/atom.xml" rel="alternate">
+              <a href="/atom.xml" rel="alternate">
                 <i class="fa fa-rss"></i>
                 RSS
               </a>
@@ -759,7 +759,7 @@ master节点和各slave节点，以及各slave节点启动其IO和SQL线程，�
 
 <!-- 数字雨 -->
 <canvas id="canvas" width="1440" height="1080"></canvas>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/DigitalRain.js"></script>
+<script type="text/javascript" src="/js/DigitalRain.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
     </main>
 
@@ -827,11 +827,11 @@ var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours
 }, 1000);
 </script>
 <script src="https://pv.sohu.com/cityjson?ie=utf-8"></script>
-<script src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/ip.js"></script>
+<script src="/js/ip.js"></script>
 
         
 <div class="busuanzi-count">
-  <script async src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/busuanzi.pure.mini.js"></script>
+  <script async src="/js/busuanzi.pure.mini.js"></script>
   
     <span class="site-uv">
       <i class="fa fa-user"></i> 訪客數
@@ -870,8 +870,8 @@ var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours
     
 
 <script src="/live2d-widget/autoload.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard.min.js"></script>  
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard-use.js"></script>
+<script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
+<script type="text/javascript" src="/js/src/clipboard-use.js"></script>
   </div>
 
   
@@ -938,32 +938,32 @@ var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours
   
 
 
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/utils.js?v=5.1.3"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
 
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/motion.js?v=5.1.3"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/affix.js?v=5.1.3"></script>
-
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/schemes/pisces.js?v=5.1.3"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
 
 
 
   
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/scrollspy.js?v=5.1.3"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/post-details.js?v=5.1.3"></script>
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
 
 
 
   
 
 
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/bootstrap.js?v=5.1.3"></script>
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
 
 
 
@@ -1365,7 +1365,7 @@ var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours
   <!-- 点击特效 -->
 
 
-  <script src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/activate-power-mode.min.js"></script>
+  <script src="/js/activate-power-mode.min.js"></script>
     <script>
 	    POWERMODE.colorful = true;
     POWERMODE.shake = false;
@@ -1373,11 +1373,11 @@ var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours
 	  </script>
 
 
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard.min.js"></script>  
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard-use.js"></script>
+<script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
+<script type="text/javascript" src="/js/src/clipboard-use.js"></script>
 <!--点击冒点-->
 <canvas width="1777" height="841" style="position: fixed; left: 0px; top: 0px; z-index: 2147483647; pointer-events: none;"></canvas>
-<script src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/maodian.js"></script>
+<script src="/js/maodian.js"></script>
 <canvas width="1390" height="797" style="position: fixed; left: 0px; top: 0px; z-index: 2147483647; pointer-events: none;"></canvas>
 </body>
 </html>

@@ -5,11 +5,11 @@
   
 
 <!-- 代码块复制功能 -->
-<!--<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard.min.js"></script> --> 
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard-use.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/instantclick-1.2.2.js" type="module"></script>
+<!--<script type="text/javascript" src="/js/src/clipboard.min.js"></script> --> 
+<script type="text/javascript" src="/js/src/clipboard-use.js"></script>
+<script src="/js/instantclick-1.2.2.js" type="module"></script>
 <!--崩溃欺骗-->
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/crash_cheat.js"></script>
+<script type="text/javascript" src="/js/src/crash_cheat.js"></script>
 <html class="theme-next gemini use-motion" lang="zh-Hans">
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
@@ -82,7 +82,7 @@
 
 
 
-  <link rel="alternate" href="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io@master/atom.xml" title="逝水锦遥" type="application/atom+xml">
+  <link rel="alternate" href="/atom.xml" title="逝水锦遥" type="application/atom+xml">
 
 
 
@@ -97,13 +97,13 @@
 <meta property="og:site_name" content="逝水锦遥">
 <meta property="og:description" content="[toc] 一、先来看看需求及对应的设计图  什么是FabricFabric是一个Python的库，提供了丰富的同SSH交互的接口，可以用来在本地或远程机器上自动化、流水化地执行Shell命令。非常适合用来做应用的远程部署及系统维护。简单易用，只需懂得基本的Shell命令。  版本区分Fabric：官方Fabric，兼容 Python 2 &amp;amp; Python 3，但不兼容Fabric 1.x">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/kvm-automation.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/kvm_start_install.png">
+<meta property="og:image" content="https://www.asjin.com/images/kvm-automation.png">
+<meta property="og:image" content="https://www.asjin.com/images/kvm_start_install.png">
 <meta property="og:updated_time" content="2020-09-28T08:48:05.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="fabric自动化之kvm私有云服务器快速开通与交付">
 <meta name="twitter:description" content="[toc] 一、先来看看需求及对应的设计图  什么是FabricFabric是一个Python的库，提供了丰富的同SSH交互的接口，可以用来在本地或远程机器上自动化、流水化地执行Shell命令。非常适合用来做应用的远程部署及系统维护。简单易用，只需懂得基本的Shell命令。  版本区分Fabric：官方Fabric，兼容 Python 2 &amp;amp; Python 3，但不兼容Fabric 1.x">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/kvm-automation.png">
+<meta name="twitter:image" content="https://www.asjin.com/images/kvm-automation.png">
 
 
 
@@ -448,7 +448,7 @@
 
       
         <p>[toc]</p>
-<h2 id="一、先来看看需求及对应的设计图"><a href="#一、先来看看需求及对应的设计图" class="headerlink" title="一、先来看看需求及对应的设计图"></a>一、先来看看需求及对应的设计图</h2><p><img src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/kvm-automation.png" alt></p>
+<h2 id="一、先来看看需求及对应的设计图"><a href="#一、先来看看需求及对应的设计图" class="headerlink" title="一、先来看看需求及对应的设计图"></a>一、先来看看需求及对应的设计图</h2><p><img src="/images/kvm-automation.png" alt></p>
 <ul>
 <li><p>什么是Fabric<br>Fabric是一个Python的库，提供了丰富的同SSH交互的接口，可以用来在本地或远程机器上自动化、流水化地执行Shell命令。<br>非常适合用来做应用的远程部署及系统维护。简单易用，只需懂得基本的Shell命令。</p>
 </li>
@@ -488,7 +488,7 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python2</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">from</span> prettytable <span class="keyword">import</span> PrettyTable</span><br><span class="line"><span class="keyword">from</span> config.hosts <span class="keyword">import</span> SOURCES_HOSTS,TARGETS_HOSTS,KVM_HOSTS</span><br><span class="line"><span class="keyword">from</span> fabric.contrib.files <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> application.kvmcreate <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> application.appcreate <span class="keyword">import</span> *</span><br><span class="line"><span class="meta">@hosts(SOURCES_HOSTS)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">kvm_sources_clone_scp</span><span class="params">()</span>:</span></span><br><span class="line">    kvm_create()</span><br><span class="line"><span class="meta">@hosts(TARGETS_HOSTS)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">kvm_targets_site</span><span class="params">()</span>:</span></span><br><span class="line">    targets_hosts_start_kvm()</span><br><span class="line"><span class="meta">@hosts(KVM_HOSTS)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">kvm_virture_host_start_site</span><span class="params">()</span>:</span></span><br><span class="line">    kvm_virture_hosts_site()</span><br><span class="line">    run_install_all_application_package()</span><br><span class="line">    kvm_tirture_hosts_site_passwd()</span><br><span class="line">    kvm_virture_hosts_print()</span><br><span class="line"><span class="meta">@task(name='install')</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">run_all</span><span class="params">()</span>:</span></span><br><span class="line">    execute(kvm_sources_clone_scp)</span><br><span class="line">    execute(kvm_targets_site)</span><br><span class="line">    execute(kvm_virture_host_start_site)</span><br><span class="line"><span class="meta">@task(name='help')</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">deploy_help</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">print</span> green(<span class="string">"KVM产品及CentOS7应用部署"</span>)</span><br><span class="line">    <span class="keyword">print</span> yellow(<span class="string">"    1.配置文件"</span>)</span><br><span class="line">    helper = PrettyTable()</span><br><span class="line">    helper.field_names = [<span class="string">"配置"</span>,<span class="string">"说明"</span>]</span><br><span class="line">    helper.align = <span class="string">"l"</span></span><br><span class="line">    helper.add_row([<span class="string">"config/__init__.py"</span>, <span class="string">"配置文件开关"</span>])</span><br><span class="line">    helper.add_row([<span class="string">"config/test/kvm_config.py"</span>, <span class="string">"测试环境部署配置"</span>])</span><br><span class="line">    helper.add_row([<span class="string">"config/prod/kvm_config.py"</span>, <span class="string">"生产环境部署配置"</span>])</span><br><span class="line">    <span class="keyword">print</span> helper</span><br><span class="line">    <span class="keyword">print</span> red(<span class="string">"    2.指令说明"</span>)</span><br><span class="line">    helper = PrettyTable()</span><br><span class="line">    helper.field_names = [<span class="string">"指令"</span>,<span class="string">"说明"</span>]</span><br><span class="line">    helper.align = <span class="string">"l"</span></span><br><span class="line">    helper.add_row([<span class="string">"fab -f kvm.py -l"</span>, <span class="string">"列出部署产品"</span>])</span><br><span class="line">    helper.add_row([<span class="string">"fab -f kvm.py install"</span>, <span class="string">"安装kvm,并整合配置的应用至kvm新虚拟服务器"</span>])</span><br><span class="line">    <span class="keyword">print</span> helper</span><br><span class="line">    <span class="keyword">print</span> blue(<span class="string">"    3.作者信息"</span>)</span><br><span class="line">    helper = PrettyTable()</span><br><span class="line">    helper.field_names = [<span class="string">"作者"</span>,<span class="string">"信息"</span>]</span><br><span class="line">    helper.add_row([<span class="string">"姓名"</span>, <span class="string">"任锦"</span>])</span><br><span class="line">    helper.add_row([<span class="string">"手机号"</span>, <span class="string">"13161389224"</span>])</span><br><span class="line">    helper.add_row([<span class="string">"博客地址"</span>, <span class="string">"www.ssjinyao.com"</span>])</span><br><span class="line">    <span class="keyword">print</span> helper</span><br></pre></td></tr></table></figure>
 <h2 id="服务器部署完此代码后，定义别名调用kvm-py实现快速开通"><a href="#服务器部署完此代码后，定义别名调用kvm-py实现快速开通" class="headerlink" title="服务器部署完此代码后，定义别名调用kvm.py实现快速开通"></a>服务器部署完此代码后，定义别名调用kvm.py实现快速开通</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># alias kc1='source  /root/renjin/kvm_pyenv/bin/activate &amp;&amp; vim /root/renjin/kvm_create/config/__init__.py'</span></span><br><span class="line"><span class="comment"># alias kc2p='vim +33 /root/renjin/kvm_create/config/prod/kvm_config.py'</span></span><br><span class="line"><span class="comment"># alias kc2t='vim +33 /root/renjin/kvm_create/config/test/kvm_config.py'</span></span><br><span class="line"><span class="comment"># alias kc3='cd /root/renjin/kvm_create/ &amp;&amp; fab -f kvm.py install'</span></span><br><span class="line"><span class="comment"># alias kcok1='vim /root/renjin/kvm_create/config/__init__.py'</span></span><br><span class="line"><span class="comment"># alias kcok2p='vim +33 /root/renjin/kvm_create/config/prod/kvm_config.py'</span></span><br><span class="line"><span class="comment"># alias kcok2t='vim +33 /root/renjin/kvm_create/config/test/kvm_config.py'</span></span><br></pre></td></tr></table></figure>
 <h2 id="自动化快速开启开通kvm虚拟化服务器"><a href="#自动化快速开启开通kvm虚拟化服务器" class="headerlink" title="自动化快速开启开通kvm虚拟化服务器"></a>自动化快速开启开通kvm虚拟化服务器</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">****************************************************************************************************</span><br><span class="line">**********  KVM ENV Is: <span class="built_in">test</span>                                                              **********</span><br><span class="line">**********  KVM Host Name Is: xx-xxxx-xx-xxx-xxxx-xxxx                                   **********</span><br><span class="line">**********  KVM IP Is: xxx.xx.xx.xx                                                       **********</span><br><span class="line">**********  TARGET IP Is: xxx.xx.xxx.xx                                                   **********</span><br><span class="line">**********  KVM Gateway Is: xxx.xx.x.x                                                    **********</span><br><span class="line">**********  KVM Netmask Is: xxx.xxx.xxx.x                                                 **********</span><br><span class="line">**********  KVM APP Is: zabbix_agent nginx mysql_xx                                       **********</span><br><span class="line">**********  KVM CPU Is: 2                                                                 **********</span><br><span class="line">**********  KVM Memory Is: 4194304                                                        **********</span><br><span class="line">**********  KVM Disk Is: 100G                                                             **********</span><br><span class="line">**********  KVM Passwd IS: xxxxxxxXXXX                                                    **********</span><br><span class="line">****************************************************************************************************</span><br><span class="line"></span><br><span class="line">If the information is incorrect, please input no:</span><br></pre></td></tr></table></figure>
-<p><img src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/kvm_start_install.png" alt></p>
+<p><img src="/images/kvm_start_install.png" alt></p>
 <h3 id="开通kvm虚似服务器已经完成，信息如下"><a href="#开通kvm虚似服务器已经完成，信息如下" class="headerlink" title="开通kvm虚似服务器已经完成，信息如下"></a>开通kvm虚似服务器已经完成，信息如下</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">****************************************************************************************************</span><br><span class="line">**********  KVM ENV Is: <span class="built_in">test</span>                                                              **********</span><br><span class="line">**********  KVM Host Name Is: bj-xxxx-xx-xxx-xxxx-xxxxx                                   **********</span><br><span class="line">**********  KVM IP Is: xxx.xx.xx.xx                                                       **********</span><br><span class="line">**********  TARGET IP Is: xxx.xx.xxx.xx                                                   **********</span><br><span class="line">**********  KVM Gateway Is: xxx.xx.xx.x                                                   **********</span><br><span class="line">**********  KVM Netmask Is: xxx.xxx.xxx.0                                                 **********</span><br><span class="line">**********  KVM APP Is:  zabbix_agent nginx mysql_xx                                      **********</span><br><span class="line">**********  KVM CPU Is: 2                                                                 **********</span><br><span class="line">**********  KVM Memory Is: 4194304                                                        **********</span><br><span class="line">**********  KVM Disk Is: 100G                                                             **********</span><br><span class="line">**********  KVM Passwd IS: XXXXXXXX                                                       **********</span><br><span class="line">****************************************************************************************************</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Done.</span><br><span class="line">Disconnecting from xxx.xx.xx.xx... <span class="keyword">done</span>.</span><br><span class="line">Disconnecting from xxx.xx.xx.xx... <span class="keyword">done</span>.</span><br><span class="line">Disconnecting from xxx.xx.xx.xx... <span class="keyword">done</span>.</span><br></pre></td></tr></table></figure>
 
       
@@ -510,14 +510,14 @@
 
     
       <div id="wechat" style="display: inline-block">
-        <img id="wechat_qr" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/weipei.png" alt="༺ 锦遥 ༻ 微信支付">
+        <img id="wechat_qr" src="/images/weipei.png" alt="༺ 锦遥 ༻ 微信支付">
         <p>微信支付</p>
       </div>
     
 
     
       <div id="alipay" style="display: inline-block">
-        <img id="alipay_qr" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/zhipei.png" alt="༺ 锦遥 ༻ 支付宝">
+        <img id="alipay_qr" src="/images/zhipei.png" alt="༺ 锦遥 ༻ 支付宝">
         <p>支付宝</p>
       </div>
     
@@ -656,7 +656,7 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/rjyy.ico" alt="༺ 锦遥 ༻">
+              <img class="site-author-image" itemprop="image" src="/images/rjyy.ico" alt="༺ 锦遥 ༻">
             
               <p class="site-author-name" itemprop="name">༺ 锦遥 ༻</p>
               <p class="site-description motion-element" itemprop="description">不急不燥，稳步推进
@@ -671,7 +671,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">84</span>
+                  <span class="site-state-item-count">83</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -694,7 +694,7 @@
 
           
             <div class="feed-link motion-element">
-              <a href="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io@master/atom.xml" rel="alternate">
+              <a href="/atom.xml" rel="alternate">
                 <i class="fa fa-rss"></i>
                 RSS
               </a>
@@ -773,7 +773,7 @@
 
 <!-- 数字雨 -->
 <canvas id="canvas" width="1440" height="1080"></canvas>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/DigitalRain.js"></script>
+<script type="text/javascript" src="/js/DigitalRain.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
     </main>
 
@@ -841,11 +841,11 @@ var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours
 }, 1000);
 </script>
 <script src="https://pv.sohu.com/cityjson?ie=utf-8"></script>
-<script src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/ip.js"></script>
+<script src="/js/ip.js"></script>
 
         
 <div class="busuanzi-count">
-  <script async src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/busuanzi.pure.mini.js"></script>
+  <script async src="/js/busuanzi.pure.mini.js"></script>
   
     <span class="site-uv">
       <i class="fa fa-user"></i> 訪客數
@@ -884,8 +884,8 @@ var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours
     
 
 <script src="/live2d-widget/autoload.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard.min.js"></script>  
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard-use.js"></script>
+<script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
+<script type="text/javascript" src="/js/src/clipboard-use.js"></script>
   </div>
 
   
@@ -952,32 +952,32 @@ var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours
   
 
 
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/utils.js?v=5.1.3"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
 
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/motion.js?v=5.1.3"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/affix.js?v=5.1.3"></script>
-
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/schemes/pisces.js?v=5.1.3"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
 
 
 
   
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/scrollspy.js?v=5.1.3"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/post-details.js?v=5.1.3"></script>
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
 
 
 
   
 
 
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/bootstrap.js?v=5.1.3"></script>
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
 
 
 
@@ -1379,7 +1379,7 @@ var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours
   <!-- 点击特效 -->
 
 
-  <script src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/activate-power-mode.min.js"></script>
+  <script src="/js/activate-power-mode.min.js"></script>
     <script>
 	    POWERMODE.colorful = true;
     POWERMODE.shake = false;
@@ -1387,11 +1387,11 @@ var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours
 	  </script>
 
 
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard.min.js"></script>  
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard-use.js"></script>
+<script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
+<script type="text/javascript" src="/js/src/clipboard-use.js"></script>
 <!--点击冒点-->
 <canvas width="1777" height="841" style="position: fixed; left: 0px; top: 0px; z-index: 2147483647; pointer-events: none;"></canvas>
-<script src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/maodian.js"></script>
+<script src="/js/maodian.js"></script>
 <canvas width="1390" height="797" style="position: fixed; left: 0px; top: 0px; z-index: 2147483647; pointer-events: none;"></canvas>
 </body>
 </html>

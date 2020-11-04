@@ -5,11 +5,11 @@
   
 
 <!-- 代码块复制功能 -->
-<!--<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard.min.js"></script> --> 
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard-use.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/instantclick-1.2.2.js" type="module"></script>
+<!--<script type="text/javascript" src="/js/src/clipboard.min.js"></script> --> 
+<script type="text/javascript" src="/js/src/clipboard-use.js"></script>
+<script src="/js/instantclick-1.2.2.js" type="module"></script>
 <!--崩溃欺骗-->
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/crash_cheat.js"></script>
+<script type="text/javascript" src="/js/src/crash_cheat.js"></script>
 <html class="theme-next gemini use-motion" lang="zh-Hans">
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
@@ -76,13 +76,13 @@
 
 
 
-  <meta name="keywords" content="rhca,linux,">
+  <meta name="keywords" content="linux,rhca,">
 
 
 
 
 
-  <link rel="alternate" href="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io@master/atom.xml" title="逝水锦遥" type="application/atom+xml">
+  <link rel="alternate" href="/atom.xml" title="逝水锦遥" type="application/atom+xml">
 
 
 
@@ -90,25 +90,25 @@
 
 
 <meta name="description" content="[toc] CentOS 7 ELK(Elasticsearch Logstash Kibana) 搭建 不管是用于记录，监控或者程序的Debug，日志，对于任何系统来说都是一个及其重要的部分;但一般日志的数据量会比较大，并且分散在各个地方。如果管理的服务器或者程序比较少的情况;我们还可以逐一登录到各个服务器去查看，分析。但如果服务器或者程序的数量比较多了;之后这种方法就显得力不从心。基于此，一些">
-<meta name="keywords" content="rhca,linux">
+<meta name="keywords" content="linux,rhca">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CentOS 7 ELK(Elasticsearch Logstash Kibana) 搭建">
 <meta property="og:url" content="https://www.asjin.com/2018/01/30/CentOS-7-ELK-Elasticsearch-Logstash-Kibana-搭建/index.html">
 <meta property="og:site_name" content="逝水锦遥">
 <meta property="og:description" content="[toc] CentOS 7 ELK(Elasticsearch Logstash Kibana) 搭建 不管是用于记录，监控或者程序的Debug，日志，对于任何系统来说都是一个及其重要的部分;但一般日志的数据量会比较大，并且分散在各个地方。如果管理的服务器或者程序比较少的情况;我们还可以逐一登录到各个服务器去查看，分析。但如果服务器或者程序的数量比较多了;之后这种方法就显得力不从心。基于此，一些">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/elk.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/kibana.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/kibana_ditu.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/kibana_nginx.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/kibana_zhengze.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/kibana_table.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/kibana_json.png">
+<meta property="og:image" content="https://www.asjin.com/images/elk.png">
+<meta property="og:image" content="https://www.asjin.com/images/kibana.png">
+<meta property="og:image" content="https://www.asjin.com/images/kibana_ditu.png">
+<meta property="og:image" content="https://www.asjin.com/images/kibana_nginx.png">
+<meta property="og:image" content="https://www.asjin.com/images/kibana_zhengze.png">
+<meta property="og:image" content="https://www.asjin.com/images/kibana_table.png">
+<meta property="og:image" content="https://www.asjin.com/images/kibana_json.png">
 <meta property="og:updated_time" content="2020-09-29T11:05:13.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CentOS 7 ELK(Elasticsearch Logstash Kibana) 搭建">
 <meta name="twitter:description" content="[toc] CentOS 7 ELK(Elasticsearch Logstash Kibana) 搭建 不管是用于记录，监控或者程序的Debug，日志，对于任何系统来说都是一个及其重要的部分;但一般日志的数据量会比较大，并且分散在各个地方。如果管理的服务器或者程序比较少的情况;我们还可以逐一登录到各个服务器去查看，分析。但如果服务器或者程序的数量比较多了;之后这种方法就显得力不从心。基于此，一些">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/elk.png">
+<meta name="twitter:image" content="https://www.asjin.com/images/elk.png">
 
 
 
@@ -460,7 +460,7 @@
 <blockquote>
 <p>ELK即(Elasticsearch[搜索引擎]，Logstash[日志收集]，Kibana [客户端接入的web平台]);<br>ELK 是由JAVA开发且开源的日志存储套件，占用内存较大，执行速度较快，适合大量志日志高并发存储;<br>支持分存式与横向扩展;<br>支持全局搜索，支持正则表达式搜索，支持图形统计, 支持日志json、表格形式;<br>一般运行在系统层面，部署费劲。出现问题易于拆分，排查;<br>最底配置2核4G;</p>
 </blockquote>
-<p><img src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/elk.png" alt></p>
+<p><img src="/images/elk.png" alt></p>
 <h1 id="此次部署过程"><a href="#此次部署过程" class="headerlink" title="此次部署过程"></a>此次部署过程</h1><ul>
 <li>注: 二进制包Elasticsearch 不能用root用户启动服务 </li>
 </ul>
@@ -483,7 +483,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># vim /usr/local/kibana-5.3.0-linux-x86_64/config/kibana.yml  # 变更以下配置</span></span><br><span class="line">elasticsearch.url: <span class="string">"http://localhost:9200"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># su - elasticsearch</span></span><br><span class="line">$ nohup /usr/<span class="built_in">local</span>/kibana-5.3.0-linux-x86_64/bin/kibana &amp;</span><br><span class="line"><span class="comment"># exit </span></span><br><span class="line"><span class="comment"># netstat  -tnlup | grep 5601</span></span><br><span class="line">tcp        0      0 127.0.0.1:5601          0.0.0.0:*               LISTEN      14132/node</span><br></pre></td></tr></table></figure>
 <h2 id="Nginx-的安装与配置"><a href="#Nginx-的安装与配置" class="headerlink" title="Nginx 的安装与配置"></a>Nginx 的安装与配置</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># yum install nginx -y </span></span><br><span class="line"><span class="comment"># nginx -t </span></span><br><span class="line"><span class="comment"># vim /etc/nginx/conf.d/kibana.conf</span></span><br><span class="line">server &#123;</span><br><span class="line">    listen       80 default_server;</span><br><span class="line">    listen       [::]:80 default_server;</span><br><span class="line">    server_name _;</span><br><span class="line">    location / &#123;</span><br><span class="line">        proxy_pass http://127.0.0.1:5601;</span><br><span class="line">        proxy_http_version 1.1;</span><br><span class="line">        proxy_set_header Upgrade <span class="variable">$http_upgrade</span>;</span><br><span class="line">        proxy_set_header Connection <span class="string">'upgrade'</span>;</span><br><span class="line">        proxy_set_header Host <span class="variable">$host</span>;</span><br><span class="line">        proxy_cache_bypass <span class="variable">$http_upgrade</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment"># vim /etc/nginx/nginx.conf  注释默认虚拟主机</span></span><br><span class="line"><span class="comment">#    server &#123;</span></span><br><span class="line"><span class="comment">#        listen       80 default_server;</span></span><br><span class="line"><span class="comment">#        listen       [::]:80 default_server;</span></span><br><span class="line"><span class="comment">#        server_name  _;</span></span><br><span class="line"><span class="comment">#        root         /usr/share/nginx/html;</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#        # Load configuration files for the default server block.</span></span><br><span class="line"><span class="comment">#        include /etc/nginx/default.d/*.conf;</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#        location / &#123;</span></span><br><span class="line"><span class="comment">#        &#125;</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#        error_page 404 /404.html;</span></span><br><span class="line"><span class="comment">#            location = /40x.html &#123;</span></span><br><span class="line"><span class="comment">#        &#125;</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#        error_page 500 502 503 504 /50x.html;</span></span><br><span class="line"><span class="comment">#            location = /50x.html &#123;</span></span><br><span class="line"><span class="comment">#        &#125;</span></span><br><span class="line"><span class="comment">#    &#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># nginx -t </span></span><br><span class="line"><span class="comment"># systemctl restart nginx</span></span><br></pre></td></tr></table></figure>
 <p>浏览器访问 <a href="http://xxx.ssjinyao.com/" target="_blank" rel="noopener">http://xxx.ssjinyao.com/</a></p>
-<p><img src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/kibana.png" alt></p>
+<p><img src="/images/kibana.png" alt></p>
 <h2 id="Logstash-的安装与配置"><a href="#Logstash-的安装与配置" class="headerlink" title="Logstash 的安装与配置"></a>Logstash 的安装与配置</h2><ul>
 <li>注:由于logstash-5.3的二进制包无法实别系统环境PASH变量，所以这里用rpm包，yum安装  </li>
 </ul>
@@ -499,15 +499,15 @@
 <p>2、 配置 </p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># vim /etc/metricbeat/metricbeat.yml</span></span><br><span class="line">metricbeat.modules:</span><br><span class="line">- module: system</span><br><span class="line">  metricsets:</span><br><span class="line">    - cpu</span><br><span class="line">    - load</span><br><span class="line">    - core</span><br><span class="line">    - diskio</span><br><span class="line">    - filesystem</span><br><span class="line">    - fsstat</span><br><span class="line">    - memory</span><br><span class="line">    - network</span><br><span class="line">    - process</span><br><span class="line">    - socket</span><br><span class="line">  enabled: <span class="literal">true</span></span><br><span class="line">  period: 10s</span><br><span class="line">  processes: [<span class="string">'.*'</span>]</span><br><span class="line">- module: nginx</span><br><span class="line">  metricsets: [<span class="string">"stubstatus"</span>]</span><br><span class="line">  enabled: <span class="literal">true</span></span><br><span class="line">  period: 10s</span><br><span class="line">  hosts: [<span class="string">"http://127.0.0.1"</span>]</span><br><span class="line">  server_status_path: <span class="string">"NginxStatus"</span></span><br><span class="line">output.elasticsearch:</span><br><span class="line">  hosts: [<span class="string">"127.0.0.1:9200"</span>]</span><br><span class="line">  username: <span class="string">"elastic"</span></span><br><span class="line">  password: <span class="string">"changeme"</span></span><br><span class="line">logging.level: debug</span><br><span class="line">output.elasticsearch:</span><br><span class="line">  hosts: [<span class="string">"localhost:9200"</span>]</span><br><span class="line"><span class="comment"># metricbeat.sh -c metricbeat.yml  -configtest</span></span><br><span class="line">Config OK</span><br></pre></td></tr></table></figure>
 <h2 id="登录查询日志"><a href="#登录查询日志" class="headerlink" title="登录查询日志"></a>登录查询日志</h2><p>1、 相看日志源ip区域分布</p>
-<p><img src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/kibana_ditu.png" alt></p>
+<p><img src="/images/kibana_ditu.png" alt></p>
 <p>2、 Nginx 日志格式如下</p>
-<p><img src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/kibana_nginx.png" alt></p>
+<p><img src="/images/kibana_nginx.png" alt></p>
 <p>3、 使用正则搜索</p>
-<p><img src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/kibana_zhengze.png" alt></p>
+<p><img src="/images/kibana_zhengze.png" alt></p>
 <p>4、 直接写入Logstash的python日志表格式</p>
-<p><img src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/kibana_table.png" alt></p>
+<p><img src="/images/kibana_table.png" alt></p>
 <p>5、 直接写入Logstash的python日志json格式</p>
-<p><img src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/kibana_json.png" alt></p>
+<p><img src="/images/kibana_json.png" alt></p>
 <h2 id="远程日志收集"><a href="#远程日志收集" class="headerlink" title="远程日志收集"></a>远程日志收集</h2><p>1、 filebeat 的安装  </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">$ curl -L -O https://download.elastic.co/beats/filebeat/filebeat_1.3.0_amd64.deb</span><br><span class="line">$ sudo dpkg -i filebeat_1.3.0_amd64.deb</span><br><span class="line">$ sudo vim /etc/filebeat/filebeat.yml </span><br><span class="line">filebeat:</span><br><span class="line">  prospectors:</span><br><span class="line">    -</span><br><span class="line">      paths:</span><br><span class="line">        - /var/log/nginx/*.log</span><br><span class="line">        - /var/log/cashier/logs/*.log</span><br><span class="line">        - /var/log/topen/logs/*.log</span><br><span class="line">        - /var/log/xbasement/logs/*log</span><br><span class="line">      input_type: log</span><br><span class="line">      document_type: nginx-access-testapi.transfereasy.com</span><br><span class="line">  registry_file: /var/lib/filebeat/registry</span><br><span class="line">output:</span><br><span class="line">  logstash:</span><br><span class="line">          hosts: [&quot;xxx.xx.xxx.xx:5959&quot;]</span><br><span class="line">shipper:</span><br><span class="line">logging:</span><br><span class="line">  files:</span><br></pre></td></tr></table></figure>
 <p>2、 将数据同步到elk</p>
@@ -532,14 +532,14 @@
 
     
       <div id="wechat" style="display: inline-block">
-        <img id="wechat_qr" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/weipei.png" alt="༺ 锦遥 ༻ 微信支付">
+        <img id="wechat_qr" src="/images/weipei.png" alt="༺ 锦遥 ༻ 微信支付">
         <p>微信支付</p>
       </div>
     
 
     
       <div id="alipay" style="display: inline-block">
-        <img id="alipay_qr" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/zhipei.png" alt="༺ 锦遥 ༻ 支付宝">
+        <img id="alipay_qr" src="/images/zhipei.png" alt="༺ 锦遥 ༻ 支付宝">
         <p>支付宝</p>
       </div>
     
@@ -576,9 +576,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/rhca/" rel="tag"># rhca</a>
-          
             <a href="/tags/linux/" rel="tag"># linux</a>
+          
+            <a href="/tags/rhca/" rel="tag"># rhca</a>
           
         </div>
       
@@ -676,7 +676,7 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/rjyy.ico" alt="༺ 锦遥 ༻">
+              <img class="site-author-image" itemprop="image" src="/images/rjyy.ico" alt="༺ 锦遥 ༻">
             
               <p class="site-author-name" itemprop="name">༺ 锦遥 ༻</p>
               <p class="site-description motion-element" itemprop="description">不急不燥，稳步推进
@@ -691,7 +691,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">84</span>
+                  <span class="site-state-item-count">83</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -714,7 +714,7 @@
 
           
             <div class="feed-link motion-element">
-              <a href="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io@master/atom.xml" rel="alternate">
+              <a href="/atom.xml" rel="alternate">
                 <i class="fa fa-rss"></i>
                 RSS
               </a>
@@ -793,7 +793,7 @@
 
 <!-- 数字雨 -->
 <canvas id="canvas" width="1440" height="1080"></canvas>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/DigitalRain.js"></script>
+<script type="text/javascript" src="/js/DigitalRain.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
     </main>
 
@@ -861,11 +861,11 @@ var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours
 }, 1000);
 </script>
 <script src="https://pv.sohu.com/cityjson?ie=utf-8"></script>
-<script src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/ip.js"></script>
+<script src="/js/ip.js"></script>
 
         
 <div class="busuanzi-count">
-  <script async src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/busuanzi.pure.mini.js"></script>
+  <script async src="/js/busuanzi.pure.mini.js"></script>
   
     <span class="site-uv">
       <i class="fa fa-user"></i> 訪客數
@@ -904,8 +904,8 @@ var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours
     
 
 <script src="/live2d-widget/autoload.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard.min.js"></script>  
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard-use.js"></script>
+<script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
+<script type="text/javascript" src="/js/src/clipboard-use.js"></script>
   </div>
 
   
@@ -972,32 +972,32 @@ var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours
   
 
 
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/utils.js?v=5.1.3"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
 
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/motion.js?v=5.1.3"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/affix.js?v=5.1.3"></script>
-
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/schemes/pisces.js?v=5.1.3"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
 
 
 
   
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/scrollspy.js?v=5.1.3"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/post-details.js?v=5.1.3"></script>
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
 
 
 
   
 
 
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/bootstrap.js?v=5.1.3"></script>
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
 
 
 
@@ -1399,7 +1399,7 @@ var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours
   <!-- 点击特效 -->
 
 
-  <script src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/activate-power-mode.min.js"></script>
+  <script src="/js/activate-power-mode.min.js"></script>
     <script>
 	    POWERMODE.colorful = true;
     POWERMODE.shake = false;
@@ -1407,11 +1407,11 @@ var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours
 	  </script>
 
 
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard.min.js"></script>  
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard-use.js"></script>
+<script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
+<script type="text/javascript" src="/js/src/clipboard-use.js"></script>
 <!--点击冒点-->
 <canvas width="1777" height="841" style="position: fixed; left: 0px; top: 0px; z-index: 2147483647; pointer-events: none;"></canvas>
-<script src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/maodian.js"></script>
+<script src="/js/maodian.js"></script>
 <canvas width="1390" height="797" style="position: fixed; left: 0px; top: 0px; z-index: 2147483647; pointer-events: none;"></canvas>
 </body>
 </html>

@@ -5,11 +5,11 @@
   
 
 <!-- 代码块复制功能 -->
-<!--<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard.min.js"></script> --> 
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard-use.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/instantclick-1.2.2.js" type="module"></script>
+<!--<script type="text/javascript" src="/js/src/clipboard.min.js"></script> --> 
+<script type="text/javascript" src="/js/src/clipboard-use.js"></script>
+<script src="/js/instantclick-1.2.2.js" type="module"></script>
 <!--崩溃欺骗-->
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/crash_cheat.js"></script>
+<script type="text/javascript" src="/js/src/crash_cheat.js"></script>
 <html class="theme-next gemini use-motion" lang="zh-Hans">
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
@@ -82,7 +82,7 @@
 
 
 
-  <link rel="alternate" href="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io@master/atom.xml" title="逝水锦遥" type="application/atom+xml">
+  <link rel="alternate" href="/atom.xml" title="逝水锦遥" type="application/atom+xml">
 
 
 
@@ -97,15 +97,15 @@
 <meta property="og:site_name" content="逝水锦遥">
 <meta property="og:description" content="[toc] python 文件的IO三 CSV文件csv文件简介 逗号分隔值 Comma-Separated Values。CSV是一个被行分隔符、列分隔符分成行和列的文本文件;没有指定字符编码。参看RFC4180 行分隔符为\r\n，最后一行可以没有换行符;列分隔符常为逗号或者制表符;每一行为一条记录record。 字段可以使用双引号括起来，也可以不使用。如果字段中出现了双引号、逗号、换行符必须">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/python-file-io-01.jpg">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/json-value.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/json-object.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/json-array.png">
+<meta property="og:image" content="https://www.asjin.com/images/python-file-io-01.jpg">
+<meta property="og:image" content="https://www.asjin.com/images/json-value.png">
+<meta property="og:image" content="https://www.asjin.com/images/json-object.png">
+<meta property="og:image" content="https://www.asjin.com/images/json-array.png">
 <meta property="og:updated_time" content="2020-10-18T09:35:33.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python 文件的IO三">
 <meta name="twitter:description" content="[toc] python 文件的IO三 CSV文件csv文件简介 逗号分隔值 Comma-Separated Values。CSV是一个被行分隔符、列分隔符分成行和列的文本文件;没有指定字符编码。参看RFC4180 行分隔符为\r\n，最后一行可以没有换行符;列分隔符常为逗号或者制表符;每一行为一条记录record。 字段可以使用双引号括起来，也可以不使用。如果字段中出现了双引号、逗号、换行符必须">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/python-file-io-01.jpg">
+<meta name="twitter:image" content="https://www.asjin.com/images/python-file-io-01.jpg">
 
 
 
@@ -446,7 +446,7 @@
 
       
         <p>[toc]</p>
-<h1 id="python-文件的IO三"><a href="#python-文件的IO三" class="headerlink" title="python 文件的IO三"></a>python 文件的IO三</h1><p><img src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/python-file-io-01.jpg" alt></p>
+<h1 id="python-文件的IO三"><a href="#python-文件的IO三" class="headerlink" title="python 文件的IO三"></a>python 文件的IO三</h1><p><img src="/images/python-file-io-01.jpg" alt></p>
 <h2 id="CSV文件"><a href="#CSV文件" class="headerlink" title="CSV文件"></a>CSV文件</h2><p><strong>csv文件简介</strong></p>
 <p>逗号分隔值 Comma-Separated Values。<br>CSV是一个被行分隔符、列分隔符分成行和列的文本文件;<br>没有指定字符编码。<br><a href="http://www.ietf.org/rfc/rfc4180.txt" target="_blank" rel="noopener">参看RFC4180</a></p>
 <p>行分隔符为\r\n，最后一行可以没有换行符;<br>列分隔符常为逗号或者制表符;<br>每一行为一条记录record。</p>
@@ -496,14 +496,14 @@
 <p>不同的协议，效率不同，学习曲线不同，适用的场景不同，要根据不同情况造型。</p>
 <h2 id="Json"><a href="#Json" class="headerlink" title="Json"></a>Json</h2><p>Json(Javascript Object Notation JS标记对象)， 是一种轻量级的数据交互格式。它基于ECMASciprt(w3c制定的JS规范)的一个子集。采用完全独立的编程语言文本格式来存储和表示数据;</p>
 <h3 id="Json-数据类型"><a href="#Json-数据类型" class="headerlink" title="Json 数据类型"></a>Json 数据类型</h3><p>值<br>双引号引起来的字符串，数值。 True和False,null,对象,数组这些都是值；</p>
-<p><img src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/json-value.png" alt></p>
+<p><img src="/images/json-value.png" alt></p>
 <p><strong>字符串</strong><br>由双引号包围起来的任意符号组合，可以有转义符;</p>
 <p><strong>数值</strong><br>有负数、有整数、有浮点数;</p>
 <p><strong>对象</strong><br>无序的健值对的组合;<br>格式<code>{key:vluae1 ,...,key:vlualen}</code><br>key 必须是一个字符串，需要双引号包围这个字符串;<br>value 可以是任意合法的值;</p>
-<p><img src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/json-object.png" alt></p>
+<p><img src="/images/json-object.png" alt></p>
 <p><strong>数组</strong></p>
 <p>有序的值的集合<br>格式:[val1,…,valn]</p>
-<p><img src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/json-array.png" alt></p>
+<p><img src="/images/json-array.png" alt></p>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"persion"</span>: [</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">"n"</span>: <span class="string">"tom"</span>,</span><br><span class="line">    <span class="attr">"a"</span>: <span class="number">18</span></span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">"n"</span>: <span class="string">"jerry"</span>,</span><br><span class="line">    <span class="attr">"age"</span>: <span class="number">16</span></span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">"name"</span>: <span class="string">"ben"</span>,</span><br><span class="line">    <span class="attr">"age"</span>: <span class="number">24</span></span><br><span class="line">  &#125;</span><br><span class="line">  ],</span><br><span class="line">  <span class="attr">"total"</span>:<span class="number">2</span></span><br></pre></td></tr></table></figure>
 <h3 id="Python-与-Json"><a href="#Python-与-Json" class="headerlink" title="Python 与 Json"></a>Python 与 Json</h3><p>Python支持少量内建数据类型到Json类型的转换。</p>
 <table>
@@ -570,14 +570,14 @@
 
     
       <div id="wechat" style="display: inline-block">
-        <img id="wechat_qr" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/weipei.png" alt="༺ 锦遥 ༻ 微信支付">
+        <img id="wechat_qr" src="/images/weipei.png" alt="༺ 锦遥 ༻ 微信支付">
         <p>微信支付</p>
       </div>
     
 
     
       <div id="alipay" style="display: inline-block">
-        <img id="alipay_qr" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/zhipei.png" alt="༺ 锦遥 ༻ 支付宝">
+        <img id="alipay_qr" src="/images/zhipei.png" alt="༺ 锦遥 ༻ 支付宝">
         <p>支付宝</p>
       </div>
     
@@ -714,7 +714,7 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/rjyy.ico" alt="༺ 锦遥 ༻">
+              <img class="site-author-image" itemprop="image" src="/images/rjyy.ico" alt="༺ 锦遥 ༻">
             
               <p class="site-author-name" itemprop="name">༺ 锦遥 ༻</p>
               <p class="site-description motion-element" itemprop="description">不急不燥，稳步推进
@@ -729,7 +729,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">84</span>
+                  <span class="site-state-item-count">83</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -752,7 +752,7 @@
 
           
             <div class="feed-link motion-element">
-              <a href="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io@master/atom.xml" rel="alternate">
+              <a href="/atom.xml" rel="alternate">
                 <i class="fa fa-rss"></i>
                 RSS
               </a>
@@ -831,7 +831,7 @@
 
 <!-- 数字雨 -->
 <canvas id="canvas" width="1440" height="1080"></canvas>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/DigitalRain.js"></script>
+<script type="text/javascript" src="/js/DigitalRain.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
     </main>
 
@@ -899,11 +899,11 @@ var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours
 }, 1000);
 </script>
 <script src="https://pv.sohu.com/cityjson?ie=utf-8"></script>
-<script src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/ip.js"></script>
+<script src="/js/ip.js"></script>
 
         
 <div class="busuanzi-count">
-  <script async src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/busuanzi.pure.mini.js"></script>
+  <script async src="/js/busuanzi.pure.mini.js"></script>
   
     <span class="site-uv">
       <i class="fa fa-user"></i> 訪客數
@@ -942,8 +942,8 @@ var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours
     
 
 <script src="/live2d-widget/autoload.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard.min.js"></script>  
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard-use.js"></script>
+<script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
+<script type="text/javascript" src="/js/src/clipboard-use.js"></script>
   </div>
 
   
@@ -1010,32 +1010,32 @@ var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours
   
 
 
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/utils.js?v=5.1.3"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
 
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/motion.js?v=5.1.3"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/affix.js?v=5.1.3"></script>
-
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/schemes/pisces.js?v=5.1.3"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
 
 
 
   
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/scrollspy.js?v=5.1.3"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/post-details.js?v=5.1.3"></script>
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
 
 
 
   
 
 
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/bootstrap.js?v=5.1.3"></script>
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
 
 
 
@@ -1437,7 +1437,7 @@ var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours
   <!-- 点击特效 -->
 
 
-  <script src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/activate-power-mode.min.js"></script>
+  <script src="/js/activate-power-mode.min.js"></script>
     <script>
 	    POWERMODE.colorful = true;
     POWERMODE.shake = false;
@@ -1445,11 +1445,11 @@ var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours
 	  </script>
 
 
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard.min.js"></script>  
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard-use.js"></script>
+<script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
+<script type="text/javascript" src="/js/src/clipboard-use.js"></script>
 <!--点击冒点-->
 <canvas width="1777" height="841" style="position: fixed; left: 0px; top: 0px; z-index: 2147483647; pointer-events: none;"></canvas>
-<script src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/maodian.js"></script>
+<script src="/js/maodian.js"></script>
 <canvas width="1390" height="797" style="position: fixed; left: 0px; top: 0px; z-index: 2147483647; pointer-events: none;"></canvas>
 </body>
 </html>
