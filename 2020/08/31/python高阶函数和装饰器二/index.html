@@ -5,11 +5,11 @@
   
 
 <!-- 代码块复制功能 -->
-<!--<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard.min.js"></script> --> 
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard-use.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/instantclick-1.2.2.js" type="module"></script>
+<!--<script type="text/javascript" src="/js/src/clipboard.min.js"></script> --> 
+<script type="text/javascript" src="/js/src/clipboard-use.js"></script>
+<script src="/js/instantclick-1.2.2.js" type="module"></script>
 <!--崩溃欺骗-->
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/crash_cheat.js"></script>
+<script type="text/javascript" src="/js/src/crash_cheat.js"></script>
 <html class="theme-next gemini use-motion" lang="zh-Hans">
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
@@ -82,7 +82,7 @@
 
 
 
-  <link rel="alternate" href="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io@master/atom.xml" title="逝水锦遥" type="application/atom+xml">
+  <link rel="alternate" href="/atom.xml" title="逝水锦遥" type="application/atom+xml">
 
 
 
@@ -97,24 +97,24 @@
 <meta property="og:site_name" content="逝水锦遥">
 <meta property="og:description" content="[toc] python高阶函数和装饰器二 练习1. 把一个字典扁平化 源字典{&amp;#39;a&amp;#39;:{&amp;#39;b&amp;#39;:1,&amp;#39;c&amp;#39;:2},&amp;#39;d&amp;#39;:{&amp;#39;e&amp;#39;:3,&amp;#39;f&amp;#39;:{&amp;#39;g&amp;#39;:4}}}  1234567891011121314#!/usr/bin/env pythonsource = &amp;#123;&apos;a&apos;:&amp;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/python_function.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/erchashu001.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/erchashu002.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/erchashu003.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/erchashu004.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/erchashu005.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/dadingdui001.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/xiaodingdui001.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/heap_sort001.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/goujiandadui001.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/dadingdui-sort.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/dadingdui-sort-001.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/dadingdui_sort003.png">
+<meta property="og:image" content="https://www.asjin.com/images/python_function.png">
+<meta property="og:image" content="https://www.asjin.com/images/erchashu001.png">
+<meta property="og:image" content="https://www.asjin.com/images/erchashu002.png">
+<meta property="og:image" content="https://www.asjin.com/images/erchashu003.png">
+<meta property="og:image" content="https://www.asjin.com/images/erchashu004.png">
+<meta property="og:image" content="https://www.asjin.com/images/erchashu005.png">
+<meta property="og:image" content="https://www.asjin.com/images/dadingdui001.png">
+<meta property="og:image" content="https://www.asjin.com/images/xiaodingdui001.png">
+<meta property="og:image" content="https://www.asjin.com/images/heap_sort001.png">
+<meta property="og:image" content="https://www.asjin.com/images/goujiandadui001.png">
+<meta property="og:image" content="https://www.asjin.com/images/dadingdui-sort.png">
+<meta property="og:image" content="https://www.asjin.com/images/dadingdui-sort-001.png">
+<meta property="og:image" content="https://www.asjin.com/images/dadingdui_sort003.png">
 <meta property="og:updated_time" content="2020-09-29T10:43:20.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python高阶函数函数和装饰器二">
 <meta name="twitter:description" content="[toc] python高阶函数和装饰器二 练习1. 把一个字典扁平化 源字典{&amp;#39;a&amp;#39;:{&amp;#39;b&amp;#39;:1,&amp;#39;c&amp;#39;:2},&amp;#39;d&amp;#39;:{&amp;#39;e&amp;#39;:3,&amp;#39;f&amp;#39;:{&amp;#39;g&amp;#39;:4}}}  1234567891011121314#!/usr/bin/env pythonsource = &amp;#123;&apos;a&apos;:&amp;">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/python_function.png">
+<meta name="twitter:image" content="https://www.asjin.com/images/python_function.png">
 
 
 
@@ -455,7 +455,7 @@
 
       
         <p>[toc]</p>
-<h1 id="python高阶函数和装饰器二"><a href="#python高阶函数和装饰器二" class="headerlink" title="python高阶函数和装饰器二"></a>python高阶函数和装饰器二</h1><p><img src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/python_function.png" alt></p>
+<h1 id="python高阶函数和装饰器二"><a href="#python高阶函数和装饰器二" class="headerlink" title="python高阶函数和装饰器二"></a>python高阶函数和装饰器二</h1><p><img src="/images/python_function.png" alt></p>
 <h2 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h2><h3 id="1-把一个字典扁平化"><a href="#1-把一个字典扁平化" class="headerlink" title="1. 把一个字典扁平化"></a>1. 把一个字典扁平化</h3><ul>
 <li>源字典<code>{&#39;a&#39;:{&#39;b&#39;:1,&#39;c&#39;:2},&#39;d&#39;:{&#39;e&#39;:3,&#39;f&#39;:{&#39;g&#39;:4}}}</code></li>
 </ul>
@@ -630,7 +630,7 @@
 <ol>
 <li>按照树的层次，从第一层开始，自左向右的遍历元素;</li>
 <li><p>遍历序列<br> ABCDEFGHI</p>
-<p> <img src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/erchashu001.png" alt></p>
+<p> <img src="/images/erchashu001.png" alt></p>
 </li>
 </ol>
 <ul>
@@ -651,7 +651,7 @@
 <li>每个子树内部依然是先根结点，再左子树后右子树，递归遍历;</li>
 <li>遍历序列;<br> A BDGH CEIF</li>
 </ol>
-<p><img src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/erchashu002.png" alt></p>
+<p><img src="/images/erchashu002.png" alt></p>
 <ul>
 <li>中序遍历LDR</li>
 </ul>
@@ -661,9 +661,9 @@
 <li>遍历序列;</li>
 </ol>
 <p>GDHB A IECF</p>
-<p><img src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/erchashu003.png" alt></p>
+<p><img src="/images/erchashu003.png" alt></p>
 <p>GDHB A EICF</p>
-<p><img src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/erchashu004.png" alt></p>
+<p><img src="/images/erchashu004.png" alt></p>
 <ul>
 <li>后序遍历LRD</li>
 </ul>
@@ -673,7 +673,7 @@
 <li>遍历序列;</li>
 </ol>
 <p>GHDB IEFC A </p>
-<p><img src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/erchashu005.png" alt></p>
+<p><img src="/images/erchashu005.png" alt></p>
 <h4 id="堆排序Heap-Sort"><a href="#堆排序Heap-Sort" class="headerlink" title="堆排序Heap Sort"></a>堆排序Heap Sort</h4><ul>
 <li>堆Heap</li>
 </ul>
@@ -690,7 +690,7 @@
 <li>完全二叉树的每个非叶子结点都要大于或者等于其左右孩子结点的值称为大顶堆;</li>
 <li>根结点一定是大顶堆中的最大值;</li>
 </ol>
-<p><img src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/dadingdui001.png" alt></p>
+<p><img src="/images/dadingdui001.png" alt></p>
 <ul>
 <li>小顶堆</li>
 </ul>
@@ -698,7 +698,7 @@
 <li>完全二叉树的每个非叶子结点都要小于或者等于其左右孩子结点的值称为小顶堆;</li>
 <li>根结点一定是小顶堆的最小值;</li>
 </ol>
-<p><img src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/xiaodingdui001.png" alt></p>
+<p><img src="/images/xiaodingdui001.png" alt></p>
 <ul>
 <li>构建完全二叉树</li>
 </ul>
@@ -707,7 +707,7 @@
 <li>构建一个完全二叉存放数据，并根据性质5对元素编号，放入顺序的数据结构中;</li>
 <li>构建一个列表为[0,30,20,80,40,50,10,60,70,90]</li>
 </ol>
-<p><img src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/heap_sort001.png" alt></p>
+<p><img src="/images/heap_sort001.png" alt></p>
 <ul>
 <li>构建大顶堆–核心算法</li>
 </ul>
@@ -716,7 +716,7 @@
 <li>度数为1的结点A, 如果它的左孩子的值在于它，则交换;</li>
 <li>如果结点A被交换到新的位置，还需要和其孩子结点重复上面的过程;</li>
 </ol>
-<p><img src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/goujiandadui001.png" alt></p>
+<p><img src="/images/goujiandadui001.png" alt></p>
 <ul>
 <li>构建大顶堆–起点结点的选择;</li>
 </ul>
@@ -739,15 +739,15 @@
 <li><p>从根结点开始(新的结点)，重新调整为大顶堆后，重复上一步;</p>
 </li>
 </ol>
-<p><img src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/dadingdui-sort.png" alt></p>
+<p><img src="/images/dadingdui-sort.png" alt></p>
 <ul>
 <li>排序</li>
 </ul>
 <ol>
 <li>堆顶和最后一个结点交换，并排除最后一个结点;</li>
 </ol>
-<p><img src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/dadingdui-sort-001.png" alt></p>
-<p><img src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/dadingdui_sort003.png" alt></p>
+<p><img src="/images/dadingdui-sort-001.png" alt></p>
+<p><img src="/images/dadingdui_sort003.png" alt></p>
 <h4 id="练习-1"><a href="#练习-1" class="headerlink" title="练习"></a>练习</h4><p>打印一个树</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">origin = [<span class="number">30</span>,<span class="number">20</span>,<span class="number">80</span>,<span class="number">40</span>,<span class="number">50</span>,<span class="number">10</span>,<span class="number">60</span>,<span class="number">70</span>,<span class="number">90</span>]</span><br><span class="line">                                <span class="number">30</span></span><br><span class="line">                        <span class="number">20</span>                  <span class="number">80</span></span><br><span class="line">                <span class="number">40</span>              <span class="number">50</span>  <span class="number">10</span>              <span class="number">60</span></span><br><span class="line">        <span class="number">70</span>              <span class="number">90</span></span><br></pre></td></tr></table></figure>
 <p>思路:<br>每一行取1个，第二行取2个，第三行取3个，以此类推;<br>投影来思考一个栅格系统;</p>
@@ -824,14 +824,14 @@
 
     
       <div id="wechat" style="display: inline-block">
-        <img id="wechat_qr" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/weipei.png" alt="༺ 锦遥 ༻ 微信支付">
+        <img id="wechat_qr" src="/images/weipei.png" alt="༺ 锦遥 ༻ 微信支付">
         <p>微信支付</p>
       </div>
     
 
     
       <div id="alipay" style="display: inline-block">
-        <img id="alipay_qr" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/zhipei.png" alt="༺ 锦遥 ༻ 支付宝">
+        <img id="alipay_qr" src="/images/zhipei.png" alt="༺ 锦遥 ༻ 支付宝">
         <p>支付宝</p>
       </div>
     
@@ -968,7 +968,7 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/rjyy.ico" alt="༺ 锦遥 ༻">
+              <img class="site-author-image" itemprop="image" src="/images/rjyy.ico" alt="༺ 锦遥 ༻">
             
               <p class="site-author-name" itemprop="name">༺ 锦遥 ༻</p>
               <p class="site-description motion-element" itemprop="description">不急不燥，稳步推进
@@ -1006,7 +1006,7 @@
 
           
             <div class="feed-link motion-element">
-              <a href="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io@master/atom.xml" rel="alternate">
+              <a href="/atom.xml" rel="alternate">
                 <i class="fa fa-rss"></i>
                 RSS
               </a>
@@ -1085,7 +1085,7 @@
 
 <!-- 数字雨 -->
 <canvas id="canvas" width="1440" height="1080"></canvas>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/DigitalRain.js"></script>
+<script type="text/javascript" src="/js/DigitalRain.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
     </main>
 
@@ -1153,11 +1153,11 @@ var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours
 }, 1000);
 </script>
 <script src="https://pv.sohu.com/cityjson?ie=utf-8"></script>
-<script src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/ip.js"></script>
+<script src="/js/ip.js"></script>
 
         
 <div class="busuanzi-count">
-  <script async src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/busuanzi.pure.mini.js"></script>
+  <script async src="/js/busuanzi.pure.mini.js"></script>
   
     <span class="site-uv">
       <i class="fa fa-user"></i> 訪客數
@@ -1196,8 +1196,8 @@ var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours
     
 
 <script src="/live2d-widget/autoload.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard.min.js"></script>  
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard-use.js"></script>
+<script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
+<script type="text/javascript" src="/js/src/clipboard-use.js"></script>
   </div>
 
   
@@ -1264,32 +1264,32 @@ var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours
   
 
 
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/utils.js?v=5.1.3"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
 
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/motion.js?v=5.1.3"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/affix.js?v=5.1.3"></script>
-
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/schemes/pisces.js?v=5.1.3"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
 
 
 
   
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/scrollspy.js?v=5.1.3"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/post-details.js?v=5.1.3"></script>
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
 
 
 
   
 
 
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/bootstrap.js?v=5.1.3"></script>
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
 
 
 
@@ -1691,7 +1691,7 @@ var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours
   <!-- 点击特效 -->
 
 
-  <script src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/activate-power-mode.min.js"></script>
+  <script src="/js/activate-power-mode.min.js"></script>
     <script>
 	    POWERMODE.colorful = true;
     POWERMODE.shake = false;
@@ -1699,11 +1699,11 @@ var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours
 	  </script>
 
 
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard.min.js"></script>  
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard-use.js"></script>
+<script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
+<script type="text/javascript" src="/js/src/clipboard-use.js"></script>
 <!--点击冒点-->
 <canvas width="1777" height="841" style="position: fixed; left: 0px; top: 0px; z-index: 2147483647; pointer-events: none;"></canvas>
-<script src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/maodian.js"></script>
+<script src="/js/maodian.js"></script>
 <canvas width="1390" height="797" style="position: fixed; left: 0px; top: 0px; z-index: 2147483647; pointer-events: none;"></canvas>
 </body>
 </html>

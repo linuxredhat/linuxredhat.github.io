@@ -5,11 +5,11 @@
   
 
 <!-- 代码块复制功能 -->
-<!--<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard.min.js"></script> --> 
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard-use.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/instantclick-1.2.2.js" type="module"></script>
+<!--<script type="text/javascript" src="/js/src/clipboard.min.js"></script> --> 
+<script type="text/javascript" src="/js/src/clipboard-use.js"></script>
+<script src="/js/instantclick-1.2.2.js" type="module"></script>
 <!--崩溃欺骗-->
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/crash_cheat.js"></script>
+<script type="text/javascript" src="/js/src/crash_cheat.js"></script>
 <html class="theme-next gemini use-motion" lang="zh-Hans">
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
@@ -82,7 +82,7 @@
 
 
 
-  <link rel="alternate" href="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io@master/atom.xml" title="逝水锦遥" type="application/atom+xml">
+  <link rel="alternate" href="/atom.xml" title="逝水锦遥" type="application/atom+xml">
 
 
 
@@ -97,16 +97,16 @@
 <meta property="og:site_name" content="逝水锦遥">
 <meta property="og:description" content="[toc] Hyperledger Fabric 1.0部署与使用 1.环境构建与测试本文中用到的宿主环境是CentOS，版本为CentOS.x86_64(7.4);通过Dcoker容器来运行Fabric的节点，版本为v1.0;因此，启动Fabric网络的节点需要先安装 Docker、Docker-compose和Go语言环境;然后在网上摘取相关的Docker镜像，再能过配置compose文件来启">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/hyperledger_chatu.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/hyperledger.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/hyperledger2.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/hyperledger-test1.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/hyperledger-test2.png">
+<meta property="og:image" content="https://www.asjin.com/images/hyperledger_chatu.png">
+<meta property="og:image" content="https://www.asjin.com/images/hyperledger.png">
+<meta property="og:image" content="https://www.asjin.com/images/hyperledger2.png">
+<meta property="og:image" content="https://www.asjin.com/images/hyperledger-test1.png">
+<meta property="og:image" content="https://www.asjin.com/images/hyperledger-test2.png">
 <meta property="og:updated_time" content="2020-09-29T10:59:20.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hyperledger Fabric 1.0部署与使用">
 <meta name="twitter:description" content="[toc] Hyperledger Fabric 1.0部署与使用 1.环境构建与测试本文中用到的宿主环境是CentOS，版本为CentOS.x86_64(7.4);通过Dcoker容器来运行Fabric的节点，版本为v1.0;因此，启动Fabric网络的节点需要先安装 Docker、Docker-compose和Go语言环境;然后在网上摘取相关的Docker镜像，再能过配置compose文件来启">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/hyperledger_chatu.png">
+<meta name="twitter:image" content="https://www.asjin.com/images/hyperledger_chatu.png">
 
 
 
@@ -447,7 +447,7 @@
 
       
         <p>[toc]</p>
-<h1 id="Hyperledger-Fabric-1-0部署与使用"><a href="#Hyperledger-Fabric-1-0部署与使用" class="headerlink" title="Hyperledger Fabric 1.0部署与使用"></a>Hyperledger Fabric 1.0部署与使用</h1><p><img src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/hyperledger_chatu.png" alt></p>
+<h1 id="Hyperledger-Fabric-1-0部署与使用"><a href="#Hyperledger-Fabric-1-0部署与使用" class="headerlink" title="Hyperledger Fabric 1.0部署与使用"></a>Hyperledger Fabric 1.0部署与使用</h1><p><img src="/images/hyperledger_chatu.png" alt></p>
 <h2 id="1-环境构建与测试"><a href="#1-环境构建与测试" class="headerlink" title="1.环境构建与测试"></a>1.环境构建与测试</h2><p>本文中用到的宿主环境是CentOS，版本为CentOS.x86_64(7.4);<br>通过Dcoker容器来运行Fabric的节点，版本为v1.0;<br>因此，启动Fabric网络的节点需要先安装 Docker、Docker-compose和Go语言环境;<br>然后在网上摘取相关的Docker镜像，再能过配置compose文件来启动各个节点;</p>
 <h3 id="1-1-CentOS-yum源的配置"><a href="#1-1-CentOS-yum源的配置" class="headerlink" title="1.1: CentOS yum源的配置"></a>1.1: CentOS yum源的配置</h3><p>公司内网，可以让服务器以桥接方式接入网络;</p>
 <p>a、备份原有的yum源配置</p>
@@ -579,7 +579,7 @@
 </tr>
 </tbody>
 </table>
-<p>环境如下<br><img src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/hyperledger.png" alt></p>
+<p>环境如下<br><img src="/images/hyperledger.png" alt></p>
 <h3 id="4-2-生成公私钥、证书、创巨区块"><a href="#4-2-生成公私钥、证书、创巨区块" class="headerlink" title="4.2 生成公私钥、证书、创巨区块"></a>4.2 生成公私钥、证书、创巨区块</h3><p>公/私钥和证书是用于Server与Server之间的安全通信;<br>另外要创建channel并让其它节点加入channle就需要创世区块;<br>这些必要文件都可以通过一条命令生,并且官方已经给出脚本;</p>
 <p>脚本在以下目录中; </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># cd /opt/gopath/src/github.com/hyperledger/fabric/examples/e2e_cli/</span><br><span class="line"># ls generateArtifacts.sh</span><br></pre></td></tr></table></figure>
@@ -633,11 +633,11 @@
 <p>该脚本会一步步的完成创建通道,将其他节点加入通道，更新锚节点;<br>创建ChainCode，初始化帐户，查询，转帐，再次查询等链上操作的自动化;</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">2018-03-19 03:00:03.146 UTC [main] main -&gt; INFO 007 Exiting.....</span><br><span class="line">===================== Query on PEER3 on channel &apos;mychannel&apos; is successful ===================== </span><br><span class="line"></span><br><span class="line">===================== All GOOD, End-2-End execution completed ===================== </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> _____   _   _   ____            _____   ____    _____ </span><br><span class="line">| ____| | \ | | |  _ \          | ____| |___ \  | ____|</span><br><span class="line">|  _|   |  \| | | | | |  _____  |  _|     __) | |  _|  </span><br><span class="line">| |___  | |\  | | |_| | |_____| | |___   / __/  | |___ </span><br><span class="line">|_____| |_| \_| |____/          |_____| |_____| |_____|</span><br></pre></td></tr></table></figure>
 <p>出现以上结果出明4+1的Fabric多级部署已经成功;<br>在peer0.org1.example.com的cli容器内;<br>之前的2个容器，已经因ChainCode创建了3个容器; </p>
-<p><img src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/hyperledger2.png" alt></p>
+<p><img src="/images/hyperledger2.png" alt></p>
 <h3 id="E2E-运行后查询与转帐测试"><a href="#E2E-运行后查询与转帐测试" class="headerlink" title="E2E 运行后查询与转帐测试"></a>E2E 运行后查询与转帐测试</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 查询</span><br><span class="line"># docker exec -it cli bash</span><br><span class="line">root@078471f17d9a:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer chaincode query -C mychannel -n mycc -c &apos;&#123;&quot;Args&quot;:[&quot;query&quot;,&quot;a&quot;]&#125;&apos;</span><br></pre></td></tr></table></figure>
-<p><img src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/hyperledger-test1.png" alt></p>
+<p><img src="/images/hyperledger-test1.png" alt></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 转帐20到b</span><br><span class="line"># peer chaincode invoke -o orderer.example.com:7050  --tls true --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem  -C mychannel -n mycc -c &apos;&#123;&quot;Args&quot;:[&quot;invoke&quot;,&quot;a&quot;,&quot;b&quot;,&quot;20&quot;]&#125;&apos;</span><br></pre></td></tr></table></figure>
-<p><img src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/hyperledger-test2.png" alt></p>
+<p><img src="/images/hyperledger-test2.png" alt></p>
 
       
     </div>
@@ -658,14 +658,14 @@
 
     
       <div id="wechat" style="display: inline-block">
-        <img id="wechat_qr" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/weipei.png" alt="༺ 锦遥 ༻ 微信支付">
+        <img id="wechat_qr" src="/images/weipei.png" alt="༺ 锦遥 ༻ 微信支付">
         <p>微信支付</p>
       </div>
     
 
     
       <div id="alipay" style="display: inline-block">
-        <img id="alipay_qr" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/zhipei.png" alt="༺ 锦遥 ༻ 支付宝">
+        <img id="alipay_qr" src="/images/zhipei.png" alt="༺ 锦遥 ༻ 支付宝">
         <p>支付宝</p>
       </div>
     
@@ -802,7 +802,7 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/images/rjyy.ico" alt="༺ 锦遥 ༻">
+              <img class="site-author-image" itemprop="image" src="/images/rjyy.ico" alt="༺ 锦遥 ༻">
             
               <p class="site-author-name" itemprop="name">༺ 锦遥 ༻</p>
               <p class="site-description motion-element" itemprop="description">不急不燥，稳步推进
@@ -840,7 +840,7 @@
 
           
             <div class="feed-link motion-element">
-              <a href="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io@master/atom.xml" rel="alternate">
+              <a href="/atom.xml" rel="alternate">
                 <i class="fa fa-rss"></i>
                 RSS
               </a>
@@ -919,7 +919,7 @@
 
 <!-- 数字雨 -->
 <canvas id="canvas" width="1440" height="1080"></canvas>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/DigitalRain.js"></script>
+<script type="text/javascript" src="/js/DigitalRain.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
     </main>
 
@@ -987,11 +987,11 @@ var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours
 }, 1000);
 </script>
 <script src="https://pv.sohu.com/cityjson?ie=utf-8"></script>
-<script src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/ip.js"></script>
+<script src="/js/ip.js"></script>
 
         
 <div class="busuanzi-count">
-  <script async src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/busuanzi.pure.mini.js"></script>
+  <script async src="/js/busuanzi.pure.mini.js"></script>
   
     <span class="site-uv">
       <i class="fa fa-user"></i> 訪客數
@@ -1030,8 +1030,8 @@ var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours
     
 
 <script src="/live2d-widget/autoload.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard.min.js"></script>  
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard-use.js"></script>
+<script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
+<script type="text/javascript" src="/js/src/clipboard-use.js"></script>
   </div>
 
   
@@ -1098,32 +1098,32 @@ var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours
   
 
 
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/utils.js?v=5.1.3"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
 
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/motion.js?v=5.1.3"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/affix.js?v=5.1.3"></script>
-
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/schemes/pisces.js?v=5.1.3"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
 
 
 
   
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/scrollspy.js?v=5.1.3"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/post-details.js?v=5.1.3"></script>
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
 
 
 
   
 
 
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/bootstrap.js?v=5.1.3"></script>
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
 
 
 
@@ -1525,7 +1525,7 @@ var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours
   <!-- 点击特效 -->
 
 
-  <script src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/activate-power-mode.min.js"></script>
+  <script src="/js/activate-power-mode.min.js"></script>
     <script>
 	    POWERMODE.colorful = true;
     POWERMODE.shake = false;
@@ -1533,11 +1533,11 @@ var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours
 	  </script>
 
 
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard.min.js"></script>  
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/src/clipboard-use.js"></script>
+<script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
+<script type="text/javascript" src="/js/src/clipboard-use.js"></script>
 <!--点击冒点-->
 <canvas width="1777" height="841" style="position: fixed; left: 0px; top: 0px; z-index: 2147483647; pointer-events: none;"></canvas>
-<script src="https://cdn.jsdelivr.net/gh/linuxredhat/linuxredhat.github.io/js/maodian.js"></script>
+<script src="/js/maodian.js"></script>
 <canvas width="1390" height="797" style="position: fixed; left: 0px; top: 0px; z-index: 2147483647; pointer-events: none;"></canvas>
 </body>
 </html>
