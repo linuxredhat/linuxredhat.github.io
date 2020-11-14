@@ -1,453 +1,456 @@
 <!DOCTYPE html>
+<html lang="zh-Hans">
+<head hexo-theme='https://github.com/volantis-x/hexo-theme-volantis/tree/4.1.6'>
+  <meta charset="utf-8">
+  <!-- SEO相关 -->
+  
+    
+  
+  <!-- 渲染优化 -->
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://cdn.jsdelivr.net'>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-
+  <!-- 页面元数据 -->
+  
+  <title>python 文件的IO二 - 逝水锦遥</title>
+  
+    <meta name="keywords" content="linux,program">
+  
 
   
 
-<!-- 代码块复制功能 -->
-<!--<script type="text/javascript" src="/js/src/clipboard.min.js"></script> --> 
-<script type="text/javascript" src="/js/src/clipboard-use.js"></script>
-<script src="/js/instantclick-1.2.2.js" type="module"></script>
-<!--崩溃欺骗-->
-<script type="text/javascript" src="/js/src/crash_cheat.js"></script>
-<html class="theme-next gemini use-motion" lang="zh-Hans">
-<head><meta name="generator" content="Hexo 3.9.0">
-  <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-
-
-
-
-
-
-
-
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  <!-- feed -->
   
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
-
-
-
-
-
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
-
-<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css">
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/redhat.ico?v=5.1.3">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/redhat.ico?v=5.1.3">
-
-
-  <link rel="mask-icon" href="/images/redihat.ico?v=5.1.3" color="#0000EE">
-
-
-  <link rel="manifest" href="/images/manifest.json">
-
-
-  <meta name="msapplication-config" content="/images/browserconfig.xml">
-
-
-
-  <meta name="keywords" content="linux,program,">
-
-
-
-
-
-  <link rel="alternate" href="/atom.xml" title="逝水锦遥" type="application/atom+xml">
-
-
-
-
-
-
-<meta name="description" content="[toc] python 文件的IO一 练习有一个文件，对其进行单词统计，不区分大小写，并显示单词重复最多的10个单词 12345678910111213141516171819202122232425262728293031# 第一次处理# os.path /usr/local/lib &apos;/usr/local/lib&apos;def wordcount(file=&apos;sample.txt&apos;):    ch">
-<meta name="keywords" content="linux,program">
-<meta property="og:type" content="article">
-<meta property="og:title" content="python 文件的IO二">
-<meta property="og:url" content="https://www.asjin.com/2020/09/17/python文件的IO二/index.html">
-<meta property="og:site_name" content="逝水锦遥">
-<meta property="og:description" content="[toc] python 文件的IO一 练习有一个文件，对其进行单词统计，不区分大小写，并显示单词重复最多的10个单词 12345678910111213141516171819202122232425262728293031# 第一次处理# os.path /usr/local/lib &apos;/usr/local/lib&apos;def wordcount(file=&apos;sample.txt&apos;):    ch">
-<meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://www.asjin.com/images/python-file-io-01.jpg">
-<meta property="og:updated_time" content="2020-10-11T15:19:26.000Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="python 文件的IO二">
-<meta name="twitter:description" content="[toc] python 文件的IO一 练习有一个文件，对其进行单词统计，不区分大小写，并显示单词重复最多的10个单词 12345678910111213141516171819202122232425262728293031# 第一次处理# os.path /usr/local/lib &apos;/usr/local/lib&apos;def wordcount(file=&apos;sample.txt&apos;):    ch">
-<meta name="twitter:image" content="https://www.asjin.com/images/python-file-io-01.jpg">
-
-
-
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Gemini',
-    version: '5.1.3',
-    sidebar: {"position":"left","onmobile":true,"display":"always","offset":12,"b2t":false,"scrollpercent":false},
-    fancybox: true,
-    tabs: true,
-    motion: {"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    duoshuo: {
-      userId: '0',
-      author: '博主'
-    },
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
-  };
-</script>
-
-
-
-
-  <link rel="canonical" href="https://www.asjin.com/2020/09/17/python文件的IO二/">
-
-
-
-
-
-  <title>python 文件的IO二 | 逝水锦遥</title>
+    <link rel="alternate" href="/atom.xml" title="逝水锦遥" type="application/atom+xml">
   
 
+  <!-- import meta -->
+  
 
+  <!-- link -->
+  
 
+  <!-- import link -->
+  
 
+  
+    
+<link rel="stylesheet" href="/css/first.css">
 
+  
 
+  
+  <link rel="stylesheet" href="/css/style.css" media="print" onload="this.media='all';this.onload=null">
+  <noscript><link rel="stylesheet" href="/css/style.css"></noscript>
+  
 
+  <script id="loadcss"></script>
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-
-  
-  
-    
+<body>
   
 
-  <div class="container sidebar-position-left page-post-detail">
-    <div class="headband"></div>
-
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta custom-logo">
-    
-
-    <div class="custom-logo-site-title">
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">逝水锦遥</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
+<header id="l_header" class="l_header always shadow blur "  >
+  <div class='container'>
+  <div id='wrapper'>
+    <div class='nav-sub'>
+      <p class="title"></p>
+      <ul class='switcher nav-list-h m-phone' id="pjax-header-nav-list">
+        <li><a id="s-comment" class="fas fa-comments fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+          <li><a id="s-toc" class="s-toc fas fa-list fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+      </ul>
     </div>
+		<div class="nav-main">
       
-        <p class="site-subtitle">磨一剑、需有恒</p>
+        
+        <a class="title flat-box" target="_self" href='/'>
+          
+            <img no-lazy class='logo' src='/images/head.png'/>
+          
+          
+          
+        </a>
       
-  </div>
 
-  <div class="site-nav-toggle">
-    <button>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
+			<div class='menu navigation'>
+				<ul class='nav-list-h m-pc'>
+          
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fab fa-linux fa-fw'></i>所有文章
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/program
+                  
+                  
+                  
+                    id="tagsprogram"
+                  >
+                  <i class='fab fa-gitlab fa-fw'></i>运维开发
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/rhca
+                  
+                  
+                  
+                    id="tagsrhca"
+                  >
+                  <i class='fas fa-heartbeat fa-fw'></i>运维组件
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/cloud
+                  
+                  
+                  
+                    id="tagscloud"
+                  >
+                  <i class='fas fa-cloud fa-fw'></i>云计算
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/zikao
+                  
+                  
+                  
+                    id="tagszikao"
+                  >
+                  <i class='fab fa-drupal fa-fw'></i>成自考
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/renjin
+                  
+                  
+                  
+                    id="tagsrenjin"
+                  >
+                  <i class='fas fa-user-circle fa-fw'></i>个人中心
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/box/
+                  
+                  
+                  
+                    id="box"
+                  >
+                  <i class='fas fa-flag fa-fw'></i>工具箱
+                </a>
+                
+              </li>
+            
+          
+          
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="搜索文章..." />
+        </form>
+      </div>
+
+			<ul class='switcher nav-list-h m-phone'>
+				
+					<li><a class="s-search fas fa-search fa-fw" target="_self" href='javascript:void(0)'></a></li>
+				
+				<li>
+          <a class="s-menu fas fa-bars fa-fw" target="_self" href='javascript:void(0)'></a>
+          <ul class="menu-phone list-v navigation white-box">
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fab fa-linux fa-fw'></i>所有文章
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/program
+                  
+                  
+                  
+                    id="tagsprogram"
+                  >
+                  <i class='fab fa-gitlab fa-fw'></i>运维开发
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/rhca
+                  
+                  
+                  
+                    id="tagsrhca"
+                  >
+                  <i class='fas fa-heartbeat fa-fw'></i>运维组件
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/cloud
+                  
+                  
+                  
+                    id="tagscloud"
+                  >
+                  <i class='fas fa-cloud fa-fw'></i>云计算
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/zikao
+                  
+                  
+                  
+                    id="tagszikao"
+                  >
+                  <i class='fab fa-drupal fa-fw'></i>成自考
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/renjin
+                  
+                  
+                  
+                    id="tagsrenjin"
+                  >
+                  <i class='fas fa-user-circle fa-fw'></i>个人中心
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/box/
+                  
+                  
+                  
+                    id="box"
+                  >
+                  <i class='fas fa-flag fa-fw'></i>工具箱
+                </a>
+                
+              </li>
+            
+          
+            
+          </ul>
+        </li>
+			</ul>
+		</div>
+	</div>
+  </div>
+</header>
+
+  <div id="l_body">
+    <div id="l_cover">
+  
+    
+        <div id="half" class='cover-wrapper post search' style="display: ;">
+          
+            <div class='cover-bg lazyload placeholder' data-bg=""></div>
+          
+          <div class='cover-body'>
+  <div class='top'>
+    
+    
+      <p class="title">逝水锦遥</p>
+    
+    
+      <p class="subtitle">磨一剑、需有恒~ 不急不燥，稳步推进 ~</p>
+    
+  </div>
+  <div class='bottom'>
+    
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <input type="text" class="input u-search-input" placeholder="搜索本地文章" />
+          <i class="icon fas fa-search fa-fw"></i>
+        </form>
+      </div>
+    
+    <div class='menu navigation'>
+      <div class='list-h'>
+        
+      </div>
+    </div>
   </div>
 </div>
 
-<nav class="site-nav">
-  
-
-  
-    <ul id="menu" class="menu">
-      
-        
-        <li class="menu-item menu-item-所有文章">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-linux"></i> <br>
-            
-            所有文章
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-python">
-          <a href="/./tags/program" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-gitlab"></i> <br>
-            
-            python
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-运维组件">
-          <a href="/./tags/rhca" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>
-            
-            运维组件
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-数据库">
-          <a href="/./tags/database" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-database"></i> <br>
-            
-            数据库
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-云计算">
-          <a href="/./tags/cloud" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-cloud"></i> <br>
-            
-            云计算
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-成自考">
-          <a href="/./tags/zikao" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-drupal"></i> <br>
-            
-            成自考
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-个人中心">
-          <a href="/./tags/renjin" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user-circle"></i> <br>
-            
-            个人中心
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-工具箱">
-          <a href="/./box" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-flag"></i> <br>
-            
-            工具箱
-          </a>
-        </li>
-      
-
-      
-        <li class="menu-item menu-item-search">
-          
-            <a href="javascript:;" class="popup-trigger">
-          
-            
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
-            
-            搜索文章
-          </a>
-        </li>
-      
-    </ul>
-  
-
-  
-    <div class="site-search">
-      
-  <div class="popup search-popup local-search-popup">
-  <div class="local-search-header clearfix">
-    <span class="search-icon">
-      <i class="fa fa-search"></i>
-    </span>
-    <span class="popup-btn-close">
-      <i class="fa fa-times-circle"></i>
-    </span>
-    <div class="local-search-input-wrapper">
-      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
-    </div>
-  </div>
-  <div id="local-search-result"></div>
-</div>
-
-
-
-    </div>
-  
-</nav>
-
-
-
- </div>
-    </header>
-
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          <div id="content" class="content">
-            
-
-  <div id="posts" class="posts-expand">
-    
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.asjin.com/2020/09/17/python文件的IO二/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="༺ 锦遥 ༻">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/rjyy.ico">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="逝水锦遥">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">python 文件的IO二</h1>
-        
-
-        <div class="post-meta">
-		          
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-09-17T19:24:00+08:00">
-                2020-09-17
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-            <span class="post-meta-divider">|</span>
-            <span class="page-pv"><i class="fa fa-file-o"></i>  浏览
-            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>次
-            </span>
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  2.9k
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  14
-                </span>
-              
-            </div>
-          
-
-          
-
+          <div id="scroll-down" style="display: none;"><i class="fa fa-chevron-down scroll-down-effects"></i></div>
         </div>
-      </header>
     
+  
+  </div>
 
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
+    <div id='safearea'>
+      <div class='body-wrapper' id="pjax-container">
+        
 
-      
-      
+<div class='l_main'>
+  <article class="article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
+  
 
+
+  
+  <div class="article-meta" id="top">
+    
+    
+    
+      <h1 class="title">
+        python 文件的IO二
+      </h1>
+      <div class='new-meta-box'>
+        
+          
+            
+<div class='new-meta-item author'>
+  <a class='author' href="/images/rjrt.ico" rel="nofollow">
+    <img no-lazy src="/images/rjrt.ico">
+    <p>任锦</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：Sep 17, 2020</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class="new-meta-item browse leancloud">
+    <a class='notlink'>
       
-        <p>[toc]</p>
-<h1 id="python-文件的IO一"><a href="#python-文件的IO一" class="headerlink" title="python 文件的IO一"></a>python 文件的IO一</h1><p><img src="/images/python-file-io-01.jpg" alt></p>
+      <div id="lc-pv" data-title="python 文件的IO二" data-path="/2020/09/17/python%E6%96%87%E4%BB%B6%E7%9A%84IO%E4%BA%8C/">
+        <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+        <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+        次浏览
+      </div>
+    </a>
+  </div>
+
+
+          
+        
+      </div>
+    
+  </div>
+
+
+  
+  <p>[toc]</p>
+<h1 id="python-文件的IO一"><a href="#python-文件的IO一" class="headerlink" title="python 文件的IO一"></a>python 文件的IO一</h1><p><img src="/images/python-file-io-01.jpg" class="lazyload placeholder" data-srcset="/images/python-file-io-01.jpg" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" alt=""></p>
 <h2 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h2><p>有一个文件，对其进行单词统计，不区分大小写，并显示单词重复最多的10个单词</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 第一次处理</span></span><br><span class="line"><span class="comment"># os.path /usr/local/lib '/usr/local/lib'</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">wordcount</span><span class="params">(file=<span class="string">'sample.txt'</span>)</span>:</span></span><br><span class="line">    chars = <span class="string">'''~!@#$%^&amp;*()_+&#123;&#125;[]|\\/"'=;:.-&lt;&gt;'''</span></span><br><span class="line">    <span class="keyword">with</span> open(file,encoding=<span class="string">'utf-8'</span>) <span class="keyword">as</span> f:</span><br><span class="line">        word_count = &#123;&#125;</span><br><span class="line">        <span class="keyword">for</span> line <span class="keyword">in</span> f:</span><br><span class="line">            words = line.split()</span><br><span class="line">            <span class="keyword">for</span> k,v <span class="keyword">in</span> zip(words,(<span class="number">1</span>,)*len(words)):</span><br><span class="line">                k  = k.strip(chars)</span><br><span class="line">                k = k.lower()</span><br><span class="line">                word_count[k] = word_count.get(k,<span class="number">0</span>) + <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    lst = sorted(word_count.items(), key=<span class="keyword">lambda</span>  x:x[<span class="number">1</span>],reverse=<span class="keyword">True</span>)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">10</span>):</span><br><span class="line">        print(str(lst[i]).strip(<span class="string">"'()"</span>).replace(<span class="string">","</span>,<span class="string">""</span>))</span><br><span class="line">    <span class="keyword">return</span> lst</span><br><span class="line"></span><br><span class="line">wordcount()</span><br><span class="line"><span class="comment"># 输出</span></span><br><span class="line">the, <span class="number">5</span></span><br><span class="line">a, <span class="number">5</span></span><br><span class="line">can, <span class="number">3</span></span><br><span class="line">download, <span class="number">3</span></span><br><span class="line"><span class="keyword">and</span>, <span class="number">3</span></span><br><span class="line"><span class="keyword">for</span>, <span class="number">3</span></span><br><span class="line">version, <span class="number">2</span></span><br><span class="line">these, <span class="number">2</span></span><br><span class="line"><span class="keyword">in</span>, <span class="number">2</span></span><br><span class="line">this, <span class="number">2</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 第一次处理</span></span><br><span class="line"><span class="comment"># os.path /usr/local/lib &#x27;/usr/local/lib&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">wordcount</span>(<span class="params">file=<span class="string">&#x27;sample.txt&#x27;</span></span>):</span></span><br><span class="line">    chars = <span class="string">&#x27;&#x27;&#x27;~!@#$%^&amp;*()_+&#123;&#125;[]|\\/&quot;&#x27;=;:.-&lt;&gt;&#x27;&#x27;&#x27;</span></span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(file,encoding=<span class="string">&#x27;utf-8&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">        word_count = &#123;&#125;</span><br><span class="line">        <span class="keyword">for</span> line <span class="keyword">in</span> f:</span><br><span class="line">            words = line.split()</span><br><span class="line">            <span class="keyword">for</span> k,v <span class="keyword">in</span> <span class="built_in">zip</span>(words,(<span class="number">1</span>,)*<span class="built_in">len</span>(words)):</span><br><span class="line">                k  = k.strip(chars)</span><br><span class="line">                k = k.lower()</span><br><span class="line">                word_count[k] = word_count.get(k,<span class="number">0</span>) + <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    lst = <span class="built_in">sorted</span>(word_count.items(), key=<span class="keyword">lambda</span>  x:x[<span class="number">1</span>],reverse=<span class="literal">True</span>)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">        print(<span class="built_in">str</span>(lst[i]).strip(<span class="string">&quot;&#x27;()&quot;</span>).replace(<span class="string">&quot;,&quot;</span>,<span class="string">&quot;&quot;</span>))</span><br><span class="line">    <span class="keyword">return</span> lst</span><br><span class="line"></span><br><span class="line">wordcount()</span><br><span class="line"><span class="comment"># 输出</span></span><br><span class="line">the, <span class="number">5</span></span><br><span class="line">a, <span class="number">5</span></span><br><span class="line">can, <span class="number">3</span></span><br><span class="line">download, <span class="number">3</span></span><br><span class="line"><span class="keyword">and</span>, <span class="number">3</span></span><br><span class="line"><span class="keyword">for</span>, <span class="number">3</span></span><br><span class="line">version, <span class="number">2</span></span><br><span class="line">these, <span class="number">2</span></span><br><span class="line"><span class="keyword">in</span>, <span class="number">2</span></span><br><span class="line">this, <span class="number">2</span></span><br></pre></td></tr></table></figure>
 <p>第二次改进</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">wordcount</span><span class="params">(file=<span class="string">'sample.txt'</span>)</span>:</span></span><br><span class="line">    chars = <span class="string">'''~!@#$%^&amp;*()_+&#123;&#125;[]|\\/"'=;:.-&lt;&gt;'''</span></span><br><span class="line">    charset = set(chars)</span><br><span class="line">    <span class="keyword">with</span> open(file,encoding=<span class="string">'utf-8'</span>) <span class="keyword">as</span> f:</span><br><span class="line">        word_count = &#123;&#125;</span><br><span class="line">        <span class="keyword">for</span> line <span class="keyword">in</span> f:</span><br><span class="line">            words = line.split()</span><br><span class="line">            <span class="keyword">for</span> k,v <span class="keyword">in</span> zip(words,(<span class="number">1</span>,)*len(words)):</span><br><span class="line">                k  = k.strip(chars)</span><br><span class="line">                <span class="keyword">if</span> len(k) &lt; <span class="number">1</span>:</span><br><span class="line">                    <span class="keyword">continue</span></span><br><span class="line">                k = k.lower()</span><br><span class="line">                start = <span class="number">0</span></span><br><span class="line">                <span class="keyword">for</span> i, c <span class="keyword">in</span> enumerate(k):</span><br><span class="line">                    <span class="keyword">if</span> c <span class="keyword">in</span> charset:</span><br><span class="line">                        <span class="keyword">if</span> start ==i :</span><br><span class="line">                            start = i +<span class="number">1</span></span><br><span class="line">                            <span class="keyword">continue</span></span><br><span class="line">                        key = k[start:i]</span><br><span class="line">                        word_count[key] = word_count.get(key,<span class="number">0</span>) +<span class="number">1</span></span><br><span class="line">                        start = i + <span class="number">1</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    key = k[start:]</span><br><span class="line">                    word_count[key] = word_count.get(key,<span class="number">0</span>) +<span class="number">1</span></span><br><span class="line">                print()</span><br><span class="line"></span><br><span class="line">    lst = sorted(word_count.items(), key=<span class="keyword">lambda</span>  x:x[<span class="number">1</span>],reverse=<span class="keyword">True</span>)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">10</span>):</span><br><span class="line">        <span class="keyword">if</span> i &lt; len(lst):</span><br><span class="line">            print(str(lst[i]).strip(<span class="string">"'()"</span>).replace(<span class="string">"'"</span>,<span class="string">""</span>))</span><br><span class="line">    <span class="keyword">return</span> lst</span><br><span class="line"></span><br><span class="line">wc = wordcount()</span><br><span class="line">print(wc)</span><br><span class="line">print(len(wc))</span><br><span class="line">the, <span class="number">5</span></span><br><span class="line">a, <span class="number">5</span></span><br><span class="line">can, <span class="number">3</span></span><br><span class="line">download, <span class="number">3</span></span><br><span class="line"><span class="keyword">and</span>, <span class="number">3</span></span><br><span class="line"><span class="keyword">for</span>, <span class="number">3</span></span><br><span class="line">version, <span class="number">2</span></span><br><span class="line">these, <span class="number">2</span></span><br><span class="line"><span class="keyword">in</span>, <span class="number">2</span></span><br><span class="line">this, <span class="number">2</span></span><br><span class="line">[(<span class="string">'the'</span>, <span class="number">5</span>), (<span class="string">'a'</span>, <span class="number">5</span>), (<span class="string">'can'</span>, <span class="number">3</span>), (<span class="string">'download'</span>, <span class="number">3</span>), (<span class="string">'and'</span>, <span class="number">3</span>), (<span class="string">'for'</span>, <span class="number">3</span>), (<span class="string">'version'</span>, <span class="number">2</span>), (<span class="string">'these'</span>, <span class="number">2</span>), (<span class="string">'in'</span>, <span class="number">2</span>), (<span class="string">'this'</span>, <span class="number">2</span>), (<span class="string">'to'</span>, <span class="number">2</span>), (<span class="string">'as'</span>, <span class="number">2</span>), (<span class="string">'new'</span>, <span class="number">2</span>), (<span class="string">'of'</span>, <span class="number">2</span>), (<span class="string">'changes,'</span>, <span class="number">2</span>), (<span class="string">'with'</span>, <span class="number">2</span>), (<span class="string">'linux'</span>, <span class="number">2</span>), (<span class="string">'common'</span>, <span class="number">2</span>), (<span class="string">'control'</span>, <span class="number">1</span>), (<span class="string">'systems'</span>, <span class="number">1</span>), (<span class="string">'keep'</span>, <span class="number">1</span>), (<span class="string">'revisions'</span>, <span class="number">1</span>), (<span class="string">'straight,'</span>, <span class="number">1</span>), (<span class="string">'storing'</span>, <span class="number">1</span>), (<span class="string">'modifications'</span>, <span class="number">1</span>), (<span class="string">'central'</span>, <span class="number">1</span>), (<span class="string">'repository'</span>, <span class="number">1</span>), (<span class="string">'allows'</span>, <span class="number">1</span>), (<span class="string">'developers'</span>, <span class="number">1</span>), (<span class="string">'easily'</span>, <span class="number">1</span>), (<span class="string">'collaborate,'</span>, <span class="number">1</span>), (<span class="string">'they'</span>, <span class="number">1</span>), (<span class="string">'software,'</span>, <span class="number">1</span>), (<span class="string">'make'</span>, <span class="number">1</span>), (<span class="string">'upload'</span>, <span class="number">1</span>), (<span class="string">'newest'</span>, <span class="number">1</span>), (<span class="string">'revision'</span>, <span class="number">1</span>), (<span class="string">'every'</span>, <span class="number">1</span>), (<span class="string">'developer'</span>, <span class="number">1</span>), (<span class="string">'see'</span>, <span class="number">1</span>), (<span class="string">'them,'</span>, <span class="number">1</span>), (<span class="string">'contribute'</span>, <span class="number">1</span>), (<span class="string">'similarly,'</span>, <span class="number">1</span>), (<span class="string">'people'</span>, <span class="number">1</span>), (<span class="string">'who'</span>, <span class="number">1</span>), (<span class="string">'have'</span>, <span class="number">1</span>), (<span class="string">'nothing'</span>, <span class="number">1</span>), (<span class="string">'do'</span>, <span class="number">1</span>), (<span class="string">'development'</span>, <span class="number">1</span>), (<span class="string">'project'</span>, <span class="number">1</span>), (<span class="string">'still'</span>, <span class="number">1</span>), (<span class="string">'files'</span>, <span class="number">1</span>), (<span class="string">'use'</span>, <span class="number">1</span>), (<span class="string">'them'</span>, <span class="number">1</span>), (<span class="string">'most'</span>, <span class="number">1</span>), (<span class="string">'users'</span>, <span class="number">1</span>), (<span class="string">'should'</span>, <span class="number">1</span>), (<span class="string">'be'</span>, <span class="number">1</span>), (<span class="string">'familiar'</span>, <span class="number">1</span>), (<span class="string">'process,'</span>, <span class="number">1</span>), (<span class="string">'using'</span>, <span class="number">1</span>), (<span class="string">'git,'</span>, <span class="number">1</span>), (<span class="string">'subversion,'</span>, <span class="number">1</span>), (<span class="string">'or'</span>, <span class="number">1</span>), (<span class="string">'some'</span>, <span class="number">1</span>), (<span class="string">'other'</span>, <span class="number">1</span>), (<span class="string">'similar'</span>, <span class="number">1</span>), (<span class="string">'method'</span>, <span class="number">1</span>), (<span class="string">'is'</span>, <span class="number">1</span>), (<span class="string">'pretty'</span>, <span class="number">1</span>), (<span class="string">'downloading'</span>, <span class="number">1</span>), (<span class="string">'needed'</span>, <span class="number">1</span>), (<span class="string">'files—especially'</span>, <span class="number">1</span>), (<span class="string">'preparation'</span>, <span class="number">1</span>), (<span class="string">'compiling'</span>, <span class="number">1</span>), (<span class="string">'program'</span>, <span class="number">1</span>), (<span class="string">'from'</span>, <span class="number">1</span>), (<span class="string">'source'</span>, <span class="number">1</span>), (<span class="string">'code'</span>, <span class="number">1</span>), (<span class="string">'rather'</span>, <span class="number">1</span>), (<span class="string">'practice'</span>, <span class="number">1</span>), (<span class="string">'geeks'</span>, <span class="number">1</span>)]</span><br><span class="line"><span class="number">82</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">wordcount</span>(<span class="params">file=<span class="string">&#x27;sample.txt&#x27;</span></span>):</span></span><br><span class="line">    chars = <span class="string">&#x27;&#x27;&#x27;~!@#$%^&amp;*()_+&#123;&#125;[]|\\/&quot;&#x27;=;:.-&lt;&gt;&#x27;&#x27;&#x27;</span></span><br><span class="line">    charset = <span class="built_in">set</span>(chars)</span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(file,encoding=<span class="string">&#x27;utf-8&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">        word_count = &#123;&#125;</span><br><span class="line">        <span class="keyword">for</span> line <span class="keyword">in</span> f:</span><br><span class="line">            words = line.split()</span><br><span class="line">            <span class="keyword">for</span> k,v <span class="keyword">in</span> <span class="built_in">zip</span>(words,(<span class="number">1</span>,)*<span class="built_in">len</span>(words)):</span><br><span class="line">                k  = k.strip(chars)</span><br><span class="line">                <span class="keyword">if</span> <span class="built_in">len</span>(k) &lt; <span class="number">1</span>:</span><br><span class="line">                    <span class="keyword">continue</span></span><br><span class="line">                k = k.lower()</span><br><span class="line">                start = <span class="number">0</span></span><br><span class="line">                <span class="keyword">for</span> i, c <span class="keyword">in</span> <span class="built_in">enumerate</span>(k):</span><br><span class="line">                    <span class="keyword">if</span> c <span class="keyword">in</span> charset:</span><br><span class="line">                        <span class="keyword">if</span> start ==i :</span><br><span class="line">                            start = i +<span class="number">1</span></span><br><span class="line">                            <span class="keyword">continue</span></span><br><span class="line">                        key = k[start:i]</span><br><span class="line">                        word_count[key] = word_count.get(key,<span class="number">0</span>) +<span class="number">1</span></span><br><span class="line">                        start = i + <span class="number">1</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    key = k[start:]</span><br><span class="line">                    word_count[key] = word_count.get(key,<span class="number">0</span>) +<span class="number">1</span></span><br><span class="line">                print()</span><br><span class="line"></span><br><span class="line">    lst = <span class="built_in">sorted</span>(word_count.items(), key=<span class="keyword">lambda</span>  x:x[<span class="number">1</span>],reverse=<span class="literal">True</span>)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">        <span class="keyword">if</span> i &lt; <span class="built_in">len</span>(lst):</span><br><span class="line">            print(<span class="built_in">str</span>(lst[i]).strip(<span class="string">&quot;&#x27;()&quot;</span>).replace(<span class="string">&quot;&#x27;&quot;</span>,<span class="string">&quot;&quot;</span>))</span><br><span class="line">    <span class="keyword">return</span> lst</span><br><span class="line"></span><br><span class="line">wc = wordcount()</span><br><span class="line">print(wc)</span><br><span class="line">print(<span class="built_in">len</span>(wc))</span><br><span class="line">the, <span class="number">5</span></span><br><span class="line">a, <span class="number">5</span></span><br><span class="line">can, <span class="number">3</span></span><br><span class="line">download, <span class="number">3</span></span><br><span class="line"><span class="keyword">and</span>, <span class="number">3</span></span><br><span class="line"><span class="keyword">for</span>, <span class="number">3</span></span><br><span class="line">version, <span class="number">2</span></span><br><span class="line">these, <span class="number">2</span></span><br><span class="line"><span class="keyword">in</span>, <span class="number">2</span></span><br><span class="line">this, <span class="number">2</span></span><br><span class="line">[(<span class="string">&#x27;the&#x27;</span>, <span class="number">5</span>), (<span class="string">&#x27;a&#x27;</span>, <span class="number">5</span>), (<span class="string">&#x27;can&#x27;</span>, <span class="number">3</span>), (<span class="string">&#x27;download&#x27;</span>, <span class="number">3</span>), (<span class="string">&#x27;and&#x27;</span>, <span class="number">3</span>), (<span class="string">&#x27;for&#x27;</span>, <span class="number">3</span>), (<span class="string">&#x27;version&#x27;</span>, <span class="number">2</span>), (<span class="string">&#x27;these&#x27;</span>, <span class="number">2</span>), (<span class="string">&#x27;in&#x27;</span>, <span class="number">2</span>), (<span class="string">&#x27;this&#x27;</span>, <span class="number">2</span>), (<span class="string">&#x27;to&#x27;</span>, <span class="number">2</span>), (<span class="string">&#x27;as&#x27;</span>, <span class="number">2</span>), (<span class="string">&#x27;new&#x27;</span>, <span class="number">2</span>), (<span class="string">&#x27;of&#x27;</span>, <span class="number">2</span>), (<span class="string">&#x27;changes,&#x27;</span>, <span class="number">2</span>), (<span class="string">&#x27;with&#x27;</span>, <span class="number">2</span>), (<span class="string">&#x27;linux&#x27;</span>, <span class="number">2</span>), (<span class="string">&#x27;common&#x27;</span>, <span class="number">2</span>), (<span class="string">&#x27;control&#x27;</span>, <span class="number">1</span>), (<span class="string">&#x27;systems&#x27;</span>, <span class="number">1</span>), (<span class="string">&#x27;keep&#x27;</span>, <span class="number">1</span>), (<span class="string">&#x27;revisions&#x27;</span>, <span class="number">1</span>), (<span class="string">&#x27;straight,&#x27;</span>, <span class="number">1</span>), (<span class="string">&#x27;storing&#x27;</span>, <span class="number">1</span>), (<span class="string">&#x27;modifications&#x27;</span>, <span class="number">1</span>), (<span class="string">&#x27;central&#x27;</span>, <span class="number">1</span>), (<span class="string">&#x27;repository&#x27;</span>, <span class="number">1</span>), (<span class="string">&#x27;allows&#x27;</span>, <span class="number">1</span>), (<span class="string">&#x27;developers&#x27;</span>, <span class="number">1</span>), (<span class="string">&#x27;easily&#x27;</span>, <span class="number">1</span>), (<span class="string">&#x27;collaborate,&#x27;</span>, <span class="number">1</span>), (<span class="string">&#x27;they&#x27;</span>, <span class="number">1</span>), (<span class="string">&#x27;software,&#x27;</span>, <span class="number">1</span>), (<span class="string">&#x27;make&#x27;</span>, <span class="number">1</span>), (<span class="string">&#x27;upload&#x27;</span>, <span class="number">1</span>), (<span class="string">&#x27;newest&#x27;</span>, <span class="number">1</span>), (<span class="string">&#x27;revision&#x27;</span>, <span class="number">1</span>), (<span class="string">&#x27;every&#x27;</span>, <span class="number">1</span>), (<span class="string">&#x27;developer&#x27;</span>, <span class="number">1</span>), (<span class="string">&#x27;see&#x27;</span>, <span class="number">1</span>), (<span class="string">&#x27;them,&#x27;</span>, <span class="number">1</span>), (<span class="string">&#x27;contribute&#x27;</span>, <span class="number">1</span>), (<span class="string">&#x27;similarly,&#x27;</span>, <span class="number">1</span>), (<span class="string">&#x27;people&#x27;</span>, <span class="number">1</span>), (<span class="string">&#x27;who&#x27;</span>, <span class="number">1</span>), (<span class="string">&#x27;have&#x27;</span>, <span class="number">1</span>), (<span class="string">&#x27;nothing&#x27;</span>, <span class="number">1</span>), (<span class="string">&#x27;do&#x27;</span>, <span class="number">1</span>), (<span class="string">&#x27;development&#x27;</span>, <span class="number">1</span>), (<span class="string">&#x27;project&#x27;</span>, <span class="number">1</span>), (<span class="string">&#x27;still&#x27;</span>, <span class="number">1</span>), (<span class="string">&#x27;files&#x27;</span>, <span class="number">1</span>), (<span class="string">&#x27;use&#x27;</span>, <span class="number">1</span>), (<span class="string">&#x27;them&#x27;</span>, <span class="number">1</span>), (<span class="string">&#x27;most&#x27;</span>, <span class="number">1</span>), (<span class="string">&#x27;users&#x27;</span>, <span class="number">1</span>), (<span class="string">&#x27;should&#x27;</span>, <span class="number">1</span>), (<span class="string">&#x27;be&#x27;</span>, <span class="number">1</span>), (<span class="string">&#x27;familiar&#x27;</span>, <span class="number">1</span>), (<span class="string">&#x27;process,&#x27;</span>, <span class="number">1</span>), (<span class="string">&#x27;using&#x27;</span>, <span class="number">1</span>), (<span class="string">&#x27;git,&#x27;</span>, <span class="number">1</span>), (<span class="string">&#x27;subversion,&#x27;</span>, <span class="number">1</span>), (<span class="string">&#x27;or&#x27;</span>, <span class="number">1</span>), (<span class="string">&#x27;some&#x27;</span>, <span class="number">1</span>), (<span class="string">&#x27;other&#x27;</span>, <span class="number">1</span>), (<span class="string">&#x27;similar&#x27;</span>, <span class="number">1</span>), (<span class="string">&#x27;method&#x27;</span>, <span class="number">1</span>), (<span class="string">&#x27;is&#x27;</span>, <span class="number">1</span>), (<span class="string">&#x27;pretty&#x27;</span>, <span class="number">1</span>), (<span class="string">&#x27;downloading&#x27;</span>, <span class="number">1</span>), (<span class="string">&#x27;needed&#x27;</span>, <span class="number">1</span>), (<span class="string">&#x27;files—especially&#x27;</span>, <span class="number">1</span>), (<span class="string">&#x27;preparation&#x27;</span>, <span class="number">1</span>), (<span class="string">&#x27;compiling&#x27;</span>, <span class="number">1</span>), (<span class="string">&#x27;program&#x27;</span>, <span class="number">1</span>), (<span class="string">&#x27;from&#x27;</span>, <span class="number">1</span>), (<span class="string">&#x27;source&#x27;</span>, <span class="number">1</span>), (<span class="string">&#x27;code&#x27;</span>, <span class="number">1</span>), (<span class="string">&#x27;rather&#x27;</span>, <span class="number">1</span>), (<span class="string">&#x27;practice&#x27;</span>, <span class="number">1</span>), (<span class="string">&#x27;geeks&#x27;</span>, <span class="number">1</span>)]</span><br><span class="line"><span class="number">82</span></span><br></pre></td></tr></table></figure>
 <h2 id="StringIO"><a href="#StringIO" class="headerlink" title="StringIO"></a>StringIO</h2><ul>
 <li>io 模块中的类;</li>
 <li>from io import StringIO;</li>
@@ -458,7 +461,7 @@
 <li>getvalue() 获取全部内容。跟文件指针没有关系;</li>
 </ul>
 <p>用法</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> io <span class="keyword">import</span> StringIO</span><br><span class="line"></span><br><span class="line">sio = StringIO()</span><br><span class="line">print(sio.readable(),sio.writable(),sio.seekable())</span><br><span class="line">sio.write(<span class="string">"asjin.com\npython"</span>)</span><br><span class="line">sio.seek(<span class="number">0</span>)</span><br><span class="line">print(sio.readlines())</span><br><span class="line">print(sio.getvalue())</span><br><span class="line">print()</span><br><span class="line">sio.seek(<span class="number">0</span>)</span><br><span class="line">print(sio.read())</span><br><span class="line">sio.close()</span><br><span class="line"><span class="comment"># 输出</span></span><br><span class="line"><span class="keyword">True</span> <span class="keyword">True</span> <span class="keyword">True</span></span><br><span class="line">[<span class="string">'asjin.com\n'</span>, <span class="string">'python'</span>]</span><br><span class="line">asjin.com</span><br><span class="line">python</span><br><span class="line">asjin.com</span><br><span class="line">python</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> io <span class="keyword">import</span> StringIO</span><br><span class="line"></span><br><span class="line">sio = StringIO()</span><br><span class="line">print(sio.readable(),sio.writable(),sio.seekable())</span><br><span class="line">sio.write(<span class="string">&quot;asjin.com\npython&quot;</span>)</span><br><span class="line">sio.seek(<span class="number">0</span>)</span><br><span class="line">print(sio.readlines())</span><br><span class="line">print(sio.getvalue())</span><br><span class="line">print()</span><br><span class="line">sio.seek(<span class="number">0</span>)</span><br><span class="line">print(sio.read())</span><br><span class="line">sio.close()</span><br><span class="line"><span class="comment"># 输出</span></span><br><span class="line"><span class="literal">True</span> <span class="literal">True</span> <span class="literal">True</span></span><br><span class="line">[<span class="string">&#x27;asjin.com\n&#x27;</span>, <span class="string">&#x27;python&#x27;</span>]</span><br><span class="line">asjin.com</span><br><span class="line">python</span><br><span class="line">asjin.com</span><br><span class="line">python</span><br></pre></td></tr></table></figure>
 <ul>
 <li>好处</li>
 <li>一般来说，磁盘的操作比内存的操作要慢得多，内存足够的情况下，一般的优化思路是少落地，减少磁盘IO的过程，可以大大提高程序的运行效率。</li>
@@ -469,58 +472,58 @@
 <li>内存中，开辟一个二进制模式的buffer，可以像文件对象一样操作它;</li>
 <li>当close方法被调用的时候，这个buffer会被释放。</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> io <span class="keyword">import</span> BytesIO <span class="comment"># 内存中构建</span></span><br><span class="line">bio = BytesIO()</span><br><span class="line">print(bio.readable(),bio.writable(),bio.seekable())</span><br><span class="line">bio.write(<span class="string">b"ssjinyao.com\nPython"</span>)</span><br><span class="line">bio.seek(<span class="number">0</span>)</span><br><span class="line">print(bio.readlines())</span><br><span class="line">print(bio.getvalue()) <span class="comment"># 无视指针，输出全部内容</span></span><br><span class="line">bio.close()</span><br><span class="line"><span class="comment"># 输出</span></span><br><span class="line"><span class="keyword">True</span> <span class="keyword">True</span> <span class="keyword">True</span></span><br><span class="line">[<span class="string">b'ssjinyao.com\n'</span>, <span class="string">b'Python'</span>]</span><br><span class="line"><span class="string">b'ssjinyao.com\nPython'</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> io <span class="keyword">import</span> BytesIO <span class="comment"># 内存中构建</span></span><br><span class="line">bio = BytesIO()</span><br><span class="line">print(bio.readable(),bio.writable(),bio.seekable())</span><br><span class="line">bio.write(<span class="string">b&quot;ssjinyao.com\nPython&quot;</span>)</span><br><span class="line">bio.seek(<span class="number">0</span>)</span><br><span class="line">print(bio.readlines())</span><br><span class="line">print(bio.getvalue()) <span class="comment"># 无视指针，输出全部内容</span></span><br><span class="line">bio.close()</span><br><span class="line"><span class="comment"># 输出</span></span><br><span class="line"><span class="literal">True</span> <span class="literal">True</span> <span class="literal">True</span></span><br><span class="line">[<span class="string">b&#x27;ssjinyao.com\n&#x27;</span>, <span class="string">b&#x27;Python&#x27;</span>]</span><br><span class="line"><span class="string">b&#x27;ssjinyao.com\nPython&#x27;</span></span><br></pre></td></tr></table></figure>
 <h2 id="file-like-对象"><a href="#file-like-对象" class="headerlink" title="file-like 对象"></a>file-like 对象</h2><ul>
 <li>类文件对象，可以像文件对象一样操作;</li>
 <li>sock对象、输入输出对象(stdin、stdout)都是类文件对象;</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sys <span class="keyword">import</span> stdout</span><br><span class="line">f = stdout</span><br><span class="line">print(type(f))</span><br><span class="line">f.write(<span class="string">'asjin.com'</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sys <span class="keyword">import</span> stdout</span><br><span class="line">f = stdout</span><br><span class="line">print(<span class="built_in">type</span>(f))</span><br><span class="line">f.write(<span class="string">&#x27;asjin.com&#x27;</span>)</span><br></pre></td></tr></table></figure>
 <h2 id="os-path-模块"><a href="#os-path-模块" class="headerlink" title="os.path 模块"></a>os.path 模块</h2><p>python3.4 之前</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> os <span class="keyword">import</span> path</span><br><span class="line"></span><br><span class="line">p = path.join(<span class="string">'/etc'</span>,<span class="string">'hosts'</span>)</span><br><span class="line">print(type(p),p)</span><br><span class="line">print(path.exists(p))</span><br><span class="line">print(path.split(p))</span><br><span class="line">print(path.abspath(<span class="string">'.'</span>))</span><br><span class="line">p = path.join(<span class="string">'o://'</span>,p,<span class="string">'test.txt'</span>)</span><br><span class="line">print(path.dirname(p))</span><br><span class="line">print(path.basename(p))</span><br><span class="line">print(path.splitdrive(p))</span><br><span class="line"><span class="comment"># 输出</span></span><br><span class="line">&lt;<span class="class"><span class="keyword">class</span> '<span class="title">str</span>'&gt; /<span class="title">etc</span>/<span class="title">hosts</span></span></span><br><span class="line"><span class="class"><span class="title">True</span></span></span><br><span class="line"><span class="class"><span class="params">(<span class="string">'/etc'</span>, <span class="string">'hosts'</span>)</span></span></span><br><span class="line"><span class="class">/<span class="title">Users</span>/<span class="title">ssjinyao</span>/<span class="title">Desktop</span>/<span class="title">MyPython</span>/<span class="title">testpy</span>/<span class="title">kernel</span></span></span><br><span class="line"><span class="class">/<span class="title">etc</span>/<span class="title">hosts</span></span></span><br><span class="line"><span class="class"><span class="title">test</span>.<span class="title">txt</span></span></span><br><span class="line"><span class="class"><span class="params">(<span class="string">''</span>, <span class="string">'/etc/hosts/test.txt'</span>)</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> os <span class="keyword">import</span> path</span><br><span class="line"></span><br><span class="line">p = path.join(<span class="string">&#x27;/etc&#x27;</span>,<span class="string">&#x27;hosts&#x27;</span>)</span><br><span class="line">print(<span class="built_in">type</span>(p),p)</span><br><span class="line">print(path.exists(p))</span><br><span class="line">print(path.split(p))</span><br><span class="line">print(path.abspath(<span class="string">&#x27;.&#x27;</span>))</span><br><span class="line">p = path.join(<span class="string">&#x27;o://&#x27;</span>,p,<span class="string">&#x27;test.txt&#x27;</span>)</span><br><span class="line">print(path.dirname(p))</span><br><span class="line">print(path.basename(p))</span><br><span class="line">print(path.splitdrive(p))</span><br><span class="line"><span class="comment"># 输出</span></span><br><span class="line">&lt;<span class="class"><span class="keyword">class</span> &#x27;<span class="title">str</span>&#x27;&gt; /<span class="title">etc</span>/<span class="title">hosts</span></span></span><br><span class="line"><span class="class"><span class="title">True</span></span></span><br><span class="line"><span class="class">(<span class="params"><span class="string">&#x27;/etc&#x27;</span>, <span class="string">&#x27;hosts&#x27;</span></span>)</span></span><br><span class="line"><span class="class">/<span class="title">Users</span>/<span class="title">ssjinyao</span>/<span class="title">Desktop</span>/<span class="title">MyPython</span>/<span class="title">testpy</span>/<span class="title">kernel</span></span></span><br><span class="line"><span class="class">/<span class="title">etc</span>/<span class="title">hosts</span></span></span><br><span class="line"><span class="class"><span class="title">test</span>.<span class="title">txt</span></span></span><br><span class="line"><span class="class">(<span class="params"><span class="string">&#x27;&#x27;</span>, <span class="string">&#x27;/etc/hosts/test.txt&#x27;</span></span>)</span></span><br></pre></td></tr></table></figure>
 <h3 id="3-4版本开始"><a href="#3-4版本开始" class="headerlink" title="3.4版本开始"></a>3.4版本开始</h3><p>建议使用pathlib模块，提供Path对象来操作。包括目录和文件；</p>
-<h3 id="pathlib模块"><a href="#pathlib模块" class="headerlink" title="pathlib模块"></a>pathlib模块</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">1</span>]: <span class="keyword">from</span> pathlib <span class="keyword">import</span> Path</span><br><span class="line">In [<span class="number">2</span>]: p = Path()</span><br><span class="line">In [<span class="number">3</span>]: type(p)</span><br><span class="line">Out[<span class="number">3</span>]: pathlib.PosixPath</span><br></pre></td></tr></table></figure>
+<h3 id="pathlib模块"><a href="#pathlib模块" class="headerlink" title="pathlib模块"></a>pathlib模块</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">1</span>]: <span class="keyword">from</span> pathlib <span class="keyword">import</span> Path</span><br><span class="line">In [<span class="number">2</span>]: p = Path()</span><br><span class="line">In [<span class="number">3</span>]: <span class="built_in">type</span>(p)</span><br><span class="line">Out[<span class="number">3</span>]: pathlib.PosixPath</span><br></pre></td></tr></table></figure>
 <p>实现</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">1</span>]: <span class="keyword">from</span> pathlib <span class="keyword">import</span> Path</span><br><span class="line">In [<span class="number">2</span>]: p = Path()</span><br><span class="line">In [<span class="number">3</span>]: type(p)</span><br><span class="line">Out[<span class="number">3</span>]: pathlib.PosixPath</span><br><span class="line">In [<span class="number">4</span>]: p.absolute()</span><br><span class="line">Out[<span class="number">4</span>]: PosixPath(<span class="string">'/root/mypython/python3'</span>)</span><br><span class="line">In [<span class="number">5</span>]: p.joinpath(<span class="string">'as'</span>,<span class="string">'jin'</span>)</span><br><span class="line">Out[<span class="number">5</span>]: PosixPath(<span class="string">'as/jin'</span>)</span><br><span class="line">In [<span class="number">6</span>]: p.absolute()</span><br><span class="line">Out[<span class="number">6</span>]: PosixPath(<span class="string">'/root/mypython/python3'</span>)</span><br><span class="line">In [<span class="number">7</span>]: p = p.joinpath(<span class="string">'as'</span>,<span class="string">'jin'</span>)</span><br><span class="line">In [<span class="number">8</span>]: p.absolute()</span><br><span class="line">Out[<span class="number">8</span>]: PosixPath(<span class="string">'/root/mypython/python3/as/jin'</span>)</span><br><span class="line">In [<span class="number">9</span>]: p = p / <span class="string">'a'</span> / <span class="string">'b'</span></span><br><span class="line">In [<span class="number">10</span>]: p.absolute()</span><br><span class="line">Out[<span class="number">10</span>]: PosixPath(<span class="string">'/root/mypython/python3/as/jin/a/b'</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">1</span>]: <span class="keyword">from</span> pathlib <span class="keyword">import</span> Path</span><br><span class="line">In [<span class="number">2</span>]: p = Path()</span><br><span class="line">In [<span class="number">3</span>]: <span class="built_in">type</span>(p)</span><br><span class="line">Out[<span class="number">3</span>]: pathlib.PosixPath</span><br><span class="line">In [<span class="number">4</span>]: p.absolute()</span><br><span class="line">Out[<span class="number">4</span>]: PosixPath(<span class="string">&#x27;/root/mypython/python3&#x27;</span>)</span><br><span class="line">In [<span class="number">5</span>]: p.joinpath(<span class="string">&#x27;as&#x27;</span>,<span class="string">&#x27;jin&#x27;</span>)</span><br><span class="line">Out[<span class="number">5</span>]: PosixPath(<span class="string">&#x27;as/jin&#x27;</span>)</span><br><span class="line">In [<span class="number">6</span>]: p.absolute()</span><br><span class="line">Out[<span class="number">6</span>]: PosixPath(<span class="string">&#x27;/root/mypython/python3&#x27;</span>)</span><br><span class="line">In [<span class="number">7</span>]: p = p.joinpath(<span class="string">&#x27;as&#x27;</span>,<span class="string">&#x27;jin&#x27;</span>)</span><br><span class="line">In [<span class="number">8</span>]: p.absolute()</span><br><span class="line">Out[<span class="number">8</span>]: PosixPath(<span class="string">&#x27;/root/mypython/python3/as/jin&#x27;</span>)</span><br><span class="line">In [<span class="number">9</span>]: p = p / <span class="string">&#x27;a&#x27;</span> / <span class="string">&#x27;b&#x27;</span></span><br><span class="line">In [<span class="number">10</span>]: p.absolute()</span><br><span class="line">Out[<span class="number">10</span>]: PosixPath(<span class="string">&#x27;/root/mypython/python3/as/jin/a/b&#x27;</span>)</span><br></pre></td></tr></table></figure>
 <p>拼接 </p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">13</span>]: p2 = Path(<span class="string">''</span>)</span><br><span class="line">In [<span class="number">14</span>]: p2 = p2 / <span class="string">'/etc/'</span> / <span class="string">'sysconfig'</span></span><br><span class="line">In [<span class="number">15</span>]: p2</span><br><span class="line">Out[<span class="number">15</span>]: PosixPath(<span class="string">'/etc/sysconfig'</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">13</span>]: p2 = Path(<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">In [<span class="number">14</span>]: p2 = p2 / <span class="string">&#x27;/etc/&#x27;</span> / <span class="string">&#x27;sysconfig&#x27;</span></span><br><span class="line">In [<span class="number">15</span>]: p2</span><br><span class="line">Out[<span class="number">15</span>]: PosixPath(<span class="string">&#x27;/etc/sysconfig&#x27;</span>)</span><br></pre></td></tr></table></figure>
 <p>路径拼接和分解<br><strong>操作符/</strong><br>Path对象/ Path对象<br>Path对象/ 字符串或者字符串 / Path 对象<br><strong>分解</strong><br>parts 属性， 可以返回路径中的每一个部分<br>joinpath<br>joinpath(*other)连接多个字符串到Path对象中</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">16</span>]: p = Path()</span><br><span class="line">In [<span class="number">17</span>]: p = p / <span class="string">'a'</span></span><br><span class="line">In [<span class="number">18</span>]: p1 = <span class="string">'b'</span> / p</span><br><span class="line">In [<span class="number">19</span>]: p2 = Path(<span class="string">'c'</span>)</span><br><span class="line">In [<span class="number">20</span>]: p3 = p2 / p1</span><br><span class="line">In [<span class="number">21</span>]: print(p3.parts)</span><br><span class="line">(<span class="string">'c'</span>, <span class="string">'b'</span>, <span class="string">'a'</span>)</span><br><span class="line">In [<span class="number">22</span>]: p3.joinpath(<span class="string">'etc'</span>,<span class="string">'init.d'</span>,Path(<span class="string">'httpd'</span>))</span><br><span class="line">Out[<span class="number">22</span>]: PosixPath(<span class="string">'c/b/a/etc/init.d/httpd'</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">16</span>]: p = Path()</span><br><span class="line">In [<span class="number">17</span>]: p = p / <span class="string">&#x27;a&#x27;</span></span><br><span class="line">In [<span class="number">18</span>]: p1 = <span class="string">&#x27;b&#x27;</span> / p</span><br><span class="line">In [<span class="number">19</span>]: p2 = Path(<span class="string">&#x27;c&#x27;</span>)</span><br><span class="line">In [<span class="number">20</span>]: p3 = p2 / p1</span><br><span class="line">In [<span class="number">21</span>]: print(p3.parts)</span><br><span class="line">(<span class="string">&#x27;c&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;a&#x27;</span>)</span><br><span class="line">In [<span class="number">22</span>]: p3.joinpath(<span class="string">&#x27;etc&#x27;</span>,<span class="string">&#x27;init.d&#x27;</span>,Path(<span class="string">&#x27;httpd&#x27;</span>))</span><br><span class="line">Out[<span class="number">22</span>]: PosixPath(<span class="string">&#x27;c/b/a/etc/init.d/httpd&#x27;</span>)</span><br></pre></td></tr></table></figure>
 <p>获取路径<br>str获取路径字符串<br>bytes获取路径字符串的bytes</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">24</span>]: p = Path(<span class="string">'/etc'</span>)</span><br><span class="line">In [<span class="number">25</span>]: print(str(p),bytes(p))</span><br><span class="line">/etc <span class="string">b'/etc'</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">24</span>]: p = Path(<span class="string">&#x27;/etc&#x27;</span>)</span><br><span class="line">In [<span class="number">25</span>]: print(<span class="built_in">str</span>(p),<span class="built_in">bytes</span>(p))</span><br><span class="line">/etc <span class="string">b&#x27;/etc&#x27;</span></span><br></pre></td></tr></table></figure>
 <p>parent 目录的逻辑父目录<br>parents 父目录序列，索引|0是直接父</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">p =Path(<span class="string">'/a/b/c/d'</span>)</span><br><span class="line">In [<span class="number">29</span>]: p = Path(<span class="string">'/a/b/c/d'</span>)</span><br><span class="line"></span><br><span class="line">In [<span class="number">30</span>]: print(p.parent.parent)</span><br><span class="line">/a/</span><br><span class="line">In [<span class="number">31</span>]: <span class="keyword">for</span> x <span class="keyword">in</span> p.parents:</span><br><span class="line">    ...:     print(x)</span><br><span class="line">    ...:</span><br><span class="line">/a/b/c</span><br><span class="line">/a/b</span><br><span class="line">/a</span><br><span class="line">/</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">p =Path(<span class="string">&#x27;/a/b/c/d&#x27;</span>)</span><br><span class="line">In [<span class="number">29</span>]: p = Path(<span class="string">&#x27;/a/b/c/d&#x27;</span>)</span><br><span class="line"></span><br><span class="line">In [<span class="number">30</span>]: print(p.parent.parent)</span><br><span class="line">/a/</span><br><span class="line">In [<span class="number">31</span>]: <span class="keyword">for</span> x <span class="keyword">in</span> p.parents:</span><br><span class="line">    ...:     print(x)</span><br><span class="line">    ...:</span><br><span class="line">/a/b/c</span><br><span class="line">/a/b</span><br><span class="line">/a</span><br><span class="line">/</span><br></pre></td></tr></table></figure>
 <p>name、stem、 suffix、 suffixes、 with_suffix(suffix)、with_name(name)<br>name 目录的最后一个部分<br>suffix 目录中最后一个部分的扩展名<br>stem 目录最后一个部分，没有后缀<br>suffixes 返回多个扩展名列表<br>with_suffix(suffix)补充扩展名到路径尾部，返回新的路径，扩展名存在则无效;<br>with_name(name) 替换目录最后一个部分并返回一个新的路径。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">33</span>]: p4 = Path(<span class="string">'/etc/sysconfig/network/xx.ifg.gz'</span>)</span><br><span class="line">In [<span class="number">34</span>]: p4.name</span><br><span class="line">Out[<span class="number">34</span>]: <span class="string">'xx.ifg.gz'</span></span><br><span class="line">In [<span class="number">35</span>]: p4.stem</span><br><span class="line">Out[<span class="number">35</span>]: <span class="string">'xx.ifg'</span></span><br><span class="line">In [<span class="number">36</span>]: p4.suffix</span><br><span class="line">Out[<span class="number">36</span>]: <span class="string">'.gz'</span></span><br><span class="line">In [<span class="number">39</span>]: p4.suffixes</span><br><span class="line">Out[<span class="number">39</span>]: [<span class="string">'.ifg'</span>, <span class="string">'.gz'</span>]</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">40</span>]: p4.with_suffix(<span class="string">'.tgz'</span>)</span><br><span class="line">Out[<span class="number">40</span>]: PosixPath(<span class="string">'/etc/sysconfig/network/xx.ifg.tgz'</span>)</span><br><span class="line">In [<span class="number">41</span>]: p4.with_name(<span class="string">'test'</span>)</span><br><span class="line">Out[<span class="number">41</span>]: PosixPath(<span class="string">'/etc/sysconfig/network/test'</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">33</span>]: p4 = Path(<span class="string">&#x27;/etc/sysconfig/network/xx.ifg.gz&#x27;</span>)</span><br><span class="line">In [<span class="number">34</span>]: p4.name</span><br><span class="line">Out[<span class="number">34</span>]: <span class="string">&#x27;xx.ifg.gz&#x27;</span></span><br><span class="line">In [<span class="number">35</span>]: p4.stem</span><br><span class="line">Out[<span class="number">35</span>]: <span class="string">&#x27;xx.ifg&#x27;</span></span><br><span class="line">In [<span class="number">36</span>]: p4.suffix</span><br><span class="line">Out[<span class="number">36</span>]: <span class="string">&#x27;.gz&#x27;</span></span><br><span class="line">In [<span class="number">39</span>]: p4.suffixes</span><br><span class="line">Out[<span class="number">39</span>]: [<span class="string">&#x27;.ifg&#x27;</span>, <span class="string">&#x27;.gz&#x27;</span>]</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">40</span>]: p4.with_suffix(<span class="string">&#x27;.tgz&#x27;</span>)</span><br><span class="line">Out[<span class="number">40</span>]: PosixPath(<span class="string">&#x27;/etc/sysconfig/network/xx.ifg.tgz&#x27;</span>)</span><br><span class="line">In [<span class="number">41</span>]: p4.with_name(<span class="string">&#x27;test&#x27;</span>)</span><br><span class="line">Out[<span class="number">41</span>]: PosixPath(<span class="string">&#x27;/etc/sysconfig/network/test&#x27;</span>)</span><br></pre></td></tr></table></figure>
 <p>cwd() 返回当前工作目录;<br>home() 返回当前家目录;</p>
 <p>is_dir() 是否是目录;<br>is_file() 是滞是普通文件;<br>is_symlink() 是否是软链接;<br>is_socket() 是否是socket文件;<br>is_block_device() 是否是块设备;<br>is_char_device() 是否是字符设备;<br>is_absolute() 是否是绝对路径;</p>
 <p>resove() 返回一个新的路径，这个新路径就是当前Path对象的绝对路径，如果是软链接则直接被解析;<br>absolute() 也可以获取绝对路径，但是推荐使用resolve();<br>exists() 目录或文件是否存在;<br>remdir() 删除空目录。没有提供判断目录为空的方法;<br>touch(mode=0o666,exist_ok=True)创建一个文件;<br>as_uri() 将路径返回成URL，例如’file:///etc/passwd’<br>mkdir(mode=0o777,parents=False,exist_ok=False)<br>parents, 是否创建父目录，True等同于mkdir -p; False时父目录不存在，则抛出;<br>FileNotFoundError<br>exist_ok参数，在3.5版本加入。False时，路径存在，抛出FileExistsError; True 时FileExistsError被忽略；</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">3</span>]: p =Path(<span class="string">'/a/b/c/d'</span>)</span><br><span class="line">In [<span class="number">4</span>]: p.home()</span><br><span class="line">Out[<span class="number">4</span>]: PosixPath(<span class="string">'/root'</span>)</span><br><span class="line">In [<span class="number">5</span>]: p.is_dir()</span><br><span class="line">Out[<span class="number">5</span>]: <span class="keyword">False</span></span><br><span class="line">In [<span class="number">6</span>]: p.is_absolute()</span><br><span class="line">Out[<span class="number">6</span>]: <span class="keyword">True</span></span><br><span class="line">In [<span class="number">7</span>]: p.absolute().parent</span><br><span class="line">Out[<span class="number">7</span>]: PosixPath(<span class="string">'/a/b/c'</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">3</span>]: p =Path(<span class="string">&#x27;/a/b/c/d&#x27;</span>)</span><br><span class="line">In [<span class="number">4</span>]: p.home()</span><br><span class="line">Out[<span class="number">4</span>]: PosixPath(<span class="string">&#x27;/root&#x27;</span>)</span><br><span class="line">In [<span class="number">5</span>]: p.is_dir()</span><br><span class="line">Out[<span class="number">5</span>]: <span class="literal">False</span></span><br><span class="line">In [<span class="number">6</span>]: p.is_absolute()</span><br><span class="line">Out[<span class="number">6</span>]: <span class="literal">True</span></span><br><span class="line">In [<span class="number">7</span>]: p.absolute().parent</span><br><span class="line">Out[<span class="number">7</span>]: PosixPath(<span class="string">&#x27;/a/b/c&#x27;</span>)</span><br></pre></td></tr></table></figure>
 <p>iterdir()<br>迭代当前目录</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">12</span>]: <span class="keyword">for</span> x <span class="keyword">in</span> Path().iterdir():</span><br><span class="line">    ...:     <span class="keyword">if</span> x.is_dir():</span><br><span class="line">    ...:         print(x)</span><br><span class="line">.ipynb_checkpoints</span><br></pre></td></tr></table></figure>
 <p>通配符</p>
 <p>glob(pattern)通配给定的模式<br>rglob(pattern)通配给定的模式，递归目录</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">list(p.glob(<span class="string">'test*'</span>)) <span class="comment"># 返回当前目录对象下的test开头的文件</span></span><br><span class="line">list(p.glob(<span class="string">'**/*.py'</span>)) <span class="comment"># 递归所有目录，等同rglob</span></span><br><span class="line">list(p.rglob(<span class="string">'*.py'</span>))</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">1</span>]: <span class="keyword">from</span> pathlib <span class="keyword">import</span> Path</span><br><span class="line">In [<span class="number">2</span>]: list(Path().glob(<span class="string">'*.py'</span>))</span><br><span class="line">Out[<span class="number">2</span>]:</span><br><span class="line"> PosixPath(<span class="string">'random_max_min2.py'</span>),</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">list</span>(p.glob(<span class="string">&#x27;test*&#x27;</span>)) <span class="comment"># 返回当前目录对象下的test开头的文件</span></span><br><span class="line"><span class="built_in">list</span>(p.glob(<span class="string">&#x27;**/*.py&#x27;</span>)) <span class="comment"># 递归所有目录，等同rglob</span></span><br><span class="line"><span class="built_in">list</span>(p.rglob(<span class="string">&#x27;*.py&#x27;</span>))</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">1</span>]: <span class="keyword">from</span> pathlib <span class="keyword">import</span> Path</span><br><span class="line">In [<span class="number">2</span>]: <span class="built_in">list</span>(Path().glob(<span class="string">&#x27;*.py&#x27;</span>))</span><br><span class="line">Out[<span class="number">2</span>]:</span><br><span class="line"> PosixPath(<span class="string">&#x27;random_max_min2.py&#x27;</span>),</span><br></pre></td></tr></table></figure>
 <p>匹配<br><strong>match(pattern)</strong><br>模式匹配，成功返回True</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">4</span>]: Path(<span class="string">'.py'</span>).match(<span class="string">'*.py'</span>)</span><br><span class="line">Out[<span class="number">4</span>]: <span class="keyword">True</span></span><br><span class="line">In [<span class="number">5</span>]: Path(<span class="string">'/a/b/c.py'</span>).match(<span class="string">'b/*.py'</span>)</span><br><span class="line">Out[<span class="number">5</span>]: <span class="keyword">True</span></span><br><span class="line">In [<span class="number">6</span>]: Path(<span class="string">'/a/b/c.py'</span>).match(<span class="string">'a/*.py'</span>)</span><br><span class="line">Out[<span class="number">6</span>]: <span class="keyword">False</span></span><br><span class="line">In [<span class="number">7</span>]: Path(<span class="string">'/a/b/c.py'</span>).match(<span class="string">'a/*/*.py'</span>)</span><br><span class="line">Out[<span class="number">7</span>]: <span class="keyword">True</span></span><br><span class="line">In [<span class="number">8</span>]: Path(<span class="string">'/a/b/c.py'</span>).match(<span class="string">'a/**/*.py'</span>)</span><br><span class="line">Out[<span class="number">8</span>]: <span class="keyword">True</span></span><br><span class="line">In [<span class="number">9</span>]: Path(<span class="string">'/a/b/c.py'</span>).match(<span class="string">'**/*.py'</span>)</span><br><span class="line">Out[<span class="number">9</span>]: <span class="keyword">True</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">4</span>]: Path(<span class="string">&#x27;.py&#x27;</span>).match(<span class="string">&#x27;*.py&#x27;</span>)</span><br><span class="line">Out[<span class="number">4</span>]: <span class="literal">True</span></span><br><span class="line">In [<span class="number">5</span>]: Path(<span class="string">&#x27;/a/b/c.py&#x27;</span>).match(<span class="string">&#x27;b/*.py&#x27;</span>)</span><br><span class="line">Out[<span class="number">5</span>]: <span class="literal">True</span></span><br><span class="line">In [<span class="number">6</span>]: Path(<span class="string">&#x27;/a/b/c.py&#x27;</span>).match(<span class="string">&#x27;a/*.py&#x27;</span>)</span><br><span class="line">Out[<span class="number">6</span>]: <span class="literal">False</span></span><br><span class="line">In [<span class="number">7</span>]: Path(<span class="string">&#x27;/a/b/c.py&#x27;</span>).match(<span class="string">&#x27;a/*/*.py&#x27;</span>)</span><br><span class="line">Out[<span class="number">7</span>]: <span class="literal">True</span></span><br><span class="line">In [<span class="number">8</span>]: Path(<span class="string">&#x27;/a/b/c.py&#x27;</span>).match(<span class="string">&#x27;a/**/*.py&#x27;</span>)</span><br><span class="line">Out[<span class="number">8</span>]: <span class="literal">True</span></span><br><span class="line">In [<span class="number">9</span>]: Path(<span class="string">&#x27;/a/b/c.py&#x27;</span>).match(<span class="string">&#x27;**/*.py&#x27;</span>)</span><br><span class="line">Out[<span class="number">9</span>]: <span class="literal">True</span></span><br></pre></td></tr></table></figure>
 <h3 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h3><p><strong>open(mode=’r’,buffering=-1,encoding=None, errors=None,newline=None)</strong><br>使用的方法类似内建函数open。返回一个文件对象</p>
 <p>3.5 增加的新函数<br><strong>read_bytes()</strong><br>以’rb’ 读取路径对应文件，并返回二进制流;</p>
 <p><strong>Path.write_bytes(date)</strong><br>以’wb’ 方式写入数据到路径对应文件;</p>
 <p><strong>write_text(data,enconding=None,errors=None)</strong><br>以’wt’方式写入字符串到路径对应文件;</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">10</span>]: p4 = Path(<span class="string">'/root/testfile'</span>)</span><br><span class="line">In [<span class="number">11</span>]: p4.open(<span class="string">'w+'</span>)</span><br><span class="line">Out[<span class="number">11</span>]: &lt;_io.TextIOWrapper name=<span class="string">'/root/testfile'</span> mode=<span class="string">'w+'</span> encoding=<span class="string">'UTF-8'</span>&gt;</span><br><span class="line">In [<span class="number">12</span>]: p4.touch()</span><br><span class="line">In [<span class="number">13</span>]: <span class="keyword">with</span> p4.open(<span class="string">'w+'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    ...:     f.write(<span class="string">'test'</span>)</span><br><span class="line">    ...:</span><br><span class="line">In [<span class="number">14</span>]: f.closed</span><br><span class="line"><span class="comment"># 可以直接写入</span></span><br><span class="line">In [<span class="number">15</span>]: p4.write_text(<span class="string">'test_write_text'</span>)</span><br><span class="line">In [<span class="number">17</span>]: p4.read_text()</span><br><span class="line">Out[<span class="number">17</span>]: <span class="string">'test_write_text'</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pathlib <span class="keyword">import</span> Path</span><br><span class="line">p = Path(<span class="string">'/etc/config.py'</span>)</span><br><span class="line">p.write_text(<span class="string">'workprocess=16'</span>)</span><br><span class="line">print(p.read_text())</span><br><span class="line"><span class="keyword">with</span> p.open() <span class="keyword">as</span> f:</span><br><span class="line">    print(f.read(<span class="number">5</span>))</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">10</span>]: p4 = Path(<span class="string">&#x27;/root/testfile&#x27;</span>)</span><br><span class="line">In [<span class="number">11</span>]: p4.<span class="built_in">open</span>(<span class="string">&#x27;w+&#x27;</span>)</span><br><span class="line">Out[<span class="number">11</span>]: &lt;_io.TextIOWrapper name=<span class="string">&#x27;/root/testfile&#x27;</span> mode=<span class="string">&#x27;w+&#x27;</span> encoding=<span class="string">&#x27;UTF-8&#x27;</span>&gt;</span><br><span class="line">In [<span class="number">12</span>]: p4.touch()</span><br><span class="line">In [<span class="number">13</span>]: <span class="keyword">with</span> p4.<span class="built_in">open</span>(<span class="string">&#x27;w+&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    ...:     f.write(<span class="string">&#x27;test&#x27;</span>)</span><br><span class="line">    ...:</span><br><span class="line">In [<span class="number">14</span>]: f.closed</span><br><span class="line"><span class="comment"># 可以直接写入</span></span><br><span class="line">In [<span class="number">15</span>]: p4.write_text(<span class="string">&#x27;test_write_text&#x27;</span>)</span><br><span class="line">In [<span class="number">17</span>]: p4.read_text()</span><br><span class="line">Out[<span class="number">17</span>]: <span class="string">&#x27;test_write_text&#x27;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pathlib <span class="keyword">import</span> Path</span><br><span class="line">p = Path(<span class="string">&#x27;/etc/config.py&#x27;</span>)</span><br><span class="line">p.write_text(<span class="string">&#x27;workprocess=16&#x27;</span>)</span><br><span class="line">print(p.read_text())</span><br><span class="line"><span class="keyword">with</span> p.<span class="built_in">open</span>() <span class="keyword">as</span> f:</span><br><span class="line">    print(f.read(<span class="number">5</span>))</span><br></pre></td></tr></table></figure>
 <h2 id="os模块"><a href="#os模块" class="headerlink" title="os模块"></a>os模块</h2><p>os.name  windows是nt，linux 是posix;<br>os.uname() Linux支持显示;<br>sys.platform windows 显示32，Linux是Linux<br>os.listdir(‘/etc’)<br>返回目录内容列表。<br>os 也有open、 read、 write 等方法，但是太低级，建议使用内建函数open、read、 write;<br>调用Linux系统的stat;<br>path: 路径的sting 或者bytes, 或者fd<br>follow symlinks True 返回文件本身信息，False如果是软链接则显示软链接本身;</p>
 <p><strong>os.chmod(path,mode,*,dir_fd=None, follow_symlinks=True)</strong><br><strong>os.chmod(‘test’,0o777)</strong><br><strong>os.chown(path,uid,gid)</strong><br>改变文件的属主、属组，但需要足够的权限</p>
 <h2 id="shutil-模块"><a href="#shutil-模块" class="headerlink" title="shutil 模块"></a>shutil 模块</h2><p>到目前为止<br>文件拷贝：使用打开2个文件对象，源文件读取内容，写入目标文件中来完成拷贝过程。但是这样丢失stat数据信息(权限等)，因为根本就没有复制过去。<br>目录怎么办呢 ？<br>Python提供了一个方便的库shutil(高级文件操作)。</p>
 <h2 id="copy复制"><a href="#copy复制" class="headerlink" title="copy复制"></a>copy复制</h2><p><strong>copyfileobj(fsrc,fdst[,length])</strong></p>
 <p>文件对象的复制，fsrc和fdst 是open打开的文件对象，复制内容。fdst要求可写。<br>length指定了表示buffer的大小;</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pathlib <span class="keyword">import</span> Path</span><br><span class="line"><span class="keyword">import</span> shutil</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">p1 = Path(<span class="string">'./test'</span>)</span><br><span class="line">p1.touch()</span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'./test'</span>,<span class="string">'r+'</span>) <span class="keyword">as</span> f1:</span><br><span class="line">    f1.write(<span class="string">'abcd\n asjin'</span>)</span><br><span class="line">    f1.flush()</span><br><span class="line">    <span class="keyword">with</span> open(<span class="string">'./test1'</span>,<span class="string">'w+'</span>) <span class="keyword">as</span> f2:</span><br><span class="line">        shutil.copyfileobj(f1,f2)</span><br><span class="line">(py3_env) testpy ➤ cat kernel/test                                                                                                                                                      </span><br><span class="line">abcd</span><br><span class="line">asjin%                                                                                                                                                       (py3_env) testpy ➤ cat kernel/test1</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pathlib <span class="keyword">import</span> Path</span><br><span class="line"><span class="keyword">import</span> shutil</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">p1 = Path(<span class="string">&#x27;./test&#x27;</span>)</span><br><span class="line">p1.touch()</span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;./test&#x27;</span>,<span class="string">&#x27;r+&#x27;</span>) <span class="keyword">as</span> f1:</span><br><span class="line">    f1.write(<span class="string">&#x27;abcd\n asjin&#x27;</span>)</span><br><span class="line">    f1.flush()</span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;./test1&#x27;</span>,<span class="string">&#x27;w+&#x27;</span>) <span class="keyword">as</span> f2:</span><br><span class="line">        shutil.copyfileobj(f1,f2)</span><br><span class="line">(py3_env) testpy ➤ cat kernel/test                                                                                                                                                      </span><br><span class="line">abcd</span><br><span class="line">asjin%                                                                                                                                                       (py3_env) testpy ➤ cat kernel/test1   </span><br></pre></td></tr></table></figure>
 <p><strong>copyfile(src,dst,*,follow_symlinks=True)</strong><br>复制文件内容，不含元数据。src、dst为文件的路径字符串;<br>本质上调用的就是copyfileobj，所以不带元数据二进制内容复制;</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> shutil</span><br><span class="line">shutil.copyfile(<span class="string">'./test'</span>,<span class="string">'./test2'</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> shutil</span><br><span class="line">shutil.copyfile(<span class="string">&#x27;./test&#x27;</span>,<span class="string">&#x27;./test2&#x27;</span>)</span><br></pre></td></tr></table></figure>
 <p><strong>copymode(src,dst,*,follow_symlinks=True)</strong></p>
 <p>仅仅复制权限</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">(py3_env) testpy ➤chmod <span class="number">400</span> kernel/test2</span><br><span class="line"><span class="keyword">import</span> shutil</span><br><span class="line">shutil.copymode(<span class="string">'./test'</span>,<span class="string">'./test2'</span>)</span><br><span class="line"><span class="comment">#执行后再查看copy的权限</span></span><br><span class="line">-rw-r--r--  <span class="number">1</span> ssjinyao  staff     <span class="number">0</span>B Oct <span class="number">11</span> <span class="number">21</span>:<span class="number">58</span> kernel/test1</span><br><span class="line">-rw-r--r--  <span class="number">1</span> ssjinyao  staff    <span class="number">11</span>B Oct <span class="number">11</span> <span class="number">22</span>:<span class="number">10</span> kernel/test2</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">(py3_env) testpy ➤chmod <span class="number">400</span> kernel/test2</span><br><span class="line"><span class="keyword">import</span> shutil</span><br><span class="line">shutil.copymode(<span class="string">&#x27;./test&#x27;</span>,<span class="string">&#x27;./test2&#x27;</span>)</span><br><span class="line"><span class="comment">#执行后再查看copy的权限</span></span><br><span class="line">-rw-r--r--  <span class="number">1</span> ssjinyao  staff     <span class="number">0</span>B Oct <span class="number">11</span> <span class="number">21</span>:<span class="number">58</span> kernel/test1</span><br><span class="line">-rw-r--r--  <span class="number">1</span> ssjinyao  staff    <span class="number">11</span>B Oct <span class="number">11</span> <span class="number">22</span>:<span class="number">10</span> kernel/test2</span><br></pre></td></tr></table></figure>
 <p><strong>copystat(src,dst,*,follow_symlinks=True)</strong></p>
 <p>复制元数据，stat包含权限</p>
 <p><strong>copy(src,dst,*,follow_symlinks=True)</strong></p>
@@ -531,416 +534,623 @@
 <p>递归复制目录。默认使用copy2，也就是带更多的元数据复制；</p>
 <p>src、dst 必须是目录，src必须是存在 dst必须不存在;<br>ignore=func, 提供一个callabe(src,names) -&gt; ignored_names。提供一个函数，它会被调用。src是源目录，names是os.listdir(src)的结果，就是列出src中的文件名，返回值是要被过滤的文件名的set类型数据。</p>
 <p><strong>copytree</strong> 是最常用的</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">ignore</span><span class="params">(src, names)</span>:</span></span><br><span class="line">    ig = filter(<span class="keyword">lambda</span> x: x.startswith(<span class="string">'a'</span>), names) <span class="comment">#忽略a</span></span><br><span class="line">    <span class="keyword">return</span> set(ig)</span><br><span class="line">shutil.copytree(<span class="string">'./testdir'</span>,<span class="string">'/test/dir'</span>,ignore=ignore)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">ignore</span>(<span class="params">src, names</span>):</span></span><br><span class="line">    ig = <span class="built_in">filter</span>(<span class="keyword">lambda</span> x: x.startswith(<span class="string">&#x27;a&#x27;</span>), names) <span class="comment">#忽略a</span></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">set</span>(ig)</span><br><span class="line">shutil.copytree(<span class="string">&#x27;./testdir&#x27;</span>,<span class="string">&#x27;/test/dir&#x27;</span>,ignore=ignore)</span><br></pre></td></tr></table></figure>
 <h2 id="rm删除"><a href="#rm删除" class="headerlink" title="rm删除"></a>rm删除</h2><p><strong>shutil.rmtree(path,ignore_errors=False,onerror=None)</strong><br>递归删除。如同<strong>rm -rf</strong> 一样危险，慎用。<br>它不是原子操作，有可能删除错误，就会中断，已经删除的就删除了;<br>ignore_errors为ture，忽略错误。当为False或者omitted时onerror生效;<br>onerror为callable，接受函数function、path和execinfo。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">shutil.rmtree(<span class="string">'./test'</span>) <span class="comment">#类似rm -rf</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">shutil.rmtree(<span class="string">&#x27;./test&#x27;</span>) <span class="comment">#类似rm -rf</span></span><br></pre></td></tr></table></figure>
 <h2 id="move-移动"><a href="#move-移动" class="headerlink" title="move 移动"></a>move 移动</h2><p><strong>move(src,dst,copy_function=copy2)</strong></p>
 <p>递归移动文件、目录到目标，返回目录;<br>本身移动文件、目录到目标，返回目标;<br>如果不支持rename，如果是目录则想copytree再删除源目录;<br>默认使用copy2方法。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">os.rename(<span class="string">'./test.txt'</span>,<span class="string">'/temp/t'</span>)</span><br><span class="line">os.rename(<span class="string">'test3'</span>,<span class="string">'/temp/test/test300'</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">os.rename(<span class="string">&#x27;./test.txt&#x27;</span>,<span class="string">&#x27;/temp/t&#x27;</span>)</span><br><span class="line">os.rename(<span class="string">&#x27;test3&#x27;</span>,<span class="string">&#x27;/temp/test/test300&#x27;</span>)</span><br></pre></td></tr></table></figure>
 <p>shutil还有打包功能。生成tar并压缩。支持zip、gz、bz、xz。</p>
 <h2 id="格言"><a href="#格言" class="headerlink" title="格言"></a>格言</h2><p><strong>共情的实质–把你的生活扩展到别人的生活里，把你的耳朵放到别人的灵魂中，用心去聆听那里最急切的喃喃私语</strong></p>
 
+  
+  
+    
+    <div class='footer'>
+      
+      
+        
+  <div class="related_posts">
+    <section class='header'>
+      <i class="fas fa-bookmark fa-fw" aria-hidden="true"></i><span>相关文章</span>
+    </section>
+    <section class='body'>
+      <div class="vlts-rps"><a class="item" href="/2019/03/20/fabric自动化之kvm私有云快速开通/" title="fabric自动化之kvm私有云服务器快速开通与交付" rel="bookmark "><img src="/images/kvm-automation.png" /><span class="title">fabric自动化之kvm私有云服务器快速开通与交付</span></a><a class="item" href="/2020/10/18/python日志处理一/" title="python 日志处理一" rel="bookmark "><img src="/images/python-log-parsing.png" /><span class="title">python 日志处理一</span></a><a class="item" href="/2020/10/13/python文件的IO三/" title="python 文件的IO三" rel="bookmark "><img src="/images/python-file-io-01.jpg" /><span class="title">python 文件的IO三</span></a><a class="item" href="/2020/09/14/python文件的IO一/" title="python 文件的IO一" rel="bookmark "><img src="/images/python-file-io-01.jpg" /><span class="title">python 文件的IO一</span></a><a class="item" href="/2020/10/19/SGE+bash+awk+sed+Python+WebStackPage实现P级数据并发扫描与下机数据报表公示/" title="SGE+bash+awk+sed+Python+WebStackPage实现P级数据并发扫描与数据报表公示系统" rel="bookmark "><img src="/images/PLevel-Disembarkation-data-display.png" /><span class="title">SGE+bash+awk+sed+Python+WebStackPage实现P级数据并发扫描与数据报表公示系统</span></a></div></section></div>
+      
+      
+        <div class='copyright'>
+          <blockquote>
+            
+              
+                <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+              
+            
+              
+                <p>本文永久链接是：<a href=https://www.asjin.com/2020/09/17/python%E6%96%87%E4%BB%B6%E7%9A%84IO%E4%BA%8C/>https://www.asjin.com/2020/09/17/python%E6%96%87%E4%BB%B6%E7%9A%84IO%E4%BA%8C/</a></p>
+              
+            
+          </blockquote>
+        </div>
+      
       
     </div>
-    
-    
-    
-
+  
+  
     
 
-    
-      <div>
-        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
-  <div>ღ ღ ღ 如果觉得文章对您有用，不妨打赏一下ღ ღ ღ</div>
-  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
-    <span>打赏</span>
-  </button>
-  <div id="QR" style="display: none;">
 
-    
-      <div id="wechat" style="display: inline-block">
-        <img id="wechat_qr" src="/images/weipei.png" alt="༺ 锦遥 ༻ 微信支付">
-        <p>微信支付</p>
-      </div>
-    
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-10-11T23:19:26+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：Oct 11, 2020</p>
+  </a>
+</div>
 
-    
-      <div id="alipay" style="display: inline-block">
-        <img id="alipay_qr" src="/images/zhipei.png" alt="༺ 锦遥 ༻ 支付宝">
-        <p>支付宝</p>
-      </div>
-    
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/linux/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>linux</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/program/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>program</p></a></div>
 
-    
 
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.asjin.com/2020/09/17/python%E6%96%87%E4%BB%B6%E7%9A%84IO%E4%BA%8C/&title=python 文件的IO二 - 逝水锦遥&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://www.asjin.com/2020/09/17/python%E6%96%87%E4%BB%B6%E7%9A%84IO%E4%BA%8C/&title=python 文件的IO二 - 逝水锦遥&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.asjin.com/2020/09/17/python%E6%96%87%E4%BB%B6%E7%9A%84IO%E4%BA%8C/&title=python 文件的IO二 - 逝水锦遥&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png">
+          
+        </a>
+      
+    
+      
+    
+      
+    
   </div>
 </div>
 
-      </div>
-    
 
-    
-      <div>
-        <ul class="post-copyright">
-  <li class="post-copyright-author">
-    <strong>本文作者：</strong>
-    ༺ 锦遥 ༻
-  </li>
-  <li class="post-copyright-link">
-    <strong>本文链接：</strong>
-    <a href="https://www.asjin.com/2020/09/17/python文件的IO二/" title="python 文件的IO二">https://www.asjin.com/2020/09/17/python文件的IO二/</a>
-  </li>
-  <li class="post-copyright-license">
-    <strong>版权声明： </strong>
-    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
-  </li>
-</ul>
 
-      </div>
-    
-
-    <footer class="post-footer">
+        
       
-        <div class="post-tags">
+        
+      
+        
+      
+        
           
-            <a href="/tags/linux/" rel="tag"># linux</a>
-          
-            <a href="/tags/program/" rel="tag"># program</a>
-          
-        </div>
-      
+<div class='new-meta-item author'>
+  <a class='author' href="/images/rjrt.ico" rel="nofollow">
+    <img no-lazy src="/images/rjrt.ico">
+    <p>任锦</p>
+  </a>
+</div>
 
+        
       
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2020/09/14/python文件的IO一/" rel="next" title="python 文件的IO一">
-                <i class="fa fa-chevron-left"></i> python 文件的IO一
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/10/13/python文件的IO三/" rel="prev" title="python 文件的IO三">
-                python 文件的IO三 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
+    </div>
   </div>
+
+
   
   
+
   
+    <div class="prev-next">
+      
+        <a class='prev' href='/2020/10/13/python%E6%96%87%E4%BB%B6%E7%9A%84IO%E4%B8%89/'>
+          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>python 文件的IO三</p>
+          <p class='content'>[toc]
+python 文件的IO三
+CSV文件csv文件简介
+逗号分隔值 Comma-Separated Values。CSV是一个被行分隔符、列分隔符分成行和列的文本文件;没有指定字符编码...</p>
+        </a>
+      
+      
+        <a class='next' href='/2020/09/14/python%E6%96%87%E4%BB%B6%E7%9A%84IO%E4%B8%80/'>
+          <p class='title'>python 文件的IO一<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>[toc]
+python 文件的IO一
+函数相关练习补充
+实现Base64 解码
+
+1234567891011121314151617181920212223242526272829303132...</p>
+        </a>
+      
+    </div>
+  
+</article>
+
+
+  
+
+  <article class="post white-box reveal shadow" id="comments">
+    <p ct><i class='fas fa-comments'></i> 评论</p>
+    
+    <div id="valine_container" class="valine_thread">
+  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+</div>
+
   </article>
 
 
 
-    <div class="post-spread">
-      
-    </div>
-  </div>
 
 
-          </div>
-          
 
-
-          
-
+</div>
+<aside class='l_side'>
   
-    <div class="comments" id="comments">
-      <div id="lv-container" data-id="city" data-uid="MTAyMC8zOTE2MC8xNTY4Nw=="></div>
-    </div>
-
   
-
-
-
-        </div>
-        
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
-
-  <aside id="sidebar" class="sidebar">
     
-      <div id="sidebar-dimmer"></div>
     
-    <div class="sidebar-inner">
 
-      
 
-      
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
-        <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-            
-              <img class="site-author-image" itemprop="image" src="/images/rjyy.ico" alt="༺ 锦遥 ༻">
-            
-              <p class="site-author-name" itemprop="name">༺ 锦遥 ༻</p>
-              <p class="site-description motion-element" itemprop="description">不急不燥，稳步推进
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>TOC</span>
+    
+  </header>
 
-</p>
-          </div>
 
-          <nav class="site-state motion-element">
-
-            
-              <div class="site-state-item site-state-posts">
-              
-                <a href="/archives">
-              
-                  <span class="site-state-item-count">83</span>
-                  <span class="site-state-item-name">日志</span>
-                </a>
-              </div>
-            
-
-            
-
-            
-              
-              
-              <div class="site-state-item site-state-tags">
-                
-                  <span class="site-state-item-count">7</span>
-                  <span class="site-state-item-name">标签</span>
-                
-              </div>
-            
-
-          </nav>
-
-          
-            <div class="feed-link motion-element">
-              <a href="/atom.xml" rel="alternate">
-                <i class="fa fa-rss"></i>
-                RSS
-              </a>
-            </div>
-          
-          <div class="links-of-author motion-element">
-            
-              
-                <span class="links-of-author-item">
-                  <a href="http://wpa.qq.com/msgrd?v=3&uin=1922006891&site=11&menu=yes" target="_blank" title="我的QQ">
-                    
-                      <i class="fa fa-fw fa-qq"></i></a>
-                </span>
-              
-            
-          </div>
-
-          
-          
-
-          
-          
-            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
-              <div class="links-of-blogroll-title">
-                <i class="fa  fa-fw fa-link"></i>
-                友情链接
-              </div>
-              <ul class="links-of-blogroll-list">
-                
-                  <li class="links-of-blogroll-item">
-                    <a href="https://jf.ssjinyao.com/" title="狗江博客" target="_blank">狗江博客</a>
-                  </li>
-                
-                  <li class="links-of-blogroll-item">
-                    <a href="https://www.ssjinyao.com/" title="asjin.com" target="_blank">asjin.com</a>
-                  </li>
-                
-                  <li class="links-of-blogroll-item">
-                    <a href="https://www.asmobai.com" title="Mr.宏" target="_blank">Mr.宏</a>
-                  </li>
-                
-              </ul>
-            </div>
-          
-
-          
-        </div>
-      </section>
-
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#python-文件的IO一"><span class="nav-number">1.</span> <span class="nav-text">python 文件的IO一</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#练习"><span class="nav-number">1.1.</span> <span class="nav-text">练习</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#StringIO"><span class="nav-number">1.2.</span> <span class="nav-text">StringIO</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#StringIO操作"><span class="nav-number">1.3.</span> <span class="nav-text">StringIO操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BytesIO"><span class="nav-number">1.4.</span> <span class="nav-text">BytesIO</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#file-like-对象"><span class="nav-number">1.5.</span> <span class="nav-text">file-like 对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#os-path-模块"><span class="nav-number">1.6.</span> <span class="nav-text">os.path 模块</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4版本开始"><span class="nav-number">1.6.1.</span> <span class="nav-text">3.4版本开始</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pathlib模块"><span class="nav-number">1.6.2.</span> <span class="nav-text">pathlib模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件操作"><span class="nav-number">1.6.3.</span> <span class="nav-text">文件操作</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#os模块"><span class="nav-number">1.7.</span> <span class="nav-text">os模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#shutil-模块"><span class="nav-number">1.8.</span> <span class="nav-text">shutil 模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#copy复制"><span class="nav-number">1.9.</span> <span class="nav-text">copy复制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rm删除"><span class="nav-number">1.10.</span> <span class="nav-text">rm删除</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#move-移动"><span class="nav-number">1.11.</span> <span class="nav-text">move 移动</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#格言"><span class="nav-number">1.12.</span> <span class="nav-text">格言</span></a></li></ol></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
-      
-
-      
-
+    <div class='content'>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%83%E4%B9%A0"><span class="toc-text">练习</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#StringIO"><span class="toc-text">StringIO</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#StringIO%E6%93%8D%E4%BD%9C"><span class="toc-text">StringIO操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BytesIO"><span class="toc-text">BytesIO</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#file-like-%E5%AF%B9%E8%B1%A1"><span class="toc-text">file-like 对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#os-path-%E6%A8%A1%E5%9D%97"><span class="toc-text">os.path 模块</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4%E7%89%88%E6%9C%AC%E5%BC%80%E5%A7%8B"><span class="toc-text">3.4版本开始</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pathlib%E6%A8%A1%E5%9D%97"><span class="toc-text">pathlib模块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C"><span class="toc-text">文件操作</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#os%E6%A8%A1%E5%9D%97"><span class="toc-text">os模块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#shutil-%E6%A8%A1%E5%9D%97"><span class="toc-text">shutil 模块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#copy%E5%A4%8D%E5%88%B6"><span class="toc-text">copy复制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#rm%E5%88%A0%E9%99%A4"><span class="toc-text">rm删除</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#move-%E7%A7%BB%E5%8A%A8"><span class="toc-text">move 移动</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%BC%E8%A8%80"><span class="toc-text">格言</span></a></li></ol>
     </div>
-  </aside>
+  </section>
+
+
+  
+
+  
+
+
+</aside>
+
 
 
         
-      </div>
+        
+          <!--此文件用来存放一些不方便取值的变量-->
+<!--思路大概是将值藏到重加载的区域内-->
 
-<!-- 数字雨 -->
-<canvas id="canvas" width="1440" height="1080"></canvas>
-<script type="text/javascript" src="/js/DigitalRain.js"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright">&copy; 2015 &mdash; <span itemprop="copyrightYear">2020</span>
-  <span class="with-love">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">༺ 锦遥 ༻</span>
-
-  
-    <span class="post-meta-divider">|</span>
-    <span class="post-meta-item-icon">
-      <i class="fa fa-area-chart"></i>
-    </span>
-    
-      <span class="post-meta-item-text">Site words total count&#58;</span>
-    
-    <span title="Site words total count">216.7k</span>
-  
-  <span>   |   </span>
-<span id="showDays"></span>
-</div>
-
-
-
-
-
-
-
-
-<div class="BbeiAn-info" style="color:#8B0000">
-晋ICP备 -
-    <a href="http://www.beian.miit.gov.cn/" style="color:red;">17010575号-1 && 17010575号-4</a>
-
-</div>
-<!-- time -->
-<div id="show-time">
-<span id="span_dt_dt"></span>
-</div>
 <script>
-var seconds = 1000;
-var minutes = seconds * 60;
-var hours = minutes * 60;
-var days = hours * 24;
-var years = days * 365;
-var birthDay = Date.UTC(2017,07,30,00,00,00); // 这里设置建站时间
-setInterval(function() {
-var today = new Date();
-var todayYear = today.getFullYear();
-var todayMonth = today.getMonth()+1;
-var todayDate = today.getDate();
-var todayHour = today.getHours();
-var todayMinute = today.getMinutes();
-var todaySecond = today.getSeconds();
-var now = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
-var diff = now - birthDay;
-var diffYears = Math.floor(diff/years);
-var diffDays = Math.floor((diff/days)-diffYears*365);
-var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
-var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
-var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
-  document.getElementById('showDays').innerHTML="不間斷的運行了"+diffYears+" 年 "+diffDays+" 天 "+diffHours+" 時 "+diffMinutes+" 分 "+diffSeconds+" 秒 ";
-}, 1000);
+  window.pdata={}
+  pdata.ispage=true;
+  pdata.postTitle="python 文件的IO二";
+  pdata.commentPath="";
+  pdata.commentPlaceholder="";
+
+  var l_header=document.getElementById("l_header");
+  
+  l_header.classList.remove("show");
+  
 </script>
-<script src="https://pv.sohu.com/cityjson?ie=utf-8"></script>
-<script src="/js/ip.js"></script>
 
         
-<div class="busuanzi-count">
-  <script async src="/js/busuanzi.pure.mini.js"></script>
+      </div>
+      
   
-    <span class="site-uv">
-      <i class="fa fa-user"></i> 訪客數
-      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
-      位
-    </span>
-  
+  <footer class="footer clearfix">
+    <br><br>
+    
+      
+        <div class="aplayer-container">
+          
 
-  
-    <span class="site-pv">
-      <i class="fa fa-eye"></i>  訪客量
-      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
-      次
-    </span>
-  
+
+        </div>
+      
+    
+      
+        <br>
+        <div class="social-wrapper">
+          
+            
+          
+            
+          
+            
+          
+        </div>
+      
+    
+      
+        <div><p>Blog content follows the <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License</a></p>
 </div>
-
-
-
-
-
-
-
-
+      
+    
+      
         
-      </div>
-    </footer>
-
-    
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
+          <div><p><span id="lc-sv">本站总访问量为 <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span> 次</span> <span id="lc-uv">访客数为 <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span> 人</span></p>
+</div>
         
-      </div>
+      
     
-
+      
+        Use
+        <a href="https://github.com/volantis-x/hexo-theme-volantis/tree/4.1.6" target="_blank" class="codename">Volantis</a>
+        as theme
+      
     
+      
+        <div class='copyright'>
+        <p><a href="/">Copyright © 2017-2020 XXX</a></p>
 
-<script src="/live2d-widget/autoload.js"></script>
-<script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
-<script type="text/javascript" src="/js/src/clipboard-use.js"></script>
+        </div>
+      
+    
+  </footer>
+
+
+      <a id="s-top" class="fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+	  <canvas id="canvas" width="1440" height="900" ></canvas>
+	  <script type="text/javascript" src="/js/DigitalRain.js"></script>
+    </div>
   </div>
+  <div>
+    <script>
+window.volantis={};
+window.volantis.loadcss=document.getElementById("loadcss");
+/********************脚本懒加载函数********************************/
+function loadScript(src, cb) {
+var HEAD = document.getElementsByTagName('head')[0] || document.documentElement;
+var script = document.createElement('script');
+script.setAttribute('type','text/javascript');
+if (cb) script.onload = cb;
+script.setAttribute('src', src);
+HEAD.appendChild(script);
+}
+//https://github.com/filamentgroup/loadCSS
+var loadCSS = function( href, before, media, attributes ){
+	var doc = window.document;
+	var ss = doc.createElement( "link" );
+	var ref;
+	if( before ){
+		ref = before;
+	}
+	else {
+		var refs = ( doc.body || doc.getElementsByTagName( "head" )[ 0 ] ).childNodes;
+		ref = refs[ refs.length - 1];
+	}
+	var sheets = doc.styleSheets;
+	if( attributes ){
+		for( var attributeName in attributes ){
+			if( attributes.hasOwnProperty( attributeName ) ){
+				ss.setAttribute( attributeName, attributes[attributeName] );
+			}
+		}
+	}
+	ss.rel = "stylesheet";
+	ss.href = href;
+	ss.media = "only x";
+	function ready( cb ){
+		if( doc.body ){
+			return cb();
+		}
+		setTimeout(function(){
+			ready( cb );
+		});
+	}
+	ready( function(){
+		ref.parentNode.insertBefore( ss, ( before ? ref : ref.nextSibling ) );
+	});
+	var onloadcssdefined = function( cb ){
+		var resolvedHref = ss.href;
+		var i = sheets.length;
+		while( i-- ){
+			if( sheets[ i ].href === resolvedHref ){
+				return cb();
+			}
+		}
+		setTimeout(function() {
+			onloadcssdefined( cb );
+		});
+	};
+	function loadCB(){
+		if( ss.addEventListener ){
+			ss.removeEventListener( "load", loadCB );
+		}
+		ss.media = media || "all";
+	}
+	if( ss.addEventListener ){
+		ss.addEventListener( "load", loadCB);
+	}
+	ss.onloadcssdefined = onloadcssdefined;
+	onloadcssdefined( loadCB );
+	return ss;
+};
+</script>
+<script>
+  
+  loadCSS("https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14/css/all.min.css", window.volantis.loadcss);
+  
+  
+  
+  
+</script>
+<!-- required -->
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5/dist/jquery.min.js"></script>
+
+<script>
+  function pjax_fancybox() {
+    $(".md .gallery").find("img").each(function () { //渲染 fancybox
+      var element = document.createElement("a"); // a 标签
+      $(element).attr("class", "fancybox");
+      $(element).attr("pjax-fancybox", "");  // 过滤 pjax
+      $(element).attr("href", $(this).attr("src"));
+      if ($(this).attr("data-original")) {
+        $(element).attr("href", $(this).attr("data-original"));
+      }
+      $(element).attr("data-fancybox", "images");
+      var caption = "";   // 描述信息
+      if ($(this).attr('alt')) {  // 判断当前页面是否存在描述信息
+        $(element).attr('data-caption', $(this).attr('alt'));
+        caption = $(this).attr('alt');
+      }
+      var div = document.createElement("div");
+      $(div).addClass("fancybox");
+      $(this).wrap(div); // 最外层套 div ，其实主要作用还是 class 样式
+      var span = document.createElement("span");
+      $(span).addClass("image-caption");
+      $(span).text(caption); // 加描述
+      $(this).after(span);  // 再套一层描述
+      $(this).wrap(element);  // 最后套 a 标签
+    })
+    $(".md .gallery").find("img").fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+      closeClick: true,
+      helpers: {
+        overlay: {closeClick: true}
+      },
+      buttons: [
+        "zoom",
+        "close"
+      ]
+    });
+  };
+  function SCload_fancybox() {
+    if ($(".md .gallery").find("img").length == 0) return;
+    loadCSS("https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css", document.getElementById("loadcss"));
+    setTimeout(function() {
+      loadScript('https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js', pjax_fancybox)
+    }, 1);
+  };
+  $(function () {
+    SCload_fancybox();
+  });
+</script>
+
+
+<!-- internal -->
+
+
+
+
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.1.0/dist/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 0
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    lazyLoadInstance.update();
+  });
+  document.addEventListener('pjax:complete', function () {
+    lazyLoadInstance.update();
+  });
+</script>
+
+
+
 
   
+  
+    <script>
+      window.FPConfig = {
+        delay: 0,
+        ignoreKeywords: [],
+        maxRPS: 5,
+        hoverDelay: 25
+      };
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"></script>
+  
 
+
+
+
+
+
+   <script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.6/dist/scrollreveal.min.js"></script>
 <script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
+  function pjax_scrollrebeal() {
+    ScrollReveal().reveal('.l_main .reveal', {
+      distance: '32px',
+      duration: '800',
+      interval: '20',
+      scale: '1',
+      easing: 'ease-out'
+    });
   }
+  $(function () {
+    pjax_scrollrebeal();
+  });
+</script>
+
+
+
+
+
+
+  
+  
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4/dist/Valine.min.js"></script>
+
+
+<script>
+  var GUEST_INFO = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link,header'.split(',').filter(function (item) {
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var REQUIRED_FIELDS = ['nick', 'mail', 'link'];
+  var requiredFields = 'nick,mail'.split(',').filter(function (item) {
+    return REQUIRED_FIELDS.indexOf(item) > -1
+  });
+
+  function emoji(path, idx, ext) {
+    return path + "/" + path + "-" + idx + "." + ext;
+  }
+
+  var emojiMaps = {};
+  for (var i = 1; i <= 54; i++) {
+    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
+  }
+  for (var i = 1; i <= 101; i++) {
+    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+  }
+  for (var i = 1; i <= 116; i++) {
+    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
+  }
+  for (var i = 1; i <= 125; i++) {
+    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
+  }
+  for (var i = 1; i <= 4; i++) {
+    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+  }
+
+  function pjax_valine() {
+    if(!document.querySelectorAll("#valine_container")[0])return;
+
+    let pagePlaceholder = pdata.commentPlaceholder || "快来评论吧~ 🤩 🤩 🤩";
+
+    let path = pdata.commentPath;
+    if (path.length == 0) {
+      let defaultPath = '';
+      path = defaultPath || decodeURI(window.location.pathname);
+    }
+
+    var valine = new Valine();
+    valine.init({
+      el: '#valine_container',
+      meta: meta,
+      placeholder: pagePlaceholder,
+      path: path,
+      appId: "NkJqMpxu4QlRLhPIHipNUHF1-gzGzoHsz",
+      appKey: "D2vTdueKJ8ammc2JEdje0vLW",
+      pageSize: '10',
+      avatar: 'monsterid',
+      lang: 'zh-CN',
+      visitor: 'true',
+      highlight: 'true',
+      mathJax: 'false',
+      enableQQ: 'true',
+      recordIP: 'false',
+      requiredFields: requiredFields,
+      emojiCDN: 'https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/valine/',
+      emojiMaps: emojiMaps
+    })
+  }
+
+  $(function () {
+    pjax_valine();
+  });
+</script>
+
+
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-theme-volantis@4.1.6/source/js/app.min.js"></script>
+
+
+
+<!-- optional -->
+
+  <script>
+const SearchServiceimagePath="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@master/img/";
+const ROOT =  ("/" || "/").endsWith('/') ? ("/" || "/") : ("//" || "/" );
+
+$('.input.u-search-input').one('focus',function(){
+	
+		loadScript('https://cdn.jsdelivr.net/npm/hexo-theme-volantis@4.1.6/source/js/search/hexo.min.js',setSearchService);
+	
+})
+
+function listenSearch(){
+  
+    customSearch = new HexoSearch({
+      imagePath: SearchServiceimagePath
+    });
+  
+}
+function setSearchService() {
+	listenSearch();
+	
+		document.addEventListener("pjax:success", listenSearch);
+	
+}
 </script>
 
 
@@ -951,494 +1161,416 @@ var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours
 
 
 
-  
 
 
-
-
-
-
-
-
-
-
-
-
-  
-  
-    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-  
-
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
-
-
-
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
-
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
-
-
-
-  
-
-
-  
-
-
-
-
-	
-
-
-
-
-
-  
-
-
-
-
-
-  
-    <script type="text/javascript">
-      (function(d, s) {
-        var j, e = d.getElementsByTagName(s)[0];
-        if (typeof LivereTower === 'function') { return; }
-        j = d.createElement(s);
-        j.src = '/js/embed.dist.js';
-        j.async = true;
-        e.parentNode.insertBefore(j, e);
-      })(document, 'script');
-    </script>
-  
-
-
-
-
-
-
-
-
-
-
-  
-  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/valine@1.1.6/dist/Valine.min.js"></script>
-  <script type="text/javascript">
-    new Valine({
-        av: AV,
-        el: '#comments' ,
-        verify: true,
-        notify: true,
-        app_id: 'NkJqMpxu4QlRLhPIHipNUHF1-gzGzoHsz',
-        app_key: 'D2vTdueKJ8ammc2JEdje0vLW',
-        placeholder: '说点啥'
-    });
-  </script>
-
-
-
-  
-
-  <script type="text/javascript">
-    // Popup Window;
-    var isfetched = false;
-    var isXml = true;
-    // Search DB path;
-    var search_path = "search.xml";
-    if (search_path.length === 0) {
-      search_path = "search.xml";
-    } else if (/json$/i.test(search_path)) {
-      isXml = false;
-    }
-    var path = "/" + search_path;
-    // monitor main search box;
-
-    var onPopupClose = function (e) {
-      $('.popup').hide();
-      $('#local-search-input').val('');
-      $('.search-result-list').remove();
-      $('#no-result').remove();
-      $(".local-search-pop-overlay").remove();
-      $('body').css('overflow', '');
-    }
-
-    function proceedsearch() {
-      $("body")
-        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
-        .css('overflow', 'hidden');
-      $('.search-popup-overlay').click(onPopupClose);
-      $('.popup').toggle();
-      var $localSearchInput = $('#local-search-input');
-      $localSearchInput.attr("autocapitalize", "none");
-      $localSearchInput.attr("autocorrect", "off");
-      $localSearchInput.focus();
-    }
-
-    // search function;
-    var searchFunc = function(path, search_id, content_id) {
-      'use strict';
-
-      // start loading animation
-      $("body")
-        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
-          '<div id="search-loading-icon">' +
-          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
-          '</div>' +
-          '</div>')
-        .css('overflow', 'hidden');
-      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
-
-      $.ajax({
-        url: path,
-        dataType: isXml ? "xml" : "json",
-        async: true,
-        success: function(res) {
-          // get the contents from search data
-          isfetched = true;
-          $('.popup').detach().appendTo('.header-inner');
-          var datas = isXml ? $("entry", res).map(function() {
-            return {
-              title: $("title", this).text(),
-              content: $("content",this).text(),
-              url: $("url" , this).text()
-            };
-          }).get() : res;
-          var input = document.getElementById(search_id);
-          var resultContent = document.getElementById(content_id);
-          var inputEventFunction = function() {
-            var searchText = input.value.trim().toLowerCase();
-            var keywords = searchText.split(/[\s\-]+/);
-            if (keywords.length > 1) {
-              keywords.push(searchText);
+  <script defer>
+
+  const LCCounter = {
+    app_id: 'u9j57bwJod4EDmXWdxrwuqQT-MdYXbMMI',
+    app_key: 'jfHtEKVE24j0IVCGHbvuFClp',
+    custom_api_server: '',
+
+    // 查询存储的记录
+    getRecord(Counter, url, title) {
+      return new Promise(function (resolve, reject) {
+        Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({url})))
+          .then(resp => resp.json())
+          .then(({results, code, error}) => {
+            if (code === 401) {
+              throw error;
             }
-            var resultItems = [];
-            if (searchText.length > 0) {
-              // perform local searching
-              datas.forEach(function(data) {
-                var isMatch = false;
-                var hitCount = 0;
-                var searchTextCount = 0;
-                var title = data.title.trim();
-                var titleInLowerCase = title.toLowerCase();
-                var content = data.content.trim().replace(/<[^>]+>/g,"");
-                var contentInLowerCase = content.toLowerCase();
-                var articleUrl = decodeURIComponent(data.url);
-                var indexOfTitle = [];
-                var indexOfContent = [];
-                // only match articles with not empty titles
-                if(title != '') {
-                  keywords.forEach(function(keyword) {
-                    function getIndexByWord(word, text, caseSensitive) {
-                      var wordLen = word.length;
-                      if (wordLen === 0) {
-                        return [];
-                      }
-                      var startPosition = 0, position = [], index = [];
-                      if (!caseSensitive) {
-                        text = text.toLowerCase();
-                        word = word.toLowerCase();
-                      }
-                      while ((position = text.indexOf(word, startPosition)) > -1) {
-                        index.push({position: position, word: word});
-                        startPosition = position + wordLen;
-                      }
-                      return index;
-                    }
-
-                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
-                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
-                  });
-                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
-                    isMatch = true;
-                    hitCount = indexOfTitle.length + indexOfContent.length;
-                  }
-                }
-
-                // show search results
-
-                if (isMatch) {
-                  // sort index by position of keyword
-
-                  [indexOfTitle, indexOfContent].forEach(function (index) {
-                    index.sort(function (itemLeft, itemRight) {
-                      if (itemRight.position !== itemLeft.position) {
-                        return itemRight.position - itemLeft.position;
-                      } else {
-                        return itemLeft.word.length - itemRight.word.length;
-                      }
-                    });
-                  });
-
-                  // merge hits into slices
-
-                  function mergeIntoSlice(text, start, end, index) {
-                    var item = index[index.length - 1];
-                    var position = item.position;
-                    var word = item.word;
-                    var hits = [];
-                    var searchTextCountInSlice = 0;
-                    while (position + word.length <= end && index.length != 0) {
-                      if (word === searchText) {
-                        searchTextCountInSlice++;
-                      }
-                      hits.push({position: position, length: word.length});
-                      var wordEnd = position + word.length;
-
-                      // move to next position of hit
-
-                      index.pop();
-                      while (index.length != 0) {
-                        item = index[index.length - 1];
-                        position = item.position;
-                        word = item.word;
-                        if (wordEnd > position) {
-                          index.pop();
-                        } else {
-                          break;
-                        }
-                      }
-                    }
-                    searchTextCount += searchTextCountInSlice;
-                    return {
-                      hits: hits,
-                      start: start,
-                      end: end,
-                      searchTextCount: searchTextCountInSlice
-                    };
-                  }
-
-                  var slicesOfTitle = [];
-                  if (indexOfTitle.length != 0) {
-                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
-                  }
-
-                  var slicesOfContent = [];
-                  while (indexOfContent.length != 0) {
-                    var item = indexOfContent[indexOfContent.length - 1];
-                    var position = item.position;
-                    var word = item.word;
-                    // cut out 100 characters
-                    var start = position - 20;
-                    var end = position + 80;
-                    if(start < 0){
-                      start = 0;
-                    }
-                    if (end < position + word.length) {
-                      end = position + word.length;
-                    }
-                    if(end > content.length){
-                      end = content.length;
-                    }
-                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
-                  }
-
-                  // sort slices in content by search text's count and hits' count
-
-                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
-                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
-                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
-                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
-                      return sliceRight.hits.length - sliceLeft.hits.length;
-                    } else {
-                      return sliceLeft.start - sliceRight.start;
-                    }
-                  });
-
-                  // select top N slices in content
-
-                  var upperBound = parseInt('1');
-                  if (upperBound >= 0) {
-                    slicesOfContent = slicesOfContent.slice(0, upperBound);
-                  }
-
-                  // highlight title and content
-
-                  function highlightKeyword(text, slice) {
-                    var result = '';
-                    var prevEnd = slice.start;
-                    slice.hits.forEach(function (hit) {
-                      result += text.substring(prevEnd, hit.position);
-                      var end = hit.position + hit.length;
-                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
-                      prevEnd = end;
-                    });
-                    result += text.substring(prevEnd, slice.end);
-                    return result;
-                  }
-
-                  var resultItem = '';
-
-                  if (slicesOfTitle.length != 0) {
-                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
-                  } else {
-                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
-                  }
-
-                  slicesOfContent.forEach(function (slice) {
-                    resultItem += "<a href='" + articleUrl + "'>" +
-                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
-                      "...</p>" + "</a>";
-                  });
-
-                  resultItem += "</li>";
-                  resultItems.push({
-                    item: resultItem,
-                    searchTextCount: searchTextCount,
-                    hitCount: hitCount,
-                    id: resultItems.length
-                  });
-                }
-              })
-            };
-            if (keywords.length === 1 && keywords[0] === "") {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
-            } else if (resultItems.length === 0) {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            if (results && results.length > 0) {
+              var record = results[0];
+              resolve(record);
             } else {
-              resultItems.sort(function (resultLeft, resultRight) {
-                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
-                  return resultRight.searchTextCount - resultLeft.searchTextCount;
-                } else if (resultLeft.hitCount !== resultRight.hitCount) {
-                  return resultRight.hitCount - resultLeft.hitCount;
-                } else {
-                  return resultRight.id - resultLeft.id;
-                }
+              Counter('post', '/classes/Counter', {url, title: title, times: 0})
+                .then(resp => resp.json())
+                .then((record, error) => {
+                  if (error) {
+                    throw error;
+                  }
+                  resolve(record);
+                }).catch(error => {
+                console.error('Failed to create', error);
+                reject(error);
               });
-              var searchResultList = '<ul class=\"search-result-list\">';
-              resultItems.forEach(function (result) {
-                searchResultList += result.item;
-              })
-              searchResultList += "</ul>";
-              resultContent.innerHTML = searchResultList;
             }
-          }
+          }).catch((error) => {
+          console.error('LeanCloud Counter Error:', error);
+          reject(error);
+        });
+      })
+    },
 
-          if ('auto' === 'true') {
-            input.addEventListener('input', inputEventFunction);
-          } else {
-            $('.search-icon').click(inputEventFunction);
-            input.addEventListener('keypress', function (event) {
-              if (event.keyCode === 13) {
-                inputEventFunction();
+    // 发起自增请求
+    increment(Counter, incrArr) {
+      return new Promise(function (resolve, reject) {
+        Counter('post', '/batch', {
+          "requests": incrArr
+        }).then((res) => {
+          res = res.json();
+          if (res.error) {
+            throw res.error;
+          }
+          resolve(res);
+        }).catch((error) => {
+          console.error('Failed to save visitor count', error);
+          reject(error);
+        });
+      });
+    },
+
+    // 构建自增请求体
+    buildIncrement(objectId) {
+      return {
+        "method": "PUT",
+        "path": `/1.1/classes/Counter/${ objectId }`,
+        "body": {
+          "times": {
+            '__op': 'Increment',
+            'amount': 1
+          }
+        }
+      }
+    },
+
+    // 校验是否为有效的 UV
+    validUV() {
+      var key = 'LeanCloudUVTimestamp';
+      var flag = localStorage.getItem(key);
+      if (flag) {
+        // 距离标记小于 24 小时则不计为 UV
+        if (new Date().getTime() - parseInt(flag) <= 86400000) {
+          return false;
+        }
+      }
+      localStorage.setItem(key, new Date().getTime().toString());
+      return true;
+    },
+
+    addCount(Counter) {
+      var enableIncr = '' === 'true' && window.location.hostname !== 'localhost';
+      enableIncr = true;
+      var getterArr = [];
+      var incrArr = [];
+      // 请求 PV 并自增
+      var pvCtn = document.querySelector('#lc-sv');
+      if (pvCtn || enableIncr) {
+        var pvGetter = this.getRecord(Counter, 'https://www.asjin.com' + '/#lc-sv', 'Visits').then((record) => {
+          incrArr.push(this.buildIncrement(record.objectId))
+          var eles = document.querySelectorAll('#lc-sv #number');
+          if (eles.length > 0) {
+            eles.forEach((el,index,array)=>{
+              el.innerText = record.times + 1;
+              if (pvCtn) {
+                pvCtn.style.display = 'inline';
+              }
+            })
+          }
+        });
+        getterArr.push(pvGetter);
+      }
+
+      // 请求 UV 并自增
+      var uvCtn = document.querySelector('#lc-uv');
+      if (uvCtn || enableIncr) {
+        var uvGetter = this.getRecord(Counter, 'https://www.asjin.com' + '/#lc-uv', 'Visitors').then((record) => {
+          var vuv = this.validUV();
+          vuv && incrArr.push(this.buildIncrement(record.objectId))
+          var eles = document.querySelectorAll('#lc-uv #number');
+          if (eles.length > 0) {
+            eles.forEach((el,index,array)=>{
+              el.innerText = record.times + (vuv ? 1 : 0);
+              if (uvCtn) {
+                uvCtn.style.display = 'inline';
+              }
+            })
+          }
+        });
+        getterArr.push(uvGetter);
+      }
+
+      // 请求文章的浏览数，如果是当前页面就自增
+      var allPV = document.querySelectorAll('#lc-pv');
+      if (allPV.length > 0 || enableIncr) {
+        for (i = 0; i < allPV.length; i++) {
+          let pv = allPV[i];
+          let title = pv.getAttribute('data-title');
+          var url = 'https://www.asjin.com' + pv.getAttribute('data-path');
+          if (url) {
+            var viewGetter = this.getRecord(Counter, url, title).then((record) => {
+              // 是当前页面就自增
+              let curPath = window.location.pathname;
+              if (curPath.includes('index.html')) {
+                curPath = curPath.substring(0, curPath.lastIndexOf('index.html'));
+              }
+              if (pv.getAttribute('data-path') == curPath) {
+                incrArr.push(this.buildIncrement(record.objectId));
+              }
+              if (pv) {
+                var ele = pv.querySelector('#lc-pv #number');
+                if (ele) {
+                  if (pv.getAttribute('data-path') == curPath) {
+                    ele.innerText = (record.times || 0) + 1;
+                  } else {
+                    ele.innerText = record.times || 0;
+                  }
+                  pv.style.display = 'inline';
+                }
               }
             });
+            getterArr.push(viewGetter);
           }
-
-          // remove loading animation
-          $(".local-search-pop-overlay").remove();
-          $('body').css('overflow', '');
-
-          proceedsearch();
         }
-      });
+      }
+
+      // 如果启动计数自增，批量发起自增请求
+      if (enableIncr) {
+        Promise.all(getterArr).then(() => {
+          incrArr.length > 0 && this.increment(Counter, incrArr);
+        })
+      }
+
+    },
+
+
+    fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${ api_server }/1.1${ url }`, {
+          method,
+          headers: {
+            'X-LC-Id': this.app_id,
+            'X-LC-Key': this.app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      this.addCount(Counter);
+    },
+
+    refreshCounter() {
+      var api_server = this.app_id.slice(-9) !== '-MdYXbMMI' ? this.custom_api_server : `https://${ this.app_id.slice(0, 8).toLowerCase() }.api.lncldglobal.com`;
+      if (api_server) {
+        this.fetchData(api_server);
+      } else {
+        fetch('https://app-router.leancloud.cn/2/route?appId=' + this.app_id)
+          .then(resp => resp.json())
+          .then(({api_server}) => {
+            this.fetchData('https://' + api_server);
+          });
+      }
     }
 
-    // handle and trigger popup window;
-    $('.popup-trigger').click(function(e) {
-      e.stopPropagation();
-      if (isfetched === false) {
-        searchFunc(path, 'local-search-input', 'local-search-result');
+  };
+
+  LCCounter.refreshCounter();
+
+  document.addEventListener('pjax:complete', function () {
+    LCCounter.refreshCounter();
+  });
+</script>
+
+
+
+
+
+
+
+
+<script>
+function listennSidebarTOC() {
+  const navItems = document.querySelectorAll(".toc li");
+  if (!navItems.length) return;
+  const sections = [...navItems].map((element) => {
+    const link = element.querySelector(".toc-link");
+    const target = document.getElementById(
+      decodeURI(link.getAttribute("href")).replace("#", "")
+    );
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+      window.scrollTo({
+		top: target.offsetTop + 100,
+		
+		behavior: "smooth"
+		
+	  });
+    });
+    return target;
+  });
+
+  function activateNavByIndex(target) {
+    if (target.classList.contains("active-current")) return;
+
+    document.querySelectorAll(".toc .active").forEach((element) => {
+      element.classList.remove("active", "active-current");
+    });
+    target.classList.add("active", "active-current");
+    let parent = target.parentNode;
+    while (!parent.matches(".toc")) {
+      if (parent.matches("li")) parent.classList.add("active");
+      parent = parent.parentNode;
+    }
+  }
+
+  function findIndex(entries) {
+    let index = 0;
+    let entry = entries[index];
+    if (entry.boundingClientRect.top > 0) {
+      index = sections.indexOf(entry.target);
+      return index === 0 ? 0 : index - 1;
+    }
+    for (; index < entries.length; index++) {
+      if (entries[index].boundingClientRect.top <= 0) {
+        entry = entries[index];
       } else {
-        proceedsearch();
-      };
-    });
-
-    $('.popup-btn-close').click(onPopupClose);
-    $('.popup').click(function(e){
-      e.stopPropagation();
-    });
-    $(document).on('keyup', function (event) {
-      var shouldDismissSearchPopup = event.which === 27 &&
-        $('.search-popup').is(':visible');
-      if (shouldDismissSearchPopup) {
-        onPopupClose();
+        return sections.indexOf(entry.target);
       }
+    }
+    return sections.indexOf(entry.target);
+  }
+
+  function createIntersectionObserver(marginTop) {
+    marginTop = Math.floor(marginTop + 10000);
+    let intersectionObserver = new IntersectionObserver(
+      (entries, observe) => {
+        let scrollHeight = document.documentElement.scrollHeight + 100;
+        if (scrollHeight > marginTop) {
+          observe.disconnect();
+          createIntersectionObserver(scrollHeight);
+          return;
+        }
+        let index = findIndex(entries);
+        activateNavByIndex(navItems[index]);
+      },
+      {
+        rootMargin: marginTop + "px 0px -100% 0px",
+        threshold: 0,
+      }
+    );
+    sections.forEach((element) => {
+      element && intersectionObserver.observe(element);
     });
-  </script>
+  }
+  createIntersectionObserver(document.documentElement.scrollHeight);
+}
+
+document.addEventListener("DOMContentLoaded", listennSidebarTOC);
+document.addEventListener("pjax:success", listennSidebarTOC);
+</script>
+
+<!-- more -->
 
 
 
 
-
-  
-
-  
-
-  
-  
-
-  
-
-  
-
-  
-
-  <!-- 点击特效 -->
+    
+      
 
 
-  <script src="/js/activate-power-mode.min.js"></script>
-    <script>
-	    POWERMODE.colorful = true;
-    POWERMODE.shake = false;
-    document.body.addEventListener('input', POWERMODE);
-	  </script>
+<script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script>
 
 
-<script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
-<script type="text/javascript" src="/js/src/clipboard-use.js"></script>
-<!--点击冒点-->
-<canvas width="1777" height="841" style="position: fixed; left: 0px; top: 0px; z-index: 2147483647; pointer-events: none;"></canvas>
-<script src="/js/maodian.js"></script>
-<canvas width="1390" height="797" style="position: fixed; left: 0px; top: 0px; z-index: 2147483647; pointer-events: none;"></canvas>
+<script>
+    var pjax;
+    document.addEventListener('DOMContentLoaded', function () {
+      pjax = new Pjax({
+        elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"]):not([pjax-fancybox])',
+        selectors: [
+          "title",
+          "#l_cover",
+          "#pjax-container",
+          "#pjax-header-nav-list"
+        ],
+        cacheBust: false,   // url 地址追加时间戳，用以避免浏览器缓存
+        timeout: 5000
+      });
+    });
+
+    document.addEventListener('pjax:send', function (e) {
+      //window.stop(); // 相当于点击了浏览器的停止按钮
+
+      try {
+        var currentUrl = window.location.pathname;
+        var targetUrl = e.triggerElement.href;
+        var banUrl = [""];
+        if (banUrl[0] != "") {
+          banUrl.forEach(item => {
+            if(currentUrl.indexOf(item) != -1 || targetUrl.indexOf(item) != -1) {
+              window.location.href = targetUrl;
+            }
+          });
+        }
+      } catch (error) {}
+
+      window.subData = null; // 移除标题（用于一二级导航栏切换处）
+      if (typeof $.fancybox != "undefined") {
+        $.fancybox.close();    // 关闭弹窗
+      }
+      volantis.$switcher.removeClass('active'); // 关闭移动端激活的搜索框
+      volantis.$header.removeClass('z_search-open'); // 关闭移动端激活的搜索框
+      volantis.$wrapper.removeClass('sub'); // 跳转页面时关闭二级导航
+
+      // 解绑事件 避免重复监听
+      volantis.$topBtn.unbind('click');
+      $('.menu a').unbind('click');
+      $(window).unbind('resize');
+      $(window).unbind('scroll');
+      $(document).unbind('scroll');
+      $(document).unbind('click');
+      $('body').unbind('click');
+	  
+    });
+
+    document.addEventListener('pjax:complete', function () {
+      // 关于百度统计对 SPA 页面的处理：
+      // 方案一：百度统计>管理>单页应用设置中，打开开启按钮即可对SPA进行统计。 https://tongji.baidu.com/web/help/article?id=324
+      // 方案二：取消注释下列代码。 https://tongji.baidu.com/web/help/article?id=235
+       
+
+      // 关于谷歌统计对 SPA 页面的处理：
+      // 当应用以动态方式加载内容并更新地址栏中的网址时，也应该更新通过 gtag.js 存储的网页网址。
+      // https://developers.google.cn/analytics/devguides/collection/gtagjs/single-page-applications?hl=zh-cn
+      
+	 
+
+      $('.nav-main').find('.list-v').not('.menu-phone').removeAttr("style",""); // 移除小尾巴的移除
+      $('.menu-phone.list-v').removeAttr("style",""); // 移除小尾巴的移除
+      $('script[data-pjax], .pjax-reload script').each(function () {
+        $(this).parent().append($(this).remove());
+      });
+      try{
+          if (typeof $.fancybox == "undefined") {
+            SCload_fancybox();
+          } else {
+            pjax_fancybox();
+          }
+        
+        
+        
+          pjax_scrollrebeal();
+        
+        
+        
+        
+          pjax_valine();
+        
+        
+        
+        
+      } catch (e) {
+        console.log(e);
+      }
+	  
+    });
+
+    document.addEventListener('pjax:error', function (e) {
+	  
+      window.location.href = e.triggerElement.href;
+    });
+</script>
+
+    
+  </div>
 </body>
 </html>
