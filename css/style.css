@@ -4060,6 +4060,20 @@ canvas {
 .headimg-div .headimg.lazyload:not(.placeholder).loaded {
   opacity: 1;
 }
+.out-img-topic {
+  display: block;
+  max-height: 500px;
+  margin-bottom: 24px;
+  overflow: hidden;
+}
+img.img-topic {
+  display: block;
+  margin-left: 0.7em;
+  margin-right: 0.7em;
+  padding: 0;
+  float: right;
+  clear: right;
+}
 .l_side {
   width: 240px;
   float: right;
