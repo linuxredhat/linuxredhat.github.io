@@ -34,7 +34,7 @@
 :root {
   --color-site-body: #f4f4f4;
   --color-site-bg: #f4f4f4;
-  --color-site-inner: #c0392b;
+  --color-site-inner: #fff;
   --color-site-footer: #666;
   --color-card: #fff;
   --color-text: #444;
@@ -1079,7 +1079,7 @@ th {
   box-sizing: border-box;
   padding-left: 40px;
   font-size: 0.875rem;
-  border-radius: 18px;
+  border-radius: 8px;
   border: none;
   transition: all 0.28s ease;
   -moz-transition: all 0.28s ease;
