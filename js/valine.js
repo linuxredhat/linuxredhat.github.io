@@ -2374,14 +2374,14 @@
           , p = n(55)
           , f = r(p)
           , h = {
+            zh: s.default,
+            "zh-cn": s.default,
             "zh-CN": s.default,
-            "zh-CN": s.default,
-            "zh-CN": s.default,
-            "zh-CN": c.default,
-            "zh-CN": d.default,
-            "zh-CN": d.default,
-            "zh-CN": f.default,
-            "zh-CN": f.default
+            "zh-TW": c.default,
+            en: d.default,
+            "en-US": d.default,
+            ja: f.default,
+            "ja-JP": f.default
         };
         t.default = function(e, t) {
             return !h[e] && e && t && (h[e] = t),
