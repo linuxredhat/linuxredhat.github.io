@@ -557,7 +557,7 @@
           
           >
           
-            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="data:image/png;base64,666">
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png">
           
         </a>
       
@@ -569,7 +569,7 @@
           
           >
           
-            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="data:image/png;base64,666">
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png">
           
         </a>
       
@@ -581,7 +581,7 @@
           
           >
           
-            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="data:image/png;base64,666">
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png">
           
         </a>
       
@@ -926,15 +926,7 @@ var loadCSS = function( href, before, media, attributes ){
 
   
   
-    <script>
-      window.FPConfig = {
-        delay: 0,
-        ignoreKeywords: [],
-        maxRPS: 5,
-        hoverDelay: 25
-      };
-    </script>
-    <script defer src="https://cdn.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"></script>
+    <script async src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@2/js/instant_page.js" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
   
 
 
@@ -948,12 +940,12 @@ var loadCSS = function( href, before, media, attributes ){
 
   
   
-<script src="https://cdn.jsdelivr.net/npm/hexo-theme-volantis@4.1.6/source/js/valine.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4/dist/Valine.min.js"></script>
 
 
 <script>
   var GUEST_INFO = ['nick', 'mail', 'link'];
-  var meta = 'nick,mail,link'.split(',').filter(function (item) {
+  var meta = 'nick,mail,link,header'.split(',').filter(function (item) {
     return GUEST_INFO.indexOf(item) > -1
   });
   var REQUIRED_FIELDS = ['nick', 'mail', 'link'];
@@ -985,7 +977,7 @@ var loadCSS = function( href, before, media, attributes ){
   function pjax_valine() {
     if(!document.querySelectorAll("#valine_container")[0])return;
 
-    let pagePlaceholder = pdata.commentPlaceholder || "快来评论吧~";
+    let pagePlaceholder = pdata.commentPlaceholder || "快来评论吧~ 🤩 🤩 🤩";
 
     let path = pdata.commentPath;
     if (path.length == 0) {
@@ -999,14 +991,14 @@ var loadCSS = function( href, before, media, attributes ){
       meta: meta,
       placeholder: pagePlaceholder,
       path: path,
-      appId: "",
-      appKey: "",
-      pageSize: '10',
-      avatar: 'robohash',
-      lang: 'zh-cn',
-      visitor: 'true',
-      highlight: 'true',
-      mathJax: 'false',
+      appId: "NkJqMpxu4QlRLhPIHipNUHF1-gzGzoHsz",
+      appKey: "D2vTdueKJ8ammc2JEdje0vLW",
+      pageSize: '',
+      avatar: 'monsterid',
+      lang: '',
+      visitor: '',
+      highlight: '',
+      mathJax: '',
       enableQQ: 'true',
       recordIP: 'false',
       requiredFields: requiredFields,
