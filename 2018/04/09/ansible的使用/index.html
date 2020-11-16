@@ -670,11 +670,11 @@ NoSQL: Not Only SQL
         </a>
       
       
-        <a class='next' href='/2018/04/02/zabbix%E9%AB%98%E7%BA%A7/'>
-          <p class='title'>zabbix使用进阶<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+        <a class='next' href='/2018/04/02/zabbix%E9%85%8D%E7%BD%AE%E6%96%87%E6%A1%A3/'>
+          <p class='title'>zabbix监控实现文档<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
           <p class='content'>[toc]
-zabbix 高级用法
-zabbix 报警媒介12345# 对于邮件报警接口，CentOS默认邮件服务就是启动的，但是，只能服务本地到本地发邮件;  # 如果需要往互联网上发邮件，需...</p>
+Zabbix 监控实现文档
+理论知识了解123456789101112131415传感器;数据采集 --&gt; 数据存储 --&gt; 数据展示;         报警: 采集到的...</p>
         </a>
       
     </div>
@@ -986,6 +986,61 @@ var loadCSS = function( href, before, media, attributes ){
   
 
 
+
+
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+    var clipboard = new ClipboardJS('.btn-copy', {
+        target: function (trigger) {
+            return trigger.nextElementSibling
+        }
+    });
+    function wait(callback, seconds) {
+        var timelag = null;
+        timelag = window.setTimeout(callback, seconds)
+    }
+    function pjax_initCopyCode() {
+		if($(".highlight .code pre").length+$(".article pre code").length==0)return;
+        var copyHtml = '';
+        copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+        copyHtml += '<i class="fas fa-copy"></i><span>COPY</span>';
+        copyHtml += '</button>';
+        $(".highlight .code pre").before(copyHtml);
+        $(".article pre code").before(copyHtml);
+        clipboard.off('success').on('success', function (e) {
+            let $btn = $(e.trigger);
+            $btn.addClass('copied');
+            let $icon = $($btn.find('i'));
+            $icon.removeClass('fa-copy');
+            $icon.addClass('fa-check-circle');
+            let $span = $($btn.find('span'));
+            $span[0].innerText = 'COPIED';
+            wait(function () {
+                $icon.removeClass('fa-check-circle');
+                $icon.addClass('fa-copy');
+                $span[0].innerText = 'COPY'
+            }, 2000)
+        });
+        clipboard.off('error').on('error', function (e) {
+            e.clearSelection();
+            let $btn = $(e.trigger);
+            $btn.addClass('copy-failed');
+            let $icon = $($btn.find('i'));
+            $icon.removeClass('fa-copy');
+            $icon.addClass('fa-times-circle');
+            let $span = $($btn.find('span'));
+            $span[0].innerText = 'COPY FAILED';
+            wait(function () {
+                $icon.removeClass('fa-times-circle');
+                $icon.addClass('fa-copy');
+                $span[0].innerText = 'COPY'
+            }, 2000)
+        })
+    }
+    $(function () {
+        pjax_initCopyCode()
+    });
+</script>
 
 
 
@@ -1500,6 +1555,8 @@ document.addEventListener("pjax:success", listennSidebarTOC);
         
         
         
+        
+          pjax_initCopyCode();
         
         
           pjax_valine();

@@ -727,60 +727,6 @@ ansible 自动化运维
   
   
     <div class='headimg-div'>
-      <a class='headimg-a' href="/2018/04/02/zabbix%E9%AB%98%E7%BA%A7/">
-        <img class='headimg' src='/images/摘要配图/zabbix_chatu.png'/>
-      </a>
-    </div>
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2018/04/02/zabbix%E9%AB%98%E7%BA%A7/">
-        zabbix使用进阶
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        [toc]
-zabbix 高级用法
-zabbix 报警媒介12345# 对于邮件报警接口，CentOS默认邮件服务就是启动的，但是，只能服务本地到本地发邮件;  # 如果需要往互联网上发邮件，需要把服务器配置成邮件服务器;# 但一般来讲，自建邮件系统，付出的成本和技术都较高，因此，我们可以考虑网联上的邮件服务;# 而对于报警的内容，一般是我们在zabbix服务端配置的宏所定义的内容;# 没有...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='dotted'>
-      <div>
-        
-          
-          <a class='avatar' href='/images/rjrt.ico'><img src='/images/rjrt.ico'></a>
-        
-        <time>2018-04-02</time>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2018/04/02/zabbix%E9%AB%98%E7%BA%A7/'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-    <div class='headimg-div'>
       <a class='headimg-a' href="/2018/04/02/zabbix%E9%85%8D%E7%BD%AE%E6%96%87%E6%A1%A3/">
         <img class='headimg' src='/images/摘要配图/zabbix_chatu.png'/>
       </a>
@@ -816,6 +762,60 @@ Zabbix 监控实现文档
       
         <div>
           <a class='readmore' href='/2018/04/02/zabbix%E9%85%8D%E7%BD%AE%E6%96%87%E6%A1%A3/'>
+            阅读全文
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow">
+  
+  
+  
+    <div class='headimg-div'>
+      <a class='headimg-a' href="/2018/04/02/zabbix%E9%AB%98%E7%BA%A7/">
+        <img class='headimg' src='/images/摘要配图/zabbix_chatu.png'/>
+      </a>
+    </div>
+  
+  
+    
+    <h2 class="article-title" >
+      <a href="/2018/04/02/zabbix%E9%AB%98%E7%BA%A7/">
+        zabbix使用进阶
+      </a>
+    </h2>
+  
+  <div class='md'>
+    
+      
+        [toc]
+zabbix 高级用法
+zabbix 报警媒介12345# 对于邮件报警接口，CentOS默认邮件服务就是启动的，但是，只能服务本地到本地发邮件;  # 如果需要往互联网上发邮件，需要把服务器配置成邮件服务器;# 但一般来讲，自建邮件系统，付出的成本和技术都较高，因此，我们可以考虑网联上的邮件服务;# 而对于报警的内容，一般是我们在zabbix服务端配置的宏所定义的内容;# 没有...
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='dotted'>
+      <div>
+        
+          
+          <a class='avatar' href='/images/rjrt.ico'><img src='/images/rjrt.ico'></a>
+        
+        <time>2018-04-02</time>
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/2018/04/02/zabbix%E9%AB%98%E7%BA%A7/'>
             阅读全文
           </a>
         </div>
@@ -1335,6 +1335,61 @@ var loadCSS = function( href, before, media, attributes ){
 
 
 
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+    var clipboard = new ClipboardJS('.btn-copy', {
+        target: function (trigger) {
+            return trigger.nextElementSibling
+        }
+    });
+    function wait(callback, seconds) {
+        var timelag = null;
+        timelag = window.setTimeout(callback, seconds)
+    }
+    function pjax_initCopyCode() {
+		if($(".highlight .code pre").length+$(".article pre code").length==0)return;
+        var copyHtml = '';
+        copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+        copyHtml += '<i class="fas fa-copy"></i><span>COPY</span>';
+        copyHtml += '</button>';
+        $(".highlight .code pre").before(copyHtml);
+        $(".article pre code").before(copyHtml);
+        clipboard.off('success').on('success', function (e) {
+            let $btn = $(e.trigger);
+            $btn.addClass('copied');
+            let $icon = $($btn.find('i'));
+            $icon.removeClass('fa-copy');
+            $icon.addClass('fa-check-circle');
+            let $span = $($btn.find('span'));
+            $span[0].innerText = 'COPIED';
+            wait(function () {
+                $icon.removeClass('fa-check-circle');
+                $icon.addClass('fa-copy');
+                $span[0].innerText = 'COPY'
+            }, 2000)
+        });
+        clipboard.off('error').on('error', function (e) {
+            e.clearSelection();
+            let $btn = $(e.trigger);
+            $btn.addClass('copy-failed');
+            let $icon = $($btn.find('i'));
+            $icon.removeClass('fa-copy');
+            $icon.addClass('fa-times-circle');
+            let $span = $($btn.find('span'));
+            $span[0].innerText = 'COPY FAILED';
+            wait(function () {
+                $icon.removeClass('fa-times-circle');
+                $icon.addClass('fa-copy');
+                $span[0].innerText = 'COPY'
+            }, 2000)
+        })
+    }
+    $(function () {
+        pjax_initCopyCode()
+    });
+</script>
+
+
 
 
 
@@ -1847,6 +1902,8 @@ document.addEventListener("pjax:success", listennSidebarTOC);
         
         
         
+        
+          pjax_initCopyCode();
         
         
           pjax_valine();
