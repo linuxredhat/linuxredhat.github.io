@@ -33,7 +33,7 @@ window.onload = function(){
         context.font = "600 "+fontSize+"px  Georgia";
         //给字体添加颜色
  //       context.fillStyle = ["#33B5E5", "#0099CC", "#AA66CC", "#9933CC", "#99CC00", "#669900", "#FFBB33", "#FF8800", "#FF4444", "#CC0000"][parseInt(Math.random() * 10)];//randColor();可以rgb,hsl, 标准色，十六进制颜色
-        context.fillStyle = ["#85C1E9","#2E86C1","#85C1E9","#A3E4D7","#2874A6"][parseInt(Math.random() * 10)];//randColor();可以rgb,hsl, 标准色，十六进制颜色
+        context.fillStyle = ["#85C1E9","#85C1E9","#85C1E9","#85C1E9","#85C1E9","#85C1E9","#85C1E9","#85C1E9"][parseInt(Math.random() * 10)];//randColor();可以rgb,hsl, 标准色，十六进制颜色
         //写入画布中
         for(var i=0;i<colunms;i++){
             var index = Math.floor(Math.random() * str.length);
