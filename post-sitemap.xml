@@ -8,15 +8,17 @@
 
     <url>
         <loc>https://www.asjin.com/2020/10/19/SGE+bash+awk+sed+Python+WebStackPage%E5%AE%9E%E7%8E%B0P%E7%BA%A7%E6%95%B0%E6%8D%AE%E5%B9%B6%E5%8F%91%E6%89%AB%E6%8F%8F%E4%B8%8E%E4%B8%8B%E6%9C%BA%E6%95%B0%E6%8D%AE%E6%8A%A5%E8%A1%A8%E5%85%AC%E7%A4%BA/</loc>
-        <lastmod>2020-11-14T17:46:23.203Z</lastmod>
+        <lastmod>2020-11-16T02:47:37.689Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
-        <image:image>
+    </url>
 
-            <image:loc>https://www.asjin.com/images/PLevel-Disembarkation-data-display.png</image:loc>
-
-        </image:image>
+    <url>
+        <loc>https://www.asjin.com/2019/03/16/%E5%85%B3%E4%BA%8E%E6%9F%90%E7%B3%BB%E7%BB%9F%E9%98%B5%E5%8F%91%E6%80%A7%E7%BD%91%E7%BB%9C%E5%A4%84%E7%90%86/</loc>
+        <lastmod>2020-11-16T02:47:26.997Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
 
     </url>
 
@@ -447,14 +449,6 @@
     <url>
         <loc>https://www.asjin.com/2018/10/04/kubernetes%20%E7%AC%94%E8%AE%B0%E4%B8%80/</loc>
         <lastmod>2020-09-29T10:54:13.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://www.asjin.com/2019/03/16/%E5%85%B3%E4%BA%8E%E6%9F%90%E7%B3%BB%E7%BB%9F%E9%98%B5%E5%8F%91%E6%80%A7%E7%BD%91%E7%BB%9C%E5%A4%84%E7%90%86/</loc>
-        <lastmod>2020-09-29T10:53:45.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

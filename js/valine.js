@@ -2374,13 +2374,13 @@
           , p = n(55)
           , f = r(p)
           , h = {
-            zh: s.default,
-            "zh-cn": s.default,
+            "zh-CN": s.default,
+            "zh-CN": s.default,
             "zh-CN": s.default,
             "zh-CN": c.default,
-            en: d.default,
             "zh-CN": d.default,
-            ja: f.default,
+            "zh-CN": d.default,
+            "zh-CN": f.default,
             "zh-CN": f.default
         };
         t.default = function(e, t) {
