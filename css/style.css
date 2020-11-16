@@ -3334,7 +3334,7 @@ footer.footer .copyright p {
 .l_main.no_sidebar {
   width: 100%;
   padding-right: 0;
-  max-width: auto -240px;
+  max-width: 790px;
   margin: auto;
 }
 @media screen and (min-width: 2048px) {
@@ -3631,7 +3631,7 @@ footer.footer .copyright p {
   position: relative;
   display: flex;
   width: 100%;
-  max-width: auto;
+  max-width: 1030px;
   margin: 0 auto;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -4523,10 +4523,10 @@ img.img-topic {
   z-index: 2;
 }
 .snackbar-content {
-  max-width: auto;
+  max-width: 1030px;
   margin: 16px auto;
 }
-@media screen and (max-width: auto) {
+@media screen and (max-width: 1030px) {
   .snackbar-content {
     max-width: 100%;
   }

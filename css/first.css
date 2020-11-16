@@ -940,7 +940,7 @@ th {
   height: 64px;
 }
 .l_header .nav-sub {
-  max-width: auto;
+  max-width: 1030px;
   margin: auto;
 }
 .l_header .nav-sub .title {
@@ -1326,7 +1326,7 @@ ul.list-v >li>a:hover {
   right: calc(100% - 0.5 * 16px);
 }
 #wrapper {
-  max-width: auto;
+  max-width: 1030px;
   margin: auto;
 }
 @media screen and (min-width: 2048px) {
@@ -1376,11 +1376,11 @@ ul.list-v >li>a:hover {
 }
 @media screen and (max-width: 2048px) {
   .l_header {
-    max-width: auto32px;
-    left: calc((100% - auto32px) * 0.5);
+    max-width: 1062px;
+    left: calc((100% - 1062px) * 0.5);
   }
 }
-@media screen and (max-width: auto32px) {
+@media screen and (max-width: 1062px) {
   .l_header {
     left: 0;
     border-radius: 0;
