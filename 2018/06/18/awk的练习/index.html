@@ -1,0 +1,1830 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head hexo-theme='https://github.com/volantis-x/hexo-theme-volantis/tree/4.1.6'>
+  <meta charset="utf-8">
+  <!-- SEO相关 -->
+  
+    
+  
+  <!-- 渲染优化 -->
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://cdn.jsdelivr.net'>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- 页面元数据 -->
+  
+  <title>awk 的练习 - 逝水锦遥</title>
+  
+    <meta name="keywords" content="linux">
+  
+
+  
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="逝水锦遥" type="application/atom+xml">
+  
+
+  <!-- import meta -->
+  
+
+  <!-- link -->
+  
+
+  <!-- import link -->
+  
+
+  
+    
+<link rel="stylesheet" href="/css/first.css">
+
+  
+
+  
+  <link rel="stylesheet" href="/css/style.css" media="print" onload="this.media='all';this.onload=null">
+  <noscript><link rel="stylesheet" href="/css/style.css"></noscript>
+  
+
+  <script id="loadcss"></script>
+</head>
+
+
+<body>
+	  <canvas id="canvas" width="1440" height="900" ></canvas>
+	  <script type="text/javascript" src="/js/DigitalRain.js"></script>
+  
+
+<header id="l_header" class="l_header always floatable "  >
+  <div class='container'>
+  <div id='wrapper'>
+    <div class='nav-sub'>
+      <p class="title"></p>
+      <ul class='switcher nav-list-h m-phone' id="pjax-header-nav-list">
+        <li><a id="s-comment" class="fas fa-comments fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+          <li><a id="s-toc" class="s-toc fas fa-list fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+      </ul>
+    </div>
+		<div class="nav-main">
+      
+        
+        <a class="title flat-box" target="_self" href='/'>
+          
+            <img no-lazy class='logo' src='/images/head.png'/>
+          
+          
+          
+        </a>
+      
+
+			<div class='menu navigation'>
+				<ul class='nav-list-h m-pc'>
+          
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fab fa-linux fa-fw'></i>所有文章
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/program
+                  
+                  
+                  
+                    id="tagsprogram"
+                  >
+                  <i class='fab fa-gitlab fa-fw'></i>运维开发
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/rhca
+                  
+                  
+                  
+                    id="tagsrhca"
+                  >
+                  <i class='fas fa-heartbeat fa-fw'></i>运维组件
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/cloud
+                  
+                  
+                  
+                    id="tagscloud"
+                  >
+                  <i class='fas fa-cloud fa-fw'></i>云计算
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/zikao
+                  
+                  
+                  
+                    id="tagszikao"
+                  >
+                  <i class='fab fa-drupal fa-fw'></i>成自考
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/renjin
+                  
+                  
+                  
+                    id="tagsrenjin"
+                  >
+                  <i class='fas fa-user-circle fa-fw'></i>个人中心
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/box/
+                  
+                  
+                  
+                    id="box"
+                  >
+                  <i class='fas fa-flag fa-fw'></i>工具箱
+                </a>
+                
+              </li>
+            
+          
+          
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="搜索文章..." />
+        </form>
+      </div>
+
+			<ul class='switcher nav-list-h m-phone'>
+				
+					<li><a class="s-search fas fa-search fa-fw" target="_self" href='javascript:void(0)'></a></li>
+				
+				<li>
+          <a class="s-menu fas fa-bars fa-fw" target="_self" href='javascript:void(0)'></a>
+          <ul class="menu-phone list-v navigation white-box">
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fab fa-linux fa-fw'></i>所有文章
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/program
+                  
+                  
+                  
+                    id="tagsprogram"
+                  >
+                  <i class='fab fa-gitlab fa-fw'></i>运维开发
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/rhca
+                  
+                  
+                  
+                    id="tagsrhca"
+                  >
+                  <i class='fas fa-heartbeat fa-fw'></i>运维组件
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/cloud
+                  
+                  
+                  
+                    id="tagscloud"
+                  >
+                  <i class='fas fa-cloud fa-fw'></i>云计算
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/zikao
+                  
+                  
+                  
+                    id="tagszikao"
+                  >
+                  <i class='fab fa-drupal fa-fw'></i>成自考
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/renjin
+                  
+                  
+                  
+                    id="tagsrenjin"
+                  >
+                  <i class='fas fa-user-circle fa-fw'></i>个人中心
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/box/
+                  
+                  
+                  
+                    id="box"
+                  >
+                  <i class='fas fa-flag fa-fw'></i>工具箱
+                </a>
+                
+              </li>
+            
+          
+            
+          </ul>
+        </li>
+			</ul>
+		</div>
+	</div>
+  </div>
+</header>
+
+  <div id="l_body">
+    <div id="l_cover">
+  
+    
+        <div id="half" class='cover-wrapper post search' style="display: ;">
+          
+            <div class='cover-bg lazyload placeholder' data-bg="/images/background.jpg"></div>
+          
+          <div class='cover-body'>
+  <div class='top'>
+    
+    
+      <p class="title">S  S  J  Y</p>
+    
+    
+      <p class="subtitle">有志而性缓者思大志 有才而气和者为大才</p>
+    
+  </div>
+  <div class='bottom'>
+    
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <input type="text" class="input u-search-input" placeholder="搜索本地文章" />
+          <i class="icon fas fa-search fa-fw"></i>
+        </form>
+      </div>
+    
+    <div class='menu navigation'>
+      <div class='list-h'>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+          <div id="scroll-down" style="display: none;"><i class="fa fa-chevron-down scroll-down-effects"></i></div>
+        </div>
+    
+  
+  </div>
+
+    <div id='safearea'>
+      <div class='body-wrapper' id="pjax-container">
+        
+
+<div class='l_main'>
+  <article class="article post white-box reveal md floatable article-type-post" id="post" itemscope itemprop="blogPost">
+  
+
+
+  
+  <div class="article-meta" id="top">
+    
+    
+    
+      <h1 class="title">
+        awk 的练习
+      </h1>
+      <div class='new-meta-box'>
+        
+          
+            
+<div class='new-meta-item author'>
+  <a class='author' href="/images/rjrt.ico" rel="nofollow">
+    <img no-lazy src="/images/rjrt.ico">
+    <p>任锦</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：Jun 18, 2018</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class="new-meta-item browse busuanzi">
+    <a class='notlink'>
+      <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+      <p>
+        <span id="busuanzi_value_page_pv">
+          <i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i>
+        </span>
+        次浏览
+      </p>
+    </a>
+  </div>
+
+
+          
+        
+      </div>
+    
+  </div>
+
+
+  
+  <p>[toc]</p>
+<h1 id="awk每日练"><a href="#awk每日练" class="headerlink" title="awk每日练"></a>awk每日练</h1><p><img src="/images/awk.jpg" class="lazyload" data-srcset="/images/awk.jpg" srcset="data:image/png;base64,666" alt=""></p>
+<h2 id="先熟练一些操作"><a href="#先熟练一些操作" class="headerlink" title="先熟练一些操作"></a>先熟练一些操作</h2><h3 id="1、-以空格做为分格符，打印passwd-文件的第一列"><a href="#1、-以空格做为分格符，打印passwd-文件的第一列" class="headerlink" title="1、 以空格做为分格符，打印passwd 文件的第一列"></a>1、 以空格做为分格符，打印passwd 文件的第一列</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#  awk &#39;&#123;print $1&#125;&#39; &#x2F;etc&#x2F;passwd </span><br></pre></td></tr></table></figure>
+<h3 id="2、-以冒号做分格符，打印passwd-文件的第一列-即获取当前系统中存在的所有用户"><a href="#2、-以冒号做分格符，打印passwd-文件的第一列-即获取当前系统中存在的所有用户" class="headerlink" title="2、 以冒号做分格符，打印passwd 文件的第一列,即获取当前系统中存在的所有用户"></a>2、 以冒号做分格符，打印passwd 文件的第一列,即获取当前系统中存在的所有用户</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># awk -F: &#39;&#123;print $1&#125;&#39; &#x2F;etc&#x2F;passwd</span><br></pre></td></tr></table></figure>
+<h3 id="3、-以管道方式，打印passwd-文件的第三列，即共获取当前系统中所有用户的id号"><a href="#3、-以管道方式，打印passwd-文件的第三列，即共获取当前系统中所有用户的id号" class="headerlink" title="3、 以管道方式，打印passwd 文件的第三列，即共获取当前系统中所有用户的id号"></a>3、 以管道方式，打印passwd 文件的第三列，即共获取当前系统中所有用户的id号</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#  cat &#x2F;etc&#x2F;passwd | awk -F : &#39;&#123;print $3&#125;&#39;</span><br></pre></td></tr></table></figure>
+<h3 id="4、-以输入重定向方式，打印-passwd-文件的第1列，即获取当前系统中存在的所有用户"><a href="#4、-以输入重定向方式，打印-passwd-文件的第1列，即获取当前系统中存在的所有用户" class="headerlink" title="4、 以输入重定向方式，打印 passwd 文件的第1列，即获取当前系统中存在的所有用户"></a>4、 以输入重定向方式，打印 passwd 文件的第1列，即获取当前系统中存在的所有用户</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># awk -F: &#39;&#123;print $1&#125;&#39; &lt; &#x2F;etc&#x2F;passwd </span><br></pre></td></tr></table></figure>
+<h3 id="5、用awk-自带BEGIN打印-hello-awk-字符串"><a href="#5、用awk-自带BEGIN打印-hello-awk-字符串" class="headerlink" title="5、用awk 自带BEGIN打印  hello awk 字符串"></a>5、用awk 自带BEGIN打印  hello awk 字符串</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#  awk &#39;BEGIN&#123;print &quot;hello awk&quot;&#125;&#39; 执行只办输出hello awk </span><br></pre></td></tr></table></figure>
+<h3 id="6、-用awk-获取df-命令的filesystem-与userd"><a href="#6、-用awk-获取df-命令的filesystem-与userd" class="headerlink" title="6、 用awk  获取df 命令的filesystem 与userd %"></a>6、 用awk  获取df 命令的filesystem 与userd %</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"># df | awk &#39;&#123;print $1,$5&#125;&#39;  </span><br><span class="line"># df | awk &#39;&#123;print $1 $5&#125;&#39;  # 注意这样输出信息就连接到一块了</span><br><span class="line">    FilesystemUse%</span><br><span class="line">    &#x2F;dev&#x2F;vda113%</span><br><span class="line">    devtmpfs0%</span><br><span class="line">    tmpfs0%</span><br><span class="line">    tmpfs1%</span><br><span class="line">    tmpfs0%</span><br><span class="line">    tmpfs0%</span><br><span class="line"># df | awk &#39;&#123;print $1&quot;&#x3D;&#x3D;&#x3D;&quot;$5&#125;&#39; #  在两个位置变量的中间加入三个&#x3D;&#x3D;&#x3D; 号</span><br><span class="line">    Filesystem&#x3D;&#x3D;&#x3D;Use%</span><br><span class="line">    &#x2F;dev&#x2F;vda1&#x3D;&#x3D;&#x3D;13%</span><br><span class="line">    devtmpfs&#x3D;&#x3D;&#x3D;0%</span><br><span class="line">    tmpfs&#x3D;&#x3D;&#x3D;0%</span><br><span class="line">    tmpfs&#x3D;&#x3D;&#x3D;1%</span><br><span class="line">    tmpfs&#x3D;&#x3D;&#x3D;0%</span><br><span class="line">    tmpfs&#x3D;&#x3D;&#x3D;0%</span><br><span class="line"> # df | awk &#39;&#123;print $1&quot;\t&quot;$5&#125;&#39;  # 在两个位置变量的中间加入一个tab 键</span><br><span class="line">    Filesystem      Use%</span><br><span class="line">    &#x2F;dev&#x2F;vda1       13%</span><br><span class="line">    devtmpfs        0%</span><br><span class="line">    tmpfs   0%</span><br><span class="line">    tmpfs   1%</span><br><span class="line">    tmpfs   0%</span><br><span class="line">    tmpfs   0%</span><br></pre></td></tr></table></figure>
+<h3 id="7、-结合tail-命令来进行字符串切割"><a href="#7、-结合tail-命令来进行字符串切割" class="headerlink" title="7、 结合tail 命令来进行字符串切割"></a>7、 结合tail 命令来进行字符串切割</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#  tail -4 &#x2F;etc&#x2F;fstab | awk &#39;&#123;print $3,$4&#125;&#39;</span><br></pre></td></tr></table></figure>
+<h3 id="8、-手动指定分隔符为-，打印第一列-第三列，FS-即指定分隔符"><a href="#8、-手动指定分隔符为-，打印第一列-第三列，FS-即指定分隔符" class="headerlink" title="8、 手动指定分隔符为: ，打印第一列:第三列，FS 即指定分隔符"></a>8、 手动指定分隔符为: ，打印第一列:第三列，FS 即指定分隔符</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># awk -v FS&#x3D;&quot;:&quot; &#39;&#123;print $1,FS,$3&#125;&#39; &#x2F;etc&#x2F;passwd</span><br></pre></td></tr></table></figure>
+<h3 id="9、将列出分符，改为其它的字符"><a href="#9、将列出分符，改为其它的字符" class="headerlink" title="9、将列出分符，改为其它的字符"></a>9、将列出分符，改为其它的字符</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#  awk -v FS&#x3D;&quot;:&quot; -v OFS&#x3D;&quot;uid is &quot; &#39;&#123;print $1,FS,$3&#125;&#39; &#x2F;etc&#x2F;passwd </span><br></pre></td></tr></table></figure>
+<h3 id="10-、以空格做为换行符，取其第一个字段"><a href="#10-、以空格做为换行符，取其第一个字段" class="headerlink" title="10 、以空格做为换行符，取其第一个字段"></a>10 、以空格做为换行符，取其第一个字段</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># awk -v RS&#x3D;&quot; &quot; &#39;&#123;print $1&#125;&#39; text.txt</span><br></pre></td></tr></table></figure>
+<h3 id="11、-将记录输出分隔符默认值”-n”，换成”-”"><a href="#11、-将记录输出分隔符默认值”-n”，换成”-”" class="headerlink" title="11、 将记录输出分隔符默认值”\n”，换成”===”"></a>11、 将记录输出分隔符默认值”\n”，换成”===”</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#  awk -v FS&#x3D;&quot;:&quot; -v ORS&quot;&#x3D;&#x3D;&#x3D;&quot; &#39;&#123;print $1&#125;&#39; &#x2F;etc&#x2F;passwd </span><br></pre></td></tr></table></figure>
+<h3 id="12、-截取-etc-passwd-的登录shell"><a href="#12、-截取-etc-passwd-的登录shell" class="headerlink" title="12、 截取/etc/passwd 的登录shell"></a>12、 截取/etc/passwd 的登录shell</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># awk -v FS&#x3D;&quot;:&quot; &#39;&#123;print $NF-1&#125;&#39; &#x2F;etc&#x2F;passwd </span><br></pre></td></tr></table></figure>
+<h3 id="13、-截取-etc-passwd-的家目录"><a href="#13、-截取-etc-passwd-的家目录" class="headerlink" title="13、 截取 /etc/passwd 的家目录"></a>13、 截取 /etc/passwd 的家目录</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#  awk -v FS&#x3D;&quot;:&quot; &#39;&#123;print $(NF-1)&#125;&#39; &#x2F;etc&#x2F;passwd </span><br></pre></td></tr></table></figure>
+<h3 id="14、截取指定字段并打印awk-内置变量"><a href="#14、截取指定字段并打印awk-内置变量" class="headerlink" title="14、截取指定字段并打印awk 内置变量"></a>14、截取指定字段并打印awk 内置变量</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># awk -v RS&#x3D;&quot;:&quot; &#39;&#123;print RS,NR,$0&#125;&#39; &#x2F;etc&#x2F;passwd</span><br></pre></td></tr></table></figure>
+<h3 id="15、-以冒号分隔记录当前字段个数并进行计算"><a href="#15、-以冒号分隔记录当前字段个数并进行计算" class="headerlink" title="15、 以冒号分隔记录当前字段个数并进行计算"></a>15、 以冒号分隔记录当前字段个数并进行计算</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># awk -v FS&#x3D;&quot;:&quot; &#39;&#123;print NF*5&#125;&#39; &#x2F;etc&#x2F;passwd </span><br></pre></td></tr></table></figure>
+<h3 id="16、统计当前输入文件的个数"><a href="#16、统计当前输入文件的个数" class="headerlink" title="16、统计当前输入文件的个数"></a>16、统计当前输入文件的个数</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># awk -F: &#39;&#123;print FNR&#125;&#39; &#x2F;etc&#x2F;passwd &#x2F;etc&#x2F;shadow</span><br></pre></td></tr></table></figure>
+<h3 id="17、-打印两文件输出的行数"><a href="#17、-打印两文件输出的行数" class="headerlink" title="17、 打印两文件输出的行数"></a>17、 打印两文件输出的行数</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># awk -F: &#39;&#123;print FNR,$1&#125;&#39; &#x2F;etc&#x2F;passwd &#x2F;etc&#x2F;shadow</span><br></pre></td></tr></table></figure>
+<h3 id="18、输出两文件的文件名行号及对应用的用户名"><a href="#18、输出两文件的文件名行号及对应用的用户名" class="headerlink" title="18、输出两文件的文件名行号及对应用的用户名"></a>18、输出两文件的文件名行号及对应用的用户名</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#  awk -F: &#39;&#123;print FILENAME,FNR,$1&#125;&#39; &#x2F;etc&#x2F;passwd &#x2F;etc&#x2F;shadow</span><br></pre></td></tr></table></figure>
+<h3 id="19、-统计命令行参数的个数"><a href="#19、-统计命令行参数的个数" class="headerlink" title="19、 统计命令行参数的个数"></a>19、 统计命令行参数的个数</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># awk -F: &#39;BEGIN&#123;print ARGC&#125;&#39; &#x2F;etc&#x2F;passwd &#x2F;etc&#x2F;group </span><br><span class="line">    3</span><br></pre></td></tr></table></figure>
+<h3 id="20、-打印命令行参数的内容"><a href="#20、-打印命令行参数的内容" class="headerlink" title="20、 打印命令行参数的内容"></a>20、 打印命令行参数的内容</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># awk -F: &#39;BEGIN&#123;print ARGV[2]&#125;&#39; &#x2F;etc&#x2F;passwd &#x2F;etc&#x2F;group </span><br><span class="line">   &#x2F;etc&#x2F;group</span><br></pre></td></tr></table></figure>
+<p>awk变量 自定义变量区分大小写</p>
+<h3 id="21、-指定变量调用打印"><a href="#21、-指定变量调用打印" class="headerlink" title="21、 指定变量调用打印"></a>21、 指定变量调用打印</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># awk -F: -v name&#x3D;&quot;username&quot; &#39;&#123;print name&quot;:&quot;$1&#125;&#39; &#x2F;etc&#x2F;passwd </span><br></pre></td></tr></table></figure>
+<h3 id="22-、-指定多个变量调用打印，并加入制表符"><a href="#22-、-指定多个变量调用打印，并加入制表符" class="headerlink" title="22 、 指定多个变量调用打印，并加入制表符"></a>22 、 指定多个变量调用打印，并加入制表符</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># awk -F: -v name&#x3D;&quot;username&quot; -v uid&#x3D;&quot;uid &quot; &#39;&#123;print name&quot;:&quot;$1&quot;\t&quot;uid&quot;:&quot;$3&#125;&#39; &#x2F;etc&#x2F;passwd</span><br><span class="line"># awk -F: &#39;&#123;n&#x3D;&quot;username&quot;;uid&#x3D;&quot;userid&quot;; print n &quot;:&quot;$1&quot;\t&quot;uid&quot;:&quot;$3&#125;&#39; &#x2F;etc&#x2F;passwd </span><br></pre></td></tr></table></figure>
+<p>了解一下以下的练习<br>awk -F: ‘{n=”haha”; print n,m;m=”xixi”}’ /etc/passwd 变量后定义也行（表面上可用，但实际上有问题：第一次循环）<br>awk -F: ‘BEGIN{n=”haha”;hehe=100;m=200;print n,m}’ /etc/passwd </p>
+<h3 id="23、-printf-指定输出格式"><a href="#23、-printf-指定输出格式" class="headerlink" title="23、 printf  指定输出格式"></a>23、 printf  指定输出格式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># awk -F: &#39;&#123;printf &quot;%s &#x3D;&#x3D; %d\n&quot;,$1,$3&#125;&#39; &#x2F;etc&#x2F;passwd %格式与$字符必须一一对应</span><br><span class="line"># awk -F: &#39;&#123;printf &quot;%s20s &#x3D;&#x3D; %d\n&quot;,$1,$3&#125;&#39; &#x2F;etc&#x2F;passwd 右对齐</span><br><span class="line"># awk -F: &#39;&#123;printf &quot;%s-20s &#x3D;&#x3D; %d\n&quot;,$1,$3&#125;&#39; &#x2F;etc&#x2F;passwd 左对齐</span><br><span class="line"># awk -F: &#39;&#123;printf &quot;%s-20s &#x3D;&#x3D; %10.3f\n&quot;,$1,$3&#125;&#39; &#x2F;etc&#x2F;passwd 小数位的宽度</span><br><span class="line"># awk -F: &#39;&#123;printf &quot;%s-20s &#x3D;&#x3D; %+df\n&quot;,$1,$3&#125;&#39; &#x2F;etc&#x2F;passwd</span><br><span class="line"># awk -F : &#39;&#123;printf &quot;%s\n&quot;,$1&#125;&#39; &#x2F;etc&#x2F;passwd </span><br><span class="line"># awk -F : &#39;&#123;printf &quot;Username: %s\n&quot;,$1&#125;&#39; &#x2F;etc&#x2F;passwd  </span><br></pre></td></tr></table></figure>
+<h3 id="24、awk-数术运算操作"><a href="#24、awk-数术运算操作" class="headerlink" title="24、awk 数术运算操作"></a>24、awk 数术运算操作</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># awk &#39;BEGIN&#123;print 2^10&#125;&#39;</span><br><span class="line"># awk &#39;BEGIN&#123;n&#x3D;1;m&#x3D;2;print m+&#x3D;n&#125;&#39; </span><br><span class="line"># awk &#39;BEGIN&#123;n&#x3D;1;m&#x3D;2;print m++;print m&#125;&#39; </span><br><span class="line"># awk &#39;BEGIN&#123;n&#x3D;1;m&#x3D;2;print ++m;print m&#125;&#39; </span><br><span class="line"># awk -F: &#39;$3 &gt; 1000&#123;print $1,$3&#125;&#39; &#x2F;etc&#x2F;passwd </span><br><span class="line"># awk -F: &#39;$3&#x3D;&#x3D;0&#123;print $1,$3&#125;&#39; &#x2F;etc&#x2F;passwd </span><br><span class="line"># awk -F: &#39;$0~&quot;root&quot;&#123;print $1,$3&#125;&#39; &#x2F;etc&#x2F;passwd ~包涵</span><br><span class="line"># awk -F: &#39;$0~&#x2F;root&#x2F;&#123;print $0&#125;&#39; &#x2F;etc&#x2F;passwd </span><br><span class="line"># awk -F: &#39;$0~&#x2F;^root&#x2F;&#123;print $0&#125;&#39; &#x2F;etc&#x2F;passwd </span><br><span class="line"># awk -F: &#39;$0 !~&#x2F;^root&#x2F;&#123;print $0&#125;&#39; &#x2F;etc&#x2F;passwd </span><br><span class="line"># awk -F : &#39;$0 ~ &#x2F;root&#x2F;&#39; &#x2F;etc&#x2F;passwd </span><br></pre></td></tr></table></figure>
+<h3 id="25、操作符-amp-amp-两都执行"><a href="#25、操作符-amp-amp-两都执行" class="headerlink" title="25、操作符  &amp;&amp; 两都执行  ||"></a>25、操作符  &amp;&amp; 两都执行  ||</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># awk -F: &#39;$3&#x3D;&#x3D;0 || $3 &gt;&#x3D;1000 &#123;print $1&#125;&#39; &#x2F;etc&#x2F;passwd </span><br><span class="line"># awk -F: !(&#39;$3&#x3D;&#x3D;0 || $3 &gt;&#x3D;1000) &#123;print $1&#125;&#39; &#x2F;etc&#x2F;passwd  or </span><br><span class="line"># awk -F : &#39;$3&gt;1 &amp;&amp; $3 &lt;1000 &#123;print $1&#125;&#39; &#x2F;etc&#x2F;passwd </span><br></pre></td></tr></table></figure>
+<h3 id="26、条件表达式三目"><a href="#26、条件表达式三目" class="headerlink" title="26、条件表达式三目"></a>26、条件表达式三目</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># awk -F: &#39;$3&lt;1000?var&#x3D;&quot;sysuser&quot;: var&#x3D;&quot;commonuser&quot;&#123;print var&quot;:&quot;$1,$3&#125;&#39; &#x2F;etc&#x2F;passwd </span><br></pre></td></tr></table></figure>
+<h3 id="27、常用语法练习"><a href="#27、常用语法练习" class="headerlink" title="27、常用语法练习"></a>27、常用语法练习</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"># awk -F: &#39;&#123;print $1&#125;&#39; &#x2F;etc&#x2F;passwd </span><br><span class="line"># awk -F: &#39;&#x2F;^root&#x2F;&#123;print $0&#125;&#39; &#x2F;etc&#x2F;passwd </span><br><span class="line"># awk &#39;&#x2F;^U&#x2F;&#123;print $1&#125;&#39; &#x2F;etc&#x2F;fstab </span><br><span class="line"># awk &#39;!&#x2F;^U&#x2F;&#123;print $1&#125;&#39; &#x2F;etc&#x2F;fstab </span><br><span class="line"># awk &#39;&quot; &quot;&#123;print $0&#125;&#39; &#x2F;etc&#x2F;fstab </span><br><span class="line"># awk &#39;i&#x3D;1;j&#x3D;1&#123;print i,j&#125;&#39; &#x2F;etc&#x2F;fstab 把文件打印两次</span><br><span class="line"># awk ‘i&#x3D;1;j&#x3D;0&#123;print i,j&#125;’ &#x2F;etc&#x2F;fstab </span><br><span class="line"># awk &#39;i&#x3D;1;j&#x3D;1&#123;print i,j&#125;&#39; &#x2F;etc&#x2F;fstab </span><br><span class="line"># awk &#39;!2&#39; &#x2F;etc&#x2F;fstab </span><br><span class="line"># awk &#39;&quot;abc&quot;&#39; &#x2F;etc&#x2F;fstab </span><br><span class="line"># awk -F: &#39;$NF&#x3D;&#x3D;&quot;&#x2F;bin&#x2F;bash&quot;&#39; &#x2F;etc&#x2F;passwd </span><br><span class="line"># awk -F: &#39;$NF~&quot;&#x2F;bin&#x2F;bash&quot;  &#x2F;etc&#x2F;passwd </span><br><span class="line"># awk -F: &#39;$NF!~&quot;&#x2F;bin&#x2F;bash&quot;  &#x2F;etc&#x2F;passwd </span><br><span class="line"># awk -F: &#39;&#x2F;^root&#x2F;,&#x2F;^ftp&#x2F;&#39; &#x2F;etc&#x2F;passwd </span><br><span class="line"># awk -F: &#39;&#x2F;^root\&gt;&#x2F;,&#x2F;^ftp&#x2F;&#39; &#x2F;etc&#x2F;passwd  注：\b 不行</span><br><span class="line"># awk -F: &#39;NR&gt;&#x3D;10&amp;&amp;NR&lt;&#x3D;30&#123;print NR&#125;&#39; &#x2F;etc&#x2F;passwd</span><br></pre></td></tr></table></figure>
+<h3 id="28、比较绕的练习"><a href="#28、比较绕的练习" class="headerlink" title="28、比较绕的练习"></a>28、比较绕的练习</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># awk -F: &#39;NR&gt;&#x3D;10&amp;&amp;NR&lt;&#x3D;30&#123;print NR,$0&#125;&#39; &#x2F;etc&#x2F;passswd </span><br><span class="line"># awk -F: &#39;BEGIN&#123;print &quot;linenumber usernmae&quot;&#125;NR&gt;&#x3D;10&amp;&amp;NR&lt;&#x3D;30&#123;print NR,$1&#125;&#39; &#x2F;etc&#x2F;passwd </span><br><span class="line"># awk -F: &#39;BEGIN&#123;print &quot;linenumber username&quot;&#125;NR&gt;&#x3D;10&amp;&amp;NR&lt;&#x3D;30&#123;print NR,$1&#125; END print &quot;end&quot;&#125;&#39; &#x2F;etc&#x2F;passwd </span><br><span class="line"># awk -F: &#39;&#123;print &quot;linenumber username&quot;;print NR,$1&#125;END&#123;print &quot;end&quot;&#125;&#39; &#x2F;etc&#x2F;passwd</span><br><span class="line"># awk -F: &#39;&#123;print &quot;linenumber username\n-------------&quot;;print $1&#125;END&#123;print &quot;end&quot;&#125;&#39; &#x2F;etc&#x2F;passwd </span><br><span class="line"># seq 10 | awk &#39;&#123;i&#x3D;!i;print i&#125;&#39;</span><br><span class="line"># seq 10 | awk &#39;i&#x3D;!i&#39;</span><br><span class="line"># seq 10 | awk &#39;!(i&#x3D;!i)&#39;</span><br><span class="line"># seq 10 | awk -v -i&#x3D;1 &#39;i&#x3D;!i&#39;</span><br></pre></td></tr></table></figure>
+<h3 id="29、常见循环与用法"><a href="#29、常见循环与用法" class="headerlink" title="29、常见循环与用法"></a>29、常见循环与用法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"># awk &#39;BEGIN&#123;for(i&#x3D;1;i&lt;&#x3D;100;i++)sum+&#x3D;i;print sum&#125;&#39;</span><br><span class="line"># echo &#123;1..100&#125;|sed &#39;s&#x2F; &#x2F;+&#x2F;g&#39;|bc</span><br><span class="line"># echo &#123;1..100&#125;| tr &quot; &quot; &quot;+&quot; |bc </span><br><span class="line">#!&#x2F;bin&#x2F;bash</span><br><span class="line">num&#x3D;0</span><br><span class="line">for i in &#96;seq 100&#96;; do </span><br><span class="line">    num&#x3D;$[$num+$i]</span><br><span class="line">    echo $i</span><br><span class="line">done</span><br><span class="line">echo $num</span><br><span class="line">#!&#x2F;usr&#x2F;bin&#x2F;env python2.7</span><br><span class="line">num&#x3D;0</span><br><span class="line">for i in range(1,101):</span><br><span class="line">    print i</span><br><span class="line">    num &#x3D; num + i</span><br><span class="line">print num</span><br></pre></td></tr></table></figure>
+<h2 id="AWK-基础"><a href="#AWK-基础" class="headerlink" title="AWK 基础"></a>AWK 基础</h2><ul>
+<li>awk：Aho, Weinberger, Kernighan，报告生成器，格式化文本输出</li>
+<li>有多种版本：New awk（nawk）,GNU awk（gawk）</li>
+<li>gawk：模式扫描和处理语言</li>
+</ul>
+<h3 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># awk [options] &#39;program&#39; var&#x3D;value file…</span><br><span class="line"># awk [options] -f programfile var&#x3D;value file…</span><br><span class="line"># awk [options] &#39;BEGIN&#123; action;… &#125; pattern&#123; action;… &#125; END&#123; action;… &#125;&#39; file ...</span><br></pre></td></tr></table></figure>
+<p>awk程序通常由：BEGIN语句块、能够使用模式匹配的通用语句块、END语句块，共3部分组成<br>  program通常是被单引号或双引号中<br>    选项：<br>        -F:指明输入时用到的字段分隔符<br>        -v var=value:自定义变量</p>
+<h3 id="awk语言"><a href="#awk语言" class="headerlink" title="awk语言"></a>awk语言</h3><ul>
+<li>基本格式：awk [options] ‘program’ file…</li>
+<li>program:pattern{action statements;..}</li>
+<li>pattern和action：<br>pattern部分决定动作语句何时触发及触发事件<pre><code>BEGIN,END
+</code></pre>  action statements 对数据进行处理，放在{}内指明<br>print, printf</li>
+</ul>
+<p>分割符、域和记录<br>    awk执行时，由分隔符分隔的字段（域）标记$1,$2..$n称为域标识。$0为所有域，注意：和shell中变量$符含义不同<br>    文件的每一行称为记录<br>    省略action行，则默认执行print $0的操作</p>
+<h3 id="awk工作原理"><a href="#awk工作原理" class="headerlink" title="awk工作原理"></a>awk工作原理</h3><p>第一步：执行BEGIN{action;… } 语句块中的语句<br>第二步：从文件或标准输入(stdin)读取一行，然后执行pattern{ action;<br>… } 语句块，它逐行扫描文件，从第一行到最后一行重复这个过程，直到文件全部被读取完毕。<br>    第三步：当读至输入流末尾时，执行END{action;…}语句块<br>        BEGIN语句块在awk开始从输入流中读取行之前被执行，这是一个可选的语句块，比如变量初始化、打印输出表格的表头等语句通常可以写在BEGIN语句块中<br>        END语句块在awk从输入流中读取完所有的行之后即被执行，比如打印所有行的分析结果这类信息汇总都是在END语句块中完成，它也是一个可选语句块<br>        pattern语句块中的通用命令是最重要的部分，也是可选的。如果没有提供pattern语句块，则默认执行{ print }，即打印每一个读取到的行，awk读取的每一行都会执行该语句块</p>
+<h3 id="awk-格式"><a href="#awk-格式" class="headerlink" title="awk 格式"></a>awk 格式</h3><p> 要点：<br>        (1)逗号分隔符<br>        (2)输出的各item可以字符串，也可以是数值；当前记录的字段、变量或awk的表达式<br>        (3)如省略item，相当于print $0</p>
+<p>示例:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># awk &#39;&#123;print &quot;hello,awk&quot;&#125;&#39;</span><br><span class="line"># awk -F: &#39;&#123;print&#125;&#39; &#x2F;etc&#x2F;passwd</span><br><span class="line"># awk -F: &#39;&#123;print &quot;wang&quot;&#125;&#39; &#x2F;etc&#x2F;passwd</span><br><span class="line"># awk -F: &#39;&#123;print $1&#125;&#39; &#x2F;etc&#x2F;passwd</span><br><span class="line"># awk -F: &#39;&#123;print $0&#125;&#39; &#x2F;etc&#x2F;passwd</span><br><span class="line"># awk -F: &#39;&#123;print $1&quot;\t&quot;$3&#125;&#39; &#x2F;etc&#x2F;passwd</span><br><span class="line"># tail -3 &#x2F;etc&#x2F;fstab |awk  &#39;&#123;print $2,$4&#125;&#39;</span><br></pre></td></tr></table></figure>
+<h3 id="awk-变量"><a href="#awk-变量" class="headerlink" title="awk 变量"></a>awk 变量</h3><ul>
+<li>变量：内置和自定义变量</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">模式</th>
+<th style="text-align:center">例子</th>
+<th style="text-align:center">匹配</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">BEGIN</td>
+<td style="text-align:center">BEGIN</td>
+<td style="text-align:center">输入被读取之前</td>
+</tr>
+<tr>
+<td style="text-align:center">END</td>
+<td style="text-align:center">END</td>
+<td style="text-align:center">所有输入被读取之后</td>
+</tr>
+<tr>
+<td style="text-align:center">expression</td>
+<td style="text-align:center">$3&gt;100</td>
+<td style="text-align:center">第三个字段大于100</td>
+</tr>
+<tr>
+<td style="text-align:center">string-matching</td>
+<td style="text-align:center">/Asia/</td>
+<td style="text-align:center">含有Asia的行</td>
+</tr>
+<tr>
+<td style="text-align:center">compound</td>
+<td style="text-align:center">\$3&lt;100 &amp;&amp; $4 ==”Asia”</td>
+<td style="text-align:center">第三个字段小于100且第四个字段含有Asia的行</td>
+</tr>
+<tr>
+<td style="text-align:center">range</td>
+<td style="text-align:center">NR == 10,NR==20</td>
+<td style="text-align:center">输入的第10行到20行</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">变量</th>
+<th style="text-align:center">意义</th>
+<th style="text-align:center">默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">FS</td>
+<td style="text-align:center">控制输入行的字段分隔符</td>
+<td style="text-align:center">“ “</td>
+</tr>
+<tr>
+<td style="text-align:center">OFS</td>
+<td style="text-align:center">输出字段分隔符</td>
+<td style="text-align:center">“ “</td>
+</tr>
+<tr>
+<td style="text-align:center">RS</td>
+<td style="text-align:center">控制着输入行的记录分隔符</td>
+<td style="text-align:center">“\n”</td>
+</tr>
+<tr>
+<td style="text-align:center">NF</td>
+<td style="text-align:center">当前记录的字段个数</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">NR</td>
+<td style="text-align:center">到目前为止读的记录数量</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">FNR</td>
+<td style="text-align:center">当前输入文件的记录个数</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">ARGC</td>
+<td style="text-align:center">命令行参数的个数</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">ARGV</td>
+<td style="text-align:center">命令行参数数组</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">FILENAME</td>
+<td style="text-align:center">当前输入文件名</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">OFMT</td>
+<td style="text-align:center">数值的输出格式</td>
+<td style="text-align:center">“%.6g”</td>
+</tr>
+<tr>
+<td style="text-align:center">RLENGTE</td>
+<td style="text-align:center">被函数match匹配的字符串的长度</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">RSTART</td>
+<td style="text-align:center">被函数match匹配的字符串的开始</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">SUBSEP</td>
+<td style="text-align:center">下标分隔符</td>
+<td style="text-align:center">“\034”</td>
+</tr>
+</tbody>
+</table>
+<p>FS：输入字段分隔符，默认为空白字符   </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># awk -v FS&#x3D;&#39;:&#39; &#39;&#123;print $1,FS,$3&#125;&#39; &#x2F;etc&#x2F;passwd</span><br><span class="line"># awk -F: &#39;&#123;print $1,$3,$7&#125;&#39; &#x2F;etc&#x2F;passwd</span><br><span class="line"># s&#x3D;:;awk -v FS&#x3D;$s &#39;&#123;print $1 FS $3&#125;&#39; &#x2F;etc&#x2F;passwd </span><br></pre></td></tr></table></figure>
+<p>OFS：输出字段分隔符，默认为空白字符</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># awk -v FS&#x3D;&#39;:&#39; -v OFS&#x3D;&#39;:&#39; &#39;&#123;print $1,$3,$7&#125;&#39; &#x2F;etc&#x2F;passwd</span><br></pre></td></tr></table></figure>
+<p>RS：输入记录分隔符，指定输入时的换行符，原换行符仍有效</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#  awk -v RS&#x3D;&#39; &#39; &#39;&#123;print &#125;&#39; &#x2F;etc&#x2F;passwd</span><br></pre></td></tr></table></figure>
+<p>ORS：输出记录分隔符，输出时用指定符号代替换行符</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># awk -v RS&#x3D;&#39; &#39; -v ORS&#x3D;&#39;###&#39;‘&#123;print&#125;’ &#x2F;etc&#x2F;passwd</span><br></pre></td></tr></table></figure>
+<p>NF：字段数量</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># awk -F:&#39;&#123;print NF&#125;&#39; &#x2F;etc&#x2F;fstab, 引用内置变量不用$</span><br><span class="line"># awk -F: &#39;&#123;print $(NF-1)&#125;&#39; &#x2F;etc&#x2F;passwd</span><br></pre></td></tr></table></figure>
+<p>NR：行号</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># awk &#39;&#123;print NR&#125;&#39; &#x2F;etc&#x2F;fstab; awk END&#39;&#123;print NR&#125;&#39; &#x2F;etc&#x2F;fstab</span><br></pre></td></tr></table></figure>
+<p>FNR：各文件分别计数, 行号</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># awk &#39;&#123;print FNR&#125;&#39; &#x2F;etc&#x2F;fstab &#x2F;etc&#x2F;inittab</span><br></pre></td></tr></table></figure>
+<p>FILENAME：当前文件名</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># awk &#39;&#123;print FILENAME&#125;&#39; &#x2F;etc&#x2F;fstab</span><br></pre></td></tr></table></figure>
+<p>ARGC：命令行参数的个数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># awk &#39;&#123;print ARGC&#125;&#39; &#x2F;etc&#x2F;fstab &#x2F;etc&#x2F;inittab</span><br><span class="line"># awk &#39;BEGIN &#123;print ARGC&#125;&#39; &#x2F;etc&#x2F;fstab &#x2F;etc&#x2F;inittab</span><br></pre></td></tr></table></figure>
+<p>ARGV：数组，保存的是命令行所给定的各参数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># awk &#39;BEGIN &#123;print ARGV[0]&#125;&#39; &#x2F;etc&#x2F;fstab &#x2F;etc&#x2F;inittab</span><br><span class="line"># awk &#39;BEGIN &#123;print ARGV[1]&#125;&#39; &#x2F;etc&#x2F;fstab &#x2F;etc&#x2F;inittab</span><br></pre></td></tr></table></figure>
+<p>自定义变量(区分字符大小写)<br>        (1) -v var=value<br>        (2) 在program中直接定义</p>
+<p>示例:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># awk -v test&#x3D;&#39;hello gawk&#39; &#39;&#123;print test&#125;&#39; &#x2F;etc&#x2F;fstab</span><br><span class="line"># awk -v test&#x3D;&#39;hello gawk&#39; &#39;BEGIN&#123;print test&#125;&#39;</span><br><span class="line"># awk &#39;BEGIN&#123;test&#x3D;&quot;hello,gawk&quot;;print test&#125;&#39;</span><br><span class="line"># awk -F:‘&#123;sex&#x3D;“male”;print $1,sex,age;age&#x3D;18&#125;’ &#x2F;etc&#x2F;passwd</span><br><span class="line"># cat awkscript </span><br><span class="line">      &#123;print script,$1,$2&#125;</span><br><span class="line">        awk -F: -f awkscript script&#x3D;“awk” &#x2F;etc&#x2F;passwd</span><br></pre></td></tr></table></figure>
+<h3 id="printf-参数"><a href="#printf-参数" class="headerlink" title="printf 参数"></a>printf 参数</h3><ul>
+<li><p>格式化输出：printf “FORMAT”, item1, item2, …<br>  (1)必须指定FORMAT<br>  (2)不会自动换行，需要显式给出换行控制符，\n<br>  (3)FORMAT中需要分别为后面每个item指定格式符</p>
+</li>
+<li><p>格式符：与item一一对应</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">格式符</th>
+<th style="text-align:left">意义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">%c</td>
+<td style="text-align:left">显示字符的ASCII码</td>
+</tr>
+<tr>
+<td style="text-align:left">%d,%i</td>
+<td style="text-align:left">显示十进制整数</td>
+</tr>
+<tr>
+<td style="text-align:left">%e,%E</td>
+<td style="text-align:left">显示科学计数法数值</td>
+</tr>
+<tr>
+<td style="text-align:left">%f</td>
+<td style="text-align:left">显示为浮点数</td>
+</tr>
+<tr>
+<td style="text-align:left">%g,%G</td>
+<td style="text-align:left">以科学计数法或浮点形式显示数值</td>
+</tr>
+<tr>
+<td style="text-align:left">%s</td>
+<td style="text-align:left">显示字符串</td>
+</tr>
+<tr>
+<td style="text-align:left">%u</td>
+<td style="text-align:left">无符号整数</td>
+</tr>
+<tr>
+<td style="text-align:left">%%</td>
+<td style="text-align:left">显示%自身</td>
+</tr>
+</tbody>
+</table>
+<h3 id="修饰符："><a href="#修饰符：" class="headerlink" title="修饰符："></a>修饰符：</h3><p>[.#]：第一个数字控制显示的宽度；第二个#表示小数点后精度，%3.1f<br>-: 左对齐（默认右对齐） %-15s<br>+：显示数值的正负符号 %+d</p>
+<h3 id="printf示例"><a href="#printf示例" class="headerlink" title="printf示例"></a>printf示例</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># awk -F: &#x27;&#123;printf &quot;%s&quot;,$1&#125;&#x27; /etc/passwd</span></span><br><span class="line"><span class="comment"># awk -F: &#x27;&#123;printf &quot;%s\n&quot;,$1&#125;&#x27; /etc/passwd</span></span><br><span class="line"><span class="comment"># awk -F: &#x27;&#123;printf &quot;%-20s %10d\n&quot;,$1,$3&#125;&#x27; /etc/passwd</span></span><br><span class="line"><span class="comment"># awk -F: &#x27;&#123;printf &quot;Username: %s\n&quot;,$1&#125;&#x27; /etc/passwd</span></span><br><span class="line"><span class="comment"># awk -F: &#x27;&#123;printf “Username: %s,UID:%d\n&quot;,$1,$3&#125;’ /etc/passwd</span></span><br><span class="line"><span class="comment"># awk -F: &#x27;&#123;printf &quot;Username: %15s,UID:%d\n&quot;,$1,$3&#125;&#x27; /etc/passwd</span></span><br><span class="line"><span class="comment"># awk -F: &#x27;&#123;printf &quot;Username: %-15s,UID:%d\n&quot;,$1,$3&#125;&#x27; /etc/passwd</span></span><br></pre></td></tr></table></figure>
+<h3 id="操作符表达式"><a href="#操作符表达式" class="headerlink" title="操作符表达式"></a>操作符表达式</h3><ol>
+<li>初等表达式包括<br> 数值与字符串常量, 变量, 字段, 函数调用, 数组元素.</li>
+<li>可以把表达式组合起来的运算符包括<br> 赋值运算符 = += -= <em>= /= %= ^= 条件表达式 ?:<br> 逻辑运算符 || (OR), &amp;&amp; (AND), ! (NOT)<br> 匹配运算符 ~ 和!~<br> 关系运算符 &lt; &lt;= == != &gt; &gt;=<br> 拼接运算符 (没有显式的拼接运算符)<br> 算术运算符 + - </em> / % ^<br> 单目运算符 +和-<br> 自增与自减运算符++和–(包括前缀与后缀)<br>括号 (用于分组)  </li>
+</ol>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">操作</th>
+<th style="text-align:center">运算符</th>
+<th style="text-align:center">例子</th>
+<th style="text-align:center">例子的含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">赋值</td>
+<td style="text-align:center">= += -= *= /= %= ^=</td>
+<td style="text-align:center">x *= 2</td>
+<td style="text-align:center">x = x * 2</td>
+</tr>
+<tr>
+<td style="text-align:center">条件表达式</td>
+<td style="text-align:center">?:</td>
+<td style="text-align:center">x ? y : z</td>
+<td style="text-align:center">若x为真,则 y,否则z</td>
+</tr>
+<tr>
+<td style="text-align:center">逻辑与</td>
+<td style="text-align:center">&amp;&amp;</td>
+<td style="text-align:center">x &amp;&amp; y</td>
+<td style="text-align:center">若x与y都为真, 则为1,否则为0</td>
+</tr>
+<tr>
+<td style="text-align:center">数组成员</td>
+<td style="text-align:center">in</td>
+<td style="text-align:center">i in a</td>
+<td style="text-align:center">如果a[i]存在, 则为1,否则为0</td>
+</tr>
+<tr>
+<td style="text-align:center">匹配</td>
+<td style="text-align:center">~ !~</td>
+<td style="text-align:center">$1 ~ /x/</td>
+<td style="text-align:center">如果第一个字段包含x,则为1,否则为0</td>
+</tr>
+<tr>
+<td style="text-align:center">关系运算</td>
+<td style="text-align:center">&lt; &lt;= == != &gt;= &gt;</td>
+<td style="text-align:center">x == y</td>
+<td style="text-align:center">如果x等于y,则为1, 否则为0</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">拼接</td>
+<td style="text-align:center">“a” “bc”</td>
+<td style="text-align:center">“abc”</td>
+<td style="text-align:center">不存在显式的拼接运算符</td>
+</tr>
+<tr>
+<td style="text-align:center">减法, 加法</td>
+<td style="text-align:center">+ -</td>
+<td style="text-align:center">x + y</td>
+<td style="text-align:center">x与y的和</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">乘法, 除法, 取模</td>
+<td style="text-align:center">* / %</td>
+<td style="text-align:center">x % y</td>
+<td style="text-align:center">x除以y的余数</td>
+</tr>
+<tr>
+<td style="text-align:center">单目加, 单目减</td>
+<td style="text-align:center">+ -</td>
+<td style="text-align:center">-x</td>
+<td style="text-align:center">x的相反数</td>
+</tr>
+<tr>
+<td style="text-align:center">逻辑非</td>
+<td style="text-align:center">!</td>
+<td style="text-align:center">!$1</td>
+<td style="text-align:center">若$1为空或为0, 则为1,否则为0</td>
+</tr>
+<tr>
+<td style="text-align:center">指数运算</td>
+<td style="text-align:center">^</td>
+<td style="text-align:center">x ^ y</td>
+<td style="text-align:center">x的y次方</td>
+</tr>
+<tr>
+<td style="text-align:center">自增, 自减</td>
+<td style="text-align:center">++ –</td>
+<td style="text-align:center">++x, x++</td>
+<td style="text-align:center">为x加1</td>
+</tr>
+<tr>
+<td style="text-align:center">字段</td>
+<td style="text-align:center">$</td>
+<td style="text-align:center">$i+1</td>
+<td style="text-align:center">1加上第i个字段的值</td>
+</tr>
+<tr>
+<td style="text-align:center">组</td>
+<td style="text-align:center">( )</td>
+<td style="text-align:center">($i)++</td>
+<td style="text-align:center">给第i个字段的值加1</td>
+</tr>
+</tbody>
+</table>
+<p>算术操作符：<br>    x+y, x-y, x*y, x/y, x^y, x%y<br>    -x:转换为负数<br>    +x:转换为数值</p>
+<p>字符串操作符：没有符号的操作符，字符串连接</p>
+<p>赋值操作符：<br>    =, +=, -=, *=, /=, %=, ^=<br>    ++, –</p>
+<p>比较操作符：<br>    ==, !=, &gt;, &gt;=, &lt;, &lt;=</p>
+<p>模式匹配符<br>    ~：左边是否和右边匹配包含<br>    !~ ：是否不匹配</p>
+<p>  示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># awk –F: &#39;$0 ~ &#x2F;root&#x2F;&#123;print $1&#125;‘ &#x2F;etc&#x2F;passwd</span><br><span class="line"># awk &#39;$0~&quot;^root&quot;&#39; &#x2F;etc&#x2F;passwd</span><br><span class="line"># awk &#39;$0 !~ &#x2F;root&#x2F;&#39; &#x2F;etc&#x2F;passwd</span><br><span class="line"># awk -F: &#39;$3&#x3D;&#x3D;0&#39; &#x2F;etc&#x2F;passwd</span><br></pre></td></tr></table></figure>
+<p>逻辑操作符：<br>    &amp;&amp; 与<br>    || 或<br>    ！ 非</p>
+<p>示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># awk -F: &#39;$3&gt;&#x3D;0 &amp;&amp; $3&lt;&#x3D;1000 &#123;print $1&#125;&#39; &#x2F;etc&#x2F;passwd</span><br><span class="line"># awk -F: &#39;$3&#x3D;&#x3D;0 || $3&gt;&#x3D;1000 &#123;print $1&#125;&#39; &#x2F;etc&#x2F;passwd</span><br><span class="line"># awk -F: ‘!($3&#x3D;&#x3D;0) &#123;print $1&#125;&#39; &#x2F;etc&#x2F;passwd</span><br><span class="line"># awk -F: ‘!($3&gt;&#x3D;500) &#123;print $3&#125;&#39; &#x2F;etc&#x2F;passwd</span><br><span class="line"># awk -F: &#39;$3 &gt; 100 &amp;&amp; $3&lt;1000 &#123;print $1,$3&#125;&#39; passwd</span><br></pre></td></tr></table></figure>
+<h3 id="函数调用"><a href="#函数调用" class="headerlink" title="函数调用"></a>函数调用</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function_name(argu1, argu2, ...)</span><br><span class="line">条件表达式（三目表达式）   </span><br><span class="line">    selector?if-true-expression:if-false-expression</span><br></pre></td></tr></table></figure>
+<p>示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">awk -F: &#39;&#123;$3&gt;&#x3D;1000?usertype&#x3D;&quot;Common User&quot;:usertype&#x3D;&quot;Sysadmin or SysUser&quot;;printf &quot;%15s:%-s\n&quot;,$1,usertype&#125;&#39; &#x2F;etc&#x2F;passwd</span><br><span class="line">awk -F: &#39;&#123;$3&gt;1000?username&#x3D;&quot;common user:&quot;:username&#x3D;&quot;sysuser:&quot;;</span><br><span class="line">printf &quot;%s %-30s %d\n&quot;,username,$1,$3&#125;&#39; passwd</span><br></pre></td></tr></table></figure>
+<p>正则表达式</p>
+<ol>
+<li>正则表达式的元字符包括：<br> <code>\ ^ $ . [] | ()  * + ?</code></li>
+<li>一个基本的正则表达式包括以下几种：<br> 一个不是元字符的字符，例如A，这个正则表达式匹配的就是它本身；<br> 一个匹配特殊字符的转义字符：\t匹配一个制表符<br> 一个被引用的元字符，例如*，按字面意义匹配元字符<br> ^ 匹配一行的开始<br> $ 匹配一行的结束<br> . 匹配任意一个字符<br> 一个字符类:[ABC]匹配字符A、B或C<br> 字符类可能包能包含缩写格式：[A-Za-z]匹配单个字母<br> 一个互补的字符类:[^0-9] 匹配任意一个字符，但除了数字</li>
+<li><p>运算符组合起来使用<br> 选择：A|B 匹配A或B<br> 拼接：AB匹配后面紧跟着B的A<br> 闭包：A*匹配0个或多个A<br> 正必包：A+匹配一个或多个A<br> 零或一：A？匹配空字符串或A<br> 括号：被(r)匹配的字符串，与r所匹配的字符串相同</p>
+</li>
+<li><p>优先级<br> 选择运算符|优先级最低，然后是拼接运算，最后是重复运算+，*与？；</p>
+</li>
+<li>转义序列    </li>
+</ol>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">序列</th>
+<th style="text-align:center">意义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">\b</td>
+<td style="text-align:center">退格</td>
+</tr>
+<tr>
+<td style="text-align:center">\f</td>
+<td style="text-align:center">换页</td>
+</tr>
+<tr>
+<td style="text-align:center">\n</td>
+<td style="text-align:center">换行</td>
+</tr>
+<tr>
+<td style="text-align:center">\r</td>
+<td style="text-align:center">回车</td>
+</tr>
+<tr>
+<td style="text-align:center">\t</td>
+<td style="text-align:center">制表符</td>
+</tr>
+<tr>
+<td style="text-align:center">\ddd</td>
+<td style="text-align:center">八进制数ddd.ddd含有1到3个数字，每个数字的值在0-7之间</td>
+</tr>
+<tr>
+<td style="text-align:center">\c</td>
+<td style="text-align:center">其他字面意义上的c（如\表示,”表示双引号）</td>
+</tr>
+</tbody>
+</table>
+<p>###示例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">^[^^] 匹配不以脱字符开始的字符串</span><br><span class="line">&#x2F;^[0-9]+$&#x2F; 匹配含有且只含有数字的输入行</span><br><span class="line">&#x2F;^[0-9][0-9][0-9]$&#x2F; 输入行有且仅有 3 个数字.</span><br><span class="line">&#x2F;^(\+|-)?[0-9]+\.?[0-9]*$&#x2F; 十进制小数, 符号与小数部分是可选的.</span><br><span class="line">&#x2F;^[+-]?[0-9]+[.]?[0-9]*$&#x2F; 也是匹配十进制小数, 带有可选的符号与小数部分.</span><br><span class="line">&#x2F;^[+-]?([0-9]+[.]?[0-9]*|[.][0-9]+)([eE][+-]?[0-9]+)?$&#x2F; 浮点数, 符号与指数部分是可选的.</span><br><span class="line">&#x2F;^[A-Za-z][A-Za-z0-9]*$&#x2F; 一个字母, 后面再跟着任意多个字母或数字 (比如awk的变量名).</span><br><span class="line">&#x2F;^[A-Za-z]$|^[A-Za-z][0-9]$&#x2F; 一个字母, 又或者是一个后面跟着一个数字的字母 (比如 Basic 的变量名).</span><br><span class="line">&#x2F;^[A-Za-z][0-9]?$&#x2F; 同样是一个字母, 又或者是一个后面跟着一个数字的字母</span><br></pre></td></tr></table></figure>
+<h3 id="awk-PATTERN"><a href="#awk-PATTERN" class="headerlink" title="awk PATTERN"></a>awk PATTERN</h3><ul>
+<li>PATTERN: 根据pattern条件，过滤匹配的行，再做处理<br>  (1) 如果未指定：空模式，匹配每一行<br>  (2) /regular expression/ ：仅处理能够模式匹配到的行，需要用/ / 括起来<pre><code>awk &apos;/^UUID/&#123;print $1&#125;&apos; /etc/fstab
+awk &apos;!/^UUID/&#123;print $1&#125;&apos; /etc/fstab
+</code></pre>  (3) relational expression: 关系表达式，结果为“真”才会被处理<pre><code>真：结果为非0值，非空字符串
+假：结果为空字符串或0值
+</code></pre></li>
+</ul>
+<p>示例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># awk -F: &#39;i&#x3D;1;j&#x3D;1&#123;print i,j&#125;&#39; &#x2F;etc&#x2F;passwd</span><br><span class="line"># awk ‘!0’ &#x2F;etc&#x2F;passwd ; awk ‘!1’ &#x2F;etc&#x2F;passwd</span><br><span class="line"># awk –F: &#39;$3&gt;&#x3D;1000&#123;print $1,$3&#125;&#39; &#x2F;etc&#x2F;passwd</span><br><span class="line"># awk -F: &#39;$3&lt;1000&#123;print $1,$3&#125;&#39; &#x2F;etc&#x2F;passwd</span><br><span class="line"># awk -F: &#39;$NF&#x3D;&#x3D;&quot;&#x2F;bin&#x2F;bash&quot;&#123;print $1,$NF&#125;&#39; &#x2F;etc&#x2F;passwd</span><br><span class="line"># awk -F: &#39;$NF ~ &#x2F;bash$&#x2F;&#123;print $1,$NF&#125;&#39; &#x2F;etc&#x2F;passwd</span><br></pre></td></tr></table></figure>
+<p>(4) line ranges：行范围</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">startline,endline</span><br><span class="line">        &#x2F;pat1&#x2F;,&#x2F;pat2&#x2F;</span><br><span class="line"># awk -F: &#39;&#x2F;^root\&gt;&#x2F;,&#x2F;^nobody\&gt;&#x2F;&#123;print $1&#125;&#39; &#x2F;etc&#x2F;passwd</span><br><span class="line">注意：不支持直接给出数字格式</span><br><span class="line"># awk -F: &#39;(NR&gt;&#x3D;10&amp;&amp;NR&lt;&#x3D;20)&#123;print NR,$1&#125;&#39; &#x2F;etc&#x2F;passwd</span><br></pre></td></tr></table></figure>
+<p>(5) BEGIN/END 模式<br>        BEGIN{}:     仅在开始处理文件中的文本之前执行一次<br>        END{}：    仅在文本处理完成之后执行一次</p>
+<p>示例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># awk -F : &#39;BEGIN &#123;print &quot;USER USERID&quot;&#125; &#123;print $1&quot;:&quot;$3&#125; END&#123;print &quot;end file&quot;&#125;&#39; &#x2F;etc&#x2F;passwd</span><br><span class="line"># awk -F : &#39;&#123;print &quot;USER USERID“;print $1&quot;:&quot;$3&#125; END&#123;print &quot;end file&quot;&#125;&#39; &#x2F;etc&#x2F;passwd</span><br><span class="line"># awk -F: &#39;BEGIN&#123;print &quot; USER UID \n--------------- &quot;&#125;&#123;print $1,$3&#125;&#39; &#x2F;etc&#x2F;passwd</span><br><span class="line"># awk -F: &#39;BEGIN&#123;print &quot; USER UID \n--------------- &quot;&#125;&#123;print $1,$3&#125;&#39;END&#123;print &quot;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&quot;&#125; &#x2F;etc&#x2F;passwd </span><br><span class="line">#  seq 10 |awk ‘i&#x3D;0’</span><br><span class="line"># seq 10 |awk ‘i&#x3D;1’</span><br><span class="line"># seq 10 | awk &#39;i&#x3D;!i‘</span><br><span class="line"># seq 10 | awk &#39;&#123;i&#x3D;!i;print i&#125;‘</span><br><span class="line"># seq 10 | awk ‘!(i&#x3D;!i)’</span><br><span class="line"># seq 10 |awk -v i&#x3D;1 &#39;i&#x3D;!i&#39;</span><br></pre></td></tr></table></figure>
+<h3 id="模式总结"><a href="#模式总结" class="headerlink" title="模式总结"></a>模式总结</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">模式</th>
+<th style="text-align:center">例子</th>
+<th style="text-align:center">匹配</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">BEGIN</td>
+<td style="text-align:center">BEGIN</td>
+<td style="text-align:center">输入被读取之前</td>
+</tr>
+<tr>
+<td style="text-align:center">END</td>
+<td style="text-align:center">END</td>
+<td style="text-align:center">所有输入被读取之后</td>
+</tr>
+<tr>
+<td style="text-align:center">expression</td>
+<td style="text-align:center">$3&gt;100</td>
+<td style="text-align:center">第三个字段大于100</td>
+</tr>
+<tr>
+<td style="text-align:center">string-matching</td>
+<td style="text-align:center">/Asia/</td>
+<td style="text-align:center">含有Asia的行</td>
+</tr>
+<tr>
+<td style="text-align:center">compound</td>
+<td style="text-align:center">$3&lt;100 &amp;&amp; $4 ==”Asia”</td>
+<td style="text-align:center">第三个字段小于100且第四个字段含有Asia的行</td>
+</tr>
+<tr>
+<td style="text-align:center">range</td>
+<td style="text-align:center">NR == 10,NR==20</td>
+<td style="text-align:center">输入的第10行到20行</td>
+</tr>
+</tbody>
+</table>
+<h3 id="awk-action"><a href="#awk-action" class="headerlink" title="awk action"></a>awk action</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">常用的action分类</span><br><span class="line">    (1) Expressions: 算术，比较表达式等</span><br><span class="line">    (2) Control statements：if,while等</span><br><span class="line">    (3) Compound statements：组合语句</span><br><span class="line">    (4) input statements</span><br><span class="line">    (5) output statements：print等</span><br></pre></td></tr></table></figure>
+<h3 id="awk控制语句"><a href="#awk控制语句" class="headerlink" title="awk控制语句"></a>awk控制语句</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#123; statements;… &#125;  组合语句</span><br><span class="line">    if(condition) &#123;statements;…&#125;</span><br><span class="line">    if(condition) &#123;statements;…&#125; else &#123;statements;…&#125;</span><br><span class="line">    while(conditon) &#123;statments;…&#125;</span><br><span class="line">    do &#123;statements;…&#125; while(condition)</span><br><span class="line">    for(expr1;expr2;expr3) &#123;statements;…&#125;</span><br><span class="line">    break</span><br><span class="line">    continue</span><br><span class="line">    next 开始输入主循环的下一次迭代</span><br><span class="line">    delete array[index]</span><br><span class="line">    delete array</span><br><span class="line">        exit</span><br><span class="line">    exit expression 马上执行END 动作; 如果已经在END动作内, 那就退出程序. 将expression作为程序的退出状态返回.</span><br></pre></td></tr></table></figure>
+<h3 id="if-else"><a href="#if-else" class="headerlink" title="if-else"></a>if-else</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">语法：</span><br><span class="line">       if(condition)&#123;statement;…&#125;[else statement]</span><br><span class="line">       if(condition1)&#123;statement1&#125;else if(condition2)&#123;statement2&#125;</span><br><span class="line">           else&#123;statement3&#125;</span><br><span class="line">   使用场景：对awk取得的整行或某个字段做条件判断</span><br><span class="line">   示例：</span><br><span class="line">   # awk -F: &#39;&#123;if($3&gt;&#x3D;1000)print $1,$3&#125;&#39; &#x2F;etc&#x2F;passwd</span><br><span class="line">   # awk -F: &#39;&#123;if($NF&#x3D;&#x3D;&quot;&#x2F;bin&#x2F;bash&quot;) print $1&#125;&#39; &#x2F;etc&#x2F;passwd</span><br><span class="line">   # awk &#39;&#123;if(NF&gt;5) print $0&#125;&#39; &#x2F;etc&#x2F;fstab</span><br><span class="line">   # awk -F: &#39;&#123;if($3&gt;&#x3D;1000) &#123;printf &quot;Common user: %s\n&quot;,$1&#125; else &#123;printf &quot;root or Sysuser: %s\n&quot;,$1&#125;&#125;&#39; &#x2F;etc&#x2F;passwd</span><br><span class="line">   # awk -F: &#39;&#123;if($3&gt;&#x3D;1000) printf &quot;Common user: %s\n&quot;,$1;</span><br><span class="line">           else printf &quot;root or Sysuser: %s\n&quot;,$1&#125;&#39; &#x2F;etc&#x2F;passwd</span><br><span class="line">       df -h|awk -F% &#39;&#x2F;^\&#x2F;dev&#x2F;&#123;print $1&#125;&#39;|awk &#39;$NF&gt;&#x3D;80&#123;print $1,$5&#125;‘</span><br><span class="line">   # awk &#39;BEGIN&#123; test&#x3D;100;if(test&gt;90)&#123;print &quot;very good&quot;&#125;</span><br><span class="line">           else if(test&gt;60)&#123; print &quot;good&quot;&#125;else&#123;print &quot;no pass&quot;&#125;&#125;&#39;</span><br></pre></td></tr></table></figure>
+<h3 id="while循环"><a href="#while循环" class="headerlink" title="while循环"></a>while循环</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">语法：</span><br><span class="line">        while(condition)&#123;statement;…&#125;</span><br><span class="line">    条件“真”，进入循环；条件“假”， 退出循环</span><br><span class="line">    使用场景：</span><br><span class="line">        对一行内的多个字段逐一类似处理时使用</span><br><span class="line">        对数组中的各元素逐一处理时使用</span><br><span class="line">    示例：</span><br><span class="line">        awk &#39;&#x2F;^[[:space:]]*linux16&#x2F;&#123;i&#x3D;1;while(i&lt;&#x3D;NF) &#123;print $i,length($i); i++&#125;&#125;&#39; &#x2F;etc&#x2F;grub2.cfg</span><br></pre></td></tr></table></figure>
+<h3 id="do-while循环"><a href="#do-while循环" class="headerlink" title="do-while循环"></a>do-while循环</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">语法：</span><br><span class="line">        do &#123;statement;…&#125;while(condition)</span><br><span class="line">        意义：无论真假，至少执行一次循环体</span><br><span class="line">    示例：</span><br><span class="line">    # awk &#39;BEGIN&#123; total&#x3D;0;i&#x3D;0;do&#123; total+&#x3D;i;i++;&#125;while(i&lt;&#x3D;100);print total&#125;&#39;</span><br><span class="line">    思考：下面两语句有何不同？</span><br><span class="line">    # awk &#39;BEGIN&#123;i&#x3D;0;print ++i,i&#125;&#39;</span><br><span class="line">   # awk &#39;BEGIN&#123;i&#x3D;0;print i++,i&#125;&#39;</span><br></pre></td></tr></table></figure>
+<h3 id="for循环"><a href="#for循环" class="headerlink" title="for循环"></a>for循环</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">语法：</span><br><span class="line">        for(expr1;expr2;expr3) &#123;statement;…&#125;</span><br><span class="line">    常见用法：</span><br><span class="line">        for(variable assignment;condition;iteration process) </span><br><span class="line">            &#123;for-body&#125;</span><br><span class="line">    特殊用法：能够遍历数组中的元素</span><br><span class="line">        语法：for(var in array) &#123;for-body&#125;</span><br><span class="line">    示例：</span><br><span class="line">        awk &#39;&#x2F;^[[:space:]]*linux16&#x2F;&#123;for(i&#x3D;1;i&lt;&#x3D;NF;i++) &#123;print $i,length($i)&#125;&#125;&#39; &#x2F;etc&#x2F;grub2.cfg</span><br><span class="line">空语句     </span><br><span class="line">单独一个分号表示一个空语句</span><br><span class="line">  </span><br><span class="line">    在下面这个程序里, for的循环体是一个空语句.</span><br><span class="line">        BEGIN &#123; FS &#x3D; &quot;\t&quot; &#125;</span><br><span class="line">            &#123; for (i &#x3D; 1; i &lt;&#x3D; NF &amp;&amp; $i !&#x3D; &quot;&quot;; i++);</span><br><span class="line">                if (i &lt;&#x3D; NF)</span><br><span class="line">                    print</span><br><span class="line">            &#125;</span><br><span class="line">    这个程序打印所有的, 包含空字段的行.</span><br></pre></td></tr></table></figure>
+<h3 id="循环性能比较"><a href="#循环性能比较" class="headerlink" title="循环性能比较"></a>循环性能比较</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">time (awk &#39;BEGIN&#123;total&#x3D;0;for(i&#x3D;0;i&lt;&#x3D;10000;i++)&#123;total+&#x3D;i;&#125;;print total;&#125;&#39;)</span><br><span class="line">time(total&#x3D;0;for i in &#123;1..10000&#125;;do total&#x3D;$(($total+i));done;echo $total)</span><br><span class="line">time(for ((i&#x3D;0;i&lt;&#x3D;10000;i++));do let total+&#x3D;i;done;echo $total)</span><br><span class="line">time(seq -s ”+” 10000|bc)</span><br></pre></td></tr></table></figure>
+<h3 id="switch语句"><a href="#switch语句" class="headerlink" title="switch语句"></a>switch语句</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">语法：</span><br><span class="line">        switch(expression) &#123;case VALUE1 or &#x2F;REGEXP&#x2F;: statement1; case VALUE2 or &#x2F;REGEXP2&#x2F;: statement2; ...; default: statementn&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>break 和continue </li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># awk ‘BEGIN&#123;sum&#x3D;0;for(i&#x3D;1;i&lt;&#x3D;100;i++) &#123;if(i%2&#x3D;&#x3D;0)continue;sum+&#x3D;i&#125;print sum&#125;‘</span><br><span class="line"># awk ‘BEGIN&#123;sum&#x3D;0;for(i&#x3D;1;i&lt;&#x3D;100;i++) &#123;if(i&#x3D;&#x3D;66)break;sum+&#x3D;i&#125;print sum&#125;‘</span><br></pre></td></tr></table></figure>
+<ul>
+<li>break [n]</li>
+<li>continue [n]</li>
+<li>next:提前结束对本行处理而直接进入下一行处理（awk自身循环）      </li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># awk -F: &#39;&#123;if($3%2!&#x3D;0) next; print $1,$3&#125;&#39; &#x2F;etc&#x2F;passwd</span><br></pre></td></tr></table></figure>
+<h3 id="awk数组"><a href="#awk数组" class="headerlink" title="awk数组"></a>awk数组</h3><ul>
+<li>关联数组：array[index-expression]<pre><code>index-expression:
+(1)可使用任意字符串；字符串要使用双引号括起来
+(2)如果某数组元素事先不存在，在引用时，awk会自动创建此元素，并将其值初始化为“空串”
+若要判断数组中是否存在某元素，要使用“index in array”格式进行遍历
+</code></pre>示例：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">weekdays[“mon”]&#x3D;&quot;Monday“</span><br><span class="line"># awk &#39;BEGIN&#123;weekdays[&quot;mon&quot;]&#x3D;&quot;Monday&quot;;weekdays[&quot;tue&quot;]&#x3D;&quot;Tuesday&quot;;print weekdays[&quot;mon&quot;]&#125;&#39;&#39;</span><br><span class="line"># awk &#39;BEGIN&#123;weekdays[&quot;mon&quot;]&#x3D;&quot;Monday&quot;;weekdays[&quot;tue&quot;]&#x3D;&quot;tuesday&quot;;for(i in weekdays) print weekdays[i]&#125;&#39;    </span><br><span class="line"># awk ‘!arr[$0]++’ dupfile   重复的行只显示一次</span><br><span class="line"># awk &#39;&#123;!arr[$0]++;print $0, arr[$0]&#125;&#39; dupfile   </span><br></pre></td></tr></table></figure>
+<ul>
+<li>若要遍历数组中的每个元素，要使用for循环<br>  for(var in array) {for-body}<br>  注意：var会遍历array的每个索引<br>示例：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># awk &#39;BEGIN&#123;weekdays[&quot;mon&quot;]&#x3D;&quot;Monday&quot;;weekdays[&quot;tue&quot;] &#x3D;&quot;Tuesday&quot;;for(i in weekdays) &#123;print weekdays[i]&#125;&#125;&#39;</span><br><span class="line">#  netstat -tan | awk &#39;&#x2F;^tcp&#x2F;&#123;state[$NF]++&#125;END &#123;for(i in state) &#123; print i,state[i]&#125;&#125;&#39;</span><br><span class="line"># awk &#39;&#123;ip[$1]++&#125;END&#123;for(i in ip) &#123;print i,ip[i]&#125;&#125;&#39; &#x2F;var&#x2F;log&#x2F;httpd</span><br><span class="line">&#x2F;access_log</span><br></pre></td></tr></table></figure>
+<h3 id="awk函数"><a href="#awk函数" class="headerlink" title="awk函数"></a>awk函数</h3><p>数值处理:<br>rand()：返回0和1之间一个随机数<br>        awk ‘BEGIN{rand(); for (i=1;i&lt;=10;i++)print int(rand()*100) }’</p>
+<h3 id="内建算术函数"><a href="#内建算术函数" class="headerlink" title="内建算术函数"></a>内建算术函数</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">函数</th>
+<th style="text-align:center">返回值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">atan2(y,x)</td>
+<td style="text-align:center">y/x的反正切值, 定义域在 −π到π之间</td>
+</tr>
+<tr>
+<td style="text-align:center">cos(x)</td>
+<td style="text-align:center">x的余弦值, x以弧度为单位</td>
+</tr>
+<tr>
+<td style="text-align:center">exp(x)</td>
+<td style="text-align:center">x的指数函数,e x</td>
+</tr>
+<tr>
+<td style="text-align:center">int(x)</td>
+<td style="text-align:center">x的整数部分; 当x大于0时, 向 0取整</td>
+</tr>
+<tr>
+<td style="text-align:center">log(x)</td>
+<td style="text-align:center">x的自然对数(以e为底)</td>
+</tr>
+<tr>
+<td style="text-align:center">rand()</td>
+<td style="text-align:center">返回一个随机数r, 0 ≤ r &lt; 1</td>
+</tr>
+<tr>
+<td style="text-align:center">sin(x)</td>
+<td style="text-align:center">x的正弦值, x以弧度为单位.</td>
+</tr>
+<tr>
+<td style="text-align:center">sqrt(x)</td>
+<td style="text-align:center">x的方根</td>
+</tr>
+<tr>
+<td style="text-align:center">srand(x)</td>
+<td style="text-align:center">x是rand() 的新的随机数种子</td>
+</tr>
+</tbody>
+</table>
+<h3 id="自定义函数"><a href="#自定义函数" class="headerlink" title="自定义函数"></a>自定义函数</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">格式：</span><br><span class="line">        function name ( parameter, parameter, ... ) &#123;</span><br><span class="line">            statements</span><br><span class="line">            return expression</span><br><span class="line">        &#125;</span><br><span class="line">    示例：</span><br><span class="line">        cat fun.awk</span><br><span class="line">            function max(v1,v2) &#123;</span><br><span class="line">                v1&gt;v2?var&#x3D;v1:var&#x3D;v2</span><br><span class="line">                         return var</span><br><span class="line">            &#125;</span><br><span class="line">            BEGIN&#123;a&#x3D;3;b&#x3D;2;print max(a,b)&#125;</span><br><span class="line">        awk -f fun.awk</span><br></pre></td></tr></table></figure>
+<h3 id="awk中调用shell命令"><a href="#awk中调用shell命令" class="headerlink" title="awk中调用shell命令"></a>awk中调用shell命令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">system命令</span><br><span class="line">空格是awk中的字符串连接符，如果system中需要使用awk中的变量可以使用空格分隔，或者说除了awk的变量外其他一律用&quot;&quot;引用起来。</span><br><span class="line"># awk BEGIN&#39;&#123;system(&quot;hostname&quot;) &#125;&#39;</span><br><span class="line"># awk &#39;BEGIN&#123;score&#x3D;100; system(&quot;echo your score is &quot; score) &#125;&#39;</span><br></pre></td></tr></table></figure>
+<h3 id="awk脚本"><a href="#awk脚本" class="headerlink" title="awk脚本"></a>awk脚本</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">将awk程序写成脚本，直接调用或执行</span><br><span class="line">示例：</span><br><span class="line"># cat f1.awk</span><br><span class="line">&#123;if($3&gt;&#x3D;1000)print $1,$3&#125;</span><br><span class="line"># awk -F: -f f1.awk &#x2F;etc&#x2F;passwd</span><br><span class="line"># cat f2.awk</span><br><span class="line">    #!&#x2F;bin&#x2F;awk -f</span><br><span class="line">        #this is a awk script</span><br><span class="line">        &#123;if($3&gt;&#x3D;1000)print $1,$3&#125;</span><br><span class="line">#chmod +x f2.awk</span><br><span class="line">#  f2.awk -F: &#x2F;etc&#x2F;passwd</span><br></pre></td></tr></table></figure>
+<h3 id="向awk脚本传递参数"><a href="#向awk脚本传递参数" class="headerlink" title="向awk脚本传递参数"></a>向awk脚本传递参数</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">格式：</span><br><span class="line">        awkfile var&#x3D;value var2&#x3D;value2... Inputfile</span><br><span class="line">    注意：在BEGIN过程中不可用。直到首行输入完成以后，变量才可用。可以通过-v参数，让awk在执行BEGIN之前得到变量的值。命令行中每一个指定的变量都需要一个-v参数</span><br></pre></td></tr></table></figure>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># cat test.awk</span><br><span class="line">            #!&#x2F;bin&#x2F;awk -f</span><br><span class="line">            &#123;if($3 &gt;&#x3D;min &amp;&amp; $3&lt;&#x3D;max)print $1,$3&#125;</span><br><span class="line">        chmod +x test.awk</span><br><span class="line"># test.awk -F: min&#x3D;100 max&#x3D;200 &#x2F;etc&#x2F;passwd</span><br></pre></td></tr></table></figure>
+
+  
+  
+    
+    <div class='footer'>
+      
+      
+      
+        <div class='copyright'>
+          <blockquote>
+            
+              
+                <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+              
+            
+              
+                <p>本文永久链接是：<a href=https://www.asjin.com/2018/06/18/awk%E7%9A%84%E7%BB%83%E4%B9%A0/>https://www.asjin.com/2018/06/18/awk%E7%9A%84%E7%BB%83%E4%B9%A0/</a></p>
+              
+            
+          </blockquote>
+        </div>
+      
+      
+    </div>
+  
+  
+    
+
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-09-28T15:30:32+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：Sep 28, 2020</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/linux/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>linux</p></a></div>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.asjin.com/2018/06/18/awk%E7%9A%84%E7%BB%83%E4%B9%A0/&title=awk 的练习 - 逝水锦遥&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://www.asjin.com/2018/06/18/awk%E7%9A%84%E7%BB%83%E4%B9%A0/&title=awk 的练习 - 逝水锦遥&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.asjin.com/2018/06/18/awk%E7%9A%84%E7%BB%83%E4%B9%A0/&title=awk 的练习 - 逝水锦遥&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png">
+          
+        </a>
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </div>
+
+
+  
+  
+
+  
+    <div class="prev-next">
+      
+        <a class='prev' href='/2018/07/19/python%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0%E4%B8%80/'>
+          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>python日常练习</p>
+          <p class='content'>[toc]
+python 日常练习
+解压序赋值给多个变量现有一个包含N个元素的元组或者是序列，将它里面的值解压后同时赋值给N个变量
+1234567891011121314151617181920...</p>
+        </a>
+      
+      
+        <a class='next' href='/2018/04/27/redis/'>
+          <p class='title'>redis 常用功能<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>[toc]
+redis 常用功能KV cache and storeREmote DIctionary Server(远程字典服务器)redis 运行都在内存中来实现，周期性的写入磁盘，来实现持...</p>
+        </a>
+      
+    </div>
+  
+</article>
+
+
+  
+
+  <article class="post white-box reveal floatable" id="comments">
+    <p ct><i class='fas fa-comments'></i> 评论</p>
+    
+    <div id="valine_container" class="valine_thread">
+  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+</div>
+
+  </article>
+
+
+
+
+
+
+</div>
+<aside class='l_side'>
+  
+  
+    
+    
+
+
+
+  <section class="widget toc-wrapper floatable desktop mobile" id="toc-div" >
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%88%E7%86%9F%E7%BB%83%E4%B8%80%E4%BA%9B%E6%93%8D%E4%BD%9C"><span class="toc-text">先熟练一些操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E3%80%81-%E4%BB%A5%E7%A9%BA%E6%A0%BC%E5%81%9A%E4%B8%BA%E5%88%86%E6%A0%BC%E7%AC%A6%EF%BC%8C%E6%89%93%E5%8D%B0passwd-%E6%96%87%E4%BB%B6%E7%9A%84%E7%AC%AC%E4%B8%80%E5%88%97"><span class="toc-text">1、 以空格做为分格符，打印passwd 文件的第一列</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%E3%80%81-%E4%BB%A5%E5%86%92%E5%8F%B7%E5%81%9A%E5%88%86%E6%A0%BC%E7%AC%A6%EF%BC%8C%E6%89%93%E5%8D%B0passwd-%E6%96%87%E4%BB%B6%E7%9A%84%E7%AC%AC%E4%B8%80%E5%88%97-%E5%8D%B3%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E7%B3%BB%E7%BB%9F%E4%B8%AD%E5%AD%98%E5%9C%A8%E7%9A%84%E6%89%80%E6%9C%89%E7%94%A8%E6%88%B7"><span class="toc-text">2、 以冒号做分格符，打印passwd 文件的第一列,即获取当前系统中存在的所有用户</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3%E3%80%81-%E4%BB%A5%E7%AE%A1%E9%81%93%E6%96%B9%E5%BC%8F%EF%BC%8C%E6%89%93%E5%8D%B0passwd-%E6%96%87%E4%BB%B6%E7%9A%84%E7%AC%AC%E4%B8%89%E5%88%97%EF%BC%8C%E5%8D%B3%E5%85%B1%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E7%B3%BB%E7%BB%9F%E4%B8%AD%E6%89%80%E6%9C%89%E7%94%A8%E6%88%B7%E7%9A%84id%E5%8F%B7"><span class="toc-text">3、 以管道方式，打印passwd 文件的第三列，即共获取当前系统中所有用户的id号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4%E3%80%81-%E4%BB%A5%E8%BE%93%E5%85%A5%E9%87%8D%E5%AE%9A%E5%90%91%E6%96%B9%E5%BC%8F%EF%BC%8C%E6%89%93%E5%8D%B0-passwd-%E6%96%87%E4%BB%B6%E7%9A%84%E7%AC%AC1%E5%88%97%EF%BC%8C%E5%8D%B3%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E7%B3%BB%E7%BB%9F%E4%B8%AD%E5%AD%98%E5%9C%A8%E7%9A%84%E6%89%80%E6%9C%89%E7%94%A8%E6%88%B7"><span class="toc-text">4、 以输入重定向方式，打印 passwd 文件的第1列，即获取当前系统中存在的所有用户</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5%E3%80%81%E7%94%A8awk-%E8%87%AA%E5%B8%A6BEGIN%E6%89%93%E5%8D%B0-hello-awk-%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-text">5、用awk 自带BEGIN打印  hello awk 字符串</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6%E3%80%81-%E7%94%A8awk-%E8%8E%B7%E5%8F%96df-%E5%91%BD%E4%BB%A4%E7%9A%84filesystem-%E4%B8%8Euserd"><span class="toc-text">6、 用awk  获取df 命令的filesystem 与userd %</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7%E3%80%81-%E7%BB%93%E5%90%88tail-%E5%91%BD%E4%BB%A4%E6%9D%A5%E8%BF%9B%E8%A1%8C%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%88%87%E5%89%B2"><span class="toc-text">7、 结合tail 命令来进行字符串切割</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8%E3%80%81-%E6%89%8B%E5%8A%A8%E6%8C%87%E5%AE%9A%E5%88%86%E9%9A%94%E7%AC%A6%E4%B8%BA-%EF%BC%8C%E6%89%93%E5%8D%B0%E7%AC%AC%E4%B8%80%E5%88%97-%E7%AC%AC%E4%B8%89%E5%88%97%EF%BC%8CFS-%E5%8D%B3%E6%8C%87%E5%AE%9A%E5%88%86%E9%9A%94%E7%AC%A6"><span class="toc-text">8、 手动指定分隔符为: ，打印第一列:第三列，FS 即指定分隔符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9%E3%80%81%E5%B0%86%E5%88%97%E5%87%BA%E5%88%86%E7%AC%A6%EF%BC%8C%E6%94%B9%E4%B8%BA%E5%85%B6%E5%AE%83%E7%9A%84%E5%AD%97%E7%AC%A6"><span class="toc-text">9、将列出分符，改为其它的字符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-%E3%80%81%E4%BB%A5%E7%A9%BA%E6%A0%BC%E5%81%9A%E4%B8%BA%E6%8D%A2%E8%A1%8C%E7%AC%A6%EF%BC%8C%E5%8F%96%E5%85%B6%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%AD%97%E6%AE%B5"><span class="toc-text">10 、以空格做为换行符，取其第一个字段</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11%E3%80%81-%E5%B0%86%E8%AE%B0%E5%BD%95%E8%BE%93%E5%87%BA%E5%88%86%E9%9A%94%E7%AC%A6%E9%BB%98%E8%AE%A4%E5%80%BC%E2%80%9D-n%E2%80%9D%EF%BC%8C%E6%8D%A2%E6%88%90%E2%80%9D-%E2%80%9D"><span class="toc-text">11、 将记录输出分隔符默认值”\n”，换成”&#x3D;&#x3D;&#x3D;”</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12%E3%80%81-%E6%88%AA%E5%8F%96-etc-passwd-%E7%9A%84%E7%99%BB%E5%BD%95shell"><span class="toc-text">12、 截取&#x2F;etc&#x2F;passwd 的登录shell</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#13%E3%80%81-%E6%88%AA%E5%8F%96-etc-passwd-%E7%9A%84%E5%AE%B6%E7%9B%AE%E5%BD%95"><span class="toc-text">13、 截取 &#x2F;etc&#x2F;passwd 的家目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#14%E3%80%81%E6%88%AA%E5%8F%96%E6%8C%87%E5%AE%9A%E5%AD%97%E6%AE%B5%E5%B9%B6%E6%89%93%E5%8D%B0awk-%E5%86%85%E7%BD%AE%E5%8F%98%E9%87%8F"><span class="toc-text">14、截取指定字段并打印awk 内置变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#15%E3%80%81-%E4%BB%A5%E5%86%92%E5%8F%B7%E5%88%86%E9%9A%94%E8%AE%B0%E5%BD%95%E5%BD%93%E5%89%8D%E5%AD%97%E6%AE%B5%E4%B8%AA%E6%95%B0%E5%B9%B6%E8%BF%9B%E8%A1%8C%E8%AE%A1%E7%AE%97"><span class="toc-text">15、 以冒号分隔记录当前字段个数并进行计算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#16%E3%80%81%E7%BB%9F%E8%AE%A1%E5%BD%93%E5%89%8D%E8%BE%93%E5%85%A5%E6%96%87%E4%BB%B6%E7%9A%84%E4%B8%AA%E6%95%B0"><span class="toc-text">16、统计当前输入文件的个数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#17%E3%80%81-%E6%89%93%E5%8D%B0%E4%B8%A4%E6%96%87%E4%BB%B6%E8%BE%93%E5%87%BA%E7%9A%84%E8%A1%8C%E6%95%B0"><span class="toc-text">17、 打印两文件输出的行数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#18%E3%80%81%E8%BE%93%E5%87%BA%E4%B8%A4%E6%96%87%E4%BB%B6%E7%9A%84%E6%96%87%E4%BB%B6%E5%90%8D%E8%A1%8C%E5%8F%B7%E5%8F%8A%E5%AF%B9%E5%BA%94%E7%94%A8%E7%9A%84%E7%94%A8%E6%88%B7%E5%90%8D"><span class="toc-text">18、输出两文件的文件名行号及对应用的用户名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#19%E3%80%81-%E7%BB%9F%E8%AE%A1%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%8F%82%E6%95%B0%E7%9A%84%E4%B8%AA%E6%95%B0"><span class="toc-text">19、 统计命令行参数的个数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#20%E3%80%81-%E6%89%93%E5%8D%B0%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%8F%82%E6%95%B0%E7%9A%84%E5%86%85%E5%AE%B9"><span class="toc-text">20、 打印命令行参数的内容</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#21%E3%80%81-%E6%8C%87%E5%AE%9A%E5%8F%98%E9%87%8F%E8%B0%83%E7%94%A8%E6%89%93%E5%8D%B0"><span class="toc-text">21、 指定变量调用打印</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#22-%E3%80%81-%E6%8C%87%E5%AE%9A%E5%A4%9A%E4%B8%AA%E5%8F%98%E9%87%8F%E8%B0%83%E7%94%A8%E6%89%93%E5%8D%B0%EF%BC%8C%E5%B9%B6%E5%8A%A0%E5%85%A5%E5%88%B6%E8%A1%A8%E7%AC%A6"><span class="toc-text">22 、 指定多个变量调用打印，并加入制表符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#23%E3%80%81-printf-%E6%8C%87%E5%AE%9A%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F"><span class="toc-text">23、 printf  指定输出格式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#24%E3%80%81awk-%E6%95%B0%E6%9C%AF%E8%BF%90%E7%AE%97%E6%93%8D%E4%BD%9C"><span class="toc-text">24、awk 数术运算操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#25%E3%80%81%E6%93%8D%E4%BD%9C%E7%AC%A6-amp-amp-%E4%B8%A4%E9%83%BD%E6%89%A7%E8%A1%8C"><span class="toc-text">25、操作符  &amp;&amp; 两都执行  ||</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#26%E3%80%81%E6%9D%A1%E4%BB%B6%E8%A1%A8%E8%BE%BE%E5%BC%8F%E4%B8%89%E7%9B%AE"><span class="toc-text">26、条件表达式三目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#27%E3%80%81%E5%B8%B8%E7%94%A8%E8%AF%AD%E6%B3%95%E7%BB%83%E4%B9%A0"><span class="toc-text">27、常用语法练习</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#28%E3%80%81%E6%AF%94%E8%BE%83%E7%BB%95%E7%9A%84%E7%BB%83%E4%B9%A0"><span class="toc-text">28、比较绕的练习</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#29%E3%80%81%E5%B8%B8%E8%A7%81%E5%BE%AA%E7%8E%AF%E4%B8%8E%E7%94%A8%E6%B3%95"><span class="toc-text">29、常见循环与用法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AWK-%E5%9F%BA%E7%A1%80"><span class="toc-text">AWK 基础</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95"><span class="toc-text">基本用法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#awk%E8%AF%AD%E8%A8%80"><span class="toc-text">awk语言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#awk%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="toc-text">awk工作原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#awk-%E6%A0%BC%E5%BC%8F"><span class="toc-text">awk 格式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#awk-%E5%8F%98%E9%87%8F"><span class="toc-text">awk 变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#printf-%E5%8F%82%E6%95%B0"><span class="toc-text">printf 参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%AE%E9%A5%B0%E7%AC%A6%EF%BC%9A"><span class="toc-text">修饰符：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#printf%E7%A4%BA%E4%BE%8B"><span class="toc-text">printf示例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E7%AC%A6%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="toc-text">操作符表达式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8"><span class="toc-text">函数调用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#awk-PATTERN"><span class="toc-text">awk PATTERN</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A8%A1%E5%BC%8F%E6%80%BB%E7%BB%93"><span class="toc-text">模式总结</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#awk-action"><span class="toc-text">awk action</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#awk%E6%8E%A7%E5%88%B6%E8%AF%AD%E5%8F%A5"><span class="toc-text">awk控制语句</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#if-else"><span class="toc-text">if-else</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#while%E5%BE%AA%E7%8E%AF"><span class="toc-text">while循环</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#do-while%E5%BE%AA%E7%8E%AF"><span class="toc-text">do-while循环</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#for%E5%BE%AA%E7%8E%AF"><span class="toc-text">for循环</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BE%AA%E7%8E%AF%E6%80%A7%E8%83%BD%E6%AF%94%E8%BE%83"><span class="toc-text">循环性能比较</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#switch%E8%AF%AD%E5%8F%A5"><span class="toc-text">switch语句</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#awk%E6%95%B0%E7%BB%84"><span class="toc-text">awk数组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#awk%E5%87%BD%E6%95%B0"><span class="toc-text">awk函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%85%E5%BB%BA%E7%AE%97%E6%9C%AF%E5%87%BD%E6%95%B0"><span class="toc-text">内建算术函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E5%87%BD%E6%95%B0"><span class="toc-text">自定义函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#awk%E4%B8%AD%E8%B0%83%E7%94%A8shell%E5%91%BD%E4%BB%A4"><span class="toc-text">awk中调用shell命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#awk%E8%84%9A%E6%9C%AC"><span class="toc-text">awk脚本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%91awk%E8%84%9A%E6%9C%AC%E4%BC%A0%E9%80%92%E5%8F%82%E6%95%B0"><span class="toc-text">向awk脚本传递参数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B"><span class="toc-text">示例</span></a></li></ol>
+    </div>
+  </section>
+
+
+  
+
+
+</aside>
+
+
+
+        
+        
+          <!--此文件用来存放一些不方便取值的变量-->
+<!--思路大概是将值藏到重加载的区域内-->
+
+<script>
+  window.pdata={}
+  pdata.ispage=true;
+  pdata.postTitle="awk 的练习";
+  pdata.commentPath="";
+  pdata.commentPlaceholder="";
+
+  var l_header=document.getElementById("l_header");
+  
+  l_header.classList.remove("show");
+  
+</script>
+
+        
+      </div>
+      
+  
+  <footer class="footer clearfix">
+    <br><br>
+    
+      
+        <div class="aplayer-container">
+          
+
+
+        </div>
+      
+    
+      
+        <br>
+        <div class="social-wrapper">
+          
+            
+          
+            
+          
+            
+          
+        </div>
+      
+    
+      
+        <div><p>博客内容遵循 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
+</div>
+      
+    
+      
+        
+      
+    
+      
+        本站使用
+        <a href="https://github.com/volantis-x/hexo-theme-volantis/tree/4.1.6" target="_blank" class="codename">Volantis</a>
+        作为主题，总访问量为
+          <span id="busuanzi_value_site_pv"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+          次
+        
+      
+    
+      
+        <div class='copyright'>
+        <p><a href="/">Copyright © 2017-2020 asjin.com</a></p>
+
+        </div>
+      
+    
+  </footer>
+
+
+      <a id="s-top" class="fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+    </div>
+  </div>
+  <div>
+    <script>
+window.volantis={};
+window.volantis.loadcss=document.getElementById("loadcss");
+/********************脚本懒加载函数********************************/
+function loadScript(src, cb) {
+var HEAD = document.getElementsByTagName('head')[0] || document.documentElement;
+var script = document.createElement('script');
+script.setAttribute('type','text/javascript');
+if (cb) script.onload = cb;
+script.setAttribute('src', src);
+HEAD.appendChild(script);
+}
+//https://github.com/filamentgroup/loadCSS
+var loadCSS = function( href, before, media, attributes ){
+	var doc = window.document;
+	var ss = doc.createElement( "link" );
+	var ref;
+	if( before ){
+		ref = before;
+	}
+	else {
+		var refs = ( doc.body || doc.getElementsByTagName( "head" )[ 0 ] ).childNodes;
+		ref = refs[ refs.length - 1];
+	}
+	var sheets = doc.styleSheets;
+	if( attributes ){
+		for( var attributeName in attributes ){
+			if( attributes.hasOwnProperty( attributeName ) ){
+				ss.setAttribute( attributeName, attributes[attributeName] );
+			}
+		}
+	}
+	ss.rel = "stylesheet";
+	ss.href = href;
+	ss.media = "only x";
+	function ready( cb ){
+		if( doc.body ){
+			return cb();
+		}
+		setTimeout(function(){
+			ready( cb );
+		});
+	}
+	ready( function(){
+		ref.parentNode.insertBefore( ss, ( before ? ref : ref.nextSibling ) );
+	});
+	var onloadcssdefined = function( cb ){
+		var resolvedHref = ss.href;
+		var i = sheets.length;
+		while( i-- ){
+			if( sheets[ i ].href === resolvedHref ){
+				return cb();
+			}
+		}
+		setTimeout(function() {
+			onloadcssdefined( cb );
+		});
+	};
+	function loadCB(){
+		if( ss.addEventListener ){
+			ss.removeEventListener( "load", loadCB );
+		}
+		ss.media = media || "all";
+	}
+	if( ss.addEventListener ){
+		ss.addEventListener( "load", loadCB);
+	}
+	ss.onloadcssdefined = onloadcssdefined;
+	onloadcssdefined( loadCB );
+	return ss;
+};
+</script>
+<script>
+  
+  loadCSS("https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14/css/all.min.css", window.volantis.loadcss);
+  
+  
+  
+  
+</script>
+<!-- required -->
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5/dist/jquery.min.js"></script>
+
+<script>
+  function pjax_fancybox() {
+    $(".md .gallery").find("img").each(function () { //渲染 fancybox
+      var element = document.createElement("a"); // a 标签
+      $(element).attr("class", "fancybox");
+      $(element).attr("pjax-fancybox", "");  // 过滤 pjax
+      $(element).attr("href", $(this).attr("src"));
+      if ($(this).attr("data-original")) {
+        $(element).attr("href", $(this).attr("data-original"));
+      }
+      $(element).attr("data-fancybox", "images");
+      var caption = "";   // 描述信息
+      if ($(this).attr('alt')) {  // 判断当前页面是否存在描述信息
+        $(element).attr('data-caption', $(this).attr('alt'));
+        caption = $(this).attr('alt');
+      }
+      var div = document.createElement("div");
+      $(div).addClass("fancybox");
+      $(this).wrap(div); // 最外层套 div ，其实主要作用还是 class 样式
+      var span = document.createElement("span");
+      $(span).addClass("image-caption");
+      $(span).text(caption); // 加描述
+      $(this).after(span);  // 再套一层描述
+      $(this).wrap(element);  // 最后套 a 标签
+    })
+    $(".md .gallery").find("img").fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+      closeClick: true,
+      helpers: {
+        overlay: {closeClick: true}
+      },
+      buttons: [
+        "zoom",
+        "close"
+      ]
+    });
+  };
+  function SCload_fancybox() {
+    if ($(".md .gallery").find("img").length == 0) return;
+    loadCSS("https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css", document.getElementById("loadcss"));
+    setTimeout(function() {
+      loadScript('https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js', pjax_fancybox)
+    }, 1);
+  };
+  $(function () {
+    SCload_fancybox();
+  });
+</script>
+
+
+<!-- internal -->
+
+
+
+
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.1.0/dist/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 0
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    lazyLoadInstance.update();
+  });
+  document.addEventListener('pjax:complete', function () {
+    lazyLoadInstance.update();
+  });
+</script>
+
+
+
+
+  
+  
+    <script async src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@2/js/instant_page.js" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+  
+
+
+
+
+  <script src="/js/clipboard.min.js"></script>
+<script>
+    var clipboard = new ClipboardJS('.btn-copy', {
+        target: function (trigger) {
+            return trigger.nextElementSibling
+        }
+    });
+    function wait(callback, seconds) {
+        var timelag = null;
+        timelag = window.setTimeout(callback, seconds)
+    }
+    function pjax_initCopyCode() {
+		if($(".highlight .code pre").length+$(".article pre code").length==0)return;
+        var copyHtml = '';
+        copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+        copyHtml += '<i class="fas fa-copy"></i><span>COPY</span>';
+        copyHtml += '</button>';
+        $(".highlight .code pre").before(copyHtml);
+        $(".article pre code").before(copyHtml);
+        clipboard.off('success').on('success', function (e) {
+            let $btn = $(e.trigger);
+            $btn.addClass('copied');
+            let $icon = $($btn.find('i'));
+            $icon.removeClass('fa-copy');
+            $icon.addClass('fa-check-circle');
+            let $span = $($btn.find('span'));
+            $span[0].innerText = 'COPIED';
+            wait(function () {
+                $icon.removeClass('fa-check-circle');
+                $icon.addClass('fa-copy');
+                $span[0].innerText = 'COPY'
+            }, 2000)
+        });
+        clipboard.off('error').on('error', function (e) {
+            e.clearSelection();
+            let $btn = $(e.trigger);
+            $btn.addClass('copy-failed');
+            let $icon = $($btn.find('i'));
+            $icon.removeClass('fa-copy');
+            $icon.addClass('fa-times-circle');
+            let $span = $($btn.find('span'));
+            $span[0].innerText = 'COPY FAILED';
+            wait(function () {
+                $icon.removeClass('fa-times-circle');
+                $icon.addClass('fa-copy');
+                $span[0].innerText = 'COPY'
+            }, 2000)
+        })
+    }
+    $(function () {
+        pjax_initCopyCode()
+    });
+</script>
+
+
+
+
+
+
+
+
+  
+  
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4/dist/Valine.min.js"></script>
+
+
+<script>
+  var GUEST_INFO = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link,header'.split(',').filter(function (item) {
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var REQUIRED_FIELDS = ['nick', 'mail', 'link'];
+  var requiredFields = 'nick,mail'.split(',').filter(function (item) {
+    return REQUIRED_FIELDS.indexOf(item) > -1
+  });
+
+  function emoji(path, idx, ext) {
+    return path + "/" + path + "-" + idx + "." + ext;
+  }
+
+  var emojiMaps = {};
+  for (var i = 1; i <= 54; i++) {
+    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
+  }
+  for (var i = 1; i <= 101; i++) {
+    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+  }
+  for (var i = 1; i <= 116; i++) {
+    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
+  }
+  for (var i = 1; i <= 125; i++) {
+    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
+  }
+  for (var i = 1; i <= 4; i++) {
+    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+  }
+
+  function pjax_valine() {
+    if(!document.querySelectorAll("#valine_container")[0])return;
+
+    let pagePlaceholder = pdata.commentPlaceholder || "快来评论吧~ 🤩 🤩 🤩";
+
+    let path = pdata.commentPath;
+    if (path.length == 0) {
+      let defaultPath = '';
+      path = defaultPath || decodeURI(window.location.pathname);
+    }
+
+    var valine = new Valine();
+    valine.init({
+      el: '#valine_container',
+      meta: meta,
+      placeholder: pagePlaceholder,
+      path: path,
+      appId: "NkJqMpxu4QlRLhPIHipNUHF1-gzGzoHsz",
+      appKey: "D2vTdueKJ8ammc2JEdje0vLW",
+      pageSize: '',
+      avatar: 'monsterid',
+      lang: '',
+      visitor: '',
+      highlight: '',
+      mathJax: '',
+      enableQQ: 'true',
+      recordIP: 'false',
+      requiredFields: requiredFields,
+      emojiCDN: 'https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/valine/',
+      emojiMaps: emojiMaps
+    })
+  }
+
+  $(function () {
+    pjax_valine();
+  });
+</script>
+
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js" data-pjax></script>
+
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-theme-volantis@4.1.6/source/js/app.min.js"></script>
+
+
+
+<!-- optional -->
+
+  <script>
+const SearchServiceimagePath="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@master/img/";
+const ROOT =  ("/" || "/").endsWith('/') ? ("/" || "/") : ("//" || "/" );
+
+$('.input.u-search-input').one('focus',function(){
+	
+		loadScript('https://cdn.jsdelivr.net/npm/hexo-theme-volantis@4.1.6/source/js/search/hexo.min.js',setSearchService);
+	
+})
+
+function listenSearch(){
+  
+    customSearch = new HexoSearch({
+      imagePath: SearchServiceimagePath
+    });
+  
+}
+function setSearchService() {
+	listenSearch();
+	
+		document.addEventListener("pjax:success", listenSearch);
+	
+}
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+function listennSidebarTOC() {
+  const navItems = document.querySelectorAll(".toc li");
+  if (!navItems.length) return;
+  const sections = [...navItems].map((element) => {
+    const link = element.querySelector(".toc-link");
+    const target = document.getElementById(
+      decodeURI(link.getAttribute("href")).replace("#", "")
+    );
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+      window.scrollTo({
+		top: target.offsetTop + 100,
+		
+		behavior: "smooth"
+		
+	  });
+    });
+    return target;
+  });
+
+  function activateNavByIndex(target) {
+    if (target.classList.contains("active-current")) return;
+
+    document.querySelectorAll(".toc .active").forEach((element) => {
+      element.classList.remove("active", "active-current");
+    });
+    target.classList.add("active", "active-current");
+    let parent = target.parentNode;
+    while (!parent.matches(".toc")) {
+      if (parent.matches("li")) parent.classList.add("active");
+      parent = parent.parentNode;
+    }
+  }
+
+  function findIndex(entries) {
+    let index = 0;
+    let entry = entries[index];
+    if (entry.boundingClientRect.top > 0) {
+      index = sections.indexOf(entry.target);
+      return index === 0 ? 0 : index - 1;
+    }
+    for (; index < entries.length; index++) {
+      if (entries[index].boundingClientRect.top <= 0) {
+        entry = entries[index];
+      } else {
+        return sections.indexOf(entry.target);
+      }
+    }
+    return sections.indexOf(entry.target);
+  }
+
+  function createIntersectionObserver(marginTop) {
+    marginTop = Math.floor(marginTop + 10000);
+    let intersectionObserver = new IntersectionObserver(
+      (entries, observe) => {
+        let scrollHeight = document.documentElement.scrollHeight + 100;
+        if (scrollHeight > marginTop) {
+          observe.disconnect();
+          createIntersectionObserver(scrollHeight);
+          return;
+        }
+        let index = findIndex(entries);
+        activateNavByIndex(navItems[index]);
+      },
+      {
+        rootMargin: marginTop + "px 0px -100% 0px",
+        threshold: 0,
+      }
+    );
+    sections.forEach((element) => {
+      element && intersectionObserver.observe(element);
+    });
+  }
+  createIntersectionObserver(document.documentElement.scrollHeight);
+}
+
+document.addEventListener("DOMContentLoaded", listennSidebarTOC);
+document.addEventListener("pjax:success", listennSidebarTOC);
+</script>
+
+<!-- more -->
+
+
+
+
+    
+      
+
+
+<script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script>
+
+
+<script>
+    var pjax;
+    document.addEventListener('DOMContentLoaded', function () {
+      pjax = new Pjax({
+        elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"]):not([pjax-fancybox])',
+        selectors: [
+          "title",
+          "#l_cover",
+          "#pjax-container",
+          "#pjax-header-nav-list"
+        ],
+        cacheBust: false,   // url 地址追加时间戳，用以避免浏览器缓存
+        timeout: 5000
+      });
+    });
+
+    document.addEventListener('pjax:send', function (e) {
+      //window.stop(); // 相当于点击了浏览器的停止按钮
+
+      try {
+        var currentUrl = window.location.pathname;
+        var targetUrl = e.triggerElement.href;
+        var banUrl = [""];
+        if (banUrl[0] != "") {
+          banUrl.forEach(item => {
+            if(currentUrl.indexOf(item) != -1 || targetUrl.indexOf(item) != -1) {
+              window.location.href = targetUrl;
+            }
+          });
+        }
+      } catch (error) {}
+
+      window.subData = null; // 移除标题（用于一二级导航栏切换处）
+      if (typeof $.fancybox != "undefined") {
+        $.fancybox.close();    // 关闭弹窗
+      }
+      volantis.$switcher.removeClass('active'); // 关闭移动端激活的搜索框
+      volantis.$header.removeClass('z_search-open'); // 关闭移动端激活的搜索框
+      volantis.$wrapper.removeClass('sub'); // 跳转页面时关闭二级导航
+
+      // 解绑事件 避免重复监听
+      volantis.$topBtn.unbind('click');
+      $('.menu a').unbind('click');
+      $(window).unbind('resize');
+      $(window).unbind('scroll');
+      $(document).unbind('scroll');
+      $(document).unbind('click');
+      $('body').unbind('click');
+	  
+    });
+
+    document.addEventListener('pjax:complete', function () {
+      // 关于百度统计对 SPA 页面的处理：
+      // 方案一：百度统计>管理>单页应用设置中，打开开启按钮即可对SPA进行统计。 https://tongji.baidu.com/web/help/article?id=324
+      // 方案二：取消注释下列代码。 https://tongji.baidu.com/web/help/article?id=235
+       
+
+      // 关于谷歌统计对 SPA 页面的处理：
+      // 当应用以动态方式加载内容并更新地址栏中的网址时，也应该更新通过 gtag.js 存储的网页网址。
+      // https://developers.google.cn/analytics/devguides/collection/gtagjs/single-page-applications?hl=zh-cn
+      
+	 
+
+      $('.nav-main').find('.list-v').not('.menu-phone').removeAttr("style",""); // 移除小尾巴的移除
+      $('.menu-phone.list-v').removeAttr("style",""); // 移除小尾巴的移除
+      $('script[data-pjax], .pjax-reload script').each(function () {
+        $(this).parent().append($(this).remove());
+      });
+      try{
+          if (typeof $.fancybox == "undefined") {
+            SCload_fancybox();
+          } else {
+            pjax_fancybox();
+          }
+        
+        
+        
+        
+        
+          pjax_initCopyCode();
+        
+        
+          pjax_valine();
+        
+        
+        
+        
+      } catch (e) {
+        console.log(e);
+      }
+	  
+    });
+
+    document.addEventListener('pjax:error', function (e) {
+	  
+      window.location.href = e.triggerElement.href;
+    });
+</script>
+
+    
+  </div>
+</body>
+</html>

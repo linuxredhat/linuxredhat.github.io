@@ -1,0 +1,1360 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head hexo-theme='https://github.com/volantis-x/hexo-theme-volantis/tree/4.1.6'>
+  <meta charset="utf-8">
+  <!-- SEO相关 -->
+  
+    
+  
+  <!-- 渲染优化 -->
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://cdn.jsdelivr.net'>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- 页面元数据 -->
+  
+  <title>kubernetes操作记录(七) - 逝水锦遥</title>
+  
+    <meta name="keywords" content="rhca,linux,cloud">
+  
+
+  
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="逝水锦遥" type="application/atom+xml">
+  
+
+  <!-- import meta -->
+  
+
+  <!-- link -->
+  
+
+  <!-- import link -->
+  
+
+  
+    
+<link rel="stylesheet" href="/css/first.css">
+
+  
+
+  
+  <link rel="stylesheet" href="/css/style.css" media="print" onload="this.media='all';this.onload=null">
+  <noscript><link rel="stylesheet" href="/css/style.css"></noscript>
+  
+
+  <script id="loadcss"></script>
+</head>
+
+
+<body>
+	  <canvas id="canvas" width="1440" height="900" ></canvas>
+	  <script type="text/javascript" src="/js/DigitalRain.js"></script>
+  
+
+<header id="l_header" class="l_header always floatable "  >
+  <div class='container'>
+  <div id='wrapper'>
+    <div class='nav-sub'>
+      <p class="title"></p>
+      <ul class='switcher nav-list-h m-phone' id="pjax-header-nav-list">
+        <li><a id="s-comment" class="fas fa-comments fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+          <li><a id="s-toc" class="s-toc fas fa-list fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+      </ul>
+    </div>
+		<div class="nav-main">
+      
+        
+        <a class="title flat-box" target="_self" href='/'>
+          
+            <img no-lazy class='logo' src='/images/head.png'/>
+          
+          
+          
+        </a>
+      
+
+			<div class='menu navigation'>
+				<ul class='nav-list-h m-pc'>
+          
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fab fa-linux fa-fw'></i>所有文章
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/program
+                  
+                  
+                  
+                    id="tagsprogram"
+                  >
+                  <i class='fab fa-gitlab fa-fw'></i>运维开发
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/rhca
+                  
+                  
+                  
+                    id="tagsrhca"
+                  >
+                  <i class='fas fa-heartbeat fa-fw'></i>运维组件
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/cloud
+                  
+                  
+                  
+                    id="tagscloud"
+                  >
+                  <i class='fas fa-cloud fa-fw'></i>云计算
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/zikao
+                  
+                  
+                  
+                    id="tagszikao"
+                  >
+                  <i class='fab fa-drupal fa-fw'></i>成自考
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/renjin
+                  
+                  
+                  
+                    id="tagsrenjin"
+                  >
+                  <i class='fas fa-user-circle fa-fw'></i>个人中心
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/box/
+                  
+                  
+                  
+                    id="box"
+                  >
+                  <i class='fas fa-flag fa-fw'></i>工具箱
+                </a>
+                
+              </li>
+            
+          
+          
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="搜索文章..." />
+        </form>
+      </div>
+
+			<ul class='switcher nav-list-h m-phone'>
+				
+					<li><a class="s-search fas fa-search fa-fw" target="_self" href='javascript:void(0)'></a></li>
+				
+				<li>
+          <a class="s-menu fas fa-bars fa-fw" target="_self" href='javascript:void(0)'></a>
+          <ul class="menu-phone list-v navigation white-box">
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fab fa-linux fa-fw'></i>所有文章
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/program
+                  
+                  
+                  
+                    id="tagsprogram"
+                  >
+                  <i class='fab fa-gitlab fa-fw'></i>运维开发
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/rhca
+                  
+                  
+                  
+                    id="tagsrhca"
+                  >
+                  <i class='fas fa-heartbeat fa-fw'></i>运维组件
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/cloud
+                  
+                  
+                  
+                    id="tagscloud"
+                  >
+                  <i class='fas fa-cloud fa-fw'></i>云计算
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/zikao
+                  
+                  
+                  
+                    id="tagszikao"
+                  >
+                  <i class='fab fa-drupal fa-fw'></i>成自考
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/renjin
+                  
+                  
+                  
+                    id="tagsrenjin"
+                  >
+                  <i class='fas fa-user-circle fa-fw'></i>个人中心
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/box/
+                  
+                  
+                  
+                    id="box"
+                  >
+                  <i class='fas fa-flag fa-fw'></i>工具箱
+                </a>
+                
+              </li>
+            
+          
+            
+          </ul>
+        </li>
+			</ul>
+		</div>
+	</div>
+  </div>
+</header>
+
+  <div id="l_body">
+    <div id="l_cover">
+  
+    
+        <div id="half" class='cover-wrapper post search' style="display: ;">
+          
+            <div class='cover-bg lazyload placeholder' data-bg="/images/background.jpg"></div>
+          
+          <div class='cover-body'>
+  <div class='top'>
+    
+    
+      <p class="title">S  S  J  Y</p>
+    
+    
+      <p class="subtitle">有志而性缓者思大志 有才而气和者为大才</p>
+    
+  </div>
+  <div class='bottom'>
+    
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <input type="text" class="input u-search-input" placeholder="搜索本地文章" />
+          <i class="icon fas fa-search fa-fw"></i>
+        </form>
+      </div>
+    
+    <div class='menu navigation'>
+      <div class='list-h'>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+          <div id="scroll-down" style="display: none;"><i class="fa fa-chevron-down scroll-down-effects"></i></div>
+        </div>
+    
+  
+  </div>
+
+    <div id='safearea'>
+      <div class='body-wrapper' id="pjax-container">
+        
+
+<div class='l_main'>
+  <article class="article post white-box reveal md floatable article-type-post" id="post" itemscope itemprop="blogPost">
+  
+
+
+  
+  <div class="article-meta" id="top">
+    
+    
+    
+      <h1 class="title">
+        kubernetes操作记录(七)
+      </h1>
+      <div class='new-meta-box'>
+        
+          
+            
+<div class='new-meta-item author'>
+  <a class='author' href="/images/rjrt.ico" rel="nofollow">
+    <img no-lazy src="/images/rjrt.ico">
+    <p>任锦</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：Jun 15, 2019</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class="new-meta-item browse busuanzi">
+    <a class='notlink'>
+      <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+      <p>
+        <span id="busuanzi_value_page_pv">
+          <i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i>
+        </span>
+        次浏览
+      </p>
+    </a>
+  </div>
+
+
+          
+        
+      </div>
+    
+  </div>
+
+
+  
+  <p>[toc]</p>
+<h1 id="kubernetes-操作记录七"><a href="#kubernetes-操作记录七" class="headerlink" title="kubernetes 操作记录七"></a>kubernetes 操作记录七</h1><p><img src="/images/docker_kubernetes.png" class="lazyload" data-srcset="/images/docker_kubernetes.png" srcset="data:image/png;base64,666" alt=""></p>
+<h2 id="资源指标API及自定义指标API"><a href="#资源指标API及自定义指标API" class="headerlink" title="资源指标API及自定义指标API"></a>资源指标API及自定义指标API</h2><p>资源指标: metrics-server<br>自定义指标: prometheus, k8s-prometheus-adapter</p>
+<p>新一代架构:<br>    核心指标流水线：由kubelet、metrics-server 以及由API server 提供的api组成;CPU、内存实时使用率、Pod的资源占用率及窗口的磁盘占用率;<br>    监控流水线: 用于从系统收集各种指标数据并提供终端用户、存储系统以及HPA。它们包含核心指标及许多非核心指标。非核心指标本身不能被k8s所解析;<br>    metrics-server: API server </p>
+<hr>
+<h3 id="部署-metrics-server"><a href="#部署-metrics-server" class="headerlink" title="部署 metrics-server"></a>部署 metrics-server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># mkdir metrics-server</span></span><br><span class="line"><span class="comment"># wget https://github.com/kubernetes-incubator/metrics-server/archive/v0.3.1.zip  </span></span><br><span class="line"><span class="comment"># cd metrics-server/metrics-server-0.3.1/deploy/1.8+/</span></span><br><span class="line"><span class="comment"># mv * ../../../</span></span><br></pre></td></tr></table></figure>
+<p>问题修正 </p>
+<ul>
+<li><p>问题1：metrics-server默认使用节点hostname通过kubelet 10250端口获取数据，但是coredns里面没有该数据无法解析(10.96.0.10:53)，可以在metrics server启动命令添加参数 –kubelet-preferred-address-types=InternalIP 直接使用节点IP地址获取数据</p>
+</li>
+<li><p>问题2：kubelet 的10250端口使用的是https协议，连接需要验证tls证书。可以在metrics server启动命令添加参数–kubelet-insecure-tls不验证客户端证书</p>
+</li>
+<li><p>问题3：yaml文件中的image地址k8s.gcr.io/metrics-server-amd64:v0.3.0 需要梯子，需要改成中国可以访问的image地址，可以使用aliyun的 <code>registry.cn-hangzhou.aliyuncs.com/google_containers/</code></p>
+</li>
+</ul>
+<p>修改以下内容</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">containers:</span></span><br><span class="line">     <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">metrics-server</span></span><br><span class="line">       <span class="comment">#image: k8s.gcr.io/metrics-server-amd64:v0.3.0</span></span><br><span class="line">       <span class="attr">image:</span> <span class="string">registry.cn-hangzhou.aliyuncs.com/google_containers/metrics-server-amd64:v0.3.0</span></span><br><span class="line">       <span class="attr">imagePullPolicy:</span> <span class="string">IfNotPresent</span></span><br><span class="line">       <span class="attr">command:</span></span><br><span class="line">       <span class="bullet">-</span> <span class="string">/metrics-server</span></span><br><span class="line">       <span class="bullet">-</span> <span class="string">--metric-resolution=30s</span></span><br><span class="line">       <span class="bullet">-</span> <span class="string">--kubelet-insecure-tls</span></span><br><span class="line">       <span class="bullet">-</span> <span class="string">--kubelet-preferred-address-types=InternalIP,Hostname,InternalDNS,ExternalDNS,ExternalIP</span></span><br><span class="line">       <span class="attr">volumeMounts:</span></span><br><span class="line">       <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">tmp-dir</span></span><br><span class="line">         <span class="attr">mountPath:</span> <span class="string">/tmp</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># kubectl api-versions | grep metrics</span></span><br><span class="line">metrics.k8s.io/v1beta1</span><br></pre></td></tr></table></figure>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"># curl  http://localhost:8080/apis/metrics.k8s.io/v1beta1</span><br><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;kind&quot;</span>: <span class="string">&quot;APIResourceList&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;apiVersion&quot;</span>: <span class="string">&quot;v1&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;groupVersion&quot;</span>: <span class="string">&quot;metrics.k8s.io/v1beta1&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;resources&quot;</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">&quot;name&quot;</span>: <span class="string">&quot;nodes&quot;</span>,</span><br><span class="line">      <span class="attr">&quot;singularName&quot;</span>: <span class="string">&quot;&quot;</span>,</span><br><span class="line">      <span class="attr">&quot;namespaced&quot;</span>: <span class="literal">false</span>,</span><br><span class="line">      <span class="attr">&quot;kind&quot;</span>: <span class="string">&quot;NodeMetrics&quot;</span>,</span><br><span class="line">      <span class="attr">&quot;verbs&quot;</span>: [</span><br><span class="line">        <span class="string">&quot;get&quot;</span>,</span><br><span class="line">        <span class="string">&quot;list&quot;</span></span><br><span class="line">      ]</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">&quot;name&quot;</span>: <span class="string">&quot;pods&quot;</span>,</span><br><span class="line">      <span class="attr">&quot;singularName&quot;</span>: <span class="string">&quot;&quot;</span>,</span><br><span class="line">      <span class="attr">&quot;namespaced&quot;</span>: <span class="literal">true</span>,</span><br><span class="line">      <span class="attr">&quot;kind&quot;</span>: <span class="string">&quot;PodMetrics&quot;</span>,</span><br><span class="line">      <span class="attr">&quot;verbs&quot;</span>: [</span><br><span class="line">        <span class="string">&quot;get&quot;</span>,</span><br><span class="line">        <span class="string">&quot;list&quot;</span></span><br><span class="line">      ]</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>错误日志排查</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># kubectl logs -f metrics-server-68cdb458db-rgjtr -c metrics-server -n kube-system</span></span><br></pre></td></tr></table></figure>
+<p>主要提供node  和Pod的监控数据;</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">kubectl  top nodes</span><br><span class="line">NAME                   CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%</span><br><span class="line">node01                  94m          4%     1574Mi          42%</span><br><span class="line">node02                  92m          4%     1901Mi          51%</span><br><span class="line">node03                  108m         5%     1803Mi          48%</span><br><span class="line">master                  238m         11%    1879Mi          50%</span><br></pre></td></tr></table></figure>
+<h3 id="prometheus-部署"><a href="#prometheus-部署" class="headerlink" title="prometheus 部署"></a>prometheus 部署</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># git clone https://github.com/iKubernetes/k8s-prom.git</span></span><br><span class="line"><span class="comment"># cd k8s-prom</span></span><br><span class="line"><span class="comment"># kubectl  apply -f namespace.yaml</span></span><br><span class="line"><span class="comment"># cd node_exporter/</span></span><br><span class="line"><span class="comment"># kubectl  apply -f ./</span></span><br><span class="line"><span class="comment"># kubectl get pods -n prom</span></span><br><span class="line">NAME                             READY   STATUS    RESTARTS   AGE</span><br><span class="line">prometheus-node-exporter-2xrqp   1/1     Running   0          47s</span><br><span class="line">prometheus-node-exporter-cgkp7   1/1     Running   0          47s</span><br><span class="line">prometheus-node-exporter-t7vh7   1/1     Running   0          47s</span><br><span class="line">prometheus-node-exporter-vrw89   1/1     Running   0          46s</span><br><span class="line"><span class="comment"># cd ../prometheus/</span></span><br><span class="line"><span class="comment"># kubectl apply -f ./</span></span><br></pre></td></tr></table></figure>
+<p><img src="/images/kubernetes-prometheus-deploy.png" class="lazyload" data-srcset="/images/kubernetes-prometheus-deploy.png" srcset="data:image/png;base64,666" alt=""></p>
+<p>注: 在生产环境中，至少要用pv存储，不然当Pod删除时，数据也会被删除; </p>
+<h3 id="安装-kube-state-metrics"><a href="#安装-kube-state-metrics" class="headerlink" title="安装  kube-state-metrics"></a>安装  kube-state-metrics</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># cd ../kube-state-metrics/</span></span><br><span class="line"><span class="comment"># vim kube-state-metrics-deploy.yaml # 修改image镜像源</span></span><br><span class="line">image: quay.io/coreos/kube-state-metrics:v1.3.1</span><br><span class="line"><span class="comment"># kubectl  apply -f ./</span></span><br><span class="line"><span class="comment"># kubectl  get all -n prom</span></span><br></pre></td></tr></table></figure>
+<h3 id="安装-k8s-prometheus-adapter"><a href="#安装-k8s-prometheus-adapter" class="headerlink" title="安装 k8s-prometheus-adapter"></a>安装 k8s-prometheus-adapter</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># &#x2F;etc&#x2F;kubernetes&#x2F;pki&#x2F;</span><br><span class="line"># (umask 077; openssl genrsa -out serving.key 2048)</span><br><span class="line"># openssl req -new -key serving.key -out serving.csr -subj &quot;&#x2F;CN&#x3D;serving&quot;</span><br><span class="line"># openssl x509 -req -in serving.csr  -CA .&#x2F;ca.crt -CAkey .&#x2F;ca.key -CAcreateserial -out serving.crt -days 36500</span><br><span class="line"># kubectl create generic cm-adapter-serving-certs --from-file&#x3D;serving.crt --from-file&#x3D;serving.key</span><br><span class="line"># kubectl create secret  generic cm-adapter-serving-certs --from-file&#x3D;serving.crt --from-file&#x3D;serving.key -n prom</span><br><span class="line"># cd manifests&#x2F;metrics&#x2F;k8s-prom&#x2F;k8s-prometheus-adapter</span><br><span class="line"># kubectl apply -f .&#x2F;</span><br></pre></td></tr></table></figure>
+<p>发现<code>k8s-prometheus-adapter</code>中的<code>custom-metrics-apiserver-deployment.yaml</code> 配置变了，这里可以根据原有内容 <code>image: directxman12/k8s-prometheus-adapter-amd64</code> google搜索<code>directxman12</code><a target="_blank" rel="noopener" href="https://github.com/DirectXMan12/k8s-prometheus-adapter/tree/master/deploy/manifests">更新</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># mv custom-metrics-apiserver-deployment.yaml&#123;,.bak&#125;</span></span><br><span class="line"><span class="comment"># wget https://raw.githubusercontent.com/DirectXMan12/k8s-prometheus-adapter/master/deploy/manifests/custom-metrics-apiserver-deployment.yaml</span></span><br><span class="line"><span class="comment"># vim custom-metrics-apiserver-deployment.yaml # 改namespace: prom </span></span><br><span class="line"><span class="comment"># wget https://raw.githubusercontent.com/DirectXMan12/k8s-prometheus-adapter/master/deploy/manifests/custom-metrics-config-map.yaml</span></span><br><span class="line"><span class="comment"># vim custom-metrics-config-map.yaml  # 改namespace: prom </span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># kubectl  get all -n prom</span></span><br><span class="line">NAME                                            READY   STATUS    RESTARTS   AGE</span><br><span class="line">pod/custom-metrics-apiserver-667fd4fffd-qs2zk   1/1     Running   0          3m18s</span><br><span class="line">pod/kube-state-metrics-6697d66bbb-w7k4d         1/1     Running   0          20m</span><br><span class="line">pod/prometheus-node-exporter-2xrqp              1/1     Running   0          71m</span><br><span class="line">pod/prometheus-node-exporter-cgkp7              1/1     Running   0          71m</span><br><span class="line">pod/prometheus-node-exporter-t7vh7              1/1     Running   0          71m</span><br><span class="line">pod/prometheus-node-exporter-vrw89              1/1     Running   0          71m</span><br><span class="line">pod/prometheus-server-75cf46bdbc-kpgzs          1/1     Running   0          69m</span><br></pre></td></tr></table></figure>
+<p>补充kubelet 启动失败 <code>swapoff -a</code><br>新入新节点时卡住 <code>kubeadm token create</code>  <code>kubeadm token list</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># curl http://localhost:8080/apis/custom.metrics.k8s.io/v1beta1</span></span><br></pre></td></tr></table></figure>
+<h3 id="安装-grafana"><a href="#安装-grafana" class="headerlink" title="安装 grafana"></a>安装 grafana</h3><p>改原grafana 配置文件 </p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">apps/v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Deployment</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">monitoring-grafana</span></span><br><span class="line">  <span class="attr">namespace:</span> <span class="string">prom</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">replicas:</span> <span class="number">1</span></span><br><span class="line">  <span class="attr">selector:</span></span><br><span class="line">    <span class="attr">matchLabels:</span></span><br><span class="line">      <span class="attr">task:</span> <span class="string">monitoring</span></span><br><span class="line">      <span class="attr">k8s-app:</span> <span class="string">grafana</span></span><br><span class="line">  <span class="attr">template:</span></span><br><span class="line">    <span class="attr">metadata:</span></span><br><span class="line">      <span class="attr">labels:</span></span><br><span class="line">        <span class="attr">task:</span> <span class="string">monitoring</span></span><br><span class="line">        <span class="attr">k8s-app:</span> <span class="string">grafana</span></span><br><span class="line">    <span class="attr">spec:</span></span><br><span class="line">      <span class="attr">containers:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">grafana</span></span><br><span class="line">        <span class="attr">image:</span> <span class="string">registry.cn-hangzhou.aliyuncs.com/google_containers/heapster-grafana-amd64:v5.0.4</span></span><br><span class="line">        <span class="attr">ports:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="attr">containerPort:</span> <span class="number">3000</span></span><br><span class="line">          <span class="attr">protocol:</span> <span class="string">TCP</span></span><br><span class="line">        <span class="attr">volumeMounts:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="attr">mountPath:</span> <span class="string">/etc/ssl/certs</span></span><br><span class="line">          <span class="attr">name:</span> <span class="string">ca-certificates</span></span><br><span class="line">          <span class="attr">readOnly:</span> <span class="literal">true</span></span><br><span class="line">        <span class="bullet">-</span> <span class="attr">mountPath:</span> <span class="string">/var</span></span><br><span class="line">          <span class="attr">name:</span> <span class="string">grafana-storage</span></span><br><span class="line">        <span class="attr">env:</span></span><br><span class="line">        <span class="comment">#- name: INFLUXDB_HOST</span></span><br><span class="line">        <span class="comment">#  value: monitoring-influxdb</span></span><br><span class="line">        <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">GF_SERVER_HTTP_PORT</span></span><br><span class="line">          <span class="attr">value:</span> <span class="string">&quot;3000&quot;</span></span><br><span class="line">          <span class="comment"># The following env variables are required to make Grafana accessible via</span></span><br><span class="line">          <span class="comment"># the kubernetes api-server proxy. On production clusters, we recommend</span></span><br><span class="line">          <span class="comment"># removing these env variables, setup auth for grafana, and expose the grafana</span></span><br><span class="line">          <span class="comment"># service using a LoadBalancer or a public IP.</span></span><br><span class="line">        <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">GF_AUTH_BASIC_ENABLED</span></span><br><span class="line">          <span class="attr">value:</span> <span class="string">&quot;false&quot;</span></span><br><span class="line">        <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">GF_AUTH_ANONYMOUS_ENABLED</span></span><br><span class="line">          <span class="attr">value:</span> <span class="string">&quot;true&quot;</span></span><br><span class="line">        <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">GF_AUTH_ANONYMOUS_ORG_ROLE</span></span><br><span class="line">          <span class="attr">value:</span> <span class="string">Admin</span></span><br><span class="line">        <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">GF_SERVER_ROOT_URL</span></span><br><span class="line">          <span class="comment"># If you&#x27;re only using the API Server proxy, set this value instead:</span></span><br><span class="line">          <span class="comment"># value: /api/v1/namespaces/kube-system/services/monitoring-grafana/proxy</span></span><br><span class="line">          <span class="attr">value:</span> <span class="string">/</span></span><br><span class="line">      <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">ca-certificates</span></span><br><span class="line">        <span class="attr">hostPath:</span></span><br><span class="line">          <span class="attr">path:</span> <span class="string">/etc/ssl/certs</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">grafana-storage</span></span><br><span class="line">        <span class="attr">emptyDir:</span> &#123;&#125;</span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Service</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">labels:</span></span><br><span class="line">    <span class="comment"># For use as a Cluster add-on (https://github.com/kubernetes/kubernetes/tree/master/cluster/addons)</span></span><br><span class="line">    <span class="comment"># If you are NOT using this as an addon, you should comment out this line.</span></span><br><span class="line">    <span class="attr">kubernetes.io/cluster-service:</span> <span class="string">&#x27;true&#x27;</span></span><br><span class="line">    <span class="attr">kubernetes.io/name:</span> <span class="string">monitoring-grafana</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">monitoring-grafana</span></span><br><span class="line">  <span class="attr">namespace:</span> <span class="string">prom</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="comment"># In a production setup, we recommend accessing Grafana through an external Loadbalancer</span></span><br><span class="line">  <span class="comment"># or through a public IP.</span></span><br><span class="line">  <span class="comment"># type: LoadBalancer</span></span><br><span class="line">  <span class="comment"># You could also use NodePort to expose the service at a randomly-generated port</span></span><br><span class="line">  <span class="comment"># type: NodePort</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">NodePort</span></span><br><span class="line">  <span class="attr">ports:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">port:</span> <span class="number">80</span></span><br><span class="line">    <span class="attr">targetPort:</span> <span class="number">3000</span></span><br><span class="line">    <span class="attr">nodePort:</span> <span class="number">30098</span></span><br><span class="line">    <span class="attr">protocol:</span> <span class="string">TCP</span></span><br><span class="line">  <span class="attr">selector:</span></span><br><span class="line">    <span class="attr">k8s-app:</span> <span class="string">grafana</span></span><br><span class="line"><span class="comment"># kubectl apply -f grafana.yaml</span></span><br></pre></td></tr></table></figure>
+<p><img src="/images/kubernetes-prometheus-grafana.png" class="lazyload" data-srcset="/images/kubernetes-prometheus-grafana.png" srcset="data:image/png;base64,666" alt=""><br><img src="/images/kubernetes-prometheus-datasources.png" class="lazyload" data-srcset="/images/kubernetes-prometheus-datasources.png" srcset="data:image/png;base64,666" alt=""></p>
+<p>下载并导入<a target="_blank" rel="noopener" href="https://grafana.com/dashboards/">模版</a><br><img src="/images/kubernetest-prometheus-dashboard.png" class="lazyload" data-srcset="/images/kubernetest-prometheus-dashboard.png" srcset="data:image/png;base64,666" alt=""></p>
+<h2 id="资源限制与伸缩"><a href="#资源限制与伸缩" class="headerlink" title="资源限制与伸缩"></a>资源限制与伸缩</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># kubectl run myapp --image=ikubernetes/myapp:v1 --replicas=0 --requests=&#x27;cpu=50m,memory=256Mi&#x27; --limits=&#x27;cpu=50m,memory=256Mi&#x27; --labels=&#x27;app=myapp&#x27; --expose --port=80</span></span><br><span class="line"><span class="comment"># kubectl autoscale deployment myapp --min=1 --max=8 --cpu-percent=60</span></span><br><span class="line">horizontalpodautoscaler.autoscaling/myapp autoscaled</span><br><span class="line"><span class="comment">#  kubectl get hpa</span></span><br><span class="line">NAME    REFERENCE          TARGETS   MINPODS   MAXPODS   REPLICAS   AGE</span><br><span class="line">myapp   Deployment/myapp   0%/60%    1         8         1          22s</span><br><span class="line"><span class="comment"># kubectl patch svc myapp -p &#x27;&#123;&quot;spec&quot;:&#123;&quot;type&quot;: &quot;NodePort&quot;&#125;&#125;&#x27;</span></span><br><span class="line">service/myapp patched</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#ssjinyao ➤ ab -c 100 -n 50000 http://xx.x.xx.xx:31257/index.html</span></span><br></pre></td></tr></table></figure>
+<p>当压测，CPU 内存资源超出时，会扩展Pod数目</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">autoscaling/v2beta1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">HorizontalPodAutoscaler</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">myapp-hpa-v2</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">scaleTargetRef:</span></span><br><span class="line">    <span class="attr">apiVersion:</span> <span class="string">apps/v1</span></span><br><span class="line">    <span class="attr">kind:</span> <span class="string">Deployment</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">myapp</span></span><br><span class="line">  <span class="attr">minReplicas:</span> <span class="number">1</span></span><br><span class="line">  <span class="attr">maxReplicas:</span> <span class="number">10</span></span><br><span class="line">  <span class="attr">metrics:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">type:</span> <span class="string">Resource</span></span><br><span class="line">    <span class="attr">resource:</span></span><br><span class="line">      <span class="attr">name:</span> <span class="string">cpu</span></span><br><span class="line">      <span class="attr">targetAverageUtilization:</span> <span class="number">55</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">type:</span> <span class="string">Resource</span></span><br><span class="line">    <span class="attr">resource:</span></span><br><span class="line">      <span class="attr">name:</span> <span class="string">memory</span></span><br><span class="line">      <span class="attr">targetAverageValue:</span> <span class="string">50Mi</span></span><br></pre></td></tr></table></figure>
+<p>根据请求数升Pod数</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">autoscaling/v2beta1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">HorizontalPodAutoscaler</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">myapp-hpa-v2</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">scaleTargetRef:</span></span><br><span class="line">    <span class="attr">apiVersion:</span> <span class="string">apps/v1</span></span><br><span class="line">    <span class="attr">kind:</span> <span class="string">Deployment</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">myapp</span></span><br><span class="line">  <span class="attr">minReplicas:</span> <span class="number">1</span></span><br><span class="line">  <span class="attr">maxReplicas:</span> <span class="number">10</span></span><br><span class="line">  <span class="attr">metrics:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">type:</span> <span class="string">Pods</span></span><br><span class="line">    <span class="attr">pods:</span></span><br><span class="line">      <span class="attr">metricName:</span> <span class="string">http_requests</span></span><br><span class="line">      <span class="attr">targetAverageValue:</span> <span class="string">800m</span></span><br></pre></td></tr></table></figure>
+<h2 id="helm-入门"><a href="#helm-入门" class="headerlink" title="helm 入门"></a>helm 入门</h2><p>核心术语:<br>    Chart: 一个helm程序包;<br>    Repository: Charts仓库,https/http服务器;<br>    Release:特定的Chart部署于目标集群上的一个实例;<br>    Chart -&gt; Config -&gt; Release<br>程序架构:<br>    helm：客户端，管理本地的Chart仓库，管理Chart，与Tiller服务器交互，发送Chart,实例安装、查询、卸载等操作<br>    Tiller:  服务端 ，接收helm发来的Chart与Config,合并生成release;<br> <a target="_blank" rel="noopener" href="https://github.com/helm/helm">helm github官网</a></p>
+<hr>
+<h3 id="安装helm"><a href="#安装helm" class="headerlink" title="安装helm"></a>安装helm</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># wget https://get.helm.sh/helm-v2.9.1-linux-amd64.tar.gz</span></span><br><span class="line"><span class="comment"># mv linux-amd64/helm  /usr/sbin/</span></span><br><span class="line"><span class="comment"># helm </span></span><br></pre></td></tr></table></figure>
+<p>要使用helm 还需要安装 Tiller<br>helm 会识别 <code>.kube/config</code> 扮演成kubectl 客户端去连接至kubernetes集群 </p>
+<h3 id="安装-Tiller"><a href="#安装-Tiller" class="headerlink" title="安装 Tiller"></a>安装 Tiller</h3><p><a target="_blank" rel="noopener" href="https://github.com/helm/helm/blob/master/docs/rbac.md">ClusterRoleBinding RBAC配置文件</a></p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># mkdir helm</span></span><br><span class="line"><span class="comment"># cd helm/</span></span><br><span class="line"><span class="comment"># vim tiller-rbac.yaml</span></span><br><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">ServiceAccount</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">tiller</span></span><br><span class="line">  <span class="attr">namespace:</span> <span class="string">kube-system</span></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">apiVersion:</span> <span class="string">rbac.authorization.k8s.io/v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">ClusterRoleBinding</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">tiller</span></span><br><span class="line"><span class="attr">roleRef:</span></span><br><span class="line">  <span class="attr">apiGroup:</span> <span class="string">rbac.authorization.k8s.io</span></span><br><span class="line">  <span class="attr">kind:</span> <span class="string">ClusterRole</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">cluster-admin</span></span><br><span class="line"><span class="attr">subjects:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">kind:</span> <span class="string">ServiceAccount</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">tiller</span></span><br><span class="line">    <span class="attr">namespace:</span> <span class="string">kube-system</span></span><br><span class="line"><span class="comment"># kubectl apply -f tiller-rbac.yaml</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># helm init --service-account tiller</span></span><br></pre></td></tr></table></figure>
+<p>报错与处理</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># helm init --service-account tiller</span></span><br><span class="line">Creating /root/.helm</span><br><span class="line">Creating /root/.helm/repository</span><br><span class="line">Creating /root/.helm/repository/cache</span><br><span class="line">Creating /root/.helm/repository/<span class="built_in">local</span></span><br><span class="line">Creating /root/.helm/plugins</span><br><span class="line">Creating /root/.helm/starters</span><br><span class="line">Creating /root/.helm/cache/archive</span><br><span class="line">Creating /root/.helm/repository/repositories.yaml</span><br><span class="line">Adding stable repo with URL: https://kubernetes-charts.storage.googleapis.com</span><br><span class="line">Error: Looks like <span class="string">&quot;https://kubernetes-charts.storage.googleapis.com&quot;</span> is not a valid chart repository or cannot be reached: Get https://kubernetes-charts.storage.googleapis.com/index.yaml: <span class="built_in">read</span> tcp 10.1.87.80:41084-&gt;172.217.163.240:443: <span class="built_in">read</span>: connection reset by peer</span><br></pre></td></tr></table></figure>
+<p>添加国内源 </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># helm init --client-only --stable-repo-url https://kubernetes.oss-cn-hangzhou.aliyuncs.com/charts</span></span><br></pre></td></tr></table></figure>
+<p>如果报如下错误，请按照下面解决</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Error: Couldn<span class="string">&#x27;t load repositories file (/home/docker/.helm/repository/repositories.yaml).</span></span><br><span class="line"><span class="string">You might need to run `helm init` (or `helm init --client-only` if tiller is already installed)</span></span><br></pre></td></tr></table></figure>
+<p>解决办法</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">helm init --client-only --stable-repo-url https://kubernetes.oss-cn-hangzhou.aliyuncs.com/charts</span><br></pre></td></tr></table></figure>
+<p>–stable-repo-url 指定下载软件从那个源下载，默认的是从google下载，国内下载不下来，所以我们指定源为阿里云的源。</p>
+<p>下载完之后我们还把源更换回来，要不然后面会报错</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># helm repo add rancher-stable https://releases.rancher.com/server-charts/stable</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># helm init --service-account tiller --tiller-image \</span></span><br><span class="line">registry.cn-hangzhou.aliyuncs.com/google_containers/tiller:v2.12.3 \</span><br><span class="line">--stable-repo-url https://kubernetes.oss-cn-hangzhou.aliyuncs.com/charts</span><br></pre></td></tr></table></figure>
+<p>更新 helm 源 </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># helm repo update</span></span><br><span class="line">Hang tight <span class="keyword">while</span> we grab the latest from your chart repositories...</span><br><span class="line">...Skip <span class="built_in">local</span> chart repository</span><br><span class="line">...Successfully got an update from the <span class="string">&quot;stable&quot;</span> chart repository</span><br><span class="line">...Successfully got an update from the <span class="string">&quot;rancher-stable&quot;</span> chart repository</span><br><span class="line">Update Complete. ⎈ Happy Helming!⎈</span><br></pre></td></tr></table></figure>
+<p>helm 官方可用的<a target="_blank" rel="noopener" href="https://hub.kubeapps.com/">Chart列表</a> </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># helm search jenkins  # 搜索应用</span></span><br><span class="line"><span class="comment"># helm inspect stable/jenkins  # 查看使用配置信息</span></span><br><span class="line"><span class="comment"># helm install --name mem1 stable/memcached # 安装Memcached</span></span><br><span class="line"><span class="comment"># kubectl get pods --namespace default -l &quot;app=mem1-memcached&quot; -o jsonpath=&quot;&#123;.items[0].metadata.name&#125;&quot; mem1-memcached-0 #验证</span></span><br></pre></td></tr></table></figure>
+<h3 id="helm-常用命令"><a href="#helm-常用命令" class="headerlink" title="helm 常用命令"></a>helm 常用命令</h3><p>release 管理</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">insstall</span><br><span class="line">delete</span><br><span class="line">upgrade/rollback</span><br><span class="line">list</span><br><span class="line"><span class="built_in">history</span></span><br><span class="line">status 获取release 状态信息</span><br></pre></td></tr></table></figure>
+<p>chart 管理</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">crate</span><br><span class="line">fetch </span><br><span class="line">get </span><br><span class="line">inspect</span><br><span class="line">package</span><br><span class="line">verify</span><br></pre></td></tr></table></figure>
+<p>chart get 到本地路径 <code>/root/.helm/cache/archive</code></p>
+<p>根据自定义变量创建</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># helm install --name redis1 -f values.yaml stable/redis</span></span><br><span class="line"><span class="comment"># helm status redis1 # 再次显示NOTES</span></span><br></pre></td></tr></table></figure>
+<h2 id="部署EFK-日志系统"><a href="#部署EFK-日志系统" class="headerlink" title="部署EFK 日志系统"></a>部署EFK 日志系统</h2><h3 id="部署elasticsearch"><a href="#部署elasticsearch" class="headerlink" title="部署elasticsearch"></a>部署elasticsearch</h3><p>EFK: Fluentd </p>
+<p>在容器集群岩调，再接入Pod查询日志是不可能的，所以必要的有一个统一的日志收集系统;<br>一个完整的kubernetes系统应该有:kubedns or coredns ,ingress-contraler,heapster or metracs server prometheus  , dashboard 。而EFK是一个kubernetes基本上需要提供的完整组件;</p>
+<p>添加helm源</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># helm repo add extra https://burdenbear.github.io/kube-charts-mirror/</span></span><br><span class="line"><span class="comment"># helm repo add stable http://mirror.azure.cn/kubernetes/charts/ </span></span><br><span class="line"><span class="comment"># helm repo add incubator http://mirror.azure.cn/kubernetes/charts-incubator/</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#  helm fetch stable/elasticsearch</span></span><br><span class="line"><span class="comment"># helm fetch stable/fluentd-elasticsearch</span></span><br><span class="line"><span class="comment">#  helm fetch stable/kibana</span></span><br><span class="line"><span class="comment"># tar -xvf elasticsearch-1.28.5.tgz</span></span><br><span class="line"><span class="comment">#  tar -xvf fluentd-elasticsearch-2.0.7.tgz</span></span><br><span class="line"><span class="comment">#  tar -xvf kibana-3.1.0.tgz</span></span><br><span class="line"><span class="comment"># cd elasticsearch</span></span><br><span class="line"><span class="comment">#  vim values.yaml # 修改以下内容 </span></span><br><span class="line">  pullPolicy: <span class="string">&quot;IfNotPresent&quot;</span></span><br><span class="line">    persistence:</span><br><span class="line">    enabled: <span class="literal">false</span></span><br><span class="line"><span class="comment"># kubectl create namespace efk</span></span><br><span class="line"><span class="comment"># helm package elasticsearch/</span></span><br><span class="line"><span class="comment"># 新开启一个终端</span></span><br><span class="line"><span class="comment"># helm serve</span></span><br><span class="line">Regenerating index. This may take a moment.</span><br><span class="line">Now serving you on 127.0.0.1:8879</span><br><span class="line"></span><br><span class="line"><span class="comment"># helm install --name els1 --namespace=efk  local/elasticsearch</span></span><br></pre></td></tr></table></figure>
+<p>测试</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># kubectl run cirror-$RANDOM --rm -it --image=cirros -- /bin/sh</span></span><br><span class="line">/ <span class="comment"># nslookup els1-elasticsearch-client.efk.svc</span></span><br><span class="line">Server:    10.96.0.10</span><br><span class="line">Address 1: 10.96.0.10 kube-dns.kube-system.svc.cluster.local</span><br><span class="line"></span><br><span class="line">Name:      els1-elasticsearch-client.efk.svc</span><br><span class="line">Address 1: 10.111.159.57 els1-elasticsearch-client.efk.svc.cluster.local</span><br><span class="line">curl els1-elasticsearch-client.efk.svc.cluster.local:9200</span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;name&quot;</span> : <span class="string">&quot;els1-elasticsearch-client-787568fb55-9zd9k&quot;</span>,</span><br><span class="line">  <span class="string">&quot;cluster_name&quot;</span> : <span class="string">&quot;elasticsearch&quot;</span>,</span><br><span class="line">  <span class="string">&quot;cluster_uuid&quot;</span> : <span class="string">&quot;_na_&quot;</span>,</span><br><span class="line">  <span class="string">&quot;version&quot;</span> : &#123;</span><br><span class="line">    <span class="string">&quot;number&quot;</span> : <span class="string">&quot;6.4.3&quot;</span>,</span><br><span class="line">    <span class="string">&quot;build_flavor&quot;</span> : <span class="string">&quot;default&quot;</span>,</span><br><span class="line">    <span class="string">&quot;build_type&quot;</span> : <span class="string">&quot;tar&quot;</span>,</span><br><span class="line">    <span class="string">&quot;build_hash&quot;</span> : <span class="string">&quot;fe40335&quot;</span>,</span><br><span class="line">    <span class="string">&quot;build_date&quot;</span> : <span class="string">&quot;2018-10-30T23:17:19.084789Z&quot;</span>,</span><br><span class="line">    <span class="string">&quot;build_snapshot&quot;</span> : <span class="literal">false</span>,</span><br><span class="line">    <span class="string">&quot;lucene_version&quot;</span> : <span class="string">&quot;7.4.0&quot;</span>,</span><br><span class="line">    <span class="string">&quot;minimum_wire_compatibility_version&quot;</span> : <span class="string">&quot;5.6.0&quot;</span>,</span><br><span class="line">    <span class="string">&quot;minimum_index_compatibility_version&quot;</span> : <span class="string">&quot;5.0.0&quot;</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">&quot;tagline&quot;</span> : <span class="string">&quot;You Know, for Search&quot;</span></span><br><span class="line">&#125;</span><br><span class="line">/ <span class="comment"># curl els1-elasticsearch-client.efk.svc.cluster.local:9200/_cat/nodes</span></span><br><span class="line">10.244.1.215 15 90 7 0.12 0.36 0.35 di - els1-elasticsearch-data-1</span><br><span class="line">10.244.2.132 19 60 2 0.09 0.23 0.19 di - els1-elasticsearch-data-0</span><br><span class="line">10.244.1.213 22 90 7 0.12 0.36 0.35 i  - els1-elasticsearch-client-787568fb55-9zd9k</span><br><span class="line">10.244.2.131 26 60 2 0.09 0.23 0.19 i  - els1-elasticsearch-client-787568fb55-sxhhp</span><br><span class="line">10.244.1.214 44 90 7 0.12 0.36 0.35 mi * els1-elasticsearch-master-0</span><br></pre></td></tr></table></figure>
+<h3 id="部署-fluentd"><a href="#部署-fluentd" class="headerlink" title="部署 fluentd"></a>部署 fluentd</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># cd fluentd-elasticsearch/ </span></span><br><span class="line"><span class="comment"># vim values.yaml</span></span><br><span class="line">image:</span><br><span class="line">  repository: registry.cn-hangzhou.aliyuncs.com/google_containers/fluentd-elasticsearch</span><br><span class="line">elasticsearch:</span><br><span class="line">  host: <span class="string">&#x27;els1-elasticsearch-client.efk.svc.cluster.local&#x27;</span></span><br><span class="line">  port: 9200</span><br><span class="line">  scheme: <span class="string">&#x27;http&#x27;</span></span><br><span class="line">  ssl_version: TLSv1_2</span><br><span class="line">  buffer_chunk_limit: 2M</span><br><span class="line">  buffer_queue_limit: 8</span><br><span class="line">  logstash_prefix: <span class="string">&#x27;logstash&#x27;</span></span><br><span class="line">tolerations:</span><br><span class="line">   - key: node-role.kubernetes.io/master</span><br><span class="line">     operator: Exists</span><br><span class="line">     effect: NoSchedule</span><br><span class="line">podAnnotations:</span><br><span class="line">   prometheus.io/scrape: <span class="string">&quot;true&quot;</span></span><br><span class="line">   prometheus.io/port: <span class="string">&quot;24231&quot;</span></span><br><span class="line">service:</span><br><span class="line">   <span class="built_in">type</span>: ClusterIP</span><br><span class="line">   ports:</span><br><span class="line">     - name: <span class="string">&quot;monitor-agent&quot;</span></span><br><span class="line">       port: 24231</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># helm package ../fluentd-elasticsearch/</span></span><br><span class="line"><span class="comment"># helm install --name flu1 --namespace=efk local/fluentd-elasticsearch</span></span><br></pre></td></tr></table></figure>
+<h3 id="安装-kibana"><a href="#安装-kibana" class="headerlink" title="安装 kibana"></a>安装 kibana</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># cd kibana</span></span><br><span class="line"><span class="comment"># vim values.yaml # 修改以下内容  </span></span><br><span class="line">    elasticsearch.hosts: http://els1-elasticsearch-client.efk.svc.cluster.local:9200</span><br><span class="line">    service:</span><br><span class="line">  <span class="built_in">type</span>: NodePort</span><br><span class="line"><span class="comment"># helm package ../kibana/</span></span><br><span class="line"><span class="comment"># helm  install --name kibana1 --namespace=efk local/kibana</span></span><br><span class="line"><span class="comment"># kubectl get pods -n efk</span></span><br><span class="line">NAME                                         READY   STATUS    RESTARTS   AGE</span><br><span class="line">els1-elasticsearch-client-6b4b8c7485-7grbt   1/1     Running   0          96m</span><br><span class="line">els1-elasticsearch-client-6b4b8c7485-sqgtl   1/1     Running   0          96m</span><br><span class="line">els1-elasticsearch-data-0                    1/1     Running   0          96m</span><br><span class="line">els1-elasticsearch-data-1                    1/1     Running   0          78m</span><br><span class="line">els1-elasticsearch-master-0                  1/1     Running   0          96m</span><br><span class="line">els1-elasticsearch-master-1                  1/1     Running   0          93m</span><br><span class="line">els1-elasticsearch-master-2                  1/1     Running   0          78m</span><br><span class="line">flu1-fluentd-elasticsearch-95b95             1/1     Running   0          26m</span><br><span class="line">flu1-fluentd-elasticsearch-vpcsg             1/1     Running   0          26m</span><br><span class="line">flu1-fluentd-elasticsearch-w5wjj             1/1     Running   0          26m</span><br><span class="line">flu1-fluentd-elasticsearch-xkpv2             1/1     Running   0          26m</span><br><span class="line">kibana1-5dcf5f5d47-rsmqb                     1/1     Running   0          21m</span><br><span class="line"><span class="comment"># kubectl  get svc -n efk</span></span><br><span class="line">NAME                           TYPE        CLUSTER-IP    EXTERNAL-IP   PORT(S)         AGE</span><br><span class="line">els1-elasticsearch-client      ClusterIP   10.98.8.75    &lt;none&gt;        9200/TCP        97m</span><br><span class="line">els1-elasticsearch-discovery   ClusterIP   None          &lt;none&gt;        9300/TCP        97m</span><br><span class="line">kibana1                        NodePort    10.96.230.3   &lt;none&gt;        443:31746/TCP   21m</span><br></pre></td></tr></table></figure>
+<h3 id="docker-pull-报错信息总结"><a href="#docker-pull-报错信息总结" class="headerlink" title="docker pull 报错信息总结"></a>docker pull 报错信息总结</h3><p><code>error pulling image configuration</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># echo &quot;DOCKER_OPTS&#x3D;\&quot;\$DOCKER_OPTS --registry-mirror&#x3D;http:&#x2F;&#x2F;f2d6cb40.m.daocloud.io\&quot;&quot; | tee -a &#x2F;etc&#x2F;default&#x2F;docker</span><br><span class="line"># 或者 vim &#x2F;etc&#x2F;default&#x2F;docker 更改以下信息</span><br><span class="line">DOCKER_OPTS&#x3D;&quot;$&#123;DOCKER_OPTS&#125; --registry-mirror&#x3D;https:&#x2F;&#x2F;mirror.gcr.io&quot;</span><br><span class="line"># systemctl restart docker </span><br></pre></td></tr></table></figure>
+<h3 id="配置并访问kibana"><a href="#配置并访问kibana" class="headerlink" title="配置并访问kibana"></a>配置并访问kibana</h3><p><img src="/images/kubernetes-helm-efk-kibana.png" class="lazyload" data-srcset="/images/kubernetes-helm-efk-kibana.png" srcset="data:image/png;base64,666" alt=""></p>
+
+  
+  
+    
+    <div class='footer'>
+      
+      
+      
+        <div class='copyright'>
+          <blockquote>
+            
+              
+                <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+              
+            
+              
+                <p>本文永久链接是：<a href=https://www.asjin.com/2019/06/15/kubernetes%E6%93%8D%E4%BD%9C%E8%AE%B0%E5%BD%957/>https://www.asjin.com/2019/06/15/kubernetes%E6%93%8D%E4%BD%9C%E8%AE%B0%E5%BD%957/</a></p>
+              
+            
+          </blockquote>
+        </div>
+      
+      
+    </div>
+  
+  
+    
+
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-09-29T18:49:02+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：Sep 29, 2020</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/rhca/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>rhca</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/linux/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>linux</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/cloud/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>cloud</p></a></div>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.asjin.com/2019/06/15/kubernetes%E6%93%8D%E4%BD%9C%E8%AE%B0%E5%BD%957/&title=kubernetes操作记录(七) - 逝水锦遥&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://www.asjin.com/2019/06/15/kubernetes%E6%93%8D%E4%BD%9C%E8%AE%B0%E5%BD%957/&title=kubernetes操作记录(七) - 逝水锦遥&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.asjin.com/2019/06/15/kubernetes%E6%93%8D%E4%BD%9C%E8%AE%B0%E5%BD%957/&title=kubernetes操作记录(七) - 逝水锦遥&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png">
+          
+        </a>
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </div>
+
+
+  
+  
+
+  
+    <div class="prev-next">
+      
+        <a class='prev' href='/2019/08/28/kvm%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/'>
+          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>kvm学习笔记</p>
+          <p class='content'>[toc]
+kvm 学习笔记
+kvm相关知识梳理1234567891011121314151617181920212223242526272829303132333435363738394041...</p>
+        </a>
+      
+      
+        <a class='next' href='/2019/05/30/kubernetes%E6%93%8D%E4%BD%9C%E8%AE%B0%E5%BD%956/'>
+          <p class='title'>kubernetes操作记录(六)<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>[toc]
+kubernetes 操作记录六
+调度器、预选策略及优选函数整个调度大致可以分为三个过程: Predicate(预先) –&gt; Priority(优选) –&gt; Select...</p>
+        </a>
+      
+    </div>
+  
+</article>
+
+
+  
+
+  <article class="post white-box reveal floatable" id="comments">
+    <p ct><i class='fas fa-comments'></i> 评论</p>
+    
+    <div id="valine_container" class="valine_thread">
+  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+</div>
+
+  </article>
+
+
+
+
+
+
+</div>
+<aside class='l_side'>
+  
+  
+    
+    
+
+
+
+  <section class="widget toc-wrapper floatable desktop mobile" id="toc-div" >
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B5%84%E6%BA%90%E6%8C%87%E6%A0%87API%E5%8F%8A%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8C%87%E6%A0%87API"><span class="toc-text">资源指标API及自定义指标API</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%83%A8%E7%BD%B2-metrics-server"><span class="toc-text">部署 metrics-server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#prometheus-%E9%83%A8%E7%BD%B2"><span class="toc-text">prometheus 部署</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85-kube-state-metrics"><span class="toc-text">安装  kube-state-metrics</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85-k8s-prometheus-adapter"><span class="toc-text">安装 k8s-prometheus-adapter</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85-grafana"><span class="toc-text">安装 grafana</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B5%84%E6%BA%90%E9%99%90%E5%88%B6%E4%B8%8E%E4%BC%B8%E7%BC%A9"><span class="toc-text">资源限制与伸缩</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#helm-%E5%85%A5%E9%97%A8"><span class="toc-text">helm 入门</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85helm"><span class="toc-text">安装helm</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85-Tiller"><span class="toc-text">安装 Tiller</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#helm-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="toc-text">helm 常用命令</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%83%A8%E7%BD%B2EFK-%E6%97%A5%E5%BF%97%E7%B3%BB%E7%BB%9F"><span class="toc-text">部署EFK 日志系统</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%83%A8%E7%BD%B2elasticsearch"><span class="toc-text">部署elasticsearch</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%83%A8%E7%BD%B2-fluentd"><span class="toc-text">部署 fluentd</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85-kibana"><span class="toc-text">安装 kibana</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-pull-%E6%8A%A5%E9%94%99%E4%BF%A1%E6%81%AF%E6%80%BB%E7%BB%93"><span class="toc-text">docker pull 报错信息总结</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E5%B9%B6%E8%AE%BF%E9%97%AEkibana"><span class="toc-text">配置并访问kibana</span></a></li></ol></li></ol>
+    </div>
+  </section>
+
+
+  
+
+
+</aside>
+
+
+
+        
+        
+          <!--此文件用来存放一些不方便取值的变量-->
+<!--思路大概是将值藏到重加载的区域内-->
+
+<script>
+  window.pdata={}
+  pdata.ispage=true;
+  pdata.postTitle="kubernetes操作记录(七)";
+  pdata.commentPath="";
+  pdata.commentPlaceholder="";
+
+  var l_header=document.getElementById("l_header");
+  
+  l_header.classList.remove("show");
+  
+</script>
+
+        
+      </div>
+      
+  
+  <footer class="footer clearfix">
+    <br><br>
+    
+      
+        <div class="aplayer-container">
+          
+
+
+        </div>
+      
+    
+      
+        <br>
+        <div class="social-wrapper">
+          
+            
+          
+            
+          
+            
+          
+        </div>
+      
+    
+      
+        <div><p>博客内容遵循 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
+</div>
+      
+    
+      
+        
+      
+    
+      
+        本站使用
+        <a href="https://github.com/volantis-x/hexo-theme-volantis/tree/4.1.6" target="_blank" class="codename">Volantis</a>
+        作为主题，总访问量为
+          <span id="busuanzi_value_site_pv"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+          次
+        
+      
+    
+      
+        <div class='copyright'>
+        <p><a href="/">Copyright © 2017-2020 asjin.com</a></p>
+
+        </div>
+      
+    
+  </footer>
+
+
+      <a id="s-top" class="fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+    </div>
+  </div>
+  <div>
+    <script>
+window.volantis={};
+window.volantis.loadcss=document.getElementById("loadcss");
+/********************脚本懒加载函数********************************/
+function loadScript(src, cb) {
+var HEAD = document.getElementsByTagName('head')[0] || document.documentElement;
+var script = document.createElement('script');
+script.setAttribute('type','text/javascript');
+if (cb) script.onload = cb;
+script.setAttribute('src', src);
+HEAD.appendChild(script);
+}
+//https://github.com/filamentgroup/loadCSS
+var loadCSS = function( href, before, media, attributes ){
+	var doc = window.document;
+	var ss = doc.createElement( "link" );
+	var ref;
+	if( before ){
+		ref = before;
+	}
+	else {
+		var refs = ( doc.body || doc.getElementsByTagName( "head" )[ 0 ] ).childNodes;
+		ref = refs[ refs.length - 1];
+	}
+	var sheets = doc.styleSheets;
+	if( attributes ){
+		for( var attributeName in attributes ){
+			if( attributes.hasOwnProperty( attributeName ) ){
+				ss.setAttribute( attributeName, attributes[attributeName] );
+			}
+		}
+	}
+	ss.rel = "stylesheet";
+	ss.href = href;
+	ss.media = "only x";
+	function ready( cb ){
+		if( doc.body ){
+			return cb();
+		}
+		setTimeout(function(){
+			ready( cb );
+		});
+	}
+	ready( function(){
+		ref.parentNode.insertBefore( ss, ( before ? ref : ref.nextSibling ) );
+	});
+	var onloadcssdefined = function( cb ){
+		var resolvedHref = ss.href;
+		var i = sheets.length;
+		while( i-- ){
+			if( sheets[ i ].href === resolvedHref ){
+				return cb();
+			}
+		}
+		setTimeout(function() {
+			onloadcssdefined( cb );
+		});
+	};
+	function loadCB(){
+		if( ss.addEventListener ){
+			ss.removeEventListener( "load", loadCB );
+		}
+		ss.media = media || "all";
+	}
+	if( ss.addEventListener ){
+		ss.addEventListener( "load", loadCB);
+	}
+	ss.onloadcssdefined = onloadcssdefined;
+	onloadcssdefined( loadCB );
+	return ss;
+};
+</script>
+<script>
+  
+  loadCSS("https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14/css/all.min.css", window.volantis.loadcss);
+  
+  
+  
+  
+</script>
+<!-- required -->
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5/dist/jquery.min.js"></script>
+
+<script>
+  function pjax_fancybox() {
+    $(".md .gallery").find("img").each(function () { //渲染 fancybox
+      var element = document.createElement("a"); // a 标签
+      $(element).attr("class", "fancybox");
+      $(element).attr("pjax-fancybox", "");  // 过滤 pjax
+      $(element).attr("href", $(this).attr("src"));
+      if ($(this).attr("data-original")) {
+        $(element).attr("href", $(this).attr("data-original"));
+      }
+      $(element).attr("data-fancybox", "images");
+      var caption = "";   // 描述信息
+      if ($(this).attr('alt')) {  // 判断当前页面是否存在描述信息
+        $(element).attr('data-caption', $(this).attr('alt'));
+        caption = $(this).attr('alt');
+      }
+      var div = document.createElement("div");
+      $(div).addClass("fancybox");
+      $(this).wrap(div); // 最外层套 div ，其实主要作用还是 class 样式
+      var span = document.createElement("span");
+      $(span).addClass("image-caption");
+      $(span).text(caption); // 加描述
+      $(this).after(span);  // 再套一层描述
+      $(this).wrap(element);  // 最后套 a 标签
+    })
+    $(".md .gallery").find("img").fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+      closeClick: true,
+      helpers: {
+        overlay: {closeClick: true}
+      },
+      buttons: [
+        "zoom",
+        "close"
+      ]
+    });
+  };
+  function SCload_fancybox() {
+    if ($(".md .gallery").find("img").length == 0) return;
+    loadCSS("https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css", document.getElementById("loadcss"));
+    setTimeout(function() {
+      loadScript('https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js', pjax_fancybox)
+    }, 1);
+  };
+  $(function () {
+    SCload_fancybox();
+  });
+</script>
+
+
+<!-- internal -->
+
+
+
+
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.1.0/dist/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 0
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    lazyLoadInstance.update();
+  });
+  document.addEventListener('pjax:complete', function () {
+    lazyLoadInstance.update();
+  });
+</script>
+
+
+
+
+  
+  
+    <script async src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@2/js/instant_page.js" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+  
+
+
+
+
+  <script src="/js/clipboard.min.js"></script>
+<script>
+    var clipboard = new ClipboardJS('.btn-copy', {
+        target: function (trigger) {
+            return trigger.nextElementSibling
+        }
+    });
+    function wait(callback, seconds) {
+        var timelag = null;
+        timelag = window.setTimeout(callback, seconds)
+    }
+    function pjax_initCopyCode() {
+		if($(".highlight .code pre").length+$(".article pre code").length==0)return;
+        var copyHtml = '';
+        copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+        copyHtml += '<i class="fas fa-copy"></i><span>COPY</span>';
+        copyHtml += '</button>';
+        $(".highlight .code pre").before(copyHtml);
+        $(".article pre code").before(copyHtml);
+        clipboard.off('success').on('success', function (e) {
+            let $btn = $(e.trigger);
+            $btn.addClass('copied');
+            let $icon = $($btn.find('i'));
+            $icon.removeClass('fa-copy');
+            $icon.addClass('fa-check-circle');
+            let $span = $($btn.find('span'));
+            $span[0].innerText = 'COPIED';
+            wait(function () {
+                $icon.removeClass('fa-check-circle');
+                $icon.addClass('fa-copy');
+                $span[0].innerText = 'COPY'
+            }, 2000)
+        });
+        clipboard.off('error').on('error', function (e) {
+            e.clearSelection();
+            let $btn = $(e.trigger);
+            $btn.addClass('copy-failed');
+            let $icon = $($btn.find('i'));
+            $icon.removeClass('fa-copy');
+            $icon.addClass('fa-times-circle');
+            let $span = $($btn.find('span'));
+            $span[0].innerText = 'COPY FAILED';
+            wait(function () {
+                $icon.removeClass('fa-times-circle');
+                $icon.addClass('fa-copy');
+                $span[0].innerText = 'COPY'
+            }, 2000)
+        })
+    }
+    $(function () {
+        pjax_initCopyCode()
+    });
+</script>
+
+
+
+
+
+
+
+
+  
+  
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4/dist/Valine.min.js"></script>
+
+
+<script>
+  var GUEST_INFO = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link,header'.split(',').filter(function (item) {
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var REQUIRED_FIELDS = ['nick', 'mail', 'link'];
+  var requiredFields = 'nick,mail'.split(',').filter(function (item) {
+    return REQUIRED_FIELDS.indexOf(item) > -1
+  });
+
+  function emoji(path, idx, ext) {
+    return path + "/" + path + "-" + idx + "." + ext;
+  }
+
+  var emojiMaps = {};
+  for (var i = 1; i <= 54; i++) {
+    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
+  }
+  for (var i = 1; i <= 101; i++) {
+    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+  }
+  for (var i = 1; i <= 116; i++) {
+    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
+  }
+  for (var i = 1; i <= 125; i++) {
+    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
+  }
+  for (var i = 1; i <= 4; i++) {
+    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+  }
+
+  function pjax_valine() {
+    if(!document.querySelectorAll("#valine_container")[0])return;
+
+    let pagePlaceholder = pdata.commentPlaceholder || "快来评论吧~ 🤩 🤩 🤩";
+
+    let path = pdata.commentPath;
+    if (path.length == 0) {
+      let defaultPath = '';
+      path = defaultPath || decodeURI(window.location.pathname);
+    }
+
+    var valine = new Valine();
+    valine.init({
+      el: '#valine_container',
+      meta: meta,
+      placeholder: pagePlaceholder,
+      path: path,
+      appId: "NkJqMpxu4QlRLhPIHipNUHF1-gzGzoHsz",
+      appKey: "D2vTdueKJ8ammc2JEdje0vLW",
+      pageSize: '',
+      avatar: 'monsterid',
+      lang: '',
+      visitor: '',
+      highlight: '',
+      mathJax: '',
+      enableQQ: 'true',
+      recordIP: 'false',
+      requiredFields: requiredFields,
+      emojiCDN: 'https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/valine/',
+      emojiMaps: emojiMaps
+    })
+  }
+
+  $(function () {
+    pjax_valine();
+  });
+</script>
+
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js" data-pjax></script>
+
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-theme-volantis@4.1.6/source/js/app.min.js"></script>
+
+
+
+<!-- optional -->
+
+  <script>
+const SearchServiceimagePath="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@master/img/";
+const ROOT =  ("/" || "/").endsWith('/') ? ("/" || "/") : ("//" || "/" );
+
+$('.input.u-search-input').one('focus',function(){
+	
+		loadScript('https://cdn.jsdelivr.net/npm/hexo-theme-volantis@4.1.6/source/js/search/hexo.min.js',setSearchService);
+	
+})
+
+function listenSearch(){
+  
+    customSearch = new HexoSearch({
+      imagePath: SearchServiceimagePath
+    });
+  
+}
+function setSearchService() {
+	listenSearch();
+	
+		document.addEventListener("pjax:success", listenSearch);
+	
+}
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+function listennSidebarTOC() {
+  const navItems = document.querySelectorAll(".toc li");
+  if (!navItems.length) return;
+  const sections = [...navItems].map((element) => {
+    const link = element.querySelector(".toc-link");
+    const target = document.getElementById(
+      decodeURI(link.getAttribute("href")).replace("#", "")
+    );
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+      window.scrollTo({
+		top: target.offsetTop + 100,
+		
+		behavior: "smooth"
+		
+	  });
+    });
+    return target;
+  });
+
+  function activateNavByIndex(target) {
+    if (target.classList.contains("active-current")) return;
+
+    document.querySelectorAll(".toc .active").forEach((element) => {
+      element.classList.remove("active", "active-current");
+    });
+    target.classList.add("active", "active-current");
+    let parent = target.parentNode;
+    while (!parent.matches(".toc")) {
+      if (parent.matches("li")) parent.classList.add("active");
+      parent = parent.parentNode;
+    }
+  }
+
+  function findIndex(entries) {
+    let index = 0;
+    let entry = entries[index];
+    if (entry.boundingClientRect.top > 0) {
+      index = sections.indexOf(entry.target);
+      return index === 0 ? 0 : index - 1;
+    }
+    for (; index < entries.length; index++) {
+      if (entries[index].boundingClientRect.top <= 0) {
+        entry = entries[index];
+      } else {
+        return sections.indexOf(entry.target);
+      }
+    }
+    return sections.indexOf(entry.target);
+  }
+
+  function createIntersectionObserver(marginTop) {
+    marginTop = Math.floor(marginTop + 10000);
+    let intersectionObserver = new IntersectionObserver(
+      (entries, observe) => {
+        let scrollHeight = document.documentElement.scrollHeight + 100;
+        if (scrollHeight > marginTop) {
+          observe.disconnect();
+          createIntersectionObserver(scrollHeight);
+          return;
+        }
+        let index = findIndex(entries);
+        activateNavByIndex(navItems[index]);
+      },
+      {
+        rootMargin: marginTop + "px 0px -100% 0px",
+        threshold: 0,
+      }
+    );
+    sections.forEach((element) => {
+      element && intersectionObserver.observe(element);
+    });
+  }
+  createIntersectionObserver(document.documentElement.scrollHeight);
+}
+
+document.addEventListener("DOMContentLoaded", listennSidebarTOC);
+document.addEventListener("pjax:success", listennSidebarTOC);
+</script>
+
+<!-- more -->
+
+
+
+
+    
+      
+
+
+<script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script>
+
+
+<script>
+    var pjax;
+    document.addEventListener('DOMContentLoaded', function () {
+      pjax = new Pjax({
+        elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"]):not([pjax-fancybox])',
+        selectors: [
+          "title",
+          "#l_cover",
+          "#pjax-container",
+          "#pjax-header-nav-list"
+        ],
+        cacheBust: false,   // url 地址追加时间戳，用以避免浏览器缓存
+        timeout: 5000
+      });
+    });
+
+    document.addEventListener('pjax:send', function (e) {
+      //window.stop(); // 相当于点击了浏览器的停止按钮
+
+      try {
+        var currentUrl = window.location.pathname;
+        var targetUrl = e.triggerElement.href;
+        var banUrl = [""];
+        if (banUrl[0] != "") {
+          banUrl.forEach(item => {
+            if(currentUrl.indexOf(item) != -1 || targetUrl.indexOf(item) != -1) {
+              window.location.href = targetUrl;
+            }
+          });
+        }
+      } catch (error) {}
+
+      window.subData = null; // 移除标题（用于一二级导航栏切换处）
+      if (typeof $.fancybox != "undefined") {
+        $.fancybox.close();    // 关闭弹窗
+      }
+      volantis.$switcher.removeClass('active'); // 关闭移动端激活的搜索框
+      volantis.$header.removeClass('z_search-open'); // 关闭移动端激活的搜索框
+      volantis.$wrapper.removeClass('sub'); // 跳转页面时关闭二级导航
+
+      // 解绑事件 避免重复监听
+      volantis.$topBtn.unbind('click');
+      $('.menu a').unbind('click');
+      $(window).unbind('resize');
+      $(window).unbind('scroll');
+      $(document).unbind('scroll');
+      $(document).unbind('click');
+      $('body').unbind('click');
+	  
+    });
+
+    document.addEventListener('pjax:complete', function () {
+      // 关于百度统计对 SPA 页面的处理：
+      // 方案一：百度统计>管理>单页应用设置中，打开开启按钮即可对SPA进行统计。 https://tongji.baidu.com/web/help/article?id=324
+      // 方案二：取消注释下列代码。 https://tongji.baidu.com/web/help/article?id=235
+       
+
+      // 关于谷歌统计对 SPA 页面的处理：
+      // 当应用以动态方式加载内容并更新地址栏中的网址时，也应该更新通过 gtag.js 存储的网页网址。
+      // https://developers.google.cn/analytics/devguides/collection/gtagjs/single-page-applications?hl=zh-cn
+      
+	 
+
+      $('.nav-main').find('.list-v').not('.menu-phone').removeAttr("style",""); // 移除小尾巴的移除
+      $('.menu-phone.list-v').removeAttr("style",""); // 移除小尾巴的移除
+      $('script[data-pjax], .pjax-reload script').each(function () {
+        $(this).parent().append($(this).remove());
+      });
+      try{
+          if (typeof $.fancybox == "undefined") {
+            SCload_fancybox();
+          } else {
+            pjax_fancybox();
+          }
+        
+        
+        
+        
+        
+          pjax_initCopyCode();
+        
+        
+          pjax_valine();
+        
+        
+        
+        
+      } catch (e) {
+        console.log(e);
+      }
+	  
+    });
+
+    document.addEventListener('pjax:error', function (e) {
+	  
+      window.location.href = e.triggerElement.href;
+    });
+</script>
+
+    
+  </div>
+</body>
+</html>

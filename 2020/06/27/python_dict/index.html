@@ -1,0 +1,1549 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head hexo-theme='https://github.com/volantis-x/hexo-theme-volantis/tree/4.1.6'>
+  <meta charset="utf-8">
+  <!-- SEO相关 -->
+  
+    
+  
+  <!-- 渲染优化 -->
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://cdn.jsdelivr.net'>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- 页面元数据 -->
+  
+  <title>python 集合字典 - 逝水锦遥</title>
+  
+    <meta name="keywords" content="linux,program">
+  
+
+  
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="逝水锦遥" type="application/atom+xml">
+  
+
+  <!-- import meta -->
+  
+
+  <!-- link -->
+  
+
+  <!-- import link -->
+  
+
+  
+    
+<link rel="stylesheet" href="/css/first.css">
+
+  
+
+  
+  <link rel="stylesheet" href="/css/style.css" media="print" onload="this.media='all';this.onload=null">
+  <noscript><link rel="stylesheet" href="/css/style.css"></noscript>
+  
+
+  <script id="loadcss"></script>
+</head>
+
+
+<body>
+	  <canvas id="canvas" width="1440" height="900" ></canvas>
+	  <script type="text/javascript" src="/js/DigitalRain.js"></script>
+  
+
+<header id="l_header" class="l_header always floatable "  >
+  <div class='container'>
+  <div id='wrapper'>
+    <div class='nav-sub'>
+      <p class="title"></p>
+      <ul class='switcher nav-list-h m-phone' id="pjax-header-nav-list">
+        <li><a id="s-comment" class="fas fa-comments fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+          <li><a id="s-toc" class="s-toc fas fa-list fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+      </ul>
+    </div>
+		<div class="nav-main">
+      
+        
+        <a class="title flat-box" target="_self" href='/'>
+          
+            <img no-lazy class='logo' src='/images/head.png'/>
+          
+          
+          
+        </a>
+      
+
+			<div class='menu navigation'>
+				<ul class='nav-list-h m-pc'>
+          
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fab fa-linux fa-fw'></i>所有文章
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/program
+                  
+                  
+                  
+                    id="tagsprogram"
+                  >
+                  <i class='fab fa-gitlab fa-fw'></i>运维开发
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/rhca
+                  
+                  
+                  
+                    id="tagsrhca"
+                  >
+                  <i class='fas fa-heartbeat fa-fw'></i>运维组件
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/cloud
+                  
+                  
+                  
+                    id="tagscloud"
+                  >
+                  <i class='fas fa-cloud fa-fw'></i>云计算
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/zikao
+                  
+                  
+                  
+                    id="tagszikao"
+                  >
+                  <i class='fab fa-drupal fa-fw'></i>成自考
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/renjin
+                  
+                  
+                  
+                    id="tagsrenjin"
+                  >
+                  <i class='fas fa-user-circle fa-fw'></i>个人中心
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/box/
+                  
+                  
+                  
+                    id="box"
+                  >
+                  <i class='fas fa-flag fa-fw'></i>工具箱
+                </a>
+                
+              </li>
+            
+          
+          
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="搜索文章..." />
+        </form>
+      </div>
+
+			<ul class='switcher nav-list-h m-phone'>
+				
+					<li><a class="s-search fas fa-search fa-fw" target="_self" href='javascript:void(0)'></a></li>
+				
+				<li>
+          <a class="s-menu fas fa-bars fa-fw" target="_self" href='javascript:void(0)'></a>
+          <ul class="menu-phone list-v navigation white-box">
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fab fa-linux fa-fw'></i>所有文章
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/program
+                  
+                  
+                  
+                    id="tagsprogram"
+                  >
+                  <i class='fab fa-gitlab fa-fw'></i>运维开发
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/rhca
+                  
+                  
+                  
+                    id="tagsrhca"
+                  >
+                  <i class='fas fa-heartbeat fa-fw'></i>运维组件
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/cloud
+                  
+                  
+                  
+                    id="tagscloud"
+                  >
+                  <i class='fas fa-cloud fa-fw'></i>云计算
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/zikao
+                  
+                  
+                  
+                    id="tagszikao"
+                  >
+                  <i class='fab fa-drupal fa-fw'></i>成自考
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/renjin
+                  
+                  
+                  
+                    id="tagsrenjin"
+                  >
+                  <i class='fas fa-user-circle fa-fw'></i>个人中心
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/box/
+                  
+                  
+                  
+                    id="box"
+                  >
+                  <i class='fas fa-flag fa-fw'></i>工具箱
+                </a>
+                
+              </li>
+            
+          
+            
+          </ul>
+        </li>
+			</ul>
+		</div>
+	</div>
+  </div>
+</header>
+
+  <div id="l_body">
+    <div id="l_cover">
+  
+    
+        <div id="half" class='cover-wrapper post search' style="display: ;">
+          
+            <div class='cover-bg lazyload placeholder' data-bg="/images/background.jpg"></div>
+          
+          <div class='cover-body'>
+  <div class='top'>
+    
+    
+      <p class="title">S  S  J  Y</p>
+    
+    
+      <p class="subtitle">有志而性缓者思大志 有才而气和者为大才</p>
+    
+  </div>
+  <div class='bottom'>
+    
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <input type="text" class="input u-search-input" placeholder="搜索本地文章" />
+          <i class="icon fas fa-search fa-fw"></i>
+        </form>
+      </div>
+    
+    <div class='menu navigation'>
+      <div class='list-h'>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+          <div id="scroll-down" style="display: none;"><i class="fa fa-chevron-down scroll-down-effects"></i></div>
+        </div>
+    
+  
+  </div>
+
+    <div id='safearea'>
+      <div class='body-wrapper' id="pjax-container">
+        
+
+<div class='l_main'>
+  <article class="article post white-box reveal md floatable article-type-post" id="post" itemscope itemprop="blogPost">
+  
+
+
+  
+  <div class="article-meta" id="top">
+    
+    
+    
+      <h1 class="title">
+        python 集合字典
+      </h1>
+      <div class='new-meta-box'>
+        
+          
+            
+<div class='new-meta-item author'>
+  <a class='author' href="/images/rjrt.ico" rel="nofollow">
+    <img no-lazy src="/images/rjrt.ico">
+    <p>任锦</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：Jun 27, 2020</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class="new-meta-item browse busuanzi">
+    <a class='notlink'>
+      <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+      <p>
+        <span id="busuanzi_value_page_pv">
+          <i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i>
+        </span>
+        次浏览
+      </p>
+    </a>
+  </div>
+
+
+          
+        
+      </div>
+    
+  </div>
+
+
+  
+  <p>[toc]</p>
+<h1 id="python-集合、-字典"><a href="#python-集合、-字典" class="headerlink" title="python 集合、 字典"></a>python 集合、 字典</h1><p><img src="/images/python_dict.png" class="lazyload" data-srcset="/images/python_dict.png" srcset="data:image/png;base64,666" alt=""></p>
+<h2 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h2><ul>
+<li>基本概念<br>全集：所有元素的集合。例如实数集，所有实数组成的集合就是全集;<br>子集subset和超集superset: 一个集合A所有元素都在另一个集合B是A的真超集;<br>并集: 多个集合合并的结果;<br>交集: 多个集合的公共部分;<br>差集: 集合中除去和其他集合公共部分。</li>
+</ul>
+<h3 id="并集"><a href="#并集" class="headerlink" title="并集"></a>并集</h3><p>将多个集合A和B的所有的元素合并到一起<br><code>union(*others)</code><br>返回和多个集合合并后的新的集合<br>运算符重载，等同<code>union</code><br><code>update(*others)</code><br>和多个集合合并，就地修改<br><code>|=</code><br>等同update</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">8</span>]: a = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;</span><br><span class="line">In [<span class="number">9</span>]: b = &#123;<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>&#125;</span><br><span class="line">In [<span class="number">10</span>]: c = b.union(a)</span><br><span class="line">In [<span class="number">11</span>]: c</span><br><span class="line">Out[<span class="number">11</span>]: &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">29</span>]: a = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>&#125;</span><br><span class="line">In [<span class="number">30</span>]: b = &#123;<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>&#125;</span><br><span class="line">In [<span class="number">31</span>]: b.update(a)</span><br><span class="line">In [<span class="number">32</span>]: b</span><br><span class="line">Out[<span class="number">32</span>]: &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="交集"><a href="#交集" class="headerlink" title="交集"></a>交集</h3><ul>
+<li>集合A和B，由所有属于A且属于B的元素组成的集合<br><code>intersection(*others)</code></li>
+<li>返回和多个集合的交集<br><code>&amp; 等同insersection</code><br><code>intersection_update(*others)</code><br>获取和多个集合的交集，并就地修改<br><code>&amp;=</code><br>等同<code>intersection_update</code></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">1</span>]: a=&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;</span><br><span class="line">In [<span class="number">2</span>]: b=&#123;<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>&#125;</span><br><span class="line">In [<span class="number">3</span>]: c = a &amp; b</span><br><span class="line">In [<span class="number">4</span>]: c</span><br><span class="line">Out[<span class="number">4</span>]: &#123;<span class="number">3</span>&#125;</span><br><span class="line">Out[<span class="number">7</span>]: &#123;<span class="number">3</span>&#125;</span><br><span class="line">In [<span class="number">8</span>]: a.intersection_update(b)</span><br><span class="line">In [<span class="number">9</span>]: a</span><br><span class="line">Out[<span class="number">9</span>]: &#123;<span class="number">3</span>&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="差集"><a href="#差集" class="headerlink" title="差集"></a>差集</h3><p>集合A和B，是所有属于A且不属于B的元素组成的集合<br><code>difference(*others)</code><br>返回和多个集合的差集<br><code>-</code> 等同<code>difference</code><br><code>difference_update(*others)</code><br>获取和多个集合的差集并就地修改<br><code>-=</code><br>等同difference_update<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">10</span>]: a.update(&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>&#125;)</span><br><span class="line">In [<span class="number">11</span>]: a</span><br><span class="line">Out[<span class="number">11</span>]: &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>&#125;</span><br><span class="line">In [<span class="number">12</span>]: b.update(&#123;<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>&#125;)</span><br><span class="line">In [<span class="number">13</span>]: a - b</span><br><span class="line">Out[<span class="number">13</span>]: &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">6</span>&#125;</span><br><span class="line">In [<span class="number">15</span>]: a -= b</span><br><span class="line">In [<span class="number">16</span>]: a</span><br><span class="line">Out[<span class="number">16</span>]: &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">6</span>&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="对称差集"><a href="#对称差集" class="headerlink" title="对称差集"></a>对称差集</h3><p>集合A和B，由所有不属于A和B的交集元素组成的集合，记作(A-B)U(B-A)<br><code>symmetric_differece(other)</code><br>返回和另一个集合的差集<br><code>^</code><br>等同于<code>symmetric_differece</code><br><code>symmetric_differece_update(other)</code><br>获取和另一个集合的差集并就地修改<br><code>^=</code><br>等同于<code>symmetric_differece_update</code><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">17</span>]: a = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>&#125;</span><br><span class="line">In [<span class="number">18</span>]: b = &#123;<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>&#125;</span><br><span class="line">In [<span class="number">19</span>]: a ^ b</span><br><span class="line">Out[<span class="number">19</span>]: &#123;<span class="number">1</span>&#125;</span><br><span class="line">In [<span class="number">20</span>]: a ^= b</span><br><span class="line">In [<span class="number">21</span>]: a</span><br><span class="line">Out[<span class="number">21</span>]: &#123;<span class="number">1</span>&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="集合运算"><a href="#集合运算" class="headerlink" title="集合运算"></a>集合运算</h3><p><code>issubset(other)、&lt;=</code><br>判断当前集合是否是另一个集合的子集<br><code>set1 &lt; set2</code><br>判断set1是否是set2的真子集<br><code>issuperset(other)、&gt;=</code><br>判断当前集合是否是other的超集<br><code>set1 &gt; set2</code><br>判断set1是否是set的真超集<br><code>isdisjoint(other)</code><br>当前集合和另一个集合没有交集<br>没有交集，返回Ture</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">1</span>]: a = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;</span><br><span class="line">In [<span class="number">2</span>]: b = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>&#125;</span><br><span class="line">In [<span class="number">3</span>]: b.issuperset(a)</span><br><span class="line">Out[<span class="number">3</span>]: <span class="literal">True</span></span><br></pre></td></tr></table></figure>
+<h2 id="set-和线性结构"><a href="#set-和线性结构" class="headerlink" title="set 和线性结构"></a>set 和线性结构</h2><ul>
+<li>线性结构的查询时间复杂度是O(n),即随着数据规模的增大而增加耗时</li>
+<li>set、dict 等结构，内部使用hash值作为key，时间复杂度可以做O(1)，查询时间和数据规模无关</li>
+</ul>
+<p>可hash 的数据类型<br>数据型 int、float、complex<br>布尔型 True、False<br>字符串string、bytes<br>tuple<br>None<br> 以上都是不可变类型，成为可哈希类型 ,hashble</p>
+<ul>
+<li>set 的元素必须是可hash的</li>
+</ul>
+<h3 id="简单选择排序"><a href="#简单选择排序" class="headerlink" title="简单选择排序"></a>简单选择排序</h3><ul>
+<li>属于选择排序</li>
+<li>两两比较在大小，找出极值(极大值或极小值)被放置在固定的位置，这个固定位置一般指的是某一端</li>
+<li>结果分为升序和降序列</li>
+<li><p>降序</p>
+<p>   n 个数从左至右，索引从0开始到n-1，两两依次比较，记录大值过引，此轮所有数比较完比，将大数和索引0数效换，如果大数就是索引1，不交换，第二轮，从1开始比较，找到最大值，将它和过引1位置交换，如果它就在过引1 位置则不交换。今次类推，每次左边都会固定下一个大数。</p>
+</li>
+<li><p>升序</p>
+<p>   和降序相反</p>
+</li>
+</ul>
+<p><img src="/images/Selection-Sort.gif" class="lazyload" data-srcset="/images/Selection-Sort.gif" srcset="data:image/png;base64,666" alt=""></p>
+<h3 id="简单选择排序代码实现-一"><a href="#简单选择排序代码实现-一" class="headerlink" title="简单选择排序代码实现(一)"></a>简单选择排序代码实现(一)</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line">m_list = [</span><br><span class="line">    [<span class="number">1</span>,<span class="number">9</span>,<span class="number">8</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">4</span>,<span class="number">3</span>,<span class="number">2</span>],</span><br><span class="line">    [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>],</span><br><span class="line">    [<span class="number">9</span>,<span class="number">8</span>,<span class="number">7</span>,<span class="number">6</span>,<span class="number">5</span>,<span class="number">4</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>]</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">nums = m_list[<span class="number">1</span>]</span><br><span class="line">length = <span class="built_in">len</span>(nums)</span><br><span class="line">print(nums)</span><br><span class="line"></span><br><span class="line">count_swap = <span class="number">0</span></span><br><span class="line">count_iter = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(length):</span><br><span class="line">    maxindex = i</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(i+<span class="number">1</span>,length):</span><br><span class="line">        count_iter +=<span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> nums[maxindex] &lt; nums[j]:</span><br><span class="line">            maxindex = j</span><br><span class="line">    <span class="keyword">if</span> i != maxindex:</span><br><span class="line">        tmp = nums[i]</span><br><span class="line">        nums[i] = nums[maxindex]</span><br><span class="line">        nums[maxindex] = tmp</span><br><span class="line">        count_swap +=<span class="number">1</span></span><br><span class="line">print(nums,count_swap,count_iter)</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>]</span><br><span class="line">[<span class="number">9</span>, <span class="number">8</span>, <span class="number">7</span>, <span class="number">6</span>, <span class="number">5</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>] <span class="number">4</span> <span class="number">36</span></span><br></pre></td></tr></table></figure>
+<h3 id="简单选择排序代码实现-二-，二元排序法"><a href="#简单选择排序代码实现-二-，二元排序法" class="headerlink" title="简单选择排序代码实现(二)，二元排序法"></a>简单选择排序代码实现(二)，二元排序法</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line">m_list = [</span><br><span class="line">    [<span class="number">1</span>,<span class="number">9</span>,<span class="number">8</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">4</span>,<span class="number">3</span>,<span class="number">2</span>],</span><br><span class="line">    [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>],</span><br><span class="line">    [<span class="number">9</span>,<span class="number">8</span>,<span class="number">7</span>,<span class="number">6</span>,<span class="number">5</span>,<span class="number">4</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>]</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">nums = m_list[<span class="number">1</span>]</span><br><span class="line">length = <span class="built_in">len</span>(nums)</span><br><span class="line">print(nums)</span><br><span class="line"></span><br><span class="line">count_swap = <span class="number">0</span></span><br><span class="line">count_iter = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(length // <span class="number">2</span>):</span><br><span class="line">    maxindex = i</span><br><span class="line">    minindex = -i <span class="number">-1</span></span><br><span class="line">    minorigin = minindex</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(i + <span class="number">1</span>, length -i):</span><br><span class="line">        count_iter += <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> nums[maxindex] &lt; nums[j]:</span><br><span class="line">            maxindex = j</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> nums[minindex] &gt; nums[-j <span class="number">-1</span>]:</span><br><span class="line">            minindex = -j <span class="number">-1</span></span><br><span class="line">        print(maxindex,minindex)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> i != maxindex:</span><br><span class="line">        tmp = nums[i]</span><br><span class="line">        nums[i] = nums[maxindex]</span><br><span class="line">        nums[maxindex] = tmp</span><br><span class="line">        count_swap += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> i == minindex <span class="keyword">or</span> i == length + minindex:</span><br><span class="line">            minindex = maxindex</span><br><span class="line">    <span class="keyword">if</span> minorigin != minindex:</span><br><span class="line">        tmp = nums[minorigin]</span><br><span class="line">        nums[minorigin] = nums[minindex]</span><br><span class="line">        nums[minindex] = tmp</span><br><span class="line">        count_swap +=<span class="number">1</span></span><br><span class="line">print(nums, count_swap,count_iter)</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>]</span><br><span class="line"><span class="number">1</span> <span class="number">-2</span></span><br><span class="line"><span class="number">2</span> <span class="number">-3</span></span><br><span class="line"><span class="number">3</span> <span class="number">-4</span></span><br><span class="line"><span class="number">4</span> <span class="number">-5</span></span><br><span class="line"><span class="number">5</span> <span class="number">-6</span></span><br><span class="line"><span class="number">6</span> <span class="number">-7</span></span><br><span class="line"><span class="number">7</span> <span class="number">-8</span></span><br><span class="line"><span class="number">8</span> <span class="number">-9</span></span><br><span class="line"><span class="number">2</span> <span class="number">-3</span></span><br><span class="line"><span class="number">3</span> <span class="number">-4</span></span><br><span class="line"><span class="number">4</span> <span class="number">-5</span></span><br><span class="line"><span class="number">5</span> <span class="number">-6</span></span><br><span class="line"><span class="number">6</span> <span class="number">-7</span></span><br><span class="line"><span class="number">7</span> <span class="number">-8</span></span><br><span class="line"><span class="number">3</span> <span class="number">-4</span></span><br><span class="line"><span class="number">4</span> <span class="number">-5</span></span><br><span class="line"><span class="number">5</span> <span class="number">-6</span></span><br><span class="line"><span class="number">6</span> <span class="number">-7</span></span><br><span class="line"><span class="number">4</span> <span class="number">-5</span></span><br><span class="line"><span class="number">5</span> <span class="number">-6</span></span><br><span class="line">[<span class="number">9</span>, <span class="number">8</span>, <span class="number">7</span>, <span class="number">6</span>, <span class="number">5</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>] <span class="number">8</span> <span class="number">20</span></span><br></pre></td></tr></table></figure>
+<h3 id="简单选择排序总结"><a href="#简单选择排序总结" class="headerlink" title="简单选择排序总结"></a>简单选择排序总结</h3><ul>
+<li>简单选择排序需要数据一轮轮比较，并在每一轮中发现极值</li>
+<li>没有办法知道当前轮是否已经达到排序要求，但是可以知道极值是滞在目标索引位置上</li>
+<li>遍历次数1,…,n-1之后n(n-1)/2</li>
+<li>时间复杂度O(n2次方)</li>
+<li>减少了交换次数，提高了效率，性能略好于冒泡法</li>
+</ul>
+<h2 id="字典dict"><a href="#字典dict" class="headerlink" title="字典dict"></a>字典dict</h2><p>可变的、无序的 、key 不重复</p>
+<h3 id="字典dict定义-初始化"><a href="#字典dict定义-初始化" class="headerlink" title="字典dict定义 初始化"></a>字典dict定义 初始化</h3><ul>
+<li>d = dict() 或者 <code>d=&#123;&#125;</code></li>
+<li>dict(**kwargs)使用name=value 对初始化一个字典</li>
+<li>dcit(iterable,**kwarg) 使用可迭代对象征和name=value对构造字典，不过可迭代对象的元素必须是一个二元结构</li>
+<li>d = dict(((1,’a’),(2,’b’))) 或者 d = dict(([1,’a’],[2,’b’]))</li>
+<li>dict(mapping, ** kwarg)使用一个字典构建另一个字典<br><code>d = &#123;&#39;a&#39;:10,&#39;b&#39;:20,&#39;c&#39;:None,&#39;d&#39;:[1,2,3]&#125;</code></li>
+</ul>
+<p>例: 常用的变量赋值</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">1</span>]: d = <span class="built_in">dict</span>(a=<span class="number">5</span>,b=<span class="number">6</span>,z=[<span class="number">123</span>])</span><br><span class="line">In [<span class="number">2</span>]: d</span><br><span class="line">Out[<span class="number">2</span>]: &#123;<span class="string">&#x27;a&#x27;</span>: <span class="number">5</span>, <span class="string">&#x27;b&#x27;</span>: <span class="number">6</span>, <span class="string">&#x27;z&#x27;</span>: [<span class="number">123</span>]&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">43</span>]: d = <span class="built_in">dict</span>(((<span class="number">1</span>,<span class="string">&#x27;a&#x27;</span>),))</span><br><span class="line">In [<span class="number">44</span>]: d</span><br><span class="line">Out[<span class="number">44</span>]: &#123;<span class="number">1</span>: <span class="string">&#x27;a&#x27;</span>&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">45</span>]: d = <span class="built_in">dict</span>(([<span class="number">1</span>,<span class="string">&#x27;a&#x27;</span>],[<span class="number">2</span>,<span class="string">&#x27;b&#x27;</span>]))</span><br><span class="line">In [<span class="number">46</span>]: d</span><br><span class="line">Out[<span class="number">46</span>]: &#123;<span class="number">1</span>: <span class="string">&#x27;a&#x27;</span>, <span class="number">2</span>: <span class="string">&#x27;b&#x27;</span>&#125;</span><br></pre></td></tr></table></figure>
+<p>类方法使用时需要注意</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">47</span>]: d1 = <span class="built_in">dict</span>.fromkeys(<span class="built_in">range</span>(<span class="number">1</span>,<span class="number">11</span>),[<span class="number">1</span>,<span class="number">2</span>])</span><br><span class="line"></span><br><span class="line">In [<span class="number">48</span>]: d1</span><br><span class="line">Out[<span class="number">48</span>]:</span><br><span class="line">&#123;<span class="number">1</span>: [<span class="number">1</span>, <span class="number">2</span>],</span><br><span class="line"> <span class="number">2</span>: [<span class="number">1</span>, <span class="number">2</span>],</span><br><span class="line"> <span class="number">3</span>: [<span class="number">1</span>, <span class="number">2</span>],</span><br><span class="line"> <span class="number">4</span>: [<span class="number">1</span>, <span class="number">2</span>],</span><br><span class="line"> <span class="number">5</span>: [<span class="number">1</span>, <span class="number">2</span>],</span><br><span class="line"> <span class="number">6</span>: [<span class="number">1</span>, <span class="number">2</span>],</span><br><span class="line"> <span class="number">7</span>: [<span class="number">1</span>, <span class="number">2</span>],</span><br><span class="line"> <span class="number">8</span>: [<span class="number">1</span>, <span class="number">2</span>],</span><br><span class="line"> <span class="number">9</span>: [<span class="number">1</span>, <span class="number">2</span>],</span><br><span class="line"> <span class="number">10</span>: [<span class="number">1</span>, <span class="number">2</span>]&#125;</span><br><span class="line">In [<span class="number">49</span>]: d1[<span class="number">10</span>].append(<span class="number">3</span>)</span><br><span class="line">In [<span class="number">50</span>]: d1</span><br><span class="line">Out[<span class="number">50</span>]:</span><br><span class="line">&#123;<span class="number">1</span>: [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>],</span><br><span class="line"> <span class="number">2</span>: [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>],</span><br><span class="line"> <span class="number">3</span>: [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>],</span><br><span class="line"> <span class="number">4</span>: [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>],</span><br><span class="line"> <span class="number">5</span>: [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>],</span><br><span class="line"> <span class="number">6</span>: [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>],</span><br><span class="line"> <span class="number">7</span>: [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>],</span><br><span class="line"> <span class="number">8</span>: [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>],</span><br><span class="line"> <span class="number">9</span>: [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>],</span><br><span class="line"> <span class="number">10</span>: [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="字典元素的访问"><a href="#字典元素的访问" class="headerlink" title="字典元素的访问"></a>字典元素的访问</h3><ul>
+<li><p>d[key]<br>返回key对应的值value<br>key 不存在抛出KeyError异常</p>
+</li>
+<li><p>get(key[,default])<br>返回key对应的值value<br>key不存在返回缺省值，如果没有设置缺省值就返回None</p>
+</li>
+<li>setdefault(key[,default])<br>返回key对应的值value<br>key不存在，添加kv对，value为default，并返回default,如果default没有设置，缺省为None</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">51</span>]: d2 = <span class="built_in">dict</span>(([(<span class="number">1</span>,<span class="number">3</span>,<span class="number">4</span>),&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>&#125;],))</span><br><span class="line">In [<span class="number">52</span>]: d2</span><br><span class="line">Out[<span class="number">52</span>]: &#123;(<span class="number">1</span>, <span class="number">3</span>, <span class="number">4</span>): &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>&#125;&#125;</span><br><span class="line">In [<span class="number">53</span>]: d2[(<span class="number">1</span>,<span class="number">3</span>,<span class="number">4</span>)]</span><br><span class="line">Out[<span class="number">53</span>]: &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>&#125;</span><br><span class="line">In [<span class="number">54</span>]: f = d2.get((<span class="number">1</span>,<span class="number">3</span>,<span class="number">4</span>))</span><br><span class="line">In [<span class="number">55</span>]: f</span><br><span class="line">Out[<span class="number">55</span>]: &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>&#125;</span><br><span class="line">In [<span class="number">56</span>]: <span class="built_in">type</span>(f)</span><br><span class="line">Out[<span class="number">56</span>]: <span class="built_in">set</span></span><br><span class="line"><span class="comment">#如果不存在，则返回</span></span><br><span class="line">In [<span class="number">57</span>]: d2.get(<span class="number">1</span>,<span class="number">50</span>)</span><br><span class="line">Out[<span class="number">57</span>]: <span class="number">50</span></span><br><span class="line"><span class="comment"># 如果存在，则返回</span></span><br><span class="line">In [<span class="number">59</span>]: d2.get((<span class="number">1</span>,<span class="number">3</span>,<span class="number">4</span>),<span class="number">50</span>)</span><br><span class="line">Out[<span class="number">59</span>]: &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>&#125;</span><br><span class="line">In [<span class="number">60</span>]: f = d2.setdefault(<span class="number">4</span>,<span class="number">400</span>)</span><br><span class="line">In [<span class="number">61</span>]: f</span><br><span class="line">Out[<span class="number">61</span>]: <span class="number">400</span></span><br><span class="line">In [<span class="number">62</span>]: d2</span><br><span class="line">Out[<span class="number">62</span>]: &#123;(<span class="number">1</span>, <span class="number">3</span>, <span class="number">4</span>): &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>&#125;, <span class="number">4</span>: <span class="number">400</span>&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="字典增加和修改"><a href="#字典增加和修改" class="headerlink" title="字典增加和修改"></a>字典增加和修改</h3><ul>
+<li>d[key] = value<br>将key对应的值修改为value<br>key 不存在添加新的kv对</li>
+<li>update([other]) -&gt; None<br>使用一个字典的kv对更新本字典<br>key不存在，就添加<br>key存在，覆盖已经存在的key对应的值<br>就地修改</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">d.upadte(red=<span class="number">1</span>)</span><br><span class="line">d.update(((<span class="string">&#x27;red&#x27;</span>,<span class="number">2</span>),))</span><br><span class="line">d.update(&#123;<span class="string">&#x27;red&#x27;</span>:<span class="number">3</span>&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> In [<span class="number">63</span>]: d2[<span class="number">100</span>] = <span class="number">100</span></span><br><span class="line">In [<span class="number">64</span>]: d2</span><br><span class="line">Out[<span class="number">64</span>]: &#123;(<span class="number">1</span>, <span class="number">3</span>, <span class="number">4</span>): &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>&#125;, <span class="number">4</span>: <span class="number">400</span>, <span class="number">100</span>: <span class="number">100</span>&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">67</span>]: d2</span><br><span class="line">Out[<span class="number">67</span>]: &#123;(<span class="number">1</span>, <span class="number">3</span>, <span class="number">4</span>): &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>&#125;, <span class="number">4</span>: <span class="number">300</span>, <span class="number">100</span>: <span class="number">100</span>&#125;</span><br><span class="line">In [<span class="number">68</span>]: d3 = &#123;<span class="number">100</span>:<span class="number">1000</span>, <span class="number">5</span>:<span class="string">&#x27;abc&#x27;</span>&#125;</span><br><span class="line">In [<span class="number">69</span>]: d3</span><br><span class="line">Out[<span class="number">69</span>]: &#123;<span class="number">100</span>: <span class="number">1000</span>, <span class="number">5</span>: <span class="string">&#x27;abc&#x27;</span>&#125;</span><br><span class="line">In [<span class="number">70</span>]: d2.update(d3,red =<span class="number">1</span>)</span><br><span class="line">In [<span class="number">71</span>]: d2</span><br><span class="line">Out[<span class="number">71</span>]: &#123;(<span class="number">1</span>, <span class="number">3</span>, <span class="number">4</span>): &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>&#125;, <span class="number">4</span>: <span class="number">300</span>, <span class="number">100</span>: <span class="number">1000</span>, <span class="number">5</span>: <span class="string">&#x27;abc&#x27;</span>, <span class="string">&#x27;red&#x27;</span>: <span class="number">1</span>&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="字典删除"><a href="#字典删除" class="headerlink" title="字典删除"></a>字典删除</h3><ul>
+<li>pop(key[,default])<br>key 存在，移除它，并返回它的value<br>key 不存在，返回给定的default<br>default未设置，key不存在则抛出KeyError异常</li>
+<li><p>popitem()<br>移除并返回一个任意的键值对<br>字典为empty,抛出KeyError异常</p>
+</li>
+<li><p>clear()<br>清空字典</p>
+</li>
+</ul>
+<h2 id="字典删除-1"><a href="#字典删除-1" class="headerlink" title="字典删除"></a>字典删除</h2><p>del语句</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">72</span>]: a = <span class="literal">True</span></span><br><span class="line">In [<span class="number">73</span>]: b = [<span class="number">6</span>]</span><br><span class="line">In [<span class="number">76</span>]: d = &#123;<span class="string">&#x27;a&#x27;</span>:<span class="number">1</span>,<span class="string">&#x27;b&#x27;</span>:b,<span class="string">&#x27;c&#x27;</span>:[<span class="number">1</span>,<span class="number">3</span>,<span class="number">5</span>]&#125;</span><br><span class="line">In [<span class="number">77</span>]: <span class="keyword">del</span> a</span><br><span class="line">In [<span class="number">78</span>]: a</span><br><span class="line">---------------------------------------------------------------------------</span><br><span class="line">NameError                                 Traceback (most recent call last)</span><br><span class="line">&lt;ipython-<span class="built_in">input</span><span class="number">-78</span><span class="number">-3</span>f786850e387&gt; <span class="keyword">in</span> &lt;module&gt;()</span><br><span class="line">----&gt; 1 a</span><br><span class="line">NameError: name <span class="string">&#x27;a&#x27;</span> <span class="keyword">is</span> <span class="keyword">not</span> defined</span><br><span class="line">In [<span class="number">79</span>]: <span class="keyword">del</span> d[<span class="string">&#x27;c&#x27;</span>]</span><br><span class="line">In [<span class="number">80</span>]: d</span><br><span class="line">Out[<span class="number">80</span>]: &#123;<span class="string">&#x27;a&#x27;</span>: <span class="number">1</span>, <span class="string">&#x27;b&#x27;</span>: [<span class="number">6</span>]&#125;</span><br><span class="line">In [<span class="number">81</span>]: <span class="keyword">del</span> b</span><br><span class="line">In [<span class="number">82</span>]: d</span><br><span class="line">Out[<span class="number">82</span>]: &#123;<span class="string">&#x27;a&#x27;</span>: <span class="number">1</span>, <span class="string">&#x27;b&#x27;</span>: [<span class="number">6</span>]&#125;</span><br><span class="line">In [<span class="number">84</span>]: <span class="keyword">del</span> d[<span class="string">&#x27;b&#x27;</span>]</span><br><span class="line">In [<span class="number">85</span>]: d</span><br><span class="line">Out[<span class="number">85</span>]: &#123;<span class="string">&#x27;a&#x27;</span>: <span class="number">1</span>&#125;</span><br><span class="line"><span class="comment"># del d[&#x27;b&#x27;] 看着像删除了一个对象，本质上减少了一个对象引用，del实际上删除的是名称，而不是对象</span></span><br></pre></td></tr></table></figure>
+<h3 id="字典遍历"><a href="#字典遍历" class="headerlink" title="字典遍历"></a>字典遍历</h3><p>默认打印的是keys</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">86</span>]: d2</span><br><span class="line">Out[<span class="number">86</span>]: &#123;(<span class="number">1</span>, <span class="number">3</span>, <span class="number">4</span>): &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>&#125;, <span class="number">4</span>: <span class="number">300</span>, <span class="number">100</span>: <span class="number">1000</span>, <span class="number">5</span>: <span class="string">&#x27;abc&#x27;</span>, <span class="string">&#x27;red&#x27;</span>: <span class="number">1</span>&#125;</span><br><span class="line">In [<span class="number">87</span>]: <span class="keyword">for</span> item <span class="keyword">in</span> d2:</span><br><span class="line">    ...:     print(item)</span><br><span class="line">    ...:</span><br><span class="line">(<span class="number">1</span>, <span class="number">3</span>, <span class="number">4</span>)</span><br><span class="line"><span class="number">4</span></span><br><span class="line"><span class="number">100</span></span><br><span class="line"><span class="number">5</span></span><br><span class="line">red</span><br></pre></td></tr></table></figure>
+<p>打印value 和key</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">89</span>]: <span class="keyword">for</span> item <span class="keyword">in</span> d2.values():</span><br><span class="line">    ...:     print(item)</span><br><span class="line">    ...:</span><br><span class="line">&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>&#125;</span><br><span class="line"><span class="number">300</span></span><br><span class="line"><span class="number">1000</span></span><br><span class="line">abc</span><br><span class="line"><span class="number">1</span></span><br><span class="line">In [<span class="number">90</span>]: <span class="keyword">for</span> item <span class="keyword">in</span> d2.keys():</span><br><span class="line">    ...:     print(item)</span><br><span class="line">    ...:</span><br><span class="line">(<span class="number">1</span>, <span class="number">3</span>, <span class="number">4</span>)</span><br><span class="line"><span class="number">4</span></span><br><span class="line"><span class="number">100</span></span><br><span class="line"><span class="number">5</span></span><br><span class="line">red</span><br></pre></td></tr></table></figure>
+<h3 id="字典解构"><a href="#字典解构" class="headerlink" title="字典解构"></a>字典解构</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">92</span>]: <span class="keyword">for</span> k,b <span class="keyword">in</span> d2.items():</span><br><span class="line">    ...:     print(k,b)</span><br><span class="line">    ...:</span><br><span class="line">(<span class="number">1</span>, <span class="number">3</span>, <span class="number">4</span>) &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>&#125;</span><br><span class="line"><span class="number">4</span> <span class="number">300</span></span><br><span class="line"><span class="number">100</span> <span class="number">1000</span></span><br><span class="line"><span class="number">5</span> abc</span><br><span class="line">red <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#只取key的情况</span></span><br><span class="line">In [<span class="number">91</span>]: <span class="keyword">for</span> k,_ <span class="keyword">in</span> d2.items():</span><br><span class="line">    ...:     print(k)</span><br><span class="line">    ...:</span><br><span class="line">(<span class="number">1</span>, <span class="number">3</span>, <span class="number">4</span>)</span><br><span class="line"><span class="number">4</span></span><br><span class="line"><span class="number">100</span></span><br><span class="line"><span class="number">5</span></span><br><span class="line">red</span><br></pre></td></tr></table></figure>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ul>
+<li>Python3 中 ,keys、values、 items()方法返回一个类似一个生器的可迭代对象，不会把函数的反回结果复制到内存中</li>
+<li>Python2 中，上面的方法会返回一个新的列表，占据新的内存空间，所以Python2 建议使用iterkeys、itervalues版本，返回一个迭代器，而不是一个copy</li>
+</ul>
+<h2 id="标准库datetime"><a href="#标准库datetime" class="headerlink" title="标准库datetime"></a>标准库datetime</h2><ul>
+<li><p>datetime模块<br>对日期、时间 、时间戳的处理</p>
+</li>
+<li><p>datetime类<br>类方法<br>today() 返回本地时区当前时间的datetime对象<br>now(tz=None)返回当前时间的datetime对象，时间到微秒，如果tz为None,返回和today()一样<br>utcnow() 没有时区的当前时间<br>fromtimestamp(timestamp,tz=None)从一个时间戳返回一个datetime对象</p>
+</li>
+<li>datetime对象<br>timestamp()返回一个到微秒的时间戳<br>时间戳:格林威治时间1970年1月1日0点到现在秒数</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">2</span>]: datetime.datetime.now()</span><br><span class="line">Out[<span class="number">2</span>]: datetime.datetime(<span class="number">2020</span>, <span class="number">7</span>, <span class="number">30</span>, <span class="number">21</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">140745</span>)</span><br><span class="line">In [<span class="number">3</span>]: datetime.datetime.now().timestamp()</span><br><span class="line">Out[<span class="number">3</span>]: <span class="number">1596114189.706269</span></span><br></pre></td></tr></table></figure>
+<h3 id="标准库datetime-1"><a href="#标准库datetime-1" class="headerlink" title="标准库datetime"></a>标准库datetime</h3><p>构造方法 datetime.datetime(2016,12,6,16,29,43,79043)<br>year、 month、 day、hour、minute、 second、 microsecond，取datetime对象的年月日时分秒及微秒<br>weekday() 返回星期的天，周一0，周日6<br>isoweekday()返回星期的天,周一1，周日7<br>date()返回日期date对象<br>time()返回时间time对象<br>repliace()修改并返回新的时间<br>isocalendar()返回一个三元组(年，周数，周的天)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">2</span>]: datetime.datetime.now()</span><br><span class="line">Out[<span class="number">2</span>]: datetime.datetime(<span class="number">2020</span>, <span class="number">7</span>, <span class="number">30</span>, <span class="number">21</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">140745</span>)</span><br><span class="line">In [<span class="number">3</span>]: datetime.datetime.now().timestamp()</span><br><span class="line">Out[<span class="number">3</span>]: <span class="number">1596114189.706269</span></span><br><span class="line">In [<span class="number">4</span>]: a = datetime.datetime.now()</span><br><span class="line">In [<span class="number">5</span>]: a</span><br><span class="line">Out[<span class="number">5</span>]: datetime.datetime(<span class="number">2020</span>, <span class="number">7</span>, <span class="number">30</span>, <span class="number">21</span>, <span class="number">14</span>, <span class="number">47</span>, <span class="number">500215</span>)</span><br><span class="line">In [<span class="number">6</span>]: a.weekday()</span><br><span class="line">Out[<span class="number">6</span>]: <span class="number">3</span></span><br></pre></td></tr></table></figure>
+<h3 id="标准库datetime-2"><a href="#标准库datetime-2" class="headerlink" title="标准库datetime"></a>标准库datetime</h3><ul>
+<li>日期格式化<br>类方法strptime(date_string,format),返回datetime对象<br>对象方法strftime(format),返回字符串<br>字符串format函数格式化</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">16</span>]: dt = datetime.datetime.now()</span><br><span class="line">In [<span class="number">17</span>]: dt = dt.strftime(<span class="string">&#x27;%Y-%m-%d-%H-%M-%S&#x27;</span>)</span><br><span class="line">In [<span class="number">18</span>]: dt</span><br><span class="line">Out[<span class="number">18</span>]: <span class="string">&#x27;2020-07-30-21-21-39&#x27;</span></span><br></pre></td></tr></table></figure>
+<p> 利用format 格式化</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">26</span>]: a = datetime.datetime.now()</span><br><span class="line">In [<span class="number">27</span>]: <span class="string">&#x27;&#123;&#125;-&#123;&#125;-&#123;&#125;-&#123;&#125;-&#123;&#125;-&#123;&#125;&#x27;</span>.<span class="built_in">format</span>(a.year,a.month,a.day,a.hour,a.minute,a.second)</span><br><span class="line">Out[<span class="number">27</span>]: <span class="string">&#x27;2020-7-30-21-27-33&#x27;</span></span><br></pre></td></tr></table></figure>
+<p>标准库datetime</p>
+<ul>
+<li><p>timedelta对象<br>datetime2 = datetime1 + timedelta<br>datetime2 = datetime1 - timedelta<br>timedelta = datetime1 - datetime2</p>
+</li>
+<li><p>构造方法</p>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">datetime.timedelta(days=<span class="number">0</span>,seconds=<span class="number">0</span>,microseconds=<span class="number">0</span>,milliseconds=<span class="number">0</span>,minutes=<span class="number">0</span>,hours=<span class="number">0</span>,weeks=<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+<p>year  = datetime.timedelta(days=365)<br>total_seconds()返回时间差的总秒数</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">36</span>]: h</span><br><span class="line">Out[<span class="number">36</span>]: datetime.timedelta(days=<span class="number">1</span>)</span><br><span class="line">In [<span class="number">37</span>]: h = datetime.timedelta(hours=<span class="number">24</span>)</span><br><span class="line">In [<span class="number">38</span>]: h</span><br><span class="line">Out[<span class="number">38</span>]: datetime.timedelta(days=<span class="number">1</span>)</span><br><span class="line">In [<span class="number">39</span>]: datetime.datetime.now() - h</span><br><span class="line">Out[<span class="number">39</span>]: datetime.datetime(<span class="number">2020</span>, <span class="number">7</span>, <span class="number">29</span>, <span class="number">21</span>, <span class="number">37</span>, <span class="number">6</span>, <span class="number">827493</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="标准库time"><a href="#标准库time" class="headerlink" title="标准库time"></a>标准库time</h2><p>将调用的线程挂起指定的秒数 ~<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">40</span>]: <span class="keyword">import</span> time</span><br><span class="line">In [<span class="number">41</span>]: time.sleep(<span class="number">1</span>)</span><br></pre></td></tr></table></figure></p>
+<h3 id="列表解析List"><a href="#列表解析List" class="headerlink" title="列表解析List"></a>列表解析List</h3><ul>
+<li><p>语法<br>[返回值for 元素 in 可迭代对象 if 条件]<br>使用中括号[]，内部是for循环，if条件语句可选<br>返回一个新的列表</p>
+</li>
+<li><p>列表解析式是一种语法糖<br>编译器会优化，不会为简写而影响效率，反而因优化提交了效率;<br>减少程序员工作量，减少出错;<br>简化了代码，但可读性增强</p>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">9</span>]: newlist1 = [(i+<span class="number">1</span>)**<span class="number">2</span> <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>)]</span><br><span class="line">In [<span class="number">10</span>]: newlist1</span><br><span class="line">Out[<span class="number">10</span>]: [<span class="number">1</span>, <span class="number">4</span>, <span class="number">9</span>, <span class="number">16</span>, <span class="number">25</span>, <span class="number">36</span>, <span class="number">49</span>, <span class="number">64</span>, <span class="number">81</span>, <span class="number">100</span>]</span><br></pre></td></tr></table></figure>
+<p>举例1、获取10以内的偶数，比较执行效率</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">even = []</span><br><span class="line">In [<span class="number">11</span>]: even = []</span><br><span class="line">In [<span class="number">12</span>]: <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">    ...:     <span class="keyword">if</span> x % <span class="number">2</span> == <span class="number">0</span>:</span><br><span class="line">    ...:         even.append(x)</span><br><span class="line">In [<span class="number">13</span>]: even</span><br><span class="line">Out[<span class="number">13</span>]: [<span class="number">0</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">8</span>]</span><br><span class="line">In [<span class="number">15</span>]: even = [ x <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>) <span class="keyword">if</span> x%<span class="number">2</span> ==<span class="number">0</span>]</span><br><span class="line">In [<span class="number">16</span>]: even</span><br><span class="line">Out[<span class="number">16</span>]: [<span class="number">0</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">8</span>]</span><br></pre></td></tr></table></figure>
+<p>举例三种输出结果</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">19</span>]: list1 = [(i,j)<span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">7</span>) <span class="keyword">if</span> i&gt;<span class="number">4</span> <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">20</span>,<span class="number">25</span>) <span class="keyword">if</span> j&gt;<span class="number">23</span>]</span><br><span class="line">In [<span class="number">20</span>]: list1</span><br><span class="line">Out[<span class="number">20</span>]: [(<span class="number">5</span>, <span class="number">24</span>), (<span class="number">6</span>, <span class="number">24</span>)]</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">23</span>]: list2 = [(i,j) <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">7</span>) <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">20</span>,<span class="number">25</span>) <span class="keyword">if</span> i&gt;<span class="number">4</span> <span class="keyword">if</span> j&gt;<span class="number">23</span>]</span><br><span class="line">In [<span class="number">24</span>]: list2</span><br><span class="line">Out[<span class="number">24</span>]: [(<span class="number">5</span>, <span class="number">24</span>), (<span class="number">6</span>, <span class="number">24</span>)]</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">28</span>]: list3 = [(i,j) <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">7</span>) <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">20</span>,<span class="number">25</span>) <span class="keyword">if</span> i&gt;<span class="number">4</span> <span class="keyword">and</span> j&gt;<span class="number">23</span>]</span><br><span class="line">    ...:</span><br><span class="line">In [<span class="number">29</span>]: list3</span><br><span class="line">Out[<span class="number">29</span>]: [(<span class="number">5</span>, <span class="number">24</span>), (<span class="number">6</span>, <span class="number">24</span>)]</span><br></pre></td></tr></table></figure>
+<p>练习，生成1-10 平方的列表</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">print([i**<span class="number">2</span> <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">11</span>)])</span><br><span class="line">[<span class="number">1</span>, <span class="number">4</span>, <span class="number">9</span>, <span class="number">16</span>, <span class="number">25</span>, <span class="number">36</span>, <span class="number">49</span>, <span class="number">64</span>, <span class="number">81</span>, <span class="number">100</span>]</span><br></pre></td></tr></table></figure>
+<p>练习，有一个列表lst = [1,4,9,16,2,5,10,15],生成一个新列表，要求新列表元素是lst想领2项的和</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">34</span>]: lst = [<span class="number">1</span>,<span class="number">4</span>,<span class="number">9</span>,<span class="number">16</span>,<span class="number">2</span>,<span class="number">5</span>,<span class="number">10</span>,<span class="number">15</span>]</span><br><span class="line">In [<span class="number">35</span>]: [ lst[i] + lst[i+<span class="number">1</span>] <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(lst)<span class="number">-1</span>)]</span><br><span class="line">Out[<span class="number">35</span>]: [<span class="number">5</span>, <span class="number">13</span>, <span class="number">25</span>, <span class="number">18</span>, <span class="number">7</span>, <span class="number">15</span>, <span class="number">25</span>]</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">In [44]: lst &#x3D; [1,4,9,16,2,5,10,15]</span><br><span class="line">In [45]: for i in range(len(lst)-1):</span><br><span class="line">    ...:     newlist&#x3D; lst[i] + lst[i+1]</span><br><span class="line">    ...:     print(newlist)</span><br><span class="line">    ...:</span><br><span class="line">5</span><br><span class="line">13</span><br><span class="line">25</span><br><span class="line">18</span><br><span class="line">7</span><br><span class="line">15</span><br><span class="line">25</span><br></pre></td></tr></table></figure>
+<p>用一行代码打印9 9乘法表</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">56</span>]: print(<span class="string">&#x27;\n&#x27;</span>.join([<span class="string">&#x27;&#x27;</span>.join([<span class="string">&#x27;&#123;&#125;*&#123;&#125;=&#123;&#125;\t&#x27;</span>.<span class="built_in">format</span>(x,y,y*x) <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,y+<span class="number">1</span>)]) <span class="keyword">for</span> y <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">10</span>)]))</span><br><span class="line"><span class="number">1</span>*<span class="number">1</span>=<span class="number">1</span></span><br><span class="line"><span class="number">1</span>*<span class="number">2</span>=<span class="number">2</span>	<span class="number">2</span>*<span class="number">2</span>=<span class="number">4</span></span><br><span class="line"><span class="number">1</span>*<span class="number">3</span>=<span class="number">3</span>	<span class="number">2</span>*<span class="number">3</span>=<span class="number">6</span>	<span class="number">3</span>*<span class="number">3</span>=<span class="number">9</span></span><br><span class="line"><span class="number">1</span>*<span class="number">4</span>=<span class="number">4</span>	<span class="number">2</span>*<span class="number">4</span>=<span class="number">8</span>	<span class="number">3</span>*<span class="number">4</span>=<span class="number">12</span>	<span class="number">4</span>*<span class="number">4</span>=<span class="number">16</span></span><br><span class="line"><span class="number">1</span>*<span class="number">5</span>=<span class="number">5</span>	<span class="number">2</span>*<span class="number">5</span>=<span class="number">10</span>	<span class="number">3</span>*<span class="number">5</span>=<span class="number">15</span>	<span class="number">4</span>*<span class="number">5</span>=<span class="number">20</span>	<span class="number">5</span>*<span class="number">5</span>=<span class="number">25</span></span><br><span class="line"><span class="number">1</span>*<span class="number">6</span>=<span class="number">6</span>	<span class="number">2</span>*<span class="number">6</span>=<span class="number">12</span>	<span class="number">3</span>*<span class="number">6</span>=<span class="number">18</span>	<span class="number">4</span>*<span class="number">6</span>=<span class="number">24</span>	<span class="number">5</span>*<span class="number">6</span>=<span class="number">30</span>	<span class="number">6</span>*<span class="number">6</span>=<span class="number">36</span></span><br><span class="line"><span class="number">1</span>*<span class="number">7</span>=<span class="number">7</span>	<span class="number">2</span>*<span class="number">7</span>=<span class="number">14</span>	<span class="number">3</span>*<span class="number">7</span>=<span class="number">21</span>	<span class="number">4</span>*<span class="number">7</span>=<span class="number">28</span>	<span class="number">5</span>*<span class="number">7</span>=<span class="number">35</span>	<span class="number">6</span>*<span class="number">7</span>=<span class="number">42</span>	<span class="number">7</span>*<span class="number">7</span>=<span class="number">49</span></span><br><span class="line"><span class="number">1</span>*<span class="number">8</span>=<span class="number">8</span>	<span class="number">2</span>*<span class="number">8</span>=<span class="number">16</span>	<span class="number">3</span>*<span class="number">8</span>=<span class="number">24</span>	<span class="number">4</span>*<span class="number">8</span>=<span class="number">32</span>	<span class="number">5</span>*<span class="number">8</span>=<span class="number">40</span>	<span class="number">6</span>*<span class="number">8</span>=<span class="number">48</span>	<span class="number">7</span>*<span class="number">8</span>=<span class="number">56</span>	<span class="number">8</span>*<span class="number">8</span>=<span class="number">64</span></span><br><span class="line"><span class="number">1</span>*<span class="number">9</span>=<span class="number">9</span>	<span class="number">2</span>*<span class="number">9</span>=<span class="number">18</span>	<span class="number">3</span>*<span class="number">9</span>=<span class="number">27</span>	<span class="number">4</span>*<span class="number">9</span>=<span class="number">36</span>	<span class="number">5</span>*<span class="number">9</span>=<span class="number">45</span>	<span class="number">6</span>*<span class="number">9</span>=<span class="number">54</span>	<span class="number">7</span>*<span class="number">9</span>=<span class="number">63</span>	<span class="number">8</span>*<span class="number">9</span>=<span class="number">72</span>	<span class="number">9</span>*<span class="number">9</span>=<span class="number">81</span></span><br></pre></td></tr></table></figure>
+<p>高效方法二 </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">86</span>]: print(<span class="string">&#x27;&#x27;</span>.join([<span class="string">&#x27;&#123;&#125;*&#123;&#125;=&#123;:&lt;3&#125;&#123;&#125;&#x27;</span>.<span class="built_in">format</span>(j,i,i*j,<span class="string">&#x27;\n&#x27;</span> <span class="keyword">if</span> i==j <span class="keyword">else</span><span class="string">&#x27;&#x27;</span>) <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">10</span>) <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,i+<span class="number">1</span>)]))</span><br><span class="line"><span class="number">1</span>*<span class="number">1</span>=<span class="number">1</span></span><br><span class="line"><span class="number">1</span>*<span class="number">2</span>=<span class="number">2</span>  <span class="number">2</span>*<span class="number">2</span>=<span class="number">4</span></span><br><span class="line"><span class="number">1</span>*<span class="number">3</span>=<span class="number">3</span>  <span class="number">2</span>*<span class="number">3</span>=<span class="number">6</span>  <span class="number">3</span>*<span class="number">3</span>=<span class="number">9</span></span><br><span class="line"><span class="number">1</span>*<span class="number">4</span>=<span class="number">4</span>  <span class="number">2</span>*<span class="number">4</span>=<span class="number">8</span>  <span class="number">3</span>*<span class="number">4</span>=<span class="number">12</span> <span class="number">4</span>*<span class="number">4</span>=<span class="number">16</span></span><br><span class="line"><span class="number">1</span>*<span class="number">5</span>=<span class="number">5</span>  <span class="number">2</span>*<span class="number">5</span>=<span class="number">10</span> <span class="number">3</span>*<span class="number">5</span>=<span class="number">15</span> <span class="number">4</span>*<span class="number">5</span>=<span class="number">20</span> <span class="number">5</span>*<span class="number">5</span>=<span class="number">25</span></span><br><span class="line"><span class="number">1</span>*<span class="number">6</span>=<span class="number">6</span>  <span class="number">2</span>*<span class="number">6</span>=<span class="number">12</span> <span class="number">3</span>*<span class="number">6</span>=<span class="number">18</span> <span class="number">4</span>*<span class="number">6</span>=<span class="number">24</span> <span class="number">5</span>*<span class="number">6</span>=<span class="number">30</span> <span class="number">6</span>*<span class="number">6</span>=<span class="number">36</span></span><br><span class="line"><span class="number">1</span>*<span class="number">7</span>=<span class="number">7</span>  <span class="number">2</span>*<span class="number">7</span>=<span class="number">14</span> <span class="number">3</span>*<span class="number">7</span>=<span class="number">21</span> <span class="number">4</span>*<span class="number">7</span>=<span class="number">28</span> <span class="number">5</span>*<span class="number">7</span>=<span class="number">35</span> <span class="number">6</span>*<span class="number">7</span>=<span class="number">42</span> <span class="number">7</span>*<span class="number">7</span>=<span class="number">49</span></span><br><span class="line"><span class="number">1</span>*<span class="number">8</span>=<span class="number">8</span>  <span class="number">2</span>*<span class="number">8</span>=<span class="number">16</span> <span class="number">3</span>*<span class="number">8</span>=<span class="number">24</span> <span class="number">4</span>*<span class="number">8</span>=<span class="number">32</span> <span class="number">5</span>*<span class="number">8</span>=<span class="number">40</span> <span class="number">6</span>*<span class="number">8</span>=<span class="number">48</span> <span class="number">7</span>*<span class="number">8</span>=<span class="number">56</span> <span class="number">8</span>*<span class="number">8</span>=<span class="number">64</span></span><br><span class="line"><span class="number">1</span>*<span class="number">9</span>=<span class="number">9</span>  <span class="number">2</span>*<span class="number">9</span>=<span class="number">18</span> <span class="number">3</span>*<span class="number">9</span>=<span class="number">27</span> <span class="number">4</span>*<span class="number">9</span>=<span class="number">36</span> <span class="number">5</span>*<span class="number">9</span>=<span class="number">45</span> <span class="number">6</span>*<span class="number">9</span>=<span class="number">54</span> <span class="number">7</span>*<span class="number">9</span>=<span class="number">63</span> <span class="number">8</span>*<span class="number">9</span>=<span class="number">72</span> <span class="number">9</span>*<span class="number">9</span>=<span class="number">81</span></span><br></pre></td></tr></table></figure>
+<p>练习</p>
+<p>“0001.abadicddws” 是ID格式，要求ID格式是以点号分割， 左夯实是4位从1开始的整数，右边是10位随机小写英文字母。今次生成前100个列表</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">100</span>]: [<span class="string">&#x27;&#123;:04&#125;.&#123;&#125;&#x27;</span>.<span class="built_in">format</span>(n,<span class="string">&#x27;&#x27;</span>.join([random.choice(<span class="built_in">bytes</span>(<span class="built_in">range</span>(<span class="number">97</span>,<span class="number">123</span>)).decode()) <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>)])) <span class="keyword">for</span> n <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">101</span>)]</span><br><span class="line">Out[<span class="number">100</span>]:</span><br><span class="line">[<span class="string">&#x27;0001.yibbcfebfn&#x27;</span>,</span><br><span class="line"> <span class="string">&#x27;0002.wvomuwuiaj&#x27;</span>,</span><br><span class="line"> <span class="string">&#x27;0003.bplvnhkgfp&#x27;</span>,</span><br><span class="line"> <span class="string">&#x27;0004.tnrjwiuipv&#x27;</span>,</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<h2 id="生成器表达式-Generator-expression"><a href="#生成器表达式-Generator-expression" class="headerlink" title="生成器表达式(Generator expression)"></a>生成器表达式(Generator expression)</h2><ul>
+<li>语法<br>(返回值for 元素 in 可迭代对象if条件)<br>列表解析式的中括号抱成小括号就行了<br>返回一个生成器</li>
+<li>和列表解析式的区别<br>生成器表达式是按<strong>按需计算(或称惰性求值、延迟计算)</strong>，需要的时候才计算值<br>列表解析式是立即返回值</li>
+<li>生成器<br>  可迭代对象<br>  迭代器</li>
+</ul>
+<h2 id="生成器表达式"><a href="#生成器表达式" class="headerlink" title="生成器表达式"></a>生成器表达式</h2><ul>
+<li><p>和列表解析式的对比<br>计算方式<br>生成器表达式延迟计算，列表解析式立即计算</p>
+</li>
+<li><p>内存占用<br>单从返回值本身来说，生成器表达式省内存，列表解析式返回新的列表<br>生成器没有数据，内存占用少，但是使用的时候，虽然一个个返回数据，但是合起来占用的内存也差不多<br>列表解析式构造新的列表需要占用内存</p>
+</li>
+<li><p>计算速度<br>单看计算时间看，生成器表达式耗时非常短，列表解析式耗时长<br>但是生成器本身并没有返回任何值，只返回了一个生成器对象<br>列表解析式构造并返回了一个新的列表</p>
+</li>
+</ul>
+<h2 id="集合解析式"><a href="#集合解析式" class="headerlink" title="集合解析式"></a>集合解析式</h2><ul>
+<li><p>语法<br>(返回值  for 元素 in 可迭代对象 if 条件)<br>列表解析式的中括号换成大括号<code>&#123;&#125;</code>就行了<br>立即返回一个集合</p>
+</li>
+<li><p>用法</p>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#123;(x,x+<span class="number">1</span>) <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>)&#125;</span><br><span class="line">&#123;&#123;x&#125; <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>)&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="字典解析式"><a href="#字典解析式" class="headerlink" title="字典解析式"></a>字典解析式</h2><ul>
+<li><p>语法<br>(返回值 for 元素in可迭代对象if条件)<br>列表解析式的中括号换成大括号{}就可行了<br>使用key:value 形势<br>立即返回一个字典</p>
+</li>
+<li><p>用法</p>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;x:(x,x+<span class="number">1</span>) <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>)&#125;</span><br><span class="line">&#123;x:[x,x+<span class="number">1</span>] <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>)&#125;</span><br><span class="line">&#123;(x,):[x,x+<span class="number">1</span>] <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>)&#125;</span><br><span class="line">&#123;[x]:[x,x+<span class="number">1</span>] <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>)&#125;</span><br><span class="line">&#123;<span class="built_in">chr</span>(<span class="number">0x41</span>+<span class="number">1</span>):x**<span class="number">2</span> <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>)&#125;</span><br><span class="line">&#123;<span class="built_in">str</span>(x):y <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">3</span>) <span class="keyword">for</span> y <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">4</span>)&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">3</span>]: &#123;<span class="built_in">chr</span>(<span class="number">0x41</span>+x):x**<span class="number">2</span> <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">5</span>)&#125;</span><br><span class="line">Out[<span class="number">3</span>]: &#123;<span class="string">&#x27;A&#x27;</span>: <span class="number">0</span>, <span class="string">&#x27;B&#x27;</span>: <span class="number">1</span>, <span class="string">&#x27;C&#x27;</span>: <span class="number">4</span>, <span class="string">&#x27;D&#x27;</span>: <span class="number">9</span>, <span class="string">&#x27;E&#x27;</span>: <span class="number">16</span>&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">4</span>]: &#123;<span class="built_in">str</span>(x):y <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">3</span>) <span class="keyword">for</span> y <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">4</span>)&#125;</span><br><span class="line">Out[<span class="number">4</span>]: &#123;<span class="string">&#x27;0&#x27;</span>: <span class="number">3</span>, <span class="string">&#x27;1&#x27;</span>: <span class="number">3</span>, <span class="string">&#x27;2&#x27;</span>: <span class="number">3</span>&#125;</span><br><span class="line"><span class="comment"># 等价于</span></span><br><span class="line">In [<span class="number">13</span>]: ret = &#123;&#125;</span><br><span class="line">In [<span class="number">14</span>]: <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">3</span>):</span><br><span class="line">    ...:     <span class="keyword">for</span> y <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">4</span>):</span><br><span class="line">    ...:         ret[<span class="built_in">str</span>(x)] = y</span><br><span class="line">    ...:</span><br><span class="line">In [<span class="number">15</span>]: print(ret)</span><br><span class="line">&#123;<span class="string">&#x27;0&#x27;</span>: <span class="number">3</span>, <span class="string">&#x27;1&#x27;</span>: <span class="number">3</span>, <span class="string">&#x27;2&#x27;</span>: <span class="number">3</span>&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="总结-1"><a href="#总结-1" class="headerlink" title="总结"></a>总结</h2><ul>
+<li>Python2 引入了列表解析式</li>
+<li>Python2.4引入了生成器表达式</li>
+<li>Python3 引入集合、字典解析式，并迁移到了2.7</li>
+<li>一般来说，应该多应用解析式，简短、高效</li>
+<li>如果一个解析式非常复杂，难以读懂，要考虑拆解成for循环</li>
+<li>生成器和迭代器是不同的对象，但都是可迭代对象。</li>
+</ul>
+<h2 id="内建函数"><a href="#内建函数" class="headerlink" title="内建函数"></a>内建函数</h2><ul>
+<li><p>标识 id<br>返回对象的唯一标识，CPython 返回内存中</p>
+</li>
+<li><p>类型hash()</p>
+</li>
+</ul>
+<p>返回一个对象的哈希值</p>
+<ul>
+<li>类型type()</li>
+</ul>
+<p>返回对象的类型 </p>
+<ul>
+<li>类型转换</li>
+</ul>
+<p><code>float()</code> <code>int()</code> <code>bin()</code> <code>hex()</code> <code>oct()</code> <code>bool()</code> <code>list()</code> <code>tuple()</code> <code>dict()</code> <code>set()</code> <code>complex()</code> <code>bytes() bytearray()</code> </p>
+<ul>
+<li>输入input([prompt])</li>
+</ul>
+<p>接收用户输入，返回一个字符串</p>
+<ul>
+<li>打印 print(*objects, sep=’’,end=’\n’,file=sys.stdout, flush=False)</li>
+</ul>
+<p>打印输出，默认使用空格分割、换行结尾，输出到控制台</p>
+<ul>
+<li>对象长度len(s)</li>
+</ul>
+<p>返回一个集合类型的元素个数</p>
+<ul>
+<li>isinstance(obj,class_or_tuple)</li>
+</ul>
+<p>判断对象obj是否属于某种类型或者元组中列出的某个类型<br>isinstance(True,init)</p>
+<ul>
+<li>issubclass(cls,calss_or_tuple)</li>
+</ul>
+<p>判断类型cls是否是某种类型的了类或元组中列出的某个类型的子类<br>issubclass(bool,int)</p>
+<ul>
+<li>绝对值abs(x) x 为数值</li>
+<li>最大值max() 最小值min()<br>  返回可迭代对象中最大或最小值<br>  返回多个参数中最大或最小值</li>
+<li>round(x) 四舍六入五取偶, round(-0.5)</li>
+<li>pow(x,y) 等价于x**y</li>
+<li><p>range(stop)从0开始到stop-1 的可迭代对象； range(start,stop,[,step]) 从start开始到stop-1 结束步长为step 的可迭代对象</p>
+</li>
+<li><p>divmod(x,y) 等价于tuple(x//y,x%y)</p>
+</li>
+<li>sum(oterable[,start])对可迭代对象的所有数值元素求和<br>sum(range(1,100,2))</li>
+</ul>
+<h3 id="补充列表全部拷贝"><a href="#补充列表全部拷贝" class="headerlink" title="补充列表全部拷贝"></a>补充列表全部拷贝</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">17</span>]: lst = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line">In [<span class="number">18</span>]: test = lst[:]</span><br><span class="line">In [<span class="number">19</span>]: test</span><br><span class="line">Out[<span class="number">19</span>]: [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br></pre></td></tr></table></figure>
+<p>python 求一到100的和</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">20</span>]: <span class="built_in">sum</span>(<span class="built_in">range</span>(<span class="number">1</span>,<span class="number">101</span>))</span><br><span class="line">Out[<span class="number">20</span>]: <span class="number">5050</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>chr(i) 给一个一定范围的整数返回对应的字符<br>chr(97) chr(20013)</p>
+</li>
+<li><p>ord(c) 返回字符对应的整数</p>
+</li>
+</ul>
+<p>ord(‘a’) ord(‘中’)</p>
+<ul>
+<li><p>str() 、 repr()、 ascii() </p>
+</li>
+<li><p>sorted(iterable)</p>
+</li>
+<li><p>sorted(iterable[,key][,reverse])排序<br>返回一个新的列表，默认升序<br>reverse 是反转</p>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sorted</span>([<span class="number">1</span>,<span class="number">3</span>,<span class="number">5</span>])</span><br><span class="line"><span class="built_in">sorted</span>([<span class="number">1</span>,<span class="number">3</span>,<span class="number">5</span>], reverse=<span class="literal">True</span>)</span><br><span class="line"><span class="built_in">sorted</span>(&#123;<span class="string">&#x27;c&#x27;</span>:<span class="number">1</span>, <span class="string">&#x27;b&#x27;</span>:<span class="number">2</span>, <span class="string">&#x27;a&#x27;</span>:<span class="number">1</span>&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">5</span>]: lst = [<span class="number">1</span>,<span class="number">4</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">8</span>,<span class="number">7</span>]</span><br><span class="line">In [<span class="number">6</span>]: <span class="built_in">sorted</span>(lst)</span><br><span class="line">Out[<span class="number">6</span>]: [<span class="number">1</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">8</span>]</span><br><span class="line">In [<span class="number">7</span>]: <span class="built_in">sorted</span>(lst,reverse=<span class="literal">True</span>)</span><br><span class="line">Out[<span class="number">7</span>]: [<span class="number">8</span>, <span class="number">7</span>, <span class="number">5</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">1</span>]</span><br></pre></td></tr></table></figure>
+<p>翻转 reversed(seq)<br>返回一个翻转元素的迭代器</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">list</span>(<span class="built_in">reversed</span>(*<span class="number">13579</span>*))</span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">reversed</span>([<span class="string">&quot;c&quot;</span>,<span class="string">&quot;b&quot;</span>,<span class="string">&quot;c&quot;</span>]: )</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">13</span>]: <span class="keyword">for</span> k,v <span class="keyword">in</span> <span class="built_in">enumerate</span>(<span class="built_in">range</span>(<span class="number">5</span>)):</span><br><span class="line">    ...:     print(k,v,end=<span class="string">&#x27;\t&#x27;</span>)</span><br><span class="line">    ...:</span><br><span class="line"><span class="number">0</span> <span class="number">0</span>	<span class="number">1</span> <span class="number">1</span>	<span class="number">2</span> <span class="number">2</span>	<span class="number">3</span> <span class="number">3</span>	<span class="number">4</span> <span class="number">4</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">14</span>]: <span class="keyword">for</span> k,v <span class="keyword">in</span> <span class="built_in">enumerate</span>(<span class="string">&quot;mnopq&quot;</span>,start=<span class="number">10</span>):</span><br><span class="line">    ...:     print(k,v,end=<span class="string">&#x27;\t&#x27;</span>)</span><br><span class="line">    ...:</span><br><span class="line"><span class="number">10</span> m	<span class="number">11</span> n	<span class="number">12</span> o	<span class="number">13</span> p	<span class="number">14</span> q</span><br></pre></td></tr></table></figure>
+<ul>
+<li>迭代器和取元素iter(terable)、next(iterator)<br>iter 将一个可迭代对象封装成一个迭代器<br>next对一个迭代器取下一个元素。如果全部元素都取过了，再次next会抛StopIteration异常</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">it = <span class="built_in">iter</span>(<span class="built_in">range</span>(<span class="number">5</span>))</span><br><span class="line">nex(it)</span><br><span class="line">it = <span class="built_in">reversed</span>([<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>])</span><br><span class="line"><span class="built_in">next</span>(it)</span><br></pre></td></tr></table></figure>
+<p>可迭代对象<br>能够通过迭代一次次返回不同的元素的对象。所谓相同不是指值是否相同。而元素在容器中是否是同一个，例如列表中值可以重复。<br>可以迭代，但是未必有序，未必可索引。<br>可迭代对象有: list、tuple、string、bytes、bytearray、range、set、dict、生成器等；<br>可以使用成员操作符in 、 not in，in本质上就是在遍历对象；</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">3</span> <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>)</span><br><span class="line"><span class="number">3</span> <span class="keyword">in</span> (x <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>))</span><br><span class="line"><span class="number">3</span> <span class="keyword">in</span> &#123;x:y <span class="keyword">for</span> x,y <span class="keyword">in</span> <span class="built_in">zip</span>(<span class="built_in">range</span>(<span class="number">4</span>),<span class="built_in">range</span>(<span class="number">4</span>,<span class="number">10</span>))&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="迭代器"><a href="#迭代器" class="headerlink" title="迭代器"></a>迭代器</h2><p>特殊的对象，一定是可迭代对象，具备可迭代对象的特征;<br>通过iter方法把一个可迭代对象封闭成迭代器;<br>通过next 方法, 迭代 迭代器对象；<br>生成器对象，就是迭代器对象</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">1</span>]: <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">iter</span>(<span class="built_in">range</span>(<span class="number">10</span>)):</span><br><span class="line">   ...:     print(x)</span><br><span class="line">In [<span class="number">3</span>]: g = (x <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>))</span><br><span class="line">In [<span class="number">4</span>]: print(<span class="built_in">type</span>(g))</span><br><span class="line">&lt;<span class="class"><span class="keyword">class</span> &#x27;<span class="title">generator</span>&#x27;&gt;</span></span><br><span class="line"><span class="class"><span class="title">In</span> [5]:</span> print(<span class="built_in">next</span>(g))</span><br><span class="line"><span class="number">0</span></span><br><span class="line">In [<span class="number">6</span>]: print(<span class="built_in">next</span>(g))</span><br><span class="line"><span class="number">1</span></span><br><span class="line">In [<span class="number">7</span>]: print(<span class="built_in">next</span>(g))</span><br><span class="line"><span class="number">2</span></span><br><span class="line">In [<span class="number">8</span>]: print(<span class="built_in">next</span>(g))</span><br><span class="line"><span class="number">3</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>拉链函数zip(*iterables)</li>
+</ul>
+<p>像拉链一样，把多个可迭代对象合并在一起，返回一个迭代器<br>将每次从不同对象中取到的元素合并成一个元组</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">list</span>(<span class="built_in">zip</span>(<span class="built_in">range</span>(<span class="number">10</span>),<span class="built_in">range</span>(<span class="number">10</span>)))</span><br><span class="line"><span class="built_in">list</span>(<span class="built_in">zip</span>(<span class="built_in">range</span>(<span class="number">10</span>),<span class="built_in">range</span>(<span class="number">10</span>),<span class="built_in">range</span>(<span class="number">5</span>),<span class="built_in">range</span>(<span class="number">10</span>)))</span><br><span class="line"><span class="built_in">dict</span>(<span class="built_in">zip</span>(<span class="built_in">range</span>(<span class="number">10</span>),<span class="built_in">range</span>(<span class="number">10</span>)))</span><br><span class="line">&#123;<span class="built_in">str</span>(x):y <span class="keyword">for</span> x,y <span class="keyword">in</span> <span class="built_in">zip</span>(<span class="built_in">range</span>(<span class="number">10</span>),<span class="built_in">range</span>(<span class="number">10</span>))&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="字典练习"><a href="#字典练习" class="headerlink" title="字典练习"></a>字典练习</h2><p>打印每一位数字及期重复的次数</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    num = <span class="built_in">input</span>(<span class="string">&#x27;Please input a positice intteger &gt;&gt;&#x27;</span>).strip()</span><br><span class="line">    <span class="keyword">if</span> num.isdigit():</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        print(<span class="string">&#x27;Only digits are allowed! &#x27;</span>)</span><br><span class="line">record = &#123;&#125;</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> num:</span><br><span class="line">    record[i] = record.get(i,<span class="number">0</span>) +<span class="number">1</span></span><br><span class="line">print(num,record,sep=<span class="string">&#x27;\n&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<p>方法二</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line">num = <span class="built_in">input</span>(<span class="string">&#x27;&gt;&gt; &#x27;</span>)</span><br><span class="line">d = &#123;&#125;</span><br><span class="line"><span class="keyword">for</span> c <span class="keyword">in</span> num:</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> d.get(c):</span><br><span class="line">        d[c] = <span class="number">1</span></span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line">    d[c] +=<span class="number">1</span></span><br><span class="line">print(d)</span><br><span class="line"></span><br><span class="line">d = &#123;&#125;</span><br><span class="line"><span class="keyword">for</span> c <span class="keyword">in</span> num:</span><br><span class="line">    <span class="keyword">if</span> c <span class="keyword">not</span> <span class="keyword">in</span> d.keys():</span><br><span class="line">        d[c] =<span class="number">1</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        d[c] += <span class="number">1</span></span><br><span class="line">print(d)</span><br><span class="line">&gt;&gt; <span class="number">18933</span></span><br><span class="line">&#123;<span class="string">&#x27;1&#x27;</span>: <span class="number">1</span>, <span class="string">&#x27;8&#x27;</span>: <span class="number">1</span>, <span class="string">&#x27;9&#x27;</span>: <span class="number">1</span>, <span class="string">&#x27;3&#x27;</span>: <span class="number">2</span>&#125;</span><br><span class="line">&#123;<span class="string">&#x27;1&#x27;</span>: <span class="number">1</span>, <span class="string">&#x27;8&#x27;</span>: <span class="number">1</span>, <span class="string">&#x27;9&#x27;</span>: <span class="number">1</span>, <span class="string">&#x27;3&#x27;</span>: <span class="number">2</span>&#125;</span><br></pre></td></tr></table></figure>
+<p>字符串重复统计</p>
+<p>字符表’abcdefghijklmnopqrstuvwxyz’<br>随机挑选2个字母组成字符串，共挑选100个<br>降序输出这100个字符串及重复的次数</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br><span class="line"><span class="keyword">import</span> string</span><br><span class="line">strs = <span class="string">&#x27;abcdefghijklmnopqrstuvwxyz&#x27;</span></span><br><span class="line">dic = &#123;&#125;</span><br><span class="line"><span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">100</span>):</span><br><span class="line">    randstr = <span class="string">&#x27;&#x27;</span>.join(random.sample(strs,<span class="number">2</span>))</span><br><span class="line">    <span class="comment"># randstr = &#x27;&#x27;.join(random.choice(strs) for _ in range(0,2))</span></span><br><span class="line">    <span class="comment"># randstr = &#x27;&#x27;.join(random.sample(string.ascii_lowercase,2))</span></span><br><span class="line">    <span class="keyword">if</span> randstr <span class="keyword">not</span> <span class="keyword">in</span> dic:</span><br><span class="line">        dic.setdefault(randstr,<span class="number">1</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        dic[randstr] +=<span class="number">1</span></span><br><span class="line">sortstr = <span class="built_in">sorted</span>(dic.keys())</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> sortstr:</span><br><span class="line">    print(<span class="string">&#x27;&#123;:&lt;4&#125; &#123;:&lt;4&#125;&#x27;</span>.<span class="built_in">format</span>(i,dic[i]))</span><br></pre></td></tr></table></figure>
+  
+  
+    
+    <div class='footer'>
+      
+      
+      
+        <div class='copyright'>
+          <blockquote>
+            
+              
+                <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+              
+            
+              
+                <p>本文永久链接是：<a href=https://www.asjin.com/2020/06/27/python_dict/>https://www.asjin.com/2020/06/27/python_dict/</a></p>
+              
+            
+          </blockquote>
+        </div>
+      
+      
+    </div>
+  
+  
+    
+
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-09-29T18:44:13+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：Sep 29, 2020</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/linux/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>linux</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/program/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>program</p></a></div>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.asjin.com/2020/06/27/python_dict/&title=python 集合字典 - 逝水锦遥&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://www.asjin.com/2020/06/27/python_dict/&title=python 集合字典 - 逝水锦遥&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.asjin.com/2020/06/27/python_dict/&title=python 集合字典 - 逝水锦遥&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png">
+          
+        </a>
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </div>
+
+
+  
+  
+
+  
+    <div class="prev-next">
+      
+        <a class='prev' href='/2020/08/05/python%E5%87%BD%E6%95%B0%E4%B8%80/'>
+          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>python 函数(一)</p>
+          <p class='content'>[toc]
+python 函数(一)
+函数数学定义: y=f(x)，y是x的函数，x是自变量
+
+python 函数
+
+由苦干语句组成的语句块、函数名称、参数列表构成，它是组织代码的最小单元格完成...</p>
+        </a>
+      
+      
+        <a class='next' href='/2020/06/17/team%20%E7%BB%91%E5%AE%9A/'>
+          <p class='title'>双网卡team 绑定实践记录<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>[toc]
+双网卡team 绑定
+很多时候，由于生产环境业务的特殊需求，我们需要对服务器的物理网卡实施特殊的配置，从而来满足不同业务场景下对服务器网络的特殊性要求。如高并发的网络IO型业务，需要...</p>
+        </a>
+      
+    </div>
+  
+</article>
+
+
+  
+
+  <article class="post white-box reveal floatable" id="comments">
+    <p ct><i class='fas fa-comments'></i> 评论</p>
+    
+    <div id="valine_container" class="valine_thread">
+  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+</div>
+
+  </article>
+
+
+
+
+
+
+</div>
+<aside class='l_side'>
+  
+  
+    
+    
+
+
+
+  <section class="widget toc-wrapper floatable desktop mobile" id="toc-div" >
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9B%86%E5%90%88"><span class="toc-text">集合</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%B6%E9%9B%86"><span class="toc-text">并集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%A4%E9%9B%86"><span class="toc-text">交集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B7%AE%E9%9B%86"><span class="toc-text">差集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E7%A7%B0%E5%B7%AE%E9%9B%86"><span class="toc-text">对称差集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9B%86%E5%90%88%E8%BF%90%E7%AE%97"><span class="toc-text">集合运算</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#set-%E5%92%8C%E7%BA%BF%E6%80%A7%E7%BB%93%E6%9E%84"><span class="toc-text">set 和线性结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%80%E5%8D%95%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F"><span class="toc-text">简单选择排序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%80%E5%8D%95%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0-%E4%B8%80"><span class="toc-text">简单选择排序代码实现(一)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%80%E5%8D%95%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0-%E4%BA%8C-%EF%BC%8C%E4%BA%8C%E5%85%83%E6%8E%92%E5%BA%8F%E6%B3%95"><span class="toc-text">简单选择排序代码实现(二)，二元排序法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%80%E5%8D%95%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F%E6%80%BB%E7%BB%93"><span class="toc-text">简单选择排序总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%97%E5%85%B8dict"><span class="toc-text">字典dict</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E5%85%B8dict%E5%AE%9A%E4%B9%89-%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-text">字典dict定义 初始化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E5%85%B8%E5%85%83%E7%B4%A0%E7%9A%84%E8%AE%BF%E9%97%AE"><span class="toc-text">字典元素的访问</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E5%85%B8%E5%A2%9E%E5%8A%A0%E5%92%8C%E4%BF%AE%E6%94%B9"><span class="toc-text">字典增加和修改</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E5%85%B8%E5%88%A0%E9%99%A4"><span class="toc-text">字典删除</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%97%E5%85%B8%E5%88%A0%E9%99%A4-1"><span class="toc-text">字典删除</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E5%85%B8%E9%81%8D%E5%8E%86"><span class="toc-text">字典遍历</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E5%85%B8%E8%A7%A3%E6%9E%84"><span class="toc-text">字典解构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-text">总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%87%E5%87%86%E5%BA%93datetime"><span class="toc-text">标准库datetime</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%87%E5%87%86%E5%BA%93datetime-1"><span class="toc-text">标准库datetime</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%87%E5%87%86%E5%BA%93datetime-2"><span class="toc-text">标准库datetime</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%87%E5%87%86%E5%BA%93time"><span class="toc-text">标准库time</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%97%E8%A1%A8%E8%A7%A3%E6%9E%90List"><span class="toc-text">列表解析List</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E5%99%A8%E8%A1%A8%E8%BE%BE%E5%BC%8F-Generator-expression"><span class="toc-text">生成器表达式(Generator expression)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E5%99%A8%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="toc-text">生成器表达式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9B%86%E5%90%88%E8%A7%A3%E6%9E%90%E5%BC%8F"><span class="toc-text">集合解析式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%97%E5%85%B8%E8%A7%A3%E6%9E%90%E5%BC%8F"><span class="toc-text">字典解析式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93-1"><span class="toc-text">总结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%85%E5%BB%BA%E5%87%BD%E6%95%B0"><span class="toc-text">内建函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A5%E5%85%85%E5%88%97%E8%A1%A8%E5%85%A8%E9%83%A8%E6%8B%B7%E8%B4%9D"><span class="toc-text">补充列表全部拷贝</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%AD%E4%BB%A3%E5%99%A8"><span class="toc-text">迭代器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%97%E5%85%B8%E7%BB%83%E4%B9%A0"><span class="toc-text">字典练习</span></a></li></ol>
+    </div>
+  </section>
+
+
+  
+
+
+</aside>
+
+
+
+        
+        
+          <!--此文件用来存放一些不方便取值的变量-->
+<!--思路大概是将值藏到重加载的区域内-->
+
+<script>
+  window.pdata={}
+  pdata.ispage=true;
+  pdata.postTitle="python 集合字典";
+  pdata.commentPath="";
+  pdata.commentPlaceholder="";
+
+  var l_header=document.getElementById("l_header");
+  
+  l_header.classList.remove("show");
+  
+</script>
+
+        
+      </div>
+      
+  
+  <footer class="footer clearfix">
+    <br><br>
+    
+      
+        <div class="aplayer-container">
+          
+
+
+        </div>
+      
+    
+      
+        <br>
+        <div class="social-wrapper">
+          
+            
+          
+            
+          
+            
+          
+        </div>
+      
+    
+      
+        <div><p>博客内容遵循 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
+</div>
+      
+    
+      
+        
+      
+    
+      
+        本站使用
+        <a href="https://github.com/volantis-x/hexo-theme-volantis/tree/4.1.6" target="_blank" class="codename">Volantis</a>
+        作为主题，总访问量为
+          <span id="busuanzi_value_site_pv"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+          次
+        
+      
+    
+      
+        <div class='copyright'>
+        <p><a href="/">Copyright © 2017-2020 asjin.com</a></p>
+
+        </div>
+      
+    
+  </footer>
+
+
+      <a id="s-top" class="fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+    </div>
+  </div>
+  <div>
+    <script>
+window.volantis={};
+window.volantis.loadcss=document.getElementById("loadcss");
+/********************脚本懒加载函数********************************/
+function loadScript(src, cb) {
+var HEAD = document.getElementsByTagName('head')[0] || document.documentElement;
+var script = document.createElement('script');
+script.setAttribute('type','text/javascript');
+if (cb) script.onload = cb;
+script.setAttribute('src', src);
+HEAD.appendChild(script);
+}
+//https://github.com/filamentgroup/loadCSS
+var loadCSS = function( href, before, media, attributes ){
+	var doc = window.document;
+	var ss = doc.createElement( "link" );
+	var ref;
+	if( before ){
+		ref = before;
+	}
+	else {
+		var refs = ( doc.body || doc.getElementsByTagName( "head" )[ 0 ] ).childNodes;
+		ref = refs[ refs.length - 1];
+	}
+	var sheets = doc.styleSheets;
+	if( attributes ){
+		for( var attributeName in attributes ){
+			if( attributes.hasOwnProperty( attributeName ) ){
+				ss.setAttribute( attributeName, attributes[attributeName] );
+			}
+		}
+	}
+	ss.rel = "stylesheet";
+	ss.href = href;
+	ss.media = "only x";
+	function ready( cb ){
+		if( doc.body ){
+			return cb();
+		}
+		setTimeout(function(){
+			ready( cb );
+		});
+	}
+	ready( function(){
+		ref.parentNode.insertBefore( ss, ( before ? ref : ref.nextSibling ) );
+	});
+	var onloadcssdefined = function( cb ){
+		var resolvedHref = ss.href;
+		var i = sheets.length;
+		while( i-- ){
+			if( sheets[ i ].href === resolvedHref ){
+				return cb();
+			}
+		}
+		setTimeout(function() {
+			onloadcssdefined( cb );
+		});
+	};
+	function loadCB(){
+		if( ss.addEventListener ){
+			ss.removeEventListener( "load", loadCB );
+		}
+		ss.media = media || "all";
+	}
+	if( ss.addEventListener ){
+		ss.addEventListener( "load", loadCB);
+	}
+	ss.onloadcssdefined = onloadcssdefined;
+	onloadcssdefined( loadCB );
+	return ss;
+};
+</script>
+<script>
+  
+  loadCSS("https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14/css/all.min.css", window.volantis.loadcss);
+  
+  
+  
+  
+</script>
+<!-- required -->
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5/dist/jquery.min.js"></script>
+
+<script>
+  function pjax_fancybox() {
+    $(".md .gallery").find("img").each(function () { //渲染 fancybox
+      var element = document.createElement("a"); // a 标签
+      $(element).attr("class", "fancybox");
+      $(element).attr("pjax-fancybox", "");  // 过滤 pjax
+      $(element).attr("href", $(this).attr("src"));
+      if ($(this).attr("data-original")) {
+        $(element).attr("href", $(this).attr("data-original"));
+      }
+      $(element).attr("data-fancybox", "images");
+      var caption = "";   // 描述信息
+      if ($(this).attr('alt')) {  // 判断当前页面是否存在描述信息
+        $(element).attr('data-caption', $(this).attr('alt'));
+        caption = $(this).attr('alt');
+      }
+      var div = document.createElement("div");
+      $(div).addClass("fancybox");
+      $(this).wrap(div); // 最外层套 div ，其实主要作用还是 class 样式
+      var span = document.createElement("span");
+      $(span).addClass("image-caption");
+      $(span).text(caption); // 加描述
+      $(this).after(span);  // 再套一层描述
+      $(this).wrap(element);  // 最后套 a 标签
+    })
+    $(".md .gallery").find("img").fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+      closeClick: true,
+      helpers: {
+        overlay: {closeClick: true}
+      },
+      buttons: [
+        "zoom",
+        "close"
+      ]
+    });
+  };
+  function SCload_fancybox() {
+    if ($(".md .gallery").find("img").length == 0) return;
+    loadCSS("https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css", document.getElementById("loadcss"));
+    setTimeout(function() {
+      loadScript('https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js', pjax_fancybox)
+    }, 1);
+  };
+  $(function () {
+    SCload_fancybox();
+  });
+</script>
+
+
+<!-- internal -->
+
+
+
+
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.1.0/dist/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 0
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    lazyLoadInstance.update();
+  });
+  document.addEventListener('pjax:complete', function () {
+    lazyLoadInstance.update();
+  });
+</script>
+
+
+
+
+  
+  
+    <script async src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@2/js/instant_page.js" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+  
+
+
+
+
+  <script src="/js/clipboard.min.js"></script>
+<script>
+    var clipboard = new ClipboardJS('.btn-copy', {
+        target: function (trigger) {
+            return trigger.nextElementSibling
+        }
+    });
+    function wait(callback, seconds) {
+        var timelag = null;
+        timelag = window.setTimeout(callback, seconds)
+    }
+    function pjax_initCopyCode() {
+		if($(".highlight .code pre").length+$(".article pre code").length==0)return;
+        var copyHtml = '';
+        copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+        copyHtml += '<i class="fas fa-copy"></i><span>COPY</span>';
+        copyHtml += '</button>';
+        $(".highlight .code pre").before(copyHtml);
+        $(".article pre code").before(copyHtml);
+        clipboard.off('success').on('success', function (e) {
+            let $btn = $(e.trigger);
+            $btn.addClass('copied');
+            let $icon = $($btn.find('i'));
+            $icon.removeClass('fa-copy');
+            $icon.addClass('fa-check-circle');
+            let $span = $($btn.find('span'));
+            $span[0].innerText = 'COPIED';
+            wait(function () {
+                $icon.removeClass('fa-check-circle');
+                $icon.addClass('fa-copy');
+                $span[0].innerText = 'COPY'
+            }, 2000)
+        });
+        clipboard.off('error').on('error', function (e) {
+            e.clearSelection();
+            let $btn = $(e.trigger);
+            $btn.addClass('copy-failed');
+            let $icon = $($btn.find('i'));
+            $icon.removeClass('fa-copy');
+            $icon.addClass('fa-times-circle');
+            let $span = $($btn.find('span'));
+            $span[0].innerText = 'COPY FAILED';
+            wait(function () {
+                $icon.removeClass('fa-times-circle');
+                $icon.addClass('fa-copy');
+                $span[0].innerText = 'COPY'
+            }, 2000)
+        })
+    }
+    $(function () {
+        pjax_initCopyCode()
+    });
+</script>
+
+
+
+
+
+
+
+
+  
+  
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4/dist/Valine.min.js"></script>
+
+
+<script>
+  var GUEST_INFO = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link,header'.split(',').filter(function (item) {
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var REQUIRED_FIELDS = ['nick', 'mail', 'link'];
+  var requiredFields = 'nick,mail'.split(',').filter(function (item) {
+    return REQUIRED_FIELDS.indexOf(item) > -1
+  });
+
+  function emoji(path, idx, ext) {
+    return path + "/" + path + "-" + idx + "." + ext;
+  }
+
+  var emojiMaps = {};
+  for (var i = 1; i <= 54; i++) {
+    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
+  }
+  for (var i = 1; i <= 101; i++) {
+    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+  }
+  for (var i = 1; i <= 116; i++) {
+    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
+  }
+  for (var i = 1; i <= 125; i++) {
+    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
+  }
+  for (var i = 1; i <= 4; i++) {
+    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+  }
+
+  function pjax_valine() {
+    if(!document.querySelectorAll("#valine_container")[0])return;
+
+    let pagePlaceholder = pdata.commentPlaceholder || "快来评论吧~ 🤩 🤩 🤩";
+
+    let path = pdata.commentPath;
+    if (path.length == 0) {
+      let defaultPath = '';
+      path = defaultPath || decodeURI(window.location.pathname);
+    }
+
+    var valine = new Valine();
+    valine.init({
+      el: '#valine_container',
+      meta: meta,
+      placeholder: pagePlaceholder,
+      path: path,
+      appId: "NkJqMpxu4QlRLhPIHipNUHF1-gzGzoHsz",
+      appKey: "D2vTdueKJ8ammc2JEdje0vLW",
+      pageSize: '',
+      avatar: 'monsterid',
+      lang: '',
+      visitor: '',
+      highlight: '',
+      mathJax: '',
+      enableQQ: 'true',
+      recordIP: 'false',
+      requiredFields: requiredFields,
+      emojiCDN: 'https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/valine/',
+      emojiMaps: emojiMaps
+    })
+  }
+
+  $(function () {
+    pjax_valine();
+  });
+</script>
+
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js" data-pjax></script>
+
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-theme-volantis@4.1.6/source/js/app.min.js"></script>
+
+
+
+<!-- optional -->
+
+  <script>
+const SearchServiceimagePath="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@master/img/";
+const ROOT =  ("/" || "/").endsWith('/') ? ("/" || "/") : ("//" || "/" );
+
+$('.input.u-search-input').one('focus',function(){
+	
+		loadScript('https://cdn.jsdelivr.net/npm/hexo-theme-volantis@4.1.6/source/js/search/hexo.min.js',setSearchService);
+	
+})
+
+function listenSearch(){
+  
+    customSearch = new HexoSearch({
+      imagePath: SearchServiceimagePath
+    });
+  
+}
+function setSearchService() {
+	listenSearch();
+	
+		document.addEventListener("pjax:success", listenSearch);
+	
+}
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+function listennSidebarTOC() {
+  const navItems = document.querySelectorAll(".toc li");
+  if (!navItems.length) return;
+  const sections = [...navItems].map((element) => {
+    const link = element.querySelector(".toc-link");
+    const target = document.getElementById(
+      decodeURI(link.getAttribute("href")).replace("#", "")
+    );
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+      window.scrollTo({
+		top: target.offsetTop + 100,
+		
+		behavior: "smooth"
+		
+	  });
+    });
+    return target;
+  });
+
+  function activateNavByIndex(target) {
+    if (target.classList.contains("active-current")) return;
+
+    document.querySelectorAll(".toc .active").forEach((element) => {
+      element.classList.remove("active", "active-current");
+    });
+    target.classList.add("active", "active-current");
+    let parent = target.parentNode;
+    while (!parent.matches(".toc")) {
+      if (parent.matches("li")) parent.classList.add("active");
+      parent = parent.parentNode;
+    }
+  }
+
+  function findIndex(entries) {
+    let index = 0;
+    let entry = entries[index];
+    if (entry.boundingClientRect.top > 0) {
+      index = sections.indexOf(entry.target);
+      return index === 0 ? 0 : index - 1;
+    }
+    for (; index < entries.length; index++) {
+      if (entries[index].boundingClientRect.top <= 0) {
+        entry = entries[index];
+      } else {
+        return sections.indexOf(entry.target);
+      }
+    }
+    return sections.indexOf(entry.target);
+  }
+
+  function createIntersectionObserver(marginTop) {
+    marginTop = Math.floor(marginTop + 10000);
+    let intersectionObserver = new IntersectionObserver(
+      (entries, observe) => {
+        let scrollHeight = document.documentElement.scrollHeight + 100;
+        if (scrollHeight > marginTop) {
+          observe.disconnect();
+          createIntersectionObserver(scrollHeight);
+          return;
+        }
+        let index = findIndex(entries);
+        activateNavByIndex(navItems[index]);
+      },
+      {
+        rootMargin: marginTop + "px 0px -100% 0px",
+        threshold: 0,
+      }
+    );
+    sections.forEach((element) => {
+      element && intersectionObserver.observe(element);
+    });
+  }
+  createIntersectionObserver(document.documentElement.scrollHeight);
+}
+
+document.addEventListener("DOMContentLoaded", listennSidebarTOC);
+document.addEventListener("pjax:success", listennSidebarTOC);
+</script>
+
+<!-- more -->
+
+
+
+
+    
+      
+
+
+<script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script>
+
+
+<script>
+    var pjax;
+    document.addEventListener('DOMContentLoaded', function () {
+      pjax = new Pjax({
+        elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"]):not([pjax-fancybox])',
+        selectors: [
+          "title",
+          "#l_cover",
+          "#pjax-container",
+          "#pjax-header-nav-list"
+        ],
+        cacheBust: false,   // url 地址追加时间戳，用以避免浏览器缓存
+        timeout: 5000
+      });
+    });
+
+    document.addEventListener('pjax:send', function (e) {
+      //window.stop(); // 相当于点击了浏览器的停止按钮
+
+      try {
+        var currentUrl = window.location.pathname;
+        var targetUrl = e.triggerElement.href;
+        var banUrl = [""];
+        if (banUrl[0] != "") {
+          banUrl.forEach(item => {
+            if(currentUrl.indexOf(item) != -1 || targetUrl.indexOf(item) != -1) {
+              window.location.href = targetUrl;
+            }
+          });
+        }
+      } catch (error) {}
+
+      window.subData = null; // 移除标题（用于一二级导航栏切换处）
+      if (typeof $.fancybox != "undefined") {
+        $.fancybox.close();    // 关闭弹窗
+      }
+      volantis.$switcher.removeClass('active'); // 关闭移动端激活的搜索框
+      volantis.$header.removeClass('z_search-open'); // 关闭移动端激活的搜索框
+      volantis.$wrapper.removeClass('sub'); // 跳转页面时关闭二级导航
+
+      // 解绑事件 避免重复监听
+      volantis.$topBtn.unbind('click');
+      $('.menu a').unbind('click');
+      $(window).unbind('resize');
+      $(window).unbind('scroll');
+      $(document).unbind('scroll');
+      $(document).unbind('click');
+      $('body').unbind('click');
+	  
+    });
+
+    document.addEventListener('pjax:complete', function () {
+      // 关于百度统计对 SPA 页面的处理：
+      // 方案一：百度统计>管理>单页应用设置中，打开开启按钮即可对SPA进行统计。 https://tongji.baidu.com/web/help/article?id=324
+      // 方案二：取消注释下列代码。 https://tongji.baidu.com/web/help/article?id=235
+       
+
+      // 关于谷歌统计对 SPA 页面的处理：
+      // 当应用以动态方式加载内容并更新地址栏中的网址时，也应该更新通过 gtag.js 存储的网页网址。
+      // https://developers.google.cn/analytics/devguides/collection/gtagjs/single-page-applications?hl=zh-cn
+      
+	 
+
+      $('.nav-main').find('.list-v').not('.menu-phone').removeAttr("style",""); // 移除小尾巴的移除
+      $('.menu-phone.list-v').removeAttr("style",""); // 移除小尾巴的移除
+      $('script[data-pjax], .pjax-reload script').each(function () {
+        $(this).parent().append($(this).remove());
+      });
+      try{
+          if (typeof $.fancybox == "undefined") {
+            SCload_fancybox();
+          } else {
+            pjax_fancybox();
+          }
+        
+        
+        
+        
+        
+          pjax_initCopyCode();
+        
+        
+          pjax_valine();
+        
+        
+        
+        
+      } catch (e) {
+        console.log(e);
+      }
+	  
+    });
+
+    document.addEventListener('pjax:error', function (e) {
+	  
+      window.location.href = e.triggerElement.href;
+    });
+</script>
+
+    
+  </div>
+</body>
+</html>

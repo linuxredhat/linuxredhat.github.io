@@ -1,0 +1,1289 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head hexo-theme='https://github.com/volantis-x/hexo-theme-volantis/tree/4.1.6'>
+  <meta charset="utf-8">
+  <!-- SEO相关 -->
+  
+    
+  
+  <!-- 渲染优化 -->
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://cdn.jsdelivr.net'>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- 页面元数据 -->
+  
+  <title>Nginx的常用架构 - 逝水锦遥</title>
+  
+    <meta name="keywords" content="rhca,linux">
+  
+
+  
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="逝水锦遥" type="application/atom+xml">
+  
+
+  <!-- import meta -->
+  
+
+  <!-- link -->
+  
+
+  <!-- import link -->
+  
+
+  
+    
+<link rel="stylesheet" href="/css/first.css">
+
+  
+
+  
+  <link rel="stylesheet" href="/css/style.css" media="print" onload="this.media='all';this.onload=null">
+  <noscript><link rel="stylesheet" href="/css/style.css"></noscript>
+  
+
+  <script id="loadcss"></script>
+</head>
+
+
+<body>
+	  <canvas id="canvas" width="1440" height="900" ></canvas>
+	  <script type="text/javascript" src="/js/DigitalRain.js"></script>
+  
+
+<header id="l_header" class="l_header always floatable "  >
+  <div class='container'>
+  <div id='wrapper'>
+    <div class='nav-sub'>
+      <p class="title"></p>
+      <ul class='switcher nav-list-h m-phone' id="pjax-header-nav-list">
+        <li><a id="s-comment" class="fas fa-comments fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+          <li><a id="s-toc" class="s-toc fas fa-list fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+      </ul>
+    </div>
+		<div class="nav-main">
+      
+        
+        <a class="title flat-box" target="_self" href='/'>
+          
+            <img no-lazy class='logo' src='/images/head.png'/>
+          
+          
+          
+        </a>
+      
+
+			<div class='menu navigation'>
+				<ul class='nav-list-h m-pc'>
+          
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fab fa-linux fa-fw'></i>所有文章
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/program
+                  
+                  
+                  
+                    id="tagsprogram"
+                  >
+                  <i class='fab fa-gitlab fa-fw'></i>运维开发
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/rhca
+                  
+                  
+                  
+                    id="tagsrhca"
+                  >
+                  <i class='fas fa-heartbeat fa-fw'></i>运维组件
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/cloud
+                  
+                  
+                  
+                    id="tagscloud"
+                  >
+                  <i class='fas fa-cloud fa-fw'></i>云计算
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/zikao
+                  
+                  
+                  
+                    id="tagszikao"
+                  >
+                  <i class='fab fa-drupal fa-fw'></i>成自考
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/renjin
+                  
+                  
+                  
+                    id="tagsrenjin"
+                  >
+                  <i class='fas fa-user-circle fa-fw'></i>个人中心
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/box/
+                  
+                  
+                  
+                    id="box"
+                  >
+                  <i class='fas fa-flag fa-fw'></i>工具箱
+                </a>
+                
+              </li>
+            
+          
+          
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="搜索文章..." />
+        </form>
+      </div>
+
+			<ul class='switcher nav-list-h m-phone'>
+				
+					<li><a class="s-search fas fa-search fa-fw" target="_self" href='javascript:void(0)'></a></li>
+				
+				<li>
+          <a class="s-menu fas fa-bars fa-fw" target="_self" href='javascript:void(0)'></a>
+          <ul class="menu-phone list-v navigation white-box">
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fab fa-linux fa-fw'></i>所有文章
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/program
+                  
+                  
+                  
+                    id="tagsprogram"
+                  >
+                  <i class='fab fa-gitlab fa-fw'></i>运维开发
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/rhca
+                  
+                  
+                  
+                    id="tagsrhca"
+                  >
+                  <i class='fas fa-heartbeat fa-fw'></i>运维组件
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/cloud
+                  
+                  
+                  
+                    id="tagscloud"
+                  >
+                  <i class='fas fa-cloud fa-fw'></i>云计算
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/zikao
+                  
+                  
+                  
+                    id="tagszikao"
+                  >
+                  <i class='fab fa-drupal fa-fw'></i>成自考
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/renjin
+                  
+                  
+                  
+                    id="tagsrenjin"
+                  >
+                  <i class='fas fa-user-circle fa-fw'></i>个人中心
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/box/
+                  
+                  
+                  
+                    id="box"
+                  >
+                  <i class='fas fa-flag fa-fw'></i>工具箱
+                </a>
+                
+              </li>
+            
+          
+            
+          </ul>
+        </li>
+			</ul>
+		</div>
+	</div>
+  </div>
+</header>
+
+  <div id="l_body">
+    <div id="l_cover">
+  
+    
+        <div id="half" class='cover-wrapper post search' style="display: ;">
+          
+            <div class='cover-bg lazyload placeholder' data-bg="/images/background.jpg"></div>
+          
+          <div class='cover-body'>
+  <div class='top'>
+    
+    
+      <p class="title">S  S  J  Y</p>
+    
+    
+      <p class="subtitle">有志而性缓者思大志 有才而气和者为大才</p>
+    
+  </div>
+  <div class='bottom'>
+    
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <input type="text" class="input u-search-input" placeholder="搜索本地文章" />
+          <i class="icon fas fa-search fa-fw"></i>
+        </form>
+      </div>
+    
+    <div class='menu navigation'>
+      <div class='list-h'>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+          <div id="scroll-down" style="display: none;"><i class="fa fa-chevron-down scroll-down-effects"></i></div>
+        </div>
+    
+  
+  </div>
+
+    <div id='safearea'>
+      <div class='body-wrapper' id="pjax-container">
+        
+
+<div class='l_main'>
+  <article class="article post white-box reveal md floatable article-type-post" id="post" itemscope itemprop="blogPost">
+  
+
+
+  
+  <div class="article-meta" id="top">
+    
+    
+    
+      <h1 class="title">
+        Nginx的常用架构
+      </h1>
+      <div class='new-meta-box'>
+        
+          
+            
+<div class='new-meta-item author'>
+  <a class='author' href="/images/rjrt.ico" rel="nofollow">
+    <img no-lazy src="/images/rjrt.ico">
+    <p>任锦</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：Apr 26, 2018</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class="new-meta-item browse busuanzi">
+    <a class='notlink'>
+      <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+      <p>
+        <span id="busuanzi_value_page_pv">
+          <i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i>
+        </span>
+        次浏览
+      </p>
+    </a>
+  </div>
+
+
+          
+        
+      </div>
+    
+  </div>
+
+
+  
+  <p>[toc]</p>
+<h1 id="Nginx-常用架构"><a href="#Nginx-常用架构" class="headerlink" title="Nginx 常用架构"></a>Nginx 常用架构</h1><p><img src="/images/nginx_001.png" class="lazyload" data-srcset="/images/nginx_001.png" srcset="data:image/png;base64,666" alt=""></p>
+<h2 id="LB-Cluster"><a href="#LB-Cluster" class="headerlink" title="LB Cluster"></a>LB Cluster</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">提升系统容量的方式:</span><br><span class="line">    scale up:</span><br><span class="line">    scale out:</span><br><span class="line"></span><br><span class="line">session保持方法:</span><br><span class="line">    session绑定:sh</span><br><span class="line">    session复制:</span><br><span class="line">    session服务器: memchached redis (key-value,kv store)</span><br><span class="line">    对url 做hash 计算后，做为key</span><br><span class="line">    对url 对应的内容做为value</span><br></pre></td></tr></table></figure>
+<h2 id="I-O："><a href="#I-O：" class="headerlink" title="I/O："></a>I/O：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">同步&#x2F;异步:被调用者，在收到调用请求后，是否立即返回。还是得到最终结果后才返回； </span><br><span class="line">阻塞&#x2F;非阻塞:调用者发起调用之后，在收到响应结果之前，是否会被挂起，被挂起，被称为阻塞，非挂起为非阻塞;</span><br><span class="line">I&#x2F;O网络编程模型中，常用网络模型有5种;</span><br><span class="line">1、同步阻塞 </span><br><span class="line">2、同步非阻塞</span><br><span class="line">3、复用型I&#x2F;O</span><br><span class="line">4、(Event Driver) 事件驱动</span><br><span class="line">5、异步I&#x2F;O</span><br><span class="line"></span><br><span class="line">libevent: 项目</span><br><span class="line">    epoll()</span><br><span class="line">可以对nginx进程对CPU的核心数来进行绑定;</span><br><span class="line">LRU:最近最少缓存条目算法;</span><br><span class="line">平滑升级，平滑故障处理，或者灰度发布;</span><br><span class="line">对于web服务器来说，日志至关重要，需要对日志进行分析;</span><br><span class="line">CacheManager: 缓存的失效，过期检验及清理操作;</span><br></pre></td></tr></table></figure>
+<h2 id="Nginx-配置"><a href="#Nginx-配置" class="headerlink" title="Nginx 配置"></a>Nginx 配置</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">main, event, http 基于c语言风格；</span><br><span class="line"></span><br><span class="line">httpd&#123; </span><br><span class="line">    drective</span><br><span class="line">    server&#123;</span><br><span class="line">        listen</span><br><span class="line">        server_name</span><br><span class="line">        location&#123;</span><br><span class="line">            if &#123;</span><br><span class="line">              &#125;</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br><span class="line"> server &#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+<h3 id="nginx-的安装包"><a href="#nginx-的安装包" class="headerlink" title="nginx 的安装包"></a>nginx 的安装包</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># 这里采用的采用的是阿里云的epel源</span><br><span class="line"># cd &#x2F;etc&#x2F;yum.repos.d&#x2F;epel.repo</span><br><span class="line">[epel]</span><br><span class="line">name&#x3D;Extra Packages for Enterprise Linux 7 - $basearch</span><br><span class="line">enabled&#x3D;1</span><br><span class="line">failovermethod&#x3D;priority</span><br><span class="line">baseurl&#x3D;http:&#x2F;&#x2F;mirrors.cloud.aliyuncs.com&#x2F;epel&#x2F;7&#x2F;$basearch</span><br><span class="line">gpgcheck&#x3D;0</span><br><span class="line">gpgkey&#x3D;http:&#x2F;&#x2F;mirrors.cloud.aliyuncs.com&#x2F;epel&#x2F;RPM-GPG-KEY-EPEL-7</span><br><span class="line"># yum -y install nginx</span><br><span class="line"># rpm -q --scripts nginx # 查看nginx  的安装前脚本，卸载后脚本; </span><br></pre></td></tr></table></figure>
+<h2 id="ngx-http-proxy-module-模块"><a href="#ngx-http-proxy-module-模块" class="headerlink" title="ngx_http_proxy_module 模块"></a>ngx_http_proxy_module 模块</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">    listen</span><br><span class="line">    server_name</span><br><span class="line">    location &#x2F;&#123;</span><br><span class="line">        proxy_pass http:&#x2F;&#x2F;172.16.55.180:80&#x2F;</span><br><span class="line">        proxy_set_header Host $host  # 设定请求报文的，Host首部，一般apache基于主机名解析的重要首部信息;</span><br><span class="line">        proxy_set_header X-Real-IP $remote_addr;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"># 请求到代理服务器的过程，Ningx把报文拆除，了解请求的内容是什么;</span><br><span class="line"># 于是Nginx需要重新构建请求报文 ，来送到的后端服务器;</span><br><span class="line"># cip（客户端 ip） --&gt; pip(代理ip) --&gt; lip(本地ip) --&gt; uip(后端服务器ip);</span><br><span class="line">http:&#x2F;&#x2F;www.ssjinyao.com</span><br><span class="line">http:&#x2F;&#x2F;mysql.ssjinyao.com</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"># 在node1中配置一台httpd服务</span><br><span class="line"># echo &quot;&lt;h1&gt;node1&lt;&#x2F;h1&gt;&quot; &gt; &#x2F;var&#x2F;www&#x2F;html&#x2F;index.html</span><br><span class="line"># systemctl start httpd </span><br><span class="line"># 在node2中 配置一台httpd 服务</span><br><span class="line">echo &quot;&lt;h1&gt;node2&lt;&#x2F;h1&gt;&quot; &gt; &#x2F;var&#x2F;www&#x2F;html&#x2F;index.html</span><br><span class="line"># systemctl start httpd </span><br><span class="line"></span><br><span class="line">格式:</span><br><span class="line">    localtion &#x2F;uri &#123;</span><br><span class="line">        proxy_pass http:&#x2F;&#x2F;back_server:port&#x2F;newuri;</span><br><span class="line">    &#125;</span><br><span class="line">    # 这样的配置 uri 将补到newuri的后面</span><br><span class="line">    location &#x2F;uri &#123;</span><br><span class="line">        rewrite http:&#x2F;&#x2F;back_server:port&#x2F;newuri</span><br><span class="line">        # proxy_pass http:&#x2F;&#x2F;back_server:port&#x2F;newuri </span><br><span class="line">    &#125;</span><br><span class="line">    # 这样的配置 uri 将重写到newuri   </span><br><span class="line">    &#x2F;uri --&gt; &#x2F;newuri</span><br><span class="line"># cd &#x2F;etc&#x2F;nginx&#x2F;conf.d&#x2F;</span><br><span class="line"># cp defalt.conf&#123;,.bak&#125;</span><br><span class="line"># vim default.conf</span><br><span class="line"></span><br><span class="line">server_name  www.ssjinyao.com;</span><br><span class="line">location &#x2F; </span><br><span class="line">    &#123;</span><br><span class="line">    proxy_ass http:&#x2F;&#x2F;172.16.55.128&#x2F;;</span><br><span class="line">    index index.htm index.html ;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"># systemctl restart nginx</span><br><span class="line"># tial -f &#x2F;var&#x2F;log&#x2F;nginx&#x2F;access.log </span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"># 在node2 apache 端进行编辑</span><br><span class="line"># mkdir &#x2F;var&#x2F;www&#x2F;html&#x2F;bbs</span><br><span class="line"># echo &quot;&lt;h1&gt; bbs on node2 &lt;&#x2F;h1&gt;&quot; &#x2F;var&#x2F;www&#x2F;html&#x2F;bbs&#x2F;index.html</span><br><span class="line"></span><br><span class="line"># 对应的在nginx 端</span><br><span class="line"></span><br><span class="line">location &#x2F;bbs&#x2F; &#123;</span><br><span class="line">    proxy_pass http:&#x2F;&#x2F;172.16.55.128&#x2F;bbs&#x2F;;</span><br><span class="line">&#125;</span><br><span class="line"># nginx -t  or # sevice nginx configtest  </span><br><span class="line"># systemctl rsload nginx </span><br><span class="line"></span><br><span class="line"># 或者可以使用forum</span><br><span class="line">location &#x2F;forum&#x2F; &#123;</span><br><span class="line">    proxy_cache mycache;</span><br><span class="line">    proxy_cache_valid 200 1h;</span><br><span class="line">    proxy_cache_valid 301 302 10m;</span><br><span class="line">    proxy_cache_valid any 1m;</span><br><span class="line">    proxy_cache_use_statle error timeout invalid_header http_500 http_502 http_503 http504;  # 什么情况下使用过期缓存</span><br><span class="line">    proxy_pass http:&#x2F;&#x2F;172.16.55.128&#x2F;bbs&#x2F;;</span><br><span class="line">    proxy_set_header Host $host;</span><br><span class="line">    proxy_set_header X-Real-IP $remote_addr;</span><br><span class="line">&#125;</span><br><span class="line"># nginx -t </span><br><span class="line"># systemctl reload nginx</span><br><span class="line"></span><br><span class="line">location ~* \.(jpg|png|gif)$ &#123;</span><br><span class="line">    proxy_pass http:&#x2F;&#x2F;172.16.55.128;</span><br><span class="line">    proxy_set_header Host $host;</span><br><span class="line">    proxy_set_header X-Real-IP $remote_addr;</span><br><span class="line">&#125;</span><br><span class="line"># nginx -t </span><br><span class="line"># systemctl reload nginx </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 注意 在location 进行正则匹配的模式匹配时</span><br><span class="line"># proxy_pass 加http:&#x2F;&#x2F;172.16.55.128; 这个位置这后什么都不能带的，&#x2F; 也不能带的，否则会报语法错误; </span><br><span class="line"># apache 记录客户端请求的日志,向后端发送特定首部;</span><br><span class="line">需要在Logformat中加入 将第一个值 %h 换成%&#123;X-Real-IP&#125;i</span><br><span class="line"># systemctl restart httpd </span><br><span class="line"></span><br><span class="line"># 定义proxy缓存 </span><br><span class="line"># 在nginx httpd 段中配置cache path;</span><br><span class="line"># vim &#x2F;etc&#x2F;nginx&#x2F;nginx.conf</span><br><span class="line">proxy_cache_path &#x2F;cache&#x2F;nginx&#x2F; level&#x3D;1:1:1 keys_zone&#x3D;mycache:32m;</span><br><span class="line"># mkdir -pv &#x2F;cache&#x2F;nginx</span><br><span class="line"># chown -R nginx.nginx &#x2F;cache&#x2F;nginx</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">proxy_connect_timeout:  nginx  proxy 请求连接到后端连接请求的超时时长;</span><br><span class="line">proxy_hide_header: 设定响应到客户端时需要隐藏的首部信息;‘</span><br><span class="line">proxy_buffers 8k; 指定缓冲大小</span><br></pre></td></tr></table></figure>
+<h2 id="upstream-负载均衡-模块"><a href="#upstream-负载均衡-模块" class="headerlink" title="upstream(负载均衡) 模块"></a>upstream(负载均衡) 模块</h2><p>upstream 模块只能使用在http段中</p>
+<p>例子</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"># 注 启用负载均衡时要把缓存关了</span><br><span class="line">upstream backend &#123;</span><br><span class="line">    server www.ssjinyao.com weight&#x3D;5 </span><br><span class="line">    server 127.0.0.1:8080  max_fails&#x3D;3  fail_timeout&#x3D;30s;</span><br><span class="line">    server unix:&#x2F;tmp&#x2F;backend3;</span><br><span class="line">    server backup1.ssjinyao.com backup;</span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line">upstream upservers &#123;</span><br><span class="line">    ip hash;</span><br><span class="line">    server 172.16.55.127 max_fail&#x3D;2  fail_timeout&#x3D;2 # 自带健康状态检测功能;</span><br><span class="line">    # server 172.16.55.128 weight&#x3D;2;</span><br><span class="line">    server 172.16.55.129 bakup;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">server_name  www.ssjinyao.com;</span><br><span class="line"></span><br><span class="line">location &#x2F; &#123;</span><br><span class="line">    proxy_pass http:&#x2F;&#x2F;upservers&#x2F;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"># nginx -t </span><br><span class="line"># systemctl reload nginx</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="SNAT模式的大量的Client"><a href="#SNAT模式的大量的Client" class="headerlink" title="SNAT模式的大量的Client"></a>SNAT模式的大量的Client</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">基于sticky实现session绑定:</span><br><span class="line">    cookie 而我们一般常用的是基于cookie的绑定;</span><br><span class="line">    route</span><br><span class="line">    learn() 需要Nginx 在 1.8 版本以上;</span><br><span class="line"></span><br><span class="line">example:</span><br><span class="line"></span><br><span class="line">upstream backend &#123;</span><br><span class="line">    server backend1.example.com;</span><br><span class="line">    server backend2.example.com;</span><br><span class="line">    </span><br><span class="line">    sticky cookie srv_id expires&#x3D;1h domain&#x3D;.example.com path&#x3D;&#x2F;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">least_conn:调度方法，最少连接;</span><br><span class="line"></span><br><span class="line">upstream memcached_backend &#123;</span><br><span class="line">    server 127.0.0.1:11211;</span><br><span class="line">    server 172.16.55.121:11211;</span><br><span class="line">    </span><br><span class="line">    keepavlie 32;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">server &#123;</span><br><span class="line">    ...</span><br><span class="line">    location &#x2F;memcached&#x2F; &#123;</span><br><span class="line">        set $memcached_key $uri;</span><br><span class="line">        memcached_pass memcached_backend;</span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">location &#x2F; &#123;</span><br><span class="line">    proxy_pass http:&#x2F;&#x2F;backend;</span><br><span class="line">    health_check;</span><br><span class="line">&#125;</span><br><span class="line">    helth_check; 即健康状态检查;</span><br><span class="line">    建议: 关闭访问日志;</span><br><span class="line">    </span><br><span class="line">http &#123;</span><br><span class="line">    server &#123;</span><br><span class="line">    ...</span><br><span class="line">        location &#x2F; &#123;</span><br><span class="line">            proxy_pass http:&#x2F;&#x2F;backend;</span><br><span class="line">            health_check match&#x3D;welcome; # 做字符串匹配;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">        metch welcome &#123;</span><br><span class="line">            status 200;</span><br><span class="line">            header Content-Type &#x3D; text&#x2F;html;</span><br><span class="line">            body ~ &quot;Welcome to nginx&quot;;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Nginx-自定义首部给客户端"><a href="#Nginx-自定义首部给客户端" class="headerlink" title="Nginx 自定义首部给客户端"></a>Nginx 自定义首部给客户端</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"># 代理服务器响应给客户端时，如何自定义响应首部;</span><br><span class="line">     listen 443;</span><br><span class="line">    server_name www.ssjinyao.com;</span><br><span class="line">    add_header SSJinYao-Server &#39;Next-SSJinYao&#39;;</span><br><span class="line">    add_header SSJinYao-IP $server_addr;</span><br><span class="line">    add_header X-Cache $upstream_cache_status;</span><br><span class="line">    add_header Name &#39;ssjinyao&#39;;</span><br><span class="line">    </span><br><span class="line"># curl -I https:&#x2F;&#x2F;www.ssjinyao.com  # 定义完响应首部后，进行验证;</span><br><span class="line">HTTP&#x2F;1.1 200 OK</span><br><span class="line">Server: nginx</span><br><span class="line">Date: Tue, 24 Apr 2018 07:24:37 GMT</span><br><span class="line">Content-Type: text&#x2F;html; charset&#x3D;UTF-8</span><br><span class="line">Content-Length: 39777</span><br><span class="line">Connection: keep-alive</span><br><span class="line">Vary: Accept-Encoding</span><br><span class="line">Last-Modified: Thu, 19 Apr 2018 09:14:18 GMT</span><br><span class="line">ETag: &quot;9b61-56a2fff0c14a1&quot;</span><br><span class="line">SSJinYao-Server: Next-SSJinYao</span><br><span class="line">SSJinYao-IP: 172.31.253.156</span><br><span class="line">X-Cache: HIT</span><br><span class="line">Name: ssjinyao</span><br><span class="line">Accept-Ranges: bytes</span><br></pre></td></tr></table></figure>
+<h3 id="fast-cgi-使用"><a href="#fast-cgi-使用" class="headerlink" title="fast-cgi 使用"></a>fast-cgi 使用</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line">LNMP</span><br><span class="line"># yum -y install php-fpm</span><br><span class="line"># rpm -ql php-fpm </span><br><span class="line"># vim &#x2F;etc&#x2F;php-fpm.d&#x2F;www.conf</span><br><span class="line"># systemctl start php-fpm </span><br><span class="line"># vim &#x2F;etc&#x2F;nginx.conf.d&#x2F;default.conf</span><br><span class="line"></span><br><span class="line">location &#x2F; &#123;</span><br><span class="line">    root &#x2F;usr&#x2F;share&#x2F;nginx&#x2F;html;</span><br><span class="line">    index index.php index.html index.htm;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">location ~\.php$ &#123;</span><br><span class="line">    fastcgi_cache fcgicache;</span><br><span class="line">    fastcgi_cache_valid 200 10m;</span><br><span class="line">    fastcgi_cache_valid 302 3m;</span><br><span class="line">    fastcgi_cache_valid any 1m;</span><br><span class="line">    root &#x2F;usr&#x2F;share&#x2F;nginx&#x2F;html;</span><br><span class="line">    fastcgi_pass 127.0.0.1:9000;</span><br><span class="line">    fastcgi_index indexphp;</span><br><span class="line">    fastcgi_param SCRIPT_FILENAME &#x2F;scripts$fastcgi-script_naame;</span><br><span class="line">    indclude fastcgi_paramgs;</span><br><span class="line">&#125;</span><br><span class="line"># systemctl restart nginx</span><br><span class="line"># 若调用fastcgi 失败 </span><br><span class="line"># 编辑&#x2F;etc&#x2F;nginx&#x2F;fastcgi_params，将其内容更改为如下内容：</span><br><span class="line">fastcgi_param  GATEWAY_INTERFACE  CGI&#x2F;1.1;</span><br><span class="line">fastcgi_param  SERVER_SOFTWARE    nginx;</span><br><span class="line">fastcgi_param  QUERY_STRING       $query_string;</span><br><span class="line">fastcgi_param  REQUEST_METHOD     $request_method;</span><br><span class="line">fastcgi_param  CONTENT_TYPE       $content_type;</span><br><span class="line">fastcgi_param  CONTENT_LENGTH     $content_length;</span><br><span class="line">fastcgi_param  SCRIPT_FILENAME    $document_root$fastcgi_script_name;</span><br><span class="line">fastcgi_param  SCRIPT_NAME        $fastcgi_script_name;</span><br><span class="line">fastcgi_param  REQUEST_URI        $request_uri;</span><br><span class="line">fastcgi_param  DOCUMENT_URI       $document_uri;</span><br><span class="line">fastcgi_param  DOCUMENT_ROOT      $document_root;</span><br><span class="line">fastcgi_param  SERVER_PROTOCOL    $server_protocol;</span><br><span class="line">fastcgi_param  REMOTE_ADDR        $remote_addr;</span><br><span class="line">fastcgi_param  REMOTE_PORT        $remote_port;</span><br><span class="line">fastcgi_param  SERVER_ADDR        $server_addr;</span><br><span class="line">fastcgi_param  SERVER_PORT        $server_port;</span><br><span class="line">fastcgi_param  SERVER_NAME        $server_name;</span><br><span class="line"># nginx -s reload</span><br><span class="line"># yum -y install php-mysql mariadb maraidb-server</span><br><span class="line"># cd &#x2F;usr&#x2F;share&#x2F;nginx&#x2F;html</span><br><span class="line"># vim index.php</span><br><span class="line">&lt;?php </span><br><span class="line">    $conn &#x3D; mysql_connect(&#39;127.0.0.1&#39;,&#39;root&#39;,&#39;&#39;);</span><br><span class="line">    if ($conn)</span><br><span class="line">        echo succ</span><br><span class="line">    else</span><br><span class="line">        echo fail;</span><br><span class="line">    mysql_close();</span><br><span class="line">?&gt;</span><br><span class="line"># 当LNMP 环境跑起来时，可以通匹配反像代理来实现动静分离;</span><br><span class="line">(1) root为同一路径;</span><br><span class="line">(2) root为不同路径;</span><br><span class="line">    location \.php$&#123;</span><br><span class="line">        root &#x2F;web&#x2F;app&#x2F;wp;</span><br><span class="line">    &#125;</span><br><span class="line">    location &#x2F; &#123;</span><br><span class="line">        root &#x2F;web&#x2F;htdocs;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">(3) fpm server 为另一主机 ;</span><br><span class="line"></span><br><span class="line">    location \.php$&#123;</span><br><span class="line">        fastcgi_pass fastcgi:&#x2F;&#x2F;172.16.55.129:9000;</span><br><span class="line">    &#125;</span><br><span class="line">    location &#x2F; &#123;</span><br><span class="line">        root &#x2F;web&#x2F;htdocs;</span><br><span class="line">    &#125;</span><br><span class="line"># 注: 如果动态内容能过缓存来进行加速的话，加速效果是非常明显示的;</span><br></pre></td></tr></table></figure>
+
+  
+  
+    
+    <div class='footer'>
+      
+      
+      
+        <div class='copyright'>
+          <blockquote>
+            
+              
+                <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+              
+            
+              
+                <p>本文永久链接是：<a href=https://www.asjin.com/2018/04/26/nginx%E5%B8%B8%E7%94%A8%E6%9E%B6%E6%9E%84/>https://www.asjin.com/2018/04/26/nginx%E5%B8%B8%E7%94%A8%E6%9E%B6%E6%9E%84/</a></p>
+              
+            
+          </blockquote>
+        </div>
+      
+      
+    </div>
+  
+  
+    
+
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-09-29T18:56:27+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：Sep 29, 2020</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/rhca/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>rhca</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/linux/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>linux</p></a></div>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.asjin.com/2018/04/26/nginx%E5%B8%B8%E7%94%A8%E6%9E%B6%E6%9E%84/&title=Nginx的常用架构 - 逝水锦遥&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://www.asjin.com/2018/04/26/nginx%E5%B8%B8%E7%94%A8%E6%9E%B6%E6%9E%84/&title=Nginx的常用架构 - 逝水锦遥&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.asjin.com/2018/04/26/nginx%E5%B8%B8%E7%94%A8%E6%9E%B6%E6%9E%84/&title=Nginx的常用架构 - 逝水锦遥&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png">
+          
+        </a>
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </div>
+
+
+  
+  
+
+  
+    <div class="prev-next">
+      
+        <a class='prev' href='/2018/04/27/redis/'>
+          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>redis 常用功能</p>
+          <p class='content'>[toc]
+redis 常用功能KV cache and storeREmote DIctionary Server(远程字典服务器)redis 运行都在内存中来实现，周期性的写入磁盘，来实现持...</p>
+        </a>
+      
+      
+        <a class='next' href='/2018/04/17/MongoDB%20NoSQL%E4%BD%BF%E7%94%A8/'>
+          <p class='title'>MongoDB NOSQL的使用、分布式搭建、切片存储<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>MongoDB NoSQL使用[toc]
+NoSQL: Not Only SQL
+
+常用需求及实现123456789101112131415161718192021222324252627282...</p>
+        </a>
+      
+    </div>
+  
+</article>
+
+
+  
+
+  <article class="post white-box reveal floatable" id="comments">
+    <p ct><i class='fas fa-comments'></i> 评论</p>
+    
+    <div id="valine_container" class="valine_thread">
+  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+</div>
+
+  </article>
+
+
+
+
+
+
+</div>
+<aside class='l_side'>
+  
+  
+    
+    
+
+
+
+  <section class="widget toc-wrapper floatable desktop mobile" id="toc-div" >
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#LB-Cluster"><span class="toc-text">LB Cluster</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#I-O%EF%BC%9A"><span class="toc-text">I&#x2F;O：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Nginx-%E9%85%8D%E7%BD%AE"><span class="toc-text">Nginx 配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#nginx-%E7%9A%84%E5%AE%89%E8%A3%85%E5%8C%85"><span class="toc-text">nginx 的安装包</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ngx-http-proxy-module-%E6%A8%A1%E5%9D%97"><span class="toc-text">ngx_http_proxy_module 模块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#upstream-%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1-%E6%A8%A1%E5%9D%97"><span class="toc-text">upstream(负载均衡) 模块</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#SNAT%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%A4%A7%E9%87%8F%E7%9A%84Client"><span class="toc-text">SNAT模式的大量的Client</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Nginx-%E8%87%AA%E5%AE%9A%E4%B9%89%E9%A6%96%E9%83%A8%E7%BB%99%E5%AE%A2%E6%88%B7%E7%AB%AF"><span class="toc-text">Nginx 自定义首部给客户端</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#fast-cgi-%E4%BD%BF%E7%94%A8"><span class="toc-text">fast-cgi 使用</span></a></li></ol></li></ol>
+    </div>
+  </section>
+
+
+  
+
+
+</aside>
+
+
+
+        
+        
+          <!--此文件用来存放一些不方便取值的变量-->
+<!--思路大概是将值藏到重加载的区域内-->
+
+<script>
+  window.pdata={}
+  pdata.ispage=true;
+  pdata.postTitle="Nginx的常用架构";
+  pdata.commentPath="";
+  pdata.commentPlaceholder="";
+
+  var l_header=document.getElementById("l_header");
+  
+  l_header.classList.remove("show");
+  
+</script>
+
+        
+      </div>
+      
+  
+  <footer class="footer clearfix">
+    <br><br>
+    
+      
+        <div class="aplayer-container">
+          
+
+
+        </div>
+      
+    
+      
+        <br>
+        <div class="social-wrapper">
+          
+            
+          
+            
+          
+            
+          
+        </div>
+      
+    
+      
+        <div><p>博客内容遵循 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
+</div>
+      
+    
+      
+        
+      
+    
+      
+        本站使用
+        <a href="https://github.com/volantis-x/hexo-theme-volantis/tree/4.1.6" target="_blank" class="codename">Volantis</a>
+        作为主题，总访问量为
+          <span id="busuanzi_value_site_pv"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+          次
+        
+      
+    
+      
+        <div class='copyright'>
+        <p><a href="/">Copyright © 2017-2020 asjin.com</a></p>
+
+        </div>
+      
+    
+  </footer>
+
+
+      <a id="s-top" class="fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+    </div>
+  </div>
+  <div>
+    <script>
+window.volantis={};
+window.volantis.loadcss=document.getElementById("loadcss");
+/********************脚本懒加载函数********************************/
+function loadScript(src, cb) {
+var HEAD = document.getElementsByTagName('head')[0] || document.documentElement;
+var script = document.createElement('script');
+script.setAttribute('type','text/javascript');
+if (cb) script.onload = cb;
+script.setAttribute('src', src);
+HEAD.appendChild(script);
+}
+//https://github.com/filamentgroup/loadCSS
+var loadCSS = function( href, before, media, attributes ){
+	var doc = window.document;
+	var ss = doc.createElement( "link" );
+	var ref;
+	if( before ){
+		ref = before;
+	}
+	else {
+		var refs = ( doc.body || doc.getElementsByTagName( "head" )[ 0 ] ).childNodes;
+		ref = refs[ refs.length - 1];
+	}
+	var sheets = doc.styleSheets;
+	if( attributes ){
+		for( var attributeName in attributes ){
+			if( attributes.hasOwnProperty( attributeName ) ){
+				ss.setAttribute( attributeName, attributes[attributeName] );
+			}
+		}
+	}
+	ss.rel = "stylesheet";
+	ss.href = href;
+	ss.media = "only x";
+	function ready( cb ){
+		if( doc.body ){
+			return cb();
+		}
+		setTimeout(function(){
+			ready( cb );
+		});
+	}
+	ready( function(){
+		ref.parentNode.insertBefore( ss, ( before ? ref : ref.nextSibling ) );
+	});
+	var onloadcssdefined = function( cb ){
+		var resolvedHref = ss.href;
+		var i = sheets.length;
+		while( i-- ){
+			if( sheets[ i ].href === resolvedHref ){
+				return cb();
+			}
+		}
+		setTimeout(function() {
+			onloadcssdefined( cb );
+		});
+	};
+	function loadCB(){
+		if( ss.addEventListener ){
+			ss.removeEventListener( "load", loadCB );
+		}
+		ss.media = media || "all";
+	}
+	if( ss.addEventListener ){
+		ss.addEventListener( "load", loadCB);
+	}
+	ss.onloadcssdefined = onloadcssdefined;
+	onloadcssdefined( loadCB );
+	return ss;
+};
+</script>
+<script>
+  
+  loadCSS("https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14/css/all.min.css", window.volantis.loadcss);
+  
+  
+  
+  
+</script>
+<!-- required -->
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5/dist/jquery.min.js"></script>
+
+<script>
+  function pjax_fancybox() {
+    $(".md .gallery").find("img").each(function () { //渲染 fancybox
+      var element = document.createElement("a"); // a 标签
+      $(element).attr("class", "fancybox");
+      $(element).attr("pjax-fancybox", "");  // 过滤 pjax
+      $(element).attr("href", $(this).attr("src"));
+      if ($(this).attr("data-original")) {
+        $(element).attr("href", $(this).attr("data-original"));
+      }
+      $(element).attr("data-fancybox", "images");
+      var caption = "";   // 描述信息
+      if ($(this).attr('alt')) {  // 判断当前页面是否存在描述信息
+        $(element).attr('data-caption', $(this).attr('alt'));
+        caption = $(this).attr('alt');
+      }
+      var div = document.createElement("div");
+      $(div).addClass("fancybox");
+      $(this).wrap(div); // 最外层套 div ，其实主要作用还是 class 样式
+      var span = document.createElement("span");
+      $(span).addClass("image-caption");
+      $(span).text(caption); // 加描述
+      $(this).after(span);  // 再套一层描述
+      $(this).wrap(element);  // 最后套 a 标签
+    })
+    $(".md .gallery").find("img").fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+      closeClick: true,
+      helpers: {
+        overlay: {closeClick: true}
+      },
+      buttons: [
+        "zoom",
+        "close"
+      ]
+    });
+  };
+  function SCload_fancybox() {
+    if ($(".md .gallery").find("img").length == 0) return;
+    loadCSS("https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css", document.getElementById("loadcss"));
+    setTimeout(function() {
+      loadScript('https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js', pjax_fancybox)
+    }, 1);
+  };
+  $(function () {
+    SCload_fancybox();
+  });
+</script>
+
+
+<!-- internal -->
+
+
+
+
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.1.0/dist/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 0
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    lazyLoadInstance.update();
+  });
+  document.addEventListener('pjax:complete', function () {
+    lazyLoadInstance.update();
+  });
+</script>
+
+
+
+
+  
+  
+    <script async src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@2/js/instant_page.js" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+  
+
+
+
+
+  <script src="/js/clipboard.min.js"></script>
+<script>
+    var clipboard = new ClipboardJS('.btn-copy', {
+        target: function (trigger) {
+            return trigger.nextElementSibling
+        }
+    });
+    function wait(callback, seconds) {
+        var timelag = null;
+        timelag = window.setTimeout(callback, seconds)
+    }
+    function pjax_initCopyCode() {
+		if($(".highlight .code pre").length+$(".article pre code").length==0)return;
+        var copyHtml = '';
+        copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+        copyHtml += '<i class="fas fa-copy"></i><span>COPY</span>';
+        copyHtml += '</button>';
+        $(".highlight .code pre").before(copyHtml);
+        $(".article pre code").before(copyHtml);
+        clipboard.off('success').on('success', function (e) {
+            let $btn = $(e.trigger);
+            $btn.addClass('copied');
+            let $icon = $($btn.find('i'));
+            $icon.removeClass('fa-copy');
+            $icon.addClass('fa-check-circle');
+            let $span = $($btn.find('span'));
+            $span[0].innerText = 'COPIED';
+            wait(function () {
+                $icon.removeClass('fa-check-circle');
+                $icon.addClass('fa-copy');
+                $span[0].innerText = 'COPY'
+            }, 2000)
+        });
+        clipboard.off('error').on('error', function (e) {
+            e.clearSelection();
+            let $btn = $(e.trigger);
+            $btn.addClass('copy-failed');
+            let $icon = $($btn.find('i'));
+            $icon.removeClass('fa-copy');
+            $icon.addClass('fa-times-circle');
+            let $span = $($btn.find('span'));
+            $span[0].innerText = 'COPY FAILED';
+            wait(function () {
+                $icon.removeClass('fa-times-circle');
+                $icon.addClass('fa-copy');
+                $span[0].innerText = 'COPY'
+            }, 2000)
+        })
+    }
+    $(function () {
+        pjax_initCopyCode()
+    });
+</script>
+
+
+
+
+
+
+
+
+  
+  
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4/dist/Valine.min.js"></script>
+
+
+<script>
+  var GUEST_INFO = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link,header'.split(',').filter(function (item) {
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var REQUIRED_FIELDS = ['nick', 'mail', 'link'];
+  var requiredFields = 'nick,mail'.split(',').filter(function (item) {
+    return REQUIRED_FIELDS.indexOf(item) > -1
+  });
+
+  function emoji(path, idx, ext) {
+    return path + "/" + path + "-" + idx + "." + ext;
+  }
+
+  var emojiMaps = {};
+  for (var i = 1; i <= 54; i++) {
+    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
+  }
+  for (var i = 1; i <= 101; i++) {
+    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+  }
+  for (var i = 1; i <= 116; i++) {
+    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
+  }
+  for (var i = 1; i <= 125; i++) {
+    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
+  }
+  for (var i = 1; i <= 4; i++) {
+    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+  }
+
+  function pjax_valine() {
+    if(!document.querySelectorAll("#valine_container")[0])return;
+
+    let pagePlaceholder = pdata.commentPlaceholder || "快来评论吧~ 🤩 🤩 🤩";
+
+    let path = pdata.commentPath;
+    if (path.length == 0) {
+      let defaultPath = '';
+      path = defaultPath || decodeURI(window.location.pathname);
+    }
+
+    var valine = new Valine();
+    valine.init({
+      el: '#valine_container',
+      meta: meta,
+      placeholder: pagePlaceholder,
+      path: path,
+      appId: "NkJqMpxu4QlRLhPIHipNUHF1-gzGzoHsz",
+      appKey: "D2vTdueKJ8ammc2JEdje0vLW",
+      pageSize: '',
+      avatar: 'monsterid',
+      lang: '',
+      visitor: '',
+      highlight: '',
+      mathJax: '',
+      enableQQ: 'true',
+      recordIP: 'false',
+      requiredFields: requiredFields,
+      emojiCDN: 'https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/valine/',
+      emojiMaps: emojiMaps
+    })
+  }
+
+  $(function () {
+    pjax_valine();
+  });
+</script>
+
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js" data-pjax></script>
+
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-theme-volantis@4.1.6/source/js/app.min.js"></script>
+
+
+
+<!-- optional -->
+
+  <script>
+const SearchServiceimagePath="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@master/img/";
+const ROOT =  ("/" || "/").endsWith('/') ? ("/" || "/") : ("//" || "/" );
+
+$('.input.u-search-input').one('focus',function(){
+	
+		loadScript('https://cdn.jsdelivr.net/npm/hexo-theme-volantis@4.1.6/source/js/search/hexo.min.js',setSearchService);
+	
+})
+
+function listenSearch(){
+  
+    customSearch = new HexoSearch({
+      imagePath: SearchServiceimagePath
+    });
+  
+}
+function setSearchService() {
+	listenSearch();
+	
+		document.addEventListener("pjax:success", listenSearch);
+	
+}
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+function listennSidebarTOC() {
+  const navItems = document.querySelectorAll(".toc li");
+  if (!navItems.length) return;
+  const sections = [...navItems].map((element) => {
+    const link = element.querySelector(".toc-link");
+    const target = document.getElementById(
+      decodeURI(link.getAttribute("href")).replace("#", "")
+    );
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+      window.scrollTo({
+		top: target.offsetTop + 100,
+		
+		behavior: "smooth"
+		
+	  });
+    });
+    return target;
+  });
+
+  function activateNavByIndex(target) {
+    if (target.classList.contains("active-current")) return;
+
+    document.querySelectorAll(".toc .active").forEach((element) => {
+      element.classList.remove("active", "active-current");
+    });
+    target.classList.add("active", "active-current");
+    let parent = target.parentNode;
+    while (!parent.matches(".toc")) {
+      if (parent.matches("li")) parent.classList.add("active");
+      parent = parent.parentNode;
+    }
+  }
+
+  function findIndex(entries) {
+    let index = 0;
+    let entry = entries[index];
+    if (entry.boundingClientRect.top > 0) {
+      index = sections.indexOf(entry.target);
+      return index === 0 ? 0 : index - 1;
+    }
+    for (; index < entries.length; index++) {
+      if (entries[index].boundingClientRect.top <= 0) {
+        entry = entries[index];
+      } else {
+        return sections.indexOf(entry.target);
+      }
+    }
+    return sections.indexOf(entry.target);
+  }
+
+  function createIntersectionObserver(marginTop) {
+    marginTop = Math.floor(marginTop + 10000);
+    let intersectionObserver = new IntersectionObserver(
+      (entries, observe) => {
+        let scrollHeight = document.documentElement.scrollHeight + 100;
+        if (scrollHeight > marginTop) {
+          observe.disconnect();
+          createIntersectionObserver(scrollHeight);
+          return;
+        }
+        let index = findIndex(entries);
+        activateNavByIndex(navItems[index]);
+      },
+      {
+        rootMargin: marginTop + "px 0px -100% 0px",
+        threshold: 0,
+      }
+    );
+    sections.forEach((element) => {
+      element && intersectionObserver.observe(element);
+    });
+  }
+  createIntersectionObserver(document.documentElement.scrollHeight);
+}
+
+document.addEventListener("DOMContentLoaded", listennSidebarTOC);
+document.addEventListener("pjax:success", listennSidebarTOC);
+</script>
+
+<!-- more -->
+
+
+
+
+    
+      
+
+
+<script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script>
+
+
+<script>
+    var pjax;
+    document.addEventListener('DOMContentLoaded', function () {
+      pjax = new Pjax({
+        elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"]):not([pjax-fancybox])',
+        selectors: [
+          "title",
+          "#l_cover",
+          "#pjax-container",
+          "#pjax-header-nav-list"
+        ],
+        cacheBust: false,   // url 地址追加时间戳，用以避免浏览器缓存
+        timeout: 5000
+      });
+    });
+
+    document.addEventListener('pjax:send', function (e) {
+      //window.stop(); // 相当于点击了浏览器的停止按钮
+
+      try {
+        var currentUrl = window.location.pathname;
+        var targetUrl = e.triggerElement.href;
+        var banUrl = [""];
+        if (banUrl[0] != "") {
+          banUrl.forEach(item => {
+            if(currentUrl.indexOf(item) != -1 || targetUrl.indexOf(item) != -1) {
+              window.location.href = targetUrl;
+            }
+          });
+        }
+      } catch (error) {}
+
+      window.subData = null; // 移除标题（用于一二级导航栏切换处）
+      if (typeof $.fancybox != "undefined") {
+        $.fancybox.close();    // 关闭弹窗
+      }
+      volantis.$switcher.removeClass('active'); // 关闭移动端激活的搜索框
+      volantis.$header.removeClass('z_search-open'); // 关闭移动端激活的搜索框
+      volantis.$wrapper.removeClass('sub'); // 跳转页面时关闭二级导航
+
+      // 解绑事件 避免重复监听
+      volantis.$topBtn.unbind('click');
+      $('.menu a').unbind('click');
+      $(window).unbind('resize');
+      $(window).unbind('scroll');
+      $(document).unbind('scroll');
+      $(document).unbind('click');
+      $('body').unbind('click');
+	  
+    });
+
+    document.addEventListener('pjax:complete', function () {
+      // 关于百度统计对 SPA 页面的处理：
+      // 方案一：百度统计>管理>单页应用设置中，打开开启按钮即可对SPA进行统计。 https://tongji.baidu.com/web/help/article?id=324
+      // 方案二：取消注释下列代码。 https://tongji.baidu.com/web/help/article?id=235
+       
+
+      // 关于谷歌统计对 SPA 页面的处理：
+      // 当应用以动态方式加载内容并更新地址栏中的网址时，也应该更新通过 gtag.js 存储的网页网址。
+      // https://developers.google.cn/analytics/devguides/collection/gtagjs/single-page-applications?hl=zh-cn
+      
+	 
+
+      $('.nav-main').find('.list-v').not('.menu-phone').removeAttr("style",""); // 移除小尾巴的移除
+      $('.menu-phone.list-v').removeAttr("style",""); // 移除小尾巴的移除
+      $('script[data-pjax], .pjax-reload script').each(function () {
+        $(this).parent().append($(this).remove());
+      });
+      try{
+          if (typeof $.fancybox == "undefined") {
+            SCload_fancybox();
+          } else {
+            pjax_fancybox();
+          }
+        
+        
+        
+        
+        
+          pjax_initCopyCode();
+        
+        
+          pjax_valine();
+        
+        
+        
+        
+      } catch (e) {
+        console.log(e);
+      }
+	  
+    });
+
+    document.addEventListener('pjax:error', function (e) {
+	  
+      window.location.href = e.triggerElement.href;
+    });
+</script>
+
+    
+  </div>
+</body>
+</html>
