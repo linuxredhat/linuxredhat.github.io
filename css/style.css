@@ -4065,25 +4065,25 @@ canvas {
 .headimg-div .headimg-a {
   display: block;
   overflow: hidden;
-  height: 280px;
+  height: 390px;
 }
 @media screen and (max-width: 768px) {
   .headimg-div .headimg-a {
-    height: 250px;
+    height: 280px;
   }
 }
 @media screen and (max-width: 500px) {
   .headimg-div .headimg-a {
-    height: 220px;
+    height: 280px;
   }
 }
 @media screen and (max-width: 425px) {
   .headimg-div .headimg-a {
-    height: 190px;
+    height: 280px;
   }
 }
 .headimg-div .headimg {
-  object-fit: cover;
+  object-fit: fill;
   width: 100%;
   height: 100%;
   transition: transform 3s ease-out;
@@ -4113,17 +4113,6 @@ img.img-topic {
   padding: 0;
   float: right;
   clear: right;
-}
-.heading-div .headimg {
-  object-fit: fill;
-  width: 100%;
-  height: 100%;
-  transition: transform 1s cubic-bezier(0.18, 0.89, 0.32, 1.28);
-}
-.headimg-div .headimg-a {
-  display: block;
-  overflow: hidden;
-  height: 390px;
 }
 .l_side {
   width: 240px;
