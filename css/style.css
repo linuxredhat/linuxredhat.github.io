@@ -1751,9 +1751,11 @@ pre {
   -moz-transition: all 0.28s ease;
   -webkit-transition: all 0.28s ease;
   -o-transition: all 0.28s ease;
+  filter: grayscale(100%);
 }
 .highlight:hover {
   background: var(--color-codeblock);
+  filter: grayscale(0%);
 }
 .highlight:hover figcaption {
   transition: all 0.28s ease;
