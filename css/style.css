@@ -3755,17 +3755,6 @@ canvas {
   width: auto;
   z-index: -1;
 }
-.heading-div .headimg {
-  object-fit: fill;
-  width: 100%;
-  height: 100%;
-  transition: transform 1s cubic-bezier(0.18, 0.89, 0.32, 1.28);
-}
-.headimg-div .headimg-a {
-  display: block;
-  overflow: hidden;
-  height: 390px;
-}
 .md >p {
   padding-top: 4px;
 }
@@ -4124,6 +4113,17 @@ img.img-topic {
   padding: 0;
   float: right;
   clear: right;
+}
+.heading-div .headimg {
+  object-fit: fill;
+  width: 100%;
+  height: 100%;
+  transition: transform 1s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+}
+.headimg-div .headimg-a {
+  display: block;
+  overflow: hidden;
+  height: 390px;
 }
 .l_side {
   width: 240px;
