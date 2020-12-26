@@ -1,0 +1,1420 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head hexo-theme='https://github.com/volantis-x/hexo-theme-volantis/tree/4.1.6'>
+  <meta charset="utf-8">
+  <!-- SEO相关 -->
+  
+    
+  
+  <!-- 渲染优化 -->
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://cdn.jsdelivr.net'>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- 页面元数据 -->
+  
+  <title>docker初步使用 - 逝水锦遥</title>
+  
+
+  
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="逝水锦遥" type="application/atom+xml">
+  
+
+  <!-- import meta -->
+  
+
+  <!-- link -->
+  
+
+  <!-- import link -->
+  
+
+  
+    
+<link rel="stylesheet" href="/css/first.css">
+
+  
+
+  
+  <link rel="stylesheet" href="/css/style.css" media="print" onload="this.media='all';this.onload=null">
+  <noscript><link rel="stylesheet" href="/css/style.css"></noscript>
+  
+
+  <script id="loadcss"></script>
+</head>
+
+
+<body>
+	  <canvas id="canvas" width="1440" height="900" ></canvas>
+	  <script type="text/javascript" src="/js/DigitalRain.js"></script>
+  
+
+<header id="l_header" class="l_header always floatable "  >
+  <div class='container'>
+  <div id='wrapper'>
+    <div class='nav-sub'>
+      <p class="title"></p>
+      <ul class='switcher nav-list-h m-phone' id="pjax-header-nav-list">
+        <li><a id="s-comment" class="fas fa-comments fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+          <li><a id="s-toc" class="s-toc fas fa-list fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+      </ul>
+    </div>
+		<div class="nav-main">
+      
+        
+        <a class="title flat-box" target="_self" href='/'>
+          
+            <img no-lazy class='logo' src='/images/head.png'/>
+          
+          
+          
+        </a>
+      
+
+			<div class='menu navigation'>
+				<ul class='nav-list-h m-pc'>
+          
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fab fa-linux fa-fw'></i>所有文章
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/program
+                  
+                  
+                  
+                    id="tagsprogram"
+                  >
+                  <i class='fab fa-gitlab fa-fw'></i>运维开发
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/rhca
+                  
+                  
+                  
+                    id="tagsrhca"
+                  >
+                  <i class='fas fa-heartbeat fa-fw'></i>运维组件
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/cloud
+                  
+                  
+                  
+                    id="tagscloud"
+                  >
+                  <i class='fas fa-cloud fa-fw'></i>云计算
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/zikao
+                  
+                  
+                  
+                    id="tagszikao"
+                  >
+                  <i class='fab fa-drupal fa-fw'></i>成自考
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/renjin
+                  
+                  
+                  
+                    id="tagsrenjin"
+                  >
+                  <i class='fas fa-user-circle fa-fw'></i>个人中心
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/box/
+                  
+                  
+                  
+                    id="box"
+                  >
+                  <i class='fas fa-flag fa-fw'></i>工具箱
+                </a>
+                
+              </li>
+            
+          
+          
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="搜索文章..." />
+        </form>
+      </div>
+
+			<ul class='switcher nav-list-h m-phone'>
+				
+					<li><a class="s-search fas fa-search fa-fw" target="_self" href='javascript:void(0)'></a></li>
+				
+				<li>
+          <a class="s-menu fas fa-bars fa-fw" target="_self" href='javascript:void(0)'></a>
+          <ul class="menu-phone list-v navigation white-box">
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fab fa-linux fa-fw'></i>所有文章
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/program
+                  
+                  
+                  
+                    id="tagsprogram"
+                  >
+                  <i class='fab fa-gitlab fa-fw'></i>运维开发
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/rhca
+                  
+                  
+                  
+                    id="tagsrhca"
+                  >
+                  <i class='fas fa-heartbeat fa-fw'></i>运维组件
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/cloud
+                  
+                  
+                  
+                    id="tagscloud"
+                  >
+                  <i class='fas fa-cloud fa-fw'></i>云计算
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/zikao
+                  
+                  
+                  
+                    id="tagszikao"
+                  >
+                  <i class='fab fa-drupal fa-fw'></i>成自考
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/renjin
+                  
+                  
+                  
+                    id="tagsrenjin"
+                  >
+                  <i class='fas fa-user-circle fa-fw'></i>个人中心
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/box/
+                  
+                  
+                  
+                    id="box"
+                  >
+                  <i class='fas fa-flag fa-fw'></i>工具箱
+                </a>
+                
+              </li>
+            
+          
+            
+          </ul>
+        </li>
+			</ul>
+		</div>
+	</div>
+  </div>
+</header>
+
+  <div id="l_body">
+    <div id="l_cover">
+  
+    
+        <div id="half" class='cover-wrapper post search' style="display: ;">
+          
+            <div class='cover-bg lazyload placeholder' data-bg="/images/background.jpg"></div>
+          
+          <div class='cover-body'>
+  <div class='top'>
+    
+    
+      <p class="title">S  S  J  Y</p>
+    
+    
+      <p class="subtitle">有志而性缓者思大志 有才而气和者为大才</p>
+    
+  </div>
+  <div class='bottom'>
+    
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <input type="text" class="input u-search-input" placeholder="搜索本地文章" />
+          <i class="icon fas fa-search fa-fw"></i>
+        </form>
+      </div>
+    
+    <div class='menu navigation'>
+      <div class='list-h'>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+          <div id="scroll-down" style="display: none;"><i class="fa fa-chevron-down scroll-down-effects"></i></div>
+        </div>
+    
+  
+  </div>
+
+    <div id='safearea'>
+      <div class='body-wrapper' id="pjax-container">
+        
+
+<div class='l_main'>
+  <article class="article post white-box reveal md floatable article-type-post" id="post" itemscope itemprop="blogPost">
+  
+
+
+  
+  <div class="article-meta" id="top">
+    
+    
+    
+      <h1 class="title">
+        docker初步使用
+      </h1>
+      <div class='new-meta-box'>
+        
+          
+            
+<div class='new-meta-item author'>
+  <a class='author' href="/images/rjrt.ico" rel="nofollow">
+    <img no-lazy src="/images/rjrt.ico">
+    <p>任锦</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：Oct 27, 2017</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class="new-meta-item browse busuanzi">
+    <a class='notlink'>
+      <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+      <p>
+        <span id="busuanzi_value_page_pv">
+          <i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i>
+        </span>
+        次浏览
+      </p>
+    </a>
+  </div>
+
+
+          
+        
+      </div>
+    
+  </div>
+
+
+  
+  <p>[toc]</p>
+<h1 id="Docker初步使用"><a href="#Docker初步使用" class="headerlink" title="Docker初步使用"></a>Docker初步使用</h1><h2 id="一、说明"><a href="#一、说明" class="headerlink" title="一、说明"></a>一、说明</h2><blockquote>
+<p>lxc linux container,openvz;<br>容器中各虚拟机只有一个内核，而是多个用户空间;<br>在库中完成虚拟化，比如wine 或者在windows中运行bash;<br>在应用程序的运行级别提供虚拟化，比如jvm;<br>pstree , pid 为1 的进程  这个进程是直接和内核来打交道的;<br>容器之间，和虚拟机之间隔离的技术;<br>容器之间的隔离相对比较困难;<br>NameSpace,（名称空间);</p>
+</blockquote>
+<h3 id="内核级别，环境隔离"><a href="#内核级别，环境隔离" class="headerlink" title="内核级别，环境隔离"></a>内核级别，环境隔离</h3><ul>
+<li>PID NameSpace: 用于隔离pid号的 Linux 2.6.24  PID隔离;</li>
+<li>Network NameSpace : Linux 2.6.29 网络名称空间的隔离  网络设备、网络栈、端口等网络设备隔离;</li>
+<li>User NameSpace: Linux 用户空间的隔离  Linux 3.8 甚至 3.10之后 用户和用户组资源隔离;</li>
+<li>IPC NameSpace: 进程间通信技术  Linux 2.6.19  signal 信号量、消息队列和共享内存的隔离;</li>
+<li>UTS NameSpace: Linux 2.6.19 ， 主机名和域名的隔离；</li>
+<li>Mount NameSpace: Linux 2.4.19 挂载点（文件系统 ）隔离；</li>
+<li>API:clone()实现线程系统调用，用来创建新线程;</li>
+<li>setns()设定一个新的属性,将某(进程|或设备)加入到新的NameSpace中去的;</li>
+<li>unshare()非共享机制，脱离NameSpace，而关联至新NameSpace;</li>
+<li>将NameSpace隔离开来没有问题，而问题在于，恶意用户强行调用资源，一个用户完全可以将系统资源耗尽，cpu占用至100%;</li>
+<li>因此带来了另一种机制的出现；</li>
+<li>CGroup: Linux Control Group,控制组 Linux 2.6.24被收入进内核</li>
+<li>内核级别，限制、控制与一个进程组群的资源；</li>
+<li>资源：CPU,内存，IO 级别来进行定义</li>
+<li>google工程师：2006开始此技术，命令为进程容器而后命令为CGroup</li>
+</ul>
+<h3 id="功能："><a href="#功能：" class="headerlink" title="功能："></a>功能：</h3><ul>
+<li>Resource limitation:资源限制；</li>
+<li>Prioritization:优先级控制；</li>
+<li>Accounting:审计和统计，主要为计费；</li>
+<li>Contorl:挂起进程，恢复进程；</li>
+<li>CGroup 基于单根倒树状结构来实现</li>
+<li>在CentOS7 中可以用mount 命令来查看其资源组的隔离技术已经被使用</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"> /sys/fs/cgroup</span><br><span class="line"> <span class="comment"># mount</span></span><br><span class="line"> <span class="comment"># lssubsys -m </span></span><br><span class="line">``` </span><br><span class="line"><span class="comment">### CGroup的子系统:</span></span><br><span class="line">* blkio:设定块设备的IO限制，而设定的子系统；</span><br><span class="line">* cpu:设定CPU的限制；</span><br><span class="line">* cpuacct:报告cgroup中所使用的CPU资源；</span><br><span class="line">* cpuset:为cgroup中的任务分配 CPU和内存资源 ；</span><br><span class="line">* memory:设定内存的使用限制；</span><br><span class="line">* devices:控制cgroup中的任务对设备的访问能务；</span><br><span class="line">* freezer: 挂起和恢复cgroup中的任务；      </span><br><span class="line">* net_cls:(classid) ，使用等级级别标识符来标记网络数据包；</span><br><span class="line">* tc: 流量整形命令 ；</span><br><span class="line">* perf_event:对用户空间中任务，对用户空间产生的进程进行分类；</span><br><span class="line">* 使用后使cgrup中的任务可以进行统一的性能测试；  </span><br><span class="line">* hugetlb:转换后元缓冲区，对HugeTLB子系统进行限制；</span><br><span class="line"><span class="comment">### CGroup中的术语：</span></span><br><span class="line">* task(任务)：进程或线程；</span><br><span class="line">* cgroup:一个独立的资源控制单位，可以包含一个或多个子系统；</span><br><span class="line">* subsystem:子系统，</span><br><span class="line">* hierarchy:层级</span><br><span class="line">* AUFS:UnionFS：</span><br><span class="line">* UnionFS：把不同的物理位置的目录合并到同一个目录中。</span><br><span class="line">* Another UFS,Alternative UFS,Adanced UFS 几乎完全重写了unix FS </span><br><span class="line"></span><br><span class="line">```bash</span><br><span class="line"><span class="comment"># tc  </span></span><br><span class="line"><span class="comment"># lssubsys -m</span></span><br></pre></td></tr></table></figure>
+<h3 id="Device-mapper"><a href="#Device-mapper" class="headerlink" title="Device mapper:"></a>Device mapper:</h3><ul>
+<li>linux 2.6内核引入的最重要的技术之一，用于在内核中支持逻辑卷管理的通用设备映射技术；</li>
+<li>Mapped Device</li>
+<li>Mapping Table</li>
+<li>Target Device</li>
+<li>在内核空间只能开启一个端，但是可以映射至其它的用户空间</li>
+</ul>
+<h3 id="Device-mapper-1"><a href="#Device-mapper-1" class="headerlink" title="Device mapper:"></a>Device mapper:</h3><ul>
+<li>Linux2.6 内核引入的最重要的技术之一，用于在内核 中支持逻辑卷管理的通用设备映射机制；</li>
+<li>Mapped Device</li>
+<li>Mapping Table</li>
+<li>Target Device</li>
+</ul>
+<h3 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h3><ul>
+<li>2013,GO,Apache 2.0,dotCloud<h4 id="C-S"><a href="#C-S" class="headerlink" title="C/S:"></a>C/S:</h4></li>
+<li>Docker Client:发起docker相关的请求</li>
+<li>Docker Server:窗口运行的节点；</li>
+<li>Containers 容器</li>
+<li>images  docker映像文件 –&gt; 存于仓库之中</li>
+<li>启动docker容器需要加载镜像文件 –&gt; docker仓库上的镜像加载进来</li>
+<li>docker允许我们创建私有仓库</li>
+<li>比较难的，如何创建映像文件</li>
+<li>dockerfile:</li>
+<li>namespace cgroup</li>
+</ul>
+<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><blockquote>
+<p>lxc,openvz<br>lxc,linux container<br>libcontainer<br>Host OS –&gt; hypervisor –&gt; Guest OS<br>Host OS –&gt; hpervisor –&gt; user space（n个）</p>
+</blockquote>
+<h3 id="核心组件："><a href="#核心组件：" class="headerlink" title="核心组件："></a>核心组件：</h3><blockquote>
+<p>docker client：docker的客户端工具，是用户使用docker的主要接口，docker client 与docker daemon通信并将结果返回给用户<br>docker deamon:运行于宿主机上，Docker守护进程 ，用户可通过docker client其交互<br>image:镜像文件是只读的；用来创建container,一个镜像可以运行多个container<br>镜像文件可以通Dockerfile文件来创建，可以从docker hub/registry下载；</p>
+</blockquote>
+<h3 id="repository"><a href="#repository" class="headerlink" title="repository"></a>repository</h3><blockquote>
+<p>公共仓库:Docker hub/registry<br>私有仓库:docker registry<br>仓库可以存有:nginx image httpd image tomcat image<br>docker container: docker的运行实例，容器是一个隔离环境；  </p>
+</blockquote>
+<h3 id="另外两个重要组件："><a href="#另外两个重要组件：" class="headerlink" title="另外两个重要组件："></a>另外两个重要组件：</h3><blockquote>
+<p>  docker link: 各docker容器这间能够通信<br>  docker volume:</p>
+</blockquote>
+<h2 id="二、Docker-YUM源的安装配置"><a href="#二、Docker-YUM源的安装配置" class="headerlink" title="二、Docker YUM源的安装配置"></a>二、Docker YUM源的安装配置</h2><h3 id="安装使用docker-通过使用epel源来实现，-CentOS7-自带的就有了"><a href="#安装使用docker-通过使用epel源来实现，-CentOS7-自带的就有了" class="headerlink" title="安装使用docker 通过使用epel源来实现， CentOS7 自带的就有了"></a>安装使用docker 通过使用epel源来实现， CentOS7 自带的就有了</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">dockerfile </span><br><span class="line"> 自定义的docker 源 </span><br><span class="line"> [root@node1 ~]<span class="comment"># vim /etc/yum.repos.d/docker.repo </span></span><br><span class="line"> [dockerrepo]</span><br><span class="line"> name=Docker Repository</span><br><span class="line"> baseurl=https://yum.dockerproject.org/repo/main/centos/<span class="variable">$releasever</span>/</span><br><span class="line"> gpgcheck=1</span><br><span class="line"> gpgkey=https://yum.dockerproject.org/gpg</span><br><span class="line"> </span><br><span class="line">  [jin]</span><br><span class="line">  name=renjin2</span><br><span class="line">  baseurl=https://mirrors.aliyun.com/centos/7/os/x86_64/</span><br><span class="line">  gpgcheck=0</span><br><span class="line">  enabled=1</span><br><span class="line">  [extra]</span><br><span class="line">  name=renjin3</span><br><span class="line">  baseurl=https://mirrors.aliyun.com/centos/7/extras/x86_64/</span><br><span class="line">  gpgcheck=0</span><br><span class="line">  enabled=1</span><br><span class="line">  [epel]</span><br><span class="line">  name=renji4</span><br><span class="line">  baseurl=https://mirrors.aliyun.com/epel/7Server/x86_64/</span><br><span class="line">  gpgcheck=0</span><br><span class="line">  enabled=1</span><br><span class="line"> 或者可以使用自带的源 https://mirrors.aliyun.com/centos/7.2.1511/extras/x86_64</span><br><span class="line"> 查看docker版本的详细信息</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">[root@node1 ~]<span class="comment"># yum info docker-engine</span></span><br><span class="line">Loaded plugins: fastestmirror, langpacks</span><br><span class="line">Loading mirror speeds from cached hostfile</span><br><span class="line">Installed Packages</span><br><span class="line">Name        : docker-engine</span><br><span class="line">Arch        : x86_64</span><br><span class="line">Version     : 17.04.0.ce</span><br><span class="line">Release     : 1.el7.centos</span><br><span class="line">Size        : 63 M</span><br><span class="line">Repo        : installed</span><br><span class="line">From repo   : dockerrepo</span><br><span class="line">Summary     : The open-source application container engine</span><br><span class="line">URL         : https://dockerproject.org</span><br><span class="line">License     : ASL 2.0</span><br><span class="line">Description : Docker is an open <span class="built_in">source</span> project to build, ship and run any application as a</span><br><span class="line">   : lightweight container.</span><br><span class="line">   : </span><br><span class="line">   : Docker containers are both hardware-agnostic and platform-agnostic. This means</span><br><span class="line">   : they can run anywhere, from your laptop to the largest EC2 compute instance and</span><br><span class="line">   : everything <span class="keyword">in</span> between - and they don<span class="string">&#x27;t require you to use a particular</span></span><br><span class="line"><span class="string">   : language, framework or packaging system. That makes them great building blocks</span></span><br><span class="line"><span class="string">   : for deploying and scaling web apps, databases, and backend services without</span></span><br><span class="line"><span class="string">   : depending on a particular stack or provider.</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@node1 ~]<span class="comment"># yum -y install docker-engine</span></span><br><span class="line">[root@node1 ~]<span class="comment"># systemctl start docker.service </span></span><br></pre></td></tr></table></figure>
+<h1 id="三、Dcoker-的简单测试及使用"><a href="#三、Dcoker-的简单测试及使用" class="headerlink" title="三、Dcoker 的简单测试及使用"></a>三、Dcoker 的简单测试及使用</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">[root@node1 ~]<span class="comment"># docker images </span></span><br><span class="line">REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE</span><br><span class="line">[root@node1 ~]<span class="comment"># docker search centos</span></span><br><span class="line">NAME                                   DESCRIPTION                                     STARS     OFFICIAL   AUTOMATED</span><br><span class="line">centos                                 The official build of CentOS.                   3239      [OK]       </span><br><span class="line">jdeathe/centos-ssh                     CentOS-6 6.8 x86_64 / CentOS-7 7.3.1611 x8...   63                   [OK]</span><br><span class="line">jdeathe/centos-ssh-apache-php          CentOS-6 6.8 x86_64 - Apache / PHP-FPM / P...   25                   [OK]</span><br><span class="line">consol/centos-xfce-vnc                 Centos container with <span class="string">&quot;headless&quot;</span> VNC sessi...   24                   [OK]</span><br><span class="line">nimmis/java-centos                     This is docker images of CentOS 7 with dif...   24                   [OK]</span><br><span class="line">gluster/gluster-centos                 Official GlusterFS Image [ CentOS-7 +  Glu...   18                   [OK]</span><br><span class="line">million12/centos-supervisor            Base CentOS-7 with supervisord launcher, h...   15                   [OK]</span><br><span class="line">torusware/speedus-centos               Always updated official CentOS docker imag...   8                    [OK]</span><br><span class="line">egyptianbman/docker-centos-nginx-php   A simple and highly configurable docker co...   6                    [OK]</span><br><span class="line">nathonfowlie/centos-jre                Latest CentOS image with the JRE pre-insta...   5                    [OK]</span><br><span class="line">centos/mariadb55-centos7                                                               4                    [OK]</span><br><span class="line">centos/redis                           Redis built <span class="keyword">for</span> CentOS                          2                    [OK]</span><br><span class="line">harisekhon/centos-java                 Java on CentOS (OpenJDK, tags jre/jdk7-8)       2                    [OK]</span><br><span class="line">harisekhon/centos-scala                Scala + CentOS (OpenJDK tags 2.10-jre7 - 2...   2                    [OK]</span><br><span class="line">blacklabelops/centos                   CentOS Base Image! Built and Updates Daily!     1                    [OK]</span><br><span class="line">darksheer/centos                       Base Centos Image -- Updated hourly             1                    [OK]</span><br><span class="line">freenas/centos                         Simple CentOS Linux interactive container       1                    [OK]</span><br><span class="line">timhughes/centos                       Centos with systemd installed and running       1                    [OK]</span><br><span class="line">januswel/centos                        yum update-ed CentOS image                      0                    [OK]</span><br><span class="line">kz8s/centos                            Official CentOS plus epel-release               0                    [OK]</span><br><span class="line">grayzone/centos                        auto build <span class="keyword">for</span> centos.                          0                    [OK]</span><br><span class="line">repositoryjp/centos                    Docker Image <span class="keyword">for</span> CentOS.                        0                    [OK]</span><br><span class="line">otagoweb/centos                        Apache (with PHP7), built on CentOS 7           0                    [OK]</span><br><span class="line">vcatechnology/centos                   A CentOS Image <span class="built_in">which</span> is updated daily           0                    [OK]</span><br><span class="line">grossws/centos                         CentOS 6 and 7 base images with gosu and l...   0                    [OK]</span><br></pre></td></tr></table></figure>
+<h3 id="之所以能搜索出来，是因为别人给我们做了公开的使用"><a href="#之所以能搜索出来，是因为别人给我们做了公开的使用" class="headerlink" title="之所以能搜索出来，是因为别人给我们做了公开的使用"></a>之所以能搜索出来，是因为别人给我们做了公开的使用</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">[root@node1 ~]<span class="comment"># docker search busybox</span></span><br><span class="line">NAME                            DESCRIPTION                                     STARS     OFFICIAL   AUTOMATED</span><br><span class="line">busybox                         Busybox base image.                             973       [OK]       </span><br><span class="line">progrium/busybox                                                                65                   [OK]</span><br><span class="line">radial/busyboxplus              Full-chain, Internet enabled, busybox made...   12                   [OK]</span><br><span class="line">container4armhf/armhf-busybox   Automated build of Busybox <span class="keyword">for</span> armhf devic...   6                    [OK]</span><br><span class="line">odise/busybox-python                                                            4                    [OK]</span><br><span class="line">multiarch/busybox               multiarch ports of ubuntu-debootstrap           2                    [OK]</span><br><span class="line">azukiapp/busybox                This image is meant to be used as the base...   2                    [OK]</span><br><span class="line">ofayau/busybox-jvm              Prepare busybox to install a 32 bits JVM.       2                    [OK]</span><br><span class="line">zanner/busybox                  https://github.com/sergej-kucharev/zanner-...   1                    [OK]</span><br><span class="line">ofayau/busybox-libc32           Busybox with 32 bits (and 64 bits) libs         1                    [OK]</span><br><span class="line">elektritter/busybox-teamspeak   Leightweight teamspeak3 container based on...   1                    [OK]</span><br><span class="line">getblank/busybox                Docker container busybox <span class="keyword">for</span> Blank              1                    [OK]</span><br><span class="line">prom/busybox                    Prometheus Busybox Docker base images           1                    [OK]</span><br><span class="line">skomma/busybox-data             Docker image suitable <span class="keyword">for</span> data volume cont...   1                    [OK]</span><br><span class="line">odise/busybox-curl                                                              1                    [OK]</span><br><span class="line">jahroots/busybox                Busybox containers                              0                    [OK]</span><br><span class="line">ggtools/busybox-ubuntu          Busybox ubuntu version with extra goodies       0                    [OK]</span><br><span class="line">cucy/busybox                    aouto  build busybox                            0                    [OK]</span><br><span class="line">freenas/busybox                 Simple Busybox interactive Linux container      0                    [OK]</span><br><span class="line">sdurrheimer/prom-busybox        Moved to https://hub.docker.com/r/prom/bus...   0                    [OK]</span><br><span class="line">jiangshouzhuang/busybox         busybox                                         0                    [OK]</span><br><span class="line">padcom/busybox-java             Oracle Java on BusyBox                          0                    [OK]</span><br><span class="line">futurenda/busybox               Mini busybox                                    0                    [OK]</span><br><span class="line">hongtao12310/busybox            <span class="keyword">for</span> busybox image based on the gcr.io/goog...   0                    [OK]</span><br><span class="line">ddn0/busybox                    fork of official busybox                        0                    [OK]</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"> [root@node1 ~]<span class="comment"># docker pull buxybox</span></span><br><span class="line"> [root@node1 ~]<span class="comment"># docker pull busybox</span></span><br><span class="line"> Using default tag: latest</span><br><span class="line"> latest: Pulling from library/busybox</span><br><span class="line"> 7520415ce762: Pull complete </span><br><span class="line"> Digest: sha256:32f093055929dbc23dec4d03e09dfe971f5973a9ca5cf059cbfb644c206aa83f 校验码 </span><br><span class="line"> Status: Downloaded newer image <span class="keyword">for</span> busybox:latest</span><br><span class="line">[root@node1 ~]<span class="comment"># docker pull hub.magedu.com:5000/busybox ##指定到哪台服务器上获取busybox [root@node1 ~]# docker images </span></span><br><span class="line"> REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE</span><br><span class="line"> busybox             latest              00f017a8c2a6        3 weeks ago         1.11MB</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[root@node1 ~]<span class="comment"># docker run -it busybox:latest /bin/sh ##启动一台虚拟机的实例 </span></span><br><span class="line">/ <span class="comment"># ls</span></span><br><span class="line">bin   dev   etc   home  proc  root  sys   tmp   usr   var</span><br><span class="line">[root@node1 ~]<span class="comment"># docker ps ##查看正在运行的主机</span></span><br><span class="line">CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES</span><br><span class="line">7090d8fd9861        busybox:latest      <span class="string">&quot;/bin/sh&quot;</span>           2 minutes ago       Up 2 minutes                            boring_archimedes</span><br></pre></td></tr></table></figure>
+<h1 id="四、-docker的常用命令总结"><a href="#四、-docker的常用命令总结" class="headerlink" title="四、 docker的常用命令总结"></a>四、 docker的常用命令总结</h1><h3 id="环境信息相关："><a href="#环境信息相关：" class="headerlink" title="环境信息相关："></a>环境信息相关：</h3><ul>
+<li>info </li>
+<li>version </li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@node1 ~]<span class="comment"># docker info ##查看docker的环境信息</span></span><br><span class="line">[root@node1 ~]<span class="comment"># docker version ##查看docker的版本号 </span></span><br></pre></td></tr></table></figure>
+<h3 id="系统维护相关："><a href="#系统维护相关：" class="headerlink" title="系统维护相关："></a>系统维护相关：</h3><ul>
+<li>images</li>
+<li>inspect</li>
+<li>build 创建映像文件</li>
+<li>commint 基于运行中的容器创建映像文件</li>
+<li>pause/unpause</li>
+<li>ps</li>
+<li>rm</li>
+<li>rmi</li>
+<li>run</li>
+<li>start/stop/restart</li>
+<li>top</li>
+<li>kill</li>
+</ul>
+<h3 id="日志信息相关："><a href="#日志信息相关：" class="headerlink" title="日志信息相关："></a>日志信息相关：</h3><ul>
+<li>events</li>
+<li>history</li>
+<li>logs</li>
+<li>Docer hub服务相关</li>
+<li>login</li>
+<li>logout</li>
+<li>pull</li>
+<li>push</li>
+<li>search</li>
+</ul>
+<h3 id="基本操作："><a href="#基本操作：" class="headerlink" title="基本操作："></a>基本操作：</h3><ul>
+<li>获取映像:pull </li>
+<li>启动容器:run </li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"> [root@node1 ~]<span class="comment"># docker ps </span></span><br><span class="line"> CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES</span><br><span class="line"> 7090d8fd9861        busybox:latest      <span class="string">&quot;/bin/sh&quot;</span>           17 minutes ago      Up 17 minutes                           boring_archimedes</span><br><span class="line"> [root@node1 ~]<span class="comment"># docker kill 7090d8fd9861</span></span><br><span class="line"> 7090d8fd9861</span><br><span class="line"> [root@node1 ~]<span class="comment"># docker ps #结束一个docker进程 </span></span><br><span class="line"> CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES</span><br><span class="line"> [root@node1 ~]<span class="comment"># docker ps  -a #但不会删除容器</span></span><br><span class="line"> CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS                       PORTS               NAMES</span><br><span class="line"> 7090d8fd9861        busybox:latest      <span class="string">&quot;/bin/sh&quot;</span>           20 minutes ago      Exited (137) 3 minutes ago                       boring_archimedes</span><br><span class="line"> [root@node1 ~]<span class="comment"># docker rm 7090d8fd9861 #此时会删除container</span></span><br><span class="line"> 7090d8fd9861</span><br><span class="line"> [root@node1 ~]<span class="comment"># docker ps  -a </span></span><br><span class="line"> CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES</span><br><span class="line"> [root@node1 ~]<span class="comment"># docker ps </span></span><br><span class="line"> CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES</span><br><span class="line"> 2bca1aa3d38d        busybox:latest      <span class="string">&quot;/bin/sh&quot;</span>           4 minutes ago       Up 4 minutes                            naughty_goldberg</span><br><span class="line">[root@node1 ~]<span class="comment"># docker</span></span><br><span class="line"> docker                  docker-containerd-ctr   dockerd                 docker-proxy</span><br><span class="line"> docker-containerd       docker-containerd-shim  docker-init             docker-runc</span><br><span class="line">[root@node1 ~]<span class="comment"># docker commit 2bca1aa3d38d centos:newuser</span></span><br><span class="line"> sha256:08d1d05a6e490c31b0e4e3ffb9532a25bb3d9e8f588b30990338f1ae64b34286</span><br><span class="line">[root@node1 ~]<span class="comment"># docker</span></span><br><span class="line"> docker                  docker-containerd-ctr   dockerd                 docker-proxy</span><br><span class="line"> docker-containerd       docker-containerd-shim  docker-init             docker-runc</span><br><span class="line">[root@node1 ~]<span class="comment"># docker images</span></span><br><span class="line"> REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE</span><br><span class="line"> centos              newuser             08d1d05a6e49        9 seconds ago       1.11MB</span><br><span class="line"> busybox             latest              00f017a8c2a6        3 weeks ago         1.11MB</span><br><span class="line">[root@node1 ~]<span class="comment"># docker run -it --rm centos:newuser /bin/sh</span></span><br><span class="line"> / <span class="comment"># </span></span><br><span class="line">[root@node1 ~]<span class="comment"># docker kill fee1da85d418</span></span><br><span class="line"> fee1da85d418</span><br><span class="line">[root@node1 ~]<span class="comment"># docker ps -a </span></span><br><span class="line"> CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES</span><br></pre></td></tr></table></figure>
+<ul>
+<li>linux Kernel –&gt; libcontainer –&gt; (execdriver、networkdriver)–&gt; Docker Daemon (GraphDB) –&gt; API server –&gt; 用户<br>在docker 之外有个重要存储还需要GraphDB GraphDB也称为图式数据库</li>
+</ul>
+<h2 id="Docker应用："><a href="#Docker应用：" class="headerlink" title="Docker应用："></a>Docker应用：</h2><ul>
+<li>镜像：包含了启动Docker容器所需要的文件系统层给及其内容；</li>
+<li>基于UninFS采用分层结构实现;<br>  bootfs,rootfs;</li>
+<li>registry:用于保存镜像的元数据,保存docker镜像层次结构和元数据；</li>
+<li>reposistory:由具有某个功能的镜像的所有相关版本构建成的集合；</li>
+<li>index:管理用户的账号、访问权限、镜像及镜像标签等等相关的;</li>
+<li>graph:从registry中下载的Docker镜像需要保存在本地，此功能即由graph完成；</li>
+<li>/var/lib/docker/graph;</li>
+</ul>
+<p>##与镜像相关的命令：</p>
+<ul>
+<li>docker images  列出本地的镜像</li>
+<li>docker search   搜索</li>
+<li>docker pull  下载镜像</li>
+<li>docker push   上传镜像</li>
+<li>docker login   登录</li>
+<li>docker logout  登出</li>
+</ul>
+<h2 id="创建镜像：commint-build"><a href="#创建镜像：commint-build" class="headerlink" title="创建镜像：commint,build"></a>创建镜像：commint,build</h2><ul>
+<li>删除本地镜像: rmi</li>
+<li>容器：也可以想象成一个虚拟机</li>
+<li>独立运行的一个或一组应用，以及它们运行的环境</li>
+</ul>
+<h2 id="命令："><a href="#命令：" class="headerlink" title="命令："></a>命令：</h2><ul>
+<li>run,kill,stop,start,restart ,log,export,import</li>
+</ul>
+<h2 id="启动方法"><a href="#启动方法" class="headerlink" title="启动方法:"></a>启动方法:</h2><ul>
+<li>通过镜像创建一个新的容器: run</li>
+<li>启动一个处于停止状态的容器: start</li>
+</ul>
+<h2 id="容器本来就是应用的，当应用结束时，程序也会结束的；"><a href="#容器本来就是应用的，当应用结束时，程序也会结束的；" class="headerlink" title="容器本来就是应用的，当应用结束时，程序也会结束的；"></a>容器本来就是应用的，当应用结束时，程序也会结束的；</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[root@node1 ~]<span class="comment"># docker run busybox:latest /bin/echo &quot;hello world&quot;</span></span><br><span class="line"> hello world</span><br><span class="line"></span><br><span class="line">[root@node1 ~]<span class="comment"># docker run -it --name=busybox busybox:latest /bin/sh</span></span><br><span class="line">[root@node1 ~]<span class="comment"># docker stop busybox ##正常停止一个容器，相当于正常关机</span></span><br><span class="line"> busybox</span><br></pre></td></tr></table></figure>
+<h2 id="run命令"><a href="#run命令" class="headerlink" title="run命令:"></a>run命令:</h2><blockquote>
+<p> –name= Assign a name to the container<br>-i,–interactive=false Keep STDIN open even if not attached<br>it,-tty=false Alocate a pseudo-TTY<br>–net=default Set the Network for the container</p>
+</blockquote>
+<h2 id="步骤："><a href="#步骤：" class="headerlink" title="步骤："></a>步骤：</h2><blockquote>
+<p>检查本地是否存在指定的镜像，不存在则从registry下载；<br>利用镜像启动容器<br>分配一个文件系统，并且在只读的镜像层之外，挂载一个可读写层；<br>从宿主机配置的网桥口中，桥接一个虚拟接口给此容器;<br>从地址池中分配一个地址容器；<br>执行用户指定的应用程序；<br>程序执行完成后，容器即终止；<br>logs命令:获取一个容器的日志，获取其输出信息;<br>对于交互式模式启动的容器，终止可以使用exit 命令或ctrl+d组合键;</p>
+</blockquote>
+<h2 id="attach-附加至一个运行中的容器；"><a href="#attach-附加至一个运行中的容器；" class="headerlink" title="attach  附加至一个运行中的容器；"></a>attach  附加至一个运行中的容器；</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[root@node1 ~]<span class="comment"># docker start 31a67d66b2c2</span></span><br><span class="line">[root@node1 ~]<span class="comment"># docker attach busybox</span></span><br><span class="line">[root@node1 ~]<span class="comment"># docker run busybox:latest /bin/echo &quot;hello world&quot;</span></span><br><span class="line">[root@node1 ~]<span class="comment"># docker ps -a </span></span><br><span class="line"> CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS                      PORTS               NAMES</span><br><span class="line"> d35a2673722e        busybox:latest      <span class="string">&quot;/bin/echo &#x27;hello ...&quot;</span>   13 seconds ago      Exited (0) 12 seconds </span><br><span class="line">[root@node1 ~]<span class="comment"># docker start d35a2673722e  </span></span><br><span class="line"> d35a2673722e</span><br><span class="line">[root@node1 ~]<span class="comment"># docker logs  cabd0e52f8f8 ##可以查看执行命令后的输出信息</span></span><br><span class="line"> hello world</span><br><span class="line"> hello world</span><br><span class="line"> hello world</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"> / <span class="comment"># exit 终止当前容器  或者ctrl +d </span></span><br><span class="line"> attach </span><br><span class="line"> [root@node1 ~]<span class="comment"># docker start -i busybox  ##启动一个交互式一个接口</span></span><br><span class="line"> [root@node1 ~]<span class="comment"># docker start busybox </span></span><br><span class="line"> [root@node1 ~]<span class="comment"># docker attach busybox   ##附加至一个运行中的容器；</span></span><br><span class="line"> / <span class="comment"># </span></span><br><span class="line">```  </span><br><span class="line">  </span><br><span class="line"><span class="comment">## Docker Hub  </span></span><br><span class="line"></span><br><span class="line">* registry有两种</span><br><span class="line">* docker hub</span><br><span class="line">* private registry</span><br><span class="line"></span><br><span class="line">```bash</span><br><span class="line"> <span class="comment"># docker login</span></span><br><span class="line"> <span class="comment"># docker push busybox:latest</span></span><br><span class="line"> [root@node2 yum.repos.d]<span class="comment"># yum -y install docker-registry</span></span><br><span class="line"> 上条命令实质上安装的是另外的一个包</span><br><span class="line"> [root@node2 yum.repos.d]<span class="comment"># yum -y installdocker-distribution-2.6.0-1.el7.x86_64</span></span><br><span class="line"> [root@node1 yum.repos.d]<span class="comment"># systemctl start docker-distribution.service </span></span><br><span class="line"> [root@node1 yum.repos.d]<span class="comment"># ss -tnl | grep 5000</span></span><br><span class="line"> LISTEN     0      128         :::5000                    :::* </span><br><span class="line"> [root@node1 yum.repos.d]<span class="comment"># docker images </span></span><br><span class="line"> REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE</span><br><span class="line"> centos              newuser             08d1d05a6e49        2 weeks ago         1.11MB</span><br><span class="line"> centos              latest              98d35105a391        5 weeks ago         192MB</span><br><span class="line"> busybox             latest              00f017a8c2a6        6 weeks ago         1.11MB</span><br><span class="line"> [root@node1 yum.repos.d]<span class="comment"># </span></span><br><span class="line"> [root@node1 yum.repos.d]<span class="comment"># docker tag 08d1d05a6e49  192.168.99.15:5000/centos:1.2.1 给一个镜像打标签 </span></span><br><span class="line"> [root@node1 yum.repos.d]<span class="comment"># docker push 192.168.99.15:5000/centos:1.2.1</span></span><br></pre></td></tr></table></figure>
+  
+  
+    
+    <div class='footer'>
+      
+      
+      
+        <div class='copyright'>
+          <blockquote>
+            
+              
+                <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+              
+            
+              
+                <p>本文永久链接是：<a href=https://www.asjin.com/2017/10/27/docker%E5%88%9D%E6%AD%A5%E4%BD%BF%E7%94%A8/>https://www.asjin.com/2017/10/27/docker%E5%88%9D%E6%AD%A5%E4%BD%BF%E7%94%A8/</a></p>
+              
+            
+          </blockquote>
+        </div>
+      
+      
+    </div>
+  
+  
+    
+
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-09-29T19:08:55+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：Sep 29, 2020</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.asjin.com/2017/10/27/docker%E5%88%9D%E6%AD%A5%E4%BD%BF%E7%94%A8/&title=docker初步使用 - 逝水锦遥&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://www.asjin.com/2017/10/27/docker%E5%88%9D%E6%AD%A5%E4%BD%BF%E7%94%A8/&title=docker初步使用 - 逝水锦遥&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.asjin.com/2017/10/27/docker%E5%88%9D%E6%AD%A5%E4%BD%BF%E7%94%A8/&title=docker初步使用 - 逝水锦遥&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png">
+          
+        </a>
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </div>
+
+
+  
+  
+
+  
+    <div class="prev-next">
+      
+        <a class='prev' href='/2017/10/29/linux-%E7%B3%BB%E7%BB%9F%E4%BC%98%E5%8C%96/'>
+          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>linux 系统优化</p>
+          <p class='content'>[toc]
+进程调度123456789101112131415161718192021222324252627282930313233343536OS:硬件抽象，虚拟计算机	system cal...</p>
+        </a>
+      
+      
+        <a class='next' href='/2017/10/26/ldirectord-ipvsadm%E4%B9%8Bnat-dr%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AE%9E%E7%8E%B0/'>
+          <p class='title'>ldirectord+ipvsadm之nat/dr模型的实现<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>[toc]
+ldirectord 结合ipvsadm 配置nat,dr模型一、nat模型
+drector  
+
+1234# wget ftp://172.16.0.1/pub/Sources/7...</p>
+        </a>
+      
+    </div>
+  
+</article>
+
+
+  
+
+  <article class="post white-box reveal floatable" id="comments">
+    <p ct><i class='fas fa-comments'></i> 评论</p>
+    
+    <div id="valine_container" class="valine_thread">
+  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+</div>
+
+  </article>
+
+
+
+
+
+
+</div>
+<aside class='l_side'>
+  
+  
+    
+    
+
+
+
+  <section class="widget toc-wrapper floatable desktop mobile" id="toc-div" >
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E8%AF%B4%E6%98%8E"><span class="toc-text">一、说明</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%85%E6%A0%B8%E7%BA%A7%E5%88%AB%EF%BC%8C%E7%8E%AF%E5%A2%83%E9%9A%94%E7%A6%BB"><span class="toc-text">内核级别，环境隔离</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%9F%E8%83%BD%EF%BC%9A"><span class="toc-text">功能：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Device-mapper"><span class="toc-text">Device mapper:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Device-mapper-1"><span class="toc-text">Device mapper:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Docker"><span class="toc-text">Docker</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#C-S"><span class="toc-text">C&#x2F;S:</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="toc-text">解决方案</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%B8%E5%BF%83%E7%BB%84%E4%BB%B6%EF%BC%9A"><span class="toc-text">核心组件：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#repository"><span class="toc-text">repository</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%A6%E5%A4%96%E4%B8%A4%E4%B8%AA%E9%87%8D%E8%A6%81%E7%BB%84%E4%BB%B6%EF%BC%9A"><span class="toc-text">另外两个重要组件：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81Docker-YUM%E6%BA%90%E7%9A%84%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE"><span class="toc-text">二、Docker YUM源的安装配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8docker-%E9%80%9A%E8%BF%87%E4%BD%BF%E7%94%A8epel%E6%BA%90%E6%9D%A5%E5%AE%9E%E7%8E%B0%EF%BC%8C-CentOS7-%E8%87%AA%E5%B8%A6%E7%9A%84%E5%B0%B1%E6%9C%89%E4%BA%86"><span class="toc-text">安装使用docker 通过使用epel源来实现， CentOS7 自带的就有了</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B9%8B%E6%89%80%E4%BB%A5%E8%83%BD%E6%90%9C%E7%B4%A2%E5%87%BA%E6%9D%A5%EF%BC%8C%E6%98%AF%E5%9B%A0%E4%B8%BA%E5%88%AB%E4%BA%BA%E7%BB%99%E6%88%91%E4%BB%AC%E5%81%9A%E4%BA%86%E5%85%AC%E5%BC%80%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-text">之所以能搜索出来，是因为别人给我们做了公开的使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%8E%AF%E5%A2%83%E4%BF%A1%E6%81%AF%E7%9B%B8%E5%85%B3%EF%BC%9A"><span class="toc-text">环境信息相关：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E7%BB%B4%E6%8A%A4%E7%9B%B8%E5%85%B3%EF%BC%9A"><span class="toc-text">系统维护相关：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%A5%E5%BF%97%E4%BF%A1%E6%81%AF%E7%9B%B8%E5%85%B3%EF%BC%9A"><span class="toc-text">日志信息相关：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C%EF%BC%9A"><span class="toc-text">基本操作：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Docker%E5%BA%94%E7%94%A8%EF%BC%9A"><span class="toc-text">Docker应用：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E9%95%9C%E5%83%8F%EF%BC%9Acommint-build"><span class="toc-text">创建镜像：commint,build</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%91%BD%E4%BB%A4%EF%BC%9A"><span class="toc-text">命令：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8%E6%96%B9%E6%B3%95"><span class="toc-text">启动方法:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%B9%E5%99%A8%E6%9C%AC%E6%9D%A5%E5%B0%B1%E6%98%AF%E5%BA%94%E7%94%A8%E7%9A%84%EF%BC%8C%E5%BD%93%E5%BA%94%E7%94%A8%E7%BB%93%E6%9D%9F%E6%97%B6%EF%BC%8C%E7%A8%8B%E5%BA%8F%E4%B9%9F%E4%BC%9A%E7%BB%93%E6%9D%9F%E7%9A%84%EF%BC%9B"><span class="toc-text">容器本来就是应用的，当应用结束时，程序也会结束的；</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#run%E5%91%BD%E4%BB%A4"><span class="toc-text">run命令:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AD%A5%E9%AA%A4%EF%BC%9A"><span class="toc-text">步骤：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#attach-%E9%99%84%E5%8A%A0%E8%87%B3%E4%B8%80%E4%B8%AA%E8%BF%90%E8%A1%8C%E4%B8%AD%E7%9A%84%E5%AE%B9%E5%99%A8%EF%BC%9B"><span class="toc-text">attach  附加至一个运行中的容器；</span></a></li></ol>
+    </div>
+  </section>
+
+
+  
+
+
+</aside>
+
+
+
+        
+        
+          <!--此文件用来存放一些不方便取值的变量-->
+<!--思路大概是将值藏到重加载的区域内-->
+
+<script>
+  window.pdata={}
+  pdata.ispage=true;
+  pdata.postTitle="docker初步使用";
+  pdata.commentPath="";
+  pdata.commentPlaceholder="";
+
+  var l_header=document.getElementById("l_header");
+  
+  l_header.classList.remove("show");
+  
+</script>
+
+        
+      </div>
+      
+  
+  <footer class="footer clearfix">
+    <br><br>
+    
+      
+        <div class="aplayer-container">
+          
+
+
+        </div>
+      
+    
+      
+        <br>
+        <div class="social-wrapper">
+          
+            
+          
+            
+          
+            
+          
+        </div>
+      
+    
+      
+        <div><p>博客内容遵循 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
+</div>
+      
+    
+      
+        
+      
+    
+      
+        本站使用
+        <a href="https://github.com/volantis-x/hexo-theme-volantis/tree/4.1.6" target="_blank" class="codename">Volantis</a>
+        作为主题，总访问量为
+          <span id="busuanzi_value_site_pv"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+          次
+        
+      
+    
+      
+        <div class='copyright'>
+        <p><a href="/">Copyright © 2017-2020 asjin.com</a></p>
+
+        </div>
+      
+    
+  </footer>
+
+
+      <a id="s-top" class="fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+    </div>
+  </div>
+  <div>
+    <script>
+window.volantis={};
+window.volantis.loadcss=document.getElementById("loadcss");
+/********************脚本懒加载函数********************************/
+function loadScript(src, cb) {
+var HEAD = document.getElementsByTagName('head')[0] || document.documentElement;
+var script = document.createElement('script');
+script.setAttribute('type','text/javascript');
+if (cb) script.onload = cb;
+script.setAttribute('src', src);
+HEAD.appendChild(script);
+}
+//https://github.com/filamentgroup/loadCSS
+var loadCSS = function( href, before, media, attributes ){
+	var doc = window.document;
+	var ss = doc.createElement( "link" );
+	var ref;
+	if( before ){
+		ref = before;
+	}
+	else {
+		var refs = ( doc.body || doc.getElementsByTagName( "head" )[ 0 ] ).childNodes;
+		ref = refs[ refs.length - 1];
+	}
+	var sheets = doc.styleSheets;
+	if( attributes ){
+		for( var attributeName in attributes ){
+			if( attributes.hasOwnProperty( attributeName ) ){
+				ss.setAttribute( attributeName, attributes[attributeName] );
+			}
+		}
+	}
+	ss.rel = "stylesheet";
+	ss.href = href;
+	ss.media = "only x";
+	function ready( cb ){
+		if( doc.body ){
+			return cb();
+		}
+		setTimeout(function(){
+			ready( cb );
+		});
+	}
+	ready( function(){
+		ref.parentNode.insertBefore( ss, ( before ? ref : ref.nextSibling ) );
+	});
+	var onloadcssdefined = function( cb ){
+		var resolvedHref = ss.href;
+		var i = sheets.length;
+		while( i-- ){
+			if( sheets[ i ].href === resolvedHref ){
+				return cb();
+			}
+		}
+		setTimeout(function() {
+			onloadcssdefined( cb );
+		});
+	};
+	function loadCB(){
+		if( ss.addEventListener ){
+			ss.removeEventListener( "load", loadCB );
+		}
+		ss.media = media || "all";
+	}
+	if( ss.addEventListener ){
+		ss.addEventListener( "load", loadCB);
+	}
+	ss.onloadcssdefined = onloadcssdefined;
+	onloadcssdefined( loadCB );
+	return ss;
+};
+</script>
+<script>
+  
+  loadCSS("https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14/css/all.min.css", window.volantis.loadcss);
+  
+  
+  
+  
+</script>
+<!-- required -->
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5/dist/jquery.min.js"></script>
+
+<script>
+  function pjax_fancybox() {
+    $(".md .gallery").find("img").each(function () { //渲染 fancybox
+      var element = document.createElement("a"); // a 标签
+      $(element).attr("class", "fancybox");
+      $(element).attr("pjax-fancybox", "");  // 过滤 pjax
+      $(element).attr("href", $(this).attr("src"));
+      if ($(this).attr("data-original")) {
+        $(element).attr("href", $(this).attr("data-original"));
+      }
+      $(element).attr("data-fancybox", "images");
+      var caption = "";   // 描述信息
+      if ($(this).attr('alt')) {  // 判断当前页面是否存在描述信息
+        $(element).attr('data-caption', $(this).attr('alt'));
+        caption = $(this).attr('alt');
+      }
+      var div = document.createElement("div");
+      $(div).addClass("fancybox");
+      $(this).wrap(div); // 最外层套 div ，其实主要作用还是 class 样式
+      var span = document.createElement("span");
+      $(span).addClass("image-caption");
+      $(span).text(caption); // 加描述
+      $(this).after(span);  // 再套一层描述
+      $(this).wrap(element);  // 最后套 a 标签
+    })
+    $(".md .gallery").find("img").fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+      closeClick: true,
+      helpers: {
+        overlay: {closeClick: true}
+      },
+      buttons: [
+        "zoom",
+        "close"
+      ]
+    });
+  };
+  function SCload_fancybox() {
+    if ($(".md .gallery").find("img").length == 0) return;
+    loadCSS("https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css", document.getElementById("loadcss"));
+    setTimeout(function() {
+      loadScript('https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js', pjax_fancybox)
+    }, 1);
+  };
+  $(function () {
+    SCload_fancybox();
+  });
+</script>
+
+
+<!-- internal -->
+
+
+
+
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.1.0/dist/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 0
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    lazyLoadInstance.update();
+  });
+  document.addEventListener('pjax:complete', function () {
+    lazyLoadInstance.update();
+  });
+</script>
+
+
+
+
+  
+  
+    <script async src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@2/js/instant_page.js" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+  
+
+
+
+
+  <script src="/js/clipboard.min.js"></script>
+<script>
+    var clipboard = new ClipboardJS('.btn-copy', {
+        target: function (trigger) {
+            return trigger.nextElementSibling
+        }
+    });
+    function wait(callback, seconds) {
+        var timelag = null;
+        timelag = window.setTimeout(callback, seconds)
+    }
+    function pjax_initCopyCode() {
+		if($(".highlight .code pre").length+$(".article pre code").length==0)return;
+        var copyHtml = '';
+        copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+        copyHtml += '<i class="fas fa-copy"></i><span>COPY</span>';
+        copyHtml += '</button>';
+        $(".highlight .code pre").before(copyHtml);
+        $(".article pre code").before(copyHtml);
+        clipboard.off('success').on('success', function (e) {
+            let $btn = $(e.trigger);
+            $btn.addClass('copied');
+            let $icon = $($btn.find('i'));
+            $icon.removeClass('fa-copy');
+            $icon.addClass('fa-check-circle');
+            let $span = $($btn.find('span'));
+            $span[0].innerText = 'COPIED';
+            wait(function () {
+                $icon.removeClass('fa-check-circle');
+                $icon.addClass('fa-copy');
+                $span[0].innerText = 'COPY'
+            }, 2000)
+        });
+        clipboard.off('error').on('error', function (e) {
+            e.clearSelection();
+            let $btn = $(e.trigger);
+            $btn.addClass('copy-failed');
+            let $icon = $($btn.find('i'));
+            $icon.removeClass('fa-copy');
+            $icon.addClass('fa-times-circle');
+            let $span = $($btn.find('span'));
+            $span[0].innerText = 'COPY FAILED';
+            wait(function () {
+                $icon.removeClass('fa-times-circle');
+                $icon.addClass('fa-copy');
+                $span[0].innerText = 'COPY'
+            }, 2000)
+        })
+    }
+    $(function () {
+        pjax_initCopyCode()
+    });
+</script>
+
+
+
+
+
+
+
+
+  
+  
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4/dist/Valine.min.js"></script>
+
+
+<script>
+  var GUEST_INFO = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link,header'.split(',').filter(function (item) {
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var REQUIRED_FIELDS = ['nick', 'mail', 'link'];
+  var requiredFields = 'nick,mail'.split(',').filter(function (item) {
+    return REQUIRED_FIELDS.indexOf(item) > -1
+  });
+
+  function emoji(path, idx, ext) {
+    return path + "/" + path + "-" + idx + "." + ext;
+  }
+
+  var emojiMaps = {};
+  for (var i = 1; i <= 54; i++) {
+    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
+  }
+  for (var i = 1; i <= 101; i++) {
+    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+  }
+  for (var i = 1; i <= 116; i++) {
+    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
+  }
+  for (var i = 1; i <= 125; i++) {
+    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
+  }
+  for (var i = 1; i <= 4; i++) {
+    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+  }
+
+  function pjax_valine() {
+    if(!document.querySelectorAll("#valine_container")[0])return;
+
+    let pagePlaceholder = pdata.commentPlaceholder || "快来评论吧~ 🤩 🤩 🤩";
+
+    let path = pdata.commentPath;
+    if (path.length == 0) {
+      let defaultPath = '';
+      path = defaultPath || decodeURI(window.location.pathname);
+    }
+
+    var valine = new Valine();
+    valine.init({
+      el: '#valine_container',
+      meta: meta,
+      placeholder: pagePlaceholder,
+      path: path,
+      appId: "NkJqMpxu4QlRLhPIHipNUHF1-gzGzoHsz",
+      appKey: "D2vTdueKJ8ammc2JEdje0vLW",
+      pageSize: '',
+      avatar: 'monsterid',
+      lang: '',
+      visitor: '',
+      highlight: '',
+      mathJax: '',
+      enableQQ: 'true',
+      recordIP: 'false',
+      requiredFields: requiredFields,
+      emojiCDN: 'https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/valine/',
+      emojiMaps: emojiMaps
+    })
+  }
+
+  $(function () {
+    pjax_valine();
+  });
+</script>
+
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js" data-pjax></script>
+
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-theme-volantis@4.1.6/source/js/app.min.js"></script>
+
+
+
+<!-- optional -->
+
+  <script>
+const SearchServiceimagePath="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@master/img/";
+const ROOT =  ("/" || "/").endsWith('/') ? ("/" || "/") : ("//" || "/" );
+
+$('.input.u-search-input').one('focus',function(){
+	
+		loadScript('https://cdn.jsdelivr.net/npm/hexo-theme-volantis@4.1.6/source/js/search/hexo.min.js',setSearchService);
+	
+})
+
+function listenSearch(){
+  
+    customSearch = new HexoSearch({
+      imagePath: SearchServiceimagePath
+    });
+  
+}
+function setSearchService() {
+	listenSearch();
+	
+		document.addEventListener("pjax:success", listenSearch);
+	
+}
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+function listennSidebarTOC() {
+  const navItems = document.querySelectorAll(".toc li");
+  if (!navItems.length) return;
+  const sections = [...navItems].map((element) => {
+    const link = element.querySelector(".toc-link");
+    const target = document.getElementById(
+      decodeURI(link.getAttribute("href")).replace("#", "")
+    );
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+      window.scrollTo({
+		top: target.offsetTop + 100,
+		
+		behavior: "smooth"
+		
+	  });
+    });
+    return target;
+  });
+
+  function activateNavByIndex(target) {
+    if (target.classList.contains("active-current")) return;
+
+    document.querySelectorAll(".toc .active").forEach((element) => {
+      element.classList.remove("active", "active-current");
+    });
+    target.classList.add("active", "active-current");
+    let parent = target.parentNode;
+    while (!parent.matches(".toc")) {
+      if (parent.matches("li")) parent.classList.add("active");
+      parent = parent.parentNode;
+    }
+  }
+
+  function findIndex(entries) {
+    let index = 0;
+    let entry = entries[index];
+    if (entry.boundingClientRect.top > 0) {
+      index = sections.indexOf(entry.target);
+      return index === 0 ? 0 : index - 1;
+    }
+    for (; index < entries.length; index++) {
+      if (entries[index].boundingClientRect.top <= 0) {
+        entry = entries[index];
+      } else {
+        return sections.indexOf(entry.target);
+      }
+    }
+    return sections.indexOf(entry.target);
+  }
+
+  function createIntersectionObserver(marginTop) {
+    marginTop = Math.floor(marginTop + 10000);
+    let intersectionObserver = new IntersectionObserver(
+      (entries, observe) => {
+        let scrollHeight = document.documentElement.scrollHeight + 100;
+        if (scrollHeight > marginTop) {
+          observe.disconnect();
+          createIntersectionObserver(scrollHeight);
+          return;
+        }
+        let index = findIndex(entries);
+        activateNavByIndex(navItems[index]);
+      },
+      {
+        rootMargin: marginTop + "px 0px -100% 0px",
+        threshold: 0,
+      }
+    );
+    sections.forEach((element) => {
+      element && intersectionObserver.observe(element);
+    });
+  }
+  createIntersectionObserver(document.documentElement.scrollHeight);
+}
+
+document.addEventListener("DOMContentLoaded", listennSidebarTOC);
+document.addEventListener("pjax:success", listennSidebarTOC);
+</script>
+
+<!-- more -->
+
+
+
+
+    
+      
+
+
+<script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script>
+
+
+<script>
+    var pjax;
+    document.addEventListener('DOMContentLoaded', function () {
+      pjax = new Pjax({
+        elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"]):not([pjax-fancybox])',
+        selectors: [
+          "title",
+          "#l_cover",
+          "#pjax-container",
+          "#pjax-header-nav-list"
+        ],
+        cacheBust: false,   // url 地址追加时间戳，用以避免浏览器缓存
+        timeout: 5000
+      });
+    });
+
+    document.addEventListener('pjax:send', function (e) {
+      //window.stop(); // 相当于点击了浏览器的停止按钮
+
+      try {
+        var currentUrl = window.location.pathname;
+        var targetUrl = e.triggerElement.href;
+        var banUrl = [""];
+        if (banUrl[0] != "") {
+          banUrl.forEach(item => {
+            if(currentUrl.indexOf(item) != -1 || targetUrl.indexOf(item) != -1) {
+              window.location.href = targetUrl;
+            }
+          });
+        }
+      } catch (error) {}
+
+      window.subData = null; // 移除标题（用于一二级导航栏切换处）
+      if (typeof $.fancybox != "undefined") {
+        $.fancybox.close();    // 关闭弹窗
+      }
+      volantis.$switcher.removeClass('active'); // 关闭移动端激活的搜索框
+      volantis.$header.removeClass('z_search-open'); // 关闭移动端激活的搜索框
+      volantis.$wrapper.removeClass('sub'); // 跳转页面时关闭二级导航
+
+      // 解绑事件 避免重复监听
+      volantis.$topBtn.unbind('click');
+      $('.menu a').unbind('click');
+      $(window).unbind('resize');
+      $(window).unbind('scroll');
+      $(document).unbind('scroll');
+      $(document).unbind('click');
+      $('body').unbind('click');
+	  
+    });
+
+    document.addEventListener('pjax:complete', function () {
+      // 关于百度统计对 SPA 页面的处理：
+      // 方案一：百度统计>管理>单页应用设置中，打开开启按钮即可对SPA进行统计。 https://tongji.baidu.com/web/help/article?id=324
+      // 方案二：取消注释下列代码。 https://tongji.baidu.com/web/help/article?id=235
+       
+
+      // 关于谷歌统计对 SPA 页面的处理：
+      // 当应用以动态方式加载内容并更新地址栏中的网址时，也应该更新通过 gtag.js 存储的网页网址。
+      // https://developers.google.cn/analytics/devguides/collection/gtagjs/single-page-applications?hl=zh-cn
+      
+	 
+
+      $('.nav-main').find('.list-v').not('.menu-phone').removeAttr("style",""); // 移除小尾巴的移除
+      $('.menu-phone.list-v').removeAttr("style",""); // 移除小尾巴的移除
+      $('script[data-pjax], .pjax-reload script').each(function () {
+        $(this).parent().append($(this).remove());
+      });
+      try{
+          if (typeof $.fancybox == "undefined") {
+            SCload_fancybox();
+          } else {
+            pjax_fancybox();
+          }
+        
+        
+        
+        
+        
+          pjax_initCopyCode();
+        
+        
+          pjax_valine();
+        
+        
+        
+        
+      } catch (e) {
+        console.log(e);
+      }
+	  
+    });
+
+    document.addEventListener('pjax:error', function (e) {
+	  
+      window.location.href = e.triggerElement.href;
+    });
+</script>
+
+    
+  </div>
+</body>
+</html>

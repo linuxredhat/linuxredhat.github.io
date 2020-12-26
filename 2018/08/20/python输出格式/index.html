@@ -1,0 +1,1313 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head hexo-theme='https://github.com/volantis-x/hexo-theme-volantis/tree/4.1.6'>
+  <meta charset="utf-8">
+  <!-- SEO相关 -->
+  
+    
+  
+  <!-- 渲染优化 -->
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://cdn.jsdelivr.net'>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- 页面元数据 -->
+  
+  <title>python输出格式 - 逝水锦遥</title>
+  
+    <meta name="keywords" content="linux,program">
+  
+
+  
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="逝水锦遥" type="application/atom+xml">
+  
+
+  <!-- import meta -->
+  
+
+  <!-- link -->
+  
+
+  <!-- import link -->
+  
+
+  
+    
+<link rel="stylesheet" href="/css/first.css">
+
+  
+
+  
+  <link rel="stylesheet" href="/css/style.css" media="print" onload="this.media='all';this.onload=null">
+  <noscript><link rel="stylesheet" href="/css/style.css"></noscript>
+  
+
+  <script id="loadcss"></script>
+</head>
+
+
+<body>
+	  <canvas id="canvas" width="1440" height="900" ></canvas>
+	  <script type="text/javascript" src="/js/DigitalRain.js"></script>
+  
+
+<header id="l_header" class="l_header always floatable "  >
+  <div class='container'>
+  <div id='wrapper'>
+    <div class='nav-sub'>
+      <p class="title"></p>
+      <ul class='switcher nav-list-h m-phone' id="pjax-header-nav-list">
+        <li><a id="s-comment" class="fas fa-comments fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+          <li><a id="s-toc" class="s-toc fas fa-list fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+      </ul>
+    </div>
+		<div class="nav-main">
+      
+        
+        <a class="title flat-box" target="_self" href='/'>
+          
+            <img no-lazy class='logo' src='/images/head.png'/>
+          
+          
+          
+        </a>
+      
+
+			<div class='menu navigation'>
+				<ul class='nav-list-h m-pc'>
+          
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fab fa-linux fa-fw'></i>所有文章
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/program
+                  
+                  
+                  
+                    id="tagsprogram"
+                  >
+                  <i class='fab fa-gitlab fa-fw'></i>运维开发
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/rhca
+                  
+                  
+                  
+                    id="tagsrhca"
+                  >
+                  <i class='fas fa-heartbeat fa-fw'></i>运维组件
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/cloud
+                  
+                  
+                  
+                    id="tagscloud"
+                  >
+                  <i class='fas fa-cloud fa-fw'></i>云计算
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/zikao
+                  
+                  
+                  
+                    id="tagszikao"
+                  >
+                  <i class='fab fa-drupal fa-fw'></i>成自考
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/renjin
+                  
+                  
+                  
+                    id="tagsrenjin"
+                  >
+                  <i class='fas fa-user-circle fa-fw'></i>个人中心
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/box/
+                  
+                  
+                  
+                    id="box"
+                  >
+                  <i class='fas fa-flag fa-fw'></i>工具箱
+                </a>
+                
+              </li>
+            
+          
+          
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="搜索文章..." />
+        </form>
+      </div>
+
+			<ul class='switcher nav-list-h m-phone'>
+				
+					<li><a class="s-search fas fa-search fa-fw" target="_self" href='javascript:void(0)'></a></li>
+				
+				<li>
+          <a class="s-menu fas fa-bars fa-fw" target="_self" href='javascript:void(0)'></a>
+          <ul class="menu-phone list-v navigation white-box">
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fab fa-linux fa-fw'></i>所有文章
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/program
+                  
+                  
+                  
+                    id="tagsprogram"
+                  >
+                  <i class='fab fa-gitlab fa-fw'></i>运维开发
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/rhca
+                  
+                  
+                  
+                    id="tagsrhca"
+                  >
+                  <i class='fas fa-heartbeat fa-fw'></i>运维组件
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/cloud
+                  
+                  
+                  
+                    id="tagscloud"
+                  >
+                  <i class='fas fa-cloud fa-fw'></i>云计算
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/zikao
+                  
+                  
+                  
+                    id="tagszikao"
+                  >
+                  <i class='fab fa-drupal fa-fw'></i>成自考
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/renjin
+                  
+                  
+                  
+                    id="tagsrenjin"
+                  >
+                  <i class='fas fa-user-circle fa-fw'></i>个人中心
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/box/
+                  
+                  
+                  
+                    id="box"
+                  >
+                  <i class='fas fa-flag fa-fw'></i>工具箱
+                </a>
+                
+              </li>
+            
+          
+            
+          </ul>
+        </li>
+			</ul>
+		</div>
+	</div>
+  </div>
+</header>
+
+  <div id="l_body">
+    <div id="l_cover">
+  
+    
+        <div id="half" class='cover-wrapper post search' style="display: ;">
+          
+            <div class='cover-bg lazyload placeholder' data-bg="/images/background.jpg"></div>
+          
+          <div class='cover-body'>
+  <div class='top'>
+    
+    
+      <p class="title">S  S  J  Y</p>
+    
+    
+      <p class="subtitle">有志而性缓者思大志 有才而气和者为大才</p>
+    
+  </div>
+  <div class='bottom'>
+    
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <input type="text" class="input u-search-input" placeholder="搜索本地文章" />
+          <i class="icon fas fa-search fa-fw"></i>
+        </form>
+      </div>
+    
+    <div class='menu navigation'>
+      <div class='list-h'>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+          <div id="scroll-down" style="display: none;"><i class="fa fa-chevron-down scroll-down-effects"></i></div>
+        </div>
+    
+  
+  </div>
+
+    <div id='safearea'>
+      <div class='body-wrapper' id="pjax-container">
+        
+
+<div class='l_main'>
+  <article class="article post white-box reveal md floatable article-type-post" id="post" itemscope itemprop="blogPost">
+  
+
+
+  
+  <div class="article-meta" id="top">
+    
+    
+    
+      <h1 class="title">
+        python输出格式
+      </h1>
+      <div class='new-meta-box'>
+        
+          
+            
+<div class='new-meta-item author'>
+  <a class='author' href="/images/rjrt.ico" rel="nofollow">
+    <img no-lazy src="/images/rjrt.ico">
+    <p>任锦</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：Aug 20, 2018</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class="new-meta-item browse busuanzi">
+    <a class='notlink'>
+      <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+      <p>
+        <span id="busuanzi_value_page_pv">
+          <i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i>
+        </span>
+        次浏览
+      </p>
+    </a>
+  </div>
+
+
+          
+        
+      </div>
+    
+  </div>
+
+
+  
+  <p><img src="/images/python.jpg" class="lazyload" data-srcset="/images/python.jpg" srcset="data:image/png;base64,666" alt=""></p>
+<p>[toc]</p>
+<h2 id="列表的封装与解压"><a href="#列表的封装与解压" class="headerlink" title="列表的封装与解压"></a>列表的封装与解压</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">10</span>]: lst = [<span class="number">1</span>,[<span class="number">2</span>,<span class="number">3</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">10</span>],<span class="number">4</span>]</span><br><span class="line">In [<span class="number">11</span>]: a, (b, *_, c),d = lst</span><br><span class="line">In [<span class="number">12</span>]: a</span><br><span class="line">Out[<span class="number">12</span>]: <span class="number">1</span></span><br><span class="line">In [<span class="number">13</span>]: b</span><br><span class="line">Out[<span class="number">13</span>]: <span class="number">2</span></span><br><span class="line">In [<span class="number">14</span>]: c</span><br><span class="line">Out[<span class="number">14</span>]: <span class="number">10</span></span><br><span class="line">In [<span class="number">15</span>]: d</span><br><span class="line">Out[<span class="number">15</span>]: <span class="number">4</span></span><br></pre></td></tr></table></figure>
+<h2 id="输出格式练习"><a href="#输出格式练习" class="headerlink" title="输出格式练习"></a>输出格式练习</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">18</span>]: <span class="string">&#x27;i am %s&#x27;</span> %(<span class="string">&#x27;renjin&#x27;</span>)</span><br><span class="line">Out[<span class="number">18</span>]: <span class="string">&#x27;i am renjin&#x27;</span></span><br><span class="line">In [<span class="number">24</span>]: <span class="string">&#x27;i am %(name)s&#x27;</span> %&#123;<span class="string">&#x27;name&#x27;</span>:<span class="string">&#x27;renjin&#x27;</span>&#125;</span><br><span class="line">Out[<span class="number">24</span>]: <span class="string">&#x27;i am renjin&#x27;</span></span><br><span class="line">In [<span class="number">29</span>]: <span class="string">&#x27;i am %s my name is %s&#x27;</span> %(<span class="string">&#x27;ssjinyao&#x27;</span>,<span class="string">&#x27;renjin&#x27;</span>)</span><br><span class="line">Out[<span class="number">29</span>]: <span class="string">&#x27;i am ssjinyao my name is renjin&#x27;</span></span><br></pre></td></tr></table></figure>
+<h2 id="format-输出格式"><a href="#format-输出格式" class="headerlink" title="format 输出格式"></a>format 输出格式</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">3</span>]: <span class="string">&#x27;I am &#123;&#125;&#x27;</span>.<span class="built_in">format</span>(<span class="string">&#x27;ssjinyao&#x27;</span>)</span><br><span class="line">Out[<span class="number">3</span>]: <span class="string">&#x27;I am ssjinyao&#x27;</span></span><br><span class="line">In [<span class="number">4</span>]: <span class="string">&#x27;I am &#123;&#125; my age is &#123;&#125;&#x27;</span>.<span class="built_in">format</span>(<span class="string">&#x27;ssjinyao&#x27;</span>,<span class="number">23</span>)</span><br><span class="line">Out[<span class="number">4</span>]: <span class="string">&#x27;I am ssjinyao my age is 23&#x27;</span></span><br><span class="line">In [<span class="number">5</span>]: <span class="string">&#x27;I am &#123;1&#125; my age is &#123;0&#125;&#x27;</span>.<span class="built_in">format</span>(<span class="number">23</span>,<span class="string">&#x27;ssjinyao&#x27;</span>)</span><br><span class="line">Out[<span class="number">5</span>]: <span class="string">&#x27;I am ssjinyao my age is 23&#x27;</span></span><br><span class="line">In [<span class="number">6</span>]: <span class="string">&#x27;I am &#123;name&#125; my age is &#123;age&#125;&#x27;</span>.<span class="built_in">format</span>(age=<span class="string">&#x27;23&#x27;</span>,name=<span class="string">&#x27;ssjinyao&#x27;</span>)</span><br><span class="line">Out[<span class="number">6</span>]: <span class="string">&#x27;I am ssjinyao my age is 23&#x27;</span></span><br><span class="line">In [<span class="number">8</span>]: <span class="string">&#x27;I am &#123;0&#125; my name is &#123;0&#125;&#x27;</span>.<span class="built_in">format</span>(<span class="string">&#x27;ssjinyao&#x27;</span>)</span><br><span class="line">Out[<span class="number">8</span>]: <span class="string">&#x27;I am ssjinyao my name is ssjinyao&#x27;</span></span><br><span class="line">In [<span class="number">15</span>]: <span class="string">&#x27;&#123;&#125; name &#123;&#125; and age is &#123;age&#125;&#x27;</span>.<span class="built_in">format</span>(<span class="string">&#x27;renjin&#x27;</span>,<span class="string">&#x27;ssjinyao&#x27;</span>,age=<span class="string">&#x27;23&#x27;</span>)</span><br><span class="line">Out[<span class="number">15</span>]: <span class="string">&#x27;renjin name ssjinyao and age is 23&#x27;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">16</span>]: <span class="class"><span class="keyword">class</span> <span class="title">A</span>():</span></span><br><span class="line">    ...:     <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self</span>):</span></span><br><span class="line">    ...:         self.x=<span class="number">1</span></span><br><span class="line">    ...:         self.y=<span class="number">2</span></span><br><span class="line">    ...:</span><br><span class="line">In [<span class="number">17</span>]: a = A()</span><br><span class="line">In [<span class="number">18</span>]: a.x</span><br><span class="line">Out[<span class="number">18</span>]: <span class="number">1</span></span><br><span class="line">In [<span class="number">19</span>]: a.y</span><br><span class="line">Out[<span class="number">19</span>]: <span class="number">2</span></span><br><span class="line">In [<span class="number">24</span>]: <span class="string">&#x27;&#123;inst.x&#125;&#x27;</span>.<span class="built_in">format</span>(inst=a)</span><br><span class="line">Out[<span class="number">24</span>]: <span class="string">&#x27;1&#x27;</span></span><br><span class="line">In [<span class="number">20</span>]: <span class="string">&#x27;&#123;0.x&#125; &#123;0.y&#125;&#x27;</span>.<span class="built_in">format</span>(a)</span><br><span class="line">Out[<span class="number">20</span>]: <span class="string">&#x27;1 2&#x27;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">26</span>]: <span class="string">&#x27;&#123;0!a&#125;&#x27;</span>.<span class="built_in">format</span>(<span class="string">&#x27;逝水锦遥&#x27;</span>)</span><br><span class="line">Out[<span class="number">26</span>]: <span class="string">&quot;&#x27;\\u901d\\u6c34\\u9526\\u9065&#x27;&quot;</span></span><br><span class="line">In [<span class="number">27</span>]: <span class="string">&#x27;&#123;0:^80&#125;&#x27;</span>.<span class="built_in">format</span>(<span class="string">&#x27;逝水锦遥&#x27;</span>)</span><br><span class="line">Out[<span class="number">27</span>]: <span class="string">&#x27;                                      逝水锦遥                                      &#x27;</span></span><br><span class="line">In [<span class="number">29</span>]: <span class="string">&#x27;&#123;0:&lt;80&#125;&#x27;</span>.<span class="built_in">format</span>(<span class="string">&#x27;逝水锦遥&#x27;</span>)</span><br><span class="line">Out[<span class="number">29</span>]: <span class="string">&#x27;逝水锦遥                                                                            &#x27;</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">30</span>]: <span class="string">&#x27;&#123;0:&gt;80&#125;&#x27;</span>.<span class="built_in">format</span>(<span class="string">&#x27;逝水锦遥&#x27;</span>)</span><br><span class="line">Out[<span class="number">30</span>]: <span class="string">&#x27;                                                                            逝水锦遥&#x27;</span></span><br><span class="line">In [<span class="number">34</span>]: <span class="string">&#x27;&#123;0:&#123;fill&#125;^&#123;width&#125;&#125;&#x27;</span>.<span class="built_in">format</span>(<span class="string">&#x27;逝水锦遥&#x27;</span>,width=<span class="string">&#x27;80&#x27;</span>,fill=<span class="string">&#x27;*&#x27;</span>)</span><br><span class="line">Out[<span class="number">34</span>]: <span class="string">&#x27;**************************************逝水锦遥**************************************&#x27;</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">35</span>]: <span class="string">&#x27;&#123;message:&#123;fill&#125;^&#123;width&#125;&#125;&#x27;</span>.<span class="built_in">format</span>(message=<span class="string">&#x27;逝水锦遥&#x27;</span>,width=<span class="string">&#x27;80&#x27;</span>,fill=<span class="string">&#x27;*&#x27;</span>)</span><br><span class="line">Out[<span class="number">35</span>]: <span class="string">&#x27;**************************************逝水锦遥**************************************&#x27;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">41</span>]: s = <span class="string">&#x27;逝水锦遥&#x27;</span></span><br><span class="line">In [<span class="number">42</span>]: b = s.encode()</span><br><span class="line">In [<span class="number">43</span>]: <span class="keyword">for</span> x <span class="keyword">in</span> s:</span><br><span class="line">    ...:     <span class="built_in">print</span> (x)</span><br><span class="line">    ...:</span><br><span class="line">逝</span><br><span class="line">水</span><br><span class="line">锦</span><br><span class="line">遥</span><br><span class="line"></span><br><span class="line">In [<span class="number">44</span>]: <span class="keyword">for</span> x <span class="keyword">in</span> b:</span><br><span class="line">    ...:     <span class="built_in">print</span> (x)</span><br><span class="line">    ...:</span><br><span class="line"><span class="number">233</span></span><br><span class="line"><span class="number">128</span></span><br><span class="line"><span class="number">157</span></span><br><span class="line"><span class="number">230</span></span><br><span class="line"><span class="number">176</span></span><br><span class="line"><span class="number">180</span></span><br><span class="line"><span class="number">233</span></span><br><span class="line"><span class="number">148</span></span><br><span class="line"><span class="number">166</span></span><br><span class="line"><span class="number">233</span></span><br><span class="line"><span class="number">129</span></span><br><span class="line"><span class="number">165</span></span><br><span class="line">In [<span class="number">44</span>]: <span class="keyword">for</span> x <span class="keyword">in</span> b:</span><br><span class="line">    ...:     <span class="built_in">print</span> (x)</span><br><span class="line">    ...:</span><br><span class="line"><span class="number">233</span></span><br><span class="line"><span class="number">128</span></span><br><span class="line"><span class="number">157</span></span><br><span class="line"><span class="number">230</span></span><br><span class="line"><span class="number">176</span></span><br><span class="line"><span class="number">180</span></span><br><span class="line"><span class="number">233</span></span><br><span class="line"><span class="number">148</span></span><br><span class="line"><span class="number">166</span></span><br><span class="line"><span class="number">233</span></span><br><span class="line"><span class="number">129</span></span><br><span class="line"><span class="number">165</span></span><br><span class="line">In [<span class="number">45</span>]: b.decode()</span><br><span class="line">Out[<span class="number">45</span>]: <span class="string">&#x27;逝水锦遥&#x27;</span></span><br></pre></td></tr></table></figure>
+<h2 id="python3-格式转换"><a href="#python3-格式转换" class="headerlink" title="python3 格式转换"></a>python3 格式转换</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">(py3_env) [root@laoba<span class="number">-10</span><span class="number">-17</span>:~/mypython/python3]<span class="comment"># cat &lt;&lt;EOF &gt;&gt; utf-8.txt</span></span><br><span class="line">逝水锦遥</span><br><span class="line">EOF</span><br><span class="line">(py3_env) [root@laoba<span class="number">-10</span><span class="number">-17</span>:~/mypython/python3]<span class="comment"># iconv -f UTF-8 -f UTF-8 -t GBK utf-8.txt</span></span><br><span class="line">��ˮ��ң</span><br><span class="line">(py3_env) [root@laoba<span class="number">-10</span><span class="number">-17</span>:~/mypython/python3]<span class="comment"># iconv -f UTF-8 -f UTF-8 -t GBK utf-8.txt &gt; gbk.txt</span></span><br><span class="line">(py3_env) [root@laoba<span class="number">-10</span><span class="number">-17</span>:~/mypython/python3]<span class="comment"># cat gbk.txt</span></span><br><span class="line">��ˮ��ң</span><br><span class="line">In [<span class="number">6</span>]: f = <span class="built_in">open</span>(<span class="string">&#x27;/root/mypython/python3/gbk.txt&#x27;</span>,<span class="string">&#x27;rb&#x27;</span>)</span><br><span class="line">In [<span class="number">7</span>]: buf = f.read()</span><br><span class="line">In [<span class="number">8</span>]: buf.decode(<span class="string">&#x27;GBK&#x27;</span>)</span><br><span class="line">Out[<span class="number">8</span>]: <span class="string">&#x27;逝水锦遥\n&#x27;</span></span><br><span class="line">In [<span class="number">9</span>]: name = buf.decode(<span class="string">&#x27;GBK&#x27;</span>)</span><br><span class="line">In [<span class="number">10</span>]: <span class="built_in">print</span> (name)</span><br><span class="line">逝水锦遥</span><br></pre></td></tr></table></figure>
+<h2 id="基于socket-之间的编码格式转换"><a href="#基于socket-之间的编码格式转换" class="headerlink" title="基于socket 之间的编码格式转换"></a>基于socket 之间的编码格式转换</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 服务端</span></span><br><span class="line">In [<span class="number">14</span>]: <span class="keyword">import</span> socket</span><br><span class="line">In [<span class="number">15</span>]: s = socket.socket(family=socket.AF_INET, <span class="built_in">type</span>=socket.SOCK_STREAM)</span><br><span class="line">In [<span class="number">16</span>]: s.bind((<span class="string">&#x27;0.0.0.0&#x27;</span>,<span class="number">3000</span>))</span><br><span class="line">In [<span class="number">17</span>]: s.listen()</span><br><span class="line">In [<span class="number">18</span>]: fd, addr = s.accept()</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 客户端</span></span><br><span class="line">In [<span class="number">1</span>]: <span class="keyword">import</span> socket</span><br><span class="line">In [<span class="number">2</span>]: s = socket.socket(family=socket.AF_INET, <span class="built_in">type</span>=socket.SOCK_STREAM)</span><br><span class="line">In [<span class="number">4</span>]: so = s.connect((<span class="string">&#x27;127.0.0.1&#x27;</span>,<span class="number">3000</span>))</span><br><span class="line">In [<span class="number">5</span>]: s.send(<span class="string">&#x27;逝水锦遥&#x27;</span>.encode())</span><br><span class="line">Out[<span class="number">5</span>]: <span class="number">12</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 服务端</span></span><br><span class="line">In [<span class="number">33</span>]: fd.recv(<span class="number">1024</span>)</span><br><span class="line">Out[<span class="number">33</span>]: <span class="string">b&#x27;\xe9\x80\x9d\xe6\xb0\xb4\xe9\x94\xa6\xe9\x81\xa5&#x27;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 客户端</span></span><br><span class="line">In [<span class="number">22</span>]: s.send(<span class="string">&#x27;逝水锦遥&#x27;</span>.encode())</span><br><span class="line">Out[<span class="number">22</span>]: <span class="number">12</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 服务端</span></span><br><span class="line">In [<span class="number">40</span>]: buf = fd.recv(<span class="number">1024</span>)</span><br><span class="line">In [<span class="number">41</span>]: buf.decode()</span><br><span class="line">Out[<span class="number">41</span>]: <span class="string">&#x27;逝水锦遥&#x27;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 客户端</span></span><br><span class="line">In [<span class="number">23</span>]: s.send(<span class="string">&#x27;乐乐在线&#x27;</span>.encode())</span><br><span class="line">Out[<span class="number">23</span>]: <span class="number">12</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 服务端</span></span><br><span class="line">In [<span class="number">42</span>]: buf = fd.recv(<span class="number">1024</span>)</span><br><span class="line">In [<span class="number">43</span>]: buf.decode()</span><br><span class="line">Out[<span class="number">43</span>]: <span class="string">&#x27;乐乐在线&#x27;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 客户端</span></span><br><span class="line">In [<span class="number">24</span>]: s.send(<span class="string">&#x27;逝水锦遥，乐乐在线&#x27;</span>.encode())</span><br><span class="line">Out[<span class="number">24</span>]: <span class="number">27</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 服务端</span></span><br><span class="line">In [<span class="number">45</span>]: buf = fd.recv(<span class="number">1024</span>)</span><br><span class="line">In [<span class="number">46</span>]: buf.decode()</span><br><span class="line">Out[<span class="number">46</span>]: <span class="string">&#x27;逝水锦遥，乐乐在线&#x27;</span></span><br></pre></td></tr></table></figure>
+<p>基于 socket 之间的json格式传输</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 客户端生成json格式的数据并发送</span></span><br><span class="line">In [<span class="number">26</span>]: <span class="keyword">import</span> json</span><br><span class="line">In [<span class="number">27</span>]: data = &#123;<span class="string">&#x27;name&#x27;</span>:<span class="string">&#x27;ssjinyao&#x27;</span>,&#125;</span><br><span class="line">In [<span class="number">28</span>]: data = &#123;<span class="string">&#x27;name&#x27;</span>:<span class="string">&#x27;ssjinyao&#x27;</span>,<span class="string">&#x27;owner&#x27;</span>:<span class="string">&#x27;renjin&#x27;</span>&#125;</span><br><span class="line">In [<span class="number">30</span>]: json.dumps(data)</span><br><span class="line">Out[<span class="number">30</span>]: <span class="string">&#x27;&#123;&quot;name&quot;: &quot;ssjinyao&quot;, &quot;owner&quot;: &quot;renjin&quot;&#125;&#x27;</span></span><br><span class="line">In [<span class="number">31</span>]: js = json.dumps(data)</span><br><span class="line">In [<span class="number">32</span>]: s.send(js.encode())</span><br><span class="line">Out[<span class="number">32</span>]: <span class="number">39</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 服务端接收发送过来的json数据</span></span><br><span class="line">In [<span class="number">47</span>]: buf = fd.recv(<span class="number">1024</span>)</span><br><span class="line">In [<span class="number">48</span>]: buf.decode()</span><br><span class="line">Out[<span class="number">48</span>]: <span class="string">&#x27;&#123;&quot;name&quot;: &quot;ssjinyao&quot;, &quot;owner&quot;: &quot;renjin&quot;&#125;&#x27;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 一般发送端会指定编码</span></span><br><span class="line">In [<span class="number">34</span>]: s.send(js.encode(<span class="string">&#x27;UTF-8&#x27;</span>))</span><br><span class="line">Out[<span class="number">34</span>]: <span class="number">39</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 接收端也会指定编码，这样不会出现乱码、</span></span><br><span class="line">In [<span class="number">50</span>]: buf.decode(<span class="string">&#x27;UTF-8&#x27;</span>)</span><br><span class="line">Out[<span class="number">50</span>]: <span class="string">&#x27;&#123;&quot;name&quot;: &quot;ssjinyao&quot;, &quot;owner&quot;: &quot;renjin&quot;&#125;&#x27;</span></span><br></pre></td></tr></table></figure>
+
+  
+  
+    
+    <div class='footer'>
+      
+      
+      
+        <div class='copyright'>
+          <blockquote>
+            
+              
+                <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+              
+            
+              
+                <p>本文永久链接是：<a href=https://www.asjin.com/2018/08/20/python%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F/>https://www.asjin.com/2018/08/20/python%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F/</a></p>
+              
+            
+          </blockquote>
+        </div>
+      
+      
+    </div>
+  
+  
+    
+
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-09-29T18:56:19+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：Sep 29, 2020</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/linux/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>linux</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/program/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>program</p></a></div>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.asjin.com/2018/08/20/python%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F/&title=python输出格式 - 逝水锦遥&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://www.asjin.com/2018/08/20/python%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F/&title=python输出格式 - 逝水锦遥&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.asjin.com/2018/08/20/python%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F/&title=python输出格式 - 逝水锦遥&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png">
+          
+        </a>
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </div>
+
+
+  
+  
+
+  
+    <div class="prev-next">
+      
+        <a class='prev' href='/2018/08/23/python%E6%97%A5%E5%B8%B8%E7%BB%83%E4%B9%A0%E4%BA%8C/'>
+          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>python日常练习</p>
+          <p class='content'>[toc]
+python 日常练习
+和并两个有序列表，并且保持合并后的两个列表有序123456789101112131415161718In [11]: l1 = [1,2,3,4]In [12...</p>
+        </a>
+      
+      
+        <a class='next' href='/2018/08/08/keepalived+nginx+inotify+rsync%E7%9A%84%E5%AE%9E%E7%8E%B0/'>
+          <p class='title'>keepalived+nginx+inotify+rsync的实现<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>环境架构与实现[toc]
+实验环境介绍
+
+
+服务器ip
+操作系统
+主机名
+用途
+
+
+
+
+10.180.66.11
+CentOS7.4
+node1
+ansible自动推送
+
+
+10.180.66....</p>
+        </a>
+      
+    </div>
+  
+</article>
+
+
+  
+
+  <article class="post white-box reveal floatable" id="comments">
+    <p ct><i class='fas fa-comments'></i> 评论</p>
+    
+    <div id="valine_container" class="valine_thread">
+  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+</div>
+
+  </article>
+
+
+
+
+
+
+</div>
+<aside class='l_side'>
+  
+  
+    
+    
+
+
+
+  <section class="widget toc-wrapper floatable desktop mobile" id="toc-div" >
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%97%E8%A1%A8%E7%9A%84%E5%B0%81%E8%A3%85%E4%B8%8E%E8%A7%A3%E5%8E%8B"><span class="toc-text">列表的封装与解压</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F%E7%BB%83%E4%B9%A0"><span class="toc-text">输出格式练习</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#format-%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F"><span class="toc-text">format 输出格式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#python3-%E6%A0%BC%E5%BC%8F%E8%BD%AC%E6%8D%A2"><span class="toc-text">python3 格式转换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8Esocket-%E4%B9%8B%E9%97%B4%E7%9A%84%E7%BC%96%E7%A0%81%E6%A0%BC%E5%BC%8F%E8%BD%AC%E6%8D%A2"><span class="toc-text">基于socket 之间的编码格式转换</span></a></li></ol>
+    </div>
+  </section>
+
+
+  
+
+
+</aside>
+
+
+
+        
+        
+          <!--此文件用来存放一些不方便取值的变量-->
+<!--思路大概是将值藏到重加载的区域内-->
+
+<script>
+  window.pdata={}
+  pdata.ispage=true;
+  pdata.postTitle="python输出格式";
+  pdata.commentPath="";
+  pdata.commentPlaceholder="";
+
+  var l_header=document.getElementById("l_header");
+  
+  l_header.classList.remove("show");
+  
+</script>
+
+        
+      </div>
+      
+  
+  <footer class="footer clearfix">
+    <br><br>
+    
+      
+        <div class="aplayer-container">
+          
+
+
+        </div>
+      
+    
+      
+        <br>
+        <div class="social-wrapper">
+          
+            
+          
+            
+          
+            
+          
+        </div>
+      
+    
+      
+        <div><p>博客内容遵循 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
+</div>
+      
+    
+      
+        
+      
+    
+      
+        本站使用
+        <a href="https://github.com/volantis-x/hexo-theme-volantis/tree/4.1.6" target="_blank" class="codename">Volantis</a>
+        作为主题，总访问量为
+          <span id="busuanzi_value_site_pv"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+          次
+        
+      
+    
+      
+        <div class='copyright'>
+        <p><a href="/">Copyright © 2017-2020 asjin.com</a></p>
+
+        </div>
+      
+    
+  </footer>
+
+
+      <a id="s-top" class="fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+    </div>
+  </div>
+  <div>
+    <script>
+window.volantis={};
+window.volantis.loadcss=document.getElementById("loadcss");
+/********************脚本懒加载函数********************************/
+function loadScript(src, cb) {
+var HEAD = document.getElementsByTagName('head')[0] || document.documentElement;
+var script = document.createElement('script');
+script.setAttribute('type','text/javascript');
+if (cb) script.onload = cb;
+script.setAttribute('src', src);
+HEAD.appendChild(script);
+}
+//https://github.com/filamentgroup/loadCSS
+var loadCSS = function( href, before, media, attributes ){
+	var doc = window.document;
+	var ss = doc.createElement( "link" );
+	var ref;
+	if( before ){
+		ref = before;
+	}
+	else {
+		var refs = ( doc.body || doc.getElementsByTagName( "head" )[ 0 ] ).childNodes;
+		ref = refs[ refs.length - 1];
+	}
+	var sheets = doc.styleSheets;
+	if( attributes ){
+		for( var attributeName in attributes ){
+			if( attributes.hasOwnProperty( attributeName ) ){
+				ss.setAttribute( attributeName, attributes[attributeName] );
+			}
+		}
+	}
+	ss.rel = "stylesheet";
+	ss.href = href;
+	ss.media = "only x";
+	function ready( cb ){
+		if( doc.body ){
+			return cb();
+		}
+		setTimeout(function(){
+			ready( cb );
+		});
+	}
+	ready( function(){
+		ref.parentNode.insertBefore( ss, ( before ? ref : ref.nextSibling ) );
+	});
+	var onloadcssdefined = function( cb ){
+		var resolvedHref = ss.href;
+		var i = sheets.length;
+		while( i-- ){
+			if( sheets[ i ].href === resolvedHref ){
+				return cb();
+			}
+		}
+		setTimeout(function() {
+			onloadcssdefined( cb );
+		});
+	};
+	function loadCB(){
+		if( ss.addEventListener ){
+			ss.removeEventListener( "load", loadCB );
+		}
+		ss.media = media || "all";
+	}
+	if( ss.addEventListener ){
+		ss.addEventListener( "load", loadCB);
+	}
+	ss.onloadcssdefined = onloadcssdefined;
+	onloadcssdefined( loadCB );
+	return ss;
+};
+</script>
+<script>
+  
+  loadCSS("https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14/css/all.min.css", window.volantis.loadcss);
+  
+  
+  
+  
+</script>
+<!-- required -->
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5/dist/jquery.min.js"></script>
+
+<script>
+  function pjax_fancybox() {
+    $(".md .gallery").find("img").each(function () { //渲染 fancybox
+      var element = document.createElement("a"); // a 标签
+      $(element).attr("class", "fancybox");
+      $(element).attr("pjax-fancybox", "");  // 过滤 pjax
+      $(element).attr("href", $(this).attr("src"));
+      if ($(this).attr("data-original")) {
+        $(element).attr("href", $(this).attr("data-original"));
+      }
+      $(element).attr("data-fancybox", "images");
+      var caption = "";   // 描述信息
+      if ($(this).attr('alt')) {  // 判断当前页面是否存在描述信息
+        $(element).attr('data-caption', $(this).attr('alt'));
+        caption = $(this).attr('alt');
+      }
+      var div = document.createElement("div");
+      $(div).addClass("fancybox");
+      $(this).wrap(div); // 最外层套 div ，其实主要作用还是 class 样式
+      var span = document.createElement("span");
+      $(span).addClass("image-caption");
+      $(span).text(caption); // 加描述
+      $(this).after(span);  // 再套一层描述
+      $(this).wrap(element);  // 最后套 a 标签
+    })
+    $(".md .gallery").find("img").fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+      closeClick: true,
+      helpers: {
+        overlay: {closeClick: true}
+      },
+      buttons: [
+        "zoom",
+        "close"
+      ]
+    });
+  };
+  function SCload_fancybox() {
+    if ($(".md .gallery").find("img").length == 0) return;
+    loadCSS("https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css", document.getElementById("loadcss"));
+    setTimeout(function() {
+      loadScript('https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js', pjax_fancybox)
+    }, 1);
+  };
+  $(function () {
+    SCload_fancybox();
+  });
+</script>
+
+
+<!-- internal -->
+
+
+
+
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.1.0/dist/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 0
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    lazyLoadInstance.update();
+  });
+  document.addEventListener('pjax:complete', function () {
+    lazyLoadInstance.update();
+  });
+</script>
+
+
+
+
+  
+  
+    <script async src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@2/js/instant_page.js" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+  
+
+
+
+
+  <script src="/js/clipboard.min.js"></script>
+<script>
+    var clipboard = new ClipboardJS('.btn-copy', {
+        target: function (trigger) {
+            return trigger.nextElementSibling
+        }
+    });
+    function wait(callback, seconds) {
+        var timelag = null;
+        timelag = window.setTimeout(callback, seconds)
+    }
+    function pjax_initCopyCode() {
+		if($(".highlight .code pre").length+$(".article pre code").length==0)return;
+        var copyHtml = '';
+        copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+        copyHtml += '<i class="fas fa-copy"></i><span>COPY</span>';
+        copyHtml += '</button>';
+        $(".highlight .code pre").before(copyHtml);
+        $(".article pre code").before(copyHtml);
+        clipboard.off('success').on('success', function (e) {
+            let $btn = $(e.trigger);
+            $btn.addClass('copied');
+            let $icon = $($btn.find('i'));
+            $icon.removeClass('fa-copy');
+            $icon.addClass('fa-check-circle');
+            let $span = $($btn.find('span'));
+            $span[0].innerText = 'COPIED';
+            wait(function () {
+                $icon.removeClass('fa-check-circle');
+                $icon.addClass('fa-copy');
+                $span[0].innerText = 'COPY'
+            }, 2000)
+        });
+        clipboard.off('error').on('error', function (e) {
+            e.clearSelection();
+            let $btn = $(e.trigger);
+            $btn.addClass('copy-failed');
+            let $icon = $($btn.find('i'));
+            $icon.removeClass('fa-copy');
+            $icon.addClass('fa-times-circle');
+            let $span = $($btn.find('span'));
+            $span[0].innerText = 'COPY FAILED';
+            wait(function () {
+                $icon.removeClass('fa-times-circle');
+                $icon.addClass('fa-copy');
+                $span[0].innerText = 'COPY'
+            }, 2000)
+        })
+    }
+    $(function () {
+        pjax_initCopyCode()
+    });
+</script>
+
+
+
+
+
+
+
+
+  
+  
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4/dist/Valine.min.js"></script>
+
+
+<script>
+  var GUEST_INFO = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link,header'.split(',').filter(function (item) {
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var REQUIRED_FIELDS = ['nick', 'mail', 'link'];
+  var requiredFields = 'nick,mail'.split(',').filter(function (item) {
+    return REQUIRED_FIELDS.indexOf(item) > -1
+  });
+
+  function emoji(path, idx, ext) {
+    return path + "/" + path + "-" + idx + "." + ext;
+  }
+
+  var emojiMaps = {};
+  for (var i = 1; i <= 54; i++) {
+    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
+  }
+  for (var i = 1; i <= 101; i++) {
+    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+  }
+  for (var i = 1; i <= 116; i++) {
+    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
+  }
+  for (var i = 1; i <= 125; i++) {
+    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
+  }
+  for (var i = 1; i <= 4; i++) {
+    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+  }
+
+  function pjax_valine() {
+    if(!document.querySelectorAll("#valine_container")[0])return;
+
+    let pagePlaceholder = pdata.commentPlaceholder || "快来评论吧~ 🤩 🤩 🤩";
+
+    let path = pdata.commentPath;
+    if (path.length == 0) {
+      let defaultPath = '';
+      path = defaultPath || decodeURI(window.location.pathname);
+    }
+
+    var valine = new Valine();
+    valine.init({
+      el: '#valine_container',
+      meta: meta,
+      placeholder: pagePlaceholder,
+      path: path,
+      appId: "NkJqMpxu4QlRLhPIHipNUHF1-gzGzoHsz",
+      appKey: "D2vTdueKJ8ammc2JEdje0vLW",
+      pageSize: '',
+      avatar: 'monsterid',
+      lang: '',
+      visitor: '',
+      highlight: '',
+      mathJax: '',
+      enableQQ: 'true',
+      recordIP: 'false',
+      requiredFields: requiredFields,
+      emojiCDN: 'https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/valine/',
+      emojiMaps: emojiMaps
+    })
+  }
+
+  $(function () {
+    pjax_valine();
+  });
+</script>
+
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js" data-pjax></script>
+
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-theme-volantis@4.1.6/source/js/app.min.js"></script>
+
+
+
+<!-- optional -->
+
+  <script>
+const SearchServiceimagePath="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@master/img/";
+const ROOT =  ("/" || "/").endsWith('/') ? ("/" || "/") : ("//" || "/" );
+
+$('.input.u-search-input').one('focus',function(){
+	
+		loadScript('https://cdn.jsdelivr.net/npm/hexo-theme-volantis@4.1.6/source/js/search/hexo.min.js',setSearchService);
+	
+})
+
+function listenSearch(){
+  
+    customSearch = new HexoSearch({
+      imagePath: SearchServiceimagePath
+    });
+  
+}
+function setSearchService() {
+	listenSearch();
+	
+		document.addEventListener("pjax:success", listenSearch);
+	
+}
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+function listennSidebarTOC() {
+  const navItems = document.querySelectorAll(".toc li");
+  if (!navItems.length) return;
+  const sections = [...navItems].map((element) => {
+    const link = element.querySelector(".toc-link");
+    const target = document.getElementById(
+      decodeURI(link.getAttribute("href")).replace("#", "")
+    );
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+      window.scrollTo({
+		top: target.offsetTop + 100,
+		
+		behavior: "smooth"
+		
+	  });
+    });
+    return target;
+  });
+
+  function activateNavByIndex(target) {
+    if (target.classList.contains("active-current")) return;
+
+    document.querySelectorAll(".toc .active").forEach((element) => {
+      element.classList.remove("active", "active-current");
+    });
+    target.classList.add("active", "active-current");
+    let parent = target.parentNode;
+    while (!parent.matches(".toc")) {
+      if (parent.matches("li")) parent.classList.add("active");
+      parent = parent.parentNode;
+    }
+  }
+
+  function findIndex(entries) {
+    let index = 0;
+    let entry = entries[index];
+    if (entry.boundingClientRect.top > 0) {
+      index = sections.indexOf(entry.target);
+      return index === 0 ? 0 : index - 1;
+    }
+    for (; index < entries.length; index++) {
+      if (entries[index].boundingClientRect.top <= 0) {
+        entry = entries[index];
+      } else {
+        return sections.indexOf(entry.target);
+      }
+    }
+    return sections.indexOf(entry.target);
+  }
+
+  function createIntersectionObserver(marginTop) {
+    marginTop = Math.floor(marginTop + 10000);
+    let intersectionObserver = new IntersectionObserver(
+      (entries, observe) => {
+        let scrollHeight = document.documentElement.scrollHeight + 100;
+        if (scrollHeight > marginTop) {
+          observe.disconnect();
+          createIntersectionObserver(scrollHeight);
+          return;
+        }
+        let index = findIndex(entries);
+        activateNavByIndex(navItems[index]);
+      },
+      {
+        rootMargin: marginTop + "px 0px -100% 0px",
+        threshold: 0,
+      }
+    );
+    sections.forEach((element) => {
+      element && intersectionObserver.observe(element);
+    });
+  }
+  createIntersectionObserver(document.documentElement.scrollHeight);
+}
+
+document.addEventListener("DOMContentLoaded", listennSidebarTOC);
+document.addEventListener("pjax:success", listennSidebarTOC);
+</script>
+
+<!-- more -->
+
+
+
+
+    
+      
+
+
+<script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script>
+
+
+<script>
+    var pjax;
+    document.addEventListener('DOMContentLoaded', function () {
+      pjax = new Pjax({
+        elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"]):not([pjax-fancybox])',
+        selectors: [
+          "title",
+          "#l_cover",
+          "#pjax-container",
+          "#pjax-header-nav-list"
+        ],
+        cacheBust: false,   // url 地址追加时间戳，用以避免浏览器缓存
+        timeout: 5000
+      });
+    });
+
+    document.addEventListener('pjax:send', function (e) {
+      //window.stop(); // 相当于点击了浏览器的停止按钮
+
+      try {
+        var currentUrl = window.location.pathname;
+        var targetUrl = e.triggerElement.href;
+        var banUrl = [""];
+        if (banUrl[0] != "") {
+          banUrl.forEach(item => {
+            if(currentUrl.indexOf(item) != -1 || targetUrl.indexOf(item) != -1) {
+              window.location.href = targetUrl;
+            }
+          });
+        }
+      } catch (error) {}
+
+      window.subData = null; // 移除标题（用于一二级导航栏切换处）
+      if (typeof $.fancybox != "undefined") {
+        $.fancybox.close();    // 关闭弹窗
+      }
+      volantis.$switcher.removeClass('active'); // 关闭移动端激活的搜索框
+      volantis.$header.removeClass('z_search-open'); // 关闭移动端激活的搜索框
+      volantis.$wrapper.removeClass('sub'); // 跳转页面时关闭二级导航
+
+      // 解绑事件 避免重复监听
+      volantis.$topBtn.unbind('click');
+      $('.menu a').unbind('click');
+      $(window).unbind('resize');
+      $(window).unbind('scroll');
+      $(document).unbind('scroll');
+      $(document).unbind('click');
+      $('body').unbind('click');
+	  
+    });
+
+    document.addEventListener('pjax:complete', function () {
+      // 关于百度统计对 SPA 页面的处理：
+      // 方案一：百度统计>管理>单页应用设置中，打开开启按钮即可对SPA进行统计。 https://tongji.baidu.com/web/help/article?id=324
+      // 方案二：取消注释下列代码。 https://tongji.baidu.com/web/help/article?id=235
+       
+
+      // 关于谷歌统计对 SPA 页面的处理：
+      // 当应用以动态方式加载内容并更新地址栏中的网址时，也应该更新通过 gtag.js 存储的网页网址。
+      // https://developers.google.cn/analytics/devguides/collection/gtagjs/single-page-applications?hl=zh-cn
+      
+	 
+
+      $('.nav-main').find('.list-v').not('.menu-phone').removeAttr("style",""); // 移除小尾巴的移除
+      $('.menu-phone.list-v').removeAttr("style",""); // 移除小尾巴的移除
+      $('script[data-pjax], .pjax-reload script').each(function () {
+        $(this).parent().append($(this).remove());
+      });
+      try{
+          if (typeof $.fancybox == "undefined") {
+            SCload_fancybox();
+          } else {
+            pjax_fancybox();
+          }
+        
+        
+        
+        
+        
+          pjax_initCopyCode();
+        
+        
+          pjax_valine();
+        
+        
+        
+        
+      } catch (e) {
+        console.log(e);
+      }
+	  
+    });
+
+    document.addEventListener('pjax:error', function (e) {
+	  
+      window.location.href = e.triggerElement.href;
+    });
+</script>
+
+    
+  </div>
+</body>
+</html>
