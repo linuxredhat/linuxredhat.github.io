@@ -4069,17 +4069,17 @@ canvas {
 }
 @media screen and (max-width: 768px) {
   .headimg-div .headimg-a {
-    height: 280px;
+    height: 230px;
   }
 }
 @media screen and (max-width: 500px) {
   .headimg-div .headimg-a {
-    height: 280px;
+    height: 230px;
   }
 }
 @media screen and (max-width: 425px) {
   .headimg-div .headimg-a {
-    height: 280px;
+    height: 200px;
   }
 }
 .headimg-div .headimg {
