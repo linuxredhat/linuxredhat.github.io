@@ -1,0 +1,1547 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head hexo-theme='https://github.com/volantis-x/hexo-theme-volantis/tree/4.1.6'>
+  <meta charset="utf-8">
+  <!-- SEO相关 -->
+  
+    
+  
+  <!-- 渲染优化 -->
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://cdn.jsdelivr.net'>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- 页面元数据 -->
+  
+  <title>python 文件的IO三 - 逝水锦遥</title>
+  
+    <meta name="keywords" content="linux,program">
+  
+
+  
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="逝水锦遥" type="application/atom+xml">
+  
+
+  <!-- import meta -->
+  
+
+  <!-- link -->
+  
+
+  <!-- import link -->
+  
+
+  
+    
+<link rel="stylesheet" href="/css/first.css">
+
+  
+
+  
+  <link rel="stylesheet" href="/css/style.css" media="print" onload="this.media='all';this.onload=null">
+  <noscript><link rel="stylesheet" href="/css/style.css"></noscript>
+  
+
+  <script id="loadcss"></script>
+</head>
+
+
+<body>
+	  <canvas id="canvas" width="1440" height="900" ></canvas>
+	  <script type="text/javascript" src="/js/DigitalRain.js"></script>
+  
+
+<header id="l_header" class="l_header always floatable "  >
+  <div class='container'>
+  <div id='wrapper'>
+    <div class='nav-sub'>
+      <p class="title"></p>
+      <ul class='switcher nav-list-h m-phone' id="pjax-header-nav-list">
+        <li><a id="s-comment" class="fas fa-comments fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+          <li><a id="s-toc" class="s-toc fas fa-list fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+      </ul>
+    </div>
+		<div class="nav-main">
+      
+        
+        <a class="title flat-box" target="_self" href='/'>
+          
+            <img no-lazy class='logo' src='/images/head.png'/>
+          
+          
+          
+        </a>
+      
+
+			<div class='menu navigation'>
+				<ul class='nav-list-h m-pc'>
+          
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fab fa-linux fa-fw'></i>所有文章
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/program
+                  
+                  
+                  
+                    id="tagsprogram"
+                  >
+                  <i class='fab fa-gitlab fa-fw'></i>运维开发
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/rhca
+                  
+                  
+                  
+                    id="tagsrhca"
+                  >
+                  <i class='fas fa-heartbeat fa-fw'></i>运维组件
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/cloud
+                  
+                  
+                  
+                    id="tagscloud"
+                  >
+                  <i class='fas fa-cloud fa-fw'></i>云计算
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/zikao
+                  
+                  
+                  
+                    id="tagszikao"
+                  >
+                  <i class='fab fa-drupal fa-fw'></i>成自考
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/renjin
+                  
+                  
+                  
+                    id="tagsrenjin"
+                  >
+                  <i class='fas fa-user-circle fa-fw'></i>个人中心
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" 
+                  
+                  
+                  >
+                  <i class='fas fa-ellipsis-v fa-fw'></i>更多
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box header toggle-mode-btn">
+                  <i class='fas fa-moon fa-fw'></i>夜间模式
+                </a>
+              <li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/box/
+                  
+                  
+                  
+                    id="box"
+                  >
+                  <i class='fas fa-flag fa-fw'></i>工具箱
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+          
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="搜索文章..." />
+        </form>
+      </div>
+
+			<ul class='switcher nav-list-h m-phone'>
+				
+					<li><a class="s-search fas fa-search fa-fw" target="_self" href='javascript:void(0)'></a></li>
+				
+				<li>
+          <a class="s-menu fas fa-bars fa-fw" target="_self" href='javascript:void(0)'></a>
+          <ul class="menu-phone list-v navigation white-box">
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fab fa-linux fa-fw'></i>所有文章
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/program
+                  
+                  
+                  
+                    id="tagsprogram"
+                  >
+                  <i class='fab fa-gitlab fa-fw'></i>运维开发
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/rhca
+                  
+                  
+                  
+                    id="tagsrhca"
+                  >
+                  <i class='fas fa-heartbeat fa-fw'></i>运维组件
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/cloud
+                  
+                  
+                  
+                    id="tagscloud"
+                  >
+                  <i class='fas fa-cloud fa-fw'></i>云计算
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/zikao
+                  
+                  
+                  
+                    id="tagszikao"
+                  >
+                  <i class='fab fa-drupal fa-fw'></i>成自考
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/renjin
+                  
+                  
+                  
+                    id="tagsrenjin"
+                  >
+                  <i class='fas fa-user-circle fa-fw'></i>个人中心
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" 
+                  
+                  
+                  >
+                  <i class='fas fa-ellipsis-v fa-fw'></i>更多
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box header toggle-mode-btn">
+                  <i class='fas fa-moon fa-fw'></i>夜间模式
+                </a>
+              <li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/box/
+                  
+                  
+                  
+                    id="box"
+                  >
+                  <i class='fas fa-flag fa-fw'></i>工具箱
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+            
+          </ul>
+        </li>
+			</ul>
+		</div>
+	</div>
+  </div>
+</header>
+
+  <div id="l_body">
+    <div id="l_cover">
+  
+    
+        <div id="half" class='cover-wrapper post search' style="display: ;">
+          
+            <div class='cover-bg lazyload placeholder' data-bg="/images/background.jpg"></div>
+          
+          <div class='cover-body'>
+  <div class='top'>
+    
+      <img no-lazy class='logo' src='/images/ssjyai.png'/>
+    
+    
+    
+      <p class="subtitle">有志而性缓者思大志 有才而气和者为大才</p>
+    
+  </div>
+  <div class='bottom'>
+    
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <input type="text" class="input u-search-input" placeholder="搜索本地文章" />
+          <i class="icon fas fa-search fa-fw"></i>
+        </form>
+      </div>
+    
+    <div class='menu navigation'>
+      <div class='list-h'>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+          <div id="scroll-down" style="display: none;"><i class="fa fa-chevron-down scroll-down-effects"></i></div>
+        </div>
+    
+  
+  </div>
+
+    <div id='safearea'>
+      <div class='body-wrapper' id="pjax-container">
+        
+
+<div class='l_main'>
+  <article class="article post white-box reveal md floatable article-type-post" id="post" itemscope itemprop="blogPost">
+  
+
+
+  
+  <div class="article-meta" id="top">
+    
+    
+    
+      <h1 class="title">
+        python 文件的IO三
+      </h1>
+      <div class='new-meta-box'>
+        
+          
+            
+<div class='new-meta-item author'>
+  <a class='author' href="/images/rjrt.ico" rel="nofollow">
+    <img no-lazy src="/images/rjrt.ico">
+    <p>任锦</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：Oct 13, 2020</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class="new-meta-item browse busuanzi">
+    <a class='notlink'>
+      <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+      <p>
+        <span id="busuanzi_value_page_pv">
+          <i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i>
+        </span>
+        <span id="busuanzi_value_page_uv">
+          <i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i>
+        </span>
+        次浏览
+      </p>
+    </a>
+  </div>
+
+
+          
+        
+      </div>
+    
+  </div>
+
+
+  
+  <p>[toc]</p>
+<h1 id="python-文件的IO三"><a href="#python-文件的IO三" class="headerlink" title="python 文件的IO三"></a>python 文件的IO三</h1><p><img src="/images/python-file-io-01.jpg" class="lazyload" data-srcset="/images/python-file-io-01.jpg" srcset="data:image/png;base64,666" alt=""></p>
+<h2 id="CSV文件"><a href="#CSV文件" class="headerlink" title="CSV文件"></a>CSV文件</h2><p><strong>csv文件简介</strong></p>
+<p>逗号分隔值 Comma-Separated Values。<br>CSV是一个被行分隔符、列分隔符分成行和列的文本文件;<br>没有指定字符编码。<br><a target="_blank" rel="noopener" href="http://www.ietf.org/rfc/rfc4180.txt">参看RFC4180</a></p>
+<p>行分隔符为\r\n，最后一行可以没有换行符;<br>列分隔符常为逗号或者制表符;<br>每一行为一条记录record。</p>
+<p>字段可以使用双引号括起来，也可以不使用。如果字段中出现了双引号、逗号、换行符必须使用双引号括起来。如果字段的值是双引号，使用两个双引号表示一个转义。</p>
+<p>表头可选，和段列对就就可以了。</p>
+<p>csv生成测试<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">s = <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">1,tom,20</span></span><br><span class="line"><span class="string">2,jerry,16,</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;./test.csv&#x27;</span>,<span class="string">&#x27;w&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> s.splitlines():</span><br><span class="line">        f.write(line + <span class="string">&#x27;\n&#x27;</span>)</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">from</span> pathlib <span class="keyword">import</span> Path</span><br><span class="line"></span><br><span class="line">p = Path(<span class="string">&#x27;./tmp/myscv.test.csv&#x27;</span>)</span><br><span class="line">parent = p.parent</span><br><span class="line"><span class="keyword">if</span> <span class="keyword">not</span> parent.exists():</span><br><span class="line">    parent.mkdir(parents=<span class="literal">True</span>)</span><br><span class="line">csv_body= <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">id,name,age,comment</span></span><br><span class="line"><span class="string">1,zs,18,&quot;I&#x27;m18&quot;</span></span><br><span class="line"><span class="string">2,ls,20,&quot;This is a &quot;&quot;test&quot;&quot; string.&quot;</span></span><br><span class="line"><span class="string">3,ww,23,&quot;中国</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">国庆</span></span><br><span class="line"><span class="string">&quot;</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line">p.write_text(csv_body)</span><br></pre></td></tr></table></figure>
+<h2 id="scv-模块"><a href="#scv-模块" class="headerlink" title="scv 模块"></a>scv 模块</h2><p><strong>reader(csvfile,dialect=’excel’,**fmtparams)</strong><br>返回DictReader的实例，是个行迭代器;<br>delimiter 列分隔符逗号<br>lineterminator 行分隔符\r\n<br>quotechar 字段的引用符号，缺少为”, 双引号</p>
+<p>双引号的处理:<br>doublequote比引号的处理，默认为True。如果和quoterchar为同一个，True则使用2个双引号表示;<br>False表示使用转义字符将作为双引号的前缀;<br>escapechar一个转义字符，默认为None;<br>quoting指定双引号的规则。QUOTE_ALL所有字段;QUOTE_MINIMAL特殊符字段;<br>QUOtE_NONNUMERIC非数字字段; QUOTE_NONE都不使用引号。</p>
+<p><strong>write(csvfile,dialect=’excel’,**fmtparams)</strong><br>返回DictWriter的实例。<br>主要方法有writerow、writerows。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pathlib <span class="keyword">import</span> Path</span><br><span class="line"><span class="keyword">import</span> csv</span><br><span class="line">path = <span class="string">&#x27;./csv/test.csv&#x27;</span></span><br><span class="line">p = Path(path)</span><br><span class="line"><span class="keyword">if</span> <span class="keyword">not</span> p.parent.exists():</span><br><span class="line">    p.parent.mkdir(parents=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">line1 = [<span class="number">1</span>,<span class="string">&#x27;tom&#x27;</span>,<span class="number">20</span>,<span class="string">&#x27;&#x27;</span>]</span><br><span class="line">line2 = [<span class="number">2</span>,<span class="string">&#x27;tom&#x27;</span>,<span class="number">20</span>,<span class="string">&#x27;&#x27;</span>]</span><br><span class="line">line3 = [line1,line2]</span><br><span class="line"></span><br><span class="line">s = <span class="string">&quot;&quot;&quot;\</span></span><br><span class="line"><span class="string">1,tom,20,</span></span><br><span class="line"><span class="string">2,jerry,16,</span></span><br><span class="line"><span class="string">3,,,</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(path,<span class="string">&#x27;w&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    writer = csv.writer(f)</span><br><span class="line">    writer.writerow(line1)</span><br><span class="line">    writer.writerow(line2)</span><br><span class="line">    writer.writerows(line3)</span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(path) <span class="keyword">as</span> f :</span><br><span class="line">    reader = csv.reader(f)</span><br><span class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> reader:</span><br><span class="line">        <span class="keyword">if</span> line:</span><br><span class="line">            print(line)</span><br></pre></td></tr></table></figure>
+<h2 id="ini-文件处理"><a href="#ini-文件处理" class="headerlink" title="ini 文件处理"></a>ini 文件处理</h2><p>作为配置文件，ini文件格式的很流行。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[DEFAULT]</span><br><span class="line">a = test</span><br><span class="line"></span><br><span class="line">[mysql]</span><br><span class="line">default-character-<span class="built_in">set</span> = utf8</span><br><span class="line"></span><br><span class="line">[mysqld]</span><br><span class="line">datadir = /dbserver/data</span><br><span class="line">prot = <span class="number">33060</span></span><br><span class="line">character-<span class="built_in">set</span>-sever=utf8</span><br><span class="line">sql_mode=NO_ENGIN_SUBSITUTION,STRICT_TRANS_TABLES</span><br></pre></td></tr></table></figure>
+<h2 id="configparser"><a href="#configparser" class="headerlink" title="configparser"></a>configparser</h2><p>configparser模块的ConfigParser类就是用来操作<br><strong>read(filenames, endcoding=None)</strong><br>读取ini文件，可以是单个文件，也可以是文件列表。可以指定文件编码;<br>sections()返回section列表。缺省section不包括在内;<br>add_section(section_name)增加一个section;<br>has_section(section_name)判断section是否存在;<br>opentions(section)返回section的所有option;</p>
+<p><strong>get(section,option,*,raw=False,vars=None[,fallback])</strong></p>
+<p>从指定的段的选项上取值，如果找到返回，如果没有找到就去找DEFAULT段有没有;</p>
+<p><strong>getint(section,option,,raw=False,vars=None[,fallback])</strong><br><strong>getfloat(section,option,raw=Flase,vars=None[,fallback])</strong><br><strong>getboolean(section,option,*,raw=False,vars=None[,fallback])</strong><br>上面3 个方法和get一样，返回指定定类型数据</p>
+<p><strong>items(raw=False,vars=None)</strong><br><strong>items(section,raw=Fase,vars=None)</strong></p>
+<p>没有section，则返回所有section名字及其对象；如果指定section，则返回这个section的键值对组成二元组;<br><strong>set(section,option,value)</strong><br>section存在的情况下，写入option=value，要求option、value必须是字符串；</p>
+<p>remove_section(section)<br>移除section及其所有option<br>remove_option(section,option)<br>移除section下的option。</p>
+<p><strong>write(fileobject,space_around_delimiters=True)</strong><br>将当前config的所有的内容写入fileobject中，一般open的函数使用w模式;</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> configparser <span class="keyword">import</span> ConfigParser</span><br><span class="line"></span><br><span class="line">cfg = ConfigParser()</span><br><span class="line">cfg.read(<span class="string">&#x27;./mysql.ini&#x27;</span>)</span><br><span class="line">print(cfg.sections())</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> section <span class="keyword">in</span> cfg.sections():</span><br><span class="line">    <span class="comment"># for opt in cfg.options(section):</span></span><br><span class="line">    <span class="comment">#     print(section,opt)</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> k,v <span class="keyword">in</span> cfg.items(section):</span><br><span class="line">        print(k,v)</span><br><span class="line"><span class="keyword">if</span> <span class="keyword">not</span> cfg.has_section(<span class="string">&#x27;test&#x27;</span>):</span><br><span class="line">    cfg.add_section(<span class="string">&#x27;test&#x27;</span>)</span><br><span class="line">cfg.<span class="built_in">set</span>(<span class="string">&#x27;test&#x27;</span>,<span class="string">&#x27;test1&#x27;</span>,<span class="string">&#x27;123&#x27;</span>)</span><br><span class="line">cfg.<span class="built_in">set</span>(<span class="string">&#x27;test&#x27;</span>,<span class="string">&#x27;test2&#x27;</span>,<span class="string">&#x27;abc&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;./mysql.ini&#x27;</span>,<span class="string">&#x27;w&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    cfg.write(f)</span><br></pre></td></tr></table></figure>
+<p>写入后如下</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[DEFAULT]</span></span><br><span class="line"><span class="attr">a</span> = test</span><br><span class="line"></span><br><span class="line"><span class="section">[mysql]</span></span><br><span class="line"><span class="attr">default-character-set</span> = utf8</span><br><span class="line"></span><br><span class="line"><span class="section">[mysqld]</span></span><br><span class="line"><span class="attr">datadir</span> = /dbserver/data</span><br><span class="line"><span class="attr">prot</span> = <span class="number">33060</span></span><br><span class="line"><span class="attr">character-set-sever</span> = utf8</span><br><span class="line"><span class="attr">sql_mode</span> = NO_ENGIN_SUBSITUTION,STRICT_TRANS_TABLES</span><br><span class="line"></span><br><span class="line"><span class="section">[test]</span></span><br><span class="line"><span class="attr">test1</span> = <span class="number">123</span></span><br><span class="line"><span class="attr">test2</span> = abc</span><br></pre></td></tr></table></figure>
+<p>获取</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> configparser <span class="keyword">import</span> ConfigParser</span><br><span class="line"></span><br><span class="line">cfg = ConfigParser()</span><br><span class="line">cfg.read(<span class="string">&#x27;./mysql.ini&#x27;</span>)</span><br><span class="line">print(cfg.sections())</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> section <span class="keyword">in</span> cfg.sections():</span><br><span class="line">    <span class="comment"># for opt in cfg.options(section):</span></span><br><span class="line">    <span class="comment">#     print(section,opt)</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> k,v <span class="keyword">in</span> cfg.items(section):</span><br><span class="line">        print(k,v)</span><br><span class="line"><span class="comment"># if not cfg.has_section(&#x27;test&#x27;):</span></span><br><span class="line"><span class="comment">#     cfg.add_section(&#x27;test&#x27;)</span></span><br><span class="line"><span class="comment"># cfg.set(&#x27;test&#x27;,&#x27;test1&#x27;,&#x27;123&#x27;)</span></span><br><span class="line"><span class="comment"># cfg.set(&#x27;test&#x27;,&#x27;test2&#x27;,&#x27;abc&#x27;)</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># with open(&#x27;./mysql.ini&#x27;,&#x27;w&#x27;) as f:</span></span><br><span class="line"><span class="comment">#     cfg.write(f)</span></span><br><span class="line"></span><br><span class="line">print(<span class="string">&#x27;!&#x27;</span>*<span class="number">50</span>)</span><br><span class="line">a = cfg.get(<span class="string">&#x27;test&#x27;</span>,<span class="string">&#x27;test1&#x27;</span>)</span><br><span class="line">print(a,<span class="built_in">type</span>(a))</span><br><span class="line">b = cfg.getint(<span class="string">&#x27;test&#x27;</span>,<span class="string">&#x27;test1&#x27;</span>)</span><br><span class="line">print(b+<span class="number">1</span>,<span class="built_in">type</span>(b))</span><br><span class="line"><span class="comment"># 输出 </span></span><br><span class="line">[<span class="string">&#x27;mysql&#x27;</span>, <span class="string">&#x27;mysqld&#x27;</span>, <span class="string">&#x27;test&#x27;</span>]</span><br><span class="line">a test</span><br><span class="line">default-character-<span class="built_in">set</span> utf8</span><br><span class="line">a test</span><br><span class="line">datadir /dbserver/data</span><br><span class="line">prot <span class="number">33060</span></span><br><span class="line">character-<span class="built_in">set</span>-sever utf8</span><br><span class="line">sql_mode NO_ENGIN_SUBSITUTION,STRICT_TRANS_TABLES</span><br><span class="line">a test</span><br><span class="line">test1 <span class="number">123</span></span><br><span class="line">test2 abc</span><br><span class="line">!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!</span><br><span class="line"><span class="number">123</span> &lt;<span class="class"><span class="keyword">class</span> &#x27;<span class="title">str</span>&#x27;&gt;</span></span><br><span class="line"><span class="class">124 &lt;<span class="title">class</span> &#x27;<span class="title">int</span>&#x27;&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="序列化和反序列化"><a href="#序列化和反序列化" class="headerlink" title="序列化和反序列化"></a>序列化和反序列化</h2><h3 id="为什么要序列化"><a href="#为什么要序列化" class="headerlink" title="为什么要序列化"></a>为什么要序列化</h3><p>内存中的字典，链表如何保存到一个文件中 ？<br>如果是自己定义的类的实例，如何保存到一个文件中？<br>如何从文件中读取数据，并让它们的内存中再次变成自己对应的类的实例 ？</p>
+<p>要设计一套协议，按照某种规则，把内存中数据保存到文件中。文件是一个字节序列，所以必须把数据转换成字节序列，输出到文件。这就是序列化。反之，从文件的字节序列恢复到内存，就是反序列化。</p>
+<h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>serialization序列化<br>将内存中的对象存储下来，把它变成一个个字节。 -&gt; 二进制</p>
+<p>deserialization反序列化<br>将文件中的一个个字恢复成内存中对象。 &lt;- 二进制</p>
+<p>序列化保存到文件 就是持久化;<br>可以将数据序列化后持久化，或者网络传输；也可以将从文件中或者网络接收到的字节序列反序列化;</p>
+<p>Python提供了pickle库。</p>
+<h3 id="pickle库"><a href="#pickle库" class="headerlink" title="pickle库"></a>pickle库</h3><p>Python中的序列化、反序列化模块;<br>dumps对象序列化;<br>dump对象列化到文件对象，就是存入文件;<br>loads 对象反序列化;<br>load 对象反序列化，从文件读取数据 </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pathlib <span class="keyword">import</span> Path</span><br><span class="line"><span class="keyword">import</span> pickle</span><br><span class="line">lst = <span class="string">&#x27;a b c&#x27;</span>.split(<span class="string">&#x27; &#x27;</span>)</span><br><span class="line">d = <span class="built_in">dict</span>(<span class="built_in">zip</span>(<span class="string">&#x27;abc&#x27;</span>,<span class="built_in">range</span>(<span class="number">3</span>)))</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">AA</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">show</span>(<span class="params">self</span>):</span></span><br><span class="line">        a = <span class="string">&#x27;abcdefghijklmn1230456789&#x27;</span></span><br><span class="line">        print(a)</span><br><span class="line"></span><br><span class="line">aa = AA()</span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;./bin&#x27;</span>,<span class="string">&#x27;wb&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    <span class="comment"># pickle.dump(lst,f)</span></span><br><span class="line">    <span class="comment"># pickle.dump(d,f)</span></span><br><span class="line">    pickle.dump(aa,f)</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;./bin&#x27;</span>,<span class="string">&#x27;rb&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    tmp = pickle.load(f)</span><br><span class="line">    print(<span class="built_in">type</span>(tmp))</span><br><span class="line">    tt = tmp</span><br><span class="line">    tmp.show()</span><br></pre></td></tr></table></figure>
+<p>文件序列化和反序列化 </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pickle</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">AA</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">show</span>(<span class="params">self</span>):</span></span><br><span class="line">        print(<span class="string">&#x27;123&#x27;</span>)</span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;bin&#x27;</span>,<span class="string">&#x27;rb&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    t = pickle.load(f)</span><br><span class="line">    t.show()</span><br></pre></td></tr></table></figure>
+<h3 id="对象序列化"><a href="#对象序列化" class="headerlink" title="对象序列化"></a>对象序列化</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pickle</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">AA</span>:</span></span><br><span class="line">    tttt = <span class="string">&#x27;ABC&#x27;</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">show</span>(<span class="params">self</span>):</span></span><br><span class="line">        print(<span class="string">&#x27;abc&#x27;</span>)</span><br><span class="line">a1 = AA()</span><br><span class="line">sr = pickle.dumps(a1)</span><br><span class="line">print(<span class="string">&#x27;sr=&#123;&#125;&#x27;</span>.<span class="built_in">format</span>(sr)) <span class="comment"># AA</span></span><br><span class="line"></span><br><span class="line">a2 = pickle.loads(sr)</span><br><span class="line">print(a2.tttt)</span><br><span class="line">a2.show()</span><br></pre></td></tr></table></figure>
+<p>上面的例子中，其实就保存了一个类名，因为所有的东西都是类定义的东西，是不变的，所以只序列化一个AA类名。反序列化的时候找到类可以恢复一个对象。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pickle</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">AAA</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__ini__</span>(<span class="params">self</span>):</span></span><br><span class="line">        self.tttt = <span class="string">&#x27;abc&#x27;</span></span><br><span class="line">b1 = AAA()</span><br><span class="line"></span><br><span class="line">sr = pickle.dumps(bs)</span><br><span class="line">print(<span class="string">&#x27;sr=&#123;&#125;&#x27;</span>.<span class="built_in">format</span>(sr))</span><br><span class="line">b2 = pickle.loads(sr)</span><br><span class="line">print(b2.tttt)</span><br></pre></td></tr></table></figure>
+<p>可以看出，保存了AAA、ttt 和abc，因为每一个对象每次都是变化的。但是反序列化的时候要找到AAA类的定义，才能成功。否则会抛出异常;<br>这样可以理解，反序列化的时候，类是模子，二进制序列就是铁水。</p>
+<h3 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h3><p>本地序列化的情况应用较少；<br>一般来说大多场景都应用在网络中。将数据序列化通过网络传输到远程节点，远程服务器上的接收到数据反序列化后，就可以使用了;<br>但是，要注意一点，远程接收端，反序列化时必须有对应的数据类型，否则就会报错。尤其是自定义类型，必须远程得有。</p>
+<h3 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">AA</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self</span>):</span></span><br><span class="line">        self.tttt = <span class="string">&#x27;abc&#x27;</span></span><br><span class="line">aaa = AA()</span><br><span class="line">sr = pickle.dumps(aaa)</span><br><span class="line">print(<span class="built_in">len</span>(sr))</span><br><span class="line"></span><br><span class="line">file = <span class="string">&#x27;./ser&#x27;</span></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(file, <span class="string">&#x27;wb&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    pickle.dump(aaa,f)</span><br></pre></td></tr></table></figure>
+<p>将生产的充列化文件发往其它节点，运行:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;ser&#x27;</span>,<span class="string">&#x27;rb&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    a = pickle.load(f) </span><br></pre></td></tr></table></figure>
+<p>增加类定义即可解决<br>现在大多数项目，都不是单机的，也不是单服务的，需要通过网络数据传送到其它节点上去，这就需要大量的序列化，反序列化。</p>
+<p>但是，问题是，Python 程序之间还可以通过pickle解决序列化、反序列化，如果是跨平台、跨语言、跨协议pickle就不太合适了，就需要共公的协议。 如XML、Json、ProtocolBuffer 等。</p>
+<p>不同的协议，效率不同，学习曲线不同，适用的场景不同，要根据不同情况造型。</p>
+<h2 id="Json"><a href="#Json" class="headerlink" title="Json"></a>Json</h2><p>Json(Javascript Object Notation JS标记对象)， 是一种轻量级的数据交互格式。它基于ECMASciprt(w3c制定的JS规范)的一个子集。采用完全独立的编程语言文本格式来存储和表示数据;</p>
+<h3 id="Json-数据类型"><a href="#Json-数据类型" class="headerlink" title="Json 数据类型"></a>Json 数据类型</h3><p>值<br>双引号引起来的字符串，数值。 True和False,null,对象,数组这些都是值；</p>
+<p><img src="/images/json-value.png" class="lazyload" data-srcset="/images/json-value.png" srcset="data:image/png;base64,666" alt=""></p>
+<p><strong>字符串</strong><br>由双引号包围起来的任意符号组合，可以有转义符;</p>
+<p><strong>数值</strong><br>有负数、有整数、有浮点数;</p>
+<p><strong>对象</strong><br>无序的健值对的组合;<br>格式<code>&#123;key:vluae1 ,...,key:vlualen&#125;</code><br>key 必须是一个字符串，需要双引号包围这个字符串;<br>value 可以是任意合法的值;</p>
+<p><img src="/images/json-object.png" class="lazyload" data-srcset="/images/json-object.png" srcset="data:image/png;base64,666" alt=""></p>
+<p><strong>数组</strong></p>
+<p>有序的值的集合<br>格式:[val1,…,valn]</p>
+<p><img src="/images/json-array.png" class="lazyload" data-srcset="/images/json-array.png" srcset="data:image/png;base64,666" alt=""></p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;persion&quot;</span>: [</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">&quot;n&quot;</span>: <span class="string">&quot;tom&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;a&quot;</span>: <span class="number">18</span></span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">&quot;n&quot;</span>: <span class="string">&quot;jerry&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;age&quot;</span>: <span class="number">16</span></span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">&quot;name&quot;</span>: <span class="string">&quot;ben&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;age&quot;</span>: <span class="number">24</span></span><br><span class="line">  &#125;</span><br><span class="line">  ],</span><br><span class="line">  <span class="attr">&quot;total&quot;</span>:<span class="number">2</span></span><br></pre></td></tr></table></figure>
+<h3 id="Python-与-Json"><a href="#Python-与-Json" class="headerlink" title="Python 与 Json"></a>Python 与 Json</h3><p>Python支持少量内建数据类型到Json类型的转换。</p>
+<table>
+<thead>
+<tr>
+<th>Python类型</th>
+<th>Json类型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>True</td>
+<td>True</td>
+</tr>
+<tr>
+<td>False</td>
+<td>false</td>
+</tr>
+<tr>
+<td>None</td>
+<td>null</td>
+</tr>
+<tr>
+<td>str</td>
+<td>string</td>
+</tr>
+<tr>
+<td>int</td>
+<td>integer</td>
+</tr>
+<tr>
+<td>float</td>
+<td>float</td>
+</tr>
+</tbody>
+</table>
+<h3 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h3><p><strong>dumps json编码</strong></p>
+<p>dumps json编码并存入文件<br>loads json解码<br>load json解码，从文件读取数据</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> json</span><br><span class="line">d = &#123;<span class="string">&#x27;name&#x27;</span>: <span class="string">&#x27;Tom&#x27;</span>,<span class="string">&#x27;age&#x27;</span>:<span class="string">&#x27;20&#x27;</span>,<span class="string">&#x27;interset&#x27;</span>:[<span class="string">&#x27;music&#x27;</span>,<span class="string">&#x27;movie&#x27;</span>],<span class="string">&#x27;e&#x27;</span>:<span class="literal">False</span>, <span class="string">&#x27;f&#x27;</span>:<span class="literal">None</span>&#125;</span><br><span class="line">j = json.dumps(d)</span><br><span class="line">print(j)</span><br><span class="line"></span><br><span class="line">d1 = json.loads(j)</span><br><span class="line">print(d1)</span><br><span class="line"><span class="comment"># 输出</span></span><br><span class="line">&#123;<span class="string">&quot;name&quot;</span>: <span class="string">&quot;Tom&quot;</span>, <span class="string">&quot;age&quot;</span>: <span class="string">&quot;20&quot;</span>, <span class="string">&quot;interset&quot;</span>: [<span class="string">&quot;music&quot;</span>, <span class="string">&quot;movie&quot;</span>], <span class="string">&quot;e&quot;</span>: false, <span class="string">&quot;f&quot;</span>: null&#125;</span><br><span class="line">&#123;<span class="string">&#x27;name&#x27;</span>: <span class="string">&#x27;Tom&#x27;</span>, <span class="string">&#x27;age&#x27;</span>: <span class="string">&#x27;20&#x27;</span>, <span class="string">&#x27;interset&#x27;</span>: [<span class="string">&#x27;music&#x27;</span>, <span class="string">&#x27;movie&#x27;</span>], <span class="string">&#x27;e&#x27;</span>: <span class="literal">False</span>, <span class="string">&#x27;f&#x27;</span>: <span class="literal">None</span>&#125;</span><br></pre></td></tr></table></figure>
+<p>一般json编码的数据很少落地，数据都是通过网络传输。传输的时候，要考虑压缩它;<br>本质上来说 它就是个文本，就是个字符串;<br>json很简单，几乎语言编程都支持json，所以应用范围十分广泛。</p>
+<h2 id="MesagePack"><a href="#MesagePack" class="headerlink" title="MesagePack"></a>MesagePack</h2><p>MessagePack 是一个基于二进制高效的对象序列化类库，可用于跨语言通信;<br>它可以像Json那样，在许多语言之间交换数据对象;<br>但是它比Json更快速也更轻巧;<br>支持Python、Ruby、 Java、 C/C++ 等众多语言。宣称比Google Protocol Buffer 还要快4倍;<br>兼容Json和pickle。</p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p><code>pip install msgpack-python</code></p>
+<h3 id="常用方法-1"><a href="#常用方法-1" class="headerlink" title="常用方法"></a>常用方法</h3><p>packb 序列化对象。提供了dumps来兼容pickle和json;<br>unpackb 反充列化对象。提供了loads 来兼容;<br>pack序列化对象保存到文件对象，提供了dump 来兼容;<br>unpack 反序列化对象保存到文件对象，提供laod来兼容。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> msgpack</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line">js = <span class="string">&#x27;&#123;&quot;person&quot;:[&#123;&quot;name&quot;:&quot;tom&quot;,&quot;age&quot;:10&#125;,&#123;&quot;name&quot;:&quot;jerry&quot;,&quot;age&quot;:16&#125;,&#123;&quot;name&quot;:&quot;ben&quot;,&quot;age&quot;:24&#125;],&quot;total&quot;:2&#125;&#x27;</span></span><br><span class="line">d = json.loads(js)</span><br><span class="line">print(d)</span><br><span class="line">msg = msgpack.packb(d)</span><br><span class="line">print(<span class="built_in">len</span>(msg))</span><br><span class="line">print(msg)</span><br><span class="line">bts = msgpack.unpackb(msg)</span><br><span class="line">print(<span class="built_in">type</span>(bts))</span><br><span class="line">print(bts)</span><br><span class="line"><span class="comment"># 输出</span></span><br><span class="line">&#123;<span class="string">&#x27;person&#x27;</span>: [&#123;<span class="string">&#x27;name&#x27;</span>: <span class="string">&#x27;tom&#x27;</span>, <span class="string">&#x27;age&#x27;</span>: <span class="number">10</span>&#125;, &#123;<span class="string">&#x27;name&#x27;</span>: <span class="string">&#x27;jerry&#x27;</span>, <span class="string">&#x27;age&#x27;</span>: <span class="number">16</span>&#125;, &#123;<span class="string">&#x27;name&#x27;</span>: <span class="string">&#x27;ben&#x27;</span>, <span class="string">&#x27;age&#x27;</span>: <span class="number">24</span>&#125;], <span class="string">&#x27;total&#x27;</span>: <span class="number">2</span>&#125;</span><br><span class="line"><span class="number">63</span></span><br><span class="line"><span class="string">b&#x27;\x82\xa6person\x93\x82\xa4name\xa3tom\xa3age\n\x82\xa4name\xa5jerry\xa3age\x10\x82\xa4name\xa3ben\xa3age\x18\xa5total\x02&#x27;</span></span><br><span class="line">&lt;<span class="class"><span class="keyword">class</span> &#x27;<span class="title">dict</span>&#x27;&gt;</span></span><br><span class="line">&#123;b&#x27;person&#x27;: [&#123;b&#x27;name&#x27;: b&#x27;tom&#x27;, b&#x27;age&#x27;: 10&#125;, &#123;b&#x27;name&#x27;: b&#x27;jerry&#x27;, b&#x27;age&#x27;: 16&#125;, &#123;b&#x27;name&#x27;: b&#x27;ben&#x27;, b&#x27;age&#x27;: 24&#125;], b&#x27;total&#x27;: 2&#125;</span><br></pre></td></tr></table></figure>
+<p>MessagePack简单易，高效压缩，支持语言丰富;<br>所以，用它序列化也是一种很好的选择;</p>
+<h3 id="格言"><a href="#格言" class="headerlink" title="格言"></a>格言</h3><p><strong>做一个出乎意料的决定:”好汉打脱呀和血吞”。这是一句湖南的土话，好汉被打家打掉了牙，不要吐出来让别人看到，要咽到肚子里，继续战斗。他不再和长沙官场纠缠争辩，而是卷起铺盖，带着自己募来的湘军。前往僻静的衡阳。全省官员都瞧不起我，我不争一日之短长。等到我在衡阳练成一支劲旅，打几个胜仗给你们看看，那时自会分出高。这才是挽回面子的最好办法–即逆境时不暴露也不让人看到，冷嘲热讽时也不争一日之短长，不争乃大争</strong></p>
+
+  
+  
+    
+    <div class='footer'>
+      
+      
+      
+        <div class='copyright'>
+          <blockquote>
+            
+              
+                <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+              
+            
+              
+                <p>本文永久链接是：<a href=https://www.asjin.com/2020/10/13/python%E6%96%87%E4%BB%B6%E7%9A%84IO%E4%B8%89/>https://www.asjin.com/2020/10/13/python%E6%96%87%E4%BB%B6%E7%9A%84IO%E4%B8%89/</a></p>
+              
+            
+          </blockquote>
+        </div>
+      
+      
+    </div>
+  
+  
+    
+
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-10-18T17:35:33+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：Oct 18, 2020</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/linux/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>linux</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/program/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>program</p></a></div>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.asjin.com/2020/10/13/python%E6%96%87%E4%BB%B6%E7%9A%84IO%E4%B8%89/&title=python 文件的IO三 - 逝水锦遥&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://www.asjin.com/2020/10/13/python%E6%96%87%E4%BB%B6%E7%9A%84IO%E4%B8%89/&title=python 文件的IO三 - 逝水锦遥&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.asjin.com/2020/10/13/python%E6%96%87%E4%BB%B6%E7%9A%84IO%E4%B8%89/&title=python 文件的IO三 - 逝水锦遥&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png">
+          
+        </a>
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </div>
+
+
+  
+  
+
+  
+    <div class="prev-next">
+      
+        <a class='prev' href='/2020/10/18/python%E6%97%A5%E5%BF%97%E5%A4%84%E7%90%86%E4%B8%80/'>
+          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>python 日志处理一</p>
+          <p class='content'>[toc]
+python 日志处理一
+练习
+实现ls 命令功能，实现-l、-a和 -all、 -h 选项
+
+
+实现显示路径下的文件列表;
+-a和 -all显示包含.开头的文件;
+-l 详细列表显...</p>
+        </a>
+      
+      
+        <a class='next' href='/2020/09/17/python%E6%96%87%E4%BB%B6%E7%9A%84IO%E4%BA%8C/'>
+          <p class='title'>python 文件的IO二<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>[toc]
+python 文件的IO一
+练习有一个文件，对其进行单词统计，不区分大小写，并显示单词重复最多的10个单词
+1234567891011121314151617181920212223...</p>
+        </a>
+      
+    </div>
+  
+</article>
+
+
+  
+
+  <article class="post white-box reveal floatable" id="comments">
+    <p ct><i class='fas fa-comments'></i> 评论</p>
+    
+    <div id="valine_container" class="valine_thread">
+  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+</div>
+
+  </article>
+
+
+
+
+
+
+</div>
+<aside class='l_side'>
+  
+  
+    
+    
+
+
+
+  <section class="widget toc-wrapper floatable desktop mobile" id="toc-div" >
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#CSV%E6%96%87%E4%BB%B6"><span class="toc-text">CSV文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#scv-%E6%A8%A1%E5%9D%97"><span class="toc-text">scv 模块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ini-%E6%96%87%E4%BB%B6%E5%A4%84%E7%90%86"><span class="toc-text">ini 文件处理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#configparser"><span class="toc-text">configparser</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BA%8F%E5%88%97%E5%8C%96%E5%92%8C%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96"><span class="toc-text">序列化和反序列化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E5%BA%8F%E5%88%97%E5%8C%96"><span class="toc-text">为什么要序列化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89"><span class="toc-text">定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pickle%E5%BA%93"><span class="toc-text">pickle库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E8%B1%A1%E5%BA%8F%E5%88%97%E5%8C%96"><span class="toc-text">对象序列化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BA%94%E7%94%A8"><span class="toc-text">应用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C"><span class="toc-text">实验</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Json"><span class="toc-text">Json</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Json-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-text">Json 数据类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Python-%E4%B8%8E-Json"><span class="toc-text">Python 与 Json</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95"><span class="toc-text">常用方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MesagePack"><span class="toc-text">MesagePack</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85"><span class="toc-text">安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95-1"><span class="toc-text">常用方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%BC%E8%A8%80"><span class="toc-text">格言</span></a></li></ol></li></ol>
+    </div>
+  </section>
+
+
+  
+
+
+</aside>
+
+
+
+        
+        
+          <!--此文件用来存放一些不方便取值的变量-->
+<!--思路大概是将值藏到重加载的区域内-->
+
+<script>
+  window.pdata={}
+  pdata.ispage=true;
+  pdata.postTitle="python 文件的IO三";
+  pdata.commentPath="";
+  pdata.commentPlaceholder="";
+
+  var l_header=document.getElementById("l_header");
+  
+  l_header.classList.remove("show");
+  
+</script>
+
+        
+      </div>
+      
+  
+  <footer class="footer clearfix">
+    <br><br>
+    
+      
+        <div class="aplayer-container">
+          
+
+
+        </div>
+      
+    
+      
+        <br>
+        <div class="social-wrapper">
+          
+            
+          
+            
+          
+            
+          
+        </div>
+      
+    
+      
+        <div><p>博客内容遵循 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
+</div>
+      
+    
+      
+        
+      
+    
+      
+        本站使用
+        <a href="https://github.com/volantis-x/hexo-theme-volantis/tree/4.1.6" target="_blank" class="codename">Volantis</a>
+        作为主题，目前总访问量
+          <span id="busuanzi_value_site_pv"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+          次
+        
+        作为主题，总访客数为
+          <span id="busuanzi_value_site_uv"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+          次
+        
+      
+    
+      
+        <div class='copyright'>
+        <p><a href="/">Copyright © 2017-2020 asjin.com</a></p>
+
+        </div>
+      
+    
+  </footer>
+
+
+      <a id="s-top" class="fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+    </div>
+  </div>
+  <div>
+    <script>
+window.volantis={};
+window.volantis.loadcss=document.getElementById("loadcss");
+/********************脚本懒加载函数********************************/
+function loadScript(src, cb) {
+var HEAD = document.getElementsByTagName('head')[0] || document.documentElement;
+var script = document.createElement('script');
+script.setAttribute('type','text/javascript');
+if (cb) script.onload = cb;
+script.setAttribute('src', src);
+HEAD.appendChild(script);
+}
+//https://github.com/filamentgroup/loadCSS
+var loadCSS = function( href, before, media, attributes ){
+	var doc = window.document;
+	var ss = doc.createElement( "link" );
+	var ref;
+	if( before ){
+		ref = before;
+	}
+	else {
+		var refs = ( doc.body || doc.getElementsByTagName( "head" )[ 0 ] ).childNodes;
+		ref = refs[ refs.length - 1];
+	}
+	var sheets = doc.styleSheets;
+	if( attributes ){
+		for( var attributeName in attributes ){
+			if( attributes.hasOwnProperty( attributeName ) ){
+				ss.setAttribute( attributeName, attributes[attributeName] );
+			}
+		}
+	}
+	ss.rel = "stylesheet";
+	ss.href = href;
+	ss.media = "only x";
+	function ready( cb ){
+		if( doc.body ){
+			return cb();
+		}
+		setTimeout(function(){
+			ready( cb );
+		});
+	}
+	ready( function(){
+		ref.parentNode.insertBefore( ss, ( before ? ref : ref.nextSibling ) );
+	});
+	var onloadcssdefined = function( cb ){
+		var resolvedHref = ss.href;
+		var i = sheets.length;
+		while( i-- ){
+			if( sheets[ i ].href === resolvedHref ){
+				return cb();
+			}
+		}
+		setTimeout(function() {
+			onloadcssdefined( cb );
+		});
+	};
+	function loadCB(){
+		if( ss.addEventListener ){
+			ss.removeEventListener( "load", loadCB );
+		}
+		ss.media = media || "all";
+	}
+	if( ss.addEventListener ){
+		ss.addEventListener( "load", loadCB);
+	}
+	ss.onloadcssdefined = onloadcssdefined;
+	onloadcssdefined( loadCB );
+	return ss;
+};
+</script>
+<script>
+  
+  loadCSS("https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14/css/all.min.css", window.volantis.loadcss);
+  
+  
+  
+  
+</script>
+<!-- required -->
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5/dist/jquery.min.js"></script>
+
+<script>
+  function pjax_fancybox() {
+    $(".md .gallery").find("img").each(function () { //渲染 fancybox
+      var element = document.createElement("a"); // a 标签
+      $(element).attr("class", "fancybox");
+      $(element).attr("pjax-fancybox", "");  // 过滤 pjax
+      $(element).attr("href", $(this).attr("src"));
+      if ($(this).attr("data-original")) {
+        $(element).attr("href", $(this).attr("data-original"));
+      }
+      $(element).attr("data-fancybox", "images");
+      var caption = "";   // 描述信息
+      if ($(this).attr('alt')) {  // 判断当前页面是否存在描述信息
+        $(element).attr('data-caption', $(this).attr('alt'));
+        caption = $(this).attr('alt');
+      }
+      var div = document.createElement("div");
+      $(div).addClass("fancybox");
+      $(this).wrap(div); // 最外层套 div ，其实主要作用还是 class 样式
+      var span = document.createElement("span");
+      $(span).addClass("image-caption");
+      $(span).text(caption); // 加描述
+      $(this).after(span);  // 再套一层描述
+      $(this).wrap(element);  // 最后套 a 标签
+    })
+    $(".md .gallery").find("img").fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+      closeClick: true,
+      helpers: {
+        overlay: {closeClick: true}
+      },
+      buttons: [
+        "zoom",
+        "close"
+      ]
+    });
+  };
+  function SCload_fancybox() {
+    if ($(".md .gallery").find("img").length == 0) return;
+    loadCSS("https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css", document.getElementById("loadcss"));
+    setTimeout(function() {
+      loadScript('https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js', pjax_fancybox)
+    }, 1);
+  };
+  $(function () {
+    SCload_fancybox();
+  });
+</script>
+
+
+<!-- internal -->
+
+
+
+
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.1.0/dist/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 0
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    lazyLoadInstance.update();
+  });
+  document.addEventListener('pjax:complete', function () {
+    lazyLoadInstance.update();
+  });
+</script>
+
+
+
+
+  
+  
+    <script async src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@2/js/instant_page.js" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+  
+
+
+
+
+  <script src="/js/clipboard.min.js"></script>
+<script>
+    var clipboard = new ClipboardJS('.btn-copy', {
+        target: function (trigger) {
+            return trigger.nextElementSibling
+        }
+    });
+    function wait(callback, seconds) {
+        var timelag = null;
+        timelag = window.setTimeout(callback, seconds)
+    }
+    function pjax_initCopyCode() {
+		if($(".highlight .code pre").length+$(".article pre code").length==0)return;
+        var copyHtml = '';
+        copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+        copyHtml += '<i class="fas fa-copy"></i><span>COPY</span>';
+        copyHtml += '</button>';
+        $(".highlight .code pre").before(copyHtml);
+        $(".article pre code").before(copyHtml);
+        clipboard.off('success').on('success', function (e) {
+            let $btn = $(e.trigger);
+            $btn.addClass('copied');
+            let $icon = $($btn.find('i'));
+            $icon.removeClass('fa-copy');
+            $icon.addClass('fa-check-circle');
+            let $span = $($btn.find('span'));
+            $span[0].innerText = 'COPIED';
+            wait(function () {
+                $icon.removeClass('fa-check-circle');
+                $icon.addClass('fa-copy');
+                $span[0].innerText = 'COPY'
+            }, 2000)
+        });
+        clipboard.off('error').on('error', function (e) {
+            e.clearSelection();
+            let $btn = $(e.trigger);
+            $btn.addClass('copy-failed');
+            let $icon = $($btn.find('i'));
+            $icon.removeClass('fa-copy');
+            $icon.addClass('fa-times-circle');
+            let $span = $($btn.find('span'));
+            $span[0].innerText = 'COPY FAILED';
+            wait(function () {
+                $icon.removeClass('fa-times-circle');
+                $icon.addClass('fa-copy');
+                $span[0].innerText = 'COPY'
+            }, 2000)
+        })
+    }
+    $(function () {
+        pjax_initCopyCode()
+    });
+</script>
+
+
+
+
+
+
+
+
+  
+  
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4/dist/Valine.min.js"></script>
+
+
+<script>
+  var GUEST_INFO = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link,header'.split(',').filter(function (item) {
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var REQUIRED_FIELDS = ['nick', 'mail', 'link'];
+  var requiredFields = 'nick,mail'.split(',').filter(function (item) {
+    return REQUIRED_FIELDS.indexOf(item) > -1
+  });
+
+  function emoji(path, idx, ext) {
+    return path + "/" + path + "-" + idx + "." + ext;
+  }
+
+  var emojiMaps = {};
+  for (var i = 1; i <= 54; i++) {
+    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
+  }
+  for (var i = 1; i <= 101; i++) {
+    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+  }
+  for (var i = 1; i <= 116; i++) {
+    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
+  }
+  for (var i = 1; i <= 125; i++) {
+    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
+  }
+  for (var i = 1; i <= 4; i++) {
+    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+  }
+
+  function pjax_valine() {
+    if(!document.querySelectorAll("#valine_container")[0])return;
+
+    let pagePlaceholder = pdata.commentPlaceholder || "快来评论吧~ 🤩 🤩 🤩";
+
+    let path = pdata.commentPath;
+    if (path.length == 0) {
+      let defaultPath = '';
+      path = defaultPath || decodeURI(window.location.pathname);
+    }
+
+    var valine = new Valine();
+    valine.init({
+      el: '#valine_container',
+      meta: meta,
+      placeholder: pagePlaceholder,
+      path: path,
+      appId: "NkJqMpxu4QlRLhPIHipNUHF1-gzGzoHsz",
+      appKey: "D2vTdueKJ8ammc2JEdje0vLW",
+      pageSize: '',
+      avatar: 'monsterid',
+      lang: '',
+      visitor: '',
+      highlight: '',
+      mathJax: '',
+      enableQQ: 'true',
+      recordIP: 'false',
+      requiredFields: requiredFields,
+      emojiCDN: 'https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/valine/',
+      emojiMaps: emojiMaps
+    })
+  }
+
+  $(function () {
+    pjax_valine();
+  });
+</script>
+
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js" data-pjax></script>
+
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-theme-volantis@4.1.6/source/js/app.min.js"></script>
+
+
+
+<!-- optional -->
+
+  <script>
+const SearchServiceimagePath="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@master/img/";
+const ROOT =  ("/" || "/").endsWith('/') ? ("/" || "/") : ("//" || "/" );
+
+$('.input.u-search-input').one('focus',function(){
+	
+		loadScript('https://cdn.jsdelivr.net/npm/hexo-theme-volantis@4.1.6/source/js/search/hexo.min.js',setSearchService);
+	
+})
+
+function listenSearch(){
+  
+    customSearch = new HexoSearch({
+      imagePath: SearchServiceimagePath
+    });
+  
+}
+function setSearchService() {
+	listenSearch();
+	
+		document.addEventListener("pjax:success", listenSearch);
+	
+}
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script>
+const rootElement = document.documentElement;
+const darkModeStorageKey = "user-color-scheme";
+const rootElementDarkModeAttributeName = "data-user-color-scheme";
+
+const setLS = (k, v) => {
+  try {
+    localStorage.setItem(k, v);
+  } catch (e) {
+    console.log(e.message);
+  }
+};
+
+const removeLS = (k) => {
+  try {
+    localStorage.removeItem(k);
+  } catch (e) {
+    console.log(e.message);
+  }
+};
+
+const getLS = (k) => {
+  try {
+    return localStorage.getItem(k);
+  } catch (e) {
+    console.log(e.message);
+    return null;
+  }
+};
+
+const getModeFromCSSMediaQuery = () => {
+  return window.matchMedia("(prefers-color-scheme: dark)").matches
+    ? "dark"
+    : "light";
+};
+
+const resetRootDarkModeAttributeAndLS = () => {
+  rootElement.removeAttribute(rootElementDarkModeAttributeName);
+  removeLS(darkModeStorageKey);
+};
+
+const validColorModeKeys = {
+  dark: true,
+  light: true,
+};
+
+const applyCustomDarkModeSettings = (mode) => {
+  const currentSetting = mode || getLS(darkModeStorageKey);
+
+  if (currentSetting === getModeFromCSSMediaQuery()) {
+    resetRootDarkModeAttributeAndLS();
+  } else if (validColorModeKeys[currentSetting]) {
+    rootElement.setAttribute(rootElementDarkModeAttributeName, currentSetting);
+  } else {
+    resetRootDarkModeAttributeAndLS();
+  }
+};
+
+const invertDarkModeObj = {
+  dark: "light",
+  light: "dark",
+};
+
+/**
+ * get target mode
+ */
+const toggleCustomDarkMode = () => {
+  let currentSetting = getLS(darkModeStorageKey);
+
+  if (validColorModeKeys[currentSetting]) {
+    currentSetting = invertDarkModeObj[currentSetting];
+  } else if (currentSetting === null) {
+    currentSetting = invertDarkModeObj[getModeFromCSSMediaQuery()];
+  } else {
+    return;
+  }
+  setLS(darkModeStorageKey, currentSetting);
+  return currentSetting;
+};
+
+/**
+ * bind click event for toggle button
+ */
+function bindToggleButton() {
+	var btn=$("#wrapper .toggle-mode-btn");
+    btn.on('click',(e) => {
+      const mode = toggleCustomDarkMode();
+      applyCustomDarkModeSettings(mode);
+    });
+}
+
+applyCustomDarkModeSettings();
+document.addEventListener("DOMContentLoaded", bindToggleButton);
+document.addEventListener("pjax:success", bindToggleButton);
+
+</script>
+
+
+
+
+
+
+<script>
+function listennSidebarTOC() {
+  const navItems = document.querySelectorAll(".toc li");
+  if (!navItems.length) return;
+  const sections = [...navItems].map((element) => {
+    const link = element.querySelector(".toc-link");
+    const target = document.getElementById(
+      decodeURI(link.getAttribute("href")).replace("#", "")
+    );
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+      window.scrollTo({
+		top: target.offsetTop + 100,
+		
+		behavior: "smooth"
+		
+	  });
+    });
+    return target;
+  });
+
+  function activateNavByIndex(target) {
+    if (target.classList.contains("active-current")) return;
+
+    document.querySelectorAll(".toc .active").forEach((element) => {
+      element.classList.remove("active", "active-current");
+    });
+    target.classList.add("active", "active-current");
+    let parent = target.parentNode;
+    while (!parent.matches(".toc")) {
+      if (parent.matches("li")) parent.classList.add("active");
+      parent = parent.parentNode;
+    }
+  }
+
+  function findIndex(entries) {
+    let index = 0;
+    let entry = entries[index];
+    if (entry.boundingClientRect.top > 0) {
+      index = sections.indexOf(entry.target);
+      return index === 0 ? 0 : index - 1;
+    }
+    for (; index < entries.length; index++) {
+      if (entries[index].boundingClientRect.top <= 0) {
+        entry = entries[index];
+      } else {
+        return sections.indexOf(entry.target);
+      }
+    }
+    return sections.indexOf(entry.target);
+  }
+
+  function createIntersectionObserver(marginTop) {
+    marginTop = Math.floor(marginTop + 10000);
+    let intersectionObserver = new IntersectionObserver(
+      (entries, observe) => {
+        let scrollHeight = document.documentElement.scrollHeight + 100;
+        if (scrollHeight > marginTop) {
+          observe.disconnect();
+          createIntersectionObserver(scrollHeight);
+          return;
+        }
+        let index = findIndex(entries);
+        activateNavByIndex(navItems[index]);
+      },
+      {
+        rootMargin: marginTop + "px 0px -100% 0px",
+        threshold: 0,
+      }
+    );
+    sections.forEach((element) => {
+      element && intersectionObserver.observe(element);
+    });
+  }
+  createIntersectionObserver(document.documentElement.scrollHeight);
+}
+
+document.addEventListener("DOMContentLoaded", listennSidebarTOC);
+document.addEventListener("pjax:success", listennSidebarTOC);
+</script>
+
+<!-- more -->
+
+
+
+
+    
+      
+
+
+<script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script>
+
+
+<script>
+    var pjax;
+    document.addEventListener('DOMContentLoaded', function () {
+      pjax = new Pjax({
+        elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"]):not([pjax-fancybox])',
+        selectors: [
+          "title",
+          "#l_cover",
+          "#pjax-container",
+          "#pjax-header-nav-list"
+        ],
+        cacheBust: false,   // url 地址追加时间戳，用以避免浏览器缓存
+        timeout: 5000
+      });
+    });
+
+    document.addEventListener('pjax:send', function (e) {
+      //window.stop(); // 相当于点击了浏览器的停止按钮
+
+      try {
+        var currentUrl = window.location.pathname;
+        var targetUrl = e.triggerElement.href;
+        var banUrl = [""];
+        if (banUrl[0] != "") {
+          banUrl.forEach(item => {
+            if(currentUrl.indexOf(item) != -1 || targetUrl.indexOf(item) != -1) {
+              window.location.href = targetUrl;
+            }
+          });
+        }
+      } catch (error) {}
+
+      window.subData = null; // 移除标题（用于一二级导航栏切换处）
+      if (typeof $.fancybox != "undefined") {
+        $.fancybox.close();    // 关闭弹窗
+      }
+      volantis.$switcher.removeClass('active'); // 关闭移动端激活的搜索框
+      volantis.$header.removeClass('z_search-open'); // 关闭移动端激活的搜索框
+      volantis.$wrapper.removeClass('sub'); // 跳转页面时关闭二级导航
+
+      // 解绑事件 避免重复监听
+      volantis.$topBtn.unbind('click');
+      $('.menu a').unbind('click');
+      $(window).unbind('resize');
+      $(window).unbind('scroll');
+      $(document).unbind('scroll');
+      $(document).unbind('click');
+      $('body').unbind('click');
+	  
+    });
+
+    document.addEventListener('pjax:complete', function () {
+      // 关于百度统计对 SPA 页面的处理：
+      // 方案一：百度统计>管理>单页应用设置中，打开开启按钮即可对SPA进行统计。 https://tongji.baidu.com/web/help/article?id=324
+      // 方案二：取消注释下列代码。 https://tongji.baidu.com/web/help/article?id=235
+       
+
+      // 关于谷歌统计对 SPA 页面的处理：
+      // 当应用以动态方式加载内容并更新地址栏中的网址时，也应该更新通过 gtag.js 存储的网页网址。
+      // https://developers.google.cn/analytics/devguides/collection/gtagjs/single-page-applications?hl=zh-cn
+      
+	 
+
+      $('.nav-main').find('.list-v').not('.menu-phone').removeAttr("style",""); // 移除小尾巴的移除
+      $('.menu-phone.list-v').removeAttr("style",""); // 移除小尾巴的移除
+      $('script[data-pjax], .pjax-reload script').each(function () {
+        $(this).parent().append($(this).remove());
+      });
+      try{
+          if (typeof $.fancybox == "undefined") {
+            SCload_fancybox();
+          } else {
+            pjax_fancybox();
+          }
+        
+        
+        
+        
+        
+          pjax_initCopyCode();
+        
+        
+          pjax_valine();
+        
+        
+        
+        
+      } catch (e) {
+        console.log(e);
+      }
+	  
+    });
+
+    document.addEventListener('pjax:error', function (e) {
+	  
+      window.location.href = e.triggerElement.href;
+    });
+</script>
+
+    
+  </div>
+</body>
+</html>

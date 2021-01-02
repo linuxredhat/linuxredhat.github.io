@@ -1,0 +1,1565 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head hexo-theme='https://github.com/volantis-x/hexo-theme-volantis/tree/4.1.6'>
+  <meta charset="utf-8">
+  <!-- SEO相关 -->
+  
+    
+  
+  <!-- 渲染优化 -->
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://cdn.jsdelivr.net'>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- 页面元数据 -->
+  
+  <title>kubernetes笔记 - 逝水锦遥</title>
+  
+    <meta name="keywords" content="linux,cloud">
+  
+
+  
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="逝水锦遥" type="application/atom+xml">
+  
+
+  <!-- import meta -->
+  
+
+  <!-- link -->
+  
+
+  <!-- import link -->
+  
+
+  
+    
+<link rel="stylesheet" href="/css/first.css">
+
+  
+
+  
+  <link rel="stylesheet" href="/css/style.css" media="print" onload="this.media='all';this.onload=null">
+  <noscript><link rel="stylesheet" href="/css/style.css"></noscript>
+  
+
+  <script id="loadcss"></script>
+</head>
+
+
+<body>
+	  <canvas id="canvas" width="1440" height="900" ></canvas>
+	  <script type="text/javascript" src="/js/DigitalRain.js"></script>
+  
+
+<header id="l_header" class="l_header always floatable "  >
+  <div class='container'>
+  <div id='wrapper'>
+    <div class='nav-sub'>
+      <p class="title"></p>
+      <ul class='switcher nav-list-h m-phone' id="pjax-header-nav-list">
+        <li><a id="s-comment" class="fas fa-comments fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+          <li><a id="s-toc" class="s-toc fas fa-list fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+      </ul>
+    </div>
+		<div class="nav-main">
+      
+        
+        <a class="title flat-box" target="_self" href='/'>
+          
+            <img no-lazy class='logo' src='/images/head.png'/>
+          
+          
+          
+        </a>
+      
+
+			<div class='menu navigation'>
+				<ul class='nav-list-h m-pc'>
+          
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fab fa-linux fa-fw'></i>所有文章
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/program
+                  
+                  
+                  
+                    id="tagsprogram"
+                  >
+                  <i class='fab fa-gitlab fa-fw'></i>运维开发
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/rhca
+                  
+                  
+                  
+                    id="tagsrhca"
+                  >
+                  <i class='fas fa-heartbeat fa-fw'></i>运维组件
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/cloud
+                  
+                  
+                  
+                    id="tagscloud"
+                  >
+                  <i class='fas fa-cloud fa-fw'></i>云计算
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/zikao
+                  
+                  
+                  
+                    id="tagszikao"
+                  >
+                  <i class='fab fa-drupal fa-fw'></i>成自考
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/renjin
+                  
+                  
+                  
+                    id="tagsrenjin"
+                  >
+                  <i class='fas fa-user-circle fa-fw'></i>个人中心
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" 
+                  
+                  
+                  >
+                  <i class='fas fa-ellipsis-v fa-fw'></i>更多
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box header toggle-mode-btn">
+                  <i class='fas fa-moon fa-fw'></i>夜间模式
+                </a>
+              <li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/box/
+                  
+                  
+                  
+                    id="box"
+                  >
+                  <i class='fas fa-flag fa-fw'></i>工具箱
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+          
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="搜索文章..." />
+        </form>
+      </div>
+
+			<ul class='switcher nav-list-h m-phone'>
+				
+					<li><a class="s-search fas fa-search fa-fw" target="_self" href='javascript:void(0)'></a></li>
+				
+				<li>
+          <a class="s-menu fas fa-bars fa-fw" target="_self" href='javascript:void(0)'></a>
+          <ul class="menu-phone list-v navigation white-box">
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fab fa-linux fa-fw'></i>所有文章
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/program
+                  
+                  
+                  
+                    id="tagsprogram"
+                  >
+                  <i class='fab fa-gitlab fa-fw'></i>运维开发
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/rhca
+                  
+                  
+                  
+                    id="tagsrhca"
+                  >
+                  <i class='fas fa-heartbeat fa-fw'></i>运维组件
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/cloud
+                  
+                  
+                  
+                    id="tagscloud"
+                  >
+                  <i class='fas fa-cloud fa-fw'></i>云计算
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/zikao
+                  
+                  
+                  
+                    id="tagszikao"
+                  >
+                  <i class='fab fa-drupal fa-fw'></i>成自考
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/renjin
+                  
+                  
+                  
+                    id="tagsrenjin"
+                  >
+                  <i class='fas fa-user-circle fa-fw'></i>个人中心
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" 
+                  
+                  
+                  >
+                  <i class='fas fa-ellipsis-v fa-fw'></i>更多
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box header toggle-mode-btn">
+                  <i class='fas fa-moon fa-fw'></i>夜间模式
+                </a>
+              <li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/box/
+                  
+                  
+                  
+                    id="box"
+                  >
+                  <i class='fas fa-flag fa-fw'></i>工具箱
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+            
+          </ul>
+        </li>
+			</ul>
+		</div>
+	</div>
+  </div>
+</header>
+
+  <div id="l_body">
+    <div id="l_cover">
+  
+    
+        <div id="half" class='cover-wrapper post search' style="display: ;">
+          
+            <div class='cover-bg lazyload placeholder' data-bg="/images/background.jpg"></div>
+          
+          <div class='cover-body'>
+  <div class='top'>
+    
+      <img no-lazy class='logo' src='/images/ssjyai.png'/>
+    
+    
+    
+      <p class="subtitle">有志而性缓者思大志 有才而气和者为大才</p>
+    
+  </div>
+  <div class='bottom'>
+    
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <input type="text" class="input u-search-input" placeholder="搜索本地文章" />
+          <i class="icon fas fa-search fa-fw"></i>
+        </form>
+      </div>
+    
+    <div class='menu navigation'>
+      <div class='list-h'>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+          <div id="scroll-down" style="display: none;"><i class="fa fa-chevron-down scroll-down-effects"></i></div>
+        </div>
+    
+  
+  </div>
+
+    <div id='safearea'>
+      <div class='body-wrapper' id="pjax-container">
+        
+
+<div class='l_main'>
+  <article class="article post white-box reveal md floatable article-type-post" id="post" itemscope itemprop="blogPost">
+  
+
+
+  
+  <div class="article-meta" id="top">
+    
+    
+    
+      <h1 class="title">
+        kubernetes笔记
+      </h1>
+      <div class='new-meta-box'>
+        
+          
+            
+<div class='new-meta-item author'>
+  <a class='author' href="/images/rjrt.ico" rel="nofollow">
+    <img no-lazy src="/images/rjrt.ico">
+    <p>任锦</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：Oct 4, 2018</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class="new-meta-item browse busuanzi">
+    <a class='notlink'>
+      <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+      <p>
+        <span id="busuanzi_value_page_pv">
+          <i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i>
+        </span>
+        <span id="busuanzi_value_page_uv">
+          <i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i>
+        </span>
+        次浏览
+      </p>
+    </a>
+  </div>
+
+
+          
+        
+      </div>
+    
+  </div>
+
+
+  
+  <p>[toc]</p>
+<h1 id="kubernetes-笔记"><a href="#kubernetes-笔记" class="headerlink" title="kubernetes 笔记"></a>kubernetes 笔记</h1><p><img src="/images/kubernetes.png" class="lazyload" data-srcset="/images/kubernetes.png" srcset="data:image/png;base64,666" alt=""><br>CI: 持续集成<br>CD: 持续交付，Delivery<br>CD: 持续部署，Deployment</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/kubernetes/kubernetes/releases">kubernetes的releases版本</a></p>
+<p>kubernetes  自动装箱、自我修复、自动实现水平扩展<br>自动实现服务发现和负载均衡，自动发布和回滚<br>密钥和配置集中化管理、存储编排(动态供给)<br>任务批处理</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">master&#x2F;node </span><br><span class="line">    master: API Sserver,Scheduler, Controller-Manager</span><br><span class="line">    node: kubelet, docker(容器引擎), kube-proxy</span><br><span class="line">Pod， Label, Label Selector </span><br><span class="line">    Label: key&#x3D;value</span><br><span class="line">    Label: Selector:</span><br><span class="line">Pod:</span><br><span class="line">    自主式Pod</span><br><span class="line">    控制器管理的Pod</span><br><span class="line">    ReplicationController</span><br><span class="line">    ReplicaSet</span><br><span class="line">    Deployment</span><br><span class="line">    StateFulSet(有状态副本集)</span><br><span class="line">    DaemonSet</span><br><span class="line">    Job,Ctonjob</span><br><span class="line">    AddOns: 附加组件</span><br><span class="line">HPA</span><br><span class="line">    HorizontalPodAutoscaler</span><br></pre></td></tr></table></figure>
+<p>Master 节点: 整个k8s集群的司令部<br>核心组件: api_server 负责接收并处理请求<br>         schechuler 调度容器的创建请求<br>         控制器管理器: 确保控制器是健康状态的<br>k8s 并不直接调度容器，而调度的是pod。pod对容器做为封装;</p>
+<p>服务的自动发现功能，就是把自己信息注册上去;<br>NMT: 一般开放给外部访问的只有N，而N 在集群内其实是也是客户端;<br>在一个大的集群中，只把有特殊需求的，开放给客户端;<br>LBaaS: 负载均衡及服务;</p>
+<p>多种通信<br>同一个Pod内的多个容器间通信:lo<br>各Pod之间的通信 Overlay Network,叠加网络通信(二层叠加，三层叠加)<br>Pod与Service之间的通信</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">CNI插件体系:容器网络接口</span><br><span class="line">    flannel: 网络配置</span><br><span class="line">    calico: 网络配置，网络策略</span><br><span class="line">    canel: 网络配置，网络策略</span><br></pre></td></tr></table></figure>
+<p>客户端–&gt; API server<br>    user: username, uid<br>    group:<br>    extra:</p>
+<p><img src="/images/kubernetes-network.png" class="lazyload" data-srcset="/images/kubernetes-network.png" srcset="data:image/png;base64,666" alt=""></p>
+<p>环境:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">master: etcd: 10.180.66.11</span><br><span class="line">node1: 10.180.66.12</span><br><span class="line">node2: 10.180.66.13</span><br><span class="line">注意这三台服务器需要时间同步</span><br></pre></td></tr></table></figure>
+<p>前提:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1、基于主机名通信: &#x2F;etc&#x2F;hosts;</span><br><span class="line">2、时间同步;</span><br><span class="line">3、关闭firewalld和iptables.service;</span><br><span class="line"></span><br><span class="line">OS: CentOS 7.3.1611， Extras仓库中;</span><br></pre></td></tr></table></figure>
+<p>安装配置步骤:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">1、etcd cluster，仅Master节点;</span><br><span class="line">2、flannel,集群的所有节点;</span><br><span class="line">3、配置k8s的master:仅master节点;</span><br><span class="line">    kubernetes-master</span><br><span class="line">    启动的服务:</span><br><span class="line">        kube-apiserver,kub-scheduler,kube-controller-manager</span><br><span class="line">4、配置k8s的各Node节点;</span><br><span class="line">    kubernetes-node</span><br><span class="line">    先设定启动docker服务;</span><br><span class="line">    启动的k8s的服务:</span><br><span class="line">        kube-proxy,kubelet</span><br></pre></td></tr></table></figure>
+<p>kubeadm</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1、master, nodes:安装kubelet,kubeadm,docker</span><br><span class="line">2、master: kubeadm init</span><br><span class="line">3、nodes: kubeadm join</span><br><span class="line">    https:&#x2F;&#x2F;github.com&#x2F;kubernetes&#x2F;kubeadm&#x2F;blob&#x2F;master&#x2F;docs&#x2F;design&#x2F;design_v1.10.md</span><br><span class="line">无论server 还是node  一般服务 </span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">master:</span><br><span class="line"># cd &#x2F;etc&#x2F;yum.repos.d&#x2F;</span><br><span class="line"># wget https:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;docker-ce&#x2F;linux&#x2F;centos-ce.repo</span><br><span class="line"># vim kubernetes.repo  </span><br><span class="line">[kubernetes]</span><br><span class="line">name&#x3D;Kubernetes Repo </span><br><span class="line">baseurl&#x3D;https:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;kubernetes&#x2F;yum&#x2F;repos&#x2F;kuberentes-el7-x86_64&#x2F;</span><br><span class="line">gpgcheck&#x3D;1</span><br><span class="line">pgkey&#x3D;https:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;kubernetes&#x2F;yum&#x2F;doc&#x2F;yum-key.gpg</span><br><span class="line">enabled&#x3D;1</span><br><span class="line"># yum -y install docker-ce kubelet kubeadm kubectl</span><br></pre></td></tr></table></figure>
+<p>补充:<br><a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn">清华大学mirrors地址</a><br><a target="_blank" rel="noopener" href="https://mirrors.aliyun.com/kubernetes/yum">阿里云k8s地址</a></p>
+<hr>
+<p>提供网络功能<br>RESTful<br>    GET, PUT, DELETE, POST, …<br>    kubectl run, get, edit, …<br>资源:对象<br>    工作负载性资源对象 workload: Pod,ReplicaSet, Deployment, StatefulSet, DaemonSet, Job, Cronjob, …<br>    服务发现及服务均衡: Service, Ingerss, …<br>    配置与存储: Volume,CSI<br>        ConfigMap,Secret,<br>        DownwardAPI,<br>    集群级资源:<br>        Namespace,Node,Role,ClusterRole,RoleBinding, ClusterRoleBinding<br>    无数据型资源:<br>        HPA,PodTemplate,LimitRange<br>创建资源的方法:<br>    apiserver仅接收JSON格式的资源定义;<br>    yaml格式提供配置清单，apiserver可自动将其转为json格式，而后再提交;</p>
+<p>大部分资源的配置清单:<br>    apiversion:group/version;<br>        $ kubectl api-versions<br>    kind:资源类别<br>    metadata:元数据<br>        name必需是唯一的<br>        namespace<br>        labels<br>        annotations<br>        每个资源的引用PATH<br>        /api/GROUP/VERSION/namspace/NAMESAPCE/TYPE/NAME<br>    spec:期望的状态，disired state<br>    status: 当前状态，current state,本字段由kubernetes集群维护;<br>资源配置清单:<br>    自主式Pod资源<br>    资源的清单格式:<br>        一级字段: apiVersion(group/version),kind,metadata(name,namespace,lables,annotations,…)spec,status(只读)<br>    Pod资源:<br>        spec.container&lt;[]object&gt;</p>
+<pre><code>- name &lt;string&gt;
+- image &lt;string&gt;
+  imagePullPloicy &lt;string&gt;
+    Always(下载), Never(不下载), IfNotPresent(本地不存在镜像则下载)
+</code></pre><p> 修改镜像中的默认应用:<br>    command,args<br>    <a target="_blank" rel="noopener" href="https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/">https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/</a></p>
+<p>liveness probe:存活状态检测</p>
+<hr>
+<table>
+<thead>
+<tr>
+<th>Image Entrypoint</th>
+<th>Image Cmd</th>
+<th>Container command</th>
+<th>Container args</th>
+<th>Command run</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[/ep-1]</td>
+<td>[foo bar]</td>
+<td>\<not set></td>
+<td>\<not set></td>
+<td>[ep-1 foo bar]</td>
+</tr>
+<tr>
+<td>[/ep-1]</td>
+<td>[foo bar]</td>
+<td>[/ep-2]</td>
+<td>\<not set></td>
+<td>[ep-2]</td>
+</tr>
+<tr>
+<td>[/ep-1]</td>
+<td>[foo bar]</td>
+<td>\<not set></td>
+<td>[zoo boo]</td>
+<td>[ep-1 zoo boo]</td>
+</tr>
+<tr>
+<td>[/ep-1]</td>
+<td>[foo bar]</td>
+<td>[/ep-2]</td>
+<td>[zoo boo]</td>
+<td>[ep-2 zoo boo]</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p>标签:<br>    key=value<br>    key: 字母、数字、_、-、.<br>    value: 可以为空,只能字母或数字开头及结尾，中间可使用<br>标签选择器:<br>    等值关系:=，==，!=<br>    集合关系:<br>        KEY in (VALUE1,VALUE2,…)<br>        KEY notin (VALUE1,VALUE2,…)<br>        KEY 存在这个键就可以<br>        !KEY 不存在这个键的资源<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># kubectl get pods -l &quot;release notin (canary,beta,alpha)&quot;</span><br></pre></td></tr></table></figure><br>许多资源支持内嵌字段定义其使用的标签选择器:<br>matchLables: 直接给定键值<br>matchLables: 基于给定的表达式来定义使用的标签选择器,{key:”KEY”,operator:”OPERATOR”, value:[VAL1,VAL2,…]}<br>    操作符:<br>        IN, NotIN:vlaues字段的值必须为空列表;<br>         Exists, NotExists:values字段的值必须为空列表;</p>
+<hr>
+<p>nodeSelector &lt;map[string]string&gt;<br>    节点标签选择器,<br>nodeName <string><br>annotations:<br>    与label不同的地方在于， 它不能用于挑选资源对象，仅用于为对象提供”元数据”。<br>Pod的生命周期<br>    状态:Pending(挂起)，已经创建，但未找到运行它的节点;<br>        Running;<br>        Failed;<br>        Succeede;<br>        Unknown<br>        Pod生命周期中的重要行为：<br>            实始化容器<br>            容器探测：<br>                liveness<br>                readliness<br>        restartPolicy:<br>            Always, OnFailure, Never. Default to Always.</p>
+<p>探针类型有三种:<br>    ExecAction、 TCPSocketAction、 HTTPGetAction</p>
+<p>Pod控制器:<br>    ReplicationController:<br>    ReplicaSet: 代用户创建指定数量的Pod副本，多退少补，滚动更新;新一代的ReplicationController<br>    Deployment: 建构在ReplicaSet之上的，流动更新，回滚，声明式配置;<br>    DemonSet:<br>    Job:<br>    CronJob:<br>    StatefulSet<br>    TRR: Third Party Resources, 1.2+, 1.7<br>    CDR: Custom Defined Resources, 1.8+<br>    Operator:<br>一个坏的脚本在k8s集群中，很有可能导致整个k8s集群岩掉; </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">apiVersion: apps&#x2F;v1</span><br><span class="line">kind: ReplicaSet</span><br><span class="line">metadata:</span><br><span class="line">    name: myapp</span><br><span class="line">    namespace: default </span><br><span class="line">spec:</span><br><span class="line">    replicas: 2 </span><br><span class="line">    relector:</span><br><span class="line">        matchLabels:</span><br><span class="line">            app: myapp</span><br><span class="line">            replease: canary</span><br><span class="line">    template:</span><br><span class="line">        metadata:</span><br><span class="line">            name: myapp-pod</span><br><span class="line">            labels:</span><br><span class="line">                app: myapp</span><br><span class="line">                replease: canary</span><br><span class="line">                environment:qa</span><br><span class="line">        spec:</span><br><span class="line">            contrainers:</span><br><span class="line">            - name: myapp-container</span><br><span class="line">              image: ikuberentes&#x2F;myapp:v1</span><br><span class="line">              ports:</span><br><span class="line">              - name: http</span><br><span class="line">                containerPort: 80</span><br><span class="line"># kubectl create -f rs-demo.yaml</span><br></pre></td></tr></table></figure>
+<p>Helm: 外壳 类似于redhat系统上的yum管理器一样</p>
+<p>Service<br>    工作模式:userspace, iptables, ipvs<br>        userspace: 1.1-<br>        iptables: 1.10-<br>        ipvs: 1.11+<br>    类型:<br>        ExternalName, CluseterIP, NodePort, and LoadBalancer<br>    资源记录:<br>        SVC_NAME.NS_NAME.DOMAIN.LTD.<br>        svc.cluster.local.<br>        redis.default.svc.custer.local.</p>
+<p>NodePort:client –&gt; NodeIP:NodePort –&gt;ClusterIP:ServciePort –&gt; PodIP:containerPort<br>LoadBalancer<br>ExternelName<br>    FQDN<br>        CNAME –&gt; FQDN<br>No ClusterIP: Headless Service<br>    ServiceName –&gt; PodIP</p>
+<p>解决方案<br>多组nginx server 对应多个pod;<br>多个url 映射多个pod;</p>
+<p>配置容器化应用的方式:</p>
+<p>1、 自定义命令行参数;<br>    args: []</p>
+<p>2、 把配置文件直接焙进镜像;</p>
+<p>3、 环境变量<br>    (1) Cloud Native的应用程序一般可以直接 通过环境变量加载配置;<br>    (2) 通过entrypoint脚本来预处理变量为配置文件中的配置信息;</p>
+<p>4、 存储卷</p>
+<p>CoreOS: operator<br>StatefulSet:</p>
+<p>1、稳定且惟一的网络标识符;<br>2、稳定且持久的存储;<br>3、有序、平滑地部署和扩展;<br>4、有序、平滑地删除和终止;<br>5、有序的滚动更新;</p>
+<p>三个组件: headless service、 StatefulSet 、 volumeClaimTemplate<br>pod_name.service_name.ns_name.svc.cluster.local<br>    myapp-0.myapp.default.svc.cluster.local</p>
+<p>API<br>Request path<br>    <a target="_blank" rel="noopener" href="http://172.20.0.70:6443/apls/apps/v1/namespaces/default/deployment/myapp-deploy/">http://172.20.0.70:6443/apls/apps/v1/namespaces/default/deployment/myapp-deploy/</a></p>
+<p>HTTP request verb:<br>    get, post, pub, delete<br>API request verb:<br>    get, list, create, update, patch, watch, redirect, delete, deletecollection </p>
+<p>Resource:<br>Subresource:<br>Namespace<br>API group</p>
+<p>Object URL:<br>    /apis/<GROUP>/<VERSION>/namespaces/&lt;NAMESPACE_NAME&gt;/&lt;KIND/[OBJECT_ID]&gt; </p>
+<p>role:<br>    operation<br>    objects<br>rolebinding:<br>    user account OR service account<br>    role</p>
+<p>clusterrole, clusterrolebinding</p>
+<p>role 授权: get * ; get pod ; get deployment;</p>
+<p>授权插件: Node, ABAC, RBAC, Webhook(基于httpd的回调机制)<br>    RBAC: Role-based AC ‘<br>    角色(role)<br>    许可(permission)</p>
+<p>当用户权限 rolebinding  绑定到 clusterrolebinding 时，clusterrolebinding 会被降权为rolebinding;</p>
+<p>spec.serviceAccountName<br>    rolebinding<br>    serviceaccount<br>    role</p>
+<p>Kubernetes:认证、授权<br>    API server:<br>        subject –&gt; action –&gt; object<br>      认证: token,tls,user/password<br>        账号:UserAccount, ServiceAccount<br>    授权:RBAC<br>        role,rolebinding<br>        clusterrole,clusterrolebinding<br>        subject:<br>            user<br>            group<br>            serviceaccount<br>        object:<br>            resource group<br>            resource<br>            non-resource url<br>        action:get,list,watch,patch,delete,deletecollection…</p>
+<p>Dashboard<br>1、部署</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl apply -f https:&#x2F;&#x2F;github.com&#x2F;coreos&#x2F;flannel&#x2F;blob&#x2F;master&#x2F;Documentation&#x2F;kube-flannel.yml</span><br></pre></td></tr></table></figure>
+<p>2、将Service 改为NodePort</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl patch svc kubernetes-dashboard -p &#39;&#123;&quot;spec&quot;:&#123;&quot;type&quot;:&quot;NodePort&quot;&#125;&#125;&#39; -n kube-system</span><br></pre></td></tr></table></figure>
+<p>3、 认证:<br>    认证时的账号必须为ServiceAccount: 被dashboard pod拿来由kubernetes进行认证的;<br>    token:<br>    (1) 创建ServiceAccount，根据其管理目标，使用rolebinding或clusterrolebinding 绑定至合理role或clusterrole;<br>    (2) 获取到此ServiceAccount的secret，查看secret的详细信息，其中就有token;</p>
+<p>kubeconfig:把ServiceAccount的token封装为kubeconfig文件<br>    (1) 创建ServiceAccount，根据其管理目标，使用rolebinding或clusterrolebinding 绑定至合理role或clusterrole;<br>    (2) </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">kubectl get secret | awk &#39;&#x2F;^ServiceAccount&#x2F;&#123;print $1&#125;&#39;</span><br><span class="line">DEF_NS_ADMIN_TOKEN&#x3D;$(kubectl get secret SERVCIEACCOUNT_SERRET_NAME -o jsonpath&#x3D;&#123;.data.token&#125; | base64 -d )</span><br></pre></td></tr></table></figure>
+<p>(3)生成kubeconfig 文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">kubectl config set-cluster --kuberconfig&#x3D;&#x2F;PATH&#x2F;TO&#x2F;SOMEFILE</span><br><span class="line">kubectl config set-credentials NAME --token&#x3D;$KUBE_TOKEN --kubeconfig&#x3D;&#x2F;PATH&#x2F;TO&#x2F;SOMEFILE</span><br><span class="line">kubectl config set-context</span><br><span class="line">kubectl config use-context</span><br></pre></td></tr></table></figure>
+<p>kubernetes集群的管理方式<br>1、命令式: create, run, expose, delete, edit, …<br>2、命令式配置文件:create -f /PATH/TO/RESOURCE_CONFIGURATION_FILE, delete -f , replace -f<br>3、声明式配置文件: apply -f,path,</p>
+<p>docker 常用的四种网络模型 <code>bridge/joined/open/none</code></p>
+<p>Kubernetes网络通信:<br>    （1）容器间通信: 同一个Pod内的多个容器间的通信，lo<br>    （2）Pod通信: Pod IP <--> Pod IP<br>    （3）Pod与Service通信:PodIP <--> ClusterIP<br>    （4）Service与集群外部客户端的通信<br>CNI: Container Network Interface<br>    flanner<br>    calico<br>    canel<br>    kube-router<br>    …<br>解决方案:<br>    虚拟网桥<br>    多路复用: MacVLAN<br>    硬件交换: SR-IOV<br>kubelet, /etc/cni/net.d/<br>flannel:<br>    支持多种后端:<br>        VxLAN<br>            （1）vxlan<br>            （2）Directrouting<br>        host-gw: Host Gateway<br>        UDP<br>flannel的配置参数<br>    Network: flannel使用的CIDR格式的网络地址，用于为Pod的配置网络功能;<br>        master:10.244.0.0/24<br>        node01:10.244.1.0/24<br>        …<br>        node255:10.244.255.0/24<br>    SubneteLen:把Network切分子网供各节点使用时，使用多长的掩码进行切分，默认为28位;<br>    SubnetMin:10.244.10.0/24 开始<br>    SubnetMax:10.244.100.0/24 结束<br>    Backend:vxlan, host-gw, udp<br>        vxlan:<br>网络策略:<br>    名称空间:<br>        拒绝所有出站，入站;<br>        放行所有出站目标本名称空间内的所有Pod;</p>
+<p>调度器:<br>    预选策略:<br>        CheckNodeCondition<br>        GeneralPredicates:<br>            HostName: 检查Pod对象是否定义了pod.spec.hostname<br>            PodFitsHostPorts:pods.spec.containers.ports.hostPort<br>            MatchNodeSelector:pod.spec.nodeSelector<br>            PodFitsResources:检查Pod的资源需求是否能被节点所满足;<br>        NoDiskConflict:检查Pod依赖的存储卷是否能满足需求;<br>        PodToleratesNodeTaints:检查Pod的specl.tolerations可容容忍的污点是否完全包含节点上的污点;<br>        PodToleratesNodeNoExecuteTaints: 对应的行为是默认不检查的;<br>        CheckNodeLabelPresence: 检查节点指定标签的存在性;<br>        CheckServiceAffinity: 亲和性，将同一Service的Pod尽可能放在一块;<br>        MaxEBSVolumeCount<br>        MaxGCEPDVolumeCount<br>        MaxAzureDiskVolumeCount<br>        CheckVolumeBinding<br>        NoVolumeZoneConflict<br>        CheckNodeMemoryPressure: 检查内存节点是否存在压力;<br>        CheckNodePIDPressure: 检查PID数量是否过多;<br>        CheckNodeDiskPressure: 检查磁盘压力是否过大;<br>        MatchInterPodAffity: 检查节点是否满pod足亲和性与反亲和性<br>优选函数<br>    LeastRequested:(cpu((capacity-sum(requested))<em>10/capacity)+memory((capacity-sum(requested))</em>10/capacity))<br>    BalancedResourceAllocation: CPU和内存资源被占用率相近的胜出;<br>    NodePreferAvoidPods:节点注解信息”scheduler.alpha.kubernetes.io/perferAvoidPods”<br>    TaintToleration: 将Pod对象的spec.tolerations列表项与节点的 taints列表项进行匹配度检查，匹配条目越多，得分越低;<br>    SeletorSpreading:与当前Pod对象同属的标签选择器选择适配的其它选择其Pod对象所在的节点，越多的表示越低，否则越高;<br>    NodeAffinity:基于节点亲和性的;<br>    InterPodAffinity:遍历Pod对象的亲和性条目，并将能匹配到给定节点的条目的权重相加，结果值越大的，表示越高;</p>
+<p>MostRequested:跟LeastRequested正好相反;<br>NodeLabel:标签越多，得分越高;<br>ImageLocality: 镜像越多，得分越高，根据满足当前Pod对象需求的已有镜像体积大小之和;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl describe nodes node node01.ssjinyao.com</span><br></pre></td></tr></table></figure>
+<p>节点选择器:nodeSelector, nodeName<br>节点亲和调度: nodeAffinity </p>
+<p>taint的effect定义对Pod排斥效果:<br>    NoSchedule: 仅影响调度过程，对现存的Pod对象不产生影响;<br>    NoExecute: 即影响调度过程，也影响现存的Pod对象;不容忍的Pod对象将被驱逐;<br>    PreferNoSchedule:不能容忍被调度过来，但是实在没有别的节点运行，也可被调度，是NoSchedule的柔性版;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">apiVersion: apps&#x2F;v1</span><br><span class="line">kind: Deployment</span><br><span class="line">metadata:</span><br><span class="line">  name: myapp-deploy</span><br><span class="line">  namespace: default</span><br><span class="line">spec:</span><br><span class="line">  replicas: 3</span><br><span class="line">  selector:</span><br><span class="line">    matchLabels:</span><br><span class="line">      app: myapp</span><br><span class="line">      release: canary</span><br><span class="line">  template:</span><br><span class="line">    metadata:</span><br><span class="line">      labels:</span><br><span class="line">        app:myapp</span><br><span class="line">        release:canary</span><br><span class="line">    spec:</span><br><span class="line">      containers:</span><br><span class="line">      - name: myapp</span><br><span class="line">        image: ikubernetes&#x2F;myapp:v2</span><br><span class="line">        ports:</span><br><span class="line">        - name: myapp</span><br><span class="line">          image: ikubernetes&#x2F;myapp: v2</span><br><span class="line">          ports:</span><br><span class="line">          - name: http</span><br><span class="line">            containerPort: 80</span><br><span class="line">        tolerations:</span><br><span class="line">        - key: &quot;node-type&quot;</span><br><span class="line">          operator: &quot;Equal&quot;</span><br><span class="line">          value: &quot;production&quot;</span><br><span class="line">          effect: &quot;NoSchedule&quot;</span><br></pre></td></tr></table></figure>
+<p>容器的资源需求，资源限制<br>    requests: 需求，最低保障;<br>    limits: 限制，最高消耗区间，硬限制;<br>    CPU:<br>        1颗逻辑CPU<br>        1=1000微核心,millicores<br>            500m=0.5CPU<br>    内存:<br>        E、P、T、G、M、K<br>        Ei、Pi、Ti、Gi、Mi、Ki<br>    QoS:<br>        Guranteed: 每个容器同时设置CPU和内存的requests和limits;<br>            cpu.limits=cpu.requests<br>            memory.limits=memory.request<br>        Burstable:至少一个容器设置CPU或者内存资源的requests属性;<br>        BestEffort:没有任何一个容器设置了requests或limits属性;最低优先级别;<br>资源指标:metrics-server<br>自定义指标:prometheus，k8s-prometheus-adapter<br>新一代架架构:<br>    核心指标流水线: 由kubelet、metrics-server以及由API server 提供的api组成;CPU累积使用率、内存实时使用率、Pod的资源占用率及容器的磁盘占用率;<br>    监控流水线:用于从系统收集各种指标数据并提供终端用户、存储系统以及HPA，它们包含核心指标及许多非核心指标。非核心指标本身不能被k8s所解析,<br>   metrics-server:API-server<br>Helm:<br>    核心术语:<br>        Chart: 一个helm程序包的;<br>        Repository: Charts仓库，https/http服务器;<br>        Release: 特定的Chart部署于目标集群上的一个实例;<br>        Chart –&gt; Config –&gt; Release<br>    程序架构:<br>        helm:客户端，管理本地的Chart仓库，管理Chart，与Tiller服务器交互，发送Chart，实例安装、查询、卸载等操作;<br>        Tiller: 服务端，可以运行在kubernetes之上，也可以运行在kubernetes之外、接收helm发来的Charts与Config，合并生成release;<br>        RBAC配置文件示例:<br>            <a target="_blank" rel="noopener" href="https://github.com/helm/helm/blob/master/docs/rbac.md">https://github.com/helm/helm/blob/master/docs/rbac.md</a><br>        官方可用的Chart列表:<br>            <a target="_blank" rel="noopener" href="https://hub.kubeapps.com">https://hub.kubeapps.com</a><br>    helm常用命令:<br>        release管理 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># helm search jenkins</span><br><span class="line"># helm inspect jenkins</span><br><span class="line"># helm list </span><br><span class="line"># helm install</span><br><span class="line"># helm delete</span><br><span class="line"># helm upgrade</span><br><span class="line"># helm rollback</span><br><span class="line"># helm history # release的部署历史;</span><br><span class="line"># helm status # 获取release状态信息;</span><br><span class="line"># helm install --name redis -f .&#x2F;values.yaml stable&#x2F;redis </span><br></pre></td></tr></table></figure>
+<p>chart管理 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># helm create</span><br><span class="line"># helm fetch</span><br><span class="line"># helm get </span><br><span class="line"># helm inspect</span><br><span class="line"># helm package 打包chart 文件</span><br><span class="line"># helm verify </span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># helm lint ..&#x2F;myapp  # 检查语法错语</span><br><span class="line"># helm package myapp&#x2F;</span><br><span class="line"># helm delete --purge mapp3 </span><br><span class="line"># helm delete --purge mapp2</span><br><span class="line"># helm delete --purge mapp1</span><br><span class="line"># helm repo add --help </span><br><span class="line"># helm repo list </span><br></pre></td></tr></table></figure>
+<p>Chart –&gt; helm,tiller service<br>Chart –&gt; Config –&gt;Release<br>Config:values.yaml</p>
+<p>ELK: E:elasticsearch L:logstash K: kibana<br>日志收集的组件（Logstash、Filebeat、Fluentd）</p>
+<p>当pod出现挂了的情况，查看pod日志时不方便查看。因此，应该将日志提前放到一个存储中。kubernetes集群应提供一个日志收集器。<br>完整的kubernetes 集群 (kubdns| kubcurl ,ingress controller,heapster| metrics-server prometheus, dashboard)<br>四大组件组成部分，另外附加附件efk;</p>
+<p>/var/log  –&gt; /var/log/containers/<br>k8s系统关键组件:<br>Core Infrastructure –&gt; Network(SDN) Storage (Provisioning Congfiguration ) –&gt; Kubernetes Cluster –&gt; Containerzed Worload (image registry)<br>额外的系统:Logging Monitoring<br>硬件及负载、软件及负载:LoadBalancer<br>存储位置:Artifact factory<br>构建自动化:Build Automation (CI,CD)<br>自动化发布:Rlease Automation</p>
+
+  
+  
+    
+    <div class='footer'>
+      
+      
+      
+        <div class='copyright'>
+          <blockquote>
+            
+              
+                <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+              
+            
+              
+                <p>本文永久链接是：<a href=https://www.asjin.com/2018/10/04/kubernetes%20%E7%AC%94%E8%AE%B0%E4%B8%80/>https://www.asjin.com/2018/10/04/kubernetes%20%E7%AC%94%E8%AE%B0%E4%B8%80/</a></p>
+              
+            
+          </blockquote>
+        </div>
+      
+      
+    </div>
+  
+  
+    
+
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-09-29T18:54:13+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：Sep 29, 2020</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/linux/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>linux</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/cloud/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>cloud</p></a></div>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.asjin.com/2018/10/04/kubernetes%20%E7%AC%94%E8%AE%B0%E4%B8%80/&title=kubernetes笔记 - 逝水锦遥&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://www.asjin.com/2018/10/04/kubernetes%20%E7%AC%94%E8%AE%B0%E4%B8%80/&title=kubernetes笔记 - 逝水锦遥&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.asjin.com/2018/10/04/kubernetes%20%E7%AC%94%E8%AE%B0%E4%B8%80/&title=kubernetes笔记 - 逝水锦遥&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png">
+          
+        </a>
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </div>
+
+
+  
+  
+
+  
+    <div class="prev-next">
+      
+        <a class='prev' href='/2018/10/29/%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%B8%B8%E7%94%A8%E9%85%8D%E7%BD%AE%E5%8F%82%E6%95%B0%E6%98%8E%E7%BB%86/'>
+          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>服务器常用配置参数明细</p>
+          <p class='content'>[toc]
+线上服务配置参数明细
+
+问答nginx 反向代理的作用1、使用反向代理可以理解为7层应用层的负载均衡，使用负载均衡之后可以非常便捷的横向扩展服务器集群，实现集群整体并发能力、抗压能力...</p>
+        </a>
+      
+      
+        <a class='next' href='/2018/10/02/docker%E7%AC%94%E8%AE%B0%E4%BA%8C/'>
+          <p class='title'>docker笔记(二)<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>[toc]
+docker 笔记(二)
+Docker Data Volume关闭并重启容器，其数据不受影响; 但删除Docker容器，则其更将会全部丢失;存在的问题存储于联合文件系统中，不易于宿主...</p>
+        </a>
+      
+    </div>
+  
+</article>
+
+
+  
+
+  <article class="post white-box reveal floatable" id="comments">
+    <p ct><i class='fas fa-comments'></i> 评论</p>
+    
+    <div id="valine_container" class="valine_thread">
+  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+</div>
+
+  </article>
+
+
+
+
+
+
+</div>
+<aside class='l_side'>
+  
+  
+    
+    
+
+
+
+  <section class="widget toc-wrapper floatable desktop mobile" id="toc-div" >
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+        
+    </div>
+  </section>
+
+
+  
+
+
+</aside>
+
+
+
+        
+        
+          <!--此文件用来存放一些不方便取值的变量-->
+<!--思路大概是将值藏到重加载的区域内-->
+
+<script>
+  window.pdata={}
+  pdata.ispage=true;
+  pdata.postTitle="kubernetes笔记";
+  pdata.commentPath="";
+  pdata.commentPlaceholder="";
+
+  var l_header=document.getElementById("l_header");
+  
+  l_header.classList.remove("show");
+  
+</script>
+
+        
+      </div>
+      
+  
+  <footer class="footer clearfix">
+    <br><br>
+    
+      
+        <div class="aplayer-container">
+          
+
+
+        </div>
+      
+    
+      
+        <br>
+        <div class="social-wrapper">
+          
+            
+          
+            
+          
+            
+          
+        </div>
+      
+    
+      
+        <div><p>博客内容遵循 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
+</div>
+      
+    
+      
+        
+      
+    
+      
+        本站使用
+        <a href="https://github.com/volantis-x/hexo-theme-volantis/tree/4.1.6" target="_blank" class="codename">Volantis</a>
+        作为主题，目前总访问量
+          <span id="busuanzi_value_site_pv"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+          次
+        
+        作为主题，总访客数为
+          <span id="busuanzi_value_site_uv"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+          次
+        
+      
+    
+      
+        <div class='copyright'>
+        <p><a href="/">Copyright © 2017-2020 asjin.com</a></p>
+
+        </div>
+      
+    
+  </footer>
+
+
+      <a id="s-top" class="fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+    </div>
+  </div>
+  <div>
+    <script>
+window.volantis={};
+window.volantis.loadcss=document.getElementById("loadcss");
+/********************脚本懒加载函数********************************/
+function loadScript(src, cb) {
+var HEAD = document.getElementsByTagName('head')[0] || document.documentElement;
+var script = document.createElement('script');
+script.setAttribute('type','text/javascript');
+if (cb) script.onload = cb;
+script.setAttribute('src', src);
+HEAD.appendChild(script);
+}
+//https://github.com/filamentgroup/loadCSS
+var loadCSS = function( href, before, media, attributes ){
+	var doc = window.document;
+	var ss = doc.createElement( "link" );
+	var ref;
+	if( before ){
+		ref = before;
+	}
+	else {
+		var refs = ( doc.body || doc.getElementsByTagName( "head" )[ 0 ] ).childNodes;
+		ref = refs[ refs.length - 1];
+	}
+	var sheets = doc.styleSheets;
+	if( attributes ){
+		for( var attributeName in attributes ){
+			if( attributes.hasOwnProperty( attributeName ) ){
+				ss.setAttribute( attributeName, attributes[attributeName] );
+			}
+		}
+	}
+	ss.rel = "stylesheet";
+	ss.href = href;
+	ss.media = "only x";
+	function ready( cb ){
+		if( doc.body ){
+			return cb();
+		}
+		setTimeout(function(){
+			ready( cb );
+		});
+	}
+	ready( function(){
+		ref.parentNode.insertBefore( ss, ( before ? ref : ref.nextSibling ) );
+	});
+	var onloadcssdefined = function( cb ){
+		var resolvedHref = ss.href;
+		var i = sheets.length;
+		while( i-- ){
+			if( sheets[ i ].href === resolvedHref ){
+				return cb();
+			}
+		}
+		setTimeout(function() {
+			onloadcssdefined( cb );
+		});
+	};
+	function loadCB(){
+		if( ss.addEventListener ){
+			ss.removeEventListener( "load", loadCB );
+		}
+		ss.media = media || "all";
+	}
+	if( ss.addEventListener ){
+		ss.addEventListener( "load", loadCB);
+	}
+	ss.onloadcssdefined = onloadcssdefined;
+	onloadcssdefined( loadCB );
+	return ss;
+};
+</script>
+<script>
+  
+  loadCSS("https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14/css/all.min.css", window.volantis.loadcss);
+  
+  
+  
+  
+</script>
+<!-- required -->
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5/dist/jquery.min.js"></script>
+
+<script>
+  function pjax_fancybox() {
+    $(".md .gallery").find("img").each(function () { //渲染 fancybox
+      var element = document.createElement("a"); // a 标签
+      $(element).attr("class", "fancybox");
+      $(element).attr("pjax-fancybox", "");  // 过滤 pjax
+      $(element).attr("href", $(this).attr("src"));
+      if ($(this).attr("data-original")) {
+        $(element).attr("href", $(this).attr("data-original"));
+      }
+      $(element).attr("data-fancybox", "images");
+      var caption = "";   // 描述信息
+      if ($(this).attr('alt')) {  // 判断当前页面是否存在描述信息
+        $(element).attr('data-caption', $(this).attr('alt'));
+        caption = $(this).attr('alt');
+      }
+      var div = document.createElement("div");
+      $(div).addClass("fancybox");
+      $(this).wrap(div); // 最外层套 div ，其实主要作用还是 class 样式
+      var span = document.createElement("span");
+      $(span).addClass("image-caption");
+      $(span).text(caption); // 加描述
+      $(this).after(span);  // 再套一层描述
+      $(this).wrap(element);  // 最后套 a 标签
+    })
+    $(".md .gallery").find("img").fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+      closeClick: true,
+      helpers: {
+        overlay: {closeClick: true}
+      },
+      buttons: [
+        "zoom",
+        "close"
+      ]
+    });
+  };
+  function SCload_fancybox() {
+    if ($(".md .gallery").find("img").length == 0) return;
+    loadCSS("https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css", document.getElementById("loadcss"));
+    setTimeout(function() {
+      loadScript('https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js', pjax_fancybox)
+    }, 1);
+  };
+  $(function () {
+    SCload_fancybox();
+  });
+</script>
+
+
+<!-- internal -->
+
+
+
+
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.1.0/dist/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 0
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    lazyLoadInstance.update();
+  });
+  document.addEventListener('pjax:complete', function () {
+    lazyLoadInstance.update();
+  });
+</script>
+
+
+
+
+  
+  
+    <script async src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@2/js/instant_page.js" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+  
+
+
+
+
+  <script src="/js/clipboard.min.js"></script>
+<script>
+    var clipboard = new ClipboardJS('.btn-copy', {
+        target: function (trigger) {
+            return trigger.nextElementSibling
+        }
+    });
+    function wait(callback, seconds) {
+        var timelag = null;
+        timelag = window.setTimeout(callback, seconds)
+    }
+    function pjax_initCopyCode() {
+		if($(".highlight .code pre").length+$(".article pre code").length==0)return;
+        var copyHtml = '';
+        copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+        copyHtml += '<i class="fas fa-copy"></i><span>COPY</span>';
+        copyHtml += '</button>';
+        $(".highlight .code pre").before(copyHtml);
+        $(".article pre code").before(copyHtml);
+        clipboard.off('success').on('success', function (e) {
+            let $btn = $(e.trigger);
+            $btn.addClass('copied');
+            let $icon = $($btn.find('i'));
+            $icon.removeClass('fa-copy');
+            $icon.addClass('fa-check-circle');
+            let $span = $($btn.find('span'));
+            $span[0].innerText = 'COPIED';
+            wait(function () {
+                $icon.removeClass('fa-check-circle');
+                $icon.addClass('fa-copy');
+                $span[0].innerText = 'COPY'
+            }, 2000)
+        });
+        clipboard.off('error').on('error', function (e) {
+            e.clearSelection();
+            let $btn = $(e.trigger);
+            $btn.addClass('copy-failed');
+            let $icon = $($btn.find('i'));
+            $icon.removeClass('fa-copy');
+            $icon.addClass('fa-times-circle');
+            let $span = $($btn.find('span'));
+            $span[0].innerText = 'COPY FAILED';
+            wait(function () {
+                $icon.removeClass('fa-times-circle');
+                $icon.addClass('fa-copy');
+                $span[0].innerText = 'COPY'
+            }, 2000)
+        })
+    }
+    $(function () {
+        pjax_initCopyCode()
+    });
+</script>
+
+
+
+
+
+
+
+
+  
+  
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4/dist/Valine.min.js"></script>
+
+
+<script>
+  var GUEST_INFO = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link,header'.split(',').filter(function (item) {
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var REQUIRED_FIELDS = ['nick', 'mail', 'link'];
+  var requiredFields = 'nick,mail'.split(',').filter(function (item) {
+    return REQUIRED_FIELDS.indexOf(item) > -1
+  });
+
+  function emoji(path, idx, ext) {
+    return path + "/" + path + "-" + idx + "." + ext;
+  }
+
+  var emojiMaps = {};
+  for (var i = 1; i <= 54; i++) {
+    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
+  }
+  for (var i = 1; i <= 101; i++) {
+    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+  }
+  for (var i = 1; i <= 116; i++) {
+    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
+  }
+  for (var i = 1; i <= 125; i++) {
+    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
+  }
+  for (var i = 1; i <= 4; i++) {
+    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+  }
+
+  function pjax_valine() {
+    if(!document.querySelectorAll("#valine_container")[0])return;
+
+    let pagePlaceholder = pdata.commentPlaceholder || "快来评论吧~ 🤩 🤩 🤩";
+
+    let path = pdata.commentPath;
+    if (path.length == 0) {
+      let defaultPath = '';
+      path = defaultPath || decodeURI(window.location.pathname);
+    }
+
+    var valine = new Valine();
+    valine.init({
+      el: '#valine_container',
+      meta: meta,
+      placeholder: pagePlaceholder,
+      path: path,
+      appId: "NkJqMpxu4QlRLhPIHipNUHF1-gzGzoHsz",
+      appKey: "D2vTdueKJ8ammc2JEdje0vLW",
+      pageSize: '',
+      avatar: 'monsterid',
+      lang: '',
+      visitor: '',
+      highlight: '',
+      mathJax: '',
+      enableQQ: 'true',
+      recordIP: 'false',
+      requiredFields: requiredFields,
+      emojiCDN: 'https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/valine/',
+      emojiMaps: emojiMaps
+    })
+  }
+
+  $(function () {
+    pjax_valine();
+  });
+</script>
+
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js" data-pjax></script>
+
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-theme-volantis@4.1.6/source/js/app.min.js"></script>
+
+
+
+<!-- optional -->
+
+  <script>
+const SearchServiceimagePath="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@master/img/";
+const ROOT =  ("/" || "/").endsWith('/') ? ("/" || "/") : ("//" || "/" );
+
+$('.input.u-search-input').one('focus',function(){
+	
+		loadScript('https://cdn.jsdelivr.net/npm/hexo-theme-volantis@4.1.6/source/js/search/hexo.min.js',setSearchService);
+	
+})
+
+function listenSearch(){
+  
+    customSearch = new HexoSearch({
+      imagePath: SearchServiceimagePath
+    });
+  
+}
+function setSearchService() {
+	listenSearch();
+	
+		document.addEventListener("pjax:success", listenSearch);
+	
+}
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script>
+const rootElement = document.documentElement;
+const darkModeStorageKey = "user-color-scheme";
+const rootElementDarkModeAttributeName = "data-user-color-scheme";
+
+const setLS = (k, v) => {
+  try {
+    localStorage.setItem(k, v);
+  } catch (e) {
+    console.log(e.message);
+  }
+};
+
+const removeLS = (k) => {
+  try {
+    localStorage.removeItem(k);
+  } catch (e) {
+    console.log(e.message);
+  }
+};
+
+const getLS = (k) => {
+  try {
+    return localStorage.getItem(k);
+  } catch (e) {
+    console.log(e.message);
+    return null;
+  }
+};
+
+const getModeFromCSSMediaQuery = () => {
+  return window.matchMedia("(prefers-color-scheme: dark)").matches
+    ? "dark"
+    : "light";
+};
+
+const resetRootDarkModeAttributeAndLS = () => {
+  rootElement.removeAttribute(rootElementDarkModeAttributeName);
+  removeLS(darkModeStorageKey);
+};
+
+const validColorModeKeys = {
+  dark: true,
+  light: true,
+};
+
+const applyCustomDarkModeSettings = (mode) => {
+  const currentSetting = mode || getLS(darkModeStorageKey);
+
+  if (currentSetting === getModeFromCSSMediaQuery()) {
+    resetRootDarkModeAttributeAndLS();
+  } else if (validColorModeKeys[currentSetting]) {
+    rootElement.setAttribute(rootElementDarkModeAttributeName, currentSetting);
+  } else {
+    resetRootDarkModeAttributeAndLS();
+  }
+};
+
+const invertDarkModeObj = {
+  dark: "light",
+  light: "dark",
+};
+
+/**
+ * get target mode
+ */
+const toggleCustomDarkMode = () => {
+  let currentSetting = getLS(darkModeStorageKey);
+
+  if (validColorModeKeys[currentSetting]) {
+    currentSetting = invertDarkModeObj[currentSetting];
+  } else if (currentSetting === null) {
+    currentSetting = invertDarkModeObj[getModeFromCSSMediaQuery()];
+  } else {
+    return;
+  }
+  setLS(darkModeStorageKey, currentSetting);
+  return currentSetting;
+};
+
+/**
+ * bind click event for toggle button
+ */
+function bindToggleButton() {
+	var btn=$("#wrapper .toggle-mode-btn");
+    btn.on('click',(e) => {
+      const mode = toggleCustomDarkMode();
+      applyCustomDarkModeSettings(mode);
+    });
+}
+
+applyCustomDarkModeSettings();
+document.addEventListener("DOMContentLoaded", bindToggleButton);
+document.addEventListener("pjax:success", bindToggleButton);
+
+</script>
+
+
+
+
+
+
+<script>
+function listennSidebarTOC() {
+  const navItems = document.querySelectorAll(".toc li");
+  if (!navItems.length) return;
+  const sections = [...navItems].map((element) => {
+    const link = element.querySelector(".toc-link");
+    const target = document.getElementById(
+      decodeURI(link.getAttribute("href")).replace("#", "")
+    );
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+      window.scrollTo({
+		top: target.offsetTop + 100,
+		
+		behavior: "smooth"
+		
+	  });
+    });
+    return target;
+  });
+
+  function activateNavByIndex(target) {
+    if (target.classList.contains("active-current")) return;
+
+    document.querySelectorAll(".toc .active").forEach((element) => {
+      element.classList.remove("active", "active-current");
+    });
+    target.classList.add("active", "active-current");
+    let parent = target.parentNode;
+    while (!parent.matches(".toc")) {
+      if (parent.matches("li")) parent.classList.add("active");
+      parent = parent.parentNode;
+    }
+  }
+
+  function findIndex(entries) {
+    let index = 0;
+    let entry = entries[index];
+    if (entry.boundingClientRect.top > 0) {
+      index = sections.indexOf(entry.target);
+      return index === 0 ? 0 : index - 1;
+    }
+    for (; index < entries.length; index++) {
+      if (entries[index].boundingClientRect.top <= 0) {
+        entry = entries[index];
+      } else {
+        return sections.indexOf(entry.target);
+      }
+    }
+    return sections.indexOf(entry.target);
+  }
+
+  function createIntersectionObserver(marginTop) {
+    marginTop = Math.floor(marginTop + 10000);
+    let intersectionObserver = new IntersectionObserver(
+      (entries, observe) => {
+        let scrollHeight = document.documentElement.scrollHeight + 100;
+        if (scrollHeight > marginTop) {
+          observe.disconnect();
+          createIntersectionObserver(scrollHeight);
+          return;
+        }
+        let index = findIndex(entries);
+        activateNavByIndex(navItems[index]);
+      },
+      {
+        rootMargin: marginTop + "px 0px -100% 0px",
+        threshold: 0,
+      }
+    );
+    sections.forEach((element) => {
+      element && intersectionObserver.observe(element);
+    });
+  }
+  createIntersectionObserver(document.documentElement.scrollHeight);
+}
+
+document.addEventListener("DOMContentLoaded", listennSidebarTOC);
+document.addEventListener("pjax:success", listennSidebarTOC);
+</script>
+
+<!-- more -->
+
+
+
+
+    
+      
+
+
+<script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script>
+
+
+<script>
+    var pjax;
+    document.addEventListener('DOMContentLoaded', function () {
+      pjax = new Pjax({
+        elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"]):not([pjax-fancybox])',
+        selectors: [
+          "title",
+          "#l_cover",
+          "#pjax-container",
+          "#pjax-header-nav-list"
+        ],
+        cacheBust: false,   // url 地址追加时间戳，用以避免浏览器缓存
+        timeout: 5000
+      });
+    });
+
+    document.addEventListener('pjax:send', function (e) {
+      //window.stop(); // 相当于点击了浏览器的停止按钮
+
+      try {
+        var currentUrl = window.location.pathname;
+        var targetUrl = e.triggerElement.href;
+        var banUrl = [""];
+        if (banUrl[0] != "") {
+          banUrl.forEach(item => {
+            if(currentUrl.indexOf(item) != -1 || targetUrl.indexOf(item) != -1) {
+              window.location.href = targetUrl;
+            }
+          });
+        }
+      } catch (error) {}
+
+      window.subData = null; // 移除标题（用于一二级导航栏切换处）
+      if (typeof $.fancybox != "undefined") {
+        $.fancybox.close();    // 关闭弹窗
+      }
+      volantis.$switcher.removeClass('active'); // 关闭移动端激活的搜索框
+      volantis.$header.removeClass('z_search-open'); // 关闭移动端激活的搜索框
+      volantis.$wrapper.removeClass('sub'); // 跳转页面时关闭二级导航
+
+      // 解绑事件 避免重复监听
+      volantis.$topBtn.unbind('click');
+      $('.menu a').unbind('click');
+      $(window).unbind('resize');
+      $(window).unbind('scroll');
+      $(document).unbind('scroll');
+      $(document).unbind('click');
+      $('body').unbind('click');
+	  
+    });
+
+    document.addEventListener('pjax:complete', function () {
+      // 关于百度统计对 SPA 页面的处理：
+      // 方案一：百度统计>管理>单页应用设置中，打开开启按钮即可对SPA进行统计。 https://tongji.baidu.com/web/help/article?id=324
+      // 方案二：取消注释下列代码。 https://tongji.baidu.com/web/help/article?id=235
+       
+
+      // 关于谷歌统计对 SPA 页面的处理：
+      // 当应用以动态方式加载内容并更新地址栏中的网址时，也应该更新通过 gtag.js 存储的网页网址。
+      // https://developers.google.cn/analytics/devguides/collection/gtagjs/single-page-applications?hl=zh-cn
+      
+	 
+
+      $('.nav-main').find('.list-v').not('.menu-phone').removeAttr("style",""); // 移除小尾巴的移除
+      $('.menu-phone.list-v').removeAttr("style",""); // 移除小尾巴的移除
+      $('script[data-pjax], .pjax-reload script').each(function () {
+        $(this).parent().append($(this).remove());
+      });
+      try{
+          if (typeof $.fancybox == "undefined") {
+            SCload_fancybox();
+          } else {
+            pjax_fancybox();
+          }
+        
+        
+        
+        
+        
+          pjax_initCopyCode();
+        
+        
+          pjax_valine();
+        
+        
+        
+        
+      } catch (e) {
+        console.log(e);
+      }
+	  
+    });
+
+    document.addEventListener('pjax:error', function (e) {
+	  
+      window.location.href = e.triggerElement.href;
+    });
+</script>
+
+    
+  </div>
+</body>
+</html>

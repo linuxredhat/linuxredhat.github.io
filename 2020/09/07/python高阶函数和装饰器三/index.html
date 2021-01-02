@@ -1,0 +1,1555 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head hexo-theme='https://github.com/volantis-x/hexo-theme-volantis/tree/4.1.6'>
+  <meta charset="utf-8">
+  <!-- SEO相关 -->
+  
+    
+  
+  <!-- 渲染优化 -->
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://cdn.jsdelivr.net'>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- 页面元数据 -->
+  
+  <title>python高阶函数函数和装饰器三 - 逝水锦遥</title>
+  
+    <meta name="keywords" content="linux,program">
+  
+
+  
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="逝水锦遥" type="application/atom+xml">
+  
+
+  <!-- import meta -->
+  
+
+  <!-- link -->
+  
+
+  <!-- import link -->
+  
+
+  
+    
+<link rel="stylesheet" href="/css/first.css">
+
+  
+
+  
+  <link rel="stylesheet" href="/css/style.css" media="print" onload="this.media='all';this.onload=null">
+  <noscript><link rel="stylesheet" href="/css/style.css"></noscript>
+  
+
+  <script id="loadcss"></script>
+</head>
+
+
+<body>
+	  <canvas id="canvas" width="1440" height="900" ></canvas>
+	  <script type="text/javascript" src="/js/DigitalRain.js"></script>
+  
+
+<header id="l_header" class="l_header always floatable "  >
+  <div class='container'>
+  <div id='wrapper'>
+    <div class='nav-sub'>
+      <p class="title"></p>
+      <ul class='switcher nav-list-h m-phone' id="pjax-header-nav-list">
+        <li><a id="s-comment" class="fas fa-comments fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+          <li><a id="s-toc" class="s-toc fas fa-list fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+      </ul>
+    </div>
+		<div class="nav-main">
+      
+        
+        <a class="title flat-box" target="_self" href='/'>
+          
+            <img no-lazy class='logo' src='/images/head.png'/>
+          
+          
+          
+        </a>
+      
+
+			<div class='menu navigation'>
+				<ul class='nav-list-h m-pc'>
+          
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fab fa-linux fa-fw'></i>所有文章
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/program
+                  
+                  
+                  
+                    id="tagsprogram"
+                  >
+                  <i class='fab fa-gitlab fa-fw'></i>运维开发
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/rhca
+                  
+                  
+                  
+                    id="tagsrhca"
+                  >
+                  <i class='fas fa-heartbeat fa-fw'></i>运维组件
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/cloud
+                  
+                  
+                  
+                    id="tagscloud"
+                  >
+                  <i class='fas fa-cloud fa-fw'></i>云计算
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/zikao
+                  
+                  
+                  
+                    id="tagszikao"
+                  >
+                  <i class='fab fa-drupal fa-fw'></i>成自考
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/renjin
+                  
+                  
+                  
+                    id="tagsrenjin"
+                  >
+                  <i class='fas fa-user-circle fa-fw'></i>个人中心
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" 
+                  
+                  
+                  >
+                  <i class='fas fa-ellipsis-v fa-fw'></i>更多
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box header toggle-mode-btn">
+                  <i class='fas fa-moon fa-fw'></i>夜间模式
+                </a>
+              <li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/box/
+                  
+                  
+                  
+                    id="box"
+                  >
+                  <i class='fas fa-flag fa-fw'></i>工具箱
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+          
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="搜索文章..." />
+        </form>
+      </div>
+
+			<ul class='switcher nav-list-h m-phone'>
+				
+					<li><a class="s-search fas fa-search fa-fw" target="_self" href='javascript:void(0)'></a></li>
+				
+				<li>
+          <a class="s-menu fas fa-bars fa-fw" target="_self" href='javascript:void(0)'></a>
+          <ul class="menu-phone list-v navigation white-box">
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fab fa-linux fa-fw'></i>所有文章
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/program
+                  
+                  
+                  
+                    id="tagsprogram"
+                  >
+                  <i class='fab fa-gitlab fa-fw'></i>运维开发
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/rhca
+                  
+                  
+                  
+                    id="tagsrhca"
+                  >
+                  <i class='fas fa-heartbeat fa-fw'></i>运维组件
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/cloud
+                  
+                  
+                  
+                    id="tagscloud"
+                  >
+                  <i class='fas fa-cloud fa-fw'></i>云计算
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/zikao
+                  
+                  
+                  
+                    id="tagszikao"
+                  >
+                  <i class='fab fa-drupal fa-fw'></i>成自考
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/renjin
+                  
+                  
+                  
+                    id="tagsrenjin"
+                  >
+                  <i class='fas fa-user-circle fa-fw'></i>个人中心
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" 
+                  
+                  
+                  >
+                  <i class='fas fa-ellipsis-v fa-fw'></i>更多
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box header toggle-mode-btn">
+                  <i class='fas fa-moon fa-fw'></i>夜间模式
+                </a>
+              <li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/box/
+                  
+                  
+                  
+                    id="box"
+                  >
+                  <i class='fas fa-flag fa-fw'></i>工具箱
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+            
+          </ul>
+        </li>
+			</ul>
+		</div>
+	</div>
+  </div>
+</header>
+
+  <div id="l_body">
+    <div id="l_cover">
+  
+    
+        <div id="half" class='cover-wrapper post search' style="display: ;">
+          
+            <div class='cover-bg lazyload placeholder' data-bg="/images/background.jpg"></div>
+          
+          <div class='cover-body'>
+  <div class='top'>
+    
+      <img no-lazy class='logo' src='/images/ssjyai.png'/>
+    
+    
+    
+      <p class="subtitle">有志而性缓者思大志 有才而气和者为大才</p>
+    
+  </div>
+  <div class='bottom'>
+    
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <input type="text" class="input u-search-input" placeholder="搜索本地文章" />
+          <i class="icon fas fa-search fa-fw"></i>
+        </form>
+      </div>
+    
+    <div class='menu navigation'>
+      <div class='list-h'>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+          <div id="scroll-down" style="display: none;"><i class="fa fa-chevron-down scroll-down-effects"></i></div>
+        </div>
+    
+  
+  </div>
+
+    <div id='safearea'>
+      <div class='body-wrapper' id="pjax-container">
+        
+
+<div class='l_main'>
+  <article class="article post white-box reveal md floatable article-type-post" id="post" itemscope itemprop="blogPost">
+  
+
+
+  
+  <div class="article-meta" id="top">
+    
+    
+    
+      <h1 class="title">
+        python高阶函数函数和装饰器三
+      </h1>
+      <div class='new-meta-box'>
+        
+          
+            
+<div class='new-meta-item author'>
+  <a class='author' href="/images/rjrt.ico" rel="nofollow">
+    <img no-lazy src="/images/rjrt.ico">
+    <p>任锦</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：Sep 7, 2020</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class="new-meta-item browse busuanzi">
+    <a class='notlink'>
+      <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+      <p>
+        <span id="busuanzi_value_page_pv">
+          <i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i>
+        </span>
+        <span id="busuanzi_value_page_uv">
+          <i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i>
+        </span>
+        次浏览
+      </p>
+    </a>
+  </div>
+
+
+          
+        
+      </div>
+    
+  </div>
+
+
+  
+  <p>[toc]</p>
+<h1 id="python高阶函数和装饰器三"><a href="#python高阶函数和装饰器三" class="headerlink" title="python高阶函数和装饰器三"></a>python高阶函数和装饰器三</h1><p><img src="/images/python_function.png" class="lazyload" data-srcset="/images/python_function.png" srcset="data:image/png;base64,666" alt=""></p>
+<h2 id="函数定义的弊端"><a href="#函数定义的弊端" class="headerlink" title="函数定义的弊端"></a>函数定义的弊端</h2><ul>
+<li>Python 是动态语言，变量随时可以被赋值，且能赋值为不同的类型;</li>
+<li>Python 不是表态编译型语言，变量类型是在运行时决定的;</li>
+<li>动态语言很灵活，但是这种我也是弊端;</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">1</span>]: <span class="function"><span class="keyword">def</span> <span class="title">add</span>(<span class="params">x,y</span>):</span></span><br><span class="line">   ...:     <span class="keyword">return</span> x + y</span><br><span class="line">In [<span class="number">2</span>]: print(add(<span class="number">4</span>,<span class="number">5</span>))</span><br><span class="line"><span class="number">9</span></span><br><span class="line">In [<span class="number">3</span>]: print(add(<span class="string">&#x27;hello&#x27;</span>,<span class="string">&#x27;world&#x27;</span>))</span><br><span class="line">helloworld</span><br><span class="line">In [<span class="number">4</span>]: print(add(<span class="number">4</span>,<span class="string">&#x27;world&#x27;</span>))</span><br><span class="line"><span class="comment"># 这时报错 </span></span><br></pre></td></tr></table></figure>
+<ol>
+<li>难发现: 由于不做任何类型检查，直到运行期间问题才显现出来，或者线上运行时才能暴露出问题;</li>
+<li>难使用: 函数的使用者看到函数的时候，并不知道你的函数设计，并不知道应该传入什么类型的数据;</li>
+</ol>
+<ul>
+<li>函数注解(Function Annotations)</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add</span>(<span class="params">x:<span class="built_in">int</span> ,y:<span class="built_in">int</span></span>) -&gt; int:</span></span><br><span class="line">    <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">    :param x:</span></span><br><span class="line"><span class="string">    :param y:</span></span><br><span class="line"><span class="string">    :return:</span></span><br><span class="line"><span class="string">    &#x27;&#x27;&#x27;</span></span><br><span class="line">    <span class="keyword">return</span> x + y</span><br><span class="line">print(add(<span class="string">&#x27;ssjinyao&#x27;</span>,<span class="string">&#x27;.com&#x27;</span>))</span><br></pre></td></tr></table></figure>
+<ul>
+<li>函数注解</li>
+</ul>
+<ol>
+<li>Python3.5引入;</li>
+<li>对函数的参数进行类型注解;</li>
+<li>对函数的返回值进行类型注解;</li>
+<li>只对函数参数做一个辅助的说，并不对函数参数进行类型检查;</li>
+<li>提供给第三方工具，做代码分析，发现隐藏的bug;</li>
+<li>函数注解的信息，保存在<code>__annotations__</code> 属性中</li>
+</ol>
+<ul>
+<li>变量注解<br>  Pyton3.6引入<br>  <code>i:int =3</code></li>
+</ul>
+<h3 id="业务应用"><a href="#业务应用" class="headerlink" title="业务应用"></a>业务应用</h3><pre><code>* 函数参数类型检查
+* 思路
+</code></pre><ol>
+<li>函数参数的检查，一定是在函数外;</li>
+<li>函数应该作为参数，传入到检查函数中;</li>
+<li>检查函数拿到函数传的实际参数，与形参声明对比;</li>
+<li><code>__annotations__</code>属jntg是一个字典，其中包括返回值类型的声明。假设要做位置参数的判断，无法和字典中的声明对应，使用inpsect 模块;</li>
+<li><code>inspect</code>模块: 提供获取对象信息的函数，可以检查函数和类、类型检查;</li>
+</ol>
+<h2 id="inspect-模块"><a href="#inspect-模块" class="headerlink" title="inspect 模块"></a>inspect 模块</h2><p><code>signature(callable)</code>，获取签名(函数签名包含了一个函数的信息，包括函数名，它的参数类型、它所在的类和名称空间及其他信息)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> inspect</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add</span>(<span class="params">x:<span class="built_in">int</span>,y:<span class="built_in">int</span>,*args,**kwargs</span>)-&gt;int:</span></span><br><span class="line">    <span class="keyword">return</span> x+y</span><br><span class="line">sig = inspect.signature(add)</span><br><span class="line">print(sig)</span><br><span class="line">print(<span class="string">&#x27;params:&#x27;</span>,sig.parameters) <span class="comment"># OrderedDict</span></span><br><span class="line">print(<span class="string">&#x27;return:&#x27;</span>,sig.return_annotation)</span><br><span class="line">print(sig.parameters[<span class="string">&#x27;y&#x27;</span>])</span><br><span class="line">print(sig.parameters[<span class="string">&#x27;x&#x27;</span>].annotation)</span><br><span class="line">print(sig.parameters[<span class="string">&#x27;args&#x27;</span>])</span><br><span class="line">print(sig.parameters[<span class="string">&#x27;args&#x27;</span>].annotation)</span><br><span class="line">print(sig.parameters[<span class="string">&#x27;kwargs&#x27;</span>])</span><br><span class="line">print(sig.parameters[<span class="string">&#x27;kwargs&#x27;</span>].annotation)</span><br><span class="line"><span class="comment"># 输出信息</span></span><br><span class="line">(x: int, y: int, *args, **kwargs) -&gt; int</span><br><span class="line">params: OrderedDict([(<span class="string">&#x27;x&#x27;</span>, &lt;Parameter <span class="string">&quot;x: int&quot;</span>&gt;), (<span class="string">&#x27;y&#x27;</span>, &lt;Parameter <span class="string">&quot;y: int&quot;</span>&gt;), (<span class="string">&#x27;args&#x27;</span>, &lt;Parameter <span class="string">&quot;*args&quot;</span>&gt;), (<span class="string">&#x27;kwargs&#x27;</span>, &lt;Parameter <span class="string">&quot;**kwargs&quot;</span>&gt;)])</span><br><span class="line"><span class="keyword">return</span>: &lt;<span class="class"><span class="keyword">class</span> &#x27;<span class="title">int</span>&#x27;&gt;</span></span><br><span class="line"><span class="class"><span class="title">y</span>:</span> <span class="built_in">int</span></span><br><span class="line">&lt;<span class="class"><span class="keyword">class</span> &#x27;<span class="title">int</span>&#x27;&gt;</span></span><br><span class="line"><span class="class">*<span class="title">args</span></span></span><br><span class="line"><span class="class">&lt;<span class="title">class</span> &#x27;<span class="title">inspect</span>.<span class="title">_empty</span>&#x27;&gt;</span></span><br><span class="line"><span class="class">**<span class="title">kwargs</span></span></span><br><span class="line"><span class="class">&lt;<span class="title">class</span> &#x27;<span class="title">inspect</span>.<span class="title">_empty</span>&#x27;&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">inspect.isfunction(add) <span class="comment"># 是否是函数</span></span><br><span class="line">inspect.ismethod(add) <span class="comment"># 是否是类的方法</span></span><br><span class="line">inspect.isgenerator(add) <span class="comment"># 是否是生成器对象</span></span><br><span class="line">inspect.isgenratorfunction(add)<span class="comment"># 是否是生成器函数</span></span><br><span class="line">inspect.isclass(add) <span class="comment"># 是否是类</span></span><br><span class="line">inspect.ismodule(inspect) <span class="comment">#是否是模块</span></span><br><span class="line">inspect.isbuiltin(<span class="built_in">print</span>) <span class="comment">#是否是内建对象</span></span><br><span class="line"><span class="comment"># 还很多is函数，需要的时候查阅inpect模块帮助</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>Parameter对象</li>
+</ul>
+<ol>
+<li>保存在元组中，是只读的;</li>
+<li>name, 参数的名字;</li>
+<li>annotation，参数的注解，可能没有定义;</li>
+<li>default，参数的缺省值，可能没有定义;</li>
+<li>empty, 特殊的类，用来标记default属性或者注释annotation属性的空值;</li>
+<li><p>kind，实参如何绑定到形参，就是形参的类型;</p>
+<p> <code>POSITIONAL_ONLY</code>, 值必须是位置参数提供;<br> <code>VAR_POSITIONAL</code>, 可变位置参数,对应<code>*args</code>;<br> <code>KEKWORD_ONLY</code>, keyword-only参数，对应* 或者*args之后的出现的非可变关键字参数;<br> <code>VAR_KEYWORD</code>, 可变关键字参数, 对应<code>**kwargs</code></p>
+</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> inspect</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add</span>(<span class="params">x, y:<span class="built_in">int</span>=<span class="number">7</span>, *args, z, t=<span class="number">10</span>,**kwargs</span>) -&gt; int:</span></span><br><span class="line">    <span class="keyword">return</span> x + y</span><br><span class="line">sig = inspect.signature(add)</span><br><span class="line">print(<span class="string">&#x27;params: &#x27;</span>, sig.parameters)</span><br><span class="line">print(<span class="string">&#x27;return: &#x27;</span>, sig.return_annotation)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i,(name,param) <span class="keyword">in</span> <span class="built_in">enumerate</span>(sig.parameters.items()):</span><br><span class="line">    print(i+<span class="number">1</span>, name, param.annotation, param.kind, param.default)</span><br><span class="line">    print(param.default <span class="keyword">is</span> param.empty, end = <span class="string">&#x27;\n&#x27;</span>)</span><br><span class="line"><span class="comment"># 输出</span></span><br><span class="line"><span class="number">1</span> x &lt;<span class="class"><span class="keyword">class</span> &#x27;<span class="title">inspect</span>.<span class="title">_empty</span>&#x27;&gt; <span class="title">POSITIONAL_OR_KEYWORD</span> &lt;<span class="title">class</span> &#x27;<span class="title">inspect</span>.<span class="title">_empty</span>&#x27;&gt;</span></span><br><span class="line"><span class="class"><span class="title">True</span></span></span><br><span class="line"><span class="class">2 <span class="title">y</span> &lt;<span class="title">class</span> &#x27;<span class="title">int</span>&#x27;&gt; <span class="title">POSITIONAL_OR_KEYWORD</span> 7</span></span><br><span class="line"><span class="class"><span class="title">False</span></span></span><br><span class="line"><span class="class">3 <span class="title">args</span> &lt;<span class="title">class</span> &#x27;<span class="title">inspect</span>.<span class="title">_empty</span>&#x27;&gt; <span class="title">VAR_POSITIONAL</span> &lt;<span class="title">class</span> &#x27;<span class="title">inspect</span>.<span class="title">_empty</span>&#x27;&gt;</span></span><br><span class="line"><span class="class"><span class="title">True</span></span></span><br><span class="line"><span class="class">4 <span class="title">z</span> &lt;<span class="title">class</span> &#x27;<span class="title">inspect</span>.<span class="title">_empty</span>&#x27;&gt; <span class="title">KEYWORD_ONLY</span> &lt;<span class="title">class</span> &#x27;<span class="title">inspect</span>.<span class="title">_empty</span>&#x27;&gt;</span></span><br><span class="line"><span class="class"><span class="title">True</span></span></span><br><span class="line"><span class="class">5 <span class="title">t</span> &lt;<span class="title">class</span> &#x27;<span class="title">inspect</span>.<span class="title">_empty</span>&#x27;&gt; <span class="title">KEYWORD_ONLY</span> 10</span></span><br><span class="line"><span class="class"><span class="title">False</span></span></span><br><span class="line"><span class="class">6 <span class="title">kwargs</span> &lt;<span class="title">class</span> &#x27;<span class="title">inspect</span>.<span class="title">_empty</span>&#x27;&gt; <span class="title">VAR_KEYWORD</span> &lt;<span class="title">class</span> &#x27;<span class="title">inspect</span>.<span class="title">_empty</span>&#x27;&gt;</span></span><br><span class="line"><span class="class"><span class="title">True</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> inspect</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">check</span>(<span class="params">fn</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">wrapper</span>(<span class="params">*args,**kwargs</span>):</span></span><br><span class="line">        <span class="comment"># 实参检查</span></span><br><span class="line">        print(args,kwargs)</span><br><span class="line">        sig = inspect.signature(fn)</span><br><span class="line">        print(sig)</span><br><span class="line">        print(<span class="string">&#x27;params: &#x27;</span>, sig.parameters)</span><br><span class="line">        print(<span class="string">&#x27;return: &#x27;</span>, sig.return_annotation)</span><br><span class="line">        print(<span class="string">&#x27;-------------------------&#x27;</span>)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> param <span class="keyword">in</span> sig.parameters.values():</span><br><span class="line">            print(param.name,param)</span><br><span class="line">            print(param.name, param.annotation, param.kind, param.default)</span><br><span class="line">            print(param.default <span class="keyword">is</span> param.empty, end=<span class="string">&#x27;\n&#x27;</span>)</span><br><span class="line">        ret = fn(*args, **kwargs)</span><br><span class="line">        <span class="keyword">return</span>  ret</span><br><span class="line">    <span class="keyword">return</span>  wrapper</span><br><span class="line"></span><br><span class="line"><span class="meta">@check</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add</span>(<span class="params">x:<span class="built_in">int</span> , y:<span class="built_in">int</span>=<span class="number">7</span></span>) -&gt; int:</span></span><br><span class="line">    print(x + y)</span><br><span class="line">add(<span class="number">4</span>,y=<span class="number">8</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出</span></span><br><span class="line">(<span class="number">4</span>,) &#123;<span class="string">&#x27;y&#x27;</span>: <span class="number">8</span>&#125;</span><br><span class="line">(x: int, y: int = 7) -&gt; int</span><br><span class="line">params:  OrderedDict([(<span class="string">&#x27;x&#x27;</span>, &lt;Parameter <span class="string">&quot;x: int&quot;</span>&gt;), (<span class="string">&#x27;y&#x27;</span>, &lt;Parameter <span class="string">&quot;y: int = 7&quot;</span>&gt;)])</span><br><span class="line"><span class="keyword">return</span>:  &lt;<span class="class"><span class="keyword">class</span> &#x27;<span class="title">int</span>&#x27;&gt;</span></span><br><span class="line"><span class="class">-------------------------</span></span><br><span class="line"><span class="class"><span class="title">x</span> <span class="title">x</span>:</span> <span class="built_in">int</span></span><br><span class="line">x &lt;<span class="class"><span class="keyword">class</span> &#x27;<span class="title">int</span>&#x27;&gt; <span class="title">POSITIONAL_OR_KEYWORD</span> &lt;<span class="title">class</span> &#x27;<span class="title">inspect</span>.<span class="title">_empty</span>&#x27;&gt;</span></span><br><span class="line"><span class="class"><span class="title">True</span></span></span><br><span class="line"><span class="class"><span class="title">y</span> <span class="title">y</span>:</span> <span class="built_in">int</span> = <span class="number">7</span></span><br><span class="line">y &lt;<span class="class"><span class="keyword">class</span> &#x27;<span class="title">int</span>&#x27;&gt; <span class="title">POSITIONAL_OR_KEYWORD</span> 7</span></span><br><span class="line"><span class="class"><span class="title">False</span></span></span><br><span class="line"><span class="class">12</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> inspect</span><br><span class="line"><span class="keyword">from</span> functools <span class="keyword">import</span> wraps</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">check</span>(<span class="params">fn</span>):</span></span><br><span class="line"><span class="meta">    @wraps(fn)</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">wrapper</span>(<span class="params">*args, **kwargs</span>):</span></span><br><span class="line">        <span class="comment"># 实参检查</span></span><br><span class="line">        print(args,kwargs)</span><br><span class="line">        sig = inspect.signature(fn)</span><br><span class="line">        params = sig.parameters <span class="comment"># 有序字典</span></span><br><span class="line"></span><br><span class="line">        param_list = <span class="built_in">tuple</span>(params.keys())</span><br><span class="line">        <span class="keyword">for</span> i, v <span class="keyword">in</span> <span class="built_in">enumerate</span>(args):</span><br><span class="line">            k = param_list[i]</span><br><span class="line">            <span class="keyword">if</span> <span class="built_in">isinstance</span>(v,params[k].annotation):</span><br><span class="line">                print(v,<span class="string">&#x27;is&#x27;</span>,params[k].annotation)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                errstr = <span class="string">&quot;&#123;&#125; &#123;&#125; &#123;&#125;&quot;</span>.<span class="built_in">format</span>(v,<span class="string">&#x27;is not&#x27;</span>,params[k].annotation)</span><br><span class="line">                print(errstr)</span><br><span class="line">                <span class="keyword">raise</span> TypeError(errstr)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 关键字传参处理</span></span><br><span class="line">        <span class="keyword">for</span> k, v <span class="keyword">in</span> kwargs.items():</span><br><span class="line">            <span class="keyword">if</span> <span class="built_in">isinstance</span>(v,params[k].annotation):</span><br><span class="line">                print(v,<span class="string">&#x27;is&#x27;</span>,params[k].annotation)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                errstr = <span class="string">&quot;&#123;&#125; &#123;&#125; &#123;&#125;&quot;</span>.<span class="built_in">format</span>(v, <span class="string">&quot;is not&quot;</span>, params[k].annotation)</span><br><span class="line">                print(errstr)</span><br><span class="line">                <span class="keyword">raise</span> TypeError(errstr)</span><br><span class="line">        ret = fn(*args,**kwargs)</span><br><span class="line">        <span class="keyword">return</span> ret</span><br><span class="line">    <span class="keyword">return</span> wrapper</span><br><span class="line"></span><br><span class="line"><span class="meta">@check</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add</span>(<span class="params">x: <span class="built_in">int</span>, y:<span class="built_in">int</span> = <span class="number">7</span></span>) -&gt; int:</span></span><br><span class="line">    print(x + y)</span><br><span class="line">    <span class="keyword">return</span> x + y</span><br><span class="line">add(<span class="number">4</span>,y=<span class="number">10</span>)</span><br><span class="line"><span class="comment"># 输出</span></span><br><span class="line">(<span class="number">4</span>,) &#123;<span class="string">&#x27;y&#x27;</span>: <span class="number">10</span>&#125;</span><br><span class="line"><span class="number">4</span> <span class="keyword">is</span> &lt;<span class="class"><span class="keyword">class</span> &#x27;<span class="title">int</span>&#x27;&gt;</span></span><br><span class="line"><span class="class">10 <span class="title">is</span> &lt;<span class="title">class</span> &#x27;<span class="title">int</span>&#x27;&gt;</span></span><br><span class="line"><span class="class">14</span></span><br></pre></td></tr></table></figure>
+<h2 id="functools-模块"><a href="#functools-模块" class="headerlink" title="functools 模块"></a>functools 模块</h2><ul>
+<li>partial方法<br>比较有用函数，尤其是在做函数封装的时候</li>
+</ul>
+<ol>
+<li>偏函数，把函数的部分的参数固定下来，相当于部分的参数添加了一个固定的默认值，形成一个新的函数返回;</li>
+<li>从partial 生成的新函数，是对函数的封装;</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> functools</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add</span>(<span class="params">x, y:<span class="built_in">int</span></span>)-&gt; int:</span></span><br><span class="line">    ret = x + y</span><br><span class="line">    print(ret)</span><br><span class="line">    <span class="keyword">return</span> ret</span><br><span class="line"><span class="keyword">import</span> inspect</span><br><span class="line">print(inspect.signature(add))</span><br><span class="line"></span><br><span class="line">newadd = functools.partial(add,y=<span class="number">6</span>)</span><br><span class="line">newadd(<span class="number">4</span>)</span><br><span class="line"><span class="comment"># 输出 </span></span><br><span class="line">(x, y: int) -&gt; int</span><br><span class="line"><span class="number">10</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><a href="mailto:`@functools.lr">`@functools.lr</a>u_cache(maxsize=128, typed=False)`</li>
+</ul>
+<ol>
+<li>Least-recently-used 装饰器。 lru，最近最少使用。cache缓存;</li>
+<li>如果maxsize设置为None，则禁用LRU功能，并且缓存可以无限制增长。当maxsize 是二的幂时，LRU功能执行得最好;</li>
+<li>如果typed 设置为True，则不同类型的函数参数将单独缓存。例如,<code>f(3)</code>和<code>f(3.0)</code> 将被视为具有不同结果的不同调用。</li>
+</ol>
+<p>测试一下不同函数参数的不同第二次调用速度<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">8</span>]: <span class="keyword">import</span> functools</span><br><span class="line">In [<span class="number">9</span>]: <span class="keyword">import</span> time</span><br><span class="line">In [<span class="number">13</span>]: @functools.lru_cache()</span><br><span class="line">    ...: <span class="function"><span class="keyword">def</span> <span class="title">add</span>(<span class="params">x,y=<span class="number">5</span></span>):</span></span><br><span class="line">    ...:     time.sleep(<span class="number">3</span>)</span><br><span class="line">    ...:     ret = x + y</span><br><span class="line">    ...:     print(ret)</span><br><span class="line">    ...:     <span class="keyword">return</span> ret</span><br><span class="line">In [<span class="number">14</span>]: add(<span class="number">4</span>)</span><br><span class="line"><span class="number">9</span></span><br><span class="line">Out[<span class="number">14</span>]: <span class="number">9</span></span><br><span class="line">In [<span class="number">15</span>]: add(<span class="number">4</span>)</span><br><span class="line">Out[<span class="number">15</span>]: <span class="number">9</span></span><br><span class="line">In [<span class="number">16</span>]: add(<span class="number">4</span>,<span class="number">5</span>)</span><br><span class="line"><span class="number">9</span></span><br><span class="line">Out[<span class="number">16</span>]: <span class="number">9</span></span><br><span class="line">In [<span class="number">17</span>]: add(<span class="number">4</span>,y=<span class="number">5</span>)</span><br><span class="line"><span class="number">9</span></span><br><span class="line">Out[<span class="number">17</span>]: <span class="number">9</span></span><br><span class="line">In [<span class="number">18</span>]: add(x=<span class="number">4</span>,y=<span class="number">5</span>)</span><br><span class="line"><span class="number">9</span></span><br><span class="line">Out[<span class="number">18</span>]: <span class="number">9</span></span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>lru_cache 装饰器</li>
+</ul>
+<ol>
+<li>通过一个字典缓存被装饰函数的调用和返回值;</li>
+</ol>
+<p>tuple 转 list 补充方法</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">19</span>]: lst = []</span><br><span class="line">In [<span class="number">20</span>]: lst[:] = (<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>)</span><br><span class="line">In [<span class="number">21</span>]: lst</span><br><span class="line">Out[<span class="number">21</span>]: [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br></pre></td></tr></table></figure>
+<ul>
+<li>斐波那契数列递归方法的改造</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> functools</span><br><span class="line"></span><br><span class="line"><span class="meta">@functools.lru_cache()</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fib</span>(<span class="params">n</span>):</span></span><br><span class="line">    <span class="keyword">if</span> n &lt; <span class="number">2</span>:</span><br><span class="line">        <span class="keyword">return</span> n</span><br><span class="line">    <span class="keyword">return</span> fib(n<span class="number">-1</span>) + fib(n<span class="number">-2</span>)</span><br><span class="line">print([fib(x) <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">35</span>)])</span><br></pre></td></tr></table></figure>
+<ul>
+<li>lru_cache 装饰器的应用</li>
+</ul>
+<ol>
+<li>使用前提<br> 同样的函数参数一定得到同样的结果;<br> 函数执行时间长，且要多次执行;</li>
+<li>本质是函数调用的参数 =&gt; 返回值</li>
+<li>缺点:<br>不支持缓存过期，key 无法过期、失效;<br>不支持清除操作;<br>不支持分布式，是一个单机的缓存;</li>
+<li>适用场景，单机上需要空间换时间的地方，可以用缓存来将计算变成快速的查询;</li>
+</ol>
+<h2 id="装饰器练习"><a href="#装饰器练习" class="headerlink" title="装饰器练习"></a>装饰器练习</h2><ul>
+<li>实现一个cache装饰器，实现可过期，可删除的功能。可以不换出;<br>简化设计，函数的形参定义不包含可变位置、可变关键词参数和keyword-only参数可以不考虑缓存满了之后的换出问题;</li>
+</ul>
+<p>数据类型的选择:<br>缓存的应用场景，是有数据需要频繁查询，且每次查询都需要大量计算或者等待时间之后才能返回的结果的情况，使用缓存来提高查询速度，用空间换取时间;</p>
+<p>cache 应用选用什么数据结构？<br>便于查询的，且能快速找到数据的数据结构;<br>每次查询的时候，只要输入致，就应该得到同样的结果(顺序一致，例如减法函数，参数顺序不一致，结果不一样);<br>基于上面的分析，些数据结构应该是字典;<br>通过一个key, 对应一个value;<br>key是参数列表组成的结构，value 是函数返回值。难点在于key如何处理。</p>
+<p>key的存储;<br>key 必须是hash类;<br>key能接受到位置参数和关键字参数传参;<br>位置参数是被收集在一个tuple中的，本身就有顺序;</p>
+<p>key 的要求;<br>key必须是hashable;<br>由于key是所有实参组合而成的, 而且最好要作为key的, key一定要可以hash, 但是如果key有不可hash类型数据，就无法完成;<br>缓存必须使用key，但是key必须可hash,所以只能适用实参是不可变类型的函数调用;</p>
+<p>key 算法设计<br>inspect模块获取函数签名后，取parameters，这是一个有序字典，会保存所有参数的信息;<br>构建一个字典params_dict，按照位置顺序从args中依次对应参数名和传入的实参，组成kv对，存入params_dict中;<br>kwargs所有值update到parmas_dict中;<br>如果使用了缺省的参数，不会出现实参params_dict中，会出现在签名的取parameters中,缺省值也在定义中;</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> functools <span class="keyword">import</span> wraps</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">import</span> inspect</span><br><span class="line"><span class="keyword">import</span> datetime</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">m_cache</span>(<span class="params">fn</span>):</span></span><br><span class="line">    local_cache = &#123;&#125;</span><br><span class="line"><span class="meta">    @wraps(fn)</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">wrapper</span>(<span class="params">*args, **kwargs</span>):</span></span><br><span class="line">        print(args, kwargs)</span><br><span class="line">        key_dict = &#123;&#125; <span class="comment">#sorted</span></span><br><span class="line">        sig = inspect.signature(fn)</span><br><span class="line">        params = sig.parameters <span class="comment">#有序字典</span></span><br><span class="line">        param_list = <span class="built_in">list</span>(params.keys())</span><br><span class="line">        <span class="comment"># 位置参数</span></span><br><span class="line">        <span class="keyword">for</span> i,v <span class="keyword">in</span> <span class="built_in">enumerate</span>(args):</span><br><span class="line">            <span class="comment"># print(i,v)</span></span><br><span class="line">            k = param_list[i]</span><br><span class="line">            key_dict[k] =v</span><br><span class="line">        <span class="comment"># 关键字参数</span></span><br><span class="line">        <span class="comment"># for k,v in kwargs.items():</span></span><br><span class="line">        <span class="comment">#     key_dict[k] = v</span></span><br><span class="line">        key_dict.update(kwargs)</span><br><span class="line">        <span class="comment"># 缺省值的处理</span></span><br><span class="line">        <span class="keyword">for</span> k <span class="keyword">in</span> params.keys():</span><br><span class="line">            <span class="keyword">if</span> k <span class="keyword">not</span> <span class="keyword">in</span> key_dict.keys():</span><br><span class="line">                key_dict[k] = params[k].default</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        key = <span class="built_in">tuple</span>(<span class="built_in">sorted</span>(key_dict.items()))</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> key <span class="keyword">not</span> <span class="keyword">in</span> local_cache.keys():</span><br><span class="line">            ret = fn(*args, **kwargs)</span><br><span class="line">            local_cache[key] = ret</span><br><span class="line">        <span class="keyword">return</span>  local_cache[key]</span><br><span class="line">    <span class="keyword">return</span>  wrapper</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">logger</span>(<span class="params">fn</span>):</span></span><br><span class="line"><span class="meta">    @wraps(fn)</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">wrapper</span>(<span class="params">*args,**kwargs</span>):</span></span><br><span class="line">        start = datetime.datetime.now()</span><br><span class="line">        ret = fn(*args,**kwargs)</span><br><span class="line">        dalta = (datetime.datetime.now() - start).total_seconds()</span><br><span class="line">        print(dalta)</span><br><span class="line">        <span class="keyword">return</span> ret</span><br><span class="line">    <span class="keyword">return</span> wrapper</span><br><span class="line"></span><br><span class="line"><span class="meta">@logger</span></span><br><span class="line"><span class="meta">@m_cache</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add</span>(<span class="params">x,y=<span class="number">5</span></span>):</span></span><br><span class="line">    time.sleep(<span class="number">3</span>)</span><br><span class="line">    ret = x + y</span><br><span class="line">    <span class="keyword">return</span> ret</span><br><span class="line"></span><br><span class="line">add(<span class="number">4</span>)</span><br><span class="line">add(<span class="number">4</span>,<span class="number">5</span>)</span><br><span class="line">add(<span class="number">4</span>,y=<span class="number">5</span>)</span><br><span class="line">add(x=<span class="number">4</span>,y=<span class="number">5</span>)</span><br><span class="line">add(y=<span class="number">5</span>,x=<span class="number">4</span>)</span><br><span class="line"><span class="comment">## 对比输出结果，缓存输执行的效率</span></span><br><span class="line">(<span class="number">4</span>,) &#123;&#125;</span><br><span class="line"><span class="number">3.001863</span></span><br><span class="line">(<span class="number">4</span>, <span class="number">5</span>) &#123;&#125;</span><br><span class="line"><span class="number">0.000151</span></span><br><span class="line">(<span class="number">4</span>,) &#123;<span class="string">&#x27;y&#x27;</span>: <span class="number">5</span>&#125;</span><br><span class="line"><span class="number">8.1e-05</span></span><br><span class="line">() &#123;<span class="string">&#x27;x&#x27;</span>: <span class="number">4</span>, <span class="string">&#x27;y&#x27;</span>: <span class="number">5</span>&#125;</span><br><span class="line"><span class="number">7.6e-05</span></span><br><span class="line">() &#123;<span class="string">&#x27;y&#x27;</span>: <span class="number">5</span>, <span class="string">&#x27;x&#x27;</span>: <span class="number">4</span>&#125;</span><br><span class="line"><span class="number">7.3e-05</span></span><br></pre></td></tr></table></figure>
+<p>过期功能;<br>一般缓存系统都有过期功能;<br>带参装饰器及格离化、函数封装</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> functools <span class="keyword">import</span> wraps</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">import</span> inspect</span><br><span class="line"><span class="keyword">import</span> datetime</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">m_cache</span>(<span class="params">duration</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">_m_cache</span>(<span class="params">fn</span>):</span></span><br><span class="line">        local_cache = &#123;&#125;</span><br><span class="line"><span class="meta">        @wraps(fn)</span></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">wrapper</span>(<span class="params">*args, **kwargs</span>):</span></span><br><span class="line">            <span class="comment"># local_cache 有没有过期的key</span></span><br><span class="line">            <span class="function"><span class="keyword">def</span> <span class="title">clear_expire</span>(<span class="params">cache</span>):</span></span><br><span class="line">                expire_keys = []</span><br><span class="line">                <span class="keyword">for</span> k, (_, ts) <span class="keyword">in</span> cache.items():</span><br><span class="line">                    <span class="keyword">if</span> datetime.datetime.now().timestamp() - ts &gt; duration:</span><br><span class="line">                        expire_keys.append(k)</span><br><span class="line">                <span class="keyword">for</span> k <span class="keyword">in</span> expire_keys:</span><br><span class="line">                    cache.pop(k)</span><br><span class="line">                print(args, kwargs)</span><br><span class="line">            clear_expire(local_cache)</span><br><span class="line"></span><br><span class="line">            <span class="function"><span class="keyword">def</span> <span class="title">make_key</span>():</span></span><br><span class="line">                key_dict = &#123;&#125; <span class="comment">#sorted</span></span><br><span class="line">                sig = inspect.signature(fn)</span><br><span class="line">                params = sig.parameters <span class="comment">#有序字典</span></span><br><span class="line">                param_list = <span class="built_in">list</span>(params.keys())</span><br><span class="line">                <span class="comment"># 位置参数</span></span><br><span class="line">                <span class="keyword">for</span> i,v <span class="keyword">in</span> <span class="built_in">enumerate</span>(args):</span><br><span class="line">                    <span class="comment"># print(i,v)</span></span><br><span class="line">                    k = param_list[i]</span><br><span class="line">                    key_dict[k] =v</span><br><span class="line">                <span class="comment"># 关键字参数</span></span><br><span class="line">                <span class="comment"># for k,v in kwargs.items():</span></span><br><span class="line">                <span class="comment">#     key_dict[k] = v</span></span><br><span class="line">                key_dict.update(kwargs)</span><br><span class="line">                <span class="comment"># 缺省值的处理</span></span><br><span class="line">                <span class="keyword">for</span> k <span class="keyword">in</span> params.keys():</span><br><span class="line">                    <span class="keyword">if</span> k <span class="keyword">not</span> <span class="keyword">in</span> key_dict.keys():</span><br><span class="line">                        key_dict[k] = params[k].default</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">                <span class="keyword">return</span> <span class="built_in">tuple</span>(<span class="built_in">sorted</span>(key_dict.items()))</span><br><span class="line">            key = make_key()</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> key <span class="keyword">not</span> <span class="keyword">in</span> local_cache.keys():</span><br><span class="line">                ret = fn(*args, **kwargs)</span><br><span class="line">                local_cache[key] = (ret, datetime.datetime.now().timestamp()) <span class="comment"># (,,) = key, tuple =&gt; value</span></span><br><span class="line">                <span class="comment"># local_cache[key] = ret</span></span><br><span class="line">            <span class="keyword">return</span>  local_cache[key]</span><br><span class="line">        <span class="keyword">return</span>  wrapper</span><br><span class="line">    <span class="keyword">return</span> _m_cache</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">logger</span>(<span class="params">fn</span>):</span></span><br><span class="line"><span class="meta">    @wraps(fn)</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">wrapper</span>(<span class="params">*args,**kwargs</span>):</span></span><br><span class="line">        start = datetime.datetime.now()</span><br><span class="line">        ret = fn(*args,**kwargs)</span><br><span class="line">        dalta = (datetime.datetime.now() - start).total_seconds()</span><br><span class="line">        print(dalta)</span><br><span class="line">        <span class="keyword">return</span> ret</span><br><span class="line">    <span class="keyword">return</span> wrapper</span><br><span class="line"></span><br><span class="line"><span class="meta">@logger</span></span><br><span class="line"><span class="meta">@m_cache(6)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add</span>(<span class="params">x,y=<span class="number">5</span></span>):</span></span><br><span class="line">    time.sleep(<span class="number">3</span>)</span><br><span class="line">    ret = x + y</span><br><span class="line">    <span class="keyword">return</span> ret</span><br><span class="line"></span><br><span class="line">add(<span class="number">4</span>)</span><br><span class="line">add(<span class="number">4</span>,<span class="number">5</span>)</span><br><span class="line">add(<span class="number">4</span>,y=<span class="number">5</span>)</span><br><span class="line">add(x=<span class="number">4</span>,y=<span class="number">5</span>)</span><br><span class="line">add(y=<span class="number">5</span>,x=<span class="number">4</span>)</span><br><span class="line"></span><br><span class="line">time.sleep(<span class="number">6</span>)</span><br><span class="line"></span><br><span class="line">add(<span class="number">4</span>)</span><br><span class="line">add(<span class="number">4</span>,<span class="number">5</span>)</span><br><span class="line">add(<span class="number">4</span>,y=<span class="number">5</span>)</span><br><span class="line">add(x=<span class="number">4</span>,y=<span class="number">5</span>)</span><br><span class="line">add(y=<span class="number">5</span>,x=<span class="number">4</span>)</span><br><span class="line"><span class="comment">## 调试清除缓存功能</span></span><br><span class="line">(<span class="number">4</span>,) &#123;&#125;</span><br><span class="line"><span class="number">3.003023</span></span><br><span class="line">(<span class="number">4</span>, <span class="number">5</span>) &#123;&#125;</span><br><span class="line"><span class="number">0.000211</span></span><br><span class="line">(<span class="number">4</span>,) &#123;<span class="string">&#x27;y&#x27;</span>: <span class="number">5</span>&#125;</span><br><span class="line"><span class="number">0.000121</span></span><br><span class="line">() &#123;<span class="string">&#x27;x&#x27;</span>: <span class="number">4</span>, <span class="string">&#x27;y&#x27;</span>: <span class="number">5</span>&#125;</span><br><span class="line"><span class="number">0.000418</span></span><br><span class="line">() &#123;<span class="string">&#x27;y&#x27;</span>: <span class="number">5</span>, <span class="string">&#x27;x&#x27;</span>: <span class="number">4</span>&#125;</span><br><span class="line"><span class="number">0.000123</span></span><br><span class="line">(<span class="number">4</span>,) &#123;&#125;</span><br><span class="line"><span class="number">3.003332</span></span><br><span class="line">(<span class="number">4</span>, <span class="number">5</span>) &#123;&#125;</span><br><span class="line"><span class="number">0.000277</span></span><br><span class="line">(<span class="number">4</span>,) &#123;<span class="string">&#x27;y&#x27;</span>: <span class="number">5</span>&#125;</span><br><span class="line"><span class="number">0.000198</span></span><br><span class="line">() &#123;<span class="string">&#x27;x&#x27;</span>: <span class="number">4</span>, <span class="string">&#x27;y&#x27;</span>: <span class="number">5</span>&#125;</span><br><span class="line"><span class="number">0.000182</span></span><br><span class="line">() &#123;<span class="string">&#x27;y&#x27;</span>: <span class="number">5</span>, <span class="string">&#x27;x&#x27;</span>: <span class="number">4</span>&#125;</span><br><span class="line"><span class="number">0.000179</span></span><br></pre></td></tr></table></figure>
+<p>补充: 过期是什么 ？<br>它是某一个key过期，可以对每个key单独设置过期时间，也可以对这些key统一设定过期时间;<br>本次的实现就简单点，统一设定key的过期时间，当key生存超过了这个时间，就自动被清除;</p>
+<ol start="2">
+<li>写一个命令分发器<br>程序员可以方便的注册函数到某一个命令，用户输入命令时，路由到注册的函数;<br>如果此命令没有对应的注册函数，执行默认函数;<br>用户输入用input(“&gt;&gt;”)</li>
+</ol>
+<p>代码实现</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">cmds_dispatcher</span>():</span></span><br><span class="line">    <span class="comment">#命令和函数存储的地方</span></span><br><span class="line">    commands = &#123;&#125;</span><br><span class="line">    <span class="comment"># 注册</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">reg</span>(<span class="params">name</span>):</span></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">_reg</span>(<span class="params">fn</span>):</span></span><br><span class="line">            commands[name] =fn</span><br><span class="line">        <span class="keyword">return</span> _reg</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">defaultfunc</span>():</span></span><br><span class="line">        print(<span class="string">&quot;Unknown command&quot;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">dispatcher</span>():</span></span><br><span class="line">        <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">            cmd = <span class="built_in">input</span>(<span class="string">&quot;&gt;&gt; &quot;</span>)</span><br><span class="line">            <span class="keyword">if</span> cmd.strip() == <span class="string">&#x27;quit&#x27;</span>:</span><br><span class="line">                <span class="keyword">return</span></span><br><span class="line">            commands.get(cmd,defaultfunc)()</span><br><span class="line">    <span class="keyword">return</span> reg,dispatcher</span><br><span class="line">    </span><br><span class="line">cr,cp = cmds_dispatcher()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 自定久函数，注册</span></span><br><span class="line"><span class="meta">@cr(&#x27;mag&#x27;)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">foo1</span>():</span></span><br><span class="line">    print(<span class="string">&quot;welcome ssjinyao&quot;</span>)</span><br><span class="line"><span class="meta">@cr(&#x27;py&#x27;)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">foo2</span>():</span></span><br><span class="line">    print(<span class="string">&quot;welcome python&quot;</span>)</span><br><span class="line">cp()</span><br></pre></td></tr></table></figure>
+<h3 id="装饰器的用途"><a href="#装饰器的用途" class="headerlink" title="装饰器的用途"></a>装饰器的用途</h3><p>装饰器是<strong>AOP面向切面编程 Aspect Oriented Programming</strong>的思想的体现;<br>面向对象往往需要通过继承或者组合依赖等方式调用一些功能，这些功能的代码往往可能在多个类中出现，例如logger。这样造成代码的重复，增加了耦合。logger的改变影响所有使用它的类或方法。<br>而AOP在需要的类或方法上切下，前后的切入点可以加入增强的功能。让调用者和被调用者解耦。<br>这是一种不修改原来的业务代码，给程序动态加功能的技术。例如logger函数功能就是对业务函数增加日志的，而业务函数中应该把业务无关的日志功能剥离干净。</p>
+<p>装饰器应用场景<br>日志、监控、权限、设计、参数检查、路由等处理；<br>这些功能与业务功能无关，很多业务都需要的公共功能，所以适合独立出来，需要的时候，对目标对象增强。</p>
+<h2 id="格言"><a href="#格言" class="headerlink" title="格言"></a>格言</h2><p><strong>不应以圣贤自命、以小人目人、面色如铁、话语如刀</strong></p>
+
+  
+  
+    
+    <div class='footer'>
+      
+      
+      
+        <div class='copyright'>
+          <blockquote>
+            
+              
+                <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+              
+            
+              
+                <p>本文永久链接是：<a href=https://www.asjin.com/2020/09/07/python%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0%E5%92%8C%E8%A3%85%E9%A5%B0%E5%99%A8%E4%B8%89/>https://www.asjin.com/2020/09/07/python%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0%E5%92%8C%E8%A3%85%E9%A5%B0%E5%99%A8%E4%B8%89/</a></p>
+              
+            
+          </blockquote>
+        </div>
+      
+      
+    </div>
+  
+  
+    
+
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-09-29T18:44:13+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：Sep 29, 2020</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/linux/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>linux</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/program/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>program</p></a></div>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.asjin.com/2020/09/07/python%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0%E5%92%8C%E8%A3%85%E9%A5%B0%E5%99%A8%E4%B8%89/&title=python高阶函数函数和装饰器三 - 逝水锦遥&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://www.asjin.com/2020/09/07/python%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0%E5%92%8C%E8%A3%85%E9%A5%B0%E5%99%A8%E4%B8%89/&title=python高阶函数函数和装饰器三 - 逝水锦遥&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.asjin.com/2020/09/07/python%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0%E5%92%8C%E8%A3%85%E9%A5%B0%E5%99%A8%E4%B8%89/&title=python高阶函数函数和装饰器三 - 逝水锦遥&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png">
+          
+        </a>
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </div>
+
+
+  
+  
+
+  
+    <div class="prev-next">
+      
+        <a class='prev' href='/2020/09/14/python%E6%96%87%E4%BB%B6%E7%9A%84IO%E4%B8%80/'>
+          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>python 文件的IO一</p>
+          <p class='content'>[toc]
+python 文件的IO一
+函数相关练习补充
+实现Base64 解码
+
+1234567891011121314151617181920212223242526272829303132...</p>
+        </a>
+      
+      
+        <a class='next' href='/2020/08/31/python%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0%E5%92%8C%E8%A3%85%E9%A5%B0%E5%99%A8%E4%BA%8C/'>
+          <p class='title'>python高阶函数函数和装饰器二<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>[toc]
+python高阶函数和装饰器二
+练习1. 把一个字典扁平化
+源字典&#123;&#39;a&#39;:&#123;&#39;b&#39;:1,&#39;c&#39;:2&#125;,...</p>
+        </a>
+      
+    </div>
+  
+</article>
+
+
+  
+
+  <article class="post white-box reveal floatable" id="comments">
+    <p ct><i class='fas fa-comments'></i> 评论</p>
+    
+    <div id="valine_container" class="valine_thread">
+  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+</div>
+
+  </article>
+
+
+
+
+
+
+</div>
+<aside class='l_side'>
+  
+  
+    
+    
+
+
+
+  <section class="widget toc-wrapper floatable desktop mobile" id="toc-div" >
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E5%AE%9A%E4%B9%89%E7%9A%84%E5%BC%8A%E7%AB%AF"><span class="toc-text">函数定义的弊端</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%9A%E5%8A%A1%E5%BA%94%E7%94%A8"><span class="toc-text">业务应用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#inspect-%E6%A8%A1%E5%9D%97"><span class="toc-text">inspect 模块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#functools-%E6%A8%A1%E5%9D%97"><span class="toc-text">functools 模块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A3%85%E9%A5%B0%E5%99%A8%E7%BB%83%E4%B9%A0"><span class="toc-text">装饰器练习</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A3%85%E9%A5%B0%E5%99%A8%E7%9A%84%E7%94%A8%E9%80%94"><span class="toc-text">装饰器的用途</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%BC%E8%A8%80"><span class="toc-text">格言</span></a></li></ol>
+    </div>
+  </section>
+
+
+  
+
+
+</aside>
+
+
+
+        
+        
+          <!--此文件用来存放一些不方便取值的变量-->
+<!--思路大概是将值藏到重加载的区域内-->
+
+<script>
+  window.pdata={}
+  pdata.ispage=true;
+  pdata.postTitle="python高阶函数函数和装饰器三";
+  pdata.commentPath="";
+  pdata.commentPlaceholder="";
+
+  var l_header=document.getElementById("l_header");
+  
+  l_header.classList.remove("show");
+  
+</script>
+
+        
+      </div>
+      
+  
+  <footer class="footer clearfix">
+    <br><br>
+    
+      
+        <div class="aplayer-container">
+          
+
+
+        </div>
+      
+    
+      
+        <br>
+        <div class="social-wrapper">
+          
+            
+          
+            
+          
+            
+          
+        </div>
+      
+    
+      
+        <div><p>博客内容遵循 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
+</div>
+      
+    
+      
+        
+      
+    
+      
+        本站使用
+        <a href="https://github.com/volantis-x/hexo-theme-volantis/tree/4.1.6" target="_blank" class="codename">Volantis</a>
+        作为主题，目前总访问量
+          <span id="busuanzi_value_site_pv"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+          次
+        
+        作为主题，总访客数为
+          <span id="busuanzi_value_site_uv"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+          次
+        
+      
+    
+      
+        <div class='copyright'>
+        <p><a href="/">Copyright © 2017-2020 asjin.com</a></p>
+
+        </div>
+      
+    
+  </footer>
+
+
+      <a id="s-top" class="fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+    </div>
+  </div>
+  <div>
+    <script>
+window.volantis={};
+window.volantis.loadcss=document.getElementById("loadcss");
+/********************脚本懒加载函数********************************/
+function loadScript(src, cb) {
+var HEAD = document.getElementsByTagName('head')[0] || document.documentElement;
+var script = document.createElement('script');
+script.setAttribute('type','text/javascript');
+if (cb) script.onload = cb;
+script.setAttribute('src', src);
+HEAD.appendChild(script);
+}
+//https://github.com/filamentgroup/loadCSS
+var loadCSS = function( href, before, media, attributes ){
+	var doc = window.document;
+	var ss = doc.createElement( "link" );
+	var ref;
+	if( before ){
+		ref = before;
+	}
+	else {
+		var refs = ( doc.body || doc.getElementsByTagName( "head" )[ 0 ] ).childNodes;
+		ref = refs[ refs.length - 1];
+	}
+	var sheets = doc.styleSheets;
+	if( attributes ){
+		for( var attributeName in attributes ){
+			if( attributes.hasOwnProperty( attributeName ) ){
+				ss.setAttribute( attributeName, attributes[attributeName] );
+			}
+		}
+	}
+	ss.rel = "stylesheet";
+	ss.href = href;
+	ss.media = "only x";
+	function ready( cb ){
+		if( doc.body ){
+			return cb();
+		}
+		setTimeout(function(){
+			ready( cb );
+		});
+	}
+	ready( function(){
+		ref.parentNode.insertBefore( ss, ( before ? ref : ref.nextSibling ) );
+	});
+	var onloadcssdefined = function( cb ){
+		var resolvedHref = ss.href;
+		var i = sheets.length;
+		while( i-- ){
+			if( sheets[ i ].href === resolvedHref ){
+				return cb();
+			}
+		}
+		setTimeout(function() {
+			onloadcssdefined( cb );
+		});
+	};
+	function loadCB(){
+		if( ss.addEventListener ){
+			ss.removeEventListener( "load", loadCB );
+		}
+		ss.media = media || "all";
+	}
+	if( ss.addEventListener ){
+		ss.addEventListener( "load", loadCB);
+	}
+	ss.onloadcssdefined = onloadcssdefined;
+	onloadcssdefined( loadCB );
+	return ss;
+};
+</script>
+<script>
+  
+  loadCSS("https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14/css/all.min.css", window.volantis.loadcss);
+  
+  
+  
+  
+</script>
+<!-- required -->
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5/dist/jquery.min.js"></script>
+
+<script>
+  function pjax_fancybox() {
+    $(".md .gallery").find("img").each(function () { //渲染 fancybox
+      var element = document.createElement("a"); // a 标签
+      $(element).attr("class", "fancybox");
+      $(element).attr("pjax-fancybox", "");  // 过滤 pjax
+      $(element).attr("href", $(this).attr("src"));
+      if ($(this).attr("data-original")) {
+        $(element).attr("href", $(this).attr("data-original"));
+      }
+      $(element).attr("data-fancybox", "images");
+      var caption = "";   // 描述信息
+      if ($(this).attr('alt')) {  // 判断当前页面是否存在描述信息
+        $(element).attr('data-caption', $(this).attr('alt'));
+        caption = $(this).attr('alt');
+      }
+      var div = document.createElement("div");
+      $(div).addClass("fancybox");
+      $(this).wrap(div); // 最外层套 div ，其实主要作用还是 class 样式
+      var span = document.createElement("span");
+      $(span).addClass("image-caption");
+      $(span).text(caption); // 加描述
+      $(this).after(span);  // 再套一层描述
+      $(this).wrap(element);  // 最后套 a 标签
+    })
+    $(".md .gallery").find("img").fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+      closeClick: true,
+      helpers: {
+        overlay: {closeClick: true}
+      },
+      buttons: [
+        "zoom",
+        "close"
+      ]
+    });
+  };
+  function SCload_fancybox() {
+    if ($(".md .gallery").find("img").length == 0) return;
+    loadCSS("https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css", document.getElementById("loadcss"));
+    setTimeout(function() {
+      loadScript('https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js', pjax_fancybox)
+    }, 1);
+  };
+  $(function () {
+    SCload_fancybox();
+  });
+</script>
+
+
+<!-- internal -->
+
+
+
+
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.1.0/dist/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 0
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    lazyLoadInstance.update();
+  });
+  document.addEventListener('pjax:complete', function () {
+    lazyLoadInstance.update();
+  });
+</script>
+
+
+
+
+  
+  
+    <script async src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@2/js/instant_page.js" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+  
+
+
+
+
+  <script src="/js/clipboard.min.js"></script>
+<script>
+    var clipboard = new ClipboardJS('.btn-copy', {
+        target: function (trigger) {
+            return trigger.nextElementSibling
+        }
+    });
+    function wait(callback, seconds) {
+        var timelag = null;
+        timelag = window.setTimeout(callback, seconds)
+    }
+    function pjax_initCopyCode() {
+		if($(".highlight .code pre").length+$(".article pre code").length==0)return;
+        var copyHtml = '';
+        copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+        copyHtml += '<i class="fas fa-copy"></i><span>COPY</span>';
+        copyHtml += '</button>';
+        $(".highlight .code pre").before(copyHtml);
+        $(".article pre code").before(copyHtml);
+        clipboard.off('success').on('success', function (e) {
+            let $btn = $(e.trigger);
+            $btn.addClass('copied');
+            let $icon = $($btn.find('i'));
+            $icon.removeClass('fa-copy');
+            $icon.addClass('fa-check-circle');
+            let $span = $($btn.find('span'));
+            $span[0].innerText = 'COPIED';
+            wait(function () {
+                $icon.removeClass('fa-check-circle');
+                $icon.addClass('fa-copy');
+                $span[0].innerText = 'COPY'
+            }, 2000)
+        });
+        clipboard.off('error').on('error', function (e) {
+            e.clearSelection();
+            let $btn = $(e.trigger);
+            $btn.addClass('copy-failed');
+            let $icon = $($btn.find('i'));
+            $icon.removeClass('fa-copy');
+            $icon.addClass('fa-times-circle');
+            let $span = $($btn.find('span'));
+            $span[0].innerText = 'COPY FAILED';
+            wait(function () {
+                $icon.removeClass('fa-times-circle');
+                $icon.addClass('fa-copy');
+                $span[0].innerText = 'COPY'
+            }, 2000)
+        })
+    }
+    $(function () {
+        pjax_initCopyCode()
+    });
+</script>
+
+
+
+
+
+
+
+
+  
+  
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4/dist/Valine.min.js"></script>
+
+
+<script>
+  var GUEST_INFO = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link,header'.split(',').filter(function (item) {
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var REQUIRED_FIELDS = ['nick', 'mail', 'link'];
+  var requiredFields = 'nick,mail'.split(',').filter(function (item) {
+    return REQUIRED_FIELDS.indexOf(item) > -1
+  });
+
+  function emoji(path, idx, ext) {
+    return path + "/" + path + "-" + idx + "." + ext;
+  }
+
+  var emojiMaps = {};
+  for (var i = 1; i <= 54; i++) {
+    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
+  }
+  for (var i = 1; i <= 101; i++) {
+    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+  }
+  for (var i = 1; i <= 116; i++) {
+    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
+  }
+  for (var i = 1; i <= 125; i++) {
+    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
+  }
+  for (var i = 1; i <= 4; i++) {
+    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+  }
+
+  function pjax_valine() {
+    if(!document.querySelectorAll("#valine_container")[0])return;
+
+    let pagePlaceholder = pdata.commentPlaceholder || "快来评论吧~ 🤩 🤩 🤩";
+
+    let path = pdata.commentPath;
+    if (path.length == 0) {
+      let defaultPath = '';
+      path = defaultPath || decodeURI(window.location.pathname);
+    }
+
+    var valine = new Valine();
+    valine.init({
+      el: '#valine_container',
+      meta: meta,
+      placeholder: pagePlaceholder,
+      path: path,
+      appId: "NkJqMpxu4QlRLhPIHipNUHF1-gzGzoHsz",
+      appKey: "D2vTdueKJ8ammc2JEdje0vLW",
+      pageSize: '',
+      avatar: 'monsterid',
+      lang: '',
+      visitor: '',
+      highlight: '',
+      mathJax: '',
+      enableQQ: 'true',
+      recordIP: 'false',
+      requiredFields: requiredFields,
+      emojiCDN: 'https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/valine/',
+      emojiMaps: emojiMaps
+    })
+  }
+
+  $(function () {
+    pjax_valine();
+  });
+</script>
+
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js" data-pjax></script>
+
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-theme-volantis@4.1.6/source/js/app.min.js"></script>
+
+
+
+<!-- optional -->
+
+  <script>
+const SearchServiceimagePath="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@master/img/";
+const ROOT =  ("/" || "/").endsWith('/') ? ("/" || "/") : ("//" || "/" );
+
+$('.input.u-search-input').one('focus',function(){
+	
+		loadScript('https://cdn.jsdelivr.net/npm/hexo-theme-volantis@4.1.6/source/js/search/hexo.min.js',setSearchService);
+	
+})
+
+function listenSearch(){
+  
+    customSearch = new HexoSearch({
+      imagePath: SearchServiceimagePath
+    });
+  
+}
+function setSearchService() {
+	listenSearch();
+	
+		document.addEventListener("pjax:success", listenSearch);
+	
+}
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script>
+const rootElement = document.documentElement;
+const darkModeStorageKey = "user-color-scheme";
+const rootElementDarkModeAttributeName = "data-user-color-scheme";
+
+const setLS = (k, v) => {
+  try {
+    localStorage.setItem(k, v);
+  } catch (e) {
+    console.log(e.message);
+  }
+};
+
+const removeLS = (k) => {
+  try {
+    localStorage.removeItem(k);
+  } catch (e) {
+    console.log(e.message);
+  }
+};
+
+const getLS = (k) => {
+  try {
+    return localStorage.getItem(k);
+  } catch (e) {
+    console.log(e.message);
+    return null;
+  }
+};
+
+const getModeFromCSSMediaQuery = () => {
+  return window.matchMedia("(prefers-color-scheme: dark)").matches
+    ? "dark"
+    : "light";
+};
+
+const resetRootDarkModeAttributeAndLS = () => {
+  rootElement.removeAttribute(rootElementDarkModeAttributeName);
+  removeLS(darkModeStorageKey);
+};
+
+const validColorModeKeys = {
+  dark: true,
+  light: true,
+};
+
+const applyCustomDarkModeSettings = (mode) => {
+  const currentSetting = mode || getLS(darkModeStorageKey);
+
+  if (currentSetting === getModeFromCSSMediaQuery()) {
+    resetRootDarkModeAttributeAndLS();
+  } else if (validColorModeKeys[currentSetting]) {
+    rootElement.setAttribute(rootElementDarkModeAttributeName, currentSetting);
+  } else {
+    resetRootDarkModeAttributeAndLS();
+  }
+};
+
+const invertDarkModeObj = {
+  dark: "light",
+  light: "dark",
+};
+
+/**
+ * get target mode
+ */
+const toggleCustomDarkMode = () => {
+  let currentSetting = getLS(darkModeStorageKey);
+
+  if (validColorModeKeys[currentSetting]) {
+    currentSetting = invertDarkModeObj[currentSetting];
+  } else if (currentSetting === null) {
+    currentSetting = invertDarkModeObj[getModeFromCSSMediaQuery()];
+  } else {
+    return;
+  }
+  setLS(darkModeStorageKey, currentSetting);
+  return currentSetting;
+};
+
+/**
+ * bind click event for toggle button
+ */
+function bindToggleButton() {
+	var btn=$("#wrapper .toggle-mode-btn");
+    btn.on('click',(e) => {
+      const mode = toggleCustomDarkMode();
+      applyCustomDarkModeSettings(mode);
+    });
+}
+
+applyCustomDarkModeSettings();
+document.addEventListener("DOMContentLoaded", bindToggleButton);
+document.addEventListener("pjax:success", bindToggleButton);
+
+</script>
+
+
+
+
+
+
+<script>
+function listennSidebarTOC() {
+  const navItems = document.querySelectorAll(".toc li");
+  if (!navItems.length) return;
+  const sections = [...navItems].map((element) => {
+    const link = element.querySelector(".toc-link");
+    const target = document.getElementById(
+      decodeURI(link.getAttribute("href")).replace("#", "")
+    );
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+      window.scrollTo({
+		top: target.offsetTop + 100,
+		
+		behavior: "smooth"
+		
+	  });
+    });
+    return target;
+  });
+
+  function activateNavByIndex(target) {
+    if (target.classList.contains("active-current")) return;
+
+    document.querySelectorAll(".toc .active").forEach((element) => {
+      element.classList.remove("active", "active-current");
+    });
+    target.classList.add("active", "active-current");
+    let parent = target.parentNode;
+    while (!parent.matches(".toc")) {
+      if (parent.matches("li")) parent.classList.add("active");
+      parent = parent.parentNode;
+    }
+  }
+
+  function findIndex(entries) {
+    let index = 0;
+    let entry = entries[index];
+    if (entry.boundingClientRect.top > 0) {
+      index = sections.indexOf(entry.target);
+      return index === 0 ? 0 : index - 1;
+    }
+    for (; index < entries.length; index++) {
+      if (entries[index].boundingClientRect.top <= 0) {
+        entry = entries[index];
+      } else {
+        return sections.indexOf(entry.target);
+      }
+    }
+    return sections.indexOf(entry.target);
+  }
+
+  function createIntersectionObserver(marginTop) {
+    marginTop = Math.floor(marginTop + 10000);
+    let intersectionObserver = new IntersectionObserver(
+      (entries, observe) => {
+        let scrollHeight = document.documentElement.scrollHeight + 100;
+        if (scrollHeight > marginTop) {
+          observe.disconnect();
+          createIntersectionObserver(scrollHeight);
+          return;
+        }
+        let index = findIndex(entries);
+        activateNavByIndex(navItems[index]);
+      },
+      {
+        rootMargin: marginTop + "px 0px -100% 0px",
+        threshold: 0,
+      }
+    );
+    sections.forEach((element) => {
+      element && intersectionObserver.observe(element);
+    });
+  }
+  createIntersectionObserver(document.documentElement.scrollHeight);
+}
+
+document.addEventListener("DOMContentLoaded", listennSidebarTOC);
+document.addEventListener("pjax:success", listennSidebarTOC);
+</script>
+
+<!-- more -->
+
+
+
+
+    
+      
+
+
+<script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script>
+
+
+<script>
+    var pjax;
+    document.addEventListener('DOMContentLoaded', function () {
+      pjax = new Pjax({
+        elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"]):not([pjax-fancybox])',
+        selectors: [
+          "title",
+          "#l_cover",
+          "#pjax-container",
+          "#pjax-header-nav-list"
+        ],
+        cacheBust: false,   // url 地址追加时间戳，用以避免浏览器缓存
+        timeout: 5000
+      });
+    });
+
+    document.addEventListener('pjax:send', function (e) {
+      //window.stop(); // 相当于点击了浏览器的停止按钮
+
+      try {
+        var currentUrl = window.location.pathname;
+        var targetUrl = e.triggerElement.href;
+        var banUrl = [""];
+        if (banUrl[0] != "") {
+          banUrl.forEach(item => {
+            if(currentUrl.indexOf(item) != -1 || targetUrl.indexOf(item) != -1) {
+              window.location.href = targetUrl;
+            }
+          });
+        }
+      } catch (error) {}
+
+      window.subData = null; // 移除标题（用于一二级导航栏切换处）
+      if (typeof $.fancybox != "undefined") {
+        $.fancybox.close();    // 关闭弹窗
+      }
+      volantis.$switcher.removeClass('active'); // 关闭移动端激活的搜索框
+      volantis.$header.removeClass('z_search-open'); // 关闭移动端激活的搜索框
+      volantis.$wrapper.removeClass('sub'); // 跳转页面时关闭二级导航
+
+      // 解绑事件 避免重复监听
+      volantis.$topBtn.unbind('click');
+      $('.menu a').unbind('click');
+      $(window).unbind('resize');
+      $(window).unbind('scroll');
+      $(document).unbind('scroll');
+      $(document).unbind('click');
+      $('body').unbind('click');
+	  
+    });
+
+    document.addEventListener('pjax:complete', function () {
+      // 关于百度统计对 SPA 页面的处理：
+      // 方案一：百度统计>管理>单页应用设置中，打开开启按钮即可对SPA进行统计。 https://tongji.baidu.com/web/help/article?id=324
+      // 方案二：取消注释下列代码。 https://tongji.baidu.com/web/help/article?id=235
+       
+
+      // 关于谷歌统计对 SPA 页面的处理：
+      // 当应用以动态方式加载内容并更新地址栏中的网址时，也应该更新通过 gtag.js 存储的网页网址。
+      // https://developers.google.cn/analytics/devguides/collection/gtagjs/single-page-applications?hl=zh-cn
+      
+	 
+
+      $('.nav-main').find('.list-v').not('.menu-phone').removeAttr("style",""); // 移除小尾巴的移除
+      $('.menu-phone.list-v').removeAttr("style",""); // 移除小尾巴的移除
+      $('script[data-pjax], .pjax-reload script').each(function () {
+        $(this).parent().append($(this).remove());
+      });
+      try{
+          if (typeof $.fancybox == "undefined") {
+            SCload_fancybox();
+          } else {
+            pjax_fancybox();
+          }
+        
+        
+        
+        
+        
+          pjax_initCopyCode();
+        
+        
+          pjax_valine();
+        
+        
+        
+        
+      } catch (e) {
+        console.log(e);
+      }
+	  
+    });
+
+    document.addEventListener('pjax:error', function (e) {
+	  
+      window.location.href = e.triggerElement.href;
+    });
+</script>
+
+    
+  </div>
+</body>
+</html>
