@@ -5,10 +5,6 @@
   <!-- SEO相关 -->
   
     
-      
-        <meta name="robots" content="noindex,follow">
-      
-    
   
   <!-- 渲染优化 -->
   <meta http-equiv='x-dns-prefetch-control' content='on' />
@@ -401,7 +397,7 @@
     <div id="l_cover">
   
     
-        <div id="half" class='cover-wrapper  search' style="display: ;">
+        <div id="half" class='cover-wrapper post search' style="display: ;">
           
             <div class='cover-bg lazyload placeholder' data-bg="/images/lovers.jpg"></div>
           
@@ -443,505 +439,160 @@
         
 
 <div class='l_main'>
+  <article class="article post white-box reveal md floatable article-type-post" id="post" itemscope itemprop="blogPost">
   
-  <section class="post-list">
+
+
+  
+  <div class="article-meta" id="top">
     
     
+    
+  </div>
+
+
+  
+  <p># </p>
+
+  
+  
+    
+    <div class='footer'>
       
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal floatable">
-  
-  
-  
-    <div class='headimg-div'>
-      <a class='headimg-a' href="/2020/10/18/python%E6%97%A5%E5%BF%97%E5%A4%84%E7%90%86%E4%B8%80/">
-        <img class='headimg' src='/images/python-log-parsing.png'/>
-      </a>
+      
+      
+        <div class='copyright'>
+          <blockquote>
+            
+              
+                <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+              
+            
+              
+                <p>本文永久链接是：<a href=https://www.asjin.com/2021/01/26/docs/16116281276930/>https://www.asjin.com/2021/01/26/docs/16116281276930/</a></p>
+              
+            
+          </blockquote>
+        </div>
+      
+      
     </div>
   
   
     
-    <h2 class="article-title" >
-      <a href="/2020/10/18/python%E6%97%A5%E5%BF%97%E5%A4%84%E7%90%86%E4%B8%80/">
-        python 日志处理一
-      </a>
-    </h2>
-  
-  <div class='md'>
+
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-01-26T10:28:47+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：Jan 26, 2021</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
     
       
-        [toc]
-python 日志处理一
-练习
-实现ls 命令功能，实现-l、-a和 -all、 -h 选项
-
-
-实现显示路径下的文件列表;
--a和 -all显示包含.开头的文件;
--l 详细列表显示;
--h 和 -l 配合，人性化显示文件大小，例如1K、1G、1T等。可以认为1G=1000M;
-c 字符;d目录;-普通文件;l软链接;b块设备;s socket文件;p pip文件，即FIFO;...
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.asjin.com/2021/01/26/docs/16116281276930/&title= - 逝水锦遥&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://www.asjin.com/2021/01/26/docs/16116281276930/&title= - 逝水锦遥&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.asjin.com/2021/01/26/docs/16116281276930/&title= - 逝水锦遥&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png">
+          
+        </a>
+      
+    
+      
+    
       
     
   </div>
-  
-    <div class='meta-v3' line_style='dotted'>
-      <div>
-        
-          
-          <a class='avatar' href='/images/rjrt.ico'><img src='/images/rjrt.ico'></a>
-        
-        <time>2020-10-18</time>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2020/10/18/python%E6%97%A5%E5%BF%97%E5%A4%84%E7%90%86%E4%B8%80/'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
 </div>
 
-          </div>
+
+
         
       
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal floatable">
-  
-  
-  
-    <div class='headimg-div'>
-      <a class='headimg-a' href="/2020/10/13/python%E6%96%87%E4%BB%B6%E7%9A%84IO%E4%B8%89/">
-        <img class='headimg' src='/images/python-file-io-01.jpg'/>
-      </a>
     </div>
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2020/10/13/python%E6%96%87%E4%BB%B6%E7%9A%84IO%E4%B8%89/">
-        python 文件的IO三
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        [toc]
-python 文件的IO三
-CSV文件csv文件简介
-逗号分隔值 Comma-Separated Values。CSV是一个被行分隔符、列分隔符分成行和列的文本文件;没有指定字符编码。参看RFC4180
-行分隔符为\r\n，最后一行可以没有换行符;列分隔符常为逗号或者制表符;每一行为一条记录record。
-字段可以使用双引号括起来，也可以不使用。如果字段中出现了双引号、逗号、换行...
-      
-    
   </div>
+
+
   
-    <div class='meta-v3' line_style='dotted'>
-      <div>
-        
-          
-          <a class='avatar' href='/images/rjrt.ico'><img src='/images/rjrt.ico'></a>
-        
-        <time>2020-10-13</time>
-        
-      </div>
+  
+
+  
+    <div class="prev-next">
       
-        <div>
-          <a class='readmore' href='/2020/10/13/python%E6%96%87%E4%BB%B6%E7%9A%84IO%E4%B8%89/'>
-            阅读全文
-          </a>
-        </div>
+      
+        <a class='next' href='/2020/10/19/SGE+bash+awk+sed+Python+WebStackPage%E5%AE%9E%E7%8E%B0P%E7%BA%A7%E6%95%B0%E6%8D%AE%E5%B9%B6%E5%8F%91%E6%89%AB%E6%8F%8F%E4%B8%8E%E4%B8%8B%E6%9C%BA%E6%95%B0%E6%8D%AE%E6%8A%A5%E8%A1%A8%E5%85%AC%E7%A4%BA/'>
+          <p class='title'>SGE+bash+awk+sed+Python+WebStackPage实现P级数据并发扫描与数据报表公示系统<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>[toc]
+SGE+bash+awk+sed+Python+WebStackPage 实现P级数据并发扫描与数据报表公示系统
+需求与实现初衷
+
+
+生信类数据每周有大量的下机数据，需要按照超期周期...</p>
+        </a>
       
     </div>
   
+</article>
 
+
+  
+
+  <article class="post white-box reveal floatable" id="comments">
+    <p ct><i class='fas fa-comments'></i> 评论</p>
+    
+    <div id="valine_container" class="valine_thread">
+  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
 </div>
 
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal floatable">
-  
-  
-  
-    <div class='headimg-div'>
-      <a class='headimg-a' href="/2020/09/17/python%E6%96%87%E4%BB%B6%E7%9A%84IO%E4%BA%8C/">
-        <img class='headimg' src='/images/python-file-io-01.jpg'/>
-      </a>
-    </div>
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2020/09/17/python%E6%96%87%E4%BB%B6%E7%9A%84IO%E4%BA%8C/">
-        python 文件的IO二
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        [toc]
-python 文件的IO一
-练习有一个文件，对其进行单词统计，不区分大小写，并显示单词重复最多的10个单词
-12345678910111213141516171819202122232425262728293031# 第一次处理# os.path /usr/local/lib &#x27;/usr/local/lib&#x27;def wordcount(file=&#x27;s...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='dotted'>
-      <div>
-        
-          
-          <a class='avatar' href='/images/rjrt.ico'><img src='/images/rjrt.ico'></a>
-        
-        <time>2020-09-17</time>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2020/09/17/python%E6%96%87%E4%BB%B6%E7%9A%84IO%E4%BA%8C/'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
+  </article>
 
-</div>
 
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal floatable">
-  
-  
-  
-    <div class='headimg-div'>
-      <a class='headimg-a' href="/2020/09/14/python%E6%96%87%E4%BB%B6%E7%9A%84IO%E4%B8%80/">
-        <img class='headimg' src='/images/python-file-io-01.jpg'/>
-      </a>
-    </div>
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2020/09/14/python%E6%96%87%E4%BB%B6%E7%9A%84IO%E4%B8%80/">
-        python 文件的IO一
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        [toc]
-python 文件的IO一
-函数相关练习补充
-实现Base64 解码
 
-1234567891011121314151617181920212223242526272829303132333435363738394041424344#!/usr/bin/env python# base64 解码实现alphabet = b&quot;ABCDEFGHIJKLMNOPQRSTUVWX...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='dotted'>
-      <div>
-        
-          
-          <a class='avatar' href='/images/rjrt.ico'><img src='/images/rjrt.ico'></a>
-        
-        <time>2020-09-14</time>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2020/09/14/python%E6%96%87%E4%BB%B6%E7%9A%84IO%E4%B8%80/'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
 
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal floatable">
-  
-  
-  
-    <div class='headimg-div'>
-      <a class='headimg-a' href="/2020/09/07/python%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0%E5%92%8C%E8%A3%85%E9%A5%B0%E5%99%A8%E4%B8%89/">
-        <img class='headimg' src='/images/python_function.png'/>
-      </a>
-    </div>
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2020/09/07/python%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0%E5%92%8C%E8%A3%85%E9%A5%B0%E5%99%A8%E4%B8%89/">
-        python高阶函数函数和装饰器三
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        [toc]
-python高阶函数和装饰器三
-函数定义的弊端
-Python 是动态语言，变量随时可以被赋值，且能赋值为不同的类型;
-Python 不是表态编译型语言，变量类型是在运行时决定的;
-动态语言很灵活，但是这种我也是弊端;
-
-12345678In [1]: def add(x,y):   ...:     return x + yIn [2]: print(add(4,5))9In [...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='dotted'>
-      <div>
-        
-          
-          <a class='avatar' href='/images/rjrt.ico'><img src='/images/rjrt.ico'></a>
-        
-        <time>2020-09-07</time>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2020/09/07/python%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0%E5%92%8C%E8%A3%85%E9%A5%B0%E5%99%A8%E4%B8%89/'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal floatable">
-  
-  
-  
-    <div class='headimg-div'>
-      <a class='headimg-a' href="/2020/08/31/python%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0%E5%92%8C%E8%A3%85%E9%A5%B0%E5%99%A8%E4%BA%8C/">
-        <img class='headimg' src='/images/python_function.png'/>
-      </a>
-    </div>
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2020/08/31/python%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0%E5%92%8C%E8%A3%85%E9%A5%B0%E5%99%A8%E4%BA%8C/">
-        python高阶函数函数和装饰器二
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        [toc]
-python高阶函数和装饰器二
-练习1. 把一个字典扁平化
-源字典&#123;&#39;a&#39;:&#123;&#39;b&#39;:1,&#39;c&#39;:2&#125;,&#39;d&#39;:&#123;&#39;e&#39;:3,&#39;f&#39;:&#123;&#39;g&#39;:4&#125;&#125;&#125;
-
-12345678910111213...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='dotted'>
-      <div>
-        
-          
-          <a class='avatar' href='/images/rjrt.ico'><img src='/images/rjrt.ico'></a>
-        
-        <time>2020-08-31</time>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2020/08/31/python%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0%E5%92%8C%E8%A3%85%E9%A5%B0%E5%99%A8%E4%BA%8C/'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal floatable">
-  
-  
-  
-    <div class='headimg-div'>
-      <a class='headimg-a' href="/2020/08/25/python%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0%E5%92%8C%E8%A3%85%E9%A5%B0%E5%99%A8%E4%B8%80/">
-        <img class='headimg' src='/images/python_function.png'/>
-      </a>
-    </div>
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2020/08/25/python%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0%E5%92%8C%E8%A3%85%E9%A5%B0%E5%99%A8%E4%B8%80/">
-        python高阶函数函数和装饰器一
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        [toc]
-python高阶函数和装饰器一
-
-First Class Object;
-
-1.函数在python中是一等公民;2.函数也是对象，可调用的对象;3.函数可以作为普通变量、参数、返回值等;
-
-高阶函数
-
-1.数据概念y=g(f(x));2.在数学和计算机科学中，高阶函数应当是至少满足下面一个条件的函数;
-接受一个多个函数作为参数;输出一个函数;
-12345678910def cou...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='dotted'>
-      <div>
-        
-          
-          <a class='avatar' href='/images/rjrt.ico'><img src='/images/rjrt.ico'></a>
-        
-        <time>2020-08-25</time>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2020/08/25/python%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0%E5%92%8C%E8%A3%85%E9%A5%B0%E5%99%A8%E4%B8%80/'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal floatable">
-  
-  
-  
-    <div class='headimg-div'>
-      <a class='headimg-a' href="/2020/08/19/python%E5%87%BD%E6%95%B0%E4%B8%89/">
-        <img class='headimg' src='/images/python_function.png'/>
-      </a>
-    </div>
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2020/08/19/python%E5%87%BD%E6%95%B0%E4%B8%89/">
-        python函数(三)
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        [toc]
-python 函数(三)
-变量名解析原则LEGB
-Local本地作用域、局部作用域的local命名空间,函数调时创建,调用结束消亡;
-Enclosing, Python2.2时引入了嵌套函数,实现了闭包,这个就是嵌套函数的外部函数的全名空间;
-Global,全局作用域,即一个模块的命名空间。模块被import 时创建，解释器退出时消亡;
-Build-in,内置模块的命名空间,生命...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='dotted'>
-      <div>
-        
-          
-          <a class='avatar' href='/images/rjrt.ico'><img src='/images/rjrt.ico'></a>
-        
-        <time>2020-08-19</time>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2020/08/19/python%E5%87%BD%E6%95%B0%E4%B8%89/'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-    
-  </section>
-  
-    
-      <br>
-      <div class="prev-next">
-        
-          <a class="prev" rel="prev" href="/">
-            <section class="post prev white-box floatable" >
-              <i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;上一页&nbsp;
-            </section>
-          </a>
-        
-        <p class="current">
-          2 / 11
-        </p>
-        
-          <a class="next" rel="next" href="/page/3/">
-            <section class="post next white-box floatable">
-              &nbsp;下一页&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i>
-            </section>
-          </a>
-        
-      </div>
-    
-  
 
 
 </div>
@@ -951,103 +602,8 @@ Build-in,内置模块的命名空间,生命...
     
     
 
-<section class="widget blogger floatable desktop mobile">
-  <div class='content'>
-    
-      
-        <a class='avatar flat-box rectangle' href='/tags/renjin/'>
-          <img no-lazy src='/images/ssjinyao.png'/>
-        </a>
-      
-    
-    
-      <div class='text'>
-        
-          <h2>༺ 锦遥 ༻</h2>
-        
-        
-          <p>关山难越，谁悲失路之人;  萍水相逢，尽是他乡之客 ~</p>
-
-        
-        
-          <p><span id="jinrishici-sentence">逝水锦遥</span></p>
-          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
-        
-      </div>
-    
-    
-      <div class="social-wrapper">
-        
-          
-            <a href="/atom.xml"
-              class="social fas fa-rss flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="/mssjinyao@163.com"
-              class="social fas fa-envelope flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="https://github.com/ssjinyao/"
-              class="social fab fa-github flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="/"
-              class="social fas fa-headphones-alt flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-      </div>
-    
-  </div>
-</section>
-
-  
-
-  
-    
-    
-
-  
-
-  
-    
-    
-  
-
-  <section class="widget tagcloud floatable desktop mobile">
-    
-  <header>
-    
-      <a href='/blog/tags/'><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
-    
-  </header>
 
 
-    <div class='content'>
-      <a href="/tags/cloud/" style="font-size: 18px; color: #7e7e7e">cloud</a> <a href="/tags/database/" style="font-size: 16px; color: #8b8b8b">database</a> <a href="/tags/linux/" style="font-size: 24px; color: #555">linux</a> <a href="/tags/program/" style="font-size: 20px; color: #707070">program</a> <a href="/tags/renjin/" style="font-size: 14px; color: #999">renjin</a> <a href="/tags/rhca/" style="font-size: 22px; color: #636363">rhca</a> <a href="/tags/zikao/" style="font-size: 14px; color: #999">zikao</a>
-    </div>
-  </section>
-
-
-  
 
   
 
