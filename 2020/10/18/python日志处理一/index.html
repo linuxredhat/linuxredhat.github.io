@@ -162,7 +162,7 @@
                   
                     id="tagszikao"
                   >
-                  <i class='fab fa-drupal fa-fw'></i>剑峰直指
+                  <i class='fab fa-drupal fa-fw'></i>剑锋直指
                 </a>
                 
               </li>
@@ -320,7 +320,7 @@
                   
                     id="tagszikao"
                   >
-                  <i class='fab fa-drupal fa-fw'></i>剑峰直指
+                  <i class='fab fa-drupal fa-fw'></i>剑锋直指
                 </a>
                 
               </li>
@@ -521,7 +521,7 @@
 <li>按照文件名排序输出，可以和ls的顺序不一样，但要求文件名排序;</li>
 <li>要求详细列表显示时，时间可以按照”年-月-日 时:分:秒” 格式显示。</li>
 </ol>
-<h1 id="argparse-模块"><a href="#argparse-模块" class="headerlink" title="* argparse 模块"></a>* argparse 模块</h1><p>一个可执行文件或者脚本可以接收参数;</p>
+<h3 id="argparse-模块"><a href="#argparse-模块" class="headerlink" title="* argparse 模块"></a>* argparse 模块</h3><p>一个可执行文件或者脚本可以接收参数;</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ls -l /etc</span></span><br><span class="line">/etc <span class="comment"># 是位置参数</span></span><br><span class="line">-l <span class="comment"># 是短选项</span></span><br></pre></td></tr></table></figure>
 <p>如何把这些参数传递给程序呢  ？<br>从3.2开始Python提供了参数分析的argparse。</p>
 <ul>
@@ -529,6 +529,7 @@
 </ul>
 <p>位置参数放在哪里，就要对应一个参数位置。例如/etc 就是对应一个参数位置;<br>选项参数，前面必须是通过<code>-</code>的短选项，或者<code>--</code> 长选项， 然后后面的才算它的参数，当然短选项后面也可以没有参数;</p>
 <p>上述中 ‘/etc’ 对应的是位置参数， -l  是选项参数;</p>
+<h3 id="基本目录的实现"><a href="#基本目录的实现" class="headerlink" title="基本目录的实现"></a>基本目录的实现</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python</span></span><br><span class="line"><span class="keyword">from</span> pathlib <span class="keyword">import</span> Path</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">showdir</span>(<span class="params">path:<span class="built_in">str</span>=<span class="string">&#x27;.&#x27;</span></span>):</span></span><br><span class="line">    p = Path(path)</span><br><span class="line">    <span class="keyword">for</span> file <span class="keyword">in</span> p.iterdir():</span><br><span class="line">        print(file.name)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    showdir(<span class="string">&#x27;/etc&#x27;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
   
   
@@ -563,10 +564,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-11-03T17:17:20+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-01-31T16:38:54+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：Nov 3, 2020</p>
+    <p>更新于：Jan 31, 2021</p>
   </a>
 </div>
 
@@ -701,7 +702,7 @@ CSV文件csv文件简介
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%83%E4%B9%A0"><span class="toc-text">练习</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%83%E4%B9%A0"><span class="toc-text">练习</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#argparse-%E6%A8%A1%E5%9D%97"><span class="toc-text">* argparse 模块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E7%9B%AE%E5%BD%95%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="toc-text">基本目录的实现</span></a></li></ol></li></ol>
     </div>
   </section>
 
