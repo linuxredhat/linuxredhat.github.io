@@ -6160,8 +6160,8 @@ awk &apos;!/^UUID/&#123;print $1&#125;&apos; /etc/fstab
 ]]></content>
       <tags>
         <tag>linux</tag>
-        <tag>database</tag>
         <tag>rhca</tag>
+        <tag>database</tag>
       </tags>
   </entry>
   <entry>
@@ -6461,8 +6461,8 @@ master节点和各slave节点，以及各slave节点启动其IO和SQL线程，�
 ]]></content>
       <tags>
         <tag>linux</tag>
-        <tag>database</tag>
         <tag>rhca</tag>
+        <tag>database</tag>
       </tags>
   </entry>
   <entry>
