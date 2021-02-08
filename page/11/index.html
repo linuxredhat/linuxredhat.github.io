@@ -435,7 +435,7 @@
     <div id="l_cover">
   
     
-        <div id="half" class='cover-wrapper  search' style="display: ;">
+        <div id="half" class='cover-wrapper  dock' style="display: ;">
           
             <div class='cover-bg lazyload placeholder' data-bg="/images/lovers.png"></div>
           
@@ -448,14 +448,6 @@
     
   </div>
   <div class='bottom'>
-    
-      <div class="m_search">
-        <form name="searchform" class="form u-search-form">
-          <input type="text" class="input u-search-input" placeholder="搜索本地文章" />
-          <i class="icon fas fa-search fa-fw"></i>
-        </form>
-      </div>
-    
     <div class='menu navigation'>
       <div class='list-h'>
         
@@ -1224,8 +1216,6 @@ function listenSearch(){
 }
 function setSearchService() {
 	listenSearch();
-	
-		document.addEventListener("pjax:success", listenSearch);
 	
 }
 </script>
