@@ -1,0 +1,1434 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head hexo-theme='https://github.com/volantis-x/hexo-theme-volantis/tree/4.1.6'>
+  <meta charset="utf-8">
+  <!-- SEO相关 -->
+  
+    
+  
+  <!-- 渲染优化 -->
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://cdn.jsdelivr.net'>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- 页面元数据 -->
+  
+  <title>python 之业务服务监控详解(二) - 逝水锦遥</title>
+  
+    <meta name="keywords" content="program">
+  
+
+  
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="逝水锦遥" type="application/atom+xml">
+  
+
+  <!-- import meta -->
+  
+
+  <!-- link -->
+  
+
+  <!-- import link -->
+  
+
+  
+    
+<link rel="stylesheet" href="/css/first.css">
+
+  
+
+  
+  <link rel="stylesheet" href="/css/style.css" media="print" onload="this.media='all';this.onload=null">
+  <noscript><link rel="stylesheet" href="/css/style.css"></noscript>
+  
+
+  <script id="loadcss"></script>
+</head>
+
+
+<body>
+<!--
+	  <canvas id="canvas" width="1440" height="900" ></canvas>
+	  <script type="text/javascript" src="/js/DigitalRain.js"></script>
+-->  
+	  
+
+<header id="l_header" class="l_header always floatable "  >
+  <div class='container'>
+  <div id='wrapper'>
+    <div class='nav-sub'>
+      <p class="title"></p>
+      <ul class='switcher nav-list-h m-phone' id="pjax-header-nav-list">
+        <li><a id="s-comment" class="fas fa-comments fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+          <li><a id="s-toc" class="s-toc fas fa-list fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+      </ul>
+    </div>
+		<div class="nav-main">
+      
+        
+        <a class="title flat-box" target="_self" href='/'>
+          
+            <img no-lazy class='logo' src='/images/head.png'/>
+          
+          
+          
+        </a>
+      
+
+			<div class='menu navigation'>
+				<ul class='nav-list-h m-pc'>
+          
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fab fa-linux fa-fw'></i>所有文章
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/program
+                  
+                  
+                  
+                    id="tagsprogram"
+                  >
+                  <i class='fab fa-gitlab fa-fw'></i>运维开发
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/rhca
+                  
+                  
+                  
+                    id="tagsrhca"
+                  >
+                  <i class='fas fa-heartbeat fa-fw'></i>运维组件
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/cloud
+                  
+                  
+                  
+                    id="tagscloud"
+                  >
+                  <i class='fas fa-cloud fa-fw'></i>云计算
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/zikao
+                  
+                  
+                  
+                    id="tagszikao"
+                  >
+                  <i class='fab fa-drupal fa-fw'></i>剑锋直指
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/renjin
+                  
+                  
+                  
+                    id="tagsrenjin"
+                  >
+                  <i class='fas fa-user-circle fa-fw'></i>个人中心
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" 
+                  
+                  
+                  >
+                  <i class='fas fa-ellipsis-v fa-fw'></i>更多
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/box/
+                  
+                  
+                  
+                    id="box"
+                  >
+                  <i class='fas fa-flag fa-fw'></i>工具箱
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=https://www.feiyiblog.com
+                  
+                  
+                  
+                    id="https:wwwfeiyiblogcom"
+                  >
+                  <i class='fas fa-user fa-fw'></i>狗江博客
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=https://www.calym.top
+                  
+                  
+                  
+                    id="https:wwwcalymtop"
+                  >
+                  <i class='fas fa-user fa-fw'></i>庆朋博客
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+          
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="搜索文章..." />
+        </form>
+      </div>
+
+			<ul class='switcher nav-list-h m-phone'>
+				
+					<li><a class="s-search fas fa-search fa-fw" target="_self" href='javascript:void(0)'></a></li>
+				
+				<li>
+          <a class="s-menu fas fa-bars fa-fw" target="_self" href='javascript:void(0)'></a>
+          <ul class="menu-phone list-v navigation white-box">
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fab fa-linux fa-fw'></i>所有文章
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/program
+                  
+                  
+                  
+                    id="tagsprogram"
+                  >
+                  <i class='fab fa-gitlab fa-fw'></i>运维开发
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/rhca
+                  
+                  
+                  
+                    id="tagsrhca"
+                  >
+                  <i class='fas fa-heartbeat fa-fw'></i>运维组件
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/cloud
+                  
+                  
+                  
+                    id="tagscloud"
+                  >
+                  <i class='fas fa-cloud fa-fw'></i>云计算
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/zikao
+                  
+                  
+                  
+                    id="tagszikao"
+                  >
+                  <i class='fab fa-drupal fa-fw'></i>剑锋直指
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/renjin
+                  
+                  
+                  
+                    id="tagsrenjin"
+                  >
+                  <i class='fas fa-user-circle fa-fw'></i>个人中心
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" 
+                  
+                  
+                  >
+                  <i class='fas fa-ellipsis-v fa-fw'></i>更多
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/box/
+                  
+                  
+                  
+                    id="box"
+                  >
+                  <i class='fas fa-flag fa-fw'></i>工具箱
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=https://www.feiyiblog.com
+                  
+                  
+                  
+                    id="https:wwwfeiyiblogcom"
+                  >
+                  <i class='fas fa-user fa-fw'></i>狗江博客
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=https://www.calym.top
+                  
+                  
+                  
+                    id="https:wwwcalymtop"
+                  >
+                  <i class='fas fa-user fa-fw'></i>庆朋博客
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+            
+          </ul>
+        </li>
+			</ul>
+		</div>
+	</div>
+  </div>
+</header>
+
+  <div id="l_body">
+    <div id="l_cover">
+  
+    
+        <div id="half" class='cover-wrapper post search' style="display: ;">
+          
+            <div class='cover-bg lazyload placeholder' data-bg="/images/lovers.png"></div>
+          
+          <div class='cover-body'>
+  <div class='top'>
+    
+      <img no-lazy class='logo' src='/images/ssjyai.png'/>
+    
+    
+    
+  </div>
+  <div class='bottom'>
+    
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <input type="text" class="input u-search-input" placeholder="搜索本地文章" />
+          <i class="icon fas fa-search fa-fw"></i>
+        </form>
+      </div>
+    
+    <div class='menu navigation'>
+      <div class='list-h'>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+          <div id="scroll-down" style="display: none;"><i class="fa fa-chevron-down scroll-down-effects"></i></div>
+        </div>
+    
+  
+  </div>
+
+    <div id='safearea'>
+      <div class='body-wrapper' id="pjax-container">
+        
+
+<div class='l_main'>
+  <article class="article post white-box reveal md floatable article-type-post" id="post" itemscope itemprop="blogPost">
+  
+
+
+  
+  <div class="article-meta" id="top">
+    
+    
+    
+      <h1 class="title">
+        python 之业务服务监控详解(二)
+      </h1>
+      <div class='new-meta-box'>
+        
+          
+            
+<div class='new-meta-item author'>
+  <a class='author' href="/images/rjrt.ico" rel="nofollow">
+    <img no-lazy src="/images/rjrt.ico">
+    <p>任锦</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：Jan 19, 2018</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class="new-meta-item browse busuanzi">
+    <a class='notlink'>
+      <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+      <p>
+        <span id="busuanzi_value_page_pv">
+          <i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i>
+          <i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i>
+        </span>
+        次浏览
+      </p>
+    </a>
+  </div>
+
+
+          
+        
+      </div>
+    
+  </div>
+
+
+  
+  <p>[toc]</p>
+<h2 id="文件-目录差异对比法"><a href="#文件-目录差异对比法" class="headerlink" title="文件/目录差异对比法"></a>文件/目录差异对比法</h2><blockquote>
+<p>当我们进行代码审计或校验备份时，往往需要检查原始与目标目录的一致性;<br>Python的标准库已经自带了满足此需求的模块filecmp;<br>filecmp可以实现文件、目录遍历子目录的差异对比功能;<br>比如报告中输出目录目录比原始多出的文件或子目录;<br>即使文件同名也会判断是否为同一个文件(内容级比对)等;<br>python2.3 或更高版本默认自带fileemp模块,无需额外安装;  </p>
+</blockquote>
+<h2 id="模块常用方法说明"><a href="#模块常用方法说明" class="headerlink" title="模块常用方法说明"></a>模块常用方法说明</h2><blockquote>
+<p>filecmp 提供了三个操作方法，分别为cmp（单文件对比）、cmpfiles(多文件对比）<br>dircmp（目录对比) </p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">单文件对比，采用filecmp.cmp(f1,f2[,shallow])方法，比较文件名为f1和f2的文件   </span><br><span class="line">相同反回True，不相同返回False,shallow默认为True，意思是只根据os.stat()方法  </span><br><span class="line">返回的文件基本信息进行对比，比如最后访问时间、修改时间、状态改变时间等  </span><br><span class="line">忽略对文件内容的对比。当shallow为False时，则os.stat()与文件内容同时进行校验</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 对比文件的差异</span></span><br><span class="line">➜  test echo <span class="string">&quot;good user&quot;</span> &gt; f1   </span><br><span class="line">➜  test echo <span class="string">&quot;good user&quot;</span> &gt; f3</span><br><span class="line">➜  test echo <span class="string">&quot;good user2&quot;</span> &gt; f2</span><br><span class="line">In [<span class="number">2</span>]: <span class="keyword">import</span> filecmp</span><br><span class="line"></span><br><span class="line">In [<span class="number">3</span>]: filecmp.cmp(<span class="string">&quot;/Users/macbookdzsbe/Desktop/MyPython/test/f1&quot;</span>,<span class="string">&quot;/Users/macbookdzsbe/Desktop/MyPython/test/f3&quot;</span>)</span><br><span class="line">Out[<span class="number">3</span>]: <span class="literal">True</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">4</span>]: filecmp.cmp(<span class="string">&quot;/Users/macbookdzsbe/Desktop/MyPython/test/f1&quot;</span>,<span class="string">&quot;/Users/macbookdzsbe/Desktop/MyPython/test/f2&quot;</span>)</span><br><span class="line">Out[<span class="number">4</span>]: <span class="literal">False</span></span><br></pre></td></tr></table></figure>
+<h2 id="dir1-与-dir2目录中指定文件清单对比"><a href="#dir1-与-dir2目录中指定文件清单对比" class="headerlink" title="dir1 与 dir2目录中指定文件清单对比"></a>dir1 与 dir2目录中指定文件清单对比</h2><blockquote>
+<p>两目录下文件的 md5 信息如下<br>两目录下文件的 md5 信息如下,其中f1、f2匹配; f3不匹配<br>f4,f5对应的目录中不存在无法比较</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">[root@test dir2]<span class="comment"># md5sum ../dir1/*</span></span><br><span class="line"><span class="number">1</span>a9dbd408f626389539e9feb1d234df7  ../dir1/f1</span><br><span class="line"><span class="number">235</span>dce31eebce0213322102f698bc249  ../dir1/f2</span><br><span class="line"><span class="number">1</span>a9dbd408f626389539e9feb1d234df7  ../dir1/f3</span><br><span class="line">d41d8cd98f00b204e9800998ecf8427e  ../dir1/f5</span><br><span class="line">[root@test dir2]<span class="comment"># md5sum *</span></span><br><span class="line"><span class="number">1</span>a9dbd408f626389539e9feb1d234df7  f1</span><br><span class="line"><span class="number">235</span>dce31eebce0213322102f698bc249  f2</span><br><span class="line"><span class="number">68e51</span>baf228d447b199a75268dd5634b  f3</span><br><span class="line"><span class="number">764</span>c976782dec989b043d08714ec21a5  f4</span><br><span class="line"><span class="comment"># 使用cmpfiles 对比的结果如下，符合我们的预期 </span></span><br><span class="line">In [<span class="number">4</span>]: <span class="keyword">import</span> filecmp</span><br><span class="line"></span><br><span class="line">In [<span class="number">5</span>]: filecmp.cmpfiles(<span class="string">&quot;/root/test/dir1&quot;</span>, <span class="string">&quot;/root/test/dir2&quot;</span>,[<span class="string">&#x27;f1&#x27;</span>,<span class="string">&#x27;f2&#x27;</span>,<span class="string">&#x27;f3&#x27;</span>,<span class="string">&#x27;f4&#x27;</span>,<span class="string">&#x27;f5&#x27;</span>])</span><br><span class="line">Out[<span class="number">5</span>]: ([<span class="string">&#x27;f1&#x27;</span>, <span class="string">&#x27;f2&#x27;</span>], [<span class="string">&#x27;f3&#x27;</span>], [<span class="string">&#x27;f4&#x27;</span>, <span class="string">&#x27;f5&#x27;</span>])</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>目录对比，能过dircmp(a,b[,ingore[,hide]]) 类创建一个目录比较对象;<br>其中a和b是参加比较的目录名。ignore代表文件名忽略的列表，并默认为[‘RCS’,’CVS’,’’tags];<br>hide代表隐藏的列表，默认为[os.curdir, os.pardir]。dircmp类可以获得目录比较的详细信息;<br>如只有在a目录中包括的文件、a与b都存在的子目录、匹配的文件等，同时支持递归;  </p>
+</blockquote>
+<h2 id="dircmp提供了三个输出报的方法"><a href="#dircmp提供了三个输出报的方法" class="headerlink" title="dircmp提供了三个输出报的方法"></a>dircmp提供了三个输出报的方法</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># report()，比较当前指定目录中的内容;  </span></span><br><span class="line"><span class="comment"># report_partial_closure(),比较当前指定目录 及第一级子目录中的内容;  </span></span><br><span class="line"><span class="comment"># report_full_closure(),递归比较所有指定目录的内容;  </span></span><br><span class="line"><span class="comment"># 为输出更加详细的比较内容，dircmp类还提供了以下属性;  </span></span><br><span class="line"><span class="comment"># left, 左目录,如类定义的a; </span></span><br><span class="line"><span class="comment"># right, 右目录,如类定义中的b; </span></span><br><span class="line"><span class="comment"># left_list, 左目录中的文件及目录列表;  </span></span><br><span class="line"><span class="comment"># right_list, 右目录中的文件及目录列表; </span></span><br><span class="line"><span class="comment"># common, 两边目录共同存在的文件或者目录;  </span></span><br><span class="line"><span class="comment"># left_only, 只在左目录中的文件或者目录; </span></span><br><span class="line"><span class="comment"># right_only, 只在右目录的文件或者目录; </span></span><br><span class="line"><span class="comment"># common_dirs, 两边目录都存在的子目录; </span></span><br><span class="line"><span class="comment"># common_files, 两边目录都存在的子文件;  </span></span><br><span class="line"><span class="comment"># common_funny, 两边目录都存在的子目录(不同目录类型或os.stat()记录的错误);  </span></span><br><span class="line"><span class="comment"># same_files, 匹配相同的文件;  </span></span><br><span class="line"><span class="comment"># diff_files, 不匹配的文件;  </span></span><br><span class="line"><span class="comment"># funny_files, 两边目录中都存在，但无法比较的文件; </span></span><br><span class="line"><span class="comment"># subdirs, 将common_dirs目录名映身到新的dircmp对象，格式为字典类型; </span></span><br></pre></td></tr></table></figure>
+<h2 id="对比dir1与dir2目录差异"><a href="#对比dir1与dir2目录差异" class="headerlink" title="对比dir1与dir2目录差异"></a>对比dir1与dir2目录差异</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">[root@<span class="built_in">test</span> <span class="built_in">test</span>]<span class="comment"># mkdir dir1/&#123;a/&#123;a1,b/&#123;b1,b2,b3&#125;&#125;,f1,f2,f3,f4&#125; -pv</span></span><br><span class="line">mkdir: 已创建目录 <span class="string">&quot;dir1&quot;</span></span><br><span class="line">mkdir: 已创建目录 <span class="string">&quot;dir1/a&quot;</span></span><br><span class="line">mkdir: 已创建目录 <span class="string">&quot;dir1/a/a1&quot;</span></span><br><span class="line">mkdir: 已创建目录 <span class="string">&quot;dir1/a/b&quot;</span></span><br><span class="line">mkdir: 已创建目录 <span class="string">&quot;dir1/a/b/b1&quot;</span></span><br><span class="line">mkdir: 已创建目录 <span class="string">&quot;dir1/a/b/b2&quot;</span></span><br><span class="line">mkdir: 已创建目录 <span class="string">&quot;dir1/a/b/b3&quot;</span></span><br><span class="line">mkdir: 已创建目录 <span class="string">&quot;dir1/f1&quot;</span></span><br><span class="line">mkdir: 已创建目录 <span class="string">&quot;dir1/f2&quot;</span></span><br><span class="line">mkdir: 已创建目录 <span class="string">&quot;dir1/f3&quot;</span></span><br><span class="line">mkdir: 已创建目录 <span class="string">&quot;dir1/f4&quot;</span></span><br><span class="line">[root@<span class="built_in">test</span> <span class="built_in">test</span>]<span class="comment"># touch dir1/test.py</span></span><br><span class="line">[root@<span class="built_in">test</span> <span class="built_in">test</span>]<span class="comment"># tree  dir1/</span></span><br><span class="line">dir1/</span><br><span class="line">├── a</span><br><span class="line">│   ├── a1</span><br><span class="line">│   └── b</span><br><span class="line">│       ├── b1</span><br><span class="line">│       ├── b2</span><br><span class="line">│       └── b3</span><br><span class="line">├── f1</span><br><span class="line">├── f2</span><br><span class="line">├── f3</span><br><span class="line">├── f4</span><br><span class="line">└── test.py</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">[root@tf-test <span class="built_in">test</span>]<span class="comment"># mkdir dir2/&#123;a/&#123;a1,b/&#123;b1,b2,b3&#125;&#125;,aa&#123;/aa1&#125;,f1,f2,f3,f5&#125; -pv</span></span><br><span class="line">mkdir: 已创建目录 <span class="string">&quot;dir2&quot;</span></span><br><span class="line">mkdir: 已创建目录 <span class="string">&quot;dir2/a&quot;</span></span><br><span class="line">mkdir: 已创建目录 <span class="string">&quot;dir2/a/a1&quot;</span></span><br><span class="line">mkdir: 已创建目录 <span class="string">&quot;dir2/a/b&quot;</span></span><br><span class="line">mkdir: 已创建目录 <span class="string">&quot;dir2/a/b/b1&quot;</span></span><br><span class="line">mkdir: 已创建目录 <span class="string">&quot;dir2/a/b/b2&quot;</span></span><br><span class="line">mkdir: 已创建目录 <span class="string">&quot;dir2/a/b/b3&quot;</span></span><br><span class="line">mkdir: 已创建目录 <span class="string">&quot;dir2/aa&#123;&quot;</span></span><br><span class="line">mkdir: 已创建目录 <span class="string">&quot;dir2/aa&#123;/aa1&#125;&quot;</span></span><br><span class="line">mkdir: 已创建目录 <span class="string">&quot;dir2/f1&quot;</span></span><br><span class="line">mkdir: 已创建目录 <span class="string">&quot;dir2/f2&quot;</span></span><br><span class="line">mkdir: 已创建目录 <span class="string">&quot;dir2/f3&quot;</span></span><br><span class="line">mkdir: 已创建目录 <span class="string">&quot;dir2/f5&quot;</span></span><br><span class="line">[root@tf-test <span class="built_in">test</span>]<span class="comment"># touch dir2/test.py</span></span><br><span class="line">[root@tf-test <span class="built_in">test</span>]<span class="comment"># tree dir2/</span></span><br><span class="line">dir2/</span><br><span class="line">├── a</span><br><span class="line">│   ├── a1</span><br><span class="line">│   └── b</span><br><span class="line">│       ├── b1</span><br><span class="line">│       ├── b2</span><br><span class="line">│       └── b3</span><br><span class="line">├── aa&#123;</span><br><span class="line">│   └── aa1&#125;</span><br><span class="line">├── f1</span><br><span class="line">├── f2</span><br><span class="line">├── f3</span><br><span class="line">├── f5</span><br><span class="line">└── test.py</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">[root@test test]<span class="comment"># cat cmpy.py </span></span><br><span class="line"><span class="comment">#!/usr/bin/env python </span></span><br><span class="line"><span class="comment"># -*- coding:utf-8 -*- </span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> filecmp</span><br><span class="line">a = <span class="string">&quot;/root/test/dir1&quot;</span> <span class="comment"># 定义左目录 </span></span><br><span class="line">b = <span class="string">&quot;/root/test/dir2&quot;</span> <span class="comment"># 定义右目录 </span></span><br><span class="line"></span><br><span class="line">dirobj=filecmp.dircmp(a,b,[<span class="string">&#x27;test.y&#x27;</span>]) <span class="comment"># 目录比较，忽略test.py文件 </span></span><br><span class="line"><span class="comment">#输出对比结果数据报表</span></span><br><span class="line"></span><br><span class="line">dirobj.report()</span><br><span class="line">dirobj.report_partial_closure()</span><br><span class="line">dirobj.report_full_closure() </span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span> <span class="string">&quot;left_list:&quot;</span> + <span class="built_in">str</span>(dirobj.left_list)</span><br><span class="line"><span class="built_in">print</span> <span class="string">&quot;right_list&quot;</span> + <span class="built_in">str</span>(dirobj.right_list)</span><br><span class="line"><span class="built_in">print</span> <span class="string">&quot;common:&quot;</span> + <span class="built_in">str</span>(dirobj.common)</span><br><span class="line"><span class="built_in">print</span> <span class="string">&quot;left_only:&quot;</span> + <span class="built_in">str</span>(dirobj.left_only)</span><br><span class="line"><span class="built_in">print</span> <span class="string">&quot;right_only:&quot;</span> + <span class="built_in">str</span>(dirobj.right_only)</span><br><span class="line"><span class="built_in">print</span> <span class="string">&quot;common_dirs:&quot;</span> + <span class="built_in">str</span>(dirobj.common_dirs)</span><br><span class="line"><span class="built_in">print</span> <span class="string">&quot;common_files:&quot;</span> + <span class="built_in">str</span>(dirobj.common_files)</span><br><span class="line"><span class="built_in">print</span> <span class="string">&quot;common_funny:&quot;</span> + <span class="built_in">str</span>(dirobj.common_funny)</span><br><span class="line"><span class="built_in">print</span> <span class="string">&quot;same_file:&quot;</span> + <span class="built_in">str</span>(dirobj.same_files)</span><br><span class="line"><span class="built_in">print</span> <span class="string">&quot;diff_files:&quot;</span> + <span class="built_in">str</span>(dirobj.diff_files)</span><br><span class="line"><span class="built_in">print</span> <span class="string">&quot;funny_files:&quot;</span> + <span class="built_in">str</span>(dirobj.funny_files)</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">diff /root/test/dir1 /root/test/dir2</span><br><span class="line">Only in /root/test/dir1 : [&#x27;f4&#x27;]</span><br><span class="line">Only in /root/test/dir2 : [&#x27;aa&#123;&#x27;, &#x27;f5&#x27;]</span><br><span class="line">Identical files : [&#x27;test.py&#x27;]</span><br><span class="line">Common subdirectories : [&#x27;a&#x27;, &#x27;f1&#x27;, &#x27;f2&#x27;, &#x27;f3&#x27;]</span><br><span class="line">diff /root/test/dir1 /root/test/dir2</span><br><span class="line">Only in /root/test/dir1 : [&#x27;f4&#x27;]</span><br><span class="line">Only in /root/test/dir2 : [&#x27;aa&#123;&#x27;, &#x27;f5&#x27;]</span><br><span class="line">Identical files : [&#x27;test.py&#x27;]</span><br><span class="line">Common subdirectories : [&#x27;a&#x27;, &#x27;f1&#x27;, &#x27;f2&#x27;, &#x27;f3&#x27;]</span><br><span class="line"></span><br><span class="line">diff /root/test/dir1/a /root/test/dir2/a</span><br><span class="line">Common subdirectories : [&#x27;a1&#x27;, &#x27;b&#x27;]</span><br><span class="line"></span><br><span class="line">diff /root/test/dir1/f1 /root/test/dir2/f1</span><br><span class="line"></span><br><span class="line">diff /root/test/dir1/f2 /root/test/dir2/f2</span><br><span class="line"></span><br><span class="line">diff /root/test/dir1/f3 /root/test/dir2/f3</span><br><span class="line">diff /root/test/dir1 /root/test/dir2</span><br><span class="line">Only in /root/test/dir1 : [&#x27;f4&#x27;]</span><br><span class="line">Only in /root/test/dir2 : [&#x27;aa&#123;&#x27;, &#x27;f5&#x27;]</span><br><span class="line">Identical files : [&#x27;test.py&#x27;]</span><br><span class="line">Common subdirectories : [&#x27;a&#x27;, &#x27;f1&#x27;, &#x27;f2&#x27;, &#x27;f3&#x27;]</span><br><span class="line"></span><br><span class="line">diff /root/test/dir1/a /root/test/dir2/a</span><br><span class="line">Common subdirectories : [&#x27;a1&#x27;, &#x27;b&#x27;]</span><br><span class="line"></span><br><span class="line">diff /root/test/dir1/a/a1 /root/test/dir2/a/a1</span><br><span class="line"></span><br><span class="line">diff /root/test/dir1/a/b /root/test/dir2/a/b</span><br><span class="line">Common subdirectories : [&#x27;b1&#x27;, &#x27;b2&#x27;, &#x27;b3&#x27;]</span><br><span class="line"></span><br><span class="line">diff /root/test/dir1/a/b/b1 /root/test/dir2/a/b/b1</span><br><span class="line"></span><br><span class="line">diff /root/test/dir1/a/b/b2 /root/test/dir2/a/b/b2</span><br><span class="line"></span><br><span class="line">diff /root/test/dir1/a/b/b3 /root/test/dir2/a/b/b3</span><br><span class="line"></span><br><span class="line">diff /root/test/dir1/f1 /root/test/dir2/f1</span><br><span class="line"></span><br><span class="line">diff /root/test/dir1/f2 /root/test/dir2/f2</span><br><span class="line"></span><br><span class="line">diff /root/test/dir1/f3 /root/test/dir2/f3</span><br><span class="line">left_list:[&#x27;a&#x27;, &#x27;f1&#x27;, &#x27;f2&#x27;, &#x27;f3&#x27;, &#x27;f4&#x27;, &#x27;test.py&#x27;]</span><br><span class="line">right_list[&#x27;a&#x27;, &#x27;aa&#123;&#x27;, &#x27;f1&#x27;, &#x27;f2&#x27;, &#x27;f3&#x27;, &#x27;f5&#x27;, &#x27;test.py&#x27;]</span><br><span class="line">common:[&#x27;a&#x27;, &#x27;f1&#x27;, &#x27;f2&#x27;, &#x27;f3&#x27;, &#x27;test.py&#x27;]</span><br><span class="line">left_only:[&#x27;f4&#x27;]</span><br><span class="line">right_only:[&#x27;aa&#123;&#x27;, &#x27;f5&#x27;]</span><br><span class="line">common_dirs:[&#x27;a&#x27;, &#x27;f1&#x27;, &#x27;f2&#x27;, &#x27;f3&#x27;]</span><br><span class="line">common_files:[&#x27;test.py&#x27;]</span><br><span class="line">common_funny:[]</span><br><span class="line">same_file:[&#x27;test.py&#x27;]</span><br><span class="line">diff_files:[]</span><br><span class="line">funny_files:[]</span><br></pre></td></tr></table></figure>
+<h2 id="校验源与备份目录差异"><a href="#校验源与备份目录差异" class="headerlink" title="校验源与备份目录差异"></a>校验源与备份目录差异</h2><blockquote>
+<p>有时候我们无法确认备份目录与源目录文件是否保持一致，包括源目录中的新文件或目录;<br>更新文件或目录 有无成功同步，定期进行校验，没有成功则希望有针对性地进行补备份;<br>本未例使用了filecmp模块的left_only、diff_files方法递归获取目录的更新项;<br>再通过shuti.copyfile、 os.makedirs 方法对更新项进行复制，最终保持一致状态;  </p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line">➜  test cat dir_contrast.py </span><br><span class="line"><span class="comment">#!/usr/bin/env python</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">import</span> os, sys </span><br><span class="line"><span class="keyword">import</span> filecmp</span><br><span class="line"><span class="keyword">import</span> re </span><br><span class="line"><span class="keyword">import</span> shutil </span><br><span class="line"><span class="keyword">import</span> difflib</span><br><span class="line">holderlist = []</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">compareme</span>(<span class="params">dir1,dir2</span>):</span>   <span class="comment"># 递归获取更新项函数</span></span><br><span class="line">    dircomp=filecmp.dircmp(dir1,dir2)</span><br><span class="line">    only_in_one=dircomp.left_only  <span class="comment"># 源目录新文件或目录</span></span><br><span class="line">    diff_in_one=dircomp.diff_files <span class="comment"># 不匹配文件，源目录文件已发生变化</span></span><br><span class="line">    dirath=os.path.abspath(dir1)   <span class="comment"># 定义源目录绝对路径</span></span><br><span class="line">    <span class="comment">#将更新文件名或目录追回到holderlist </span></span><br><span class="line">    [holderlist.append(os.path.abspath(os.path.join(dir1,x))) <span class="keyword">for</span> x <span class="keyword">in</span> only_in_one]</span><br><span class="line">    [holderlist.append(os.path.abspath(os.path.join(dir1,x))) <span class="keyword">for</span> x <span class="keyword">in</span> diff_in_one]</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span> (dircomp.common_dirs) &gt; <span class="number">0</span>: <span class="comment"># 判断是否存在相同子目录，以便递归</span></span><br><span class="line">        <span class="keyword">for</span> item <span class="keyword">in</span> dircomp.common_dirs: <span class="comment">#递归子目录</span></span><br><span class="line">            compareme(os.path.abspath(os.path.join(dir1, item)), \</span><br><span class="line">            os.path.abspath(os.path.join(dir2,item)))</span><br><span class="line">    <span class="keyword">return</span> holderlist </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span>():</span></span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(sys.argv) &gt;<span class="number">2</span>: <span class="comment">#  要求输入源目录与备份目录</span></span><br><span class="line">        dir1 = sys.argv[<span class="number">1</span>]</span><br><span class="line">        dir2 = sys.argv[<span class="number">2</span>]</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="built_in">print</span> <span class="string">&quot;Usage:&quot;</span>, sys.argv[<span class="number">0</span>], <span class="string">&quot;datadir backupdir&quot;</span></span><br><span class="line">        sys.exit()</span><br><span class="line">    </span><br><span class="line">    source_files = compareme(dir1,dir2)</span><br><span class="line">    dir1 = os.path.abspath(dir1)</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> dir2.endswith(<span class="string">&#x27;/&#x27;</span>): dir2=dir2+<span class="string">&#x27;/&#x27;</span> <span class="comment">#备份目录路径加&quot;/&quot;符</span></span><br><span class="line">    dir2=os.path.abspath(dir2)</span><br><span class="line">    destination_files=[]</span><br><span class="line">    createdir_bool = <span class="literal">False</span> </span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> item <span class="keyword">in</span> source_files:   <span class="comment"># 遍历返回的差异文件或目录清单</span></span><br><span class="line">        destination_dir= re.sub(dir1,dir2, item) <span class="comment"># 将源目录差异路径清单对应替换成备份目录</span></span><br><span class="line">    </span><br><span class="line">        destination_files.append(destination_dir)</span><br><span class="line">        <span class="keyword">if</span> os.path.isdir(item): <span class="comment"># 如果差异路径 为目录且不存在,则在备份目录中创建</span></span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(destination_dir):</span><br><span class="line">                os.makedirs(destination_dir)</span><br><span class="line">                createdir_bool = <span class="literal">True</span> <span class="comment">#再次调用compareme 函数标记</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> createdir_bool: <span class="comment">#重新调用compareme函数,重新遍历新创建目录的内容</span></span><br><span class="line">        destination_files = [] </span><br><span class="line">        source_files=[]</span><br><span class="line">        source_files=compareme(dir1,dir2) <span class="comment"># 调用compareme函数</span></span><br><span class="line">        <span class="keyword">for</span> item <span class="keyword">in</span> source_files: <span class="comment">#获取目录差异路径清单，对应替换成备分目录</span></span><br><span class="line">            destination_dir = re.sub(dir1,dir2, item)</span><br><span class="line">            destination_files.append(destination_dir)</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span> <span class="string">&quot;update item:&quot;</span></span><br><span class="line">    <span class="built_in">print</span> source_files <span class="comment">#输出更新项列表清单</span></span><br><span class="line">    copy_pair = <span class="built_in">zip</span>(source_files,destination_files) <span class="comment">#将源目录与备份目录文件拆分成无组</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> item <span class="keyword">in</span> copy_pair:</span><br><span class="line">        <span class="keyword">if</span> os.path.isfile(item[<span class="number">0</span>]): </span><br><span class="line">            shutil.copyfile(item[<span class="number">0</span>], item[<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+
+  
+  
+    
+    <div class='footer'>
+      
+      
+      
+        <div class='copyright'>
+          <blockquote>
+            
+              
+                <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+              
+            
+              
+                <p>本文永久链接是：<a href=https://www.asjin.com/2018/01/19/python-%E4%B9%8B%E4%B8%9A%E5%8A%A1%E6%9C%8D%E5%8A%A1%E7%9B%91%E6%8E%A7%E8%AF%A6%E8%A7%A3-%E4%BA%8C/>https://www.asjin.com/2018/01/19/python-%E4%B9%8B%E4%B8%9A%E5%8A%A1%E6%9C%8D%E5%8A%A1%E7%9B%91%E6%8E%A7%E8%AF%A6%E8%A7%A3-%E4%BA%8C/</a></p>
+              
+            
+          </blockquote>
+        </div>
+      
+      
+    </div>
+  
+  
+    
+
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-09-29T19:05:37+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：Sep 29, 2020</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/program/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>program</p></a></div>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.asjin.com/2018/01/19/python-%E4%B9%8B%E4%B8%9A%E5%8A%A1%E6%9C%8D%E5%8A%A1%E7%9B%91%E6%8E%A7%E8%AF%A6%E8%A7%A3-%E4%BA%8C/&title=python 之业务服务监控详解(二) - 逝水锦遥&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://www.asjin.com/2018/01/19/python-%E4%B9%8B%E4%B8%9A%E5%8A%A1%E6%9C%8D%E5%8A%A1%E7%9B%91%E6%8E%A7%E8%AF%A6%E8%A7%A3-%E4%BA%8C/&title=python 之业务服务监控详解(二) - 逝水锦遥&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.asjin.com/2018/01/19/python-%E4%B9%8B%E4%B8%9A%E5%8A%A1%E6%9C%8D%E5%8A%A1%E7%9B%91%E6%8E%A7%E8%AF%A6%E8%A7%A3-%E4%BA%8C/&title=python 之业务服务监控详解(二) - 逝水锦遥&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png">
+          
+        </a>
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </div>
+
+
+  
+  
+
+  
+    <div class="prev-next">
+      
+        <a class='prev' href='/2018/01/22/python-%E4%B9%8B%E4%B8%9A%E5%8A%A1%E6%9C%8D%E5%8A%A1%E7%9B%91%E6%8E%A7%E8%AF%A6%E8%A7%A3-%E4%B8%89/'>
+          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>python 之业务服务监控详解(三)</p>
+          <p class='content'>[toc]
+DNS处理模块dnspython
+dnspython(https://www.dnspython.org/)是Python实现的一个DNS式具包，它支持几乎所有的记录类型 ，可以用于...</p>
+        </a>
+      
+      
+        <a class='next' href='/2018/01/18/python-%E4%B9%8B%E4%B8%9A%E5%8A%A1%E6%9C%8D%E5%8A%A1%E7%9B%91%E6%8E%A7%E8%AF%A6%E8%A7%A3-%E4%B8%80/'>
+          <p class='title'>python 之业务服务监控详解(一)<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>[toc]
+业务服务监控详解
+业务服务监控是运维体系中最重要的环节，是保证业务服务质量的关键手段。如何更有效地实现业务服务是每个运维人员应该思考的问题，不同业务场景需定制不同的监控策略。Pyth...</p>
+        </a>
+      
+    </div>
+  
+</article>
+
+
+  
+
+  <article class="post white-box reveal floatable" id="comments">
+    <p ct><i class='fas fa-comments'></i> 评论</p>
+    
+    <div id="valine_container" class="valine_thread">
+  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+</div>
+
+  </article>
+
+
+
+
+
+
+</div>
+<aside class='l_side'>
+  
+  
+    
+    
+
+
+
+  <section class="widget toc-wrapper floatable desktop mobile" id="toc-div" >
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E4%BB%B6-%E7%9B%AE%E5%BD%95%E5%B7%AE%E5%BC%82%E5%AF%B9%E6%AF%94%E6%B3%95"><span class="toc-text">文件&#x2F;目录差异对比法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E5%9D%97%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95%E8%AF%B4%E6%98%8E"><span class="toc-text">模块常用方法说明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#dir1-%E4%B8%8E-dir2%E7%9B%AE%E5%BD%95%E4%B8%AD%E6%8C%87%E5%AE%9A%E6%96%87%E4%BB%B6%E6%B8%85%E5%8D%95%E5%AF%B9%E6%AF%94"><span class="toc-text">dir1 与 dir2目录中指定文件清单对比</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#dircmp%E6%8F%90%E4%BE%9B%E4%BA%86%E4%B8%89%E4%B8%AA%E8%BE%93%E5%87%BA%E6%8A%A5%E7%9A%84%E6%96%B9%E6%B3%95"><span class="toc-text">dircmp提供了三个输出报的方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%B9%E6%AF%94dir1%E4%B8%8Edir2%E7%9B%AE%E5%BD%95%E5%B7%AE%E5%BC%82"><span class="toc-text">对比dir1与dir2目录差异</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%A1%E9%AA%8C%E6%BA%90%E4%B8%8E%E5%A4%87%E4%BB%BD%E7%9B%AE%E5%BD%95%E5%B7%AE%E5%BC%82"><span class="toc-text">校验源与备份目录差异</span></a></li></ol>
+    </div>
+  </section>
+
+
+  
+
+
+</aside>
+
+
+
+        
+        
+          <!--此文件用来存放一些不方便取值的变量-->
+<!--思路大概是将值藏到重加载的区域内-->
+
+<script>
+  window.pdata={}
+  pdata.ispage=true;
+  pdata.postTitle="python 之业务服务监控详解(二)";
+  pdata.commentPath="";
+  pdata.commentPlaceholder="";
+
+  var l_header=document.getElementById("l_header");
+  
+  l_header.classList.remove("show");
+  
+</script>
+
+        
+      </div>
+      
+  
+  <footer class="footer clearfix">
+    <br><br>
+    
+      
+
+
+
+
+		<div class="github-badge">
+          <span class="badge-subject">Powered</span><span class="badge-value bg-blue">Hexo</span>
+        </div>
+        <div class="github-badge">
+          <span class="badge-subject">Hosted</span><span class="badge-value bg-brightgreen">Aliyun</span>
+        </div>
+        <div class="github-badge">
+          <span class="badge-subject">DNS</span><span class="badge-value bg-orange">Aliyun</span>
+        </div>
+        <div class="github-badge">
+          <span class="badge-subject">Theme</span><span class="badge-value bg-pink"><a target="_blank" rel="noopener" href="https://github.com/volantis-x/hexo-theme-volantis/tree/4.1.6">Volantis</a ></span>
+        </div>
+        <div class="github-badge">
+          <span class="badge-subject">UV</span><span class="badge-value bg-blueviolet" id="busuanzi_value_site_uv"></span>
+        </div>
+        <div class="github-badge">
+          <span class="badge-subject">PV</span><span class="badge-value bg-blueviolet" id="busuanzi_value_site_pv"></span>
+        </div>
+        <div class="github-badge">
+          <span class="badge-subject"><i class="fa fa-copyright"></i></span><span class="badge-value bg-pink">BY-NC-SA 4.0</span>
+        </div>
+		<div class="github-badge">
+		  <span class="badge-subject">晋ICP备</span><span class="badge-value bg-green"> <a target="_blank" rel="noopener" href='https://beian.miit.gov.cn/'>17010575号-4 </a>
+        </div>
+
+		<div class="github-badge">
+		  <span class="badge-subject">晋ICP备</span><span class="badge-value bg-green"> <a target="_blank" rel="noopener" href='https://beian.miit.gov.cn/'>17010575号-1 </a>
+        </div>
+<!--		
+        <div class="aplayer-container"cn/' style="color:#f72b07"> 晋ICP备-17010575号-1 </a>
+		  <a target="_blank" rel="noopener" href='https://beian.miit.gov.cn/' style="color:#f72b07"> 晋ICP备-17010575号-4 </a>
+		</div>
+-->
+
+
+<!--
+        <div class='copyright'>
+        <p><a href="/">Copyright © 2017-2021 asjin.com</a></p>
+
+        </div>
+-->
+      
+    
+      
+        <br>
+        <div class="social-wrapper">
+          
+            
+          
+            
+          
+            
+          
+        </div>
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <div><p><a href="/">Copyright © 2017-2021 asjin.com</a></p>
+</div>
+        
+      
+    
+  </footer>
+
+
+      <a id="s-top" class="fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+    </div>
+  </div>
+  <div>
+    <script>
+window.volantis={};
+window.volantis.loadcss=document.getElementById("loadcss");
+/********************脚本懒加载函数********************************/
+function loadScript(src, cb) {
+var HEAD = document.getElementsByTagName('head')[0] || document.documentElement;
+var script = document.createElement('script');
+script.setAttribute('type','text/javascript');
+if (cb) script.onload = cb;
+script.setAttribute('src', src);
+HEAD.appendChild(script);
+}
+//https://github.com/filamentgroup/loadCSS
+var loadCSS = function( href, before, media, attributes ){
+	var doc = window.document;
+	var ss = doc.createElement( "link" );
+	var ref;
+	if( before ){
+		ref = before;
+	}
+	else {
+		var refs = ( doc.body || doc.getElementsByTagName( "head" )[ 0 ] ).childNodes;
+		ref = refs[ refs.length - 1];
+	}
+	var sheets = doc.styleSheets;
+	if( attributes ){
+		for( var attributeName in attributes ){
+			if( attributes.hasOwnProperty( attributeName ) ){
+				ss.setAttribute( attributeName, attributes[attributeName] );
+			}
+		}
+	}
+	ss.rel = "stylesheet";
+	ss.href = href;
+	ss.media = "only x";
+	function ready( cb ){
+		if( doc.body ){
+			return cb();
+		}
+		setTimeout(function(){
+			ready( cb );
+		});
+	}
+	ready( function(){
+		ref.parentNode.insertBefore( ss, ( before ? ref : ref.nextSibling ) );
+	});
+	var onloadcssdefined = function( cb ){
+		var resolvedHref = ss.href;
+		var i = sheets.length;
+		while( i-- ){
+			if( sheets[ i ].href === resolvedHref ){
+				return cb();
+			}
+		}
+		setTimeout(function() {
+			onloadcssdefined( cb );
+		});
+	};
+	function loadCB(){
+		if( ss.addEventListener ){
+			ss.removeEventListener( "load", loadCB );
+		}
+		ss.media = media || "all";
+	}
+	if( ss.addEventListener ){
+		ss.addEventListener( "load", loadCB);
+	}
+	ss.onloadcssdefined = onloadcssdefined;
+	onloadcssdefined( loadCB );
+	return ss;
+};
+</script>
+<script>
+  
+  loadCSS("https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14/css/all.min.css", window.volantis.loadcss);
+  
+  
+  
+  
+</script>
+<!-- required -->
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5/dist/jquery.min.js"></script>
+
+<script>
+  function pjax_fancybox() {
+    $(".md .gallery").find("img").each(function () { //渲染 fancybox
+      var element = document.createElement("a"); // a 标签
+      $(element).attr("class", "fancybox");
+      $(element).attr("pjax-fancybox", "");  // 过滤 pjax
+      $(element).attr("href", $(this).attr("src"));
+      if ($(this).attr("data-original")) {
+        $(element).attr("href", $(this).attr("data-original"));
+      }
+      $(element).attr("data-fancybox", "images");
+      var caption = "";   // 描述信息
+      if ($(this).attr('alt')) {  // 判断当前页面是否存在描述信息
+        $(element).attr('data-caption', $(this).attr('alt'));
+        caption = $(this).attr('alt');
+      }
+      var div = document.createElement("div");
+      $(div).addClass("fancybox");
+      $(this).wrap(div); // 最外层套 div ，其实主要作用还是 class 样式
+      var span = document.createElement("span");
+      $(span).addClass("image-caption");
+      $(span).text(caption); // 加描述
+      $(this).after(span);  // 再套一层描述
+      $(this).wrap(element);  // 最后套 a 标签
+    })
+    $(".md .gallery").find("img").fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+      closeClick: true,
+      helpers: {
+        overlay: {closeClick: true}
+      },
+      buttons: [
+        "zoom",
+        "close"
+      ]
+    });
+  };
+  function SCload_fancybox() {
+    if ($(".md .gallery").find("img").length == 0) return;
+    loadCSS("https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css", document.getElementById("loadcss"));
+    setTimeout(function() {
+      loadScript('https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js', pjax_fancybox)
+    }, 1);
+  };
+  $(function () {
+    SCload_fancybox();
+  });
+</script>
+
+
+<!-- internal -->
+
+
+
+
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.1.0/dist/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 0
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    lazyLoadInstance.update();
+  });
+  document.addEventListener('pjax:complete', function () {
+    lazyLoadInstance.update();
+  });
+</script>
+
+
+
+
+  
+  
+    <script async src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@2/js/instant_page.js" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+  
+
+
+
+
+  <script src="/js/clipboard.min.js"></script>
+<script>
+    var clipboard = new ClipboardJS('.btn-copy', {
+        target: function (trigger) {
+            return trigger.nextElementSibling
+        }
+    });
+    function wait(callback, seconds) {
+        var timelag = null;
+        timelag = window.setTimeout(callback, seconds)
+    }
+    function pjax_initCopyCode() {
+		if($(".highlight .code pre").length+$(".article pre code").length==0)return;
+        var copyHtml = '';
+        copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+        copyHtml += '<i class="fas fa-copy"></i><span>COPY</span>';
+        copyHtml += '</button>';
+        $(".highlight .code pre").before(copyHtml);
+        $(".article pre code").before(copyHtml);
+        clipboard.off('success').on('success', function (e) {
+            let $btn = $(e.trigger);
+            $btn.addClass('copied');
+            let $icon = $($btn.find('i'));
+            $icon.removeClass('fa-copy');
+            $icon.addClass('fa-check-circle');
+            let $span = $($btn.find('span'));
+            $span[0].innerText = 'COPIED';
+            wait(function () {
+                $icon.removeClass('fa-check-circle');
+                $icon.addClass('fa-copy');
+                $span[0].innerText = 'COPY'
+            }, 2000)
+        });
+        clipboard.off('error').on('error', function (e) {
+            e.clearSelection();
+            let $btn = $(e.trigger);
+            $btn.addClass('copy-failed');
+            let $icon = $($btn.find('i'));
+            $icon.removeClass('fa-copy');
+            $icon.addClass('fa-times-circle');
+            let $span = $($btn.find('span'));
+            $span[0].innerText = 'COPY FAILED';
+            wait(function () {
+                $icon.removeClass('fa-times-circle');
+                $icon.addClass('fa-copy');
+                $span[0].innerText = 'COPY'
+            }, 2000)
+        })
+    }
+    $(function () {
+        pjax_initCopyCode()
+    });
+</script>
+
+
+
+
+
+
+
+
+  
+  
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4/dist/Valine.min.js"></script>
+
+
+<script>
+  var GUEST_INFO = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link,header'.split(',').filter(function (item) {
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var REQUIRED_FIELDS = ['nick', 'mail', 'link'];
+  var requiredFields = 'nick,mail'.split(',').filter(function (item) {
+    return REQUIRED_FIELDS.indexOf(item) > -1
+  });
+
+  function emoji(path, idx, ext) {
+    return path + "/" + path + "-" + idx + "." + ext;
+  }
+
+  var emojiMaps = {};
+  for (var i = 1; i <= 54; i++) {
+    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
+  }
+  for (var i = 1; i <= 101; i++) {
+    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+  }
+  for (var i = 1; i <= 116; i++) {
+    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
+  }
+  for (var i = 1; i <= 125; i++) {
+    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
+  }
+  for (var i = 1; i <= 4; i++) {
+    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+  }
+
+  function pjax_valine() {
+    if(!document.querySelectorAll("#valine_container")[0])return;
+
+    let pagePlaceholder = pdata.commentPlaceholder || "快来评论吧~ 🤩 🤩 🤩";
+
+    let path = pdata.commentPath;
+    if (path.length == 0) {
+      let defaultPath = '';
+      path = defaultPath || decodeURI(window.location.pathname);
+    }
+
+    var valine = new Valine();
+    valine.init({
+      el: '#valine_container',
+      meta: meta,
+      placeholder: pagePlaceholder,
+      path: path,
+      appId: "NkJqMpxu4QlRLhPIHipNUHF1-gzGzoHsz",
+      appKey: "D2vTdueKJ8ammc2JEdje0vLW",
+      pageSize: '',
+      avatar: 'monsterid',
+      lang: '',
+      visitor: '',
+      highlight: '',
+      mathJax: '',
+      enableQQ: 'true',
+      recordIP: 'false',
+      requiredFields: requiredFields,
+      emojiCDN: 'https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/valine/',
+      emojiMaps: emojiMaps
+    })
+  }
+
+  $(function () {
+    pjax_valine();
+  });
+</script>
+
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js" data-pjax></script>
+
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-theme-volantis@4.1.6/source/js/app.min.js"></script>
+
+
+
+<!-- optional -->
+
+  <script>
+const SearchServiceimagePath="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@master/img/";
+const ROOT =  ("/" || "/").endsWith('/') ? ("/" || "/") : ("//" || "/" );
+
+$('.input.u-search-input').one('focus',function(){
+	
+		loadScript('https://cdn.jsdelivr.net/npm/hexo-theme-volantis@4.1.6/source/js/search/hexo.min.js',setSearchService);
+	
+})
+
+function listenSearch(){
+  
+    customSearch = new HexoSearch({
+      imagePath: SearchServiceimagePath
+    });
+  
+}
+function setSearchService() {
+	listenSearch();
+	
+		document.addEventListener("pjax:success", listenSearch);
+	
+}
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+function listennSidebarTOC() {
+  const navItems = document.querySelectorAll(".toc li");
+  if (!navItems.length) return;
+  const sections = [...navItems].map((element) => {
+    const link = element.querySelector(".toc-link");
+    const target = document.getElementById(
+      decodeURI(link.getAttribute("href")).replace("#", "")
+    );
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+      window.scrollTo({
+		top: target.offsetTop + 100,
+		
+		behavior: "smooth"
+		
+	  });
+    });
+    return target;
+  });
+
+  function activateNavByIndex(target) {
+    if (target.classList.contains("active-current")) return;
+
+    document.querySelectorAll(".toc .active").forEach((element) => {
+      element.classList.remove("active", "active-current");
+    });
+    target.classList.add("active", "active-current");
+    let parent = target.parentNode;
+    while (!parent.matches(".toc")) {
+      if (parent.matches("li")) parent.classList.add("active");
+      parent = parent.parentNode;
+    }
+  }
+
+  function findIndex(entries) {
+    let index = 0;
+    let entry = entries[index];
+    if (entry.boundingClientRect.top > 0) {
+      index = sections.indexOf(entry.target);
+      return index === 0 ? 0 : index - 1;
+    }
+    for (; index < entries.length; index++) {
+      if (entries[index].boundingClientRect.top <= 0) {
+        entry = entries[index];
+      } else {
+        return sections.indexOf(entry.target);
+      }
+    }
+    return sections.indexOf(entry.target);
+  }
+
+  function createIntersectionObserver(marginTop) {
+    marginTop = Math.floor(marginTop + 10000);
+    let intersectionObserver = new IntersectionObserver(
+      (entries, observe) => {
+        let scrollHeight = document.documentElement.scrollHeight + 100;
+        if (scrollHeight > marginTop) {
+          observe.disconnect();
+          createIntersectionObserver(scrollHeight);
+          return;
+        }
+        let index = findIndex(entries);
+        activateNavByIndex(navItems[index]);
+      },
+      {
+        rootMargin: marginTop + "px 0px -100% 0px",
+        threshold: 0,
+      }
+    );
+    sections.forEach((element) => {
+      element && intersectionObserver.observe(element);
+    });
+  }
+  createIntersectionObserver(document.documentElement.scrollHeight);
+}
+
+document.addEventListener("DOMContentLoaded", listennSidebarTOC);
+document.addEventListener("pjax:success", listennSidebarTOC);
+</script>
+
+<!-- more -->
+
+
+
+
+    
+      
+
+
+<script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script>
+
+
+<script>
+    var pjax;
+    document.addEventListener('DOMContentLoaded', function () {
+      pjax = new Pjax({
+        elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"]):not([pjax-fancybox])',
+        selectors: [
+          "title",
+          "#l_cover",
+          "#pjax-container",
+          "#pjax-header-nav-list"
+        ],
+        cacheBust: false,   // url 地址追加时间戳，用以避免浏览器缓存
+        timeout: 5000
+      });
+    });
+
+    document.addEventListener('pjax:send', function (e) {
+      //window.stop(); // 相当于点击了浏览器的停止按钮
+
+      try {
+        var currentUrl = window.location.pathname;
+        var targetUrl = e.triggerElement.href;
+        var banUrl = [""];
+        if (banUrl[0] != "") {
+          banUrl.forEach(item => {
+            if(currentUrl.indexOf(item) != -1 || targetUrl.indexOf(item) != -1) {
+              window.location.href = targetUrl;
+            }
+          });
+        }
+      } catch (error) {}
+
+      window.subData = null; // 移除标题（用于一二级导航栏切换处）
+      if (typeof $.fancybox != "undefined") {
+        $.fancybox.close();    // 关闭弹窗
+      }
+      volantis.$switcher.removeClass('active'); // 关闭移动端激活的搜索框
+      volantis.$header.removeClass('z_search-open'); // 关闭移动端激活的搜索框
+      volantis.$wrapper.removeClass('sub'); // 跳转页面时关闭二级导航
+
+      // 解绑事件 避免重复监听
+      volantis.$topBtn.unbind('click');
+      $('.menu a').unbind('click');
+      $(window).unbind('resize');
+      $(window).unbind('scroll');
+      $(document).unbind('scroll');
+      $(document).unbind('click');
+      $('body').unbind('click');
+	  
+    });
+
+    document.addEventListener('pjax:complete', function () {
+      // 关于百度统计对 SPA 页面的处理：
+      // 方案一：百度统计>管理>单页应用设置中，打开开启按钮即可对SPA进行统计。 https://tongji.baidu.com/web/help/article?id=324
+      // 方案二：取消注释下列代码。 https://tongji.baidu.com/web/help/article?id=235
+       
+
+      // 关于谷歌统计对 SPA 页面的处理：
+      // 当应用以动态方式加载内容并更新地址栏中的网址时，也应该更新通过 gtag.js 存储的网页网址。
+      // https://developers.google.cn/analytics/devguides/collection/gtagjs/single-page-applications?hl=zh-cn
+      
+	 
+
+      $('.nav-main').find('.list-v').not('.menu-phone').removeAttr("style",""); // 移除小尾巴的移除
+      $('.menu-phone.list-v').removeAttr("style",""); // 移除小尾巴的移除
+      $('script[data-pjax], .pjax-reload script').each(function () {
+        $(this).parent().append($(this).remove());
+      });
+      try{
+          if (typeof $.fancybox == "undefined") {
+            SCload_fancybox();
+          } else {
+            pjax_fancybox();
+          }
+        
+        
+        
+        
+        
+          pjax_initCopyCode();
+        
+        
+          pjax_valine();
+        
+        
+        
+        
+      } catch (e) {
+        console.log(e);
+      }
+	  
+    });
+
+    document.addEventListener('pjax:error', function (e) {
+	  
+      window.location.href = e.triggerElement.href;
+    });
+</script>
+
+    
+  </div>
+</body>
+</html>

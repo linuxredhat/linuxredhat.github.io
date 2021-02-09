@@ -1,0 +1,1451 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head hexo-theme='https://github.com/volantis-x/hexo-theme-volantis/tree/4.1.6'>
+  <meta charset="utf-8">
+  <!-- SEO相关 -->
+  
+    
+  
+  <!-- 渲染优化 -->
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://cdn.jsdelivr.net'>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- 页面元数据 -->
+  
+  <title>python 企业微信-微信信息发送 - 逝水锦遥</title>
+  
+    <meta name="keywords" content="linux,program">
+  
+
+  
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="逝水锦遥" type="application/atom+xml">
+  
+
+  <!-- import meta -->
+  
+
+  <!-- link -->
+  
+
+  <!-- import link -->
+  
+
+  
+    
+<link rel="stylesheet" href="/css/first.css">
+
+  
+
+  
+  <link rel="stylesheet" href="/css/style.css" media="print" onload="this.media='all';this.onload=null">
+  <noscript><link rel="stylesheet" href="/css/style.css"></noscript>
+  
+
+  <script id="loadcss"></script>
+</head>
+
+
+<body>
+<!--
+	  <canvas id="canvas" width="1440" height="900" ></canvas>
+	  <script type="text/javascript" src="/js/DigitalRain.js"></script>
+-->  
+	  
+
+<header id="l_header" class="l_header always floatable "  >
+  <div class='container'>
+  <div id='wrapper'>
+    <div class='nav-sub'>
+      <p class="title"></p>
+      <ul class='switcher nav-list-h m-phone' id="pjax-header-nav-list">
+        <li><a id="s-comment" class="fas fa-comments fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+          <li><a id="s-toc" class="s-toc fas fa-list fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+      </ul>
+    </div>
+		<div class="nav-main">
+      
+        
+        <a class="title flat-box" target="_self" href='/'>
+          
+            <img no-lazy class='logo' src='/images/head.png'/>
+          
+          
+          
+        </a>
+      
+
+			<div class='menu navigation'>
+				<ul class='nav-list-h m-pc'>
+          
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fab fa-linux fa-fw'></i>所有文章
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/program
+                  
+                  
+                  
+                    id="tagsprogram"
+                  >
+                  <i class='fab fa-gitlab fa-fw'></i>运维开发
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/rhca
+                  
+                  
+                  
+                    id="tagsrhca"
+                  >
+                  <i class='fas fa-heartbeat fa-fw'></i>运维组件
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/cloud
+                  
+                  
+                  
+                    id="tagscloud"
+                  >
+                  <i class='fas fa-cloud fa-fw'></i>云计算
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/zikao
+                  
+                  
+                  
+                    id="tagszikao"
+                  >
+                  <i class='fab fa-drupal fa-fw'></i>剑锋直指
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/renjin
+                  
+                  
+                  
+                    id="tagsrenjin"
+                  >
+                  <i class='fas fa-user-circle fa-fw'></i>个人中心
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" 
+                  
+                  
+                  >
+                  <i class='fas fa-ellipsis-v fa-fw'></i>更多
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/box/
+                  
+                  
+                  
+                    id="box"
+                  >
+                  <i class='fas fa-flag fa-fw'></i>工具箱
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=https://www.feiyiblog.com
+                  
+                  
+                  
+                    id="https:wwwfeiyiblogcom"
+                  >
+                  <i class='fas fa-user fa-fw'></i>狗江博客
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=https://www.calym.top
+                  
+                  
+                  
+                    id="https:wwwcalymtop"
+                  >
+                  <i class='fas fa-user fa-fw'></i>庆朋博客
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+          
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="搜索文章..." />
+        </form>
+      </div>
+
+			<ul class='switcher nav-list-h m-phone'>
+				
+					<li><a class="s-search fas fa-search fa-fw" target="_self" href='javascript:void(0)'></a></li>
+				
+				<li>
+          <a class="s-menu fas fa-bars fa-fw" target="_self" href='javascript:void(0)'></a>
+          <ul class="menu-phone list-v navigation white-box">
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fab fa-linux fa-fw'></i>所有文章
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/program
+                  
+                  
+                  
+                    id="tagsprogram"
+                  >
+                  <i class='fab fa-gitlab fa-fw'></i>运维开发
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/rhca
+                  
+                  
+                  
+                    id="tagsrhca"
+                  >
+                  <i class='fas fa-heartbeat fa-fw'></i>运维组件
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/cloud
+                  
+                  
+                  
+                    id="tagscloud"
+                  >
+                  <i class='fas fa-cloud fa-fw'></i>云计算
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/zikao
+                  
+                  
+                  
+                    id="tagszikao"
+                  >
+                  <i class='fab fa-drupal fa-fw'></i>剑锋直指
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/renjin
+                  
+                  
+                  
+                    id="tagsrenjin"
+                  >
+                  <i class='fas fa-user-circle fa-fw'></i>个人中心
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" 
+                  
+                  
+                  >
+                  <i class='fas fa-ellipsis-v fa-fw'></i>更多
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/box/
+                  
+                  
+                  
+                    id="box"
+                  >
+                  <i class='fas fa-flag fa-fw'></i>工具箱
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=https://www.feiyiblog.com
+                  
+                  
+                  
+                    id="https:wwwfeiyiblogcom"
+                  >
+                  <i class='fas fa-user fa-fw'></i>狗江博客
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=https://www.calym.top
+                  
+                  
+                  
+                    id="https:wwwcalymtop"
+                  >
+                  <i class='fas fa-user fa-fw'></i>庆朋博客
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+            
+          </ul>
+        </li>
+			</ul>
+		</div>
+	</div>
+  </div>
+</header>
+
+  <div id="l_body">
+    <div id="l_cover">
+  
+    
+        <div id="half" class='cover-wrapper post search' style="display: ;">
+          
+            <div class='cover-bg lazyload placeholder' data-bg="/images/lovers.png"></div>
+          
+          <div class='cover-body'>
+  <div class='top'>
+    
+      <img no-lazy class='logo' src='/images/ssjyai.png'/>
+    
+    
+    
+  </div>
+  <div class='bottom'>
+    
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <input type="text" class="input u-search-input" placeholder="搜索本地文章" />
+          <i class="icon fas fa-search fa-fw"></i>
+        </form>
+      </div>
+    
+    <div class='menu navigation'>
+      <div class='list-h'>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+          <div id="scroll-down" style="display: none;"><i class="fa fa-chevron-down scroll-down-effects"></i></div>
+        </div>
+    
+  
+  </div>
+
+    <div id='safearea'>
+      <div class='body-wrapper' id="pjax-container">
+        
+
+<div class='l_main'>
+  <article class="article post white-box reveal md floatable article-type-post" id="post" itemscope itemprop="blogPost">
+  
+
+
+  
+  <div class="article-meta" id="top">
+    
+    
+    
+      <h1 class="title">
+        python 企业微信-微信信息发送
+      </h1>
+      <div class='new-meta-box'>
+        
+          
+            
+<div class='new-meta-item author'>
+  <a class='author' href="/images/rjrt.ico" rel="nofollow">
+    <img no-lazy src="/images/rjrt.ico">
+    <p>任锦</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：May 13, 2020</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class="new-meta-item browse busuanzi">
+    <a class='notlink'>
+      <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+      <p>
+        <span id="busuanzi_value_page_pv">
+          <i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i>
+          <i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i>
+        </span>
+        次浏览
+      </p>
+    </a>
+  </div>
+
+
+          
+        
+      </div>
+    
+  </div>
+
+
+  
+  <p>[toc]</p>
+<h1 id="python-企业微信-微信信息发送"><a href="#python-企业微信-微信信息发送" class="headerlink" title="python 企业微信-微信信息发送"></a>python 企业微信-微信信息发送</h1><p><img src="/images/qiyeweixin-python.jpg" class="lazyload" data-srcset="/images/qiyeweixin-python.jpg" srcset="data:image/png;base64,666" alt=""></p>
+<p>主要用到的模块 urllib,json,simplejson,requests,bs4 </p>
+<ul>
+<li>urllib: urllib的request模块可以非常方便地抓取URL内容，也就是发送一个GET请求到指定的页面，然后返回HTTP的响应;</li>
+<li>json: JSON(JavaScript Object Notation) 是一种轻量级的数据交换格式。易于人阅读和编写。同时也易于机器解析和生成;</li>
+<li>simplesjon: simplejson 是 json 标准模块的扩展（基础功能相同），是 pypi 提供的拓展模块，需要另行安装。不过可以使用 python 自带的 json 库，基本是相同的使用方法(提供的接口功能基本一致)。在 python 的 library 文档中将 JSON 归为网络数据控制类，很好的说明了他们的用途，主要用于网络数据控制，编解码等。但是也具有其他的用途，比如可以用来作为配置文件的读写模块，简单的文件操作等;</li>
+<li>requests: python HTTP库，一般用于爬虫;</li>
+<li>Beautiful Soup提供一些简单的、python式的函数用来处理导航、搜索、修改分析树等功能。它是一个工具箱，通过解析文档为用户提供需要抓取的数据，因为简单，所以不需要多少代码就可以写出一个完整的应用程序;</li>
+</ul>
+<h2 id="创建企业微信用应用"><a href="#创建企业微信用应用" class="headerlink" title="创建企业微信用应用"></a>创建企业微信用应用</h2><p>注: 这里我使用的是个人注册的企业微信，因为需要管理员的权限</p>
+<p>用企业微信管理员登录后，我们可以新建一个应用程序用于送通知信息</p>
+<p><img src="/images/qiyeweixing.png" class="lazyload" data-srcset="/images/qiyeweixing.png" srcset="data:image/png;base64,666" alt=""></p>
+<p>我这里已经新建好了专用应用，点进去后添加可见应用的人。也就是所谓的应用授权。</p>
+<p><img src="/images/qiyeweixin-user.png" class="lazyload" data-srcset="/images/qiyeweixin-user.png" srcset="data:image/png;base64,666" alt=""></p>
+<p>在这里要记录下 <strong>Agentid</strong>  和 <strong>Secert</strong> 用于发送通时的认证口令</p>
+<p><img src="/images/weixintongzhi-qiyeid.png" class="lazyload" data-srcset="/images/weixintongzhi-qiyeid.png" srcset="data:image/png;base64,666" alt=""><br>点击我的企业 –&gt;企业信息 ，在这里可以看到<strong>企业ID</strong>, 也用于代码中配置的通知id用</p>
+<p>好了，这时候我们就可以开始写代码了，在此，我要发送的信息是<strong>天气信息</strong>，<strong>每日金句</strong>，和<strong>通知专项</strong>等信息</p>
+<h2 id="第三方网站、接口"><a href="#第三方网站、接口" class="headerlink" title="第三方网站、接口"></a>第三方网站、接口</h2><p>中国天气网  <a target="_blank" rel="noopener" href="http://www.weather.com.cn/weather/101100201.shtml">天气信息</a><br>在这里我选择的是大同的天气页面<br><img src="/images/weixintongzhi-tianqi.png" class="lazyload" data-srcset="/images/weixintongzhi-tianqi.png" srcset="data:image/png;base64,666" alt=""></p>
+<p><a target="_blank" rel="noopener" href="https://v1.hitokoto.cn/">一言接口</a><br><a target="_blank" rel="noopener" href="https://developer.hitokoto.cn/sentence">一言接口使用文档</a></p>
+<p>接口信息如下</p>
+<p><img src="/images/weixintongzhi-yiyan.png" class="lazyload" data-srcset="/images/weixintongzhi-yiyan.png" srcset="data:image/png;base64,666" alt=""></p>
+<h2 id="python-爬取天气–-gt-调用一言接口–-gt-专项通知"><a href="#python-爬取天气–-gt-调用一言接口–-gt-专项通知" class="headerlink" title="python 爬取天气–&gt;调用一言接口–&gt;专项通知"></a>python 爬取天气–&gt;调用一言接口–&gt;专项通知</h2><h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><p>登录个人服务器，source python3 环境</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">~]<span class="comment"># alias mp3=&#x27;source  ~/mypython/py3_env/bin/activate &amp;&amp; cd ~/mypython/python3&#x27;</span></span><br><span class="line">~]<span class="comment"># mp3</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python3</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">import</span> urllib</span><br><span class="line"><span class="keyword">import</span> urllib.request <span class="keyword">as</span> urllib2</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> simplejson</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"></span><br><span class="line"><span class="comment"># reload(sys)</span></span><br><span class="line"><span class="comment"># sys.setdefaultencoding(&#x27;utf-8&#x27;)</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">gettoken</span>(<span class="params">corpid,corpsecret</span>):</span></span><br><span class="line">    gettoken_url = <span class="string">&#x27;https://qyapi.weixin.qq.com/cgi-bin/gettoken?corpid=&#x27;</span> + corpid + <span class="string">&#x27;&amp;corpsecret=&#x27;</span> + corpsecret</span><br><span class="line">    print(gettoken_url)</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        token_file = urllib2.urlopen(gettoken_url)</span><br><span class="line">    <span class="keyword">except</span> urllib2.HTTPError <span class="keyword">as</span> e:</span><br><span class="line">        print(e.code)</span><br><span class="line">        print(e.read().decode(<span class="string">&quot;utf8&quot;</span>))</span><br><span class="line">        sys.exit()</span><br><span class="line">    token_data = token_file.read().decode(<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line">    token_json = json.loads(token_data)</span><br><span class="line">    token_json.keys()</span><br><span class="line">    token = token_json[<span class="string">&#x27;access_token&#x27;</span>]</span><br><span class="line">    <span class="keyword">return</span> token</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">senddata</span>(<span class="params">access_token,user,subject,content</span>):</span></span><br><span class="line"></span><br><span class="line">    send_url = <span class="string">&#x27;https://qyapi.weixin.qq.com/cgi-bin/message/send?access_token=&#x27;</span> + access_token</span><br><span class="line">    send_values = &#123;</span><br><span class="line">        <span class="string">&quot;touser&quot;</span>: user,   <span class="comment">#企业号中的用户帐号，如果配置不正常，将按部门发送。</span></span><br><span class="line">        <span class="string">&quot;toparty&quot;</span>:<span class="string">&quot;2&quot;</span>,        <span class="comment">#企业号中的部门id。</span></span><br><span class="line">        <span class="string">&quot;msgtype&quot;</span>:<span class="string">&quot;text&quot;</span>,     <span class="comment">#消息类型。</span></span><br><span class="line">        <span class="string">&quot;agentid&quot;</span>:<span class="string">&quot;100xxxxx&quot;</span>,  <span class="comment">#企业号中的应用id。</span></span><br><span class="line">        <span class="string">&quot;text&quot;</span>:&#123;</span><br><span class="line">            <span class="string">&quot;content&quot;</span>:subject + <span class="string">&#x27;\n&#x27;</span> + content</span><br><span class="line">           &#125;,</span><br><span class="line">        <span class="string">&quot;safe&quot;</span>:<span class="string">&quot;0&quot;</span></span><br><span class="line">        &#125;</span><br><span class="line"><span class="comment">#    send_data = json.dumps(send_values, ensure_ascii=False)</span></span><br><span class="line">    send_data = simplejson.dumps(send_values, ensure_ascii=<span class="literal">False</span>).encode(<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line">    send_request = urllib2.Request(send_url, send_data)</span><br><span class="line">    response = json.loads(urllib2.urlopen(send_request).read())</span><br><span class="line">    print(<span class="built_in">str</span>(response))</span><br><span class="line">    </span><br><span class="line"><span class="function"><span class="keyword">def</span>  <span class="title">get_tianqi</span>(<span class="params">url, data=<span class="literal">None</span></span>):</span>  <span class="comment"># 用来获取天气网页信息</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        r = requests.get(url,timeout=<span class="number">30</span>)</span><br><span class="line">        r.raise_for_status()</span><br><span class="line">        r.encoding = r.apparent_encoding</span><br><span class="line">        <span class="keyword">return</span>  r.text</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;产生异常&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_qitian_data</span>(<span class="params">html,city</span>):</span> <span class="comment"># 处理网页信息提取近七天的情况</span></span><br><span class="line">    tianqi_list = []</span><br><span class="line">    soup = BeautifulSoup(html, <span class="string">&#x27;html.parser&#x27;</span>)</span><br><span class="line">    body = soup.body</span><br><span class="line">    data = body.find(<span class="string">&#x27;div&#x27;</span>,&#123;<span class="string">&#x27;id&#x27;</span>: <span class="string">&#x27;7d&#x27;</span>&#125;)</span><br><span class="line">    ul = data.find(<span class="string">&#x27;ul&#x27;</span>)</span><br><span class="line">    list1 = ul.find_all(<span class="string">&#x27;li&#x27;</span>)</span><br><span class="line">    <span class="keyword">for</span> day <span class="keyword">in</span> list1:</span><br><span class="line">        temp_list = [city]</span><br><span class="line">        date = day.find(<span class="string">&#x27;h1&#x27;</span>).string</span><br><span class="line">        temp_list.append(date)</span><br><span class="line">        info = day.find_all(<span class="string">&#x27;p&#x27;</span>)</span><br><span class="line">        temp_list.append(info[<span class="number">0</span>].string)</span><br><span class="line">        <span class="keyword">if</span> info[<span class="number">1</span>].find(<span class="string">&#x27;span&#x27;</span>) <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">            temperature_highest = <span class="string">&#x27; &#x27;</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            temperature_highest = info[<span class="number">1</span>].find(<span class="string">&#x27;span&#x27;</span>).string</span><br><span class="line">        <span class="keyword">if</span> info[<span class="number">1</span>].find(<span class="string">&#x27;i&#x27;</span>) <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">            temperature_lowest = <span class="string">&#x27; &#x27;</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            temperature_lowest = info[<span class="number">1</span>].find(<span class="string">&#x27;i&#x27;</span>).string</span><br><span class="line">        temp_list.append(temperature_highest)</span><br><span class="line">        temp_list.append(temperature_lowest)</span><br><span class="line">        wind_scale = info[<span class="number">2</span>].find(<span class="string">&#x27;i&#x27;</span>).string</span><br><span class="line">        temp_list.append(wind_scale)</span><br><span class="line">        tianqi_list.append(temp_list)</span><br><span class="line">    <span class="keyword">return</span> tianqi_list</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span>  <span class="title">save_tianqi_data</span>(<span class="params">data,filename</span>):</span> <span class="comment"># 将近七天的天气信息存放在文件中</span></span><br><span class="line">    f=<span class="built_in">open</span>(filename,<span class="string">&quot;wt&quot;</span>)</span><br><span class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> data:</span><br><span class="line">        f.write(<span class="built_in">str</span>(line)+<span class="string">&#x27;\n&#x27;</span>)</span><br><span class="line">    f.close()</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_hitokoto</span>(<span class="params">get_url</span>):</span></span><br><span class="line">    f = requests.get(get_url)</span><br><span class="line">    hitokoto_message = f.json()</span><br><span class="line">    hitokoto_message_data = <span class="string">&#x27;嗨:  &#x27;</span> + hitokoto_message[<span class="string">&#x27;hitokoto&#x27;</span>]</span><br><span class="line">    hitokoto_message_data = hitokoto_message_data.replace(<span class="string">&quot;，&quot;</span>,<span class="string">&quot;，\n&quot;</span>).replace(<span class="string">&quot;,&quot;</span>,<span class="string">&quot;,\n&quot;</span>)</span><br><span class="line">    hitokoto_message_from = <span class="string">&#x27;来自:  &#x27;</span> + hitokoto_message[<span class="string">&#x27;from&#x27;</span>]</span><br><span class="line">    <span class="keyword">return</span> [hitokoto_message_data,hitokoto_message_from]</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">postrsg</span>(<span class="params">filename,get_url,zhuanxiang_file</span>):</span> <span class="comment">#取出信息并且用机器人发消息</span></span><br><span class="line">    hitokoto_memssage_print = get_hitokoto(get_url)</span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(filename,<span class="string">&#x27;r&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">        lines = f.readlines()</span><br><span class="line"></span><br><span class="line">        first = lines[<span class="number">0</span>].rstrip(<span class="string">&quot;\n&quot;</span>)</span><br><span class="line">        first = first.replace(<span class="string">&quot;[&#x27;&quot;</span>,<span class="string">&#x27;&#x27;</span>).replace(<span class="string">&quot;&#x27;]&quot;</span>,<span class="string">&#x27;&#x27;</span>).replace(<span class="string">&quot;&#x27;&quot;</span>,<span class="string">&quot;&quot;</span>).replace(<span class="string">&quot;（今天）&quot;</span>,<span class="string">&quot;&quot;</span>)</span><br><span class="line">        </span><br><span class="line">        first1 = first.split(<span class="string">&#x27;,&#x27;</span>,<span class="number">2</span>)[<span class="number">0</span>:<span class="number">2</span>]</span><br><span class="line">        str_first1 = <span class="string">&quot;&quot;</span>.join(first1).replace(<span class="string">&quot; &quot;</span>,<span class="string">&quot;&quot;</span>)</span><br><span class="line"></span><br><span class="line">        first2 = first.split(<span class="string">&#x27;,&#x27;</span>,<span class="number">2</span>)[<span class="number">-1</span>]</span><br><span class="line">        str_first2 = <span class="string">&quot;&quot;</span>.join(first2).replace(<span class="string">&quot; &quot;</span>,<span class="string">&quot;&quot;</span>)</span><br><span class="line"></span><br><span class="line">        sec = lines[<span class="number">1</span>].rstrip(<span class="string">&quot;\n&quot;</span>)</span><br><span class="line">        sec = sec.replace(<span class="string">&quot;[&#x27;&quot;</span>,<span class="string">&#x27;&#x27;</span>).replace(<span class="string">&quot;&#x27;]&quot;</span>,<span class="string">&#x27;&#x27;</span>).replace(<span class="string">&quot;&#x27;&quot;</span>,<span class="string">&quot;&quot;</span>).replace(<span class="string">&quot;（明天）&quot;</span>,<span class="string">&quot;&quot;</span>)</span><br><span class="line">        sec1 = sec.split(<span class="string">&#x27;,&#x27;</span>,<span class="number">2</span>)[<span class="number">0</span>:<span class="number">2</span>]</span><br><span class="line">        str_sec1 = <span class="string">&quot;&quot;</span>.join(sec1).replace(<span class="string">&quot; &quot;</span>,<span class="string">&quot;&quot;</span>)</span><br><span class="line"></span><br><span class="line">        sec2 = sec.split(<span class="string">&#x27;,&#x27;</span>,<span class="number">2</span>)[<span class="number">-1</span>]</span><br><span class="line">        str_sec2 = <span class="string">&quot;&quot;</span>.join(sec2).replace(<span class="string">&quot; &quot;</span>,<span class="string">&quot;&quot;</span>)</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">with</span> <span class="built_in">open</span>(zhuanxiang_file,<span class="string">&#x27;r&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">            zhuanxiang_data = f.readlines()</span><br><span class="line">            zhuanxiang_data = <span class="string">&quot;&quot;</span>.join(zhuanxiang_data)</span><br><span class="line">        <span class="comment"># tianqi_head = &#x27;天津天气信息&#x27;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># formate_box = &#x27;☀️&#x27; * 12 + &#x27;\n&#x27;</span></span><br><span class="line">        <span class="comment"># formate_head = &#x27;&#123;:&lt;1&#125;&#123;:^36&#125;&#123;:&gt;1&#125;&#x27;.format(&#x27;☀️&#x27; * 1, tianqi_head, &#x27;☀️&#x27; * 1) + &#x27;\n&#x27;</span></span><br><span class="line">        <span class="comment"># formate_first = &#x27;&#123;:&lt;1&#125;&#123;:^36&#125;&#123;:&gt;1&#125;&#x27;.format(&#x27;&#x27; * 1, str_first1, &#x27;&#x27; * 1) + &#x27;\n&#x27;</span></span><br><span class="line">        <span class="comment"># formae_sec = &#x27;&#123;:&lt;2&#125;&#123;:^26&#125;&#123;:&gt;2&#125;&#x27;.format(&#x27;*&#x27; * 2, str_first2, &#x27;*&#x27; * 2) + &#x27;\n&#x27;</span></span><br><span class="line">        <span class="comment"># formate_box_end = &#x27;*&#x27; * 30</span></span><br><span class="line">        <span class="keyword">if</span>   <span class="string">&#x27;晴&#x27;</span> <span class="keyword">in</span> str_first2:</span><br><span class="line">            weather = <span class="string">&#x27;☀️&#x27;</span></span><br><span class="line">        <span class="keyword">elif</span> <span class="string">&#x27;雨&#x27;</span> <span class="keyword">in</span> str_first2:</span><br><span class="line">            weather = <span class="string">&#x27;☂&#x27;</span></span><br><span class="line">        <span class="keyword">elif</span> <span class="string">&#x27;雪&#x27;</span> <span class="keyword">in</span> str_first2:</span><br><span class="line">            weather = <span class="string">&#x27;❄️&#x27;</span></span><br><span class="line">        <span class="keyword">elif</span> <span class="string">&#x27;云&#x27;</span> <span class="keyword">in</span> str_first2:</span><br><span class="line">            weather = <span class="string">&#x27;⛅️&#x27;</span></span><br><span class="line">        <span class="keyword">elif</span> <span class="string">&#x27;阴&#x27;</span> <span class="keyword">in</span> str_first2:</span><br><span class="line">            weather = <span class="string">&#x27;🌑&#x27;</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            weather = <span class="string">&#x27;*&#x27;</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> <span class="string">&#x27;晴&#x27;</span> <span class="keyword">in</span> str_sec2:</span><br><span class="line">            weather_2 = <span class="string">&#x27;☀️&#x27;</span></span><br><span class="line">        <span class="keyword">elif</span> <span class="string">&#x27;雨&#x27;</span> <span class="keyword">in</span> str_sec2:</span><br><span class="line">            weather_2 = <span class="string">&#x27;☂&#x27;</span></span><br><span class="line">        <span class="keyword">elif</span> <span class="string">&#x27;雪&#x27;</span> <span class="keyword">in</span> str_sec2:</span><br><span class="line">            weather_2 = <span class="string">&#x27;❄️&#x27;</span></span><br><span class="line">        <span class="keyword">elif</span> <span class="string">&#x27;云&#x27;</span> <span class="keyword">in</span> str_first2:</span><br><span class="line">            weather_2 = <span class="string">&#x27;⛅️&#x27;</span></span><br><span class="line">        <span class="keyword">elif</span> <span class="string">&#x27;阴&#x27;</span> <span class="keyword">in</span> str_first2:</span><br><span class="line">            weather_2 = <span class="string">&#x27;🌑&#x27;</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            weather_2 = <span class="string">&#x27;*&#x27;</span></span><br><span class="line">    message_subject = <span class="string">&#x27;&#x27;&#x27;&lt;-----------任锦专用----------&gt;&#x27;&#x27;&#x27;</span></span><br><span class="line">    message_content = <span class="string">&#x27;&#x27;&#x27;&lt;-----------今日天气----------&gt;</span></span><br><span class="line"><span class="string">    &#123;&#125;</span></span><br><span class="line"><span class="string">    *&#123;&#125;</span></span><br><span class="line"><span class="string">&lt;-----------明日天气----------&gt;</span></span><br><span class="line"><span class="string">    &#123;&#125;</span></span><br><span class="line"><span class="string">    #&#123;&#125;</span></span><br><span class="line"><span class="string">&lt;-----------每日金句----------&gt;</span></span><br><span class="line"><span class="string">    &#123;&#125;</span></span><br><span class="line"><span class="string">    &#123;&#125;</span></span><br><span class="line"><span class="string">&lt;-----------提示专项----------&gt;</span></span><br><span class="line"><span class="string">    &#123;&#125;                        &#x27;&#x27;&#x27;</span>.<span class="built_in">format</span>(str_first1, str_first2, str_sec1, str_sec2,</span><br><span class="line">               hitokoto_memssage_print[<span class="number">0</span>], hitokoto_memssage_print[<span class="number">1</span>],</span><br><span class="line">               zhuanxiang_data).replace(<span class="string">&#x27;*&#x27;</span>, weather).replace(<span class="string">&#x27;#&#x27;</span>, weather_2)</span><br><span class="line">    <span class="keyword">return</span> [message_subject,message_content]</span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    zhuanxiang_file = <span class="string">&#x27;/var/www/liuxxxx/liuxxxx_put.txt&#x27;</span></span><br><span class="line">    tianqi_url = <span class="string">&#x27;http://www.weather.com.cn/weather/101100201.shtml&#x27;</span></span><br><span class="line">    html = get_tianqi(tianqi_url)</span><br><span class="line">    result = get_qitian_data(html, <span class="string">&#x27;山西: 大同&#x27;</span>)</span><br><span class="line">    filename = <span class="string">&#x27;./liuxxxx.message&#x27;</span></span><br><span class="line">    save_tianqi_data(result, filename)</span><br><span class="line">    get_url = <span class="string">&#x27;https://v1.hitokoto.cn/&#x27;</span></span><br><span class="line">    postrsg_message = postrsg(filename,get_url,zhuanxiang_file)</span><br><span class="line">    user = <span class="built_in">str</span>(<span class="string">&#x27;RenJin&#x27;</span>)</span><br><span class="line">    subject = <span class="built_in">str</span>(postrsg_message[<span class="number">0</span>])  <span class="comment"># 发送的标题信息</span></span><br><span class="line">    content = <span class="built_in">str</span>(postrsg_message[<span class="number">1</span>]) <span class="comment"># 发送的主体信息</span></span><br><span class="line">    corpid =  <span class="string">&#x27;ww3xxxxxxxxxxxxxxxxx&#x27;</span>     <span class="comment">#企业号的id</span></span><br><span class="line">    corpsecret = <span class="string">&#x27;OF-nuSt6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx&#x27;</span>    <span class="comment">#管理组凭证密钥</span></span><br><span class="line">    accesstoken = gettoken(corpid,corpsecret)</span><br><span class="line">    senddata(accesstoken,user,subject,content)</span><br></pre></td></tr></table></figure>
+<p>这个时候执行就可以在企业微信上收到信息了</p>
+<p><img src="/images/weixintongzhi-qiye-one.png" class="lazyload" data-srcset="/images/weixintongzhi-qiye-one.png" srcset="data:image/png;base64,666" alt=""></p>
+<p>企业微信能收到通知后，可以测试一下微信端的收信</p>
+<p><strong>在此补充一下，如果想在微信端收到通知信息，在收信息的人关注微信号就可以了</strong></p>
+<p>在企业微信页面点击我的企业 –&gt; 微信插件 –&gt; 邀请关注</p>
+<p><img src="/images/weixintongzhi-guanzhu.png" class="lazyload" data-srcset="/images/weixintongzhi-guanzhu.png" srcset="data:image/png;base64,666" alt=""></p>
+<p>关注后，再发送就会收到如下信息</p>
+<p><img src="/images/weixingtongzhi-weixintest.png" class="lazyload" data-srcset="/images/weixingtongzhi-weixintest.png" srcset="data:image/png;base64,666" alt=""></p>
+<h2 id="专项通知实现"><a href="#专项通知实现" class="headerlink" title="专项通知实现"></a>专项通知实现</h2><p>进入nginx  站点根目录，这里需要有nginx环境 </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~]<span class="comment"># cd /var/www/liuxxxx/</span></span><br></pre></td></tr></table></figure>
+<h3 id="html-web输入框"><a href="#html-web输入框" class="headerlink" title="html web输入框"></a>html web输入框</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>刘xxxx提示专项<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;./index.php&quot;</span> <span class="attr">method</span>=<span class="string">&quot;post&quot;</span>&gt;</span></span><br><span class="line">    提示内容1: <span class="tag">&lt;<span class="name">input</span> <span class="attr">style</span>=<span class="string">&quot;width:150px; height:50px;color:8B0000&quot;</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;ts1&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">    提示内容2: <span class="tag">&lt;<span class="name">input</span> <span class="attr">style</span>=<span class="string">&quot;width:150px; height:50px;color:8B000&quot;</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;ts2&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">    提示内容3: <span class="tag">&lt;<span class="name">input</span> <span class="attr">style</span>=<span class="string">&quot;width:150px; height:50px;color:1F099&quot;</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;ts3&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">style</span>=<span class="string">&quot;width:90px; height:50px;float:160px;color:8B0012&quot;</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span> <span class="attr">value</span>=<span class="string">&quot;本玲确认提交&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="php-提醒并写入文件"><a href="#php-提醒并写入文件" class="headerlink" title="php 提醒并写入文件"></a>php 提醒并写入文件</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;h1&gt; 写入新提示计划&lt;/h1&gt;</span><br><span class="line">提示通知<span class="number">1</span>的内容是    <span class="meta">&lt;?php</span> <span class="keyword">echo</span> $_POST[<span class="string">&quot;ts1&quot;</span>];<span class="meta">?&gt;</span>&lt;br&gt;</span><br><span class="line">提示通知<span class="number">2</span>的内容是    <span class="meta">&lt;?php</span> <span class="keyword">echo</span> $_POST[<span class="string">&quot;ts2&quot;</span>];<span class="meta">?&gt;</span>&lt;br&gt;</span><br><span class="line">提示通知<span class="number">3</span>的内容是    <span class="meta">&lt;?php</span> <span class="keyword">echo</span> $_POST[<span class="string">&quot;ts3&quot;</span>];<span class="meta">?&gt;</span>&lt;br&gt;</span><br><span class="line">&lt;h1&gt; 清空了旧提示计划&lt;/h1&gt;</span><br><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">   <span class="keyword">echo</span> <span class="string">&#x27;清空id&#x27;</span>;</span><br><span class="line">   file_put_contents(<span class="string">&#x27;liuxxxx_put.txt&#x27;</span>, <span class="string">&quot;&quot;</span>);</span><br><span class="line">   $file = fopen(<span class="string">&quot;liuxxxx_put.txt&quot;</span>,<span class="string">&quot;w+&quot;</span>);</span><br><span class="line">   <span class="keyword">echo</span> fwrite($file,$_POST[<span class="string">&quot;ts1&quot;</span>].<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">   <span class="keyword">echo</span> fwrite($file,<span class="string">&quot;    &quot;</span>.$_POST[<span class="string">&quot;ts2&quot;</span>].<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">   <span class="keyword">echo</span> fwrite($file,<span class="string">&quot;    &quot;</span>.$_POST[<span class="string">&quot;ts3&quot;</span>]);</span><br><span class="line">fclose($file);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="编辑现有的nginx虚拟主机"><a href="#编辑现有的nginx虚拟主机" class="headerlink" title="编辑现有的nginx虚拟主机"></a>编辑现有的nginx虚拟主机</h3><figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">location /liuxxxx &#123;</span><br><span class="line">    auth_basic <span class="string">&quot;Auth Base For Liuxxxx&quot;</span>;  <span class="comment">#</span></span><br><span class="line">    auth_basic_user_file /etc/nginx/conf.d/ssjinyao.db; <span class="comment"># 这里用htpasswd  写了一个用户和密码保存在 ssjinyao.db 中</span></span><br><span class="line">    <span class="comment">#error_page 405 =200 $uri;</span></span><br><span class="line">    alias /var/www/liuxxxx;</span><br><span class="line">    <span class="keyword">index</span> <span class="keyword">index</span> index.htm index.html php index.php;</span><br><span class="line">        location ~ <span class="regexp">/liuxxxx/</span>(.*)\.php(.*)$ &#123;</span><br><span class="line">        <span class="comment">#default_type text/html;</span></span><br><span class="line">        <span class="comment">#add_header Content-Type &#x27;text/html; charset=utf-8&#x27;;</span></span><br><span class="line">        <span class="comment">#return 200 &quot;$document_root  , $fastcgi_script_name&quot;;</span></span><br><span class="line">        alias /var/www;</span><br><span class="line">        fastcgi_split_path_info ^(.+\.php)(.*)$;</span><br><span class="line">        <span class="comment">#fastcgi_param PATH_INFO $fastcgi_path_info;</span></span><br><span class="line">        fastcgi_pass   <span class="number">127.0</span>.<span class="number">0</span>.<span class="number">1</span>:<span class="number">9000</span>;</span><br><span class="line">        fastcgi_index  index.php;</span><br><span class="line">        fastcgi_param  SCRIPT_FILENAME $document_root$fastcgi_script_name;</span><br><span class="line">        include        fastcgi_params;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>nginx 生效后，访问并页面写入专项通知<br><img src="/images/weixintongzhi-zhuanxiang-push.png" class="lazyload" data-srcset="/images/weixintongzhi-zhuanxiang-push.png" srcset="data:image/png;base64,666" alt=""></p>
+<h2 id="加入定时任务计划"><a href="#加入定时任务计划" class="headerlink" title="加入定时任务计划"></a>加入定时任务计划</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0 7,12 * * * <span class="built_in">source</span> /root/mypython/py3_env/bin/activate &amp;&amp; <span class="built_in">cd</span> /root/mypython/python3 &amp;&amp; python liuxxx.py</span><br></pre></td></tr></table></figure>
+<p>最后的效果</p>
+<p><img src="/images/weixintongzhi-crontab.png" class="lazyload" data-srcset="/images/weixintongzhi-crontab.png" srcset="data:image/png;base64,666" alt=""></p>
+<p>其它说明，这个python脚本可以把收信息的变量改为位置变量做zabbix prometehus 报警通知来用</p>
+
+  
+  
+    
+    <div class='footer'>
+      
+      
+      
+        <div class='copyright'>
+          <blockquote>
+            
+              
+                <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+              
+            
+              
+                <p>本文永久链接是：<a href=https://www.asjin.com/2020/05/13/python%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1-%E5%BE%AE%E4%BF%A1%E4%BF%A1%E6%81%AF%E5%8F%91%E9%80%81/>https://www.asjin.com/2020/05/13/python%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1-%E5%BE%AE%E4%BF%A1%E4%BF%A1%E6%81%AF%E5%8F%91%E9%80%81/</a></p>
+              
+            
+          </blockquote>
+        </div>
+      
+      
+    </div>
+  
+  
+    
+
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-09-29T18:48:54+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：Sep 29, 2020</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/linux/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>linux</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/program/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>program</p></a></div>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.asjin.com/2020/05/13/python%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1-%E5%BE%AE%E4%BF%A1%E4%BF%A1%E6%81%AF%E5%8F%91%E9%80%81/&title=python 企业微信-微信信息发送 - 逝水锦遥&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://www.asjin.com/2020/05/13/python%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1-%E5%BE%AE%E4%BF%A1%E4%BF%A1%E6%81%AF%E5%8F%91%E9%80%81/&title=python 企业微信-微信信息发送 - 逝水锦遥&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.asjin.com/2020/05/13/python%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1-%E5%BE%AE%E4%BF%A1%E4%BF%A1%E6%81%AF%E5%8F%91%E9%80%81/&title=python 企业微信-微信信息发送 - 逝水锦遥&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png">
+          
+        </a>
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </div>
+
+
+  
+  
+
+  
+    <div class="prev-next">
+      
+        <a class='prev' href='/2020/06/17/team%20%E7%BB%91%E5%AE%9A/'>
+          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>双网卡team 绑定实践记录</p>
+          <p class='content'>[toc]
+双网卡team 绑定
+很多时候，由于生产环境业务的特殊需求，我们需要对服务器的物理网卡实施特殊的配置，从而来满足不同业务场景下对服务器网络的特殊性要求。如高并发的网络IO型业务，需要...</p>
+        </a>
+      
+      
+        <a class='next' href='/2020/04/22/python_excel%E8%A1%A8%E6%A0%BC%E6%93%8D%E4%BD%9C/'>
+          <p class='title'>python表格操作<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>[toc]
+python 表格操作将awk生成的数据导入表格pandas ：pannel data analysis（面板数据分析）。pandas是基于numpy构建的，为时间序列分析提供了很好...</p>
+        </a>
+      
+    </div>
+  
+</article>
+
+
+  
+
+  <article class="post white-box reveal floatable" id="comments">
+    <p ct><i class='fas fa-comments'></i> 评论</p>
+    
+    <div id="valine_container" class="valine_thread">
+  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+</div>
+
+  </article>
+
+
+
+
+
+
+</div>
+<aside class='l_side'>
+  
+  
+    
+    
+
+
+
+  <section class="widget toc-wrapper floatable desktop mobile" id="toc-div" >
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1%E7%94%A8%E5%BA%94%E7%94%A8"><span class="toc-text">创建企业微信用应用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E6%96%B9%E7%BD%91%E7%AB%99%E3%80%81%E6%8E%A5%E5%8F%A3"><span class="toc-text">第三方网站、接口</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#python-%E7%88%AC%E5%8F%96%E5%A4%A9%E6%B0%94%E2%80%93-gt-%E8%B0%83%E7%94%A8%E4%B8%80%E8%A8%80%E6%8E%A5%E5%8F%A3%E2%80%93-gt-%E4%B8%93%E9%A1%B9%E9%80%9A%E7%9F%A5"><span class="toc-text">python 爬取天气–&gt;调用一言接口–&gt;专项通知</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="toc-text">代码实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%93%E9%A1%B9%E9%80%9A%E7%9F%A5%E5%AE%9E%E7%8E%B0"><span class="toc-text">专项通知实现</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#html-web%E8%BE%93%E5%85%A5%E6%A1%86"><span class="toc-text">html web输入框</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#php-%E6%8F%90%E9%86%92%E5%B9%B6%E5%86%99%E5%85%A5%E6%96%87%E4%BB%B6"><span class="toc-text">php 提醒并写入文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%96%E8%BE%91%E7%8E%B0%E6%9C%89%E7%9A%84nginx%E8%99%9A%E6%8B%9F%E4%B8%BB%E6%9C%BA"><span class="toc-text">编辑现有的nginx虚拟主机</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A0%E5%85%A5%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%E8%AE%A1%E5%88%92"><span class="toc-text">加入定时任务计划</span></a></li></ol>
+    </div>
+  </section>
+
+
+  
+
+
+</aside>
+
+
+
+        
+        
+          <!--此文件用来存放一些不方便取值的变量-->
+<!--思路大概是将值藏到重加载的区域内-->
+
+<script>
+  window.pdata={}
+  pdata.ispage=true;
+  pdata.postTitle="python 企业微信-微信信息发送";
+  pdata.commentPath="";
+  pdata.commentPlaceholder="";
+
+  var l_header=document.getElementById("l_header");
+  
+  l_header.classList.remove("show");
+  
+</script>
+
+        
+      </div>
+      
+  
+  <footer class="footer clearfix">
+    <br><br>
+    
+      
+
+
+
+
+		<div class="github-badge">
+          <span class="badge-subject">Powered</span><span class="badge-value bg-blue">Hexo</span>
+        </div>
+        <div class="github-badge">
+          <span class="badge-subject">Hosted</span><span class="badge-value bg-brightgreen">Aliyun</span>
+        </div>
+        <div class="github-badge">
+          <span class="badge-subject">DNS</span><span class="badge-value bg-orange">Aliyun</span>
+        </div>
+        <div class="github-badge">
+          <span class="badge-subject">Theme</span><span class="badge-value bg-pink"><a target="_blank" rel="noopener" href="https://github.com/volantis-x/hexo-theme-volantis/tree/4.1.6">Volantis</a ></span>
+        </div>
+        <div class="github-badge">
+          <span class="badge-subject">UV</span><span class="badge-value bg-blueviolet" id="busuanzi_value_site_uv"></span>
+        </div>
+        <div class="github-badge">
+          <span class="badge-subject">PV</span><span class="badge-value bg-blueviolet" id="busuanzi_value_site_pv"></span>
+        </div>
+        <div class="github-badge">
+          <span class="badge-subject"><i class="fa fa-copyright"></i></span><span class="badge-value bg-pink">BY-NC-SA 4.0</span>
+        </div>
+		<div class="github-badge">
+		  <span class="badge-subject">晋ICP备</span><span class="badge-value bg-green"> <a target="_blank" rel="noopener" href='https://beian.miit.gov.cn/'>17010575号-4 </a>
+        </div>
+
+		<div class="github-badge">
+		  <span class="badge-subject">晋ICP备</span><span class="badge-value bg-green"> <a target="_blank" rel="noopener" href='https://beian.miit.gov.cn/'>17010575号-1 </a>
+        </div>
+<!--		
+        <div class="aplayer-container"cn/' style="color:#f72b07"> 晋ICP备-17010575号-1 </a>
+		  <a target="_blank" rel="noopener" href='https://beian.miit.gov.cn/' style="color:#f72b07"> 晋ICP备-17010575号-4 </a>
+		</div>
+-->
+
+
+<!--
+        <div class='copyright'>
+        <p><a href="/">Copyright © 2017-2021 asjin.com</a></p>
+
+        </div>
+-->
+      
+    
+      
+        <br>
+        <div class="social-wrapper">
+          
+            
+          
+            
+          
+            
+          
+        </div>
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <div><p><a href="/">Copyright © 2017-2021 asjin.com</a></p>
+</div>
+        
+      
+    
+  </footer>
+
+
+      <a id="s-top" class="fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+    </div>
+  </div>
+  <div>
+    <script>
+window.volantis={};
+window.volantis.loadcss=document.getElementById("loadcss");
+/********************脚本懒加载函数********************************/
+function loadScript(src, cb) {
+var HEAD = document.getElementsByTagName('head')[0] || document.documentElement;
+var script = document.createElement('script');
+script.setAttribute('type','text/javascript');
+if (cb) script.onload = cb;
+script.setAttribute('src', src);
+HEAD.appendChild(script);
+}
+//https://github.com/filamentgroup/loadCSS
+var loadCSS = function( href, before, media, attributes ){
+	var doc = window.document;
+	var ss = doc.createElement( "link" );
+	var ref;
+	if( before ){
+		ref = before;
+	}
+	else {
+		var refs = ( doc.body || doc.getElementsByTagName( "head" )[ 0 ] ).childNodes;
+		ref = refs[ refs.length - 1];
+	}
+	var sheets = doc.styleSheets;
+	if( attributes ){
+		for( var attributeName in attributes ){
+			if( attributes.hasOwnProperty( attributeName ) ){
+				ss.setAttribute( attributeName, attributes[attributeName] );
+			}
+		}
+	}
+	ss.rel = "stylesheet";
+	ss.href = href;
+	ss.media = "only x";
+	function ready( cb ){
+		if( doc.body ){
+			return cb();
+		}
+		setTimeout(function(){
+			ready( cb );
+		});
+	}
+	ready( function(){
+		ref.parentNode.insertBefore( ss, ( before ? ref : ref.nextSibling ) );
+	});
+	var onloadcssdefined = function( cb ){
+		var resolvedHref = ss.href;
+		var i = sheets.length;
+		while( i-- ){
+			if( sheets[ i ].href === resolvedHref ){
+				return cb();
+			}
+		}
+		setTimeout(function() {
+			onloadcssdefined( cb );
+		});
+	};
+	function loadCB(){
+		if( ss.addEventListener ){
+			ss.removeEventListener( "load", loadCB );
+		}
+		ss.media = media || "all";
+	}
+	if( ss.addEventListener ){
+		ss.addEventListener( "load", loadCB);
+	}
+	ss.onloadcssdefined = onloadcssdefined;
+	onloadcssdefined( loadCB );
+	return ss;
+};
+</script>
+<script>
+  
+  loadCSS("https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14/css/all.min.css", window.volantis.loadcss);
+  
+  
+  
+  
+</script>
+<!-- required -->
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5/dist/jquery.min.js"></script>
+
+<script>
+  function pjax_fancybox() {
+    $(".md .gallery").find("img").each(function () { //渲染 fancybox
+      var element = document.createElement("a"); // a 标签
+      $(element).attr("class", "fancybox");
+      $(element).attr("pjax-fancybox", "");  // 过滤 pjax
+      $(element).attr("href", $(this).attr("src"));
+      if ($(this).attr("data-original")) {
+        $(element).attr("href", $(this).attr("data-original"));
+      }
+      $(element).attr("data-fancybox", "images");
+      var caption = "";   // 描述信息
+      if ($(this).attr('alt')) {  // 判断当前页面是否存在描述信息
+        $(element).attr('data-caption', $(this).attr('alt'));
+        caption = $(this).attr('alt');
+      }
+      var div = document.createElement("div");
+      $(div).addClass("fancybox");
+      $(this).wrap(div); // 最外层套 div ，其实主要作用还是 class 样式
+      var span = document.createElement("span");
+      $(span).addClass("image-caption");
+      $(span).text(caption); // 加描述
+      $(this).after(span);  // 再套一层描述
+      $(this).wrap(element);  // 最后套 a 标签
+    })
+    $(".md .gallery").find("img").fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+      closeClick: true,
+      helpers: {
+        overlay: {closeClick: true}
+      },
+      buttons: [
+        "zoom",
+        "close"
+      ]
+    });
+  };
+  function SCload_fancybox() {
+    if ($(".md .gallery").find("img").length == 0) return;
+    loadCSS("https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css", document.getElementById("loadcss"));
+    setTimeout(function() {
+      loadScript('https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js', pjax_fancybox)
+    }, 1);
+  };
+  $(function () {
+    SCload_fancybox();
+  });
+</script>
+
+
+<!-- internal -->
+
+
+
+
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.1.0/dist/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 0
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    lazyLoadInstance.update();
+  });
+  document.addEventListener('pjax:complete', function () {
+    lazyLoadInstance.update();
+  });
+</script>
+
+
+
+
+  
+  
+    <script async src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@2/js/instant_page.js" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+  
+
+
+
+
+  <script src="/js/clipboard.min.js"></script>
+<script>
+    var clipboard = new ClipboardJS('.btn-copy', {
+        target: function (trigger) {
+            return trigger.nextElementSibling
+        }
+    });
+    function wait(callback, seconds) {
+        var timelag = null;
+        timelag = window.setTimeout(callback, seconds)
+    }
+    function pjax_initCopyCode() {
+		if($(".highlight .code pre").length+$(".article pre code").length==0)return;
+        var copyHtml = '';
+        copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+        copyHtml += '<i class="fas fa-copy"></i><span>COPY</span>';
+        copyHtml += '</button>';
+        $(".highlight .code pre").before(copyHtml);
+        $(".article pre code").before(copyHtml);
+        clipboard.off('success').on('success', function (e) {
+            let $btn = $(e.trigger);
+            $btn.addClass('copied');
+            let $icon = $($btn.find('i'));
+            $icon.removeClass('fa-copy');
+            $icon.addClass('fa-check-circle');
+            let $span = $($btn.find('span'));
+            $span[0].innerText = 'COPIED';
+            wait(function () {
+                $icon.removeClass('fa-check-circle');
+                $icon.addClass('fa-copy');
+                $span[0].innerText = 'COPY'
+            }, 2000)
+        });
+        clipboard.off('error').on('error', function (e) {
+            e.clearSelection();
+            let $btn = $(e.trigger);
+            $btn.addClass('copy-failed');
+            let $icon = $($btn.find('i'));
+            $icon.removeClass('fa-copy');
+            $icon.addClass('fa-times-circle');
+            let $span = $($btn.find('span'));
+            $span[0].innerText = 'COPY FAILED';
+            wait(function () {
+                $icon.removeClass('fa-times-circle');
+                $icon.addClass('fa-copy');
+                $span[0].innerText = 'COPY'
+            }, 2000)
+        })
+    }
+    $(function () {
+        pjax_initCopyCode()
+    });
+</script>
+
+
+
+
+
+
+
+
+  
+  
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4/dist/Valine.min.js"></script>
+
+
+<script>
+  var GUEST_INFO = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link,header'.split(',').filter(function (item) {
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var REQUIRED_FIELDS = ['nick', 'mail', 'link'];
+  var requiredFields = 'nick,mail'.split(',').filter(function (item) {
+    return REQUIRED_FIELDS.indexOf(item) > -1
+  });
+
+  function emoji(path, idx, ext) {
+    return path + "/" + path + "-" + idx + "." + ext;
+  }
+
+  var emojiMaps = {};
+  for (var i = 1; i <= 54; i++) {
+    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
+  }
+  for (var i = 1; i <= 101; i++) {
+    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+  }
+  for (var i = 1; i <= 116; i++) {
+    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
+  }
+  for (var i = 1; i <= 125; i++) {
+    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
+  }
+  for (var i = 1; i <= 4; i++) {
+    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+  }
+
+  function pjax_valine() {
+    if(!document.querySelectorAll("#valine_container")[0])return;
+
+    let pagePlaceholder = pdata.commentPlaceholder || "快来评论吧~ 🤩 🤩 🤩";
+
+    let path = pdata.commentPath;
+    if (path.length == 0) {
+      let defaultPath = '';
+      path = defaultPath || decodeURI(window.location.pathname);
+    }
+
+    var valine = new Valine();
+    valine.init({
+      el: '#valine_container',
+      meta: meta,
+      placeholder: pagePlaceholder,
+      path: path,
+      appId: "NkJqMpxu4QlRLhPIHipNUHF1-gzGzoHsz",
+      appKey: "D2vTdueKJ8ammc2JEdje0vLW",
+      pageSize: '',
+      avatar: 'monsterid',
+      lang: '',
+      visitor: '',
+      highlight: '',
+      mathJax: '',
+      enableQQ: 'true',
+      recordIP: 'false',
+      requiredFields: requiredFields,
+      emojiCDN: 'https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/valine/',
+      emojiMaps: emojiMaps
+    })
+  }
+
+  $(function () {
+    pjax_valine();
+  });
+</script>
+
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js" data-pjax></script>
+
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-theme-volantis@4.1.6/source/js/app.min.js"></script>
+
+
+
+<!-- optional -->
+
+  <script>
+const SearchServiceimagePath="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@master/img/";
+const ROOT =  ("/" || "/").endsWith('/') ? ("/" || "/") : ("//" || "/" );
+
+$('.input.u-search-input').one('focus',function(){
+	
+		loadScript('https://cdn.jsdelivr.net/npm/hexo-theme-volantis@4.1.6/source/js/search/hexo.min.js',setSearchService);
+	
+})
+
+function listenSearch(){
+  
+    customSearch = new HexoSearch({
+      imagePath: SearchServiceimagePath
+    });
+  
+}
+function setSearchService() {
+	listenSearch();
+	
+		document.addEventListener("pjax:success", listenSearch);
+	
+}
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+function listennSidebarTOC() {
+  const navItems = document.querySelectorAll(".toc li");
+  if (!navItems.length) return;
+  const sections = [...navItems].map((element) => {
+    const link = element.querySelector(".toc-link");
+    const target = document.getElementById(
+      decodeURI(link.getAttribute("href")).replace("#", "")
+    );
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+      window.scrollTo({
+		top: target.offsetTop + 100,
+		
+		behavior: "smooth"
+		
+	  });
+    });
+    return target;
+  });
+
+  function activateNavByIndex(target) {
+    if (target.classList.contains("active-current")) return;
+
+    document.querySelectorAll(".toc .active").forEach((element) => {
+      element.classList.remove("active", "active-current");
+    });
+    target.classList.add("active", "active-current");
+    let parent = target.parentNode;
+    while (!parent.matches(".toc")) {
+      if (parent.matches("li")) parent.classList.add("active");
+      parent = parent.parentNode;
+    }
+  }
+
+  function findIndex(entries) {
+    let index = 0;
+    let entry = entries[index];
+    if (entry.boundingClientRect.top > 0) {
+      index = sections.indexOf(entry.target);
+      return index === 0 ? 0 : index - 1;
+    }
+    for (; index < entries.length; index++) {
+      if (entries[index].boundingClientRect.top <= 0) {
+        entry = entries[index];
+      } else {
+        return sections.indexOf(entry.target);
+      }
+    }
+    return sections.indexOf(entry.target);
+  }
+
+  function createIntersectionObserver(marginTop) {
+    marginTop = Math.floor(marginTop + 10000);
+    let intersectionObserver = new IntersectionObserver(
+      (entries, observe) => {
+        let scrollHeight = document.documentElement.scrollHeight + 100;
+        if (scrollHeight > marginTop) {
+          observe.disconnect();
+          createIntersectionObserver(scrollHeight);
+          return;
+        }
+        let index = findIndex(entries);
+        activateNavByIndex(navItems[index]);
+      },
+      {
+        rootMargin: marginTop + "px 0px -100% 0px",
+        threshold: 0,
+      }
+    );
+    sections.forEach((element) => {
+      element && intersectionObserver.observe(element);
+    });
+  }
+  createIntersectionObserver(document.documentElement.scrollHeight);
+}
+
+document.addEventListener("DOMContentLoaded", listennSidebarTOC);
+document.addEventListener("pjax:success", listennSidebarTOC);
+</script>
+
+<!-- more -->
+
+
+
+
+    
+      
+
+
+<script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script>
+
+
+<script>
+    var pjax;
+    document.addEventListener('DOMContentLoaded', function () {
+      pjax = new Pjax({
+        elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"]):not([pjax-fancybox])',
+        selectors: [
+          "title",
+          "#l_cover",
+          "#pjax-container",
+          "#pjax-header-nav-list"
+        ],
+        cacheBust: false,   // url 地址追加时间戳，用以避免浏览器缓存
+        timeout: 5000
+      });
+    });
+
+    document.addEventListener('pjax:send', function (e) {
+      //window.stop(); // 相当于点击了浏览器的停止按钮
+
+      try {
+        var currentUrl = window.location.pathname;
+        var targetUrl = e.triggerElement.href;
+        var banUrl = [""];
+        if (banUrl[0] != "") {
+          banUrl.forEach(item => {
+            if(currentUrl.indexOf(item) != -1 || targetUrl.indexOf(item) != -1) {
+              window.location.href = targetUrl;
+            }
+          });
+        }
+      } catch (error) {}
+
+      window.subData = null; // 移除标题（用于一二级导航栏切换处）
+      if (typeof $.fancybox != "undefined") {
+        $.fancybox.close();    // 关闭弹窗
+      }
+      volantis.$switcher.removeClass('active'); // 关闭移动端激活的搜索框
+      volantis.$header.removeClass('z_search-open'); // 关闭移动端激活的搜索框
+      volantis.$wrapper.removeClass('sub'); // 跳转页面时关闭二级导航
+
+      // 解绑事件 避免重复监听
+      volantis.$topBtn.unbind('click');
+      $('.menu a').unbind('click');
+      $(window).unbind('resize');
+      $(window).unbind('scroll');
+      $(document).unbind('scroll');
+      $(document).unbind('click');
+      $('body').unbind('click');
+	  
+    });
+
+    document.addEventListener('pjax:complete', function () {
+      // 关于百度统计对 SPA 页面的处理：
+      // 方案一：百度统计>管理>单页应用设置中，打开开启按钮即可对SPA进行统计。 https://tongji.baidu.com/web/help/article?id=324
+      // 方案二：取消注释下列代码。 https://tongji.baidu.com/web/help/article?id=235
+       
+
+      // 关于谷歌统计对 SPA 页面的处理：
+      // 当应用以动态方式加载内容并更新地址栏中的网址时，也应该更新通过 gtag.js 存储的网页网址。
+      // https://developers.google.cn/analytics/devguides/collection/gtagjs/single-page-applications?hl=zh-cn
+      
+	 
+
+      $('.nav-main').find('.list-v').not('.menu-phone').removeAttr("style",""); // 移除小尾巴的移除
+      $('.menu-phone.list-v').removeAttr("style",""); // 移除小尾巴的移除
+      $('script[data-pjax], .pjax-reload script').each(function () {
+        $(this).parent().append($(this).remove());
+      });
+      try{
+          if (typeof $.fancybox == "undefined") {
+            SCload_fancybox();
+          } else {
+            pjax_fancybox();
+          }
+        
+        
+        
+        
+        
+          pjax_initCopyCode();
+        
+        
+          pjax_valine();
+        
+        
+        
+        
+      } catch (e) {
+        console.log(e);
+      }
+	  
+    });
+
+    document.addEventListener('pjax:error', function (e) {
+	  
+      window.location.href = e.triggerElement.href;
+    });
+</script>
+
+    
+  </div>
+</body>
+</html>
