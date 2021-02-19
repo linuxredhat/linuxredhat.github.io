@@ -23,13 +23,6 @@
     </url>
 
     <url>
-        <loc>https://www.asjin.com/tags/program/</loc>
-        <lastmod>2021-01-31T09:26:18.958Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://www.asjin.com/tags/database/</loc>
         <lastmod>2021-02-19T09:25:48.779Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -46,6 +39,13 @@
     <url>
         <loc>https://www.asjin.com/tags/linux/</loc>
         <lastmod>2021-02-19T09:57:54.046Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.asjin.com/tags/program/</loc>
+        <lastmod>2021-02-19T10:02:37.213Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

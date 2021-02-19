@@ -7,6 +7,38 @@
     </url>
 
     <url>
+        <loc>https://www.asjin.com/2018/01/18/python-%E4%B9%8B%E4%B8%9A%E5%8A%A1%E6%9C%8D%E5%8A%A1%E7%9B%91%E6%8E%A7%E8%AF%A6%E8%A7%A3-%E4%B8%80/</loc>
+        <lastmod>2021-02-19T10:02:37.213Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://www.asjin.com/2018/01/19/python-%E4%B9%8B%E4%B8%9A%E5%8A%A1%E6%9C%8D%E5%8A%A1%E7%9B%91%E6%8E%A7%E8%AF%A6%E8%A7%A3-%E4%BA%8C/</loc>
+        <lastmod>2021-02-19T10:02:20.409Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://www.asjin.com/2018/01/22/python-%E4%B9%8B%E4%B8%9A%E5%8A%A1%E6%9C%8D%E5%8A%A1%E7%9B%91%E6%8E%A7%E8%AF%A6%E8%A7%A3-%E4%B8%89/</loc>
+        <lastmod>2021-02-19T10:01:53.488Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://www.asjin.com/2018/01/23/python-%E4%B9%8B%E4%B8%9A%E5%8A%A1%E6%9C%8D%E5%8A%A1%E7%9B%91%E6%8E%A7%E8%AF%A6%E8%A7%A3-%E5%9B%9B/</loc>
+        <lastmod>2021-02-19T10:01:38.136Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://www.asjin.com/2019/09/20/%E5%85%B3%E4%BA%8E%E6%9F%90%E4%B8%9A%E5%8A%A1%E7%BA%BF%E8%84%B1%E6%9C%BA%E6%8A%A5%E5%91%8A/</loc>
         <lastmod>2021-02-19T09:57:54.046Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -295,30 +327,6 @@
     </url>
 
     <url>
-        <loc>https://www.asjin.com/2018/01/23/python-%E4%B9%8B%E4%B8%9A%E5%8A%A1%E6%9C%8D%E5%8A%A1%E7%9B%91%E6%8E%A7%E8%AF%A6%E8%A7%A3-%E5%9B%9B/</loc>
-        <lastmod>2020-09-29T11:05:37.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://www.asjin.com/2018/01/22/python-%E4%B9%8B%E4%B8%9A%E5%8A%A1%E6%9C%8D%E5%8A%A1%E7%9B%91%E6%8E%A7%E8%AF%A6%E8%A7%A3-%E4%B8%89/</loc>
-        <lastmod>2020-09-29T11:05:37.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://www.asjin.com/2018/01/19/python-%E4%B9%8B%E4%B8%9A%E5%8A%A1%E6%9C%8D%E5%8A%A1%E7%9B%91%E6%8E%A7%E8%AF%A6%E8%A7%A3-%E4%BA%8C/</loc>
-        <lastmod>2020-09-29T11:05:37.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>https://www.asjin.com/2018/01/03/Linux-HA-Cluster-2/</loc>
         <lastmod>2020-09-29T11:05:37.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -345,14 +353,6 @@
     <url>
         <loc>https://www.asjin.com/2018/01/07/%E8%87%AA%E4%B9%A0%E4%B9%8Bpython%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/</loc>
         <lastmod>2020-09-29T11:04:14.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://www.asjin.com/2018/01/18/python-%E4%B9%8B%E4%B8%9A%E5%8A%A1%E6%9C%8D%E5%8A%A1%E7%9B%91%E6%8E%A7%E8%AF%A6%E8%A7%A3-%E4%B8%80/</loc>
-        <lastmod>2020-09-29T11:03:07.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
