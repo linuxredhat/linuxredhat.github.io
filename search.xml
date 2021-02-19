@@ -94,8 +94,71 @@
 <h2 id="格言"><a href="#格言" class="headerlink" title="格言"></a>格言</h2><p><strong>主气常静，客气常动，客气先盛而后衰，主气先微而后壮</strong></p>
 ]]></content>
       <tags>
-        <tag>rhca</tag>
         <tag>linux</tag>
+        <tag>rhca</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>关于某业务线域名未及时备案导致的脱机故障与报告</title>
+    <url>/2019/09/20/%E5%85%B3%E4%BA%8E%E6%9F%90%E4%B8%9A%E5%8A%A1%E7%BA%BF%E8%84%B1%E6%9C%BA%E6%8A%A5%E5%91%8A/</url>
+    <content><![CDATA[<p>[toc]</p>
+<p><strong>注: 因公司相关保密信息，相关域名及敏感词汇用xx代替</strong>;</p>
+<h1 id="关于某业务线域名未及时备案导致的故障与脱机报告"><a href="#关于某业务线域名未及时备案导致的故障与脱机报告" class="headerlink" title="关于某业务线域名未及时备案导致的故障与脱机报告"></a>关于某业务线域名未及时备案导致的故障与脱机报告</h1><p>以下是对接的开发第一时间反馈的故障图</p>
+<p><img src="/images/tuojibaogao.png" class="lazyload" data-srcset="/images/tuojibaogao.png" srcset="data:image/png;base64,666" alt=""></p>
+<ol>
+<li>因教师XX-APP及服务器部署环境架构由XX技术团队独立搭建，交接给XX中心仅做正常运维保障，教师XX业务一直进行中。XX、购买、XX系统、XX系统…未停止，且xx部人力投放在其他大项目中开发和维护。</li>
+</ol>
+<h2 id="问题的反馈"><a href="#问题的反馈" class="headerlink" title="问题的反馈"></a>问题的反馈</h2><ol>
+<li>于2019年09月03日晚对接的相关业务部门反馈教师相关线务业的网站和接口不能访问与调用超时；</li>
+<li>研发对接的相关接口如上图，当对接的业务线的开发反馈时，说可能与上次故障Cassandr 数据库未能正常访问类似;</li>
+<li>在运维组与部门总监未曾沟通协作的情况下，负责对接此业务线的相关运维将问题暂定到Cassandr 数据库上;</li>
+<li>9月4日上午8点多，研发部和运维组同学协同查找问题，最后发现xxx.xxxteacher.net;未在阿里云备案，导致域名失效无法访问的结果。</li>
+</ol>
+<h2 id="故障总结"><a href="#故障总结" class="headerlink" title="故障总结"></a>故障总结</h2><ol>
+<li>由于xxx.xxxteacher.net未备案导致被阿里云拦截后无法请求到数据库，实际上当时数据库正常运行。</li>
+<li>运维组对应业务线的同学接到保障以后第一时间处理，发现系统并无异常，但一直无法访问，无法恢复。</li>
+<li>运维同学未能想到是域名的问题，以为是数据库应用无法处理请求的未知故障，所以尝试重启数据库。</li>
+<li>因为此数据库之前一直由福建方面单独维护，大量参数设置问题，导致数据库加载过慢。</li>
+<li>运维组同学尝试迁移，但发现XX团队申请时的数据库的服务器不在集团的集群之内，数据量太大所以放弃。</li>
+<li>运维组连夜尝试恢复数据库应用，但都是显示系统日志正常，Cassandr未能启动，直到后半夜未能找到解决原因。</li>
+<li>早上升级了数据库二进制文件后成功启动。然后进行接口测试时发现请求不到的原因是域名被阿里云禁止，接着通过Nginx域名转发与反代技术恢复了业务。</li>
+</ol>
+<h2 id="业务核心问题"><a href="#业务核心问题" class="headerlink" title="业务核心问题"></a>业务核心问题</h2><ol>
+<li>域名没有备案，主要原因与教师业务线团队沟通是因为法人变更流程没完成，导致无法备案。</li>
+<li>数据库重启后恢复过慢，这是由于应用架构是福建团队搭建，当时独立于运维组，运维部对这个数据库系统不熟悉，并且原方案中没有高可用性，致使数据库单点失败。 </li>
+</ol>
+<h2 id="XX中心紧急处理方案"><a href="#XX中心紧急处理方案" class="headerlink" title="XX中心紧急处理方案"></a>XX中心紧急处理方案</h2><ol>
+<li>当时业务线对应的研发技术团队，在上午定位到问题后，技术总总监曾沟与个人沟通，能否有什么办法先尽快恢复生产的服务器;</li>
+<li>经思量、 因阿里云DNS结合阿里云公网IP扫描到未备案经需数小时的时间，而若扫描别的云平台公网IP与别的公网ip需要数十天，甚至数据月的时间;</li>
+<li>故~ 考虑公司有相关IDC机房的多个公网IP，可以将公网ip映射至现有的keepalived虚拟ip;</li>
+<li>并将keepalived 上的nginx 添加一个虚拟主机的配置文件，使用nginx 反向代理的方法再代理至原有的业务线所在的各阿里云的服务器私有ip(因公司内部有专线，若无专线的情况下，可以考虑直接反代至阿里云的公网ip，但在反向代理的时候不对host 请求做转发)；</li>
+<li>最后在测试无误的情况下，对应的域名解析做变更，解析至公司IDC公网ip;</li>
+<li>最终于上午10时20分左右，相关域名的整体业务线恢复访问。</li>
+</ol>
+<h2 id="后续重点工作安排"><a href="#后续重点工作安排" class="headerlink" title="后续重点工作安排"></a>后续重点工作安排</h2><ol>
+<li>教师XX-xx部xxx继续对域名备案，进度实时通知到XX中心。</li>
+<li>技术中心将对教师xx阿里云服务器架构多部署新一套负载服务器环境及数据备份，完成时间：2019年9月13日。</li>
+</ol>
+<h2 id="责任鉴定"><a href="#责任鉴定" class="headerlink" title="责任鉴定"></a>责任鉴定</h2><ol>
+<li>教师XX-xx部-xx 掌握阿里云域名管理，域名管理不善，阿里云已多次提示域名未备案，未曾及时反应;</li>
+<li>运维组对教师xx保障服务器运维处理存在判断有误，未能积极组建问题处理小组群,并及时通知大家寻求帮助与协调处理;</li>
+</ol>
+<h2 id="故障后感"><a href="#故障后感" class="headerlink" title="故障后感"></a>故障后感</h2><ol>
+<li>做为技术人员的我们应该对我们的技术专业有深入的理解，在判断到是大的问题或故障时需及时主动协调部门人员与寻求帮助;</li>
+<li>不断的积累各项运维架构技术与学习各个应用的场景;</li>
+<li>不断积累曾到的问题、与故障的处理经验、并标准化且规范化录入文案;</li>
+<li>遇到问题时，不要着急，需冷静且快速的定位问题，要明白打不倒你的终将使你变得强大;</li>
+<li>感慨nginx 功能之强大，还需要深入研究。</li>
+</ol>
+<h2 id="补充nginx-反向代理的配置"><a href="#补充nginx-反向代理的配置" class="headerlink" title="补充nginx 反向代理的配置"></a>补充nginx 反向代理的配置</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">upstream xxx.teachxxxx.net &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 这里就是要反代的阿里云ip与端口</span></span><br><span class="line">    <span class="comment"># 相当访问中间加了一层</span></span><br><span class="line">    server xx.xx.xxx.xx:xxxx;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">server &#123;</span><br><span class="line">    charset utf-8;</span><br><span class="line">    listen xxx;</span><br><span class="line">    server_name xxx.teachxxxx.net ;</span><br><span class="line">    location / &#123;</span><br><span class="line">        proxy_set_header X-Real-IP <span class="variable">$remote_addr</span>;</span><br><span class="line">        proxy_set_header X-Forwarded-For <span class="variable">$proxy_add_x_forwarded_for</span>;</span><br><span class="line">        <span class="comment"># 注类似这样的故障，host 不再转发，不然还会被检测到</span></span><br><span class="line">        proxy_buffer_size 64k;</span><br><span class="line">        proxy_buffers 32 32k;</span><br><span class="line">        proxy_busy_buffers_size 128k;</span><br><span class="line">        proxy_pass http://xxx.teachxxxx.net;</span><br><span class="line">    &#125;</span><br><span class="line">    access_log /var/<span class="built_in">log</span>/nginx/xxx.teachxxxx.net.log;</span><br><span class="line">    error_log /var/<span class="built_in">log</span>/nginx/xxx.teachxxxx.net.log;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>注，至于平常生产中的443转发的实现，可参考博客中其余的nginx配置</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">    listen 80;</span><br><span class="line">    server_name xxx.teachxxxx.net;</span><br><span class="line">    <span class="built_in">return</span> 301 https://<span class="variable">$HOST</span><span class="variable">$request_uri</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>其余系统应急恢复与该配置的实现类似</strong></p>
+<h3 id="nginx-相关学习文章与总结"><a href="#nginx-相关学习文章与总结" class="headerlink" title="nginx 相关学习文章与总结"></a>nginx 相关学习文章与总结</h3><p><a href="https://www.asjin.com/2018/10/29/%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%B8%B8%E7%94%A8%E9%85%8D%E7%BD%AE%E5%8F%82%E6%95%B0%E6%98%8E%E7%BB%86/">常用服务器配置明细</a><br><a href="https://www.asjin.com/2019/03/11/nginx-lua-redis%E5%AE%9E%E7%9F%AD%E9%93%BE%E6%8E%A5%E8%BD%AC%E5%8F%91%E9%95%BF%E9%93%BE%E6%8E%A5/">nginx+lua+redis实现短链接转发</a><br><a href="https://www.asjin.com/2018/04/26/nginx%E5%B8%B8%E7%94%A8%E6%9E%B6%E6%9E%84/">nginx常用架构</a></p>
+]]></content>
+      <tags>
+        <tag>linux</tag>
+        <tag>rhca</tag>
       </tags>
   </entry>
   <entry>
@@ -194,8 +257,8 @@
 </ul>
 ]]></content>
       <tags>
-        <tag>rhca</tag>
         <tag>linux</tag>
+        <tag>rhca</tag>
       </tags>
   </entry>
   <entry>
@@ -221,8 +284,8 @@
 <p><img src="/images/nginx-redis-lua-test-redirect.png" class="lazyload" data-srcset="/images/nginx-redis-lua-test-redirect.png" srcset="data:image/png;base64,666" alt=""></p>
 <h2 id="补充nginx-rewrite转发正则匹配"><a href="#补充nginx-rewrite转发正则匹配" class="headerlink" title="补充nginx rewrite转发正则匹配"></a>补充nginx rewrite转发正则匹配</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">rewrite ^/([0-9][0-9][0-9][0-9])/([0-1][0-9][0-9][0-9])/([0-9]+\.html) http://test.ssjinyao.com/<span class="variable">$1</span>/<span class="variable">$2</span>/<span class="variable">$3</span>  permanent;</span><br></pre></td></tr></table></figure>]]></content>
       <tags>
-        <tag>rhca</tag>
         <tag>linux</tag>
+        <tag>rhca</tag>
       </tags>
   </entry>
   <entry>
@@ -320,8 +383,8 @@
 <h2 id="线上ssh服务配置项"><a href="#线上ssh服务配置项" class="headerlink" title="线上ssh服务配置项"></a>线上ssh服务配置项</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 指定ssh默认监听的地址</span><br><span class="line">Port 22</span><br><span class="line"></span><br><span class="line"># 指定ssh使用的协议</span><br><span class="line">Protocol 2</span><br><span class="line"></span><br><span class="line"># 指定当前服务器使用的私钥</span><br><span class="line">HostKey &#x2F;etc&#x2F;ssh&#x2F;ssh_host_rsa_key</span><br><span class="line">HostKey &#x2F;etc&#x2F;ssh&#x2F;ssh_host_dsa_key</span><br><span class="line">HostKey &#x2F;etc&#x2F;ssh&#x2F;ssh_host_ecdsa_key</span><br><span class="line">HostKey &#x2F;etc&#x2F;ssh&#x2F;ssh_host_ed25519_key</span><br><span class="line"></span><br><span class="line"># 是否让sshd通过创建非特权子进程处理接入请求的方法来进行权限分离。默认值是&quot;yes&quot;。认证成功后，将以该认证用户的身份创建另一个子进程。这样做的目的是为了防止通过有缺陷的子进程提升权限，从而使系统更加安全</span><br><span class="line">UsePrivilegeSeparation yes</span><br><span class="line"></span><br><span class="line"># 设置在多少秒之后自动重新生成服务器的密匙（如果使用密匙）。重新生成密匙是为了防止用盗用的密匙解密被截获的信息。</span><br><span class="line">KeyRegenerationInterval 3600</span><br><span class="line"></span><br><span class="line"># Server Key 的加密码强度，强度越大越安全，传输速率也越慢</span><br><span class="line">ServerKeyBits 1024</span><br><span class="line"></span><br><span class="line"># sshd 记录日志的级别 </span><br><span class="line">LogLevel INFO</span><br><span class="line"></span><br><span class="line"># 用户登录时可视界面及时间</span><br><span class="line">LoginGraceTime 120</span><br><span class="line"></span><br><span class="line"># 当使用者的 host key 改变之后，Server 就不接受联机，</span><br><span class="line">StrictModes yes</span><br><span class="line"></span><br><span class="line"># 使用纯rsa认证方式</span><br><span class="line">RSAAuthentication yes</span><br><span class="line"></span><br><span class="line"># 是否允许pubkey认证</span><br><span class="line">PubkeyAuthentication yes</span><br><span class="line"></span><br><span class="line"># 是否取消使用 ~&#x2F;.ssh&#x2F;.hosts 来做为认证</span><br><span class="line">IgnoreRhosts yes</span><br><span class="line"></span><br><span class="line"># 这个选项是专门给 version 1 用的</span><br><span class="line">RhostsRSAAuthentication no</span><br><span class="line"></span><br><span class="line"># 这个项目与上面的项目类似，不过是给 version 2 使用的</span><br><span class="line">HostbasedAuthentication no</span><br><span class="line"></span><br><span class="line">#这个项目在是否允许以空的密码登入！# 此项要注意</span><br><span class="line">PermitEmptyPasswords no</span><br><span class="line"></span><br><span class="line"># 挑战任何的密码认证, 任何 login.conf都能使用 </span><br><span class="line">ChallengeResponseAuthentication no</span><br><span class="line"></span><br><span class="line"># x11转发功能开启，可以使用基于ssh的加密码图形工具</span><br><span class="line">X11Forwarding yes</span><br><span class="line"></span><br><span class="line"># 自适大小</span><br><span class="line">X11DisplayOffset 10</span><br><span class="line"></span><br><span class="line"># 打印Motd信息</span><br><span class="line">PrintMotd no</span><br><span class="line"></span><br><span class="line"># 登录前后输出日志</span><br><span class="line">PrintLastLog yes</span><br><span class="line"></span><br><span class="line"># 开启tcp长连接</span><br><span class="line">TCPKeepAlive yes</span><br><span class="line"></span><br><span class="line"># 设置x11的转输语言及编码</span><br><span class="line">AcceptEnv LANG LC_*</span><br><span class="line"></span><br><span class="line"># 基于ssh 的vftp服务</span><br><span class="line">Subsystem sftp &#x2F;usr&#x2F;lib&#x2F;openssh&#x2F;sftp-server</span><br><span class="line"></span><br><span class="line">#利用 PAM 管理使用者认证</span><br><span class="line">UsePAM yes</span><br><span class="line"></span><br><span class="line">#使用dns解析 </span><br><span class="line">UseDNS no</span><br><span class="line"></span><br><span class="line">#</span><br><span class="line">AddressFamily inet</span><br><span class="line"></span><br><span class="line"># 允许root用户直接登录 </span><br><span class="line">PermitRootLogin yes</span><br><span class="line"></span><br><span class="line"># 记录系统日志</span><br><span class="line">SyslogFacility AUTHPRIV</span><br><span class="line"></span><br><span class="line"># 开启用户认证登录</span><br><span class="line">PasswordAuthentication yes</span><br></pre></td></tr></table></figure>
 ]]></content>
       <tags>
-        <tag>rhca</tag>
         <tag>linux</tag>
+        <tag>rhca</tag>
       </tags>
   </entry>
   <entry>
@@ -439,8 +502,8 @@
 <p><img src="/images/linux-little-ps.png" class="lazyload" data-srcset="/images/linux-little-ps.png" srcset="data:image/png;base64,666" alt=""></p>
 ]]></content>
       <tags>
-        <tag>rhca</tag>
         <tag>linux</tag>
+        <tag>rhca</tag>
       </tags>
   </entry>
   <entry>
@@ -525,8 +588,8 @@
 <p>注意:<br>nginx 同步配置的源地址与目标地址一定要注意，如果对以上配置不是很清楚，一定要测试无误后<br>      再上生产环境， 不要把生产中的配置替换了<br>keepalived 在自动化初始化时，不要启用nginx监测，另外注意在生产中的虚拟ip冲突;  </p>
 ]]></content>
       <tags>
-        <tag>rhca</tag>
         <tag>linux</tag>
+        <tag>rhca</tag>
       </tags>
   </entry>
   <entry>
@@ -2371,8 +2434,8 @@ del 语句删除函数对象
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># ifdown br-ext &amp;&amp; ifdown team1</span></span><br><span class="line"><span class="comment"># ifup team1</span></span><br><span class="line"><span class="comment"># ifup br-ext</span></span><br><span class="line"><span class="comment"># ifdown em2 ; ifup em2</span></span><br><span class="line"><span class="comment"># ifdown em3 ; ifup em3</span></span><br><span class="line"><span class="comment"># sysctl -p </span></span><br></pre></td></tr></table></figure>
 ]]></content>
       <tags>
-        <tag>rhca</tag>
         <tag>linux</tag>
+        <tag>rhca</tag>
       </tags>
   </entry>
   <entry>
@@ -2497,8 +2560,8 @@ del 语句删除函数对象
 <h2 id="CentOS-安装-git"><a href="#CentOS-安装-git" class="headerlink" title="CentOS 安装 git"></a>CentOS 安装 git</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># yum -y install git </span><br></pre></td></tr></table></figure>
 <h2 id="Ubuntu-安装-git"><a href="#Ubuntu-安装-git" class="headerlink" title="Ubuntu 安装 git"></a>Ubuntu 安装 git</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># apt-get install git </span><br></pre></td></tr></table></figure>]]></content>
       <tags>
-        <tag>rhca</tag>
         <tag>linux</tag>
+        <tag>rhca</tag>
       </tags>
   </entry>
   <entry>
@@ -2530,8 +2593,8 @@ del 语句删除函数对象
 </ol>
 ]]></content>
       <tags>
-        <tag>rhca</tag>
         <tag>linux</tag>
+        <tag>rhca</tag>
       </tags>
   </entry>
   <entry>
@@ -2982,8 +3045,8 @@ del 语句删除函数对象
 <h2 id="完成集群搭建"><a href="#完成集群搭建" class="headerlink" title="完成集群搭建"></a>完成集群搭建</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># qhost</span></span><br><span class="line">HOSTNAME                ARCH         NCPU  LOAD  MEMTOT  MEMUSE  SWAPTO  SWAPUS</span><br><span class="line">-------------------------------------------------------------------------------</span><br><span class="line">global                  -               -     -       -       -       -       -</span><br><span class="line">node1                   linux-x64       1  0.01  968.3M  193.0M    2.0G   64.0K</span><br><span class="line">node2                   linux-x64       1  0.01  976.3M  151.0M    2.0G     0.0</span><br><span class="line">node3                   linux-x64       1  0.02  978.3M  152.2M    2.0G   84.0K</span><br><span class="line">node4                   linux-x64       1  0.02  976.3M  155.4M    2.0G     0.0</span><br><span class="line">node5                   linux-x64       1  0.01  978.3M  148.5M    2.0G   84.0K</span><br></pre></td></tr></table></figure>
 <h1 id="sge集群的使用"><a href="#sge集群的使用" class="headerlink" title="sge集群的使用"></a>sge集群的使用</h1>]]></content>
       <tags>
-        <tag>rhca</tag>
         <tag>linux</tag>
+        <tag>rhca</tag>
       </tags>
   </entry>
   <entry>
@@ -3146,8 +3209,8 @@ del 语句删除函数对象
 <h3 id="配置并访问kibana"><a href="#配置并访问kibana" class="headerlink" title="配置并访问kibana"></a>配置并访问kibana</h3><p><img src="/images/kubernetes-helm-efk-kibana.png" class="lazyload" data-srcset="/images/kubernetes-helm-efk-kibana.png" srcset="data:image/png;base64,666" alt=""></p>
 ]]></content>
       <tags>
-        <tag>rhca</tag>
         <tag>linux</tag>
+        <tag>rhca</tag>
         <tag>cloud</tag>
       </tags>
   </entry>
@@ -3192,8 +3255,8 @@ del 语句删除函数对象
 <p><img src="/images/kubernetes-grafana-test.png" class="lazyload" data-srcset="/images/kubernetes-grafana-test.png" srcset="data:image/png;base64,666" alt=""></p>
 ]]></content>
       <tags>
-        <tag>rhca</tag>
         <tag>linux</tag>
+        <tag>rhca</tag>
         <tag>cloud</tag>
       </tags>
   </entry>
@@ -3248,8 +3311,8 @@ del 语句删除函数对象
 <p>网络策略:<br>    名称空间:<br>        拒绝所有出站，入站;<br>        放行所有出站目标本名称空间内的所有Pod;</p>
 ]]></content>
       <tags>
-        <tag>rhca</tag>
         <tag>linux</tag>
+        <tag>rhca</tag>
         <tag>cloud</tag>
       </tags>
   </entry>
@@ -3319,8 +3382,8 @@ del 语句删除函数对象
 <p><img src="/images/kubernetes-dashborad-loging-kubeconfig.png" class="lazyload" data-srcset="/images/kubernetes-dashborad-loging-kubeconfig.png" srcset="data:image/png;base64,666" alt=""></p>
 ]]></content>
       <tags>
-        <tag>rhca</tag>
         <tag>linux</tag>
+        <tag>rhca</tag>
         <tag>cloud</tag>
       </tags>
   </entry>
@@ -3375,8 +3438,8 @@ del 语句删除函数对象
 <p>pod 数量扩展</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># kubectl scale sts myapp --replicas=5</span></span><br><span class="line">statefulset.apps/myapp scaled</span><br><span class="line"><span class="comment"># kubectl patch sts myapp -p &#x27;&#123;&quot;spec&quot;:&#123;&quot;replicas&quot;:2&#125;&#125;&#x27;</span></span><br><span class="line">statefulset.apps/myapp patched</span><br><span class="line"><span class="comment"># kubectl patch sts myapp -p &#x27;&#123;&quot;spec&quot;:&#123;&quot;updateStrategy&quot;:&#123;&quot;rollingUpdate&quot;:&#123;&quot;partition&quot;:4&#125;&#125;&#125;&#125;&#x27;</span></span><br><span class="line">statefulset.apps/myapp patched</span><br><span class="line"><span class="comment"># kubectl set image sts/myapp myapp=ikubernetes/myapp:v2</span></span><br><span class="line">statefulset.apps/myapp image updated</span><br><span class="line"><span class="comment"># kubectl get sts -o wide</span></span><br><span class="line">NAME    READY   AGE   CONTAINERS   IMAGES</span><br><span class="line">myapp   2/2     53m   myapp        ikubernetes/myapp:v2</span><br></pre></td></tr></table></figure>]]></content>
       <tags>
-        <tag>rhca</tag>
         <tag>linux</tag>
+        <tag>rhca</tag>
         <tag>cloud</tag>
       </tags>
   </entry>
@@ -3432,8 +3495,8 @@ del 语句删除函数对象
 <p><img src="/images/ingress-nginx-tomcat-https.png" class="lazyload" data-srcset="/images/ingress-nginx-tomcat-https.png" srcset="data:image/png;base64,666" alt=""></p>
 ]]></content>
       <tags>
-        <tag>rhca</tag>
         <tag>linux</tag>
+        <tag>rhca</tag>
         <tag>cloud</tag>
       </tags>
   </entry>
@@ -3575,8 +3638,8 @@ del 语句删除函数对象
 <p><code>注: 启动容器时先执行command 再执行postStart因此 command命令不能强依赖于postStart执行结果;</code></p>
 <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># vim poststart-pod.yaml</span></span><br><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Pod</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">poststart-pod</span></span><br><span class="line">    <span class="attr">namespace:</span> <span class="string">default</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">    <span class="attr">containers:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">busybox-httpd</span></span><br><span class="line">      <span class="attr">image:</span> <span class="string">busybox:latest</span></span><br><span class="line">      <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">containerPort:</span> <span class="number">80</span></span><br><span class="line">      <span class="attr">imagePullPolicy:</span> <span class="string">IfNotPresent</span></span><br><span class="line">      <span class="attr">lifecycle:</span></span><br><span class="line">        <span class="attr">postStart:</span></span><br><span class="line">          <span class="attr">exec:</span></span><br><span class="line">            <span class="attr">command:</span> [<span class="string">&quot;/bin/sh&quot;</span>,<span class="string">&quot;-c&quot;</span>,<span class="string">&quot;echo &#x27;welcome www.ssjinyao.com&#x27; &gt;  /tmp/index.html&quot;</span>]</span><br><span class="line">      <span class="attr">command:</span> [<span class="string">&quot;/bin/sh&quot;</span>]</span><br><span class="line">      <span class="attr">args:</span> [<span class="string">&quot;-c&quot;</span>,<span class="string">&quot;httpd -h /tmp  &amp;&amp; sleep 300000&quot;</span> ]</span><br></pre></td></tr></table></figure>]]></content>
       <tags>
-        <tag>rhca</tag>
         <tag>linux</tag>
+        <tag>rhca</tag>
         <tag>cloud</tag>
       </tags>
   </entry>
@@ -4388,8 +4451,8 @@ DN: Data Node   NN: Name Node SNN: Secondary Name Node
 <p><img src="/images/hyperledger-test2.png" class="lazyload" data-srcset="/images/hyperledger-test2.png" srcset="data:image/png;base64,666" alt=""></p>
 ]]></content>
       <tags>
-        <tag>rhca</tag>
         <tag>linux</tag>
+        <tag>rhca</tag>
       </tags>
   </entry>
   <entry>
@@ -5006,8 +5069,8 @@ awk &apos;!/^UUID/&#123;print $1&#125;&apos; /etc/fstab
 <h2 id="sentinel"><a href="#sentinel" class="headerlink" title="sentinel:"></a>sentinel:</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">用于管理多个redis服务实现HA;</span><br><span class="line">    监控;</span><br><span class="line">    通知;</span><br><span class="line">    自动故障转移;</span><br><span class="line">    本质上，sentinel也是redis的分布式功能;</span><br><span class="line">    使用流言协议、投票协议;</span><br><span class="line">程序:</span><br><span class="line">    redis-sentinel &#x2F;path&#x2F;to&#x2F;file.conf</span><br><span class="line">    redis-server &#x2F;path&#x2F;to&#x2F;file.conf</span><br><span class="line">(1) 服务器自身初始化，运行redis-server中专用于sentinel功能的代码;</span><br><span class="line">(2) 初始化sentinel状态，根据给定的配置文件，初始化监控的master服务器列表;</span><br><span class="line">(3) 创建连向master的连接；</span><br><span class="line">专用配置文件: &#x2F;etc&#x2F;redis-sentinel.conf</span><br><span class="line">(1) # sentinel monitor &lt;master-name&gt; &lt;ip&gt; &lt;redis-port&gt; &lt;quorum&gt;</span><br><span class="line">    sentinel monitor mymaster  127.0.0.1 6379 2</span><br><span class="line">(2) # sentinel down-after-millisenconds &lt;master-name&gt; &lt;millisends&gt;</span><br><span class="line">    sentinel down-afer-millisenconds mymaster 3000</span><br><span class="line">(3) # sentinel parellel-syncs  &lt;master-name&gt; &lt;numslaves&gt;</span><br><span class="line">    seninel parallel-syncs mymaster 1 </span><br><span class="line">(4) # sentinel failover-timeout &lt;master-name&gt; &lt;milliseconds&gt;</span><br><span class="line">    sentinel failover-timeout mymaster 180000</span><br><span class="line"></span><br><span class="line">主观下线,客观下线:</span><br><span class="line">    主观下线: 一个sentinel实例判断出某节点下线:</span><br><span class="line">    客观下线:多个seninel 节点协商后判断出某节点下线:</span><br><span class="line"></span><br><span class="line">专用命令:</span><br><span class="line">    SENTINEL masters</span><br><span class="line">    SENTINEL slaves &lt;master name&gt;</span><br><span class="line">    SENTINEL get-master-addr-by-name &lt;master name&gt;</span><br><span class="line">    SENTINEL reset</span><br><span class="line">    SENTINEL failover &lt;master name&gt;</span><br><span class="line"></span><br><span class="line">Clustering:</span><br><span class="line">    分布式数据库，通过分片机制进行数据分布，clustering内的每个子节点仅数据库的一部分数据;    </span><br></pre></td></tr></table></figure>
 ]]></content>
       <tags>
-        <tag>rhca</tag>
         <tag>linux</tag>
+        <tag>rhca</tag>
       </tags>
   </entry>
   <entry>
@@ -5030,8 +5093,8 @@ awk &apos;!/^UUID/&#123;print $1&#125;&apos; /etc/fstab
 <h3 id="fast-cgi-使用"><a href="#fast-cgi-使用" class="headerlink" title="fast-cgi 使用"></a>fast-cgi 使用</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">LNMP</span><br><span class="line"># yum -y install php-fpm</span><br><span class="line"># rpm -ql php-fpm </span><br><span class="line"># vim &#x2F;etc&#x2F;php-fpm.d&#x2F;www.conf</span><br><span class="line"># systemctl start php-fpm </span><br><span class="line"># vim &#x2F;etc&#x2F;nginx.conf.d&#x2F;default.conf</span><br><span class="line"></span><br><span class="line">location &#x2F; &#123;</span><br><span class="line">    root &#x2F;usr&#x2F;share&#x2F;nginx&#x2F;html;</span><br><span class="line">    index index.php index.html index.htm;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">location ~\.php$ &#123;</span><br><span class="line">    fastcgi_cache fcgicache;</span><br><span class="line">    fastcgi_cache_valid 200 10m;</span><br><span class="line">    fastcgi_cache_valid 302 3m;</span><br><span class="line">    fastcgi_cache_valid any 1m;</span><br><span class="line">    root &#x2F;usr&#x2F;share&#x2F;nginx&#x2F;html;</span><br><span class="line">    fastcgi_pass 127.0.0.1:9000;</span><br><span class="line">    fastcgi_index indexphp;</span><br><span class="line">    fastcgi_param SCRIPT_FILENAME &#x2F;scripts$fastcgi-script_naame;</span><br><span class="line">    indclude fastcgi_paramgs;</span><br><span class="line">&#125;</span><br><span class="line"># systemctl restart nginx</span><br><span class="line"># 若调用fastcgi 失败 </span><br><span class="line"># 编辑&#x2F;etc&#x2F;nginx&#x2F;fastcgi_params，将其内容更改为如下内容：</span><br><span class="line">fastcgi_param  GATEWAY_INTERFACE  CGI&#x2F;1.1;</span><br><span class="line">fastcgi_param  SERVER_SOFTWARE    nginx;</span><br><span class="line">fastcgi_param  QUERY_STRING       $query_string;</span><br><span class="line">fastcgi_param  REQUEST_METHOD     $request_method;</span><br><span class="line">fastcgi_param  CONTENT_TYPE       $content_type;</span><br><span class="line">fastcgi_param  CONTENT_LENGTH     $content_length;</span><br><span class="line">fastcgi_param  SCRIPT_FILENAME    $document_root$fastcgi_script_name;</span><br><span class="line">fastcgi_param  SCRIPT_NAME        $fastcgi_script_name;</span><br><span class="line">fastcgi_param  REQUEST_URI        $request_uri;</span><br><span class="line">fastcgi_param  DOCUMENT_URI       $document_uri;</span><br><span class="line">fastcgi_param  DOCUMENT_ROOT      $document_root;</span><br><span class="line">fastcgi_param  SERVER_PROTOCOL    $server_protocol;</span><br><span class="line">fastcgi_param  REMOTE_ADDR        $remote_addr;</span><br><span class="line">fastcgi_param  REMOTE_PORT        $remote_port;</span><br><span class="line">fastcgi_param  SERVER_ADDR        $server_addr;</span><br><span class="line">fastcgi_param  SERVER_PORT        $server_port;</span><br><span class="line">fastcgi_param  SERVER_NAME        $server_name;</span><br><span class="line"># nginx -s reload</span><br><span class="line"># yum -y install php-mysql mariadb maraidb-server</span><br><span class="line"># cd &#x2F;usr&#x2F;share&#x2F;nginx&#x2F;html</span><br><span class="line"># vim index.php</span><br><span class="line">&lt;?php </span><br><span class="line">    $conn &#x3D; mysql_connect(&#39;127.0.0.1&#39;,&#39;root&#39;,&#39;&#39;);</span><br><span class="line">    if ($conn)</span><br><span class="line">        echo succ</span><br><span class="line">    else</span><br><span class="line">        echo fail;</span><br><span class="line">    mysql_close();</span><br><span class="line">?&gt;</span><br><span class="line"># 当LNMP 环境跑起来时，可以通匹配反像代理来实现动静分离;</span><br><span class="line">(1) root为同一路径;</span><br><span class="line">(2) root为不同路径;</span><br><span class="line">    location \.php$&#123;</span><br><span class="line">        root &#x2F;web&#x2F;app&#x2F;wp;</span><br><span class="line">    &#125;</span><br><span class="line">    location &#x2F; &#123;</span><br><span class="line">        root &#x2F;web&#x2F;htdocs;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">(3) fpm server 为另一主机 ;</span><br><span class="line"></span><br><span class="line">    location \.php$&#123;</span><br><span class="line">        fastcgi_pass fastcgi:&#x2F;&#x2F;172.16.55.129:9000;</span><br><span class="line">    &#125;</span><br><span class="line">    location &#x2F; &#123;</span><br><span class="line">        root &#x2F;web&#x2F;htdocs;</span><br><span class="line">    &#125;</span><br><span class="line"># 注: 如果动态内容能过缓存来进行加速的话，加速效果是非常明显示的;</span><br></pre></td></tr></table></figure>
 ]]></content>
       <tags>
-        <tag>rhca</tag>
         <tag>linux</tag>
+        <tag>rhca</tag>
       </tags>
   </entry>
   <entry>
@@ -5079,8 +5142,8 @@ awk &apos;!/^UUID/&#123;print $1&#125;&apos; /etc/fstab
 <h3 id="分片式架构配置"><a href="#分片式架构配置" class="headerlink" title="分片式架构配置"></a>分片式架构配置</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># rm -rf  &#x2F;mongodb&#x2F;data&#x2F; # 注: 在生产中，这个操作非常危险！需要将数据库用mongodump 备份；</span><br><span class="line"># 将mongodb 安装的rpm包，或者yum的配置文件用ansible 或scp 同步到其它四个节点上去;</span><br><span class="line"># 在四个节点将mongodb 相关软件包都安装好</span><br><span class="line"># 先要配置config server --&gt; mongos --&gt; Shard1 --&gt; Shard2</span><br><span class="line">-------------------------&gt; confiserver 服务器配置</span><br><span class="line"># vim &#x2F;etc&#x2F;mongod.conf</span><br><span class="line"># replSet&#x3D;testSet</span><br><span class="line"># replIndexPrefetch&#x3D;id_only #  </span><br><span class="line">dbpath&#x3D;&#x2F;mongodb&#x2F;data</span><br><span class="line">configsvr&#x3D;true</span><br><span class="line"># chown -R mongod.mongod &#x2F;mongodb</span><br><span class="line"># install -o mongod -g mongod -d &#x2F;mongodb&#x2F;data  # 建立数据库的元数据 ;</span><br><span class="line"># systemctl start mongod  mongo    # config server 默认监听在27019的端口上;  </span><br><span class="line"></span><br><span class="line">-----------------------&gt; mongofs 服务器配置</span><br><span class="line"># yum -y insetall mongodb-org-mongos  # </span><br><span class="line">#  启动 mongofs 节点</span><br><span class="line"># mongos --configdb&#x3D;172.16.55.172.16.55.128 --fork --logpath&#x3D;&#x2F;var&#x2F;log&#x2F;mongodb&#x2F;mongo.log</span><br><span class="line"># mongo --host 172.16.55.127</span><br><span class="line">help</span><br><span class="line">sh.status() </span><br><span class="line"># 以下节点起动后</span><br><span class="line">sh.addShard(&quot;172.16.55.129&quot;)</span><br><span class="line">ss.addShard(&quot;172.16.55.120&quot;)</span><br><span class="line">sh.enableShareding(&quot;testdb&quot;) # 在testdb中启有shard功能;</span><br><span class="line">sh.help() # 查找shards集群相关的配置项;</span><br><span class="line">sh.enableSharding(dbname)  # 在哪个节点起用sharding;</span><br><span class="line">sh.shardCollection(fullName,key,unique) # 在collection哪个键，索引上做sharding ;</span><br><span class="line">sh.shardCollection(&quot;students&quot;, &#123;&quot;age&quot; : 1 &#125;)</span><br><span class="line">sh.status() # 此时就可以查看分片信息了;</span><br><span class="line">use testdb;</span><br><span class="line">for (i&#x3D;1; i&lt;&#x3D;100000;i++) db.students.insert(&#123;name:&quot;studentt&quot;+i,  age:(i%120),classes:&quot;class&quot;+(i%10),address:&quot;www.ssjinyao.com, Magedu, #85 WenhuaRoad, BeiJin, China&quot;&#125;) # 批量插入测试数据;</span><br><span class="line">use testdb</span><br><span class="line">db.students.find().count()</span><br><span class="line">sh.status() # 可以看到分片存储的信息;</span><br><span class="line">db.databases.find(&quot;partitioned&quot;:true)</span><br><span class="line">db.runCommands(&quot;listShards&quot;)</span><br><span class="line">use admin</span><br><span class="line">db.runCommand(&quot;listShards&quot;)</span><br><span class="line">db.printShardingStatus()</span><br><span class="line">sh.isBalancerRunning()  # 查看均衡器状态，它会在需要时自动启动;</span><br><span class="line">sh.getBalancerState() # 查看BlancerSate的状态;</span><br><span class="line">-----------------------&gt; Shard1 服务器配置</span><br><span class="line"># vim &#x2F;etc&#x2F;mongod.conf</span><br><span class="line"># replSet&#x3D;testSet</span><br><span class="line"># replIndexPrefetch&#x3D;id_only # 注释以上配置</span><br><span class="line"># dbpath&#x3D;&#x2F;mongodb&#x2F;data</span><br><span class="line"># chown -R mongod.mongod &#x2F;mongodb</span><br><span class="line"># systemctl start mongod</span><br><span class="line"></span><br><span class="line">-----------------------&gt; Shard2 服务器配置</span><br><span class="line"># vim &#x2F;etc&#x2F;mongod.conf</span><br><span class="line"># replSet&#x3D;testSet</span><br><span class="line"># replIndexPrefetch&#x3D;id_only # 注释以上配置</span><br><span class="line"># dbpath&#x3D;&#x2F;mongodb&#x2F;data</span><br><span class="line"># chown -R mongod.mongod &#x2F;mongodb</span><br><span class="line"># systemctl start mongod</span><br></pre></td></tr></table></figure>
 ]]></content>
       <tags>
-        <tag>rhca</tag>
         <tag>linux</tag>
+        <tag>rhca</tag>
       </tags>
   </entry>
   <entry>
@@ -5189,8 +5252,8 @@ awk &apos;!/^UUID/&#123;print $1&#125;&apos; /etc/fstab
 <h4 id="系统环境初始化"><a href="#系统环境初始化" class="headerlink" title="系统环境初始化"></a>系统环境初始化</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">--- </span><br><span class="line">- hosts: all</span><br><span class="line">  tasks:</span><br><span class="line">    - name: Add mongodb 3.4 yum repo</span><br><span class="line">      template: src&#x3D;.&#x2F;yum&#x2F;mongo34.repo dest&#x3D;&#x2F;etc&#x2F;yum.repos.d&#x2F;</span><br><span class="line">    - name: Yum remove old mongodb</span><br><span class="line">      yum: name&#x3D;mongodb state&#x3D;removed update_cache&#x3D;true</span><br><span class="line">    - name: Yum install mongodb 3.4</span><br><span class="line">      yum: name&#x3D;mongodb-org state&#x3D;installed update_cache&#x3D;true</span><br><span class="line">    - name: Mongo shell edit</span><br><span class="line">      shell: |</span><br><span class="line">        killall mongod</span><br><span class="line">        echo &#39;never&#39; &gt; &#x2F;sys&#x2F;kernel&#x2F;mm&#x2F;transparent_hugepage&#x2F;enabled</span><br><span class="line">        echo &#39;never&#39; &gt; &#x2F;sys&#x2F;kernel&#x2F;mm&#x2F;transparent_hugepage&#x2F;defrag</span><br><span class="line">    - name: start mongodb</span><br><span class="line">      service: name&#x3D;mongod state&#x3D;restarted</span><br><span class="line"></span><br><span class="line">    - name: Create mongo user and passwd admin xxxxxx</span><br><span class="line">      mongodb_user: </span><br><span class="line">        name: &quot;admin&quot; </span><br><span class="line">        password: &quot;xxxxxxssjinyao.com&quot; </span><br><span class="line">        database: &quot;admin&quot;</span><br><span class="line">        roles: &quot;userAdminAnyDatabase&quot; </span><br><span class="line">        state: &quot;present&quot;</span><br><span class="line">      yum: name&#x3D;mod_ssl state&#x3D;installed update_cache&#x3D;true</span><br><span class="line">    - name: Install git</span><br><span class="line">      yum: name&#x3D;git state&#x3D;installed update_cache&#x3D;true</span><br><span class="line">    - name: Install tree</span><br><span class="line">      yum: name&#x3D;tree state&#x3D;installed update_cache&#x3D;true</span><br><span class="line"></span><br><span class="line">    - name: Install any packages</span><br><span class="line">      yum: name&#x3D;&#123;&#123;item&#125;&#125; state&#x3D;installed update_cache&#x3D;true</span><br><span class="line">      with_items:</span><br><span class="line">        - libffi</span><br><span class="line">        - libffi-devel</span><br><span class="line">        - openssl</span><br><span class="line">        - openssl-devel</span><br><span class="line">        - libxml2</span><br><span class="line">        - libxml2-devel</span><br><span class="line">        - libjpeg-turbo</span><br><span class="line">        - libjpeg-turbo-devel</span><br><span class="line"></span><br><span class="line">    - name: Install any packages2</span><br><span class="line">      yum: name&#x3D;&#123;&#123;item&#125;&#125; state&#x3D;installed update_cache&#x3D;true</span><br><span class="line">      with_items:</span><br><span class="line">        - zlib</span><br><span class="line">        - zlib-devel</span><br><span class="line">        - vim</span><br><span class="line">        - httpd</span><br><span class="line">        - mariadb-server</span><br><span class="line">        - redis</span><br><span class="line">        - php</span><br><span class="line">        - php-intl</span><br><span class="line">        - php-pear</span><br><span class="line">        - php-devel</span><br><span class="line">        - libicu</span><br><span class="line">        - libicu-devel</span><br><span class="line">        - git</span><br><span class="line">        - centos-release-scl</span><br><span class="line"></span><br><span class="line">    - name: Install any packages3</span><br><span class="line">      yum: name&#x3D;&#123;&#123;item&#125;&#125; state&#x3D;present update_cache&#x3D;true</span><br><span class="line">      with_items:</span><br><span class="line">        - python-pip</span><br><span class="line">        - python-devel</span><br><span class="line">        - gcc</span><br><span class="line">        - gcc-c++</span><br><span class="line">        - kernel-devel </span><br><span class="line">        - make</span><br><span class="line">        - MySQL-python</span><br><span class="line">        - php-mysql</span><br><span class="line">        - php-gd</span><br><span class="line">        - mysql-devel</span><br><span class="line">        - libcurl</span><br><span class="line">        - libcurl-devel</span><br><span class="line">        - python-lxml </span><br><span class="line"></span><br><span class="line">    - name: Install any packages4</span><br><span class="line">      yum: name&#x3D;&#123;&#123;item&#125;&#125; state&#x3D;present update_cache&#x3D;true</span><br><span class="line">      with_items:</span><br><span class="line">        - php55</span><br><span class="line">        - php-pecl-mongo</span><br><span class="line">        - php55-php</span><br><span class="line">        - php55-php-gd</span><br><span class="line">        - php55-php-mbstring</span><br><span class="line">        - php55-php-devel</span><br><span class="line">        - php55-php-mysqlnd</span><br><span class="line">        - php55-php-ldap</span><br><span class="line">        - php55-php-intl</span><br><span class="line">        - php55-php-pear</span><br><span class="line">        - php55-php-mongo</span><br><span class="line">        - unzip</span><br><span class="line"></span><br><span class="line">    - name: Install any packages5 other, you can add</span><br><span class="line">      yum: name&#x3D;&#123;&#123;item&#125;&#125; state&#x3D;present update_cache&#x3D;true</span><br><span class="line">      with_items: </span><br><span class="line">        - readline-devel</span><br><span class="line">        - patch</span><br><span class="line"></span><br><span class="line">    - name: Copy php-55 config file to etc</span><br><span class="line">      copy: remote_src&#x3D;True src&#x3D;&#x2F;opt&#x2F;rh&#x2F;httpd24&#x2F;root&#x2F;etc&#x2F;httpd&#x2F;conf.d&#x2F;php55-php.conf dest&#x3D;&#x2F;etc&#x2F;httpd&#x2F;conf.d&#x2F;</span><br><span class="line">    - name: Copy php-55 httpd modules to etc</span><br><span class="line">      copy: remote_src&#x3D;True src&#x3D;&#x2F;opt&#x2F;rh&#x2F;httpd24&#x2F;root&#x2F;etc&#x2F;httpd&#x2F;conf.modules.d&#x2F;10-php55-php.conf dest&#x3D;&#x2F;etc&#x2F;httpd&#x2F;conf.d&#x2F;</span><br><span class="line">    - name: Copy php-55 httpd moduels to etc</span><br><span class="line">      copy: remote_src&#x3D;True src&#x3D;&#x2F;opt&#x2F;rh&#x2F;httpd24&#x2F;root&#x2F;etc&#x2F;httpd&#x2F;modules&#x2F;libphp55-php5.so dest&#x3D;&#x2F;etc&#x2F;httpd&#x2F;modules&#x2F;</span><br><span class="line"></span><br><span class="line">    - name: pip install any packages</span><br><span class="line">      pip: name&#x3D;&#123;&#123;item&#125;&#125; state&#x3D;present</span><br><span class="line">      with_items:</span><br><span class="line">        - supervisor</span><br><span class="line">        - virtualenv</span><br><span class="line">        - celery</span><br><span class="line">        - flower</span><br><span class="line">        - mongo</span><br><span class="line">        - redis</span><br><span class="line"></span><br><span class="line">    - name: echo a messages</span><br><span class="line">      shell: |</span><br><span class="line">        ifconfig &amp;&gt; &#x2F;tmp&#x2F;test.ifconfig</span><br><span class="line">        netstat -ant &amp;&gt; &#x2F;tmp&#x2F;test.netstat</span><br><span class="line">        exit 0</span><br><span class="line">      notify:</span><br><span class="line">        - start nginx </span><br><span class="line">    - name: Add redis config file </span><br><span class="line">      template: src&#x3D;.&#x2F;redis&#x2F;redis.conf dest&#x3D;&#x2F;etc&#x2F;</span><br><span class="line"></span><br><span class="line">    - name: start redis </span><br><span class="line">      service: name&#x3D;redis  state&#x3D;started</span><br><span class="line"></span><br><span class="line">    - name: stop apache </span><br><span class="line">      service: name&#x3D;httpd state&#x3D;stopped</span><br><span class="line"></span><br><span class="line">  handlers:</span><br><span class="line">    - name: start nginx</span><br><span class="line">      service: name&#x3D;nginx state&#x3D;started</span><br><span class="line">    - name: restart httpd</span><br><span class="line">      service: name&#x3D;httpd state&#x3D;restarted</span><br></pre></td></tr></table></figure>
 ]]></content>
       <tags>
-        <tag>rhca</tag>
         <tag>linux</tag>
+        <tag>rhca</tag>
       </tags>
   </entry>
   <entry>
@@ -5349,8 +5412,8 @@ awk &apos;!/^UUID/&#123;print $1&#125;&apos; /etc/fstab
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">触发条件一般为事件:</span><br><span class="line">    Trigger events: OK --&gt; PROBLEM;</span><br><span class="line">    Discovery events: zabbix的network discovery工作;</span><br><span class="line">    Auto registration events: 主动模式的agent注册时产生的事件;</span><br><span class="line">    Internal events: Item变成不再被支持，或Trigger变成为未知道状态</span><br></pre></td></tr></table></figure>
 ]]></content>
       <tags>
-        <tag>rhca</tag>
         <tag>linux</tag>
+        <tag>rhca</tag>
       </tags>
   </entry>
   <entry>
@@ -5418,8 +5481,8 @@ awk &apos;!/^UUID/&#123;print $1&#125;&apos; /etc/fstab
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">60000&#x2F;60 &#x3D; 1000条 </span><br><span class="line">历史数据&#x3D;天数x每秒钟处理的数据是x24x3600x50Bytes</span><br><span class="line">    90x1000x8600x50Bytes</span><br><span class="line">趋势数据:</span><br><span class="line">    每一个趋势数据128Bytes,</span><br><span class="line">        大小&#x3D;天数x监控项x24x128Bytes</span><br><span class="line">事件数据:</span><br><span class="line">    每个占据130Bytes</span><br><span class="line">        大小:天数x86400x130</span><br></pre></td></tr></table></figure>
 ]]></content>
       <tags>
-        <tag>rhca</tag>
         <tag>linux</tag>
+        <tag>rhca</tag>
       </tags>
   </entry>
   <entry>
@@ -5783,8 +5846,8 @@ awk &apos;!/^UUID/&#123;print $1&#125;&apos; /etc/fstab
 <p>在修改或替换这些系统chaincode时必需注意,特别是LSCC、ESCC和VSCC，因为它们在主事务执行路径 中；<br>值得注意的是，当VSCC在将其提交到账本之前一个块，重要的是，channel中的所有peer节点都要计算相同的验证，以避免账本差异。因此，如果VSCC被修改或替换，就需要特别的处理和维护;  </p>
 ]]></content>
       <tags>
-        <tag>rhca</tag>
         <tag>linux</tag>
+        <tag>rhca</tag>
       </tags>
   </entry>
   <entry>
@@ -5990,8 +6053,8 @@ awk &apos;!/^UUID/&#123;print $1&#125;&apos; /etc/fstab
 <p>chaincode可通过多种不同编程语言实现。目前支持chaincode的语言是Go(包含对java的支持) </p>
 ]]></content>
       <tags>
-        <tag>rhca</tag>
         <tag>linux</tag>
+        <tag>rhca</tag>
       </tags>
   </entry>
   <entry>
@@ -6129,8 +6192,8 @@ awk &apos;!/^UUID/&#123;print $1&#125;&apos; /etc/fstab
 <p><img src="/images/nginx_upstream_test5.png" class="lazyload" data-srcset="/images/nginx_upstream_test5.png" srcset="data:image/png;base64,666" alt=""><br><img src="/images/nginx_upstream_test6.png" class="lazyload" data-srcset="/images/nginx_upstream_test6.png" srcset="data:image/png;base64,666" alt=""></p>
 ]]></content>
       <tags>
-        <tag>rhca</tag>
         <tag>linux</tag>
+        <tag>rhca</tag>
       </tags>
   </entry>
   <entry>
@@ -6159,8 +6222,8 @@ awk &apos;!/^UUID/&#123;print $1&#125;&apos; /etc/fstab
 <h3 id="9、主从同步测试"><a href="#9、主从同步测试" class="headerlink" title="9、主从同步测试"></a>9、主从同步测试</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">MariaDB [(none)]&gt; CREATE DATABASE node0create;在主服务上创建了一个库</span><br><span class="line">Query OK, 1 row affected (0.00 sec)</span><br><span class="line">MariaDB [(none)]&gt; SHOW DATABASES; 在从服务器上也可以查看到了</span><br><span class="line">+<span class="comment">--------------------+</span></span><br><span class="line">| Database           |</span><br><span class="line">+<span class="comment">--------------------+</span></span><br><span class="line">| information_schema |</span><br><span class="line">| mysql              |</span><br><span class="line">| node0create        |</span><br><span class="line">| performance_schema |</span><br><span class="line">| test               |</span><br><span class="line">+<span class="comment">--------------------+</span></span><br></pre></td></tr></table></figure>
 ]]></content>
       <tags>
-        <tag>rhca</tag>
         <tag>linux</tag>
+        <tag>rhca</tag>
         <tag>database</tag>
       </tags>
   </entry>
@@ -6209,8 +6272,8 @@ node3 # mysql -e &quot;CREATE DATABASE NODE3&quot;
 <p><img src="/images/corosync_mariadb_test5.png" class="lazyload" data-srcset="/images/corosync_mariadb_test5.png" srcset="data:image/png;base64,666" alt=""></p>
 ]]></content>
       <tags>
-        <tag>rhca</tag>
         <tag>linux</tag>
+        <tag>rhca</tag>
       </tags>
   </entry>
   <entry>
@@ -6356,8 +6419,8 @@ node3 # mysql -e &quot;CREATE DATABASE NODE3&quot;
 <h3 id="（4）隐藏版本信息"><a href="#（4）隐藏版本信息" class="headerlink" title="（4）隐藏版本信息"></a>（4）隐藏版本信息</h3><figure class="highlight jsp"><table><tr><td class="code"><pre><span class="line">&lt;Connector port=<span class="string">&quot;8080&quot;</span> protocol=<span class="string">&quot;HTTP/1.1&quot;</span> connection Timeout=<span class="string">&quot;20000&quot;</span> redirectPort=<span class="string">&quot;8443&quot;</span> /&gt;</span><br><span class="line">Server=<span class="string">&quot;SOME STRING&quot;</span> </span><br></pre></td></tr></table></figure>
 ]]></content>
       <tags>
-        <tag>rhca</tag>
         <tag>linux</tag>
+        <tag>rhca</tag>
       </tags>
   </entry>
   <entry>
@@ -6417,8 +6480,8 @@ node3 # mysql -e &quot;CREATE DATABASE NODE3&quot;
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">lb_algo rr | wrr|lc|lblc|sh|dh :定义负载均衡调度算法</span><br><span class="line">delay_loop&lt;INT&gt;：：定义服务轮询时间间隔</span><br><span class="line">bl_kind NAT |DR |TUN ：集群的类型</span><br><span class="line">persistence_time_out&lt;INT&gt; ：持久连接时长</span><br><span class="line">protocol TCP : 服务协议</span><br><span class="line">sorry_server&lt;IPADDR&gt;&lt;PORT&gt;：所有RS均故障时，提供sorry server的服务器；</span><br><span class="line">real_server&lt;IPADDR&gt;&lt;PORT&gt;:</span><br><span class="line">weight&lt;INT&gt;：权重</span><br><span class="line">notify_up&lt;STRING&gt;|&lt;QUOTED-STRING&gt; ： 节点上线通知脚本</span><br><span class="line">notify_down &lt;STRING&gt;|&lt;QUOTED-STRNG&gt;：节点离线通知脚本；</span><br><span class="line"><span class="comment">#HTTP_GET|SSL_GET|TCP_CHECK|SMTP_CHECK|MISC_CHECK ：支持的所以健康状态的检测方式</span></span><br><span class="line">url:健康状态检测时请求的资源的URL </span><br><span class="line">delay_before_retry&lt;INT&gt; ：两次尝试之间的时间间隔 </span><br><span class="line">connect_timeoute&lt;STRING&gt;：连接的超时时长</span><br><span class="line">connect_ip&lt;IP ADDRESS&gt;：向此处指定的地址发测试请求</span><br><span class="line">connect_port&lt;PORT&gt;：向此处指定的PORT发测试请求</span><br><span class="line">bindto&lt;IP ADDRESS&gt;：指定测试请求报文的源IP </span><br><span class="line">bind_port&lt;PORT&gt;： 指定测试请求报文的源PORT</span><br></pre></td></tr></table></figure>
 ]]></content>
       <tags>
-        <tag>rhca</tag>
         <tag>linux</tag>
+        <tag>rhca</tag>
       </tags>
   </entry>
   <entry>
@@ -6460,8 +6523,8 @@ master节点和各slave节点，以及各slave节点启动其IO和SQL线程，�
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[11:12:41root@node3~]<span class="comment">#mysql</span></span><br><span class="line">Welcome to the MariaDB monitor.  Commands end with ; or \g.</span><br><span class="line">Your MariaDB connection id is 33</span><br><span class="line">Server version: 5.5.44-MariaDB-log MariaDB Server</span><br><span class="line"></span><br><span class="line">Copyright (c) 2000, 2015, Oracle, MariaDB Corporation Ab and others.</span><br><span class="line"></span><br><span class="line">Type <span class="string">&#x27;help;&#x27;</span> or <span class="string">&#x27;\h&#x27;</span> <span class="keyword">for</span> <span class="built_in">help</span>. Type <span class="string">&#x27;\c&#x27;</span> to clear the current input statement.</span><br><span class="line"></span><br><span class="line">MariaDB [(none)]&gt; SHOW SLAVE STATUS\G;</span><br><span class="line">*************************** 1. row ***************************</span><br><span class="line">               Slave_IO_State: Waiting <span class="keyword">for</span> master to send event</span><br><span class="line">                  Master_Host: 172.16.23.12</span><br><span class="line">                  Master_User: rj</span><br><span class="line">                  Master_Port: 3306</span><br><span class="line">                Connect_Retry: 60</span><br><span class="line">              Master_Log_File: master-bin.000008</span><br><span class="line">          Read_Master_Log_Pos: 245</span><br><span class="line">               Relay_Log_File: relay-bin.000002</span><br><span class="line">                Relay_Log_Pos: 530</span><br><span class="line">        Relay_Master_Log_File: master-bin.000008</span><br><span class="line">             Slave_IO_Running: Yes</span><br><span class="line">            Slave_SQL_Running: Yes</span><br><span class="line">              Replicate_Do_DB:</span><br><span class="line">          Replicate_Ignore_DB:</span><br><span class="line">           Replicate_Do_Table:</span><br><span class="line">       Replicate_Ignore_Table:</span><br><span class="line">      Replicate_Wild_Do_Table:</span><br><span class="line">  Replicate_Wild_Ignore_Table:</span><br><span class="line">                   Last_Errno: 0</span><br><span class="line">                   Last_Error:</span><br><span class="line">                 Skip_Counter: 0</span><br><span class="line">          Exec_Master_Log_Pos: 245</span><br><span class="line">              Relay_Log_Space: 818</span><br><span class="line">              Until_Condition: None</span><br><span class="line">               Until_Log_File:</span><br><span class="line">                Until_Log_Pos: 0</span><br><span class="line">           Master_SSL_Allowed: No</span><br><span class="line">           Master_SSL_CA_File:</span><br><span class="line">           Master_SSL_CA_Path:</span><br><span class="line">              Master_SSL_Cert:</span><br><span class="line">            Master_SSL_Cipher:</span><br><span class="line">               Master_SSL_Key:</span><br><span class="line">        Seconds_Behind_Master: 0</span><br><span class="line">Master_SSL_Verify_Server_Cert: No</span><br><span class="line">                Last_IO_Errno: 0</span><br><span class="line">                Last_IO_Error:</span><br><span class="line">               Last_SQL_Errno: 0</span><br><span class="line">               Last_SQL_Error:</span><br><span class="line">  Replicate_Ignore_Server_Ids:</span><br><span class="line">             Master_Server_Id: 2</span><br><span class="line">1 row <span class="keyword">in</span> <span class="built_in">set</span> (0.00 sec)</span><br></pre></td></tr></table></figure>
 ]]></content>
       <tags>
-        <tag>rhca</tag>
         <tag>linux</tag>
+        <tag>rhca</tag>
         <tag>database</tag>
       </tags>
   </entry>
@@ -6534,8 +6597,8 @@ master节点和各slave节点，以及各slave节点启动其IO和SQL线程，�
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ sudo &#x2F;etc&#x2F;init.d&#x2F;filebeat start</span><br><span class="line">$ sudo &#x2F;etc&#x2F;init.d&#x2F;filebeat status</span><br></pre></td></tr></table></figure>
 ]]></content>
       <tags>
-        <tag>rhca</tag>
         <tag>linux</tag>
+        <tag>rhca</tag>
       </tags>
   </entry>
   <entry>
