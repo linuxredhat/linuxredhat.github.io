@@ -135,7 +135,7 @@
 <li>最后在测试无误的情况下，对应的域名解析做变更，解析至公司IDC公网ip;</li>
 <li>最终于上午10时20分左右，相关域名的整体业务线恢复访问。</li>
 </ol>
-<h2 id="后续重点工作安排"><a href="#后续重点工作安排" class="headerlink" title="后续重点工作安排"></a>后续重点工作安排</h2><ol>
+<h2 id="领导后续重点工作安排"><a href="#领导后续重点工作安排" class="headerlink" title="领导后续重点工作安排"></a>领导后续重点工作安排</h2><ol>
 <li>教师XX-xx部xxx继续对域名备案，进度实时通知到XX中心。</li>
 <li>XX中心将对教师xx阿里云服务器架构多部署新一套负载服务器环境及数据备份，完成时间：2019年9月13日。</li>
 </ol>
@@ -211,8 +211,8 @@
 ]]></content>
       <tags>
         <tag>linux</tag>
-        <tag>cloud</tag>
         <tag>program</tag>
+        <tag>cloud</tag>
       </tags>
   </entry>
   <entry>
@@ -3115,8 +3115,8 @@ del 语句删除函数对象
 ]]></content>
       <tags>
         <tag>linux</tag>
-        <tag>cloud</tag>
         <tag>program</tag>
+        <tag>cloud</tag>
       </tags>
   </entry>
   <entry>
