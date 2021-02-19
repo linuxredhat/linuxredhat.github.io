@@ -21,7 +21,7 @@
   
   <title>关于某业务线域名未及时备案导致的脱机故障与报告 - 逝水锦遥</title>
   
-    <meta name="keywords" content="linux,rhca">
+    <meta name="keywords" content="rhca,linux">
   
 
   
@@ -576,8 +576,8 @@
 <li>数据库重启后恢复过慢，这是由于应用架构是福建团队搭建，当时独立于运维组，运维部对这个数据库系统不熟悉，并且原方案中没有高可用性，致使数据库单点失败。 </li>
 </ol>
 <h2 id="XX中心紧急处理方案"><a href="#XX中心紧急处理方案" class="headerlink" title="XX中心紧急处理方案"></a>XX中心紧急处理方案</h2><ol>
-<li>当时业务线对应的研发技术团队，在上午定位到问题后，技术总总监曾沟与个人沟通，能否有什么办法先尽快恢复生产的服务器;</li>
-<li>经思量、 因阿里云DNS结合阿里云公网IP扫描到未备案经需数小时的时间，而若扫描别的云平台公网IP与别的公网ip需要数十天，甚至数据月的时间;</li>
+<li>当时业务线对应的研发技术团队，在上午定位到问题后，技术总监曾沟与个人沟通，能否有什么办法先尽快恢复生产的服务器;</li>
+<li>经思量、 因阿里云DNS结合阿里云公网IP扫描到未备案经需数小时的时间，而若扫描别的云平台公网IP与别的公网ip需要数十天，甚至数月的时间;</li>
 <li>故~ 考虑公司有相关IDC机房的多个公网IP，可以将公网ip映射至现有的keepalived虚拟ip;</li>
 <li>并将keepalived 上的nginx 添加一个虚拟主机的配置文件，使用nginx 反向代理的方法再代理至原有的业务线所在的各阿里云的服务器私有ip(因公司内部有专线，若无专线的情况下，可以考虑直接反代至阿里云的公网ip，但在反向代理的时候不对host 请求做转发)；</li>
 <li>最后在测试无误的情况下，对应的域名解析做变更，解析至公司IDC公网ip;</li>
@@ -585,7 +585,7 @@
 </ol>
 <h2 id="后续重点工作安排"><a href="#后续重点工作安排" class="headerlink" title="后续重点工作安排"></a>后续重点工作安排</h2><ol>
 <li>教师XX-xx部xxx继续对域名备案，进度实时通知到XX中心。</li>
-<li>技术中心将对教师xx阿里云服务器架构多部署新一套负载服务器环境及数据备份，完成时间：2019年9月13日。</li>
+<li>XX中心将对教师xx阿里云服务器架构多部署新一套负载服务器环境及数据备份，完成时间：2019年9月13日。</li>
 </ol>
 <h2 id="责任鉴定"><a href="#责任鉴定" class="headerlink" title="责任鉴定"></a>责任鉴定</h2><ol>
 <li>教师XX-xx部-xx 掌握阿里云域名管理，域名管理不善，阿里云已多次提示域名未备案，未曾及时反应;</li>
@@ -594,7 +594,7 @@
 <h2 id="故障后感"><a href="#故障后感" class="headerlink" title="故障后感"></a>故障后感</h2><ol>
 <li>做为技术人员的我们应该对我们的技术专业有深入的理解，在判断到是大的问题或故障时需及时主动协调部门人员与寻求帮助;</li>
 <li>不断的积累各项运维架构技术与学习各个应用的场景;</li>
-<li>不断积累曾到的问题、与故障的处理经验、并标准化且规范化录入文案;</li>
+<li>不断积累曾遇到的问题、与故障的处理经验、并标准化且规范化录入文案;</li>
 <li>遇到问题时，不要着急，需冷静且快速的定位问题，要明白打不倒你的终将使你变得强大;</li>
 <li>感慨nginx 功能之强大，还需要深入研究。</li>
 </ol>
@@ -638,7 +638,7 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-02-19T17:50:14+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-02-19T17:56:18+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
     <p>更新于：Feb 19, 2021</p>
@@ -650,7 +650,7 @@
         
           
   
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/linux/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>linux</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/rhca/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>rhca</p></a></div>
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/rhca/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>rhca</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/linux/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>linux</p></a></div>
 
 
         
