@@ -9,13 +9,6 @@
     </url>
 
     <url>
-        <loc>https://www.asjin.com/tags/cloud/</loc>
-        <lastmod>2020-10-12T11:26:54.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://www.asjin.com/tags/renjin/</loc>
         <lastmod>2020-12-29T03:36:18.400Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -30,13 +23,6 @@
     </url>
 
     <url>
-        <loc>https://www.asjin.com/tags/program/</loc>
-        <lastmod>2021-02-19T10:02:37.213Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://www.asjin.com/tags/rhca/</loc>
         <lastmod>2021-02-28T06:36:34.349Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -45,7 +31,35 @@
 
     <url>
         <loc>https://www.asjin.com/tags/linux/</loc>
-        <lastmod>2021-02-28T06:36:34.349Z</lastmod>
+        <lastmod>2021-02-28T06:46:34.169Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.asjin.com/tags/program/</loc>
+        <lastmod>2021-02-28T06:46:34.169Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.asjin.com/tags/cloud/</loc>
+        <lastmod>2021-02-28T06:46:34.169Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.asjin.com/tags/kvm/</loc>
+        <lastmod>2021-02-28T06:46:34.169Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.asjin.com/tags/VManagePlatform/</loc>
+        <lastmod>2021-02-28T06:46:34.169Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

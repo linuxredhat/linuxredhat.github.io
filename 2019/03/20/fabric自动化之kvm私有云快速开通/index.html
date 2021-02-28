@@ -21,9 +21,11 @@
   
   <title>fabric自动化之kvm私有云服务器快速开通与交付 - 逝水锦遥</title>
   
-    <meta name="keywords" content="linux,program,cloud">
+    <meta name="keywords" content="linux,program,cloud,kvm,VManagePlatform">
   
 
+  
+    <meta name="description" content="kvm + VManagerPlatform 的快速开通与交付，使用 `virt-copy-in 命令可以将已生成的网卡配置文件焙进镜像，依赖工具包libguestfs-tools-c 突破虚拟机无法生成ip导致的不能自动化问题`，使用python Fabric模块合bash替代原有的ansible自动化roles实现kvm虚拟机开通与相关依赖环境规范化部署的90% 的自动化。大量的节省工作中的人工时间投入，且大大降低人工操作导致的误操作的概率，另代码还需要优化的地方，是虚拟机开通的并特性，与yum源不能访问导致的中断现象。">
   
 
   <!-- feed -->
@@ -637,10 +639,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-09-28T16:48:05+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-02-28T14:46:34+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：Sep 28, 2020</p>
+    <p>更新于：Feb 28, 2021</p>
   </a>
 </div>
 
@@ -649,7 +651,7 @@
         
           
   
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/linux/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>linux</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/program/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>program</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/cloud/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>cloud</p></a></div>
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/linux/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>linux</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/program/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>program</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/cloud/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>cloud</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/kvm/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>kvm</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/VManagePlatform/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>VManagePlatform</p></a></div>
 
 
         
