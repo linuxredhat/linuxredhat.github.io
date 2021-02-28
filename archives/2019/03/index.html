@@ -546,19 +546,13 @@
           
         
           
-        
-          
-        
-      
-    
-    
-      
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal floatable">
+            <div class='post-wrapper'>
+              <div class="post post-v3 white-box reveal floatable">
   
+  
+    <div class='pin'>
+      <img src='https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f4cc.svg'/>
+    </div>
   
   
     <div class='headimg-div'>
@@ -569,7 +563,7 @@
   
   
     
-    <h2 class="article-title" >
+    <h2 class="article-title" pin>
       <a href="/2019/03/16/%E5%85%B3%E4%BA%8E%E6%9F%90%E7%B3%BB%E7%BB%9F%E9%98%B5%E5%8F%91%E6%80%A7%E7%BD%91%E7%BB%9C%E5%A4%84%E7%90%86/">
         关于某系统阵发性网络问题的处理。
       </a>
@@ -577,19 +571,7 @@
   
   <div class='md'>
     
-      
-        [toc]
-关于某系统阵发性网络问题的处理。 
-一、问题描述
-1、xxx 、移动 xx 等系统阵发性网络连接失败;
-2、keepalived 虚拟ip未发生切换，nginx 访问日志记录正常，未收到错误日志，网络及链路测试正常;
-3、keepalvied+ nginx 反代的其余系统未发现阵发性网络问题;
-4、修改本地解析到keepalived虚拟ip，XXX相关系统访问正常。
-
-
-
-二、应...
-      
+      <p>因Linux内核优化带来的影藏很深的阵发性网络问题，记录net.ipv4.tcp_timestamps与net.ipv4.tcp_tw_recycle两个内核开启的状态，对高并发的Linux高可用调度器节点，与负载均衡节点带来的影响。这两个参数默认配合起来是抵御DDOS,与CC洪水攻击的，但对同一个公网IP的客户端请求带来巨大的网络影响，记录了故障的排查过程，问题复现，抓包分析，问题定位与问题处理的过程。</p>
     
   </div>
   
@@ -614,7 +596,17 @@
 
 </div>
 
-          </div>
+            </div>
+          
+        
+          
+        
+      
+    
+    
+      
+        
+      
         
       
         
