@@ -164,8 +164,8 @@
       <tags>
         <tag>rhca</tag>
         <tag>linux</tag>
-        <tag>故障处理</tag>
         <tag>nginx</tag>
+        <tag>故障处理</tag>
         <tag>Cassandr</tag>
       </tags>
   </entry>
@@ -272,9 +272,9 @@
       <tags>
         <tag>rhca</tag>
         <tag>linux</tag>
+        <tag>故障处理</tag>
         <tag>tcp</tag>
         <tag>Linux内核优化</tag>
-        <tag>故障处理</tag>
       </tags>
   </entry>
   <entry>
@@ -302,7 +302,10 @@
       <tags>
         <tag>rhca</tag>
         <tag>linux</tag>
-        <tag>[object Object]</tag>
+        <tag>lua</tag>
+        <tag>nginx</tag>
+        <tag>redis</tag>
+        <tag>短链接转发长链接</tag>
       </tags>
   </entry>
   <entry>
