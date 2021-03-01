@@ -51,20 +51,6 @@
     </url>
 
     <url>
-        <loc>https://www.asjin.com/tags/rhca/</loc>
-        <lastmod>2021-02-28T07:18:17.920Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.asjin.com/tags/linux/</loc>
-        <lastmod>2021-02-28T07:18:17.920Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://www.asjin.com/tags/tcp/</loc>
         <lastmod>2021-02-28T07:18:17.920Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -79,8 +65,36 @@
     </url>
 
     <url>
+        <loc>https://www.asjin.com/tags/rhca/</loc>
+        <lastmod>2021-03-01T03:54:25.757Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.asjin.com/tags/linux/</loc>
+        <lastmod>2021-03-01T03:54:25.757Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.asjin.com/tags/nginx/</loc>
+        <lastmod>2021-03-01T03:54:25.757Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://www.asjin.com/tags/%25E6%2595%2585%25E9%259A%259C%25E5%25A4%2584%25E7%2590%2586/</loc>
-        <lastmod>2021-02-28T07:18:17.920Z</lastmod>
+        <lastmod>2021-03-01T03:54:25.757Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.asjin.com/tags/Cassandr/</loc>
+        <lastmod>2021-03-01T03:54:25.757Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
