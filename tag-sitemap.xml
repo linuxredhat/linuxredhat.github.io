@@ -163,27 +163,6 @@
     </url>
 
     <url>
-        <loc>https://www.asjin.com/tags/rhca/</loc>
-        <lastmod>2021-03-02T02:08:10.554Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.asjin.com/tags/linux/</loc>
-        <lastmod>2021-03-02T02:08:10.554Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.asjin.com/tags/nginx/</loc>
-        <lastmod>2021-03-02T02:08:10.554Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://www.asjin.com/tags/kernel/</loc>
         <lastmod>2021-03-02T02:08:10.554Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -212,8 +191,43 @@
     </url>
 
     <url>
+        <loc>https://www.asjin.com/tags/linux/</loc>
+        <lastmod>2021-03-02T02:34:57.511Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.asjin.com/tags/rhca/</loc>
+        <lastmod>2021-03-02T02:34:57.511Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.asjin.com/tags/rsync/</loc>
+        <lastmod>2021-03-02T02:34:57.511Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.asjin.com/tags/nginx/</loc>
+        <lastmod>2021-03-02T02:34:57.511Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.asjin.com/tags/inotify/</loc>
+        <lastmod>2021-03-02T02:34:57.511Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://www.asjin.com/tags/keepalived/</loc>
-        <lastmod>2021-03-02T02:08:10.554Z</lastmod>
+        <lastmod>2021-03-02T02:34:57.511Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
