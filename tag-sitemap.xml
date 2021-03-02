@@ -114,27 +114,6 @@
     </url>
 
     <url>
-        <loc>https://www.asjin.com/tags/rhca/</loc>
-        <lastmod>2021-03-01T08:13:22.577Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.asjin.com/tags/linux/</loc>
-        <lastmod>2021-03-01T08:13:22.577Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.asjin.com/tags/nginx/</loc>
-        <lastmod>2021-03-01T08:13:22.577Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://www.asjin.com/tags/redis/</loc>
         <lastmod>2021-03-01T08:13:22.577Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -179,6 +158,62 @@
     <url>
         <loc>https://www.asjin.com/tags/sshd/</loc>
         <lastmod>2021-03-01T08:13:22.577Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.asjin.com/tags/rhca/</loc>
+        <lastmod>2021-03-02T02:08:10.554Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.asjin.com/tags/linux/</loc>
+        <lastmod>2021-03-02T02:08:10.554Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.asjin.com/tags/nginx/</loc>
+        <lastmod>2021-03-02T02:08:10.554Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.asjin.com/tags/kernel/</loc>
+        <lastmod>2021-03-02T02:08:10.554Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.asjin.com/tags/grub/</loc>
+        <lastmod>2021-03-02T02:08:10.554Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.asjin.com/tags/shell/</loc>
+        <lastmod>2021-03-02T02:08:10.554Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.asjin.com/tags/Linux%25E7%25B3%25BB%25E7%25BB%259F%25E5%25AE%259A%25E5%2588%25B6/</loc>
+        <lastmod>2021-03-02T02:08:10.554Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.asjin.com/tags/keepalived/</loc>
+        <lastmod>2021-03-02T02:08:10.554Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
