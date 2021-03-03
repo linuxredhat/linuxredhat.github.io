@@ -263,6 +263,14 @@
     </url>
 
     <url>
+        <loc>https://www.asjin.com/2017/10/18/GIT%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</loc>
+        <lastmod>2020-09-29T11:08:55.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://www.asjin.com/2017/10/30/kvm%E4%B9%8B%E5%BF%AB%E7%85%A7%E7%AE%A1%E7%90%86/</loc>
         <lastmod>2020-09-29T11:08:55.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -272,14 +280,6 @@
 
     <url>
         <loc>https://www.asjin.com/2017/10/27/docker%E5%88%9D%E6%AD%A5%E4%BD%BF%E7%94%A8/</loc>
-        <lastmod>2020-09-29T11:08:55.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://www.asjin.com/2017/10/18/GIT%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</loc>
         <lastmod>2020-09-29T11:08:55.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -311,6 +311,14 @@
     </url>
 
     <url>
+        <loc>https://www.asjin.com/2018/01/01/Linux-HA-Cluster/</loc>
+        <lastmod>2020-09-29T11:05:45.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://www.asjin.com/2018/01/16/python-wxpy-%E6%A8%A1%E5%9D%97%E5%AE%9E%E7%8E%B0%E5%BE%AE%E4%BF%A1%E9%80%9A%E7%9F%A5%E4%B8%8E%E5%91%8A%E8%AD%A6/</loc>
         <lastmod>2020-09-29T11:05:45.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -327,22 +335,6 @@
     </url>
 
     <url>
-        <loc>https://www.asjin.com/2018/01/07/%E8%87%AA%E4%B9%A0%E4%B9%8Bpython%E7%8E%AF%E5%A2%83%E5%88%9D%E5%87%86%E5%A4%87/</loc>
-        <lastmod>2020-09-29T11:05:45.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://www.asjin.com/2018/01/01/Linux-HA-Cluster/</loc>
-        <lastmod>2020-09-29T11:05:45.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>https://www.asjin.com/2017/12/07/python%E8%87%AA%E5%8A%A8%E5%8C%96%E4%B9%8Badmin%E8%87%AA%E5%8A%A8%E5%88%87%E6%8D%A2root/</loc>
         <lastmod>2020-09-29T11:05:45.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -352,6 +344,14 @@
 
     <url>
         <loc>https://www.asjin.com/2017/11/21/python%E8%87%AA%E5%8A%A8%E5%8C%96%E4%B9%8Bfabric-lnmp%E7%8E%AF%E5%A2%83%E5%88%9D%E5%A7%8B%E5%8C%96/</loc>
+        <lastmod>2020-09-29T11:05:45.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://www.asjin.com/2018/01/07/%E8%87%AA%E4%B9%A0%E4%B9%8Bpython%E7%8E%AF%E5%A2%83%E5%88%9D%E5%87%86%E5%A4%87/</loc>
         <lastmod>2020-09-29T11:05:45.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -415,7 +415,7 @@
     </url>
 
     <url>
-        <loc>https://www.asjin.com/2018/04/17/MongoDB%20NoSQL%E4%BD%BF%E7%94%A8/</loc>
+        <loc>https://www.asjin.com/2018/02/15/hyperledger%E5%AD%A6%E4%B9%A0/</loc>
         <lastmod>2020-09-29T10:56:26.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -423,7 +423,7 @@
     </url>
 
     <url>
-        <loc>https://www.asjin.com/2018/02/15/hyperledger%E5%AD%A6%E4%B9%A0/</loc>
+        <loc>https://www.asjin.com/2018/04/17/MongoDB%20NoSQL%E4%BD%BF%E7%94%A8/</loc>
         <lastmod>2020-09-29T10:56:26.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -479,31 +479,7 @@
     </url>
 
     <url>
-        <loc>https://www.asjin.com/2019/08/28/kvm%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
-        <lastmod>2020-09-29T10:49:02.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://www.asjin.com/2019/06/15/kubernetes%E6%93%8D%E4%BD%9C%E8%AE%B0%E5%BD%957/</loc>
-        <lastmod>2020-09-29T10:49:02.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://www.asjin.com/2019/05/30/kubernetes%E6%93%8D%E4%BD%9C%E8%AE%B0%E5%BD%956/</loc>
-        <lastmod>2020-09-29T10:49:02.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://www.asjin.com/2019/05/24/kubernetes%E6%93%8D%E4%BD%9C%E8%AE%B0%E5%BD%955/</loc>
+        <loc>https://www.asjin.com/2018/07/29/hadoop/</loc>
         <lastmod>2020-09-29T10:49:02.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -519,32 +495,40 @@
     </url>
 
     <url>
+        <loc>https://www.asjin.com/2019/05/24/kubernetes%E6%93%8D%E4%BD%9C%E8%AE%B0%E5%BD%955/</loc>
+        <lastmod>2020-09-29T10:49:02.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://www.asjin.com/2019/05/30/kubernetes%E6%93%8D%E4%BD%9C%E8%AE%B0%E5%BD%956/</loc>
+        <lastmod>2020-09-29T10:49:02.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://www.asjin.com/2019/06/15/kubernetes%E6%93%8D%E4%BD%9C%E8%AE%B0%E5%BD%957/</loc>
+        <lastmod>2020-09-29T10:49:02.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://www.asjin.com/2019/08/28/kvm%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
+        <lastmod>2020-09-29T10:49:02.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://www.asjin.com/2019/05/17/kubernets%E5%AE%9E%E6%93%8D%E8%AE%B0%E5%BD%953/</loc>
         <lastmod>2020-09-29T10:49:02.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://www.asjin.com/2018/07/29/hadoop/</loc>
-        <lastmod>2020-09-29T10:49:02.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://www.asjin.com/2020/05/13/python%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1-%E5%BE%AE%E4%BF%A1%E4%BF%A1%E6%81%AF%E5%8F%91%E9%80%81/</loc>
-        <lastmod>2020-09-29T10:48:54.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://www.asjin.com/2020/03/26/%E9%AB%98%E5%8F%AF%E7%94%A8gitlab%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA/</loc>
-        <lastmod>2020-09-29T10:48:54.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -559,7 +543,23 @@
     </url>
 
     <url>
+        <loc>https://www.asjin.com/2020/05/13/python%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1-%E5%BE%AE%E4%BF%A1%E4%BF%A1%E6%81%AF%E5%8F%91%E9%80%81/</loc>
+        <lastmod>2020-09-29T10:48:54.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://www.asjin.com/2019/12/15/python%E7%AE%97%E6%B3%95/</loc>
+        <lastmod>2020-09-29T10:48:54.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://www.asjin.com/2020/03/26/%E9%AB%98%E5%8F%AF%E7%94%A8gitlab%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA/</loc>
         <lastmod>2020-09-29T10:48:54.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -591,15 +591,7 @@
     </url>
 
     <url>
-        <loc>https://www.asjin.com/2020/09/07/python%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0%E5%92%8C%E8%A3%85%E9%A5%B0%E5%99%A8%E4%B8%89/</loc>
-        <lastmod>2020-09-29T10:44:13.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://www.asjin.com/2020/08/25/python%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0%E5%92%8C%E8%A3%85%E9%A5%B0%E5%99%A8%E4%B8%80/</loc>
+        <loc>https://www.asjin.com/2020/08/05/python%E5%87%BD%E6%95%B0%E4%B8%80/</loc>
         <lastmod>2020-09-29T10:44:13.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -623,7 +615,7 @@
     </url>
 
     <url>
-        <loc>https://www.asjin.com/2020/08/05/python%E5%87%BD%E6%95%B0%E4%B8%80/</loc>
+        <loc>https://www.asjin.com/2020/08/25/python%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0%E5%92%8C%E8%A3%85%E9%A5%B0%E5%99%A8%E4%B8%80/</loc>
         <lastmod>2020-09-29T10:44:13.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -632,6 +624,14 @@
 
     <url>
         <loc>https://www.asjin.com/2020/06/27/python_dict/</loc>
+        <lastmod>2020-09-29T10:44:13.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://www.asjin.com/2020/09/07/python%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0%E5%92%8C%E8%A3%85%E9%A5%B0%E5%99%A8%E4%B8%89/</loc>
         <lastmod>2020-09-29T10:44:13.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
