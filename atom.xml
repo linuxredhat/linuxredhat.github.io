@@ -849,11 +849,11 @@
     
       <category term="linux" scheme="https://www.asjin.com/tags/linux/"/>
     
-      <category term="故障处理" scheme="https://www.asjin.com/tags/%E6%95%85%E9%9A%9C%E5%A4%84%E7%90%86/"/>
-    
       <category term="tcp" scheme="https://www.asjin.com/tags/tcp/"/>
     
       <category term="Linux内核优化" scheme="https://www.asjin.com/tags/Linux%E5%86%85%E6%A0%B8%E4%BC%98%E5%8C%96/"/>
+    
+      <category term="故障处理" scheme="https://www.asjin.com/tags/%E6%95%85%E9%9A%9C%E5%A4%84%E7%90%86/"/>
     
   </entry>
   
