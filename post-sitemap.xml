@@ -7,6 +7,22 @@
     </url>
 
     <url>
+        <loc>https://www.asjin.com/2021/03/09/podman%E8%AF%95%E9%A2%98/</loc>
+        <lastmod>2021-03-09T02:49:47.775Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://www.asjin.com/2017/11/20/%E5%BD%93%E6%88%91%E5%B9%B4%E8%BD%BB%E7%9A%84%E6%97%B6%E5%80%99/</loc>
+        <lastmod>2021-03-04T02:58:31.605Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://www.asjin.com/2020/10/19/SGE+bash+awk+sed+Python+WebStackPage%E5%AE%9E%E7%8E%B0P%E7%BA%A7%E6%95%B0%E6%8D%AE%E5%B9%B6%E5%8F%91%E6%89%AB%E6%8F%8F%E4%B8%8E%E4%B8%8B%E6%9C%BA%E6%95%B0%E6%8D%AE%E6%8A%A5%E8%A1%A8%E5%85%AC%E7%A4%BA/</loc>
         <lastmod>2021-03-03T02:23:59.300Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -217,14 +233,6 @@
     <url>
         <loc>https://www.asjin.com/2020/10/18/python%E6%97%A5%E5%BF%97%E5%A4%84%E7%90%86%E4%B8%80/</loc>
         <lastmod>2021-01-31T09:26:18.958Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://www.asjin.com/2017/11/20/%E5%BD%93%E6%88%91%E5%B9%B4%E8%BD%BB%E7%9A%84%E6%97%B6%E5%80%99/</loc>
-        <lastmod>2020-12-29T03:36:18.400Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

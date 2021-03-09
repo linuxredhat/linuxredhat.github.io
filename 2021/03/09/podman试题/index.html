@@ -1,0 +1,1476 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head hexo-theme='https://github.com/volantis-x/hexo-theme-volantis/tree/4.1.6'>
+  <meta charset="utf-8">
+  <!-- SEO相关 -->
+  
+    
+  
+  <!-- 渲染优化 -->
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://cdn.jsdelivr.net'>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- 页面元数据 -->
+  
+  <title>podman 试题说明与操作 - 逝水锦遥</title>
+  
+    <meta name="keywords" content="linux,rhce,podman">
+  
+
+  
+    <meta name="description" content="关于podman试题的整理">
+  
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="逝水锦遥" type="application/atom+xml">
+  
+
+  <!-- import meta -->
+  
+
+  <!-- link -->
+  
+
+  <!-- import link -->
+  
+
+  
+    
+<link rel="stylesheet" href="/css/first.css">
+
+  
+
+  
+  <link rel="stylesheet" href="/css/style.css" media="print" onload="this.media='all';this.onload=null">
+  <noscript><link rel="stylesheet" href="/css/style.css"></noscript>
+  
+
+  <script id="loadcss"></script>
+</head>
+
+
+<body>
+<!--
+	  <canvas id="canvas" width="1440" height="900" ></canvas>
+	  <script type="text/javascript" src="/js/DigitalRain.js"></script>
+-->  
+	  
+
+<header id="l_header" class="l_header always floatable "  >
+  <div class='container'>
+  <div id='wrapper'>
+    <div class='nav-sub'>
+      <p class="title"></p>
+      <ul class='switcher nav-list-h m-phone' id="pjax-header-nav-list">
+        <li><a id="s-comment" class="fas fa-comments fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+          <li><a id="s-toc" class="s-toc fas fa-list fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+      </ul>
+    </div>
+		<div class="nav-main">
+      
+        
+        <a class="title flat-box" target="_self" href='/'>
+          
+            <img no-lazy class='logo' src='/images/headasjin.png'/>
+          
+          
+          
+        </a>
+      
+
+			<div class='menu navigation'>
+				<ul class='nav-list-h m-pc'>
+          
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fab fa-linux fa-fw'></i>首页
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/program
+                  
+                  
+                  
+                    id="tagsprogram"
+                  >
+                  <i class='fab fa-gitlab fa-fw'></i>DevOps
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/rhca
+                  
+                  
+                  
+                    id="tagsrhca"
+                  >
+                  <i class='fas fa-heartbeat fa-fw'></i>应用运维
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/cloud
+                  
+                  
+                  
+                    id="tagscloud"
+                  >
+                  <i class='fas fa-cloud fa-fw'></i>云计算
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/zikao
+                  
+                  
+                  
+                    id="tagszikao"
+                  >
+                  <i class='fab fa-grav fa-fw'></i>报考
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/renjin
+                  
+                  
+                  
+                    id="tagsrenjin"
+                  >
+                  <i class='fas fa-user-circle fa-fw'></i>关于锦遥
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" 
+                  
+                  
+                  >
+                  <i class='fas fa-ellipsis-v fa-fw'></i>更多
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/box/
+                  
+                  
+                  
+                    id="box"
+                  >
+                  <i class='fas fa-flag fa-fw'></i>工具箱
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=https://www.feiyiblog.com
+                  
+                  
+                  
+                    id="https:wwwfeiyiblogcom"
+                  >
+                  <i class='fas fa-user fa-fw'></i>狗江博客
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=https://www.calym.top
+                  
+                  
+                  
+                    id="https:wwwcalymtop"
+                  >
+                  <i class='fas fa-user fa-fw'></i>庆朋博客
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+          
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="搜索文章..." />
+        </form>
+      </div>
+
+			<ul class='switcher nav-list-h m-phone'>
+				
+					<li><a class="s-search fas fa-search fa-fw" target="_self" href='javascript:void(0)'></a></li>
+				
+				<li>
+          <a class="s-menu fas fa-bars fa-fw" target="_self" href='javascript:void(0)'></a>
+          <ul class="menu-phone list-v navigation white-box">
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fab fa-linux fa-fw'></i>首页
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/program
+                  
+                  
+                  
+                    id="tagsprogram"
+                  >
+                  <i class='fab fa-gitlab fa-fw'></i>DevOps
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/rhca
+                  
+                  
+                  
+                    id="tagsrhca"
+                  >
+                  <i class='fas fa-heartbeat fa-fw'></i>应用运维
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/cloud
+                  
+                  
+                  
+                    id="tagscloud"
+                  >
+                  <i class='fas fa-cloud fa-fw'></i>云计算
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/zikao
+                  
+                  
+                  
+                    id="tagszikao"
+                  >
+                  <i class='fab fa-grav fa-fw'></i>报考
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/renjin
+                  
+                  
+                  
+                    id="tagsrenjin"
+                  >
+                  <i class='fas fa-user-circle fa-fw'></i>关于锦遥
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" 
+                  
+                  
+                  >
+                  <i class='fas fa-ellipsis-v fa-fw'></i>更多
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/box/
+                  
+                  
+                  
+                    id="box"
+                  >
+                  <i class='fas fa-flag fa-fw'></i>工具箱
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=https://www.feiyiblog.com
+                  
+                  
+                  
+                    id="https:wwwfeiyiblogcom"
+                  >
+                  <i class='fas fa-user fa-fw'></i>狗江博客
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=https://www.calym.top
+                  
+                  
+                  
+                    id="https:wwwcalymtop"
+                  >
+                  <i class='fas fa-user fa-fw'></i>庆朋博客
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+            
+          </ul>
+        </li>
+			</ul>
+		</div>
+	</div>
+  </div>
+</header>
+
+  <div id="l_body">
+    <div id="l_cover">
+  
+    
+        <div id="half" class='cover-wrapper post search' style="display: ;">
+          
+            <div id='cover-backstretch'></div>
+          
+          <div class='cover-body'>
+  <div class='top'>
+    
+      <img no-lazy class='logo' src='/images/ssjyai.png'/>
+    
+    
+    
+  </div>
+  <div class='bottom'>
+    
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <input type="text" class="input u-search-input" placeholder="搜索本地文章" />
+          <i class="icon fas fa-search fa-fw"></i>
+        </form>
+      </div>
+    
+    <div class='menu navigation'>
+      <div class='list-h'>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+          <div id="scroll-down" style="display: none;"><i class="fa fa-chevron-down scroll-down-effects"></i></div>
+        </div>
+    
+  
+  </div>
+
+    <div id='safearea'>
+      <div class='body-wrapper' id="pjax-container">
+        
+
+<div class='l_main'>
+  <article class="article post white-box reveal md floatable article-type-post" id="post" itemscope itemprop="blogPost">
+  
+
+
+  
+  <div class="article-meta" id="top">
+    
+    
+      <a title='podman 试题说明与操作' href='/2021/03/09/podman%E8%AF%95%E9%A2%98/'>
+        <img class='thumbnail' src='/images/rhce-podman.png'>
+      </a>
+    
+    
+      <h1 class="title">
+        podman 试题说明与操作
+      </h1>
+      <div class='new-meta-box'>
+        
+          
+            
+<div class='new-meta-item author'>
+  <a class='author' href="/images/rjrt.ico" rel="nofollow">
+    <img no-lazy src="/images/rjrt.ico">
+    <p>任锦</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：Mar 9, 2021</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class="new-meta-item browse busuanzi">
+    <a class='notlink'>
+      <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+      <p>
+        <span id="busuanzi_value_page_pv">
+          <i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i>
+          <i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i>
+        </span>
+        次浏览
+      </p>
+    </a>
+  </div>
+
+
+          
+        
+          
+        
+          
+            
+
+          
+        
+          
+        
+          
+        
+      </div>
+    
+  </div>
+
+
+  
+  <h1 id="podman-试题"><a href="#podman-试题" class="headerlink" title="podman 试题"></a>podman 试题</h1><p><img src="/images/rhce-podman.png" class="lazyload" data-srcset="/images/rhce-podman.png" srcset="data:image/png;base64,666" alt=""></p>
+<h2 id="基本信息"><a href="#基本信息" class="headerlink" title="基本信息:"></a>基本信息:</h2><p>注册服务器 <strong>registry.network9.example.com</strong><br>访问注册服务器  用户名 <strong>admin</strong>  密码<strong>registrxxx</strong><br>servera<br>容器管理用户为eldorado(以考试要求为准，如果没有则需要创建)</p>
+<h2 id="一、-容器开机自启"><a href="#一、-容器开机自启" class="headerlink" title="一、 容器开机自启"></a>一、 容器开机自启</h2><h3 id="1-1-安装容器相关软件"><a href="#1-1-安装容器相关软件" class="headerlink" title="1.1 安装容器相关软件"></a>1.1 安装容器相关软件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># yum module install container-tools -y</span><br></pre></td></tr></table></figure>
+<h3 id="1-2-登录注册镜像服务器-账号以考试环境为准"><a href="#1-2-登录注册镜像服务器-账号以考试环境为准" class="headerlink" title="1.2 登录注册镜像服务器(账号以考试环境为准)"></a>1.2 登录注册镜像服务器(账号以考试环境为准)</h3><p><strong>注意，这里是考试环境时，因使用的是内网的服务，因此需要登录认证</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 如果用户不存在</span><br><span class="line"># useradd eldorado</span><br><span class="line"># su - eldorado</span><br><span class="line"># podman login registry.network9.example.com</span><br></pre></td></tr></table></figure></p>
+<h3 id="1-3-使用syslog镜像创建一个名为logserver的容器"><a href="#1-3-使用syslog镜像创建一个名为logserver的容器" class="headerlink" title="1.3 使用syslog镜像创建一个名为logserver的容器"></a>1.3 使用syslog镜像创建一个名为logserver的容器</h3><h4 id="1-3-1-将其配置为systemd服务的形式运行，仅面向eldorado用户"><a href="#1-3-1-将其配置为systemd服务的形式运行，仅面向eldorado用户" class="headerlink" title="1.3.1 将其配置为systemd服务的形式运行，仅面向eldorado用户"></a>1.3.1 将其配置为systemd服务的形式运行，仅面向eldorado用户</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"># su - eldorado </span><br><span class="line"># podman search syslog</span><br><span class="line"># 注我这里使用的公网镜像，大家在考试时应该使用用 search 命令找到 syslog 的本地源镜像</span><br><span class="line"># podman pull docker.io&#x2F;rsyslog&#x2F;syslog_appliance_alpine</span><br><span class="line"></span><br><span class="line">#podman images</span><br><span class="line">REPOSITORY                                 TAG     IMAGE ID      CREATED      SIZE</span><br><span class="line">docker.io&#x2F;rsyslog&#x2F;syslog_appliance_alpine  latest  93bb7d1f5f5a  2 years ago  14.6 MB</span><br><span class="line">#podman create --name logserver 93bb7d1f5f5a</span><br><span class="line">0a11b239e011f76f1374ff961c85d7fa50516385d33539c3e3797cfca6a35cf0</span><br><span class="line"># 以上操作即对应创建一个名为logserver的容器</span><br><span class="line">#podman ps -a</span><br><span class="line">CONTAINER ID  IMAGE                                             COMMAND  CREATED         STATUS   PORTS   NAMES</span><br><span class="line">0a11b239e011  docker.io&#x2F;rsyslog&#x2F;syslog_appliance_alpine:latest  rsyslog  59 seconds ago  Created          logserver</span><br><span class="line"># mkdir ~&#x2F;.config&#x2F;systemd&#x2F;user&#x2F;</span><br><span class="line">#podman generate systemd --name logserver --files</span><br><span class="line">&#x2F;home&#x2F;eldorado&#x2F;.config&#x2F;systemd&#x2F;user&#x2F;container-logserver.service</span><br><span class="line">#ls</span><br><span class="line">container-logserver.service</span><br><span class="line"># 以上操作创建对应的服务 service</span><br><span class="line">ssh eldorado@xxx.xx.xxx.xxx</span><br><span class="line">#systemctl --user  daemon-reload</span><br><span class="line">#systemctl --user restart container-logserver.service</span><br><span class="line">#systemctl --user enable container-logserver.service</span><br><span class="line">#podman  ps</span><br><span class="line">CONTAINER ID  IMAGE                                             COMMAND  CREATED         STATUS             PORTS   NAMES</span><br><span class="line">0a11b239e011  docker.io&#x2F;rsyslog&#x2F;syslog_appliance_alpine:latest  rsyslog  18 minutes ago  Up 23 seconds ago          logserver</span><br><span class="line"># </span><br><span class="line">#</span><br></pre></td></tr></table></figure>
+<p><strong>注: systemctl 重载需要eldorado这个普通用户ssh登录</strong>  我这里没有别的好的方法，大家的话，提醒我一下、</p>
+<p>接下来还要确保退出登录后能开启服务</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#loginctl enable-linger</span></span><br><span class="line"><span class="comment">#loginctl show-user eldorado</span></span><br><span class="line">UID=1004</span><br><span class="line">GID=1004</span><br><span class="line">Name=eldorado</span><br><span class="line">Timestamp=Tue 2021-03-09 10:15:41 CST</span><br><span class="line">TimestampMonotonic=10240923766357</span><br><span class="line">RuntimePath=/run/user/1004</span><br><span class="line">Service=user@1004.service</span><br><span class="line">Slice=user-1004.slice</span><br><span class="line">Display=1820</span><br><span class="line">State=active</span><br><span class="line">Sessions=1820</span><br><span class="line">IdleHint=no</span><br><span class="line">IdleSinceHint=0</span><br><span class="line">IdleSinceHintMonotonic=0</span><br><span class="line">Linger=yes</span><br></pre></td></tr></table></figure>
+<h2 id="到此第一大题完成"><a href="#到此第一大题完成" class="headerlink" title="到此第一大题完成"></a>到此第一大题完成</h2><h2 id="二、容器持久化存储、通过以下方式拓展上一个任务服务"><a href="#二、容器持久化存储、通过以下方式拓展上一个任务服务" class="headerlink" title="二、容器持久化存储、通过以下方式拓展上一个任务服务"></a>二、容器持久化存储、通过以下方式拓展上一个任务服务</h2><h3 id="2-1-配置主机系统日志以在系统重新引导后保留其数据，并重新启动日志服务"><a href="#2-1-配置主机系统日志以在系统重新引导后保留其数据，并重新启动日志服务" class="headerlink" title="2.1 配置主机系统日志以在系统重新引导后保留其数据，并重新启动日志服务"></a>2.1 配置主机系统日志以在系统重新引导后保留其数据，并重新启动日志服务</h3><h3 id="2-2-将主机-var-log-journal-目录及任何目录中的任何-journal文件复制到目录-home-eldorado-container-journal中"><a href="#2-2-将主机-var-log-journal-目录及任何目录中的任何-journal文件复制到目录-home-eldorado-container-journal中" class="headerlink" title="2.2 将主机 /var/log/journal 目录及任何目录中的任何*.journal文件复制到目录 /home/eldorado/container-journal中"></a>2.2 将主机 /var/log/journal 目录及任何目录中的任何*.journal文件复制到目录 /home/eldorado/container-journal中</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#vim /etc/systemd/journald.conf</span></span><br><span class="line">[Journal]</span><br><span class="line">Storage=persistent</span><br><span class="line"><span class="comment"># 保存退出</span></span><br><span class="line">ls /var/<span class="built_in">log</span>/journal/*</span><br><span class="line">system@00000000000000000000000000000000-0000000000000bec-0005af4114098548.journal</span><br><span class="line">system@00000000000000000000000000000000-0000000000000ef3-0005b3c0221f66c5.journal</span><br><span class="line">system@00000000000000000000000000000000-0000000000006a26-0005b6248df36ec1.journal</span><br><span class="line">system@00000000000000000000000000000000-000000000000de5f-0005b888da440d24.journal</span><br><span class="line">system.journal</span><br><span class="line">user-1000@ffa11b1936c844ef96a7652505ddb05d-00000000000016ff-0005b3cd890694ff.journal</span><br><span class="line">user-1000@ffa11b1936c844ef96a7652505ddb05d-0000000000007ed6-0005b6a0d75eac16.journal</span><br><span class="line">user-1000@ffa11b1936c844ef96a7652505ddb05d-000000000000de89-0005b88975fd72aa.journal</span><br><span class="line">user-1000.journal</span><br><span class="line">user-1001@fb2886e039314322917ff8498f262183-0000000000007372-0005b66773016ad2.journal</span><br><span class="line">user-1001.journal</span><br><span class="line">user-1002@5b1a3209b66d47e49efc62e69caa878d-000000000000a559-0005b76dda054828.journal</span><br><span class="line">user-1002@5b1a3209b66d47e49efc62e69caa878d-000000000000ded7-0005b889a0dfccc8.journal</span><br><span class="line">user-1002.journal</span><br><span class="line">user-1003.journal</span><br><span class="line">user-1004.journal</span><br><span class="line"><span class="comment"># 查看有日志已经记录进来</span></span><br><span class="line"><span class="comment">#mkdir /home/eldorado/container-journal</span></span><br><span class="line"><span class="comment">#cp -a /var/log/journal/*/*.journal /home/eldorado/container-journal/</span></span><br><span class="line"><span class="comment">#ls -l /home/eldorado/container-journal/</span></span><br><span class="line">总用量 270336</span><br><span class="line">-rw-r-----+ 1 root systemd-journal  8388608 11月 10 20:51 system@00000000000000000000000000000000-0000000000000bec-0005af4114098548.journal</span><br><span class="line">-rw-r-----+ 1 root systemd-journal 33554432 12月 11 07:25 system@00000000000000000000000000000000-0000000000000ef3-0005b3c0221f66c5.journal</span><br><span class="line">-rw-r-----+ 1 root systemd-journal 33554432 1月  10 18:00 system@00000000000000000000000000000000-0000000000006a26-0005b6248df36ec1.journal</span><br><span class="line">-rw-r-----+ 1 root systemd-journal 41943040 2月  10 04:25 system@00000000000000000000000000000000-000000000000de5f-0005b888da440d24.journal</span><br><span class="line">-rw-r-----+ 1 root systemd-journal 58720256 3月   9 10:30 system.journal</span><br><span class="line">-rw-r-----+ 1 root systemd-journal  8388608 11月 16 20:04 user-1000@ffa11b1936c844ef96a7652505ddb05d-00000000000016ff-0005b3cd890694ff.journal</span><br><span class="line">-rw-r-----+ 1 root systemd-journal  8388608 1月  10 17:58 user-1000@ffa11b1936c844ef96a7652505ddb05d-0000000000007ed6-0005b6a0d75eac16.journal</span><br><span class="line">-rw-r-----+ 1 root systemd-journal  8388608 2月   9 15:40 user-1000@ffa11b1936c844ef96a7652505ddb05d-000000000000de89-0005b88975fd72aa.journal</span><br><span class="line">-rw-r-----+ 1 root systemd-journal  8388608 3月   4 10:41 user-1000.journal</span><br><span class="line">-rw-r-----+ 1 root systemd-journal  8388608 12月 17 22:02 user-1001@fb2886e039314322917ff8498f262183-0000000000007372-0005b66773016ad2.journal</span><br><span class="line">-rw-r-----+ 1 root systemd-journal  8388608 2月  10 04:35 user-1001.journal</span><br><span class="line">-rw-r-----+ 1 root systemd-journal  8388608 1月   3 14:05 user-1002@5b1a3209b66d47e49efc62e69caa878d-000000000000a559-0005b76dda054828.journal</span><br><span class="line">-rw-r-----+ 1 root systemd-journal 16777216 2月   9 18:01 user-1002@5b1a3209b66d47e49efc62e69caa878d-000000000000ded7-0005b889a0dfccc8.journal</span><br><span class="line">-rw-r-----+ 1 root systemd-journal  8388608 3月   3 17:43 user-1002.journal</span><br><span class="line">-rw-r-----+ 1 root systemd-journal  8388608 3月   7 15:42 user-1003.journal</span><br><span class="line">-rw-r-----+ 1 root systemd-journal  8388608 3月   9 10:19 user-1004.journal</span><br><span class="line"><span class="comment"># [asjin root 10:30:43] [二 3月 09] ~</span></span><br><span class="line"><span class="comment"># chown eldorado:eldorado /home/eldorado/container-journal/ -R</span></span><br></pre></td></tr></table></figure>
+<p>重新启动容器，这里要注意<strong>需要删除上一题中启动的容器和服务</strong></p>
+<h3 id="2-3-将服务器配置应用启动时自动将目录-home-eldorado-container-journal-目录到容器中的-var-log-journal下面"><a href="#2-3-将服务器配置应用启动时自动将目录-home-eldorado-container-journal-目录到容器中的-var-log-journal下面" class="headerlink" title="2.3  将服务器配置应用启动时自动将目录 /home/eldorado/container-journal/ 目录到容器中的/var/log/journal下面"></a>2.3  将服务器配置应用启动时自动将目录 /home/eldorado/container-journal/ 目录到容器中的/var/log/journal下面</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#podman  rm -f -a</span></span><br><span class="line">0a11b239e011f76f1374ff961c85d7fa50516385d33539c3e3797cfca6a35cf0</span><br><span class="line"><span class="comment">#cd ~/.config/systemd/user/</span></span><br><span class="line"><span class="comment">#rm -rf *</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#podman create --name logserver -v /home/eldorado/container-journal/:/var/log/journal:z 93bb7d1f5f5a</span></span><br><span class="line"><span class="comment">#podman generate systemd --name logserver --files</span></span><br><span class="line">/home/eldorado/.config/systemd/user/container-logserver.service</span><br><span class="line"><span class="comment">#systemctl --user daemon-reload</span></span><br><span class="line"><span class="comment">#podman ps -a</span></span><br><span class="line">CONTAINER ID  IMAGE                                             COMMAND  CREATED        STATUS            PORTS   NAMES</span><br><span class="line">68f250a6ee0d  docker.io/rsyslog/syslog_appliance_alpine:latest  rsyslog  3 minutes ago  Up 9 seconds ago          logserver</span><br><span class="line"><span class="comment">#systemctl --user enable container-logserver.service</span></span><br><span class="line">Created symlink /home/eldorado/.config/systemd/user/multi-user.target.wants/container-logserver.service → /home/eldorado/.config/systemd/user/container-logserver.service.</span><br><span class="line">Created symlink /home/eldorado/.config/systemd/user/default.target.wants/container-logserver.service → /home/eldorado/.config/systemd/user/container-logserver.service.</span><br></pre></td></tr></table></figure>
+<p>至此第二大题完成</p>
+<p>补充: 关于Storage=persistent 的参数说明</p>
+<ul>
+<li>persistent 表示优先保存到磁盘上，也就是优先保存在/var/log/journal</li>
+</ul>
+
+  
+  
+    
+    <div class='footer'>
+      
+      
+      
+        <div class='copyright'>
+          <blockquote>
+            
+              
+                <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+              
+            
+              
+                <p>本文永久链接是：<a href=https://www.asjin.com/2021/03/09/podman%E8%AF%95%E9%A2%98/>https://www.asjin.com/2021/03/09/podman%E8%AF%95%E9%A2%98/</a></p>
+              
+            
+          </blockquote>
+        </div>
+      
+      
+    </div>
+  
+  
+    
+
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-03-09T10:49:47+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：Mar 9, 2021</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/linux/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>linux</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/rhce/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>rhce</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/podman/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>podman</p></a></div>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.asjin.com/2021/03/09/podman%E8%AF%95%E9%A2%98/&title=podman 试题说明与操作 - 逝水锦遥&pics=/images/rhce-podman.png&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://www.asjin.com/2021/03/09/podman%E8%AF%95%E9%A2%98/&title=podman 试题说明与操作 - 逝水锦遥&pics=/images/rhce-podman.png&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.asjin.com/2021/03/09/podman%E8%AF%95%E9%A2%98/&title=podman 试题说明与操作 - 逝水锦遥&pics=/images/rhce-podman.png&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png">
+          
+        </a>
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </div>
+
+
+  
+  
+
+  
+    <div class="prev-next">
+      
+      
+        <a class='next' href='/2020/10/19/SGE+bash+awk+sed+Python+WebStackPage%E5%AE%9E%E7%8E%B0P%E7%BA%A7%E6%95%B0%E6%8D%AE%E5%B9%B6%E5%8F%91%E6%89%AB%E6%8F%8F%E4%B8%8E%E4%B8%8B%E6%9C%BA%E6%95%B0%E6%8D%AE%E6%8A%A5%E8%A1%A8%E5%85%AC%E7%A4%BA/'>
+          <p class='title'>SGE+bash+awk+sed+Python+WebStackPage实现P级数据并发扫描与数据报表公示系统<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>[toc]
+SGE+bash+awk+sed+Python+WebStackPage 实现P级数据并发扫描与数据报表公示系统
+需求与实现初衷
+
+
+生信类数据每周有大量的下机数据，需要按照超期周期...</p>
+        </a>
+      
+    </div>
+  
+</article>
+
+
+  
+
+  <article class="post white-box reveal floatable" id="comments">
+    <p ct><i class='fas fa-comments'></i> 评论</p>
+    
+    <div id="valine_container" class="valine_thread">
+  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+</div>
+
+  </article>
+
+
+
+
+
+
+</div>
+<aside class='l_side'>
+  
+  
+    
+    
+
+
+
+  <section class="widget toc-wrapper floatable desktop mobile" id="toc-div" >
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E4%BF%A1%E6%81%AF"><span class="toc-text">基本信息:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81-%E5%AE%B9%E5%99%A8%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF"><span class="toc-text">一、 容器开机自启</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E5%AE%89%E8%A3%85%E5%AE%B9%E5%99%A8%E7%9B%B8%E5%85%B3%E8%BD%AF%E4%BB%B6"><span class="toc-text">1.1 安装容器相关软件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-%E7%99%BB%E5%BD%95%E6%B3%A8%E5%86%8C%E9%95%9C%E5%83%8F%E6%9C%8D%E5%8A%A1%E5%99%A8-%E8%B4%A6%E5%8F%B7%E4%BB%A5%E8%80%83%E8%AF%95%E7%8E%AF%E5%A2%83%E4%B8%BA%E5%87%86"><span class="toc-text">1.2 登录注册镜像服务器(账号以考试环境为准)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-%E4%BD%BF%E7%94%A8syslog%E9%95%9C%E5%83%8F%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%90%8D%E4%B8%BAlogserver%E7%9A%84%E5%AE%B9%E5%99%A8"><span class="toc-text">1.3 使用syslog镜像创建一个名为logserver的容器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-1-%E5%B0%86%E5%85%B6%E9%85%8D%E7%BD%AE%E4%B8%BAsystemd%E6%9C%8D%E5%8A%A1%E7%9A%84%E5%BD%A2%E5%BC%8F%E8%BF%90%E8%A1%8C%EF%BC%8C%E4%BB%85%E9%9D%A2%E5%90%91eldorado%E7%94%A8%E6%88%B7"><span class="toc-text">1.3.1 将其配置为systemd服务的形式运行，仅面向eldorado用户</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%B0%E6%AD%A4%E7%AC%AC%E4%B8%80%E5%A4%A7%E9%A2%98%E5%AE%8C%E6%88%90"><span class="toc-text">到此第一大题完成</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E5%AE%B9%E5%99%A8%E6%8C%81%E4%B9%85%E5%8C%96%E5%AD%98%E5%82%A8%E3%80%81%E9%80%9A%E8%BF%87%E4%BB%A5%E4%B8%8B%E6%96%B9%E5%BC%8F%E6%8B%93%E5%B1%95%E4%B8%8A%E4%B8%80%E4%B8%AA%E4%BB%BB%E5%8A%A1%E6%9C%8D%E5%8A%A1"><span class="toc-text">二、容器持久化存储、通过以下方式拓展上一个任务服务</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E9%85%8D%E7%BD%AE%E4%B8%BB%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%97%A5%E5%BF%97%E4%BB%A5%E5%9C%A8%E7%B3%BB%E7%BB%9F%E9%87%8D%E6%96%B0%E5%BC%95%E5%AF%BC%E5%90%8E%E4%BF%9D%E7%95%99%E5%85%B6%E6%95%B0%E6%8D%AE%EF%BC%8C%E5%B9%B6%E9%87%8D%E6%96%B0%E5%90%AF%E5%8A%A8%E6%97%A5%E5%BF%97%E6%9C%8D%E5%8A%A1"><span class="toc-text">2.1 配置主机系统日志以在系统重新引导后保留其数据，并重新启动日志服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E5%B0%86%E4%B8%BB%E6%9C%BA-var-log-journal-%E7%9B%AE%E5%BD%95%E5%8F%8A%E4%BB%BB%E4%BD%95%E7%9B%AE%E5%BD%95%E4%B8%AD%E7%9A%84%E4%BB%BB%E4%BD%95-journal%E6%96%87%E4%BB%B6%E5%A4%8D%E5%88%B6%E5%88%B0%E7%9B%AE%E5%BD%95-home-eldorado-container-journal%E4%B8%AD"><span class="toc-text">2.2 将主机 &#x2F;var&#x2F;log&#x2F;journal 目录及任何目录中的任何*.journal文件复制到目录 &#x2F;home&#x2F;eldorado&#x2F;container-journal中</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-%E5%B0%86%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE%E5%BA%94%E7%94%A8%E5%90%AF%E5%8A%A8%E6%97%B6%E8%87%AA%E5%8A%A8%E5%B0%86%E7%9B%AE%E5%BD%95-home-eldorado-container-journal-%E7%9B%AE%E5%BD%95%E5%88%B0%E5%AE%B9%E5%99%A8%E4%B8%AD%E7%9A%84-var-log-journal%E4%B8%8B%E9%9D%A2"><span class="toc-text">2.3  将服务器配置应用启动时自动将目录 &#x2F;home&#x2F;eldorado&#x2F;container-journal&#x2F; 目录到容器中的&#x2F;var&#x2F;log&#x2F;journal下面</span></a></li></ol></li></ol>
+    </div>
+  </section>
+
+
+  
+
+
+</aside>
+
+
+
+        
+        
+          <!--此文件用来存放一些不方便取值的变量-->
+<!--思路大概是将值藏到重加载的区域内-->
+
+<script>
+  window.pdata={}
+  pdata.ispage=true;
+  pdata.postTitle="podman 试题说明与操作";
+  pdata.commentPath="";
+  pdata.commentPlaceholder="";
+
+  var l_header=document.getElementById("l_header");
+  
+  l_header.classList.remove("show");
+  
+</script>
+
+        
+      </div>
+      
+  
+  <footer class="footer clearfix">
+    <br><br>
+    
+      
+
+
+
+
+		<div class="github-badge">
+          <span class="badge-subject">Powered</span><span class="badge-value bg-green">Hexo</span>
+        </div>
+        <div class="github-badge">
+          <span class="badge-subject">Hosted</span><span class="badge-value bg-green">Aliyun</span>
+        </div>
+        <div class="github-badge">
+          <span class="badge-subject">DNS</span><span class="badge-value bg-green">Aliyun</span>
+        </div>
+        <div class="github-badge">
+          <span class="badge-subject">Theme</span><span class="badge-value bg-green"><a target="_blank" rel="noopener" href="https://github.com/volantis-x/hexo-theme-volantis/tree/4.1.6">Volantis</a ></span>
+        </div>
+        <div class="github-badge">
+          <span class="badge-subject">UV</span><span class="badge-value bg-red" id="busuanzi_value_site_uv"></span>
+        </div>
+        <div class="github-badge">
+          <span class="badge-subject">PV</span><span class="badge-value bg-red" id="busuanzi_value_site_pv"></span>
+        </div>
+        <div class="github-badge">
+          <span class="badge-subject"><i class="fa fa-copyright"></i></span><span class="badge-value bg-green">BY-NC-SA 4.0</span>
+        </div>
+		<div class="github-badge">
+		  <span class="badge-subject">晋ICP备</span><span class="badge-value bg-green"> <a target="_blank" rel="noopener" href='https://beian.miit.gov.cn/'>17010575号-4 </a>
+        </div>
+
+		<div class="github-badge">
+		  <span class="badge-subject">晋ICP备</span><span class="badge-value bg-green"> <a target="_blank" rel="noopener" href='https://beian.miit.gov.cn/'>17010575号-1 </a>
+        </div>
+<!--		
+        <div class="aplayer-container"cn/' style="color:#f72b07"> 晋ICP备-17010575号-1 </a>
+		  <a target="_blank" rel="noopener" href='https://beian.miit.gov.cn/' style="color:#f72b07"> 晋ICP备-17010575号-4 </a>
+		</div>
+-->
+
+
+<!--
+        <div class='copyright'>
+        <p><a href="/">Copyright © 2017-2021 asjin.com</a></p>
+
+        </div>
+-->
+      
+    
+      
+        <br>
+        <div class="social-wrapper">
+          
+            
+          
+            
+          
+            
+          
+        </div>
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <div><p><a href="/">Copyright © 2017-2021 asjin.com</a></p>
+</div>
+        
+      
+    
+  </footer>
+
+
+      <a id="s-top" class="fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+    </div>
+  </div>
+  <div>
+    <script>
+window.volantis={};
+window.volantis.loadcss=document.getElementById("loadcss");
+/********************脚本懒加载函数********************************/
+function loadScript(src, cb) {
+var HEAD = document.getElementsByTagName('head')[0] || document.documentElement;
+var script = document.createElement('script');
+script.setAttribute('type','text/javascript');
+if (cb) script.onload = cb;
+script.setAttribute('src', src);
+HEAD.appendChild(script);
+}
+//https://github.com/filamentgroup/loadCSS
+var loadCSS = function( href, before, media, attributes ){
+	var doc = window.document;
+	var ss = doc.createElement( "link" );
+	var ref;
+	if( before ){
+		ref = before;
+	}
+	else {
+		var refs = ( doc.body || doc.getElementsByTagName( "head" )[ 0 ] ).childNodes;
+		ref = refs[ refs.length - 1];
+	}
+	var sheets = doc.styleSheets;
+	if( attributes ){
+		for( var attributeName in attributes ){
+			if( attributes.hasOwnProperty( attributeName ) ){
+				ss.setAttribute( attributeName, attributes[attributeName] );
+			}
+		}
+	}
+	ss.rel = "stylesheet";
+	ss.href = href;
+	ss.media = "only x";
+	function ready( cb ){
+		if( doc.body ){
+			return cb();
+		}
+		setTimeout(function(){
+			ready( cb );
+		});
+	}
+	ready( function(){
+		ref.parentNode.insertBefore( ss, ( before ? ref : ref.nextSibling ) );
+	});
+	var onloadcssdefined = function( cb ){
+		var resolvedHref = ss.href;
+		var i = sheets.length;
+		while( i-- ){
+			if( sheets[ i ].href === resolvedHref ){
+				return cb();
+			}
+		}
+		setTimeout(function() {
+			onloadcssdefined( cb );
+		});
+	};
+	function loadCB(){
+		if( ss.addEventListener ){
+			ss.removeEventListener( "load", loadCB );
+		}
+		ss.media = media || "all";
+	}
+	if( ss.addEventListener ){
+		ss.addEventListener( "load", loadCB);
+	}
+	ss.onloadcssdefined = onloadcssdefined;
+	onloadcssdefined( loadCB );
+	return ss;
+};
+</script>
+<script>
+  
+  loadCSS("https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14/css/all.min.css", window.volantis.loadcss);
+  
+  
+  
+  
+</script>
+<!-- required -->
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5/dist/jquery.min.js"></script>
+
+<script>
+  function pjax_fancybox() {
+    $(".md .gallery").find("img").each(function () { //渲染 fancybox
+      var element = document.createElement("a"); // a 标签
+      $(element).attr("class", "fancybox");
+      $(element).attr("pjax-fancybox", "");  // 过滤 pjax
+      $(element).attr("href", $(this).attr("src"));
+      if ($(this).attr("data-original")) {
+        $(element).attr("href", $(this).attr("data-original"));
+      }
+      $(element).attr("data-fancybox", "images");
+      var caption = "";   // 描述信息
+      if ($(this).attr('alt')) {  // 判断当前页面是否存在描述信息
+        $(element).attr('data-caption', $(this).attr('alt'));
+        caption = $(this).attr('alt');
+      }
+      var div = document.createElement("div");
+      $(div).addClass("fancybox");
+      $(this).wrap(div); // 最外层套 div ，其实主要作用还是 class 样式
+      var span = document.createElement("span");
+      $(span).addClass("image-caption");
+      $(span).text(caption); // 加描述
+      $(this).after(span);  // 再套一层描述
+      $(this).wrap(element);  // 最后套 a 标签
+    })
+    $(".md .gallery").find("img").fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+      closeClick: true,
+      helpers: {
+        overlay: {closeClick: true}
+      },
+      buttons: [
+        "zoom",
+        "close"
+      ]
+    });
+  };
+  function SCload_fancybox() {
+    if ($(".md .gallery").find("img").length == 0) return;
+    loadCSS("https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css", document.getElementById("loadcss"));
+    setTimeout(function() {
+      loadScript('https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js', pjax_fancybox)
+    }, 1);
+  };
+  $(function () {
+    SCload_fancybox();
+  });
+</script>
+
+
+<!-- internal -->
+
+  
+  
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
+
+    <script type="text/javascript">
+        var imgs=["https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/001.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/003.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/004.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/006.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/007.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/010.jpg"];
+        if ('true' == 'true') {
+          function shuffle(arr){
+            /*From countercurrent-time*/
+            var n = arr.length;
+            while(n--) {
+              var index = Math.floor(Math.random() * n);
+              var temp = arr[index];
+              arr[index] = arr[n];
+              arr[n] = temp;
+            }
+          }
+          shuffle(imgs);
+        }
+	  function Pjax_backstretch(){
+        
+          $('#cover-backstretch').backstretch(
+            imgs,
+          {
+            duration: "10000",
+            fade: "1500"
+          });
+        
+	  }
+	  loadScript("https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js",Pjax_backstretch)
+    </script>
+  
+
+
+
+
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.1.0/dist/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 0
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    lazyLoadInstance.update();
+  });
+  document.addEventListener('pjax:complete', function () {
+    lazyLoadInstance.update();
+  });
+</script>
+
+
+
+
+  
+  
+    <script async src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@2/js/instant_page.js" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+  
+
+
+
+
+  <script src="/js/clipboard.min.js"></script>
+<script>
+    var clipboard = new ClipboardJS('.btn-copy', {
+        target: function (trigger) {
+            return trigger.nextElementSibling
+        }
+    });
+    function wait(callback, seconds) {
+        var timelag = null;
+        timelag = window.setTimeout(callback, seconds)
+    }
+    function pjax_initCopyCode() {
+		if($(".highlight .code pre").length+$(".article pre code").length==0)return;
+        var copyHtml = '';
+        copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+        copyHtml += '<i class="fas fa-copy"></i><span>COPY</span>';
+        copyHtml += '</button>';
+        $(".highlight .code pre").before(copyHtml);
+        $(".article pre code").before(copyHtml);
+        clipboard.off('success').on('success', function (e) {
+            let $btn = $(e.trigger);
+            $btn.addClass('copied');
+            let $icon = $($btn.find('i'));
+            $icon.removeClass('fa-copy');
+            $icon.addClass('fa-check-circle');
+            let $span = $($btn.find('span'));
+            $span[0].innerText = 'COPIED';
+            wait(function () {
+                $icon.removeClass('fa-check-circle');
+                $icon.addClass('fa-copy');
+                $span[0].innerText = 'COPY'
+            }, 2000)
+        });
+        clipboard.off('error').on('error', function (e) {
+            e.clearSelection();
+            let $btn = $(e.trigger);
+            $btn.addClass('copy-failed');
+            let $icon = $($btn.find('i'));
+            $icon.removeClass('fa-copy');
+            $icon.addClass('fa-times-circle');
+            let $span = $($btn.find('span'));
+            $span[0].innerText = 'COPY FAILED';
+            wait(function () {
+                $icon.removeClass('fa-times-circle');
+                $icon.addClass('fa-copy');
+                $span[0].innerText = 'COPY'
+            }, 2000)
+        })
+    }
+    $(function () {
+        pjax_initCopyCode()
+    });
+</script>
+
+
+
+
+
+
+
+
+  
+  
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4/dist/Valine.min.js"></script>
+
+
+<script>
+  var GUEST_INFO = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link,header,thumbnail'.split(',').filter(function (item) {
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var REQUIRED_FIELDS = ['nick', 'mail', 'link'];
+  var requiredFields = 'nick,mail'.split(',').filter(function (item) {
+    return REQUIRED_FIELDS.indexOf(item) > -1
+  });
+
+  function emoji(path, idx, ext) {
+    return path + "/" + path + "-" + idx + "." + ext;
+  }
+
+  var emojiMaps = {};
+  for (var i = 1; i <= 54; i++) {
+    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
+  }
+  for (var i = 1; i <= 101; i++) {
+    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+  }
+  for (var i = 1; i <= 116; i++) {
+    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
+  }
+  for (var i = 1; i <= 125; i++) {
+    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
+  }
+  for (var i = 1; i <= 4; i++) {
+    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+  }
+
+  function pjax_valine() {
+    if(!document.querySelectorAll("#valine_container")[0])return;
+
+    let pagePlaceholder = pdata.commentPlaceholder || "快来评论吧~ 🤩 🤩 🤩";
+
+    let path = pdata.commentPath;
+    if (path.length == 0) {
+      let defaultPath = '';
+      path = defaultPath || decodeURI(window.location.pathname);
+    }
+
+    var valine = new Valine();
+    valine.init({
+      el: '#valine_container',
+      meta: meta,
+      placeholder: pagePlaceholder,
+      path: path,
+      appId: "NkJqMpxu4QlRLhPIHipNUHF1-gzGzoHsz",
+      appKey: "D2vTdueKJ8ammc2JEdje0vLW",
+      pageSize: '',
+      avatar: 'monsterid',
+      lang: '',
+      visitor: '',
+      highlight: '',
+      mathJax: '',
+      enableQQ: 'true',
+      recordIP: 'false',
+      requiredFields: requiredFields,
+      emojiCDN: 'https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/valine/',
+      emojiMaps: emojiMaps
+    })
+  }
+
+  $(function () {
+    pjax_valine();
+  });
+</script>
+
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js" data-pjax></script>
+
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-theme-volantis@4.1.6/source/js/app.min.js"></script>
+
+
+
+<!-- optional -->
+
+  <script>
+const SearchServiceimagePath="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@master/img/";
+const ROOT =  ("/" || "/").endsWith('/') ? ("/" || "/") : ("//" || "/" );
+
+$('.input.u-search-input').one('focus',function(){
+	
+		loadScript('https://cdn.jsdelivr.net/npm/hexo-theme-volantis@4.1.6/source/js/search/hexo.min.js',setSearchService);
+	
+})
+
+function listenSearch(){
+  
+    customSearch = new HexoSearch({
+      imagePath: SearchServiceimagePath
+    });
+  
+}
+function setSearchService() {
+	listenSearch();
+	
+		document.addEventListener("pjax:success", listenSearch);
+	
+}
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+function listennSidebarTOC() {
+  const navItems = document.querySelectorAll(".toc li");
+  if (!navItems.length) return;
+  const sections = [...navItems].map((element) => {
+    const link = element.querySelector(".toc-link");
+    const target = document.getElementById(
+      decodeURI(link.getAttribute("href")).replace("#", "")
+    );
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+      window.scrollTo({
+		top: target.offsetTop + 100,
+		
+		behavior: "smooth"
+		
+	  });
+    });
+    return target;
+  });
+
+  function activateNavByIndex(target) {
+    if (target.classList.contains("active-current")) return;
+
+    document.querySelectorAll(".toc .active").forEach((element) => {
+      element.classList.remove("active", "active-current");
+    });
+    target.classList.add("active", "active-current");
+    let parent = target.parentNode;
+    while (!parent.matches(".toc")) {
+      if (parent.matches("li")) parent.classList.add("active");
+      parent = parent.parentNode;
+    }
+  }
+
+  function findIndex(entries) {
+    let index = 0;
+    let entry = entries[index];
+    if (entry.boundingClientRect.top > 0) {
+      index = sections.indexOf(entry.target);
+      return index === 0 ? 0 : index - 1;
+    }
+    for (; index < entries.length; index++) {
+      if (entries[index].boundingClientRect.top <= 0) {
+        entry = entries[index];
+      } else {
+        return sections.indexOf(entry.target);
+      }
+    }
+    return sections.indexOf(entry.target);
+  }
+
+  function createIntersectionObserver(marginTop) {
+    marginTop = Math.floor(marginTop + 10000);
+    let intersectionObserver = new IntersectionObserver(
+      (entries, observe) => {
+        let scrollHeight = document.documentElement.scrollHeight + 100;
+        if (scrollHeight > marginTop) {
+          observe.disconnect();
+          createIntersectionObserver(scrollHeight);
+          return;
+        }
+        let index = findIndex(entries);
+        activateNavByIndex(navItems[index]);
+      },
+      {
+        rootMargin: marginTop + "px 0px -100% 0px",
+        threshold: 0,
+      }
+    );
+    sections.forEach((element) => {
+      element && intersectionObserver.observe(element);
+    });
+  }
+  createIntersectionObserver(document.documentElement.scrollHeight);
+}
+
+document.addEventListener("DOMContentLoaded", listennSidebarTOC);
+document.addEventListener("pjax:success", listennSidebarTOC);
+</script>
+
+<!-- more -->
+
+
+
+
+    
+      
+
+
+<script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script>
+
+
+<script>
+    var pjax;
+    document.addEventListener('DOMContentLoaded', function () {
+      pjax = new Pjax({
+        elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"]):not([pjax-fancybox])',
+        selectors: [
+          "title",
+          "#l_cover",
+          "#pjax-container",
+          "#pjax-header-nav-list"
+        ],
+        cacheBust: false,   // url 地址追加时间戳，用以避免浏览器缓存
+        timeout: 5000
+      });
+    });
+
+    document.addEventListener('pjax:send', function (e) {
+      //window.stop(); // 相当于点击了浏览器的停止按钮
+
+      try {
+        var currentUrl = window.location.pathname;
+        var targetUrl = e.triggerElement.href;
+        var banUrl = [""];
+        if (banUrl[0] != "") {
+          banUrl.forEach(item => {
+            if(currentUrl.indexOf(item) != -1 || targetUrl.indexOf(item) != -1) {
+              window.location.href = targetUrl;
+            }
+          });
+        }
+      } catch (error) {}
+
+      window.subData = null; // 移除标题（用于一二级导航栏切换处）
+      if (typeof $.fancybox != "undefined") {
+        $.fancybox.close();    // 关闭弹窗
+      }
+      volantis.$switcher.removeClass('active'); // 关闭移动端激活的搜索框
+      volantis.$header.removeClass('z_search-open'); // 关闭移动端激活的搜索框
+      volantis.$wrapper.removeClass('sub'); // 跳转页面时关闭二级导航
+
+      // 解绑事件 避免重复监听
+      volantis.$topBtn.unbind('click');
+      $('.menu a').unbind('click');
+      $(window).unbind('resize');
+      $(window).unbind('scroll');
+      $(document).unbind('scroll');
+      $(document).unbind('click');
+      $('body').unbind('click');
+	  
+    });
+
+    document.addEventListener('pjax:complete', function () {
+      // 关于百度统计对 SPA 页面的处理：
+      // 方案一：百度统计>管理>单页应用设置中，打开开启按钮即可对SPA进行统计。 https://tongji.baidu.com/web/help/article?id=324
+      // 方案二：取消注释下列代码。 https://tongji.baidu.com/web/help/article?id=235
+       
+
+      // 关于谷歌统计对 SPA 页面的处理：
+      // 当应用以动态方式加载内容并更新地址栏中的网址时，也应该更新通过 gtag.js 存储的网页网址。
+      // https://developers.google.cn/analytics/devguides/collection/gtagjs/single-page-applications?hl=zh-cn
+      
+	 
+
+      $('.nav-main').find('.list-v').not('.menu-phone').removeAttr("style",""); // 移除小尾巴的移除
+      $('.menu-phone.list-v').removeAttr("style",""); // 移除小尾巴的移除
+      $('script[data-pjax], .pjax-reload script').each(function () {
+        $(this).parent().append($(this).remove());
+      });
+      try{
+          if (typeof $.fancybox == "undefined") {
+            SCload_fancybox();
+          } else {
+            pjax_fancybox();
+          }
+        
+		  Pjax_backstretch()
+        
+        
+        
+        
+        
+          pjax_initCopyCode();
+        
+        
+          pjax_valine();
+        
+        
+        
+        
+      } catch (e) {
+        console.log(e);
+      }
+	  
+    });
+
+    document.addEventListener('pjax:error', function (e) {
+	  
+      window.location.href = e.triggerElement.href;
+    });
+</script>
+
+    
+  </div>
+</body>
+</html>
